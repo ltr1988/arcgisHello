@@ -17,6 +17,9 @@
 		A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */; };
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
+		B21163E41D0FB020003F90A6 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = B21163E21D0FB020003F90A6 /* RedPushpin.png */; };
+		B21163E51D0FB020003F90A6 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */; };
+		B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		A4DD86971D0976B00096B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		A4DD869F1D097A9A0096B548 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		B21163E21D0FB020003F90A6 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedPushpin.png; sourceTree = "<group>"; };
+		B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedPushpin@2x.png"; sourceTree = "<group>"; };
+		B21163E61D0FB03A003F90A6 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
+		B21163E71D0FB03A003F90A6 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
+		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,8 @@
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B21163E61D0FB03A003F90A6 /* RouteViewController.h */,
+				B21163E71D0FB03A003F90A6 /* RouteViewController.m */,
 				A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */,
 				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
 			);
@@ -62,6 +72,8 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B21163E21D0FB020003F90A6 /* RedPushpin.png */,
+				B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -95,6 +107,7 @@
 		A4DD86851D0976B00096B548 /* arcgisHelloworld */ = {
 			isa = PBXGroup;
 			children = (
+				B21163EA1D0FB224003F90A6 /* Views */,
 				A4958FA51D0EFA10001FCE6F /* manager */,
 				A4958F981D0DAC7B001FCE6F /* Controllers */,
 				A4DD86891D0976B00096B548 /* AppDelegate.h */,
@@ -113,11 +126,19 @@
 		A4DD86861D0976B00096B548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B21163E91D0FB043003F90A6 /* PrefixHeader.pch */,
 				A4958F9C1D0EEC29001FCE6F /* images */,
 				A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */,
 				A4DD86871D0976B00096B548 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B21163EA1D0FB224003F90A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,8 +200,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */,
+				B21163E41D0FB020003F90A6 /* RedPushpin.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
+				B21163E51D0FB020003F90A6 /* RedPushpin@2x.png in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +217,7 @@
 			files = (
 				A4DD868E1D0976B00096B548 /* ViewController.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */,
 				A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
@@ -310,6 +334,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -333,6 +359,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

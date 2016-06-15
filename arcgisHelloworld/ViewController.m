@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <Arcgis/Arcgis.h>
 #import <objc/runtime.h>
+#import "RouteManager.h"
 #import "DetailInfoViewController.h"
 
 #define WMSURL @"http://%@:6080/arcgis/services/nsbd_gongcheng_test/MapServer/WMSServer"
@@ -70,8 +71,34 @@
     self.identifyTask.delegate = self;
 }
 
+-(UIView*) pickPointView
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-30, kScreenWidth, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
+    label.font = [UIFont systemFontOfSize:18];
+    label.textColor = [UIColor blackColor];
+    [view addSubview:label];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 3, 30, 24)];
+    [btn setTitle:@"确定" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(pickPoint) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [view addSubview:btn];
+    return view;
+}
+-(void)pickPoint
+{
+    AGSPoint *point = (AGSPoint *)[[AGSGeometryEngine defaultGeometryEngine] projectGeometry:self.mapView.mapAnchor
+                                   
+                                                                       toSpatialReference:[AGSSpatialReference webMercatorSpatialReference]];
+    
+    [[RouteManager sharedInstance] setPoint:CGPointMake(point.x, point.y)];
+}
+
 -(void) setupSubviews
 {
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
     [btn setTitle:@"定位" forState:UIControlStateNormal];
