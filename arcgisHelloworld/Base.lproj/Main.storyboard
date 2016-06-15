@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="1052" y="341"/>
         </scene>
-        <!--Item2-->
+        <!--导航-->
         <scene sceneID="CTY-M1-YZP">
             <objects>
                 <viewController id="b4g-Lv-2lN" customClass="RouteViewController" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="cvJ-dT-kXg" secondAttribute="trailing" constant="60" id="pdv-Aq-WYZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item2" id="Hhk-L0-04t"/>
+                    <tabBarItem key="tabBarItem" title="导航" id="MeS-v7-uY1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tfEnd" destination="q7B-9O-uM6" id="liq-vh-Iop"/>

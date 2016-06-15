@@ -73,20 +73,24 @@
 
 -(UIView*) pickPointView
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-30, kScreenWidth, 30)];
+    float height = CGRectGetHeight(self.tabBarController.tabBar.frame);
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-30-height, kScreenWidth, 30)];
+    view.tag = 998;
+    //view.hidden = YES;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-    label.font = [UIFont systemFontOfSize:18];
+    label.font = [UIFont systemFontOfSize:15];
     label.textColor = [UIColor blackColor];
     [view addSubview:label];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 3, 30, 24)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 3, 40, 24)];
     [btn setTitle:@"确定" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(pickPoint) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [view addSubview:btn];
     return view;
 }
+
 -(void)pickPoint
 {
     AGSPoint *point = (AGSPoint *)[[AGSGeometryEngine defaultGeometryEngine] projectGeometry:self.mapView.mapAnchor
@@ -94,10 +98,12 @@
                                                                        toSpatialReference:[AGSSpatialReference webMercatorSpatialReference]];
     
     [[RouteManager sharedInstance] setPoint:CGPointMake(point.x, point.y)];
+    [self.tabBarController setSelectedIndex:1];
 }
 
 -(void) setupSubviews
 {
+    [self.view addSubview:[self pickPointView]];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
@@ -366,6 +372,10 @@
 #pragma mark route-navi
 -(void) navi
 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // app名称
+    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleName"];
+    
     BOOL hasBaiduMap = NO;
     BOOL hasGaodeMap = NO;
     
@@ -378,11 +388,24 @@
     
     
     float currentLat,currentLon,_shopLat,_shopLon;
-    currentLon = self.mapView.locationDisplay.location.point.x;
-    currentLat = self.mapView.locationDisplay.location.point.y;
+    if ([RouteManager sharedInstance].startPoint.x == 0 && [RouteManager sharedInstance].startPoint.y==0) {
+        currentLon = self.mapView.locationDisplay.location.point.x;
+        currentLat = self.mapView.locationDisplay.location.point.y;
+    }else
+    {
+        currentLon = [RouteManager sharedInstance].startPoint.x;
+        currentLat = [RouteManager sharedInstance].startPoint.y;
+    }
     
-    _shopLat= currentLat+1;
-    _shopLon= currentLon+1;
+    if ([RouteManager sharedInstance].endPoint.x == 0 && [RouteManager sharedInstance].endPoint.y==0) {
+        _shopLon = self.mapView.locationDisplay.location.point.x;
+        _shopLat = self.mapView.locationDisplay.location.point.y;
+    }else
+    {
+        _shopLon = [RouteManager sharedInstance].endPoint.x;
+        _shopLat = [RouteManager sharedInstance].endPoint.y;
+    }
+
     if (hasBaiduMap)
     {
         NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin=latlng:%f,%f|name:我的位置&destination=latlng:%f,%f|name:终点&mode=driving",currentLat, currentLon,_shopLat,_shopLon] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
@@ -391,7 +414,9 @@
     }
     else if (hasGaodeMap)
     {
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://navi?sourceApplication=%@&backScheme=%@&poiname=%@&lat=%f&lon=%f&dev=1&style=2",@"app name", @"fifila", @"终点", _shopLat, _shopLon] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        
+        NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=%@&sid=BGVIS1&slat=%f&slon=%f&sname=%@&did=BGVIS2&dlat=%f&dlon=%f&dname=%@&dev=1&m=0&t=0",app_Name, currentLat, currentLon, @"我的起点" , _shopLat, _shopLon,@"我的终点"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
     }

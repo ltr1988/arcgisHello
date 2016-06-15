@@ -25,7 +25,7 @@
     _tfStart.delegate = self;
     _tfStart.placeholder = @"输入起点";
     _tfEnd.delegate = self;
-    _tfEnd.placeholder = @"输入起点";
+    _tfEnd.placeholder = @"输入终点";
     
 }
 
