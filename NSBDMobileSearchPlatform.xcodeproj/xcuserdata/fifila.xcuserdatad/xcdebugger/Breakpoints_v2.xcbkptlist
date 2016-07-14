@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/ViewController.m"
-            timestampString = "487436581.527802"
+            timestampString = "487689341.033267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "-config"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "-identifyTask:operation:didExecuteWithIdentifyResults:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/ViewController.m"
-            timestampString = "487519447.620173"
+            timestampString = "487689522.044897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
-            landmarkName = "-identifyTask:operation:didExecuteWithIdentifyResults:"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "-navi"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arcgisHelloworld/ViewController.m"
+            timestampString = "487690267.562861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "-navi"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

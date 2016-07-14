@@ -64,6 +64,11 @@
     self.identifyParams = [[AGSIdentifyParameters alloc] init];
 }
 
+-(void) setSearchLayout
+{
+    
+}
+
 -(void) doReload
 {
     [self setupLayers];
@@ -76,6 +81,7 @@
     float height = CGRectGetHeight(self.tabBarController.tabBar.frame);
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-30-height, kScreenWidth, 30)];
     view.tag = 998;
+    view.backgroundColor = [UIColor whiteColor];
     //view.hidden = YES;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
     label.font = [UIFont systemFontOfSize:15];
@@ -95,7 +101,7 @@
 {
     AGSPoint *point = (AGSPoint *)[[AGSGeometryEngine defaultGeometryEngine] projectGeometry:self.mapView.mapAnchor
                                    
-                                                                       toSpatialReference:[AGSSpatialReference webMercatorSpatialReference]];
+                                                                       toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
     
     [[RouteManager sharedInstance] setPoint:CGPointMake(point.x, point.y)];
     [self.tabBarController setSelectedIndex:1];
@@ -103,7 +109,7 @@
 
 -(void) setupSubviews
 {
-    [self.view addSubview:[self pickPointView]];
+    //[self.view addSubview:[self pickPointView]];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
