@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
-		A414AC851D39D2770065AAA7 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */; };
-		A414AC881D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */; };
 		A414AC8D1D3A08150065AAA7 /* addbook_book_cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */; };
 		A414AC8E1D3A08150065AAA7 /* addbook_book_cover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */; };
 		A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8B1D3A08150065AAA7 /* RedPushpin.png */; };
 		A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */; };
-		A414AC931D3A0AD20065AAA7 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */; };
-		A414AC961D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */; };
+		A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */; };
+		A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */; };
+		A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */; };
+		A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -47,18 +47,18 @@
 /* Begin PBXFileReference section */
 		A414AC801D39D17B0065AAA7 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpManager.h; path = functions/Util/HttpManager.h; sourceTree = "<group>"; };
 		A414AC811D39D17B0065AAA7 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = functions/Util/HttpManager.m; sourceTree = "<group>"; };
-		A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayViewController.h; sourceTree = "<group>"; };
-		A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayViewController.m; sourceTree = "<group>"; };
-		A414AC861D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportRotationSelectBaseViewController.h; sourceTree = "<group>"; };
-		A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportRotationSelectBaseViewController.m; sourceTree = "<group>"; };
 		A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addbook_book_cover@2x.png"; path = "images/addbook_book_cover@2x.png"; sourceTree = "<group>"; };
 		A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addbook_book_cover@3x.png"; path = "images/addbook_book_cover@3x.png"; sourceTree = "<group>"; };
 		A414AC8B1D3A08150065AAA7 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedPushpin.png; path = images/RedPushpin.png; sourceTree = "<group>"; };
 		A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RedPushpin@2x.png"; path = "images/RedPushpin@2x.png"; sourceTree = "<group>"; };
-		A414AC911D3A0AD20065AAA7 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
-		A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
-		A414AC941D3A101D0065AAA7 /* SupportRotationSelectNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportRotationSelectNavigationController.h; sourceTree = "<group>"; };
-		A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportRotationSelectNavigationController.m; sourceTree = "<group>"; };
+		A414AC971D3A1CD10065AAA7 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagePickerViewController.h; path = functions/NSBDBusiness/ImagePickerViewController.h; sourceTree = "<group>"; };
+		A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagePickerViewController.m; path = functions/NSBDBusiness/ImagePickerViewController.m; sourceTree = "<group>"; };
+		A414AC991D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportRotationSelectBaseViewController.h; path = functions/NSBDBusiness/SupportRotationSelectBaseViewController.h; sourceTree = "<group>"; };
+		A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupportRotationSelectBaseViewController.m; path = functions/NSBDBusiness/SupportRotationSelectBaseViewController.m; sourceTree = "<group>"; };
+		A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportRotationSelectNavigationController.h; path = functions/NSBDBusiness/SupportRotationSelectNavigationController.h; sourceTree = "<group>"; };
+		A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupportRotationSelectNavigationController.m; path = functions/NSBDBusiness/SupportRotationSelectNavigationController.m; sourceTree = "<group>"; };
+		A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayViewController.h; path = functions/NSBDBusiness/VideoPlayViewController.h; sourceTree = "<group>"; };
+		A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPlayViewController.m; path = functions/NSBDBusiness/VideoPlayViewController.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -155,18 +155,18 @@
 		A4569C941D33B55B00A06B1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A414AC971D3A1CD10065AAA7 /* ImagePickerViewController.h */,
+				A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */,
+				A414AC991D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.h */,
+				A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */,
+				A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */,
+				A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */,
+				A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */,
+				A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */,
 				A4A378901D378D7600A7342D /* QRCodeViewController.h */,
 				A4A378911D378D7600A7342D /* QRCodeViewController.m */,
 				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
 				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
-				A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */,
-				A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */,
-				A414AC861D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.h */,
-				A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */,
-				A414AC911D3A0AD20065AAA7 /* ImagePickerViewController.h */,
-				A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */,
-				A414AC941D3A101D0065AAA7 /* SupportRotationSelectNavigationController.h */,
-				A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -404,28 +404,28 @@
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
+				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
-				A414AC961D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */,
-				A414AC881D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
-				A414AC931D3A0AD20065AAA7 /* ImagePickerViewController.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
-				A414AC851D39D2770065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
+				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */,
+				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
+				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
