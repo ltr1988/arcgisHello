@@ -73,9 +73,4 @@
     return YES;
 }
 
--(void) test
-{
-    NSString * str = @"http://zxautocmp.bookcs.3g.qq.com/autocmp?key=1";
-    
-}
 @end

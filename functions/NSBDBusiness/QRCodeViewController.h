@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QRCodeViewController : UIViewController
+@interface QRCodeViewController : NoRotationBaseViewController
 
 
 @end

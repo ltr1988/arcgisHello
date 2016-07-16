@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventReportViewController : UIViewController
+@interface EventReportViewController : NoRotationBaseViewController
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailInfoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface DetailInfoViewController : NoRotationBaseViewController<UITableViewDataSource,UITableViewDelegate>
 -(instancetype) initWithData:(NSDictionary *) dict;
 @end

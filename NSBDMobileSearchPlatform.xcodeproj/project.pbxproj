@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
+		A414AC851D39D2770065AAA7 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */; };
+		A414AC881D39D2E10065AAA7 /* NoRotationBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -14,7 +17,6 @@
 		A48022021D32216A00AE2AF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022011D32216A00AE2AF9 /* User.m */; };
 		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
 		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
-		A480221A1D324F7200AE2AF9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022191D324F7200AE2AF9 /* Reachability.m */; };
 		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
@@ -39,6 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A414AC801D39D17B0065AAA7 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpManager.h; path = functions/Util/HttpManager.h; sourceTree = "<group>"; };
+		A414AC811D39D17B0065AAA7 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = functions/Util/HttpManager.m; sourceTree = "<group>"; };
+		A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayViewController.h; sourceTree = "<group>"; };
+		A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayViewController.m; sourceTree = "<group>"; };
+		A414AC861D39D2E10065AAA7 /* NoRotationBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoRotationBaseViewController.h; sourceTree = "<group>"; };
+		A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoRotationBaseViewController.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -54,8 +62,6 @@
 		A48022091D3229AB00AE2AF9 /* CallOutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallOutItem.h; sourceTree = "<group>"; };
 		A480220A1D3229AB00AE2AF9 /* CallOutItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallOutItem.m; sourceTree = "<group>"; };
 		A48022111D32365500AE2AF9 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
-		A48022181D324F7200AE2AF9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = functions/Reachability/Reachability.h; sourceTree = "<group>"; };
-		A48022191D324F7200AE2AF9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = functions/Reachability/Reachability.m; sourceTree = "<group>"; };
 		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
 		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
@@ -108,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A414AC7F1D39D16F0065AAA7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
+				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		A4569C8C1D33B50800A06B1C /* DropDownField */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +149,10 @@
 				A4A378911D378D7600A7342D /* QRCodeViewController.m */,
 				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
 				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
+				A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */,
+				A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */,
+				A414AC861D39D2E10065AAA7 /* NoRotationBaseViewController.h */,
+				A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -141,10 +160,10 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				A414AC7F1D39D16F0065AAA7 /* Util */,
 				A4A3788F1D365DC700A7342D /* AFNetworking */,
 				A4569C931D33B54E00A06B1C /* NSBDBusiness */,
 				A4569C8C1D33B50800A06B1C /* DropDownField */,
-				A48022171D324F1100AE2AF9 /* Reachability */,
 				A48022031D32217700AE2AF9 /* Users */,
 			);
 			name = functions;
@@ -174,15 +193,6 @@
 				A480220A1D3229AB00AE2AF9 /* CallOutItem.m */,
 			);
 			name = Item;
-			sourceTree = "<group>";
-		};
-		A48022171D324F1100AE2AF9 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				A48022181D324F7200AE2AF9 /* Reachability.h */,
-				A48022191D324F7200AE2AF9 /* Reachability.m */,
-			);
-			name = Reachability;
 			sourceTree = "<group>";
 		};
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
@@ -377,17 +387,19 @@
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
-				A480221A1D324F7200AE2AF9 /* Reachability.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */,
+				A414AC881D39D2E10065AAA7 /* NoRotationBaseViewController.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
+				A414AC851D39D2770065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */,
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,

@@ -34,11 +34,7 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    if (!delegate.reach.isReachable) {
-        NSLog(@"can not reach server...");
-    }
+    [self.navigationController setNavigationBarHidden:YES animated:NO];    
 }
 
 - (void) viewWillDisappear:(BOOL)animated
