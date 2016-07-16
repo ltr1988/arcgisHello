@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RouteViewController : NoRotationBaseViewController
+@interface RouteViewController : SupportRotationSelectBaseViewController
 
 @end

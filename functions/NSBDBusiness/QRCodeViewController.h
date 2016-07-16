@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QRCodeViewController : NoRotationBaseViewController
+@interface QRCodeViewController : SupportRotationSelectBaseViewController
 
 
 @end

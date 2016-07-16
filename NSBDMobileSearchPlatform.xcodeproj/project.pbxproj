@@ -9,7 +9,13 @@
 /* Begin PBXBuildFile section */
 		A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
 		A414AC851D39D2770065AAA7 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */; };
-		A414AC881D39D2E10065AAA7 /* NoRotationBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */; };
+		A414AC881D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */; };
+		A414AC8D1D3A08150065AAA7 /* addbook_book_cover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */; };
+		A414AC8E1D3A08150065AAA7 /* addbook_book_cover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */; };
+		A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8B1D3A08150065AAA7 /* RedPushpin.png */; };
+		A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */; };
+		A414AC931D3A0AD20065AAA7 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */; };
+		A414AC961D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -35,8 +41,6 @@
 		A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */; };
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
-		B21163E41D0FB020003F90A6 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = B21163E21D0FB020003F90A6 /* RedPushpin.png */; };
-		B21163E51D0FB020003F90A6 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */; };
 		B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -45,8 +49,16 @@
 		A414AC811D39D17B0065AAA7 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = functions/Util/HttpManager.m; sourceTree = "<group>"; };
 		A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayViewController.h; sourceTree = "<group>"; };
 		A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayViewController.m; sourceTree = "<group>"; };
-		A414AC861D39D2E10065AAA7 /* NoRotationBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoRotationBaseViewController.h; sourceTree = "<group>"; };
-		A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoRotationBaseViewController.m; sourceTree = "<group>"; };
+		A414AC861D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportRotationSelectBaseViewController.h; sourceTree = "<group>"; };
+		A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportRotationSelectBaseViewController.m; sourceTree = "<group>"; };
+		A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addbook_book_cover@2x.png"; path = "images/addbook_book_cover@2x.png"; sourceTree = "<group>"; };
+		A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addbook_book_cover@3x.png"; path = "images/addbook_book_cover@3x.png"; sourceTree = "<group>"; };
+		A414AC8B1D3A08150065AAA7 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedPushpin.png; path = images/RedPushpin.png; sourceTree = "<group>"; };
+		A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RedPushpin@2x.png"; path = "images/RedPushpin@2x.png"; sourceTree = "<group>"; };
+		A414AC911D3A0AD20065AAA7 /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		A414AC941D3A101D0065AAA7 /* SupportRotationSelectNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportRotationSelectNavigationController.h; sourceTree = "<group>"; };
+		A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportRotationSelectNavigationController.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -95,8 +107,6 @@
 		A4DD86971D0976B00096B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		A4DD869F1D097A9A0096B548 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		B21163E21D0FB020003F90A6 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedPushpin.png; sourceTree = "<group>"; };
-		B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedPushpin@2x.png"; sourceTree = "<group>"; };
 		B21163E61D0FB03A003F90A6 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -151,8 +161,12 @@
 				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
 				A414AC831D39D2770065AAA7 /* VideoPlayViewController.h */,
 				A414AC841D39D2770065AAA7 /* VideoPlayViewController.m */,
-				A414AC861D39D2E10065AAA7 /* NoRotationBaseViewController.h */,
-				A414AC871D39D2E10065AAA7 /* NoRotationBaseViewController.m */,
+				A414AC861D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.h */,
+				A414AC871D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m */,
+				A414AC911D3A0AD20065AAA7 /* ImagePickerViewController.h */,
+				A414AC921D3A0AD20065AAA7 /* ImagePickerViewController.m */,
+				A414AC941D3A101D0065AAA7 /* SupportRotationSelectNavigationController.h */,
+				A414AC951D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -213,8 +227,10 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				B21163E21D0FB020003F90A6 /* RedPushpin.png */,
-				B21163E31D0FB020003F90A6 /* RedPushpin@2x.png */,
+				A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */,
+				A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */,
+				A414AC8B1D3A08150065AAA7 /* RedPushpin.png */,
+				A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -366,12 +382,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */,
 				A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */,
-				B21163E41D0FB020003F90A6 /* RedPushpin.png in Resources */,
+				A414AC8E1D3A08150065AAA7 /* addbook_book_cover@3x.png in Resources */,
+				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
-				B21163E51D0FB020003F90A6 /* RedPushpin@2x.png in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
+				A414AC8D1D3A08150065AAA7 /* addbook_book_cover@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,12 +407,14 @@
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
+				A414AC961D3A101D0065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */,
-				A414AC881D39D2E10065AAA7 /* NoRotationBaseViewController.m in Sources */,
+				A414AC881D39D2E10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
+				A414AC931D3A0AD20065AAA7 /* ImagePickerViewController.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,

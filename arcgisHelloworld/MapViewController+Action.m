@@ -11,6 +11,8 @@
 #import "MapViewController.h"
 #import "EventReportViewController.h"
 #import "QRCodeViewController.h"
+#import "VideoPlayViewController.h"
+#import "ImagePickerViewController.h"
 
 @implementation MapViewController (Action)
 #pragma mark - route-navi
@@ -70,7 +72,8 @@
 #pragma mark - bottom view actions
 -(void) actionSearchUpload
 {
-    
+    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void) actionEventUpload
@@ -106,5 +109,10 @@
     self.mapView.locationDisplay.wanderExtentFactor = 0.75;
 }
 
+-(void) actionQRCodeMyWork
+{
+    ImagePickerViewController *controller = [[ImagePickerViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoRotationBaseViewController : UIViewController
-
+@interface SupportRotationSelectBaseViewController : UIViewController
+-(BOOL) supportRotation;
 @end

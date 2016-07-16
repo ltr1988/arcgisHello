@@ -187,6 +187,7 @@
     btn4.layer.borderColor = [UIColor whiteColor].CGColor;
     btn4.layer.borderWidth = 0.5;
     btn4.layer.cornerRadius = 20;
+    [btn4 addTarget:self action:@selector(actionQRCodeMyWork) forControlEvents:UIControlEventTouchUpInside];
     [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
     
     [bottomView addSubview:btn1];
