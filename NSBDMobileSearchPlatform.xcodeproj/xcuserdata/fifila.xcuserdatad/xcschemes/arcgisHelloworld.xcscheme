@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A4DD86821D0976B00096B548"
-               BuildableName = "arcgisHelloworld.app"
-               BlueprintName = "arcgisHelloworld"
-               ReferencedContainer = "container:arcgisHelloworld.xcodeproj">
+               BuildableName = "NSBDMobileSearchPlatform.app"
+               BlueprintName = "NSBDMobileSearchPlatform"
+               ReferencedContainer = "container:NSBDMobileSearchPlatform.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4DD86821D0976B00096B548"
-            BuildableName = "arcgisHelloworld.app"
-            BlueprintName = "arcgisHelloworld"
-            ReferencedContainer = "container:arcgisHelloworld.xcodeproj">
+            BuildableName = "NSBDMobileSearchPlatform.app"
+            BlueprintName = "NSBDMobileSearchPlatform"
+            ReferencedContainer = "container:NSBDMobileSearchPlatform.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4DD86821D0976B00096B548"
-            BuildableName = "arcgisHelloworld.app"
-            BlueprintName = "arcgisHelloworld"
-            ReferencedContainer = "container:arcgisHelloworld.xcodeproj">
+            BuildableName = "NSBDMobileSearchPlatform.app"
+            BlueprintName = "NSBDMobileSearchPlatform"
+            ReferencedContainer = "container:NSBDMobileSearchPlatform.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4DD86821D0976B00096B548"
-            BuildableName = "arcgisHelloworld.app"
-            BlueprintName = "arcgisHelloworld"
-            ReferencedContainer = "container:arcgisHelloworld.xcodeproj">
+            BuildableName = "NSBDMobileSearchPlatform.app"
+            BlueprintName = "NSBDMobileSearchPlatform"
+            ReferencedContainer = "container:NSBDMobileSearchPlatform.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

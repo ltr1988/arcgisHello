@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:arcgisHelloworld.xcodeproj">
+      location = "self:/Users/fifila/Documents/git/NSBDMobileSearchPlatform.xcodeproj">
    </FileRef>
 </Workspace>

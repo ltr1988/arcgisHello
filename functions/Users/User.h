@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
-
+@property (nonatomic,strong) NSString *userId;
+@property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *department;
+@property (nonatomic,strong) NSString *phoneNumber;
+@property (nonatomic,strong) NSString *company;
 @end

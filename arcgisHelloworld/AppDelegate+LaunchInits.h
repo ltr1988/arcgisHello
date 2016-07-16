@@ -9,5 +9,6 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate (LaunchInits)
-
+-(void) setupArcgis;
+-(void) setupReachability;
 @end

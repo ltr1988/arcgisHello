@@ -6,36 +6,39 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <Arcgis/Arcgis.h>
+#import "MapViewController.h"
+#import "MapViewController+Action.h"
+
 #import <objc/runtime.h>
 #import "RouteManager.h"
 #import "DetailInfoViewController.h"
+#import "ItemCallOutView.h"
+#import "CallOutItem.h"
+#import "CommonDefine.h"
+#import "AppDelegate.h"
 
-#define WMSURL @"http://%@:6080/arcgis/services/nsbd_gongcheng_test/MapServer/WMSServer"
-#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_test/MapServer/"
-#define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/test_BJDLG/MapServer"
-
-
-@interface ViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate,AGSMapViewLayerDelegate>
+@interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate>
 {
     NSString *ip;
-    NSDictionary *calloutInfo;
     UIAlertView *alart;
+    UIView *maskView;
 }
-@property (weak, nonatomic) IBOutlet AGSMapView *mapView;
 @property (nonatomic, strong) AGSIdentifyTask *identifyTask;
-@property (nonatomic, strong) AGSIdentifyParameters *identifyParams;
+@property (nonatomic, strong) AGSQueryTask *queryTask;
 @property (nonatomic, strong) AGSPoint* mappoint;
 
 @property (nonatomic, strong) NSMutableArray *featureLayers;
 @end
 
-@implementation ViewController
+@implementation MapViewController
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    if (!delegate.reach.isReachable) {
+        NSLog(@"can not reach server...");
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -47,21 +50,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
+    
     self.mapView.touchDelegate = self;
     self.mapView.callout.delegate = self;
-    
+    //self.mapView.backgroundColor = [UIColor lightGrayColor];
+    self.mapView.gridLineWidth = 0.1;
     self.featureLayers = [NSMutableArray array];
     self.mapView.layerDelegate = self;
 
     [self setupSubviews];
-    ip = @"192.168.1.106";
-    
+    ip = @"192.168.1.102";
+    ip = HOSTIP;
     //create identify task
     [self doReload];
     
     
-    //create identify parameters
-    self.identifyParams = [[AGSIdentifyParameters alloc] init];
 }
 
 -(void) setSearchLayout
@@ -74,6 +78,8 @@
     [self setupLayers];
     self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,ip]]];
     self.identifyTask.delegate = self;
+    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,ip]]];
+    self.queryTask.delegate = self;
 }
 
 -(UIView*) pickPointView
@@ -109,32 +115,90 @@
 
 -(void) setupSubviews
 {
+   // [self.view]
     //[self.view addSubview:[self pickPointView]];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
     [btn setTitle:@"定位" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(navigationAction) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(actionNavigation) forControlEvents:UIControlEventTouchUpInside];
     btn.layer.cornerRadius = 20;
-    [self.mapView addSubview:btn];
+    [self.view addSubview:btn];
+    
+    UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(80, 20, 40, 40)];
+    btnSearch.backgroundColor = [UIColor yellowColor];
+    [btnSearch setTitle:@"搜索" forState:UIControlStateNormal];
+    [btnSearch addTarget:self action:@selector(actionSearch) forControlEvents:UIControlEventTouchUpInside];
+    btnSearch.layer.cornerRadius = 20;
+    [self.view addSubview:btnSearch];
     
     UIButton *btnNavi = [[UIButton alloc] initWithFrame:CGRectMake(20, 80, 40, 40)];
     btnNavi.backgroundColor = [UIColor greenColor];
     [btnNavi setTitle:@"导航" forState:UIControlStateNormal];
     [btnNavi addTarget:self action:@selector(navi) forControlEvents:UIControlEventTouchUpInside];
     btnNavi.layer.cornerRadius = 20;
-    [self.mapView addSubview:btnNavi];
+    [self.view addSubview:btnNavi];
     
     UIButton *btnTest = [[UIButton alloc] initWithFrame:CGRectMake(20, 140, 40, 40)];
     btnTest.backgroundColor = [UIColor redColor];
     [btnTest setTitle:@"配置" forState:UIControlStateNormal];
-    [btnTest addTarget:self action:@selector(config) forControlEvents:UIControlEventTouchUpInside];
+    [btnTest addTarget:self action:@selector(actionConfig) forControlEvents:UIControlEventTouchUpInside];
     btnTest.layer.cornerRadius = 20;
-    [self.mapView addSubview:btnTest];
+    [self.view addSubview:btnTest];
     
     alart = [[UIAlertView alloc] initWithTitle:@"配置" message:@"设置服务器地址" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     alart.alertViewStyle = UIAlertViewStylePlainTextInput;
     alart.delegate = self;
+    
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-80, kScreenWidth, 80)];
+    bottomView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:bottomView];
+    
+    UIButton *btn1,*btn2,*btn3,*btn4;
+    
+    float width = kScreenWidth/4.0;
+    float x = 0;
+    
+    btn1 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn1.backgroundColor = [UIColor greenColor];
+    btn1.layer.borderColor = [UIColor whiteColor].CGColor;
+    btn1.layer.borderWidth = 0.5;
+    btn1.layer.cornerRadius = 20;
+    [btn1 addTarget:self action:@selector(actionSearchUpload) forControlEvents:UIControlEventTouchUpInside];
+    [btn1 setTitle:@"巡查填报" forState:UIControlStateNormal];
+    
+    x = CGRectGetMaxX(btn1.frame);
+    btn2 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn2.backgroundColor = [UIColor redColor];
+    btn2.layer.borderColor = [UIColor whiteColor].CGColor;
+    btn2.layer.borderWidth = 0.5;
+    btn2.layer.cornerRadius = 20;
+    [btn2 addTarget:self action:@selector(actionEventUpload) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 setTitle:@"事件上报" forState:UIControlStateNormal];
+    
+    x = CGRectGetMaxX(btn2.frame);
+    btn3 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn3.backgroundColor = [UIColor purpleColor];
+    btn3.layer.borderColor = [UIColor whiteColor].CGColor;
+    btn3.layer.borderWidth = 0.5;
+    btn3.layer.cornerRadius = 20;
+    [btn3 addTarget:self action:@selector(actionQRCodeSwipe) forControlEvents:UIControlEventTouchUpInside];
+    [btn3 setTitle:@"扫一扫" forState:UIControlStateNormal];
+    
+    x = CGRectGetMaxX(btn3.frame);
+    btn4 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn4.backgroundColor = [UIColor lightGrayColor];
+    btn4.layer.borderColor = [UIColor whiteColor].CGColor;
+    btn4.layer.borderWidth = 0.5;
+    btn4.layer.cornerRadius = 20;
+    [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
+    
+    [bottomView addSubview:btn1];
+    
+    [bottomView addSubview:btn2];
+    [bottomView addSubview:btn3];
+    [bottomView addSubview:btn4];
+    
 }
 
 
@@ -154,7 +218,7 @@
     [alart dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
--(void) config
+-(void) actionConfig
 {
     [alart show];
 }
@@ -200,7 +264,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.tag = 999;
     [imageView setCenter:self.mapView.center];
-    [self.mapView addSubview:imageView];
+    [self.view addSubview:imageView];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -222,6 +286,8 @@
 }
 
 
+
+
 #pragma mark - AGSMapViewTouchDelegate methods
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{
@@ -231,31 +297,48 @@
     self.mappoint = mappoint;
     
     //the layer we want is layer ‘5’ (from the map service doc)
-   // self.identifyParams.layerIds = self.featureLayers;
-    self.identifyParams.tolerance = 10;
-    self.identifyParams.geometry = self.mappoint;
-    self.identifyParams.dpi = 96;
-    self.identifyParams.size = self.mapView.bounds.size;
-    self.identifyParams.mapEnvelope = self.mapView.visibleArea.envelope;
-    self.identifyParams.returnGeometry = YES;
-    self.identifyParams.layerOption = AGSIdentifyParametersLayerOptionVisible;
-    self.identifyParams.spatialReference = self.mapView.spatialReference;
+   // identifyParams.layerIds = self.featureLayers;
+    AGSIdentifyParameters *identifyParams = [AGSIdentifyParameters new];
+    identifyParams.tolerance = 10;
+    identifyParams.geometry = self.mappoint;
+    identifyParams.dpi = 96;
+    identifyParams.size = self.mapView.bounds.size;
+    identifyParams.mapEnvelope = self.mapView.visibleArea.envelope;
+    identifyParams.returnGeometry = YES;
+    identifyParams.layerOption = AGSIdentifyParametersLayerOptionVisible;
+    identifyParams.spatialReference = self.mapView.spatialReference;
     
     //execute the task
-    [self.identifyTask executeWithParameters:self.identifyParams];
+    [self.identifyTask executeWithParameters:identifyParams];
     
 }
-#pragma mark - AGSCalloutDelegate methods
-//show the attributes if accessory button is clicked
-- (void) didClickAccessoryButtonForCallout:(AGSCallout *)callout	{
+//#pragma mark - AGSCalloutDelegate methods
+////show the attributes if accessory button is clicked
+//- (void) didClickAccessoryButtonForCallout:(AGSCallout *)callout	{
+//    
+//    //save the selected graphic, to later assign to the results view controller
+//    
+//    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:calloutInfo];
+//    
+//    [self.navigationController pushViewController:detailVC animated:YES];
+//}
+
+
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
+{
     
-    //save the selected graphic, to later assign to the results view controller
-    
-    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:calloutInfo];
-    
-    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
+
+-(void) findTask:(NSString *)key
+{
+    [self test];
+    AGSQuery *query = [AGSQuery query];
+    query.text =key;
+    query.returnGeometry = YES;
+    query.outSpatialReference = self.mapView.spatialReference;
+    [self.queryTask executeWithQuery:query];
+}
 
 #pragma mark - AGSIdentifyTaskDelegate methods
 //results are returned
@@ -275,11 +358,22 @@
             NSString *name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"Name"];
             if (!name)
                 continue;
-            self.mapView.callout.title = name;
-            self.mapView.callout.detail = @"Click for more detail..";
             
-            calloutInfo = [[((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes] copy];
             
+            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+            self.mapView.callout.customView = calloutView;
+
+            CallOutItem *item = [[CallOutItem alloc] init];
+            item.title = name;
+            item.moreInfo = [[((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes] copy];
+            calloutView.model = (id<ItemCallOutViewModel>)item;
+            
+            calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
+                    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+                
+                    [self.navigationController pushViewController:detailVC animated:YES];
+            };
+
             
             //show callout
             [self.mapView.callout showCalloutAtPoint:self.mappoint forFeature:((AGSIdentifyResult*)[results objectAtIndex:0]).feature layer:((AGSIdentifyResult*)[results objectAtIndex:0]).feature.layer animated:YES];
@@ -339,24 +433,13 @@
 }
 
 
--(void) navigationAction
+#pragma mark - actions
+-(void) actionSearch
 {
-    if(!self.mapView.locationDisplay.dataSourceStarted)
-        [self.mapView.locationDisplay startDataSource];
-    
-    [self.mapView addObserver:self
-                   forKeyPath:@"mapScale"
-                      options:(NSKeyValueObservingOptionNew)
-                      context:NULL];
-  
-    self.mapView.locationDisplay.autoPanMode = AGSLocationDisplayAutoPanModeDefault;
-    
-    //Set a wander extent equal to 75% of the map's envelope
-    //The map will re-center on the location symbol only when
-    //the symbol moves out of the wander extent
-    self.mapView.locationDisplay.wanderExtentFactor = 0.75;
+    [self findTask:@"兴寿"];
 }
 
+#pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -367,66 +450,14 @@
 //        [self addSymbol];
 //    }
 }
-#pragma mark AGSMapViewLayerDelegate
+#pragma mark - AGSMapViewLayerDelegate
     
 -(void) mapViewDidLoad:(AGSMapView*)mapView {
     
-    [self navigationAction];
+    [self actionNavigation];
 }
 
 
-#pragma mark route-navi
--(void) navi
-{
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    // app名称
-    NSString *app_Name = [infoDictionary objectForKey:@"CFBundleName"];
-    
-    BOOL hasBaiduMap = NO;
-    BOOL hasGaodeMap = NO;
-    
-    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:@"baidumap://map/"]]){
-        hasBaiduMap = YES;
-    }
-    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:@"iosamap://"]]){
-        hasGaodeMap = YES;
-    }
-    
-    
-    float currentLat,currentLon,_shopLat,_shopLon;
-    if ([RouteManager sharedInstance].startPoint.x == 0 && [RouteManager sharedInstance].startPoint.y==0) {
-        currentLon = self.mapView.locationDisplay.location.point.x;
-        currentLat = self.mapView.locationDisplay.location.point.y;
-    }else
-    {
-        currentLon = [RouteManager sharedInstance].startPoint.x;
-        currentLat = [RouteManager sharedInstance].startPoint.y;
-    }
-    
-    if ([RouteManager sharedInstance].endPoint.x == 0 && [RouteManager sharedInstance].endPoint.y==0) {
-        _shopLon = self.mapView.locationDisplay.location.point.x;
-        _shopLat = self.mapView.locationDisplay.location.point.y;
-    }else
-    {
-        _shopLon = [RouteManager sharedInstance].endPoint.x;
-        _shopLat = [RouteManager sharedInstance].endPoint.y;
-    }
-
-    if (hasBaiduMap)
-    {
-        NSString *urlString = [[NSString stringWithFormat:@"baidumap://map/direction?origin=latlng:%f,%f|name:我的位置&destination=latlng:%f,%f|name:终点&mode=driving",currentLat, currentLon,_shopLat,_shopLon] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
-        
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
-    }
-    else if (hasGaodeMap)
-    {
-        
-        
-        NSString *urlString = [[NSString stringWithFormat:@"iosamap://path?sourceApplication=%@&sid=BGVIS1&slat=%f&slon=%f&sname=%@&did=BGVIS2&dlat=%f&dlon=%f&dname=%@&dev=1&m=0&t=0",app_Name, currentLat, currentLon, @"我的起点" , _shopLat, _shopLon,@"我的终点"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:urlString]];
-    }
-}
 
 @end
 

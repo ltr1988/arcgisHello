@@ -40,6 +40,10 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    if ([textField.placeholder isEqualToString:@"输入起点"])
+        [RouteManager sharedInstance].pickingStartPoint = YES;
+    else
+        [RouteManager sharedInstance].pickingEndPoint = YES;
     [self.tabBarController setSelectedIndex:0];
     return NO;
 }

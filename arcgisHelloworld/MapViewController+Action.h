@@ -9,5 +9,10 @@
 #import "MapViewController.h"
 
 @interface MapViewController (Action)
+-(void) navi;
 
+-(void) actionSearchUpload;
+-(void) actionEventUpload;
+-(void) actionQRCodeSwipe;
+-(void) actionNavigation;
 @end

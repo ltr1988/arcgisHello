@@ -7,11 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
+		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
+		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
+		A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */; };
+		A48022021D32216A00AE2AF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022011D32216A00AE2AF9 /* User.m */; };
+		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
+		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
+		A480221A1D324F7200AE2AF9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022191D324F7200AE2AF9 /* Reachability.m */; };
+		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
+		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
+		A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
+		A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378821D365DC100A7342D /* AFSecurityPolicy.m */; };
+		A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */; };
+		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
+		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
+		A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378911D378D7600A7342D /* QRCodeViewController.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
-		A4DD868E1D0976B00096B548 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* ViewController.m */; };
+		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
 		A4DD86911D0976B00096B548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD868F1D0976B00096B548 /* Main.storyboard */; };
 		A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86921D0976B00096B548 /* Assets.xcassets */; };
 		A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */; };
@@ -23,16 +39,50 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
+		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
+		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
+		A4569C901D33B53800A06B1C /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIDownPicker.m; path = functions/DropdownField/UIDownPicker.m; sourceTree = "<group>"; };
+		A4569C951D33B5AE00A06B1C /* EventReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventReportViewController.h; path = functions/NSBDBusiness/EventReportViewController.h; sourceTree = "<group>"; };
+		A4569C961D33B5AE00A06B1C /* EventReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReportViewController.m; path = functions/NSBDBusiness/EventReportViewController.m; sourceTree = "<group>"; };
+		A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapViewController+Action.h"; sourceTree = "<group>"; };
+		A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MapViewController+Action.m"; sourceTree = "<group>"; };
+		A48022001D32216A00AE2AF9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = functions/Users/User.h; sourceTree = "<group>"; };
+		A48022011D32216A00AE2AF9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = functions/Users/User.m; sourceTree = "<group>"; };
+		A48022041D32262600AE2AF9 /* ItemCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCallOutView.h; sourceTree = "<group>"; };
+		A48022051D32262600AE2AF9 /* ItemCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCallOutView.m; sourceTree = "<group>"; };
+		A48022091D3229AB00AE2AF9 /* CallOutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallOutItem.h; sourceTree = "<group>"; };
+		A480220A1D3229AB00AE2AF9 /* CallOutItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallOutItem.m; sourceTree = "<group>"; };
+		A48022111D32365500AE2AF9 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		A48022181D324F7200AE2AF9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = functions/Reachability/Reachability.h; sourceTree = "<group>"; };
+		A48022191D324F7200AE2AF9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = functions/Reachability/Reachability.m; sourceTree = "<group>"; };
+		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
+		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
 		A4958FA61D0EFA38001FCE6F /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
 		A4958FA71D0EFA38001FCE6F /* RouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
-		A4DD86831D0976B00096B548 /* arcgisHelloworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arcgisHelloworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = functions/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = functions/AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		A4A3787E1D365DC100A7342D /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = functions/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		A4A3787F1D365DC100A7342D /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = functions/AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = functions/AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		A4A378811D365DC100A7342D /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = functions/AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		A4A378821D365DC100A7342D /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = functions/AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		A4A378831D365DC100A7342D /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = functions/AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = functions/AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		A4A378851D365DC100A7342D /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = functions/AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = functions/AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		A4A378871D365DC100A7342D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = functions/AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		A4A378901D378D7600A7342D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = functions/NSBDBusiness/QRCodeViewController.h; sourceTree = "<group>"; };
+		A4A378911D378D7600A7342D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = functions/NSBDBusiness/QRCodeViewController.m; sourceTree = "<group>"; };
+		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A4DD868A1D0976B00096B548 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A4DD868C1D0976B00096B548 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A4DD868D1D0976B00096B548 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4DD868C1D0976B00096B548 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		A4DD868D1D0976B00096B548 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A4DD86901D0976B00096B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4DD86921D0976B00096B548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4DD86951D0976B00096B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,13 +108,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4569C8C1D33B50800A06B1C /* DropDownField */ = {
+			isa = PBXGroup;
+			children = (
+				A4569C8D1D33B53800A06B1C /* DownPicker.h */,
+				A4569C8E1D33B53800A06B1C /* DownPicker.m */,
+				A4569C8F1D33B53800A06B1C /* UIDownPicker.h */,
+				A4569C901D33B53800A06B1C /* UIDownPicker.m */,
+			);
+			name = DropDownField;
+			sourceTree = "<group>";
+		};
+		A4569C931D33B54E00A06B1C /* NSBDBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				A4569C941D33B55B00A06B1C /* Controllers */,
+			);
+			name = NSBDBusiness;
+			sourceTree = "<group>";
+		};
+		A4569C941D33B55B00A06B1C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A4A378901D378D7600A7342D /* QRCodeViewController.h */,
+				A4A378911D378D7600A7342D /* QRCodeViewController.m */,
+				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
+				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A48021FF1D32210900AE2AF9 /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3788F1D365DC700A7342D /* AFNetworking */,
+				A4569C931D33B54E00A06B1C /* NSBDBusiness */,
+				A4569C8C1D33B50800A06B1C /* DropDownField */,
+				A48022171D324F1100AE2AF9 /* Reachability */,
+				A48022031D32217700AE2AF9 /* Users */,
+			);
+			name = functions;
+			sourceTree = "<group>";
+		};
+		A48022031D32217700AE2AF9 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				A48022001D32216A00AE2AF9 /* User.h */,
+				A48022011D32216A00AE2AF9 /* User.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		A48022071D32297600AE2AF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A48022081D32298300AE2AF9 /* Item */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A48022081D32298300AE2AF9 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A48022091D3229AB00AE2AF9 /* CallOutItem.h */,
+				A480220A1D3229AB00AE2AF9 /* CallOutItem.m */,
+			);
+			name = Item;
+			sourceTree = "<group>";
+		};
+		A48022171D324F1100AE2AF9 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A48022181D324F7200AE2AF9 /* Reachability.h */,
+				A48022191D324F7200AE2AF9 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4DD868C1D0976B00096B548 /* MapViewController.h */,
+				A4DD868D1D0976B00096B548 /* MapViewController.m */,
 				B21163E61D0FB03A003F90A6 /* RouteViewController.h */,
 				B21163E71D0FB03A003F90A6 /* RouteViewController.m */,
 				A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */,
 				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
+				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
+				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -87,11 +218,32 @@
 			name = manager;
 			sourceTree = "<group>";
 		};
+		A4A3788F1D365DC700A7342D /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */,
+				A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */,
+				A4A3787E1D365DC100A7342D /* AFNetworking.h */,
+				A4A3787F1D365DC100A7342D /* AFNetworkReachabilityManager.h */,
+				A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */,
+				A4A378811D365DC100A7342D /* AFSecurityPolicy.h */,
+				A4A378821D365DC100A7342D /* AFSecurityPolicy.m */,
+				A4A378831D365DC100A7342D /* AFURLRequestSerialization.h */,
+				A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */,
+				A4A378851D365DC100A7342D /* AFURLResponseSerialization.h */,
+				A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */,
+				A4A378871D365DC100A7342D /* AFURLSessionManager.h */,
+				A4A378881D365DC100A7342D /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
 		A4DD867A1D0976B00096B548 = {
 			isa = PBXGroup;
 			children = (
+				A48021FF1D32210900AE2AF9 /* functions */,
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
-				A4DD86851D0976B00096B548 /* arcgisHelloworld */,
+				A4DD86851D0976B00096B548 /* arcgis */,
 				A4DD86841D0976B00096B548 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,27 +251,29 @@
 		A4DD86841D0976B00096B548 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A4DD86831D0976B00096B548 /* arcgisHelloworld.app */,
+				A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A4DD86851D0976B00096B548 /* arcgisHelloworld */ = {
+		A4DD86851D0976B00096B548 /* arcgis */ = {
 			isa = PBXGroup;
 			children = (
+				A48022071D32297600AE2AF9 /* Model */,
 				B21163EA1D0FB224003F90A6 /* Views */,
 				A4958FA51D0EFA10001FCE6F /* manager */,
 				A4958F981D0DAC7B001FCE6F /* Controllers */,
 				A4DD86891D0976B00096B548 /* AppDelegate.h */,
 				A4DD868A1D0976B00096B548 /* AppDelegate.m */,
-				A4DD868C1D0976B00096B548 /* ViewController.h */,
-				A4DD868D1D0976B00096B548 /* ViewController.m */,
+				A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */,
+				A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */,
 				A4DD868F1D0976B00096B548 /* Main.storyboard */,
 				A4DD86921D0976B00096B548 /* Assets.xcassets */,
 				A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */,
 				A4DD86971D0976B00096B548 /* Info.plist */,
 				A4DD86861D0976B00096B548 /* Supporting Files */,
 			);
+			name = arcgis;
 			path = arcgisHelloworld;
 			sourceTree = "<group>";
 		};
@@ -127,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				B21163E91D0FB043003F90A6 /* PrefixHeader.pch */,
+				A48022111D32365500AE2AF9 /* CommonDefine.h */,
 				A4958F9C1D0EEC29001FCE6F /* images */,
 				A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */,
 				A4DD86871D0976B00096B548 /* main.m */,
@@ -137,6 +292,8 @@
 		B21163EA1D0FB224003F90A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A48022041D32262600AE2AF9 /* ItemCallOutView.h */,
+				A48022051D32262600AE2AF9 /* ItemCallOutView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -144,9 +301,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4DD86821D0976B00096B548 /* arcgisHelloworld */ = {
+		A4DD86821D0976B00096B548 /* NSBDMobileSearchPlatform */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "arcgisHelloworld" */;
+			buildConfigurationList = A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform" */;
 			buildPhases = (
 				A4DD867F1D0976B00096B548 /* Sources */,
 				A4DD86801D0976B00096B548 /* Frameworks */,
@@ -156,9 +313,9 @@
 			);
 			dependencies = (
 			);
-			name = arcgisHelloworld;
+			name = NSBDMobileSearchPlatform;
 			productName = arcgisHelloworld;
-			productReference = A4DD86831D0976B00096B548 /* arcgisHelloworld.app */;
+			productReference = A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A4DD867E1D0976B00096B548 /* Build configuration list for PBXProject "arcgisHelloworld" */;
+			buildConfigurationList = A4DD867E1D0976B00096B548 /* Build configuration list for PBXProject "NSBDMobileSearchPlatform" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -189,7 +346,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A4DD86821D0976B00096B548 /* arcgisHelloworld */,
+				A4DD86821D0976B00096B548 /* NSBDMobileSearchPlatform */,
 			);
 		};
 /* End PBXProject section */
@@ -215,11 +372,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4DD868E1D0976B00096B548 /* ViewController.m in Sources */,
+				A48022021D32216A00AE2AF9 /* User.m in Sources */,
+				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
+				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
+				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				A480221A1D324F7200AE2AF9 /* Reachability.m in Sources */,
+				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
+				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
+				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
+				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */,
+				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
+				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
+				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
+				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
+				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */,
+				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
+				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +519,7 @@
 					ArcGIS,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fifila.arcgisHelloworld;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -371,7 +544,7 @@
 					ArcGIS,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fifila.arcgisHelloworld;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -379,7 +552,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4DD867E1D0976B00096B548 /* Build configuration list for PBXProject "arcgisHelloworld" */ = {
+		A4DD867E1D0976B00096B548 /* Build configuration list for PBXProject "NSBDMobileSearchPlatform" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4DD86981D0976B00096B548 /* Debug */,
@@ -388,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "arcgisHelloworld" */ = {
+		A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A4DD869B1D0976B00096B548 /* Debug */,

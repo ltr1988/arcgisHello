@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ItemCallOutView.h"
 
-@interface CallOutItem : NSObject
+@interface CallOutItem<ItemCallOutViewModel> : NSObject
 
+@property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) NSString *infoImageURL;
+
+@property (nonatomic,strong) NSString *webSiteImageURL;
+
+@property (nonatomic,strong) NSDictionary *moreInfo;
+@property (nonatomic,strong) NSDictionary *webSiteInfo;
 @end
