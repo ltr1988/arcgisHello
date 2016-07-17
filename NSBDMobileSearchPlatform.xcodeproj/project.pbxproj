@@ -37,6 +37,7 @@
 		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
 		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
 		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
+		A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A485992B1D3B42BD0050AC88 /* launchScreen.jpg */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
@@ -113,6 +114,7 @@
 		A48022111D32365500AE2AF9 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
 		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
+		A485992B1D3B42BD0050AC88 /* launchScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = launchScreen.jpg; path = images/launchScreen.jpg; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
 		A4958FA61D0EFA38001FCE6F /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A485992B1D3B42BD0050AC88 /* launchScreen.jpg */,
 				A414AC891D3A08150065AAA7 /* addbook_book_cover@2x.png */,
 				A414AC8A1D3A08150065AAA7 /* addbook_book_cover@3x.png */,
 				A414AC8B1D3A08150065AAA7 /* RedPushpin.png */,
@@ -470,6 +473,7 @@
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
+				A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
 				A414AC8D1D3A08150065AAA7 /* addbook_book_cover@2x.png in Resources */,
 				A414ACAB1D3A1D6C0065AAA7 /* ELCAssetPicker.xib in Resources */,

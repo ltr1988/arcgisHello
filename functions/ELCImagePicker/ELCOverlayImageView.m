@@ -49,6 +49,9 @@
             //        self.labIndex.layer.borderWidth = 1;
             //        self.labIndex.layer.borderColor = [UIColor greenColor].CGColor;
             self.labIndex.font = [UIFont boldSystemFontOfSize:13];
+            
+            
+            _labIndex.hidden = YES;
             [self addSubview:self.labIndex];
         }
     }

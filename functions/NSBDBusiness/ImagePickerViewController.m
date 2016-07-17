@@ -24,17 +24,7 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
-    //导航栏标题
-    self.navigationItem.title = @"雨松MOMO输入框";
-    
-    //导航栏按钮
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                               initWithTitle: @"发送"
-                                               style: UIBarButtonItemStyleDone
-                                               target: self
-                                               action: @selector(sendInfo)];
-    
+    [super viewDidLoad]; 
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
@@ -119,10 +109,6 @@
     [self presentViewController:elcPicker animated:YES completion:nil];
 }
 
--(void)sendInfo
-{
-    NSLog(@"图片的路径是：%@", filePath);
-}
 
 #pragma mark ELCImagePickerControllerDelegate Methods
 
