@@ -10,6 +10,12 @@
 
 @implementation SupportRotationSelectNavigationController
 
+-(void) viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationBar.translucent = NO;
+}
+
 - (BOOL)shouldAutorotate
 {
     id currentViewController = self.topViewController;

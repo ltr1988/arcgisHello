@@ -93,6 +93,11 @@ static const char *kScanQRCodeQueueName = "ScanQRCodeQueue";
         return;
     }
     _lastResut = NO;
+    
+    if ([result hasPrefix:@"http://"]) {
+        //match the pattern
+        
+    }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"二维码扫描"
                                                     message:result
                                                    delegate:nil

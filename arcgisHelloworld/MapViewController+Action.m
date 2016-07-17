@@ -13,6 +13,8 @@
 #import "QRCodeViewController.h"
 #import "VideoPlayViewController.h"
 #import "ImagePickerViewController.h"
+#import "WebViewController.h"
+
 
 @implementation MapViewController (Action)
 #pragma mark - route-navi
@@ -85,9 +87,16 @@
 
 -(void) actionQRCodeSwipe
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    QRCodeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"qrCodeViewController"];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    QRCodeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"qrCodeViewController"];
+//    [self.navigationController pushViewController:controller animated:YES];
+    
+    
+    WebViewController *controller = [[WebViewController alloc] init];
+    
+    [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
     [self.navigationController pushViewController:controller animated:YES];
+    
 
 }
 

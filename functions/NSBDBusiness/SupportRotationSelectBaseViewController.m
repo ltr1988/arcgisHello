@@ -10,6 +10,13 @@
 
 @implementation SupportRotationSelectBaseViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
+}
+
 -(BOOL) supportRotation
 {
     return NO;

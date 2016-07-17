@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ImagePickerViewController :SupportRotationSelectBaseViewController<UITextViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+#import "ELCImagePickerController.h"
+
+@interface ImagePickerViewController :SupportRotationSelectBaseViewController<UITextViewDelegate,UIActionSheetDelegate,ELCImagePickerControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @end

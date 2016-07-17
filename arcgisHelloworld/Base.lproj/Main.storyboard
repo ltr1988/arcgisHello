@@ -333,10 +333,10 @@
             </objects>
             <point key="canvasLocation" x="2198" y="400"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Support Rotation Select Navigation Controller-->
         <scene sceneID="o94-AZ-rfc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6jO-KG-fyN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6jO-KG-fyN" customClass="SupportRotationSelectNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tav-Vq-TNB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
