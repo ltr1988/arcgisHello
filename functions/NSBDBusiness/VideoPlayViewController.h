@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VideoPlayViewController : UIViewController
+@interface VideoPlayViewController : SupportRotationSelectBaseViewController
 
 @end

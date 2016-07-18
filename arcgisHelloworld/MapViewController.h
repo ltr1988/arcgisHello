@@ -10,6 +10,6 @@
 
 @interface MapViewController : SupportRotationSelectBaseViewController
 
-@property (weak, nonatomic) IBOutlet AGSMapView *mapView;
+@property (weak, nonatomic) AGSMapView *mapView;
 @end
 

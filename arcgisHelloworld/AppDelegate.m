@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self setupArcgis];
-    
+    [NSThread sleepForTimeInterval:1.5];
     return YES;
 }
 

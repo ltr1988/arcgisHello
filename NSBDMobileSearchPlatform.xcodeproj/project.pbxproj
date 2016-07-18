@@ -38,6 +38,11 @@
 		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
 		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
 		A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A485992B1D3B42BD0050AC88 /* launchScreen.jpg */; };
+		A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */; };
+		A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */; };
+		A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599381D3B4C840050AC88 /* SVProgressHUD.m */; };
+		A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A485993D1D3B51610050AC88 /* LoginViewController.m */; };
+		A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
@@ -115,6 +120,16 @@
 		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
 		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
 		A485992B1D3B42BD0050AC88 /* launchScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = launchScreen.jpg; path = images/launchScreen.jpg; sourceTree = "<group>"; };
+		A48599331D3B4C840050AC88 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		A48599351D3B4C840050AC88 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "functions/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = functions/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		A48599371D3B4C840050AC88 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = functions/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		A48599381D3B4C840050AC88 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = functions/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		A485993C1D3B51610050AC88 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = functions/NSBDBusiness/LoginViewController.h; sourceTree = "<group>"; };
+		A485993D1D3B51610050AC88 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = functions/NSBDBusiness/LoginViewController.m; sourceTree = "<group>"; };
+		A485993F1D3BB52B0050AC88 /* MapViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewManager.h; sourceTree = "<group>"; };
+		A48599401D3BB52B0050AC88 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
 		A4958FA61D0EFA38001FCE6F /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
@@ -246,6 +261,8 @@
 				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
 				A414ACC71D3B20970065AAA7 /* WebViewController.h */,
 				A414ACC81D3B20970065AAA7 /* WebViewController.m */,
+				A485993C1D3B51610050AC88 /* LoginViewController.h */,
+				A485993D1D3B51610050AC88 /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +270,7 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				A48599321D3B4C720050AC88 /* SVProgresssHUD */,
 				A414ACA31D3A1D500065AAA7 /* ELCImagePicker */,
 				A414AC7F1D39D16F0065AAA7 /* Util */,
 				A4A3788F1D365DC700A7342D /* AFNetworking */,
@@ -289,6 +307,19 @@
 			name = Item;
 			sourceTree = "<group>";
 		};
+		A48599321D3B4C720050AC88 /* SVProgresssHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A48599331D3B4C840050AC88 /* SVIndefiniteAnimatedView.h */,
+				A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */,
+				A48599351D3B4C840050AC88 /* SVProgressHUD-Prefix.pch */,
+				A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */,
+				A48599371D3B4C840050AC88 /* SVProgressHUD.h */,
+				A48599381D3B4C840050AC88 /* SVProgressHUD.m */,
+			);
+			name = SVProgresssHUD;
+			sourceTree = "<group>";
+		};
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +352,8 @@
 			children = (
 				A4958FA61D0EFA38001FCE6F /* RouteManager.h */,
 				A4958FA71D0EFA38001FCE6F /* RouteManager.m */,
+				A485993F1D3BB52B0050AC88 /* MapViewManager.h */,
+				A48599401D3BB52B0050AC88 /* MapViewManager.m */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -473,6 +506,7 @@
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
+				A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */,
 				A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
 				A414AC8D1D3A08150065AAA7 /* addbook_book_cover@2x.png in Resources */,
@@ -487,11 +521,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				A414ACC11D3A1D890065AAA7 /* ELCAsset.m in Sources */,
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
+				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
+				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
@@ -519,6 +556,7 @@
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
+				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 			);

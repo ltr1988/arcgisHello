@@ -7,11 +7,13 @@
 //
 
 #import "VideoPlayViewController.h"
+#import "MapViewManager.h"
 
 @interface VideoPlayViewController()
 {
     MPMoviePlayerViewController *_mvPlayer;
 }
+@property (weak, nonatomic) AGSMapView *mapView;
 @end
 
 @implementation VideoPlayViewController
@@ -27,11 +29,22 @@
     [self.view addSubview:btn];
     NSURL *videoUrl = [NSURL URLWithString:@"http://7xawdc.com2.z0.glb.qiniucdn.com/o_19p6vdmi9148s16fs1ptehbm1vd59.mp4"];
     _mvPlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:videoUrl];
+    
+    [self test];
 }
+
 
 -(void) play
 {
     [self presentMoviePlayerViewControllerAnimated:_mvPlayer];
     [_mvPlayer.moviePlayer play];
+}
+
+
+-(void)test
+{
+    self.mapView = [MapViewManager sharedMapView];
+    self.mapView.frame = self.view.bounds;
+    [self.view addSubview:self.mapView];
 }
 @end

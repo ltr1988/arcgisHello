@@ -120,6 +120,8 @@
 
 -(void) actionQRCodeMyWork
 {
+    
+    
     ImagePickerViewController *controller = [[ImagePickerViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }

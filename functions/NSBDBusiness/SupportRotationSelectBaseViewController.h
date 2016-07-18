@@ -11,6 +11,6 @@
 @interface SupportRotationSelectBaseViewController : UIViewController
 
 
-
+-(BOOL) hideNavBar;
 -(BOOL) supportRotation;
 @end

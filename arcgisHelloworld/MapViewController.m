@@ -16,6 +16,7 @@
 #import "CallOutItem.h"
 #import "CommonDefine.h"
 #import "AppDelegate.h"
+#import "MapViewManager.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate>
 {
@@ -32,46 +33,49 @@
 
 @implementation MapViewController
 
-- (void) viewWillAppear:(BOOL)animated
+-(BOOL) hideNavBar
 {
-    [self.navigationController setNavigationBarHidden:YES animated:NO];    
+    return YES;
 }
 
-- (void) viewWillDisappear:(BOOL)animated
+
+-(void) viewWillAppear:(BOOL)animated
 {
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.mapView = [MapViewManager sharedMapView];
+    self.mapView.frame = self.view.bounds;
+    [self.view insertSubview:self.mapView atIndex:0];
+    self.mapView.touchDelegate = self;
+    self.mapView.callout.delegate = self;
+    self.mapView.layerDelegate = self;
 }
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [self.mapView removeFromSuperview];
+    self.mapView.touchDelegate = nil;
+    self.mapView.callout.delegate = nil;
+    self.mapView.layerDelegate = nil;
+    self.mapView = nil;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    
-    self.mapView.touchDelegate = self;
-    self.mapView.callout.delegate = self;
-    //self.mapView.backgroundColor = [UIColor lightGrayColor];
-    self.mapView.gridLineWidth = 0.1;
     self.featureLayers = [NSMutableArray array];
-    self.mapView.layerDelegate = self;
-
-    [self setupSubviews];
-    ip = @"192.168.1.102";
     ip = HOSTIP;
+    [self setupSubviews];
+    
     //create identify task
     [self doReload];
     
     
 }
 
--(void) setSearchLayout
-{
-    
-}
-
 -(void) doReload
 {
-    [self setupLayers];
     self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,ip]]];
     self.identifyTask.delegate = self;
     self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,ip]]];
@@ -113,6 +117,8 @@
 {
    // [self.view]
     //[self.view addSubview:[self pickPointView]];
+    
+    
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
@@ -220,35 +226,6 @@
     [alart show];
 }
 
--(void) setupLayers
-{
-    if ([self.mapView mapLayers].count>0) {
-        for (AGSLayer *layer in [[self.mapView mapLayers] copy]) {
-            [self.mapView removeMapLayer:layer];
-        }
-    }
-    //AGSCredential *credentail = [[AGSCredential alloc] initWithUser:@"arcgis" password:@"arcgis"];
-    AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                                        [NSString stringWithFormat:WMTSRESTURL,ip]]];
-    
-    
-    
-    AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
-                                                               [NSString stringWithFormat:WMSURL,ip]]];
-
-    
-    AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
-    
-    //Add it to the map view
-    [self.mapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
-    [self.mapView addMapLayer:wmsLayer withName:@"WMS Layer"];
-    [self.mapView addMapLayer:glayer withName:@"Graphics Layer"];
-    
-    
-    
-}
-
-
 
 -(void) addSymbol
 {
@@ -264,13 +241,6 @@
     [self.view addSubview:imageView];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    //Pass the interface orientation on to the map's gps so that
-    //it can re-position the gps symbol appropriately in
-    //compass navigation mode
-    self.mapView.locationDisplay.interfaceOrientation = interfaceOrientation;
-    return YES;
-}
 
 
 - (void)viewDidUnload {
@@ -294,7 +264,7 @@
     self.mappoint = mappoint;
     
     //the layer we want is layer ‘5’ (from the map service doc)
-   // identifyParams.layerIds = self.featureLayers;
+    // identifyParams.layerIds = self.featureLayers;
     AGSIdentifyParameters *identifyParams = [AGSIdentifyParameters new];
     identifyParams.tolerance = 10;
     identifyParams.geometry = self.mappoint;
@@ -352,10 +322,11 @@
                 continue;
             }
             
-            NSString *name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"Name"];
+            NSString *name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"名称"];
+            if (!name)
+                name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"Name"];
             if (!name)
                 continue;
-            
             
             ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
             self.mapView.callout.customView = calloutView;
