@@ -10,4 +10,7 @@
 
 @interface MapViewManager : NSObject
 +(AGSMapView *) sharedMapView;
++(NSString *)IP;
+
++(void)SetIP:(NSString *)ip_new;
 @end

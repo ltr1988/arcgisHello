@@ -11,7 +11,8 @@
 
 @interface DetailInfoViewController()
 {
-    NSMutableDictionary *data;
+    NSMutableDictionary *detailData;
+    NSArray *dataList;
 }
 @end
 
@@ -21,15 +22,15 @@
 {
     self = [super init];
     if (self) {
-        data = [NSMutableDictionary dictionary];
+        detailData = [NSMutableDictionary dictionary];
         if (dict) {
-            data = [dict mutableCopy];
+            detailData = [dict mutableCopy];
         }
         for (NSString *key in dict) {
             if ([dict[key] isKindOfClass:[NSString class]]) {
                 NSString *value = dict[key];
                 if (value.length == 0) {
-                    data[key] = nil;
+                    detailData[key] = nil;
                 }
             }
         }
@@ -45,7 +46,16 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     
+    CenterSwitchView *view = [[CenterSwitchView alloc] initWithFrame:CGRectMake(0, 0, CenetrSwitchWidth, CenetrSwitchHeight) andTitleArray:@[@"设施信息",@"设备列表"] andDelegate:self andSelectIndex:0];
+    
     [self.view addSubview:tableView];
+    
+    [self requestDataList];
+}
+
+-(void)requestDataList
+{
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -53,7 +63,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return data.count;
+    return detailData.count;
 }
 
 
@@ -65,8 +75,8 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reusableIdentifier];
     }
-    cell.textLabel.text = [data.allKeys objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = data[cell.textLabel.text];
+    cell.textLabel.text = [detailData.allKeys objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = detailData[cell.textLabel.text];
     //enable reordering on each cell
     [cell setShowsReorderControl:YES];
     return cell;

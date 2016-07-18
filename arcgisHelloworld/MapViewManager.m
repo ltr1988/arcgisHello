@@ -10,9 +10,11 @@
 #import "CommonDefine.h"
 
 @implementation MapViewManager
+static AGSMapView *mapView;
+static NSString *ip;
 +(AGSMapView *) sharedMapView
 {
-    static AGSMapView *mapView;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         mapView = [[AGSMapView alloc] init];
@@ -24,7 +26,7 @@
                 [mapView removeMapLayer:layer];
             }
         }
-        //AGSCredential *credentail = [[AGSCredential alloc] initWithUser:@"arcgis" password:@"arcgis"];
+        
         AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
                                                                                             [NSString stringWithFormat:WMTSRESTURL,ip]]];
         
@@ -43,5 +45,18 @@
 
     });
     return mapView;
+}
+
++(NSString *)IP
+{
+    if (!ip || ip.length==0 ) {
+        ip = HOSTIP;
+    }
+    return ip;
+}
+
++(void)SetIP:(NSString *)ip_new
+{
+    ip = [ip_new copy];
 }
 @end

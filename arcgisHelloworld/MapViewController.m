@@ -18,9 +18,10 @@
 #import "AppDelegate.h"
 #import "MapViewManager.h"
 
+
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate>
 {
-    NSString *ip;
+    
     UIAlertView *alart;
     UIView *maskView;
 }
@@ -65,20 +66,19 @@
     
     
     self.featureLayers = [NSMutableArray array];
-    ip = HOSTIP;
     [self setupSubviews];
     
     //create identify task
-    [self doReload];
+    [self doReloadTask];
     
     
 }
 
--(void) doReload
+-(void) doReloadTask
 {
-    self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,ip]]];
+    self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,[MapViewManager IP]]]];
     self.identifyTask.delegate = self;
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,ip]]];
+    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
     self.queryTask.delegate = self;
 }
 
@@ -204,29 +204,6 @@
     
 }
 
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([btnTitle isEqualToString:@"Cancel"]) {
-        NSLog(@"你点击了退出");
-        
-        
-    }
-    else if ([btnTitle isEqualToString:@"OK"] ) {
-        UITextField *tf = [alart textFieldAtIndex:0];
-        ip = tf.text;
-        [self doReload];
-    }
-    [alart dismissWithClickedButtonIndex:buttonIndex animated:YES];
-}
-
--(void) actionConfig
-{
-    [alart show];
-}
-
-
 -(void) addSymbol
 {
     UIImageView *view = [self.mapView viewWithTag:999];
@@ -252,8 +229,27 @@
     self.mapView = nil;
 }
 
+#pragma mark - alart delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *btnTitle = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([btnTitle isEqualToString:@"Cancel"]) {
+        NSLog(@"你点击了退出");
+        
+        
+    }
+    else if ([btnTitle isEqualToString:@"OK"] ) {
+        UITextField *tf = [alart textFieldAtIndex:0];
+        [MapViewManager SetIP:tf.text];
+        [self doReloadTask];
+    }
+    [alart dismissWithClickedButtonIndex:buttonIndex animated:YES];
+}
 
-
+-(void) actionConfig
+{
+    [alart show];
+}
 
 #pragma mark - AGSMapViewTouchDelegate methods
 

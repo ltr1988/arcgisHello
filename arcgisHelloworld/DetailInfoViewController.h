@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailInfoViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "CenterSwitchView.h"
+
+@interface DetailInfoViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,CenterSwitchActionDelegate,UITableViewDelegate>
 -(instancetype) initWithData:(NSDictionary *) dict;
 @end
