@@ -275,16 +275,6 @@
     [self.identifyTask executeWithParameters:identifyParams];
     
 }
-//#pragma mark - AGSCalloutDelegate methods
-////show the attributes if accessory button is clicked
-//- (void) didClickAccessoryButtonForCallout:(AGSCallout *)callout	{
-//    
-//    //save the selected graphic, to later assign to the results view controller
-//    
-//    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:calloutInfo];
-//    
-//    [self.navigationController pushViewController:detailVC animated:YES];
-//}
 
 
 - (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
@@ -343,11 +333,7 @@
             [self.mapView.callout showCalloutAtPoint:self.mappoint forFeature:((AGSIdentifyResult*)[results objectAtIndex:0]).feature layer:((AGSIdentifyResult*)[results objectAtIndex:0]).feature.layer animated:YES];
             return;
         }
-        
-        
     }
-    
-    
 }
 
 

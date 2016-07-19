@@ -62,6 +62,8 @@
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
 		B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteViewController.m */; };
+		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
+		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +169,10 @@
 		B21163E61D0FB03A003F90A6 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B28AE85A1D3DD2C100ABDB28 /* InfoAGSMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAGSMapView.h; sourceTree = "<group>"; };
+		B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAGSMapView.m; sourceTree = "<group>"; };
+		B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
+		B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,7 @@
 		A4569C931D33B54E00A06B1C /* NSBDBusiness */ = {
 			isa = PBXGroup;
 			children = (
+				B28AE8591D3DCEDE00ABDB28 /* Views */,
 				A4569C941D33B55B00A06B1C /* Controllers */,
 			);
 			name = NSBDBusiness;
@@ -344,6 +351,8 @@
 				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
 				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
 				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
+				B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */,
+				B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -447,6 +456,15 @@
 			children = (
 				A48022041D32262600AE2AF9 /* ItemCallOutView.h */,
 				A48022051D32262600AE2AF9 /* ItemCallOutView.m */,
+				B28AE85A1D3DD2C100ABDB28 /* InfoAGSMapView.h */,
+				B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B28AE8591D3DCEDE00ABDB28 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -535,8 +553,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
+				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
+				B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */,
 				A414ACC11D3A1D890065AAA7 /* ELCAsset.m in Sources */,
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,

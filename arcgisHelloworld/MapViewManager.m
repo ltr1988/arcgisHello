@@ -12,12 +12,12 @@
 @implementation MapViewManager
 static AGSMapView *mapView;
 static NSString *ip;
-+(AGSMapView *) sharedMapView
++(InfoAGSMapView *) sharedMapView
 {
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        mapView = [[AGSMapView alloc] init];
+        mapView = [[InfoAGSMapView alloc] init];
         mapView.gridLineWidth = 0.1;
         NSString *ip = HOSTIP;
         

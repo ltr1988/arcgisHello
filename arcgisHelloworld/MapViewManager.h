@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "InfoAGSMapView.h"
 
 @interface MapViewManager : NSObject
-+(AGSMapView *) sharedMapView;
++(InfoAGSMapView *) sharedMapView;
 +(NSString *)IP;
 
 +(void)SetIP:(NSString *)ip_new;
