@@ -9,6 +9,7 @@
 @protocol ItemCallOutViewModel <NSObject>
 
 -(NSString *) title;
+-(NSString *) detail;
 -(NSString *) infoImageURL;
 -(NSString *) webSiteImageURL;
 -(NSDictionary *) moreInfo;

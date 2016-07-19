@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 
 @interface MapViewController (Action)
--(void) navi;
+-(void) actionNavi;
 -(void) actionNavigation;
 
 //bottom 4 buttons

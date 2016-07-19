@@ -42,7 +42,8 @@
 {
     CGFloat height = 30,y = 0;
     
-    self. backgroundColor = [UIColor clearColor];
+    self. backgroundColor = [UIColor whiteColor];
+    
     _titleLabel = [UILabel new];
     _titleLabel.frame = CGRectMake(10, y, 90, height);
     _titleLabel.font = [UIFont systemFontOfSize:13];
@@ -89,7 +90,7 @@
 {
     _model = model;
     _titleLabel.text = [model title];
-    
+    _detailLabel.text = [model detail];
 }
 
 -(void) actionMoreInfo

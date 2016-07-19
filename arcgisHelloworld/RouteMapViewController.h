@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InfoAGSMapView.h"
 
-@interface RouteMapViewController : UIViewController
+@interface RouteMapViewController : SupportRotationSelectBaseViewController
 
+@property (nonatomic,weak) InfoAGSMapView* mapView;
 @end

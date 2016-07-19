@@ -44,8 +44,11 @@
     frame.size.height = infoView.frame.size.height;
     _infoView.frame = frame;
     
-    _infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
     [self addSubview:_infoView];
+    
+    [self bringSubviewToFront:_infoView];
 }
 
 -(void) showInfoView:(BOOL)animated

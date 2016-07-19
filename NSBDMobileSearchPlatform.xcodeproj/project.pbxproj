@@ -45,7 +45,6 @@
 		A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
 		A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599441D3CEC770050AC88 /* CenterSwitchView.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
-		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
 		A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
 		A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378821D365DC100A7342D /* AFSecurityPolicy.m */; };
@@ -137,8 +136,6 @@
 		A48599441D3CEC770050AC88 /* CenterSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterSwitchView.m; path = functions/Util/View/CenterSwitchView.m; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
-		A4958FA61D0EFA38001FCE6F /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
-		A4958FA71D0EFA38001FCE6F /* RouteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteManager.m; sourceTree = "<group>"; };
 		A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = functions/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = functions/AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A4A3787E1D365DC100A7342D /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = functions/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
@@ -372,8 +369,6 @@
 		A4958FA51D0EFA10001FCE6F /* manager */ = {
 			isa = PBXGroup;
 			children = (
-				A4958FA61D0EFA38001FCE6F /* RouteManager.h */,
-				A4958FA71D0EFA38001FCE6F /* RouteManager.m */,
 				A485993F1D3BB52B0050AC88 /* MapViewManager.h */,
 				A48599401D3BB52B0050AC88 /* MapViewManager.m */,
 			);
@@ -582,7 +577,6 @@
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
-				A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,

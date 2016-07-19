@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+LaunchInits.h"
+#import "MapViewManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self setupArcgis];
+    [MapViewManager sharedMapView];
     [NSThread sleepForTimeInterval:1.5];
     return YES;
 }

@@ -10,7 +10,6 @@
 #import "MapViewController+Action.h"
 
 #import <objc/runtime.h>
-#import "RouteManager.h"
 #import "DetailInfoViewController.h"
 #import "ItemCallOutView.h"
 #import "CallOutItem.h"
@@ -109,7 +108,7 @@
                                    
                                                                        toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
     
-    [[RouteManager sharedInstance] setPoint:CGPointMake(point.x, point.y)];
+
     [self.tabBarController setSelectedIndex:1];
 }
 
@@ -117,8 +116,6 @@
 {
    // [self.view]
     //[self.view addSubview:[self pickPointView]];
-    
-    
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
     btn.backgroundColor = [UIColor blueColor];
@@ -137,7 +134,7 @@
     UIButton *btnNavi = [[UIButton alloc] initWithFrame:CGRectMake(20, 80, 40, 40)];
     btnNavi.backgroundColor = [UIColor greenColor];
     [btnNavi setTitle:@"导航" forState:UIControlStateNormal];
-    [btnNavi addTarget:self action:@selector(navi) forControlEvents:UIControlEventTouchUpInside];
+    [btnNavi addTarget:self action:@selector(actionNavi) forControlEvents:UIControlEventTouchUpInside];
     btnNavi.layer.cornerRadius = 20;
     [self.view addSubview:btnNavi];
     
@@ -314,11 +311,12 @@
             if (!name)
                 continue;
             
-            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-            self.mapView.callout.customView = calloutView;
+            ItemCallOutView *calloutView = [[ItemCallOutView alloc] init];
+            self.mapView.infoView = calloutView;
 
             CallOutItem *item = [[CallOutItem alloc] init];
             item.title = name;
+            item.detail = @"detail Info";
             item.moreInfo = [[((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes] copy];
             calloutView.model = (id<ItemCallOutViewModel>)item;
             
@@ -330,7 +328,7 @@
 
             
             //show callout
-            [self.mapView.callout showCalloutAtPoint:self.mappoint forFeature:((AGSIdentifyResult*)[results objectAtIndex:0]).feature layer:((AGSIdentifyResult*)[results objectAtIndex:0]).feature.layer animated:YES];
+            [self.mapView showInfoView:YES];
             return;
         }
     }

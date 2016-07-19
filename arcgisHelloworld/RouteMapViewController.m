@@ -9,5 +9,9 @@
 #import "RouteMapViewController.h"
 
 @implementation RouteMapViewController
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
 @end

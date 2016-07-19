@@ -12,6 +12,7 @@
 @interface CallOutItem<ItemCallOutViewModel> : NSObject
 
 @property (nonatomic,strong) NSString *title;
+@property (nonatomic,strong) NSString *detail;
 @property (nonatomic,strong) NSString *infoImageURL;
 
 @property (nonatomic,strong) NSString *webSiteImageURL;
