@@ -43,6 +43,7 @@
 		A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599381D3B4C840050AC88 /* SVProgressHUD.m */; };
 		A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A485993D1D3B51610050AC88 /* LoginViewController.m */; };
 		A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
+		A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599441D3CEC770050AC88 /* CenterSwitchView.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4958FA81D0EFA38001FCE6F /* RouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958FA71D0EFA38001FCE6F /* RouteManager.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
@@ -130,6 +131,8 @@
 		A485993D1D3B51610050AC88 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = functions/NSBDBusiness/LoginViewController.m; sourceTree = "<group>"; };
 		A485993F1D3BB52B0050AC88 /* MapViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewManager.h; sourceTree = "<group>"; };
 		A48599401D3BB52B0050AC88 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
+		A48599431D3CEC770050AC88 /* CenterSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterSwitchView.h; path = functions/Util/View/CenterSwitchView.h; sourceTree = "<group>"; };
+		A48599441D3CEC770050AC88 /* CenterSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterSwitchView.m; path = functions/Util/View/CenterSwitchView.m; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
 		A4958FA61D0EFA38001FCE6F /* RouteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteManager.h; sourceTree = "<group>"; };
@@ -181,6 +184,7 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A48599421D3CEC680050AC88 /* Views */,
 				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
 			);
@@ -318,6 +322,15 @@
 				A48599381D3B4C840050AC88 /* SVProgressHUD.m */,
 			);
 			name = SVProgresssHUD;
+			sourceTree = "<group>";
+		};
+		A48599421D3CEC680050AC88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A48599431D3CEC770050AC88 /* CenterSwitchView.h */,
+				A48599441D3CEC770050AC88 /* CenterSwitchView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
@@ -545,6 +558,7 @@
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
