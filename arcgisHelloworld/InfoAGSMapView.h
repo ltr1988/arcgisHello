@@ -10,6 +10,6 @@
 
 @interface InfoAGSMapView : AGSMapView
 @property (nonatomic,strong) UIView *infoView;
-
+@property (nonatomic,strong) UIView *bottomView;
 -(void) showInfoView:(BOOL)animated;
 @end

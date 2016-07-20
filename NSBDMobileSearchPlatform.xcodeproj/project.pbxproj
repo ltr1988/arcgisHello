@@ -63,6 +63,7 @@
 		B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteViewController.m */; };
 		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
+		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,8 @@
 		B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAGSMapView.m; sourceTree = "<group>"; };
 		B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
 		B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
+		B28AE86A1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+UIButtonSetEdgeInsets.h"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.h"; sourceTree = "<group>"; };
+		B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+UIButtonSetEdgeInsets.m"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +334,8 @@
 		A48599421D3CEC680050AC88 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B28AE86A1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.h */,
+				B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */,
 				A48599431D3CEC770050AC88 /* CenterSwitchView.h */,
 				A48599441D3CEC770050AC88 /* CenterSwitchView.m */,
 			);
@@ -580,6 +585,7 @@
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
+				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,

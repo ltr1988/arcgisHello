@@ -33,6 +33,23 @@
     
 }
 
+-(void) setBottomView:(UIView *)bottomView
+{
+    if (_bottomView && (_infoView!= bottomView)) {
+        [_bottomView removeFromSuperview];
+    }
+    _bottomView = bottomView;
+    CGRect frame = self.bounds;
+    frame.origin.y = self.bounds.size.height - bottomView.frame.size.height;
+    frame.size.height = bottomView.frame.size.height;
+    _bottomView.frame = frame;
+    
+    _bottomView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
+    [self addSubview:_bottomView];
+
+}
+
 -(void) setInfoView:(UIView *)infoView
 {
     if (_infoView && (_infoView!= infoView)) {

@@ -15,6 +15,7 @@
 #import "CallOutItem.h"
 #import "CommonDefine.h"
 #import "AppDelegate.h"
+#import "UIButton+UIButtonSetEdgeInsets.h"
 #import "MapViewManager.h"
 
 
@@ -47,6 +48,7 @@
     self.mapView.touchDelegate = self;
     self.mapView.callout.delegate = self;
     self.mapView.layerDelegate = self;
+    self.mapView.bottomView = [self bottomView];
 }
 
 -(void) viewWillDisappear:(BOOL)animated
@@ -55,6 +57,8 @@
     self.mapView.touchDelegate = nil;
     self.mapView.callout.delegate = nil;
     self.mapView.layerDelegate = nil;
+    self.mapView.bottomView = nil;
+    self.mapView.infoView = nil;
     self.mapView = nil;
 }
 
@@ -149,9 +153,13 @@
     alart.alertViewStyle = UIAlertViewStylePlainTextInput;
     alart.delegate = self;
     
+}
+
+-(UIView *) bottomView
+{
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-80, kScreenWidth, 80)];
     bottomView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:bottomView];
+    
     
     UIButton *btn1,*btn2,*btn3,*btn4;
     
@@ -159,46 +167,43 @@
     float x = 0;
     
     btn1 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
-    btn1.backgroundColor = [UIColor greenColor];
-    btn1.layer.borderColor = [UIColor whiteColor].CGColor;
-    btn1.layer.borderWidth = 0.5;
-    btn1.layer.cornerRadius = 20;
+    btn1.backgroundColor = [UIColor whiteColor];
     [btn1 addTarget:self action:@selector(actionSearchUpload) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setTitle:@"巡查填报" forState:UIControlStateNormal];
     
+    [btn1 verticalCenterImageAndTitle];
+    
     x = CGRectGetMaxX(btn1.frame);
     btn2 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
-    btn2.backgroundColor = [UIColor redColor];
-    btn2.layer.borderColor = [UIColor whiteColor].CGColor;
-    btn2.layer.borderWidth = 0.5;
-    btn2.layer.cornerRadius = 20;
+    btn2.backgroundColor = [UIColor whiteColor];
     [btn2 addTarget:self action:@selector(actionEventUpload) forControlEvents:UIControlEventTouchUpInside];
     [btn2 setTitle:@"事件上报" forState:UIControlStateNormal];
     
     x = CGRectGetMaxX(btn2.frame);
     btn3 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
-    btn3.backgroundColor = [UIColor purpleColor];
-    btn3.layer.borderColor = [UIColor whiteColor].CGColor;
-    btn3.layer.borderWidth = 0.5;
-    btn3.layer.cornerRadius = 20;
+    btn3.backgroundColor = [UIColor whiteColor];
     [btn3 addTarget:self action:@selector(actionQRCodeSwipe) forControlEvents:UIControlEventTouchUpInside];
     [btn3 setTitle:@"扫一扫" forState:UIControlStateNormal];
     
     x = CGRectGetMaxX(btn3.frame);
     btn4 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
-    btn4.backgroundColor = [UIColor lightGrayColor];
-    btn4.layer.borderColor = [UIColor whiteColor].CGColor;
-    btn4.layer.borderWidth = 0.5;
-    btn4.layer.cornerRadius = 20;
+    btn4.backgroundColor = [UIColor whiteColor];
     [btn4 addTarget:self action:@selector(actionQRCodeMyWork) forControlEvents:UIControlEventTouchUpInside];
     [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
     
-    [bottomView addSubview:btn1];
     
+    [btn1 verticalCenterImageAndTitle];
+    
+    [btn2 verticalCenterImageAndTitle];
+    [btn3 verticalCenterImageAndTitle];
+    [btn4 verticalCenterImageAndTitle];
+    
+    [bottomView addSubview:btn1];
     [bottomView addSubview:btn2];
     [bottomView addSubview:btn3];
     [bottomView addSubview:btn4];
-    
+
+    return bottomView;
 }
 
 -(void) addSymbol
