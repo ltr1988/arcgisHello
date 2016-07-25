@@ -48,4 +48,19 @@ objc_setAssociatedObject(self, &(kProperty##PROPERTY_NAME), PROPERTY_NAME, OBJC_
 } \
 
 
+
+
+//Font
+#define UI_FONT(size) [UIFont systemFontOfSize:size]
+#define UI_BOLD_FONT(size) [UIFont boldSystemFontOfSize:size]
+
+//Color
+#define UI_COLOR(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define UI_COLOR_A(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define UI_COLOR_HEX(hex) [UIColor colorWithRed:((hex & 0xFF0000) >> 16)/255.0f green:((hex & 0x00FF00) >> 8)/255.0f blue:(hex & 0x0000FF)/255.0f alpha:1]
+#define HEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:((c)&0xFF)/255.0  alpha:((c>>24)&0xFF)/255.0]
+
+#define UIImageViewDefaultColor UI_COLOR(0xf2, 0xf2, 0xf2)
+
+
 #endif /* CommonDefine_h */
