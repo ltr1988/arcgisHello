@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 @interface TitleOnlyCell()
--(void) bindData:(id) data;
+
 @end
 
 @implementation TitleOnlyCell

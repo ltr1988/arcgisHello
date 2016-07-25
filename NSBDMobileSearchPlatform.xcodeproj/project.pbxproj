@@ -60,6 +60,12 @@
 		A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */; };
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
+		A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7651D46495900E3C94C /* DatePickViewController.m */; };
+		A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */; };
+		A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E76B1D4650BD00E3C94C /* TitleItem.m */; };
+		A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
+		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
+		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteViewController.m */; };
 		B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286535E1D45E769002D4139 /* TitleTextInputCell.m */; };
 		B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653601D45E769002D4139 /* QRSeparatorCell.m */; };
@@ -73,7 +79,6 @@
 		B28653841D45EA03002D4139 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653771D45EA03002D4139 /* NSArray+MASAdditions.m */; };
 		B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B286537A1D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		B28653861D45EA03002D4139 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B286537C1D45EA03002D4139 /* View+MASAdditions.m */; };
-		B28653891D45F3C8002D4139 /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653881D45F3C8002D4139 /* TitleDetailCell.m */; };
 		B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538C1D45FA30002D4139 /* EventReportModel.m */; };
 		B28653901D460057002D4139 /* CheckableTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538F1D460057002D4139 /* CheckableTitleCell.m */; };
 		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
@@ -179,6 +184,18 @@
 		A4DD86971D0976B00096B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		A4DD869F1D097A9A0096B548 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A4E9E7641D46495900E3C94C /* DatePickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickViewController.h; path = functions/NSBDBusiness/DatePickViewController.h; sourceTree = "<group>"; };
+		A4E9E7651D46495900E3C94C /* DatePickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickViewController.m; path = functions/NSBDBusiness/DatePickViewController.m; sourceTree = "<group>"; };
+		A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+BackButtonHandler.h"; path = "functions/Util/UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+BackButtonHandler.m"; path = "functions/Util/UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		A4E9E76A1D4650BD00E3C94C /* TitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleItem.h; path = functions/NSBDBusiness/Model/TitleItem.h; sourceTree = "<group>"; };
+		A4E9E76B1D4650BD00E3C94C /* TitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleItem.m; path = functions/NSBDBusiness/Model/TitleItem.m; sourceTree = "<group>"; };
+		A4E9E7701D46511C00E3C94C /* CheckableTitleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckableTitleItem.h; path = functions/NSBDBusiness/Model/CheckableTitleItem.h; sourceTree = "<group>"; };
+		A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckableTitleItem.m; path = functions/NSBDBusiness/Model/CheckableTitleItem.m; sourceTree = "<group>"; };
+		A4E9E7781D46640000E3C94C /* TitleDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailItem.h; path = functions/NSBDBusiness/Model/TitleDetailItem.h; sourceTree = "<group>"; };
+		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
+		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
+		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
 		B21163E61D0FB03A003F90A6 /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteViewController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteViewController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -211,8 +228,6 @@
 		B286537B1D45EA03002D4139 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "functions/Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		B286537C1D45EA03002D4139 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "functions/Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		B286537D1D45EA03002D4139 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "functions/Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		B28653871D45F3C8002D4139 /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleDetailCell.h; sourceTree = "<group>"; };
-		B28653881D45F3C8002D4139 /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleDetailCell.m; sourceTree = "<group>"; };
 		B286538B1D45FA30002D4139 /* EventReportModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventReportModel.h; path = functions/NSBDBusiness/Model/EventReportModel.h; sourceTree = "<group>"; };
 		B286538C1D45FA30002D4139 /* EventReportModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReportModel.m; path = functions/NSBDBusiness/Model/EventReportModel.m; sourceTree = "<group>"; };
 		B286538E1D460057002D4139 /* CheckableTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckableTitleCell.h; path = functions/NSBDBusiness/Views/CheckableTitleCell.h; sourceTree = "<group>"; };
@@ -240,6 +255,8 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */,
+				A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */,
 				A48599421D3CEC680050AC88 /* Views */,
 				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
@@ -325,6 +342,8 @@
 				A414ACC81D3B20970065AAA7 /* WebViewController.m */,
 				A485993C1D3B51610050AC88 /* LoginViewController.h */,
 				A485993D1D3B51610050AC88 /* LoginViewController.m */,
+				A4E9E7641D46495900E3C94C /* DatePickViewController.h */,
+				A4E9E7651D46495900E3C94C /* DatePickViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -547,8 +566,14 @@
 		B286538A1D45FA02002D4139 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E7781D46640000E3C94C /* TitleDetailItem.h */,
+				A4E9E7791D46640000E3C94C /* TitleDetailItem.m */,
 				B286538B1D45FA30002D4139 /* EventReportModel.h */,
 				B286538C1D45FA30002D4139 /* EventReportModel.m */,
+				A4E9E76A1D4650BD00E3C94C /* TitleItem.h */,
+				A4E9E76B1D4650BD00E3C94C /* TitleItem.m */,
+				A4E9E7701D46511C00E3C94C /* CheckableTitleItem.h */,
+				A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -556,14 +581,14 @@
 		B28AE8591D3DCEDE00ABDB28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */,
+				A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */,
 				B286535D1D45E769002D4139 /* TitleTextInputCell.h */,
 				B286535E1D45E769002D4139 /* TitleTextInputCell.m */,
 				B286535F1D45E769002D4139 /* QRSeparatorCell.h */,
 				B28653601D45E769002D4139 /* QRSeparatorCell.m */,
 				B28653631D45E851002D4139 /* TitleOnlyCell.h */,
 				B28653641D45E851002D4139 /* TitleOnlyCell.m */,
-				B28653871D45F3C8002D4139 /* TitleDetailCell.h */,
-				B28653881D45F3C8002D4139 /* TitleDetailCell.m */,
 				B286538E1D460057002D4139 /* CheckableTitleCell.h */,
 				B286538F1D460057002D4139 /* CheckableTitleCell.m */,
 			);
@@ -653,12 +678,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
+				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
 				B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */,
 				B286537F1D45EA03002D4139 /* MASConstraint.m in Sources */,
 				B28653821D45EA03002D4139 /* MASViewAttribute.m in Sources */,
@@ -667,6 +694,7 @@
 				B28653801D45EA03002D4139 /* MASConstraintMaker.m in Sources */,
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
+				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
@@ -675,6 +703,7 @@
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
@@ -684,16 +713,17 @@
 				A414ACC51D3A1D890065AAA7 /* ELCImagePickerController.m in Sources */,
 				B28653861D45EA03002D4139 /* View+MASAdditions.m in Sources */,
 				B28653841D45EA03002D4139 /* NSArray+MASAdditions.m in Sources */,
+				A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
-				B28653891D45F3C8002D4139 /* TitleDetailCell.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,

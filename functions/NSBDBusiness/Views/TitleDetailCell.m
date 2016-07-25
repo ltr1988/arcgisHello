@@ -35,6 +35,7 @@
 
 -(void) bindData:(id) data
 {
+    [super bindData:data];
     id<TitleDetailCellViewModel> item = (id<TitleDetailCellViewModel>)data;
     detail.text = [item detail];
 }

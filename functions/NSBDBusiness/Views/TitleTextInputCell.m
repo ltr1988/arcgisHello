@@ -19,7 +19,6 @@
     textField = [UITextField new];
     textField.textAlignment = NSTextAlignmentRight;
     textField.font = UI_FONT(13);
-    textField.placeholder = @"";
     textField.textColor = [UIColor blackColor];
     
     [textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -37,8 +36,11 @@
     return textField.text;
 }
 
--(void)bindData:(id<TitleOnlyCellViewModel>)data
+-(void) bindData:(id) data
 {
-    
+    [super bindData:data];
+    id<TitleTextInputCellViewModel> item = (id<TitleTextInputCellViewModel>)data;
+    textField.text = [item detail];
+    textField.placeholder = [item placeholder];
 }
 @end

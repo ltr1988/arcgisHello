@@ -8,15 +8,21 @@
 
 #import "EventReportViewController.h"
 #import "UIDownPicker.h"
+#import "EventReportModel.h"
+#import "TitleTextInputCell.h"
+#import "TitleDetailCell.h"
+#import "CheckableTitleCell.h"
+#import "QRSeparatorCell.h"
 
-@interface EventReportViewController()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *tf_eventName;
-@property (weak, nonatomic) IBOutlet UIDownPicker *dp_EventType;
+#import "CheckableTitleItem.h"
+#import "TitleDetailItem.h"
+#import "TitleItem.h"
 
-
-@property (weak, nonatomic) IBOutlet UITextField *tf_date;
-
-@property (strong, nonatomic) UIDatePicker *datePicker;
+@interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
+{
+    UITableView *eventTableView;
+    EventReportModel *model;
+}
 @end
 
 @implementation EventReportViewController
@@ -26,51 +32,99 @@
 {
     [super viewDidLoad];
     [self setupSubViews];
+    [self addObservers];
+    [self setupModel];
+    
+}
+-(void) setupModel
+{
+    model = [EventReportModel new];
+    model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
+    model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
+    model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
+    model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
+    model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
+    
+    
+    model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
+    model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
+    
+    model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
+    model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+    model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
+    model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+}
+-(void) addObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyDatePicker:) name:@"DatePickerNotification" object:nil];
+}
+
+-(void) notifyDatePicker:(NSNotification *)noti
+{
+    NSDate * date = (NSDate *)[noti userInfo][@"date"];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *str=[outputFormatter stringFromDate:date];
+    TitleDetailCell *cell = [eventTableView dequeueReusableCellWithIdentifier:@"datePickerCell"];
+    if (cell) {
+        [cell.data setValue:str forKey:@"_detail"];
+    }
 }
 
 -(void) setupSubViews
 {
+    self.title = @"突发事件上报";
     
-    _tf_date.delegate = self;
-    _dp_EventType.DownPicker = [[DownPicker alloc] initWithTextField:_dp_EventType withData:@[@"choice1",@"choice2"]];
+    eventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    eventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    _datePicker=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 162)];
-    _datePicker.datePickerMode=UIDatePickerModeDate;
-    _datePicker.date=[NSDate date];
+    eventTableView.backgroundColor = [UIColor whiteColor];
+    eventTableView.delegate = self;
+    eventTableView.dataSource = self;
     
-    [self.datePicker addTarget:self action:@selector(selectDate:) forControlEvents:UIControlEventValueChanged];
 }
 
--(void)selectDate:(id)sender
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
-    NSString *str=[outputFormatter stringFromDate:self.datePicker.date];
-    self.tf_date.text=str;
-    
-    NSLog(@"%@",self.datePicker.date);
-    NSLog(@"%@",str);
-}
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    if (textField==self.tf_date) {
-        
-        self.tf_date.inputView=self.datePicker;
-        
-    }
-    
-    return YES;
+    return 65;
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    if (textField==self.tf_date) {
-        
-        self.tf_date.inputView=nil;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return 17;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0:
+        {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventNameCell"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"eventNameCell"];
+            }
+            cell.data = model.eventName;
+            return cell;
+        }
+        case 1:
+        {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventNameCell"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"eventNameCell"];
+            }
+            cell.data = model.eventName;
+            return cell;
+        }
+        default:
+            break;
     }
-    
-    return YES;
+    return [UITableViewCell new];
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 @end

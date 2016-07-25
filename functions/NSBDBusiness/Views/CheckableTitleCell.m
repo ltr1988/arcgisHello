@@ -31,6 +31,7 @@
 
 -(void) bindData:(id) data
 {
+    [super bindData:data];
     id<CheckableTitleCellViewModel> item = (id<CheckableTitleCellViewModel>)data;
     checkImgView.hidden = ![item checked];
 }

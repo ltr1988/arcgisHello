@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TitleOnlyCell.h"
+#import "TitleDetailCell.h"
+
+
+@protocol TitleTextInputCellViewModel <TitleDetailCellViewModel>
+
+-(NSString *) placeholder;
+@end
 
 @interface TitleTextInputCell : TitleOnlyCell
 {

@@ -25,7 +25,7 @@
 
 -(void) setupSubViews;
 -(void) setData:(id)data;
-
+-(void) bindData:(id) data;
 
 
 @end
