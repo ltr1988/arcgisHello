@@ -16,31 +16,37 @@
 {
     __weak UIView *weakView = self.contentView;
     
-    textField = [UITextField new];
-    textField.textAlignment = NSTextAlignmentRight;
-    textField.font = UI_FONT(13);
-    textField.textColor = [UIColor blackColor];
+    inputTextField = [UITextField new];
+    inputTextField.textAlignment = NSTextAlignmentRight;
+    inputTextField.font = UI_FONT(13);
+    inputTextField.textColor = [UIColor blackColor];
+    inputTextField.delegate = self;
     
-    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom);
         make.right.mas_equalTo(weakView.mas_right).with.offset(-16);
         make.left.mas_equalTo(label.mas_right).with.offset(16);
     }];
     
-    [weakView addSubview:textField];
+    [weakView addSubview:inputTextField];
 }
 
--(NSString *) textForInput
-{
-    return textField.text;
-}
 
 -(void) bindData:(id) data
 {
     [super bindData:data];
     id<TitleTextInputCellViewModel> item = (id<TitleTextInputCellViewModel>)data;
-    textField.text = [item detail];
-    textField.placeholder = [item placeholder];
+    inputTextField.text = [item detail];
+    inputTextField.placeholder = [item placeholder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (_data) {
+        [_data setValue:textField.text forKey:@"_detail"];
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 @end

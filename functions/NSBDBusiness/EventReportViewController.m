@@ -13,6 +13,8 @@
 #import "TitleDetailCell.h"
 #import "CheckableTitleCell.h"
 #import "QRSeparatorCell.h"
+#import "EventMediaPickerView.h"
+#import "EventLocationPickerView.h"
 
 #import "CheckableTitleItem.h"
 #import "TitleDetailItem.h"
@@ -21,6 +23,8 @@
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *eventTableView;
+    EventMediaPickerView *mPicker;
+    EventLocationPickerView *lPicker;
     EventReportModel *model;
 }
 @end
@@ -99,20 +103,134 @@
     switch (indexPath.row) {
         case 0:
         {
-            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventNameCell"];
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
             if (!cell) {
-                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"eventNameCell"];
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
             cell.data = model.eventName;
             return cell;
         }
         case 1:
         {
-            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventNameCell"];
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
-                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"eventNameCell"];
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
-            cell.data = model.eventName;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventType;
+            return cell;
+        }
+        case 2:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventXingzhi;
+            return cell;
+        }
+        case 3:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.level;
+            return cell;
+        }
+        case 4:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.reason;
+            return cell;
+        }
+        case 5:
+        case 9:
+        case 14:
+        {
+            QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
+            if (!cell) {
+                cell = [[QRSeparatorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"separatorCell"];
+            }
+            return cell;
+        }
+        case 6:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventDate;
+            return cell;
+        }
+        case 7:
+        {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
+            }
+            cell.data = model.place;
+            return cell;
+        }
+        case 8:
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventLocationPickerCell"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventLocationPickerCell"];
+            }
+            return cell;
+        }
+        case 10:
+        {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
+            }
+            cell.data = model.department;
+            return cell;
+        }
+        case 11:
+        {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
+            }
+            cell.data = model.reporter;
+            return cell;
+        }
+        case 12:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventStatus;
+            return cell;
+        }
+        case 13:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventPreprocess;
+            return cell;
+        }
+        case 15:
+        {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventMediaPickerCell"];
+            if (!cell) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
+            }
             return cell;
         }
         default:

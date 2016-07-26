@@ -16,10 +16,9 @@
 -(NSString *) placeholder;
 @end
 
-@interface TitleTextInputCell : TitleOnlyCell
+@interface TitleTextInputCell : TitleOnlyCell<UITextFieldDelegate>
 {
-    UITextField *textField;
+    UITextField *inputTextField;
 }
 
--(NSString *) textForInput;
 @end

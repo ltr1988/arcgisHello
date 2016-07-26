@@ -47,8 +47,8 @@ return ( PROPERTY_TYPE ) objc_getAssociatedObject(self, &(kProperty##PROPERTY_NA
 objc_setAssociatedObject(self, &(kProperty##PROPERTY_NAME), PROPERTY_NAME, OBJC_ASSOCIATION_COPY_NONATOMIC); \
 } \
 
-
-
+//block
+typedef void (^ActionCallback)();
 
 //Font
 #define UI_FONT(size) [UIFont systemFontOfSize:size]

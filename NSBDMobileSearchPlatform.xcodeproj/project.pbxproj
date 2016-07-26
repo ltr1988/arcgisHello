@@ -81,6 +81,8 @@
 		B28653861D45EA03002D4139 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B286537C1D45EA03002D4139 /* View+MASAdditions.m */; };
 		B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538C1D45FA30002D4139 /* EventReportModel.m */; };
 		B28653901D460057002D4139 /* CheckableTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538F1D460057002D4139 /* CheckableTitleCell.m */; };
+		B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B286539E1D46FB55002D4139 /* EventLocationPickerView.m */; };
+		B28653A21D46FB73002D4139 /* EventMediaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653A11D46FB73002D4139 /* EventMediaPickerView.m */; };
 		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
@@ -232,6 +234,10 @@
 		B286538C1D45FA30002D4139 /* EventReportModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReportModel.m; path = functions/NSBDBusiness/Model/EventReportModel.m; sourceTree = "<group>"; };
 		B286538E1D460057002D4139 /* CheckableTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckableTitleCell.h; path = functions/NSBDBusiness/Views/CheckableTitleCell.h; sourceTree = "<group>"; };
 		B286538F1D460057002D4139 /* CheckableTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckableTitleCell.m; path = functions/NSBDBusiness/Views/CheckableTitleCell.m; sourceTree = "<group>"; };
+		B286539D1D46FB55002D4139 /* EventLocationPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventLocationPickerView.h; path = functions/NSBDBusiness/Views/EventLocationPickerView.h; sourceTree = "<group>"; };
+		B286539E1D46FB55002D4139 /* EventLocationPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventLocationPickerView.m; path = functions/NSBDBusiness/Views/EventLocationPickerView.m; sourceTree = "<group>"; };
+		B28653A01D46FB73002D4139 /* EventMediaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventMediaPickerView.h; path = functions/NSBDBusiness/Views/EventMediaPickerView.h; sourceTree = "<group>"; };
+		B28653A11D46FB73002D4139 /* EventMediaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventMediaPickerView.m; path = functions/NSBDBusiness/Views/EventMediaPickerView.m; sourceTree = "<group>"; };
 		B28AE85A1D3DD2C100ABDB28 /* InfoAGSMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAGSMapView.h; sourceTree = "<group>"; };
 		B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAGSMapView.m; sourceTree = "<group>"; };
 		B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
@@ -591,6 +597,10 @@
 				B28653641D45E851002D4139 /* TitleOnlyCell.m */,
 				B286538E1D460057002D4139 /* CheckableTitleCell.h */,
 				B286538F1D460057002D4139 /* CheckableTitleCell.m */,
+				B286539D1D46FB55002D4139 /* EventLocationPickerView.h */,
+				B286539E1D46FB55002D4139 /* EventLocationPickerView.m */,
+				B28653A01D46FB73002D4139 /* EventMediaPickerView.h */,
+				B28653A11D46FB73002D4139 /* EventMediaPickerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -731,10 +741,12 @@
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
+				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 				B28653901D460057002D4139 /* CheckableTitleCell.m in Sources */,
+				B28653A21D46FB73002D4139 /* EventMediaPickerView.m in Sources */,
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
@@ -800,7 +812,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -837,7 +849,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
