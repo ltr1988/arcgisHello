@@ -36,14 +36,21 @@
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentLeft;
     
+    
+    
+    UIView *line = [UIView new];
+    line.backgroundColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    
+    [weakView addSubview:label];
+    [weakView addSubview:line];
+    
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom);
         make.left.mas_equalTo(weakView.mas_left).with.offset(16);
     }];
+
     
-    UIView *line = [UIView new];
-    line.backgroundColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_bottom).with.offset(-0.5);
         make.bottom.mas_equalTo(weakView.mas_bottom);
@@ -51,8 +58,7 @@
         make.right.mas_equalTo(weakView.mas_right);
     }];
     
-    [weakView addSubview:label];
-    [weakView addSubview:line];
+    
 }
 
 -(void) setData:(id) data

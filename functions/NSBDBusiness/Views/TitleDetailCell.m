@@ -24,6 +24,8 @@
     detail.backgroundColor = [UIColor clearColor];
     detail.textAlignment = NSTextAlignmentRight;
     
+    [weakView addSubview:detail];
+    
     [detail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom);

@@ -18,7 +18,7 @@
     __weak UIView *weakView = self.contentView;
     
     checkImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedPushpin"]];
-    
+    [weakView addSubview:checkImgView];
     
     [checkImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);

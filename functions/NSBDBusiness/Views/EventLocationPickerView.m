@@ -27,8 +27,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        CGRect bound = CGRectMake(0, 0, frame.size.width, 80);
-        self.bounds = bound;
         self.location = CGPointMake(0, 0);
         self.callback = callback;
     }
@@ -42,6 +40,12 @@
     title = [UILabel new];
     myLocationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     locateInMapBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    
+    [self addSubview:title];
+    [self addSubview:myLocationBtn];
+    [self addSubview:locateInMapBtn];
+    
     
     title.font = UI_FONT(13);
     title.textAlignment = NSTextAlignmentLeft;
@@ -74,9 +78,6 @@
         make.height.mas_equalTo(60);
     }];
     
-    [self addSubview:title];
-    [self addSubview:myLocationBtn];
-    [self addSubview:locateInMapBtn];
     
     [myLocationBtn addTarget:self action:@selector(actionMyLocation) forControlEvents:UIControlEventTouchUpInside];
     

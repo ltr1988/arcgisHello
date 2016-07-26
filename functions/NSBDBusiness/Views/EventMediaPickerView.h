@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefine.h"
 
 @interface EventMediaPickerView : UIView
-
+-(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback)callback;
 @end
