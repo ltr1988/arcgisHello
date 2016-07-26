@@ -54,7 +54,7 @@
         return;
     }
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, .5f);
+    CGContextSetLineWidth(context, 1);
     CGContextSetStrokeColorWithColor(context, [self.borderColor CGColor]);
 
     if (_topBorder) {

@@ -14,13 +14,16 @@
 
 -(void) setupSubViews
 {
+    [super setupSubViews];
     __weak UIView *weakView = self.contentView;
     
     inputTextField = [UITextField new];
     inputTextField.textAlignment = NSTextAlignmentRight;
-    inputTextField.font = UI_FONT(13);
+    inputTextField.font = UI_FONT(16);
     inputTextField.textColor = [UIColor blackColor];
     inputTextField.delegate = self;
+    
+    [weakView addSubview:inputTextField];
     
     [inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
@@ -29,7 +32,7 @@
         make.left.mas_equalTo(label.mas_right).with.offset(16);
     }];
     
-    [weakView addSubview:inputTextField];
+    
 }
 
 

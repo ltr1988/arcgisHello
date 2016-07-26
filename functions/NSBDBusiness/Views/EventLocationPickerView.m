@@ -47,13 +47,13 @@
     [self addSubview:locateInMapBtn];
     
     
-    title.font = UI_FONT(13);
+    title.font = UI_FONT(16);
     title.textAlignment = NSTextAlignmentLeft;
     title.textColor = [UIColor blackColor];
     
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).with.offset(10);
-        make.height.mas_equalTo(13);
+        make.height.mas_equalTo(16);
         make.left.mas_equalTo(weakSelf.mas_left).with.offset(16);
         make.width.mas_equalTo(60);
     }];

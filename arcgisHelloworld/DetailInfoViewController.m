@@ -9,7 +9,7 @@
 #import "DetailInfoViewController.h"
 
 
-@interface DetailInfoViewController()
+@interface DetailInfoViewController()<CenterSwitchActionDelegate>
 {
     NSMutableDictionary *detailData;
     NSArray *dataList;
@@ -47,10 +47,19 @@
     tableView.dataSource = self;
     
     CenterSwitchView *view = [[CenterSwitchView alloc] initWithFrame:CGRectMake(0, 0, CenetrSwitchWidth, CenetrSwitchHeight) andTitleArray:@[@"设施信息",@"设备列表"] andDelegate:self andSelectIndex:0];
-    
+    view.delegate = self;
     [self.view addSubview:tableView];
     
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self navigationItem].titleView = view;
+    
     [self requestDataList];
+}
+
+- (void)centerSwitchToIndex:(NSUInteger)index
+{
+    NSLog([NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
 }
 
 -(void)requestDataList

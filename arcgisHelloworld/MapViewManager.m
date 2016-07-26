@@ -10,7 +10,7 @@
 #import "CommonDefine.h"
 
 @implementation MapViewManager
-static AGSMapView *mapView;
+static InfoAGSMapView *mapView;
 static NSString *ip;
 +(InfoAGSMapView *) sharedMapView
 {
@@ -42,6 +42,8 @@ static NSString *ip;
         [mapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
         [mapView addMapLayer:wmsLayer withName:@"WMS Layer"];
         [mapView addMapLayer:glayer withName:@"Graphics Layer"];
+        
+        mapView.backgroundColor = [UIColor lightGrayColor];
 
     });
     return mapView;

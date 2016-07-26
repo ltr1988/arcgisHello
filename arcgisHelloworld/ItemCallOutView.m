@@ -8,6 +8,7 @@
 
 #import "ItemCallOutView.h"
 #import "CommonDefine.h"
+#import "Masonry.h"
 
 @interface ItemCallOutView()
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -24,7 +25,6 @@
     if (self) {
         [self setupSubViews];
     }
-    self.bounds = CGRectMake(0, 0, 100, 70);
     return self;
 }
 
@@ -33,43 +33,43 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubViews];
-            }
-    self.bounds = CGRectMake(0, 0, 100, 70);
+    }
     return self;
 }
 
 -(void) setupSubViews
 {
-    CGFloat height = 30,y = 0;
-    
     self. backgroundColor = [UIColor whiteColor];
     
     _titleLabel = [UILabel new];
-    _titleLabel.frame = CGRectMake(10, y, 90, height);
-    _titleLabel.font = [UIFont systemFontOfSize:13];
+    _titleLabel.font = [UIFont systemFontOfSize:20];
 
     _detailLabel = [UILabel new];
-    _detailLabel.frame = CGRectMake(10+90, y, 90, height);
-    _detailLabel.font = [UIFont systemFontOfSize:10];
+    _detailLabel.font = [UIFont systemFontOfSize:12];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 20, height)];
-    imgView.backgroundColor = [UIColor redColor];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedPushpin"]];
+    imgView.backgroundColor = [UIColor clearColor];
     
     UIView *lineVertical,*line;
-    line = [[UIView alloc] initWithFrame:CGRectMake(10, height +10, kScreenWidth - 10, 0.5)];
+    line = [[UIView alloc] init];
     line.backgroundColor = [UIColor lightGrayColor];
     
-    lineVertical = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth/2, height +20,  0.5, height)];
-    line.backgroundColor = [UIColor lightGrayColor];
+    lineVertical = [[UIView alloc] init];
+    lineVertical.backgroundColor = [UIColor lightGrayColor];
     
     
     _infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _webSiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _infoButton.frame = CGRectMake(10, 33, 30, 30);
+    
+    [_infoButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
     _infoButton.backgroundColor = [UIColor clearColor];
+    _infoButton.titleLabel.font = UI_FONT(14);
+    [_infoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_infoButton setTitle:@"基本信息" forState:UIControlStateNormal];
     
-    _webSiteButton.frame = CGRectMake(60, 33, 30, 30);
+    [_webSiteButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [_webSiteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    _webSiteButton.titleLabel.font = UI_FONT(14);
     _webSiteButton.backgroundColor = [UIColor clearColor];
     [_webSiteButton setTitle:@"三维模型" forState:UIControlStateNormal];
     
@@ -81,9 +81,62 @@
     
     [self addSubview:_detailLabel];
     [self addSubview:_webSiteButton];
+    
+    [self addSubview:lineVertical];
+    [self addSubview:line];
 
     [_infoButton addTarget:self action:@selector(actionMoreInfo) forControlEvents:UIControlEventTouchUpInside];
     [_webSiteButton addTarget:self action:@selector(actionGotoWebsite) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    //layout
+    __weak __typeof(self) weakSelf = self;
+    [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mas_left).offset(16);
+        make.centerY.mas_equalTo(_detailLabel.mas_centerY);
+        make.width.mas_equalTo(20);
+        make.height.mas_equalTo(20);
+    }];
+    
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(imgView.mas_right).offset(8);
+        make.height.mas_equalTo(30);
+        make.top.mas_equalTo(weakSelf.mas_top);
+    }];
+    
+    [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(_titleLabel.mas_right).offset(8);
+        make.height.mas_equalTo(30);
+        make.top.mas_equalTo(weakSelf.mas_top);
+    }];
+    
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mas_left).offset(16);
+        make.right.mas_equalTo(weakSelf.mas_right).offset(-16);
+        make.height.mas_equalTo(.5f);
+        make.top.mas_equalTo(_titleLabel.mas_bottom);
+    }];
+    
+    [lineVertical mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mas_centerX);
+        make.width.mas_equalTo(1);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(8);
+        make.top.mas_equalTo(line.mas_bottom).offset(8);
+    }];
+    
+    [_infoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(weakSelf.mas_left);
+        make.right.mas_equalTo(lineVertical.mas_left);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom);
+        make.top.mas_equalTo(line.mas_bottom);
+    }];
+    
+    [_webSiteButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(weakSelf.mas_right);
+        make.left.mas_equalTo(lineVertical.mas_right);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom);
+        make.top.mas_equalTo(line.mas_bottom);
+    }];
 }
 
 -(void) setModel:(id<ItemCallOutViewModel>)model
@@ -91,6 +144,8 @@
     _model = model;
     _titleLabel.text = [model title];
     _detailLabel.text = [model detail];
+    [_titleLabel sizeToFit];
+    [_detailLabel sizeToFit];
 }
 
 -(void) actionMoreInfo

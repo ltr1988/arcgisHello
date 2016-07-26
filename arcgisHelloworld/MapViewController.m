@@ -157,7 +157,8 @@
 
 -(UIView *) bottomView
 {
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-80, kScreenWidth, 80)];
+    float height = 80;
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-height, kScreenWidth, height)];
     bottomView.backgroundColor = [UIColor clearColor];
     
     
@@ -166,31 +167,40 @@
     float width = kScreenWidth/4.0;
     float x = 0;
     
-    btn1 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn1 = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, width, height)];
     btn1.backgroundColor = [UIColor whiteColor];
+    [btn1 setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn1 addTarget:self action:@selector(actionSearchUpload) forControlEvents:UIControlEventTouchUpInside];
     [btn1 setTitle:@"巡查填报" forState:UIControlStateNormal];
-    
-    [btn1 verticalCenterImageAndTitle];
+    btn1.titleLabel.font = UI_FONT(16);
     
     x = CGRectGetMaxX(btn1.frame);
-    btn2 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn2 = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, width, height)];
     btn2.backgroundColor = [UIColor whiteColor];
+    [btn2 setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn2 addTarget:self action:@selector(actionEventUpload) forControlEvents:UIControlEventTouchUpInside];
     [btn2 setTitle:@"事件上报" forState:UIControlStateNormal];
+    btn2.titleLabel.font = UI_FONT(16);
     
     x = CGRectGetMaxX(btn2.frame);
-    btn3 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn3 = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, width, height)];
     btn3.backgroundColor = [UIColor whiteColor];
+    [btn3 setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(actionQRCodeSwipe) forControlEvents:UIControlEventTouchUpInside];
     [btn3 setTitle:@"扫一扫" forState:UIControlStateNormal];
+    btn3.titleLabel.font = UI_FONT(16);
     
     x = CGRectGetMaxX(btn3.frame);
-    btn4 = [[UIButton alloc] initWithFrame:CGRectMake(x, 20, width, 40)];
+    btn4 = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, width, height)];
     btn4.backgroundColor = [UIColor whiteColor];
+    [btn4 setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(actionQRCodeMyWork) forControlEvents:UIControlEventTouchUpInside];
     [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
-    
+    btn4.titleLabel.font = UI_FONT(16);
     
     [btn1 verticalCenterImageAndTitle];
     
@@ -316,7 +326,7 @@
             if (!name)
                 continue;
             
-            ItemCallOutView *calloutView = [[ItemCallOutView alloc] init];
+            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
             self.mapView.infoView = calloutView;
 
             CallOutItem *item = [[CallOutItem alloc] init];

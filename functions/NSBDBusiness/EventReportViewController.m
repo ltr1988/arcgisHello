@@ -85,12 +85,18 @@
     eventTableView.backgroundColor = [UIColor whiteColor];
     eventTableView.delegate = self;
     eventTableView.dataSource = self;
+    eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    [self.view addSubview:eventTableView];
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 65;
+    NSInteger row = indexPath.row;
+    if (row == 5 || row == 9 || row == 14) {
+        return 8;
+    }
+    return 55;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

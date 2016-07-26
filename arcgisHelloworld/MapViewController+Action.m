@@ -31,8 +31,7 @@
 
 -(void) actionEventUpload
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    EventReportViewController *controller = [sb instantiateViewControllerWithIdentifier:@"eventReportViewController"];
+    EventReportViewController *controller = [[EventReportViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

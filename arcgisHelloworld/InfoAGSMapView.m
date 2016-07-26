@@ -7,7 +7,7 @@
 //
 
 #import "InfoAGSMapView.h"
-
+#define ANIMATION_DURATION 1
 @implementation InfoAGSMapView
 
 #pragma mark - touch
@@ -21,7 +21,7 @@
         if (touch.view != self.infoView) {
             
             __weak __typeof(self) weakself = self;
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:ANIMATION_DURATION animations:^{
                 weakself.infoView.alpha = 0;
             } completion:^(BOOL finished) {
                 weakself.infoView.hidden = YES;
@@ -77,7 +77,7 @@
         __weak __typeof(self) weakself = self;
         
         if (animated) {
-            [UIView animateWithDuration:0.5 animations:^{
+            [UIView animateWithDuration:ANIMATION_DURATION/2.f animations:^{
                 weakself.infoView.alpha = 1;
             }];
         }

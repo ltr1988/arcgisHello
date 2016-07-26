@@ -19,7 +19,7 @@
     __weak UIView *weakView = self.contentView;
     
     detail = [UILabel new];
-    detail.font = UI_FONT(12);
+    detail.font = UI_FONT(16);
     detail.textColor = [UIColor blackColor];
     detail.backgroundColor = [UIColor clearColor];
     detail.textAlignment = NSTextAlignmentRight;

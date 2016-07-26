@@ -31,18 +31,18 @@
     __weak UIView *weakView = self.contentView;
     
     label = [UILabel new];
-    label.font = UI_FONT(13);
+    label.font = UI_FONT(16);
     label.textColor = [UIColor blackColor];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentLeft;
     
     
-    
-    UIView *line = [UIView new];
-    line.backgroundColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+//    
+//    UIView *line = [UIView new];
+//    line.backgroundColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
     [weakView addSubview:label];
-    [weakView addSubview:line];
+//    [weakView addSubview:line];
     
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
@@ -51,12 +51,12 @@
     }];
 
     
-    [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_bottom).with.offset(-0.5);
-        make.bottom.mas_equalTo(weakView.mas_bottom);
-        make.left.mas_equalTo(weakView.mas_left).with.offset(16);
-        make.right.mas_equalTo(weakView.mas_right);
-    }];
+//    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(weakView.mas_bottom);
+//        make.bottom.mas_equalTo(weakView.mas_bottom).with.offset(0.5);
+//        make.left.mas_equalTo(weakView.mas_left).with.offset(16);
+//        make.right.mas_equalTo(weakView.mas_right);
+//    }];
     
     
 }
