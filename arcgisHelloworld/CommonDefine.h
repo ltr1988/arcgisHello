@@ -32,6 +32,10 @@ block();\
 dispatch_async(dispatch_get_main_queue(), block);\
 }
 
+#define SafelyDoBlock(block)                     if (block){block();}
+#define SafelyDoBlock1(block, param)              if (block){block(param);}
+#define SafelyDoBlock2(block, param1, param2)     if (block){block(param1, param2);}
+#define SafelyDoBlock3(block, param1, param2, param3) if (block){block(param1, param2, param3);}
 
 //此宏使用的是copy，即：OBJC_ASSOCIATION_COPY_NONATOMIC
 #define ADD_DYNAMIC_PROPERTY(PROPERTY_TYPE,PROPERTY_NAME,SETTER_NAME) \

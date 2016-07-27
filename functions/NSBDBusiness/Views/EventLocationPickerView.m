@@ -9,6 +9,7 @@
 #import "EventLocationPickerView.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
+#import "MapViewManager.h"
 
 @interface EventLocationPickerView()
 {
@@ -87,13 +88,17 @@
 
 -(void) actionMyLocation
 {
-    
+    AGSLocation *location = [MapViewManager sharedMapView].locationDisplay.location;
+    if (location) {
+        title.text = [NSString stringWithFormat:@"%.2f,%.2f",location.point.y,location.point.x];
+    }
 }
 
 -(void) actionLocate
 {
-    dispatch_main_async_safe(_callback);
+    SafelyDoBlock(_callback);
 }
+
 -(void) setLocation:(CGPoint) location
 {
     _location = location;

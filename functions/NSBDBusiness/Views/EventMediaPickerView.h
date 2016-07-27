@@ -10,5 +10,6 @@
 #import "CommonDefine.h"
 
 @interface EventMediaPickerView : UIView
--(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback)callback;
+@property (nonatomic,strong) NSArray * data;
+-(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback ;
 @end
