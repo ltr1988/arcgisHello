@@ -7,6 +7,8 @@
 //
 
 #import "EventReportViewController.h"
+#import "EventReportViewController+pickMedia.h"
+
 #import "UIDownPicker.h"
 #import "EventReportModel.h"
 #import "TitleTextInputCell.h"
@@ -42,6 +44,8 @@
 }
 -(void) setupModel
 {
+    mediaList = [NSMutableArray array];
+    
     model = [EventReportModel new];
     model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
     model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
@@ -88,6 +92,16 @@
     eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     [self.view addSubview:eventTableView];
     
+    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) picCallback:^{
+        [self openPicMenu];
+    } videoCallback:^{
+        [self openVideoMenu];
+    }];
+    
+    lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) callBack:^{
+        NSLog(@"go to locate in map vc");
+    }];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,6 +109,12 @@
     NSInteger row = indexPath.row;
     if (row == 5 || row == 9 || row == 14) {
         return 8;
+    }
+    if (row == 8) { //location picker
+        return lPicker.frame.size.height;
+    }
+    if (row == 15) { //image picker
+        return mPicker.frame.size.height;
     }
     return 55;
 }
@@ -190,6 +210,7 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventLocationPickerCell"];
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventLocationPickerCell"];
+                [cell.contentView addSubview:lPicker];
             }
             return cell;
         }
@@ -236,6 +257,7 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventMediaPickerCell"];
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
+                [cell.contentView addSubview: mPicker];
             }
             return cell;
         }

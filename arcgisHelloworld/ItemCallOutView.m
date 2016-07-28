@@ -9,6 +9,7 @@
 #import "ItemCallOutView.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
+#import "UIColor+BorderColor.h"
 
 @interface ItemCallOutView()
 @property (nonatomic,strong) UILabel *titleLabel;
@@ -52,7 +53,7 @@
     
     UIView *lineVertical,*line;
     line = [[UIView alloc] init];
-    line.backgroundColor = [UIColor lightGrayColor];
+    line.backgroundColor = [UIColor borderColor];
     
     lineVertical = [[UIView alloc] init];
     lineVertical.backgroundColor = [UIColor lightGrayColor];
@@ -138,6 +139,8 @@
         make.top.mas_equalTo(line.mas_bottom);
     }];
 }
+
+
 
 -(void) setModel:(id<ItemCallOutViewModel>)model
 {

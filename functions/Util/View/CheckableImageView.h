@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefine.h"
 
+/**
+ 可删除的ImageView
+ 
+ - callback 响应事件
+ */
 @interface CheckableImageView : UIView
 
 -(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback) callback;

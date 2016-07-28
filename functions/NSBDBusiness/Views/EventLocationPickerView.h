@@ -12,6 +12,14 @@
 
 @interface EventLocationPickerView : UIView
 
+/**
+ *  initWithFrame
+ *
+ *  @param frame
+ *  @param callback callback for locate in map
+ *
+ *  @return instance type
+ */
 -(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback)callback;
 
 @property (nonatomic,assign) CGPoint location;

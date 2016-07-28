@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventReportViewController : SupportRotationSelectBaseViewController
-
+@interface EventReportViewController : SupportRotationSelectBaseViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
+{
+    //下拉菜单
+    UIActionSheet *myActionSheetPic;
+    UIActionSheet *myActionSheetVideo;
+    
+    NSMutableArray *mediaList;
+    
+}
 @end

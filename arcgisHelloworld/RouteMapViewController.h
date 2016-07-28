@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "InfoAGSMapView.h"
 
+#define LocateInMapNotifcation @"LocateInMapNotifcation"
+
 @interface RouteMapViewController : SupportRotationSelectBaseViewController
 
 @property (nonatomic,weak) InfoAGSMapView* mapView;

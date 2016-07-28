@@ -10,6 +10,8 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "UIKit+AFNetworking.h"
+#import "UIColor+BorderColor.h"
+
 
 @interface EventMediaPickerView()
 {
@@ -19,7 +21,7 @@
     UIView * picContentView;
     
     
-    NSArray *imageViews;
+    NSArray *images;
     
 }
 
@@ -43,22 +45,29 @@
 {
     pickImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pickVideoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    picContentView = [UIView new];
+    picContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
     UIView *vLine,*hLine;
     vLine = [UIView new];
     hLine = [UIView new];
     
-    [pickImageBtn setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [pickImageBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [pickImageBtn setTitle:@"照片上传" forState:UIControlStateNormal];
+    [pickImageBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [pickImageBtn addTarget:self action:@selector(pickImage) forControlEvents:UIControlEventTouchUpInside];
+    [pickImageBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -6, 0, 0)];
     
-    [pickVideoBtn setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [pickVideoBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [pickVideoBtn setTitle:@"视频上传" forState:UIControlStateNormal];
+    [pickVideoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [pickVideoBtn addTarget:self action:@selector(pickVideo) forControlEvents:UIControlEventTouchUpInside];
+    [pickVideoBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -6, 0, 0)];
     
-    vLine.backgroundColor = [UIColor lightGrayColor];
+    vLine.backgroundColor = [UIColor borderColor];
 
-    hLine.backgroundColor = [UIColor lightGrayColor];
+    hLine.backgroundColor = [UIColor borderColor];
     
     picContentView.backgroundColor = [UIColor whiteColor];
+    
     
     [self addSubview:pickImageBtn];
     [self addSubview:pickVideoBtn];
@@ -73,14 +82,14 @@
         make.top.mas_equalTo(weakSelf.mas_top);
         make.left.mas_equalTo(weakSelf.mas_left);
         make.right.mas_equalTo(vLine.mas_left);
-        make.bottom.mas_equalTo(30);
+        make.height.mas_equalTo(60);
     }];
     
     [pickVideoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top);
         make.right.mas_equalTo(weakSelf.mas_right);
         make.left.mas_equalTo(vLine.mas_right);
-        make.bottom.mas_equalTo(30);
+        make.height.mas_equalTo(60);
     }];
     
     [vLine mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,12 +110,33 @@
         make.top.mas_equalTo(hLine.mas_bottom);
         make.left.mas_equalTo(weakSelf.mas_left);
         make.right.mas_equalTo(weakSelf.mas_right);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom);
     }];
+    [self adjustFrame];
+}
+
+-(void) adjustFrame
+{
+    CGRect frame = self.frame;
+    frame.size.height = pickVideoBtn.frame.size.height + picContentView.frame.size.height;
+    self.frame =frame;
+}
+
+-(void) pickImage
+{
+    SafelyDoBlock(_picCallback);
+}
+
+-(void) pickVideo
+{
+    SafelyDoBlock(_videoCallback);
 }
 
 -(void) setData:(NSArray *)data
 {
+    picContentView.hidden = (data.count==0);
     
+    //set picContentView.frame for data counts
+    
+    [self adjustFrame];
 }
 @end

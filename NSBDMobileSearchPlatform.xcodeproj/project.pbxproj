@@ -93,6 +93,9 @@
 		B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653CC1D4863B2002D4139 /* UIRefreshControl+AFNetworking.m */; };
 		B28653D71D4863B2002D4139 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653CE1D4863B2002D4139 /* UIWebView+AFNetworking.m */; };
 		B28653DA1D488320002D4139 /* CheckableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653D91D488320002D4139 /* CheckableImageView.m */; };
+		B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */; };
+		B28653EF1D49FF54002D4139 /* UIColor+BorderColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */; };
+		B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */; };
 		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
@@ -270,6 +273,12 @@
 		B28653CE1D4863B2002D4139 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "functions/UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		B28653D81D488320002D4139 /* CheckableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckableImageView.h; path = functions/Util/View/CheckableImageView.h; sourceTree = "<group>"; };
 		B28653D91D488320002D4139 /* CheckableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckableImageView.m; path = functions/Util/View/CheckableImageView.m; sourceTree = "<group>"; };
+		B28653E51D49A3A0002D4139 /* EventReportViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "EventReportViewController+pickMedia.h"; path = "functions/NSBDBusiness/EventReportViewController+pickMedia.h"; sourceTree = "<group>"; };
+		B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "EventReportViewController+pickMedia.m"; path = "functions/NSBDBusiness/EventReportViewController+pickMedia.m"; sourceTree = "<group>"; };
+		B28653ED1D49FF54002D4139 /* UIColor+BorderColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+BorderColor.h"; path = "functions/Util/UIColor+BorderColor.h"; sourceTree = "<group>"; };
+		B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+BorderColor.m"; path = "functions/Util/UIColor+BorderColor.m"; sourceTree = "<group>"; };
+		B28653F01D4A094E002D4139 /* EventMediaCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventMediaCollectionView.h; path = functions/NSBDBusiness/Views/EventMediaCollectionView.h; sourceTree = "<group>"; };
+		B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventMediaCollectionView.m; path = functions/NSBDBusiness/Views/EventMediaCollectionView.m; sourceTree = "<group>"; };
 		B28AE85A1D3DD2C100ABDB28 /* InfoAGSMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAGSMapView.h; sourceTree = "<group>"; };
 		B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAGSMapView.m; sourceTree = "<group>"; };
 		B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMapViewController.h; sourceTree = "<group>"; };
@@ -298,6 +307,8 @@
 				A48599421D3CEC680050AC88 /* Views */,
 				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
+				B28653ED1D49FF54002D4139 /* UIColor+BorderColor.h */,
+				B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -382,6 +393,8 @@
 				A485993D1D3B51610050AC88 /* LoginViewController.m */,
 				A4E9E7641D46495900E3C94C /* DatePickViewController.h */,
 				A4E9E7651D46495900E3C94C /* DatePickViewController.m */,
+				B28653E51D49A3A0002D4139 /* EventReportViewController+pickMedia.h */,
+				B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -663,6 +676,8 @@
 				B286539E1D46FB55002D4139 /* EventLocationPickerView.m */,
 				B28653A01D46FB73002D4139 /* EventMediaPickerView.h */,
 				B28653A11D46FB73002D4139 /* EventMediaPickerView.m */,
+				B28653F01D4A094E002D4139 /* EventMediaCollectionView.h */,
+				B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -752,6 +767,7 @@
 			files = (
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
+				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
@@ -804,7 +820,9 @@
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
+				B28653EF1D49FF54002D4139 /* UIColor+BorderColor.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
+				B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
