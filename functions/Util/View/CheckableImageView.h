@@ -9,14 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "CommonDefine.h"
 
+
+@protocol ItemCallBackDelegate <NSObject>
+
+-(void) itemCalled:(_Nonnull id) sender;
+
+@end
+
 /**
  可删除的ImageView
  
  - callback 响应事件
  */
-@interface CheckableImageView : UIView
+@interface CheckableImageView : UIImageView
 
--(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback) callback;
--(void) setBackgroundImageURL:(NSURL *)imageURL;
+@property (nonatomic, weak, nullable) id <ItemCallBackDelegate> delegate;
+
 
 @end

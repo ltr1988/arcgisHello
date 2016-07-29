@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CheckableImageView.h"
 
-@interface EventMediaCollectionView : UIView
+
+@interface EventMediaCollectionView : UIView<ItemCallBackDelegate>
 {
-    NSMutableArray *picArray;
-    NSMutableArray *videoArray;
+    NSMutableArray *picArray; //image content
+    NSMutableArray *videoArray; //string content
 }
 -(void) setImages:(NSArray *)imageList;
 -(void) setVideo:(NSString *)videoPath;

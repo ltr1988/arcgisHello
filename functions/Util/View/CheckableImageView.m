@@ -10,9 +10,8 @@
 #import "Masonry.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface CheckableImageView ()
 
-@property (nonatomic,copy) ActionCallback callBack;
+@interface CheckableImageView ()
 
 @property (nonatomic,strong) UIImageView *checkView;
 @property (nonatomic,strong) UIImageView *bgView;
@@ -21,11 +20,10 @@
 @implementation CheckableImageView
 
 
--(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback) callback
+-(instancetype) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.callBack = callback;
         [self setupSubViews];
     }
     return self;
@@ -63,11 +61,9 @@
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tap{
-    SafelyDoBlock(_callBack);
+    if (_delegate) {
+        [_delegate itemCalled:self];
+    }
 }
 
--(void) setBackgroundImageURL:(NSURL *)imageURL
-{
-    [_bgView setImageWithURL:imageURL];
-}
 @end

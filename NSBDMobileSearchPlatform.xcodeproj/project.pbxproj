@@ -99,6 +99,8 @@
 		B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
+		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
+		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -285,6 +287,9 @@
 		B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMapViewController.m; sourceTree = "<group>"; };
 		B28AE86A1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+UIButtonSetEdgeInsets.h"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.h"; sourceTree = "<group>"; };
 		B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+UIButtonSetEdgeInsets.m"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.m"; sourceTree = "<group>"; };
+		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
+		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +297,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */,
 				A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +315,8 @@
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
 				B28653ED1D49FF54002D4139 /* UIColor+BorderColor.h */,
 				B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */,
+				B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */,
+				B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 		A4DD867A1D0976B00096B548 = {
 			isa = PBXGroup;
 			children = (
+				B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */,
 				A48021FF1D32210900AE2AF9 /* functions */,
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
 				A4DD86851D0976B00096B548 /* arcgis */,
@@ -786,6 +795,7 @@
 				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
 				B28653D21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
+				B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */,
 				B28653D71D4863B2002D4139 /* UIWebView+AFNetworking.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
@@ -902,7 +912,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -939,7 +949,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
