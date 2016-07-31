@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (VideoThumb)
-+(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL
++(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL;
 @end

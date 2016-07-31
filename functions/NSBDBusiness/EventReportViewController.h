@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "EventMediaPickerView.h"
+
 @interface EventReportViewController : SupportRotationSelectBaseViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 {
     //下拉菜单
@@ -15,6 +17,7 @@
     UIActionSheet *myActionSheetVideo;
     
     NSMutableArray *mediaList;
-    
+    EventMediaPickerView *mPicker;
+
 }
 @end

@@ -25,5 +25,4 @@
 
 @property (nonatomic, weak, nullable) id <ItemCallBackDelegate> delegate;
 
-
 @end

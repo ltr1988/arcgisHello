@@ -14,7 +14,6 @@
 @interface CheckableImageView ()
 
 @property (nonatomic,strong) UIImageView *checkView;
-@property (nonatomic,strong) UIImageView *bgView;
 @end
 
 @implementation CheckableImageView
@@ -25,6 +24,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubViews];
+        
+        self.userInteractionEnabled = YES;
     }
     return self;
 }
@@ -33,24 +34,14 @@
 -(void) setupSubViews
 {
     _checkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"delete"]];
-    _checkView.alpha = 0.3;
-    _bgView = [UIImageView new];
     
+    _checkView.userInteractionEnabled = YES;
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [_checkView addGestureRecognizer:tap];
     
-    [self addSubview:_bgView];
     [self addSubview:_checkView];
     
     __weak __typeof(self) weakSelf = self;
-    
-    [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.mas_top);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom);
-        make.left.mas_equalTo(weakSelf.mas_left);
-        make.right.mas_equalTo(weakSelf.mas_right);
-        
-    }];
     
     [_checkView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).offset(8);

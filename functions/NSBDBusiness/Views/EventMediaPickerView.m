@@ -11,31 +11,31 @@
 #import "Masonry.h"
 #import "UIKit+AFNetworking.h"
 #import "UIColor+BorderColor.h"
-
+#import "EventMediaCollectionView.h"
 
 @interface EventMediaPickerView()
 {
     UIButton * pickImageBtn;
     UIButton * pickVideoBtn;
-    
-    UIView * picContentView;
-    
-    
-    NSArray *images;
+    UIView *vLine,*hLine;
+    EventMediaCollectionView * picContentView;
     
 }
 
 @property (nonatomic,copy) ActionCallback picCallback;
 @property (nonatomic,copy) ActionCallback videoCallback;
+@property (nonatomic,copy) ActionCallback relayoutCallback;
+
 @end
 
 @implementation EventMediaPickerView
 
--(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback {
+-(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback relayoutCallback:(ActionCallback)relayoutCallback{
     self = [super initWithFrame:frame];
     if (self) {
         self.picCallback = picCallback;
         self.videoCallback = videoCallback;
+        self.relayoutCallback = relayoutCallback;
         [self setupSubviews];
     }
     return self;
@@ -45,8 +45,13 @@
 {
     pickImageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     pickVideoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    picContentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
-    UIView *vLine,*hLine;
+    
+    pickImageBtn.frame = CGRectMake(0, 0, kScreenWidth, 60);
+    
+    pickVideoBtn.frame = CGRectMake(0, 0, kScreenWidth, 60);
+    
+    picContentView = [[EventMediaCollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+    
     vLine = [UIView new];
     hLine = [UIView new];
     
@@ -67,7 +72,6 @@
     hLine.backgroundColor = [UIColor borderColor];
     
     picContentView.backgroundColor = [UIColor whiteColor];
-    
     
     [self addSubview:pickImageBtn];
     [self addSubview:pickVideoBtn];
@@ -111,6 +115,10 @@
         make.left.mas_equalTo(weakSelf.mas_left);
         make.right.mas_equalTo(weakSelf.mas_right);
     }];
+    
+    picContentView.callBack = ^{
+        [weakSelf relayout];
+    };
     [self adjustFrame];
 }
 
@@ -131,12 +139,33 @@
     SafelyDoBlock(_videoCallback);
 }
 
--(void) setData:(NSArray *)data
+-(void) relayout
 {
-    picContentView.hidden = (data.count==0);
     
-    //set picContentView.frame for data counts
+    CGFloat height = [picContentView height];
+    __weak __typeof(self) weakSelf = self;
+    [picContentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(hLine.mas_bottom);
+        make.left.mas_equalTo(weakSelf.mas_left);
+        make.right.mas_equalTo(weakSelf.mas_right);
+        make.height.mas_equalTo(height);
+    }];
     
     [self adjustFrame];
+    SafelyDoBlock(self.relayoutCallback);
 }
+
+-(void) setImages:(NSArray *)data
+{
+    //set picContentView.frame for data counts
+    [picContentView setPics:data];
+
+}
+
+-(void) setVideo:(NSString *)data
+{
+    //set picContentView.frame for data counts
+    [picContentView setVideo:data];
+}
+
 @end

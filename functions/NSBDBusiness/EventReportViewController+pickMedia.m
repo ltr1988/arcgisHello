@@ -94,45 +94,67 @@
 //打开本地相册
 -(void)LocalPhoto:(BOOL) isImage
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    //设置选择后的图片可被编辑
-    picker.allowsEditing = YES;
-    [self presentViewController:picker animated:YES completion:nil];
-}
-
-//当选择一张图片后进入这里
--(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-
-{
-    
-    NSString *mediaType=[info objectForKey:UIImagePickerControllerMediaType];
-    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {//如果是拍照
-        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];//获取原始照片
-        [mediaList addObject:image];
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);//保存到相簿
-    }else if([mediaType isEqualToString:(NSString *)kUTTypeMovie]){//如果是录制视频
-        NSLog(@"video...");
-        NSURL *url=[info objectForKey:UIImagePickerControllerMediaURL];//视频路径
-        NSString *urlStr=[url path];
-        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(urlStr)) {
-            //保存视频到相簿，注意也可以使用ALAssetsLibrary来保存
-            UISaveVideoAtPathToSavedPhotosAlbum(urlStr, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);//保存视频到相簿
-        }
+    ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+    elcPicker.imagePickerDelegate = self;
+    if (isImage) {
         
+        elcPicker.maximumImagesCount = 6; //Set the maximum number of images to select to 100
+        elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = NO; //For multiple image selection, display and return order of selected images
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeImage]; //Supports image and movie types
+        
+    }else
+    {
+        elcPicker.maximumImagesCount = 1; //Set the maximum number of images to select to 100
+        elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = NO; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = NO; //For multiple image selection, display and return order of selected images
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeMovie]; //Supports image and movie types
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self presentViewController:elcPicker animated:YES completion:nil];
     
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+
+#pragma mark ELCImagePickerControllerDelegate Methods
+
+- (void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info
 {
-    NSLog(@"您取消了选择图片");
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+    NSString *urlStr = nil;
+    for (NSDictionary *dict in info) {
+        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                [images addObject:image];
+            } else {
+                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
+            }
+        }
+        else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo)
+        {
+            NSURL *url=[dict objectForKey:UIImagePickerControllerMediaURL];//视频路径
+            urlStr=[url path];
+        }
+    }
+    if (images.count>0) {
+        [mPicker setImages:images];
+    }
+    if (urlStr && urlStr.length>0) {
+        [mPicker setVideo:urlStr];
+    }
+    
+    [mPicker relayout];
 }
 
+- (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

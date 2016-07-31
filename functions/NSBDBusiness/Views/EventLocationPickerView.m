@@ -30,6 +30,7 @@
     if (self) {
         self.location = CGPointMake(0, 0);
         self.callback = callback;
+        [self setupSubViews];
     }
     return self;
 }
@@ -59,23 +60,25 @@
         make.width.mas_equalTo(60);
     }];
     
-    [myLocationBtn setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [myLocationBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [myLocationBtn setTitle:@"我的位置" forState:UIControlStateNormal];
+    [myLocationBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [myLocationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(title.mas_bottom).with.offset(10);
         make.height.mas_equalTo(15);
         make.left.mas_equalTo(title.mas_left);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(80);
     }];
     
-    [locateInMapBtn setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [locateInMapBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [locateInMapBtn setTitle:@"地图选点" forState:UIControlStateNormal];
+    [locateInMapBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [locateInMapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(weakSelf.mas_right).width.offset(-16);
+        make.right.mas_equalTo(weakSelf.mas_right).with.offset(-16);
         make.centerY.mas_equalTo(weakSelf.mas_centerY);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(100);
         make.height.mas_equalTo(60);
     }];
     
@@ -91,6 +94,7 @@
     AGSLocation *location = [MapViewManager sharedMapView].locationDisplay.location;
     if (location) {
         title.text = [NSString stringWithFormat:@"%.2f,%.2f",location.point.y,location.point.x];
+        [title sizeToFit];
     }
 }
 
@@ -103,5 +107,6 @@
 {
     _location = location;
     title.text = [NSString stringWithFormat:@"%.2f,%.2f",location.y,location.x];
+    [title sizeToFit];
 }
 @end

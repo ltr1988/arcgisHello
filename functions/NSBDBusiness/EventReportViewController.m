@@ -15,7 +15,6 @@
 #import "TitleDetailCell.h"
 #import "CheckableTitleCell.h"
 #import "QRSeparatorCell.h"
-#import "EventMediaPickerView.h"
 #import "EventLocationPickerView.h"
 
 #import "CheckableTitleItem.h"
@@ -25,7 +24,6 @@
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *eventTableView;
-    EventMediaPickerView *mPicker;
     EventLocationPickerView *lPicker;
     EventReportModel *model;
 }
@@ -92,10 +90,16 @@
     eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     [self.view addSubview:eventTableView];
     
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
+    
+    __weak __typeof(self) weakself = self;
     mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) picCallback:^{
-        [self openPicMenu];
+        [weakself openPicMenu];
     } videoCallback:^{
-        [self openVideoMenu];
+        [weakself openVideoMenu];
+    } relayoutCallback:^{
+        [eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }];
     
     lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) callBack:^{
@@ -207,11 +211,9 @@
         }
         case 8:
         {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventLocationPickerCell"];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventLocationPickerCell"];
-                [cell.contentView addSubview:lPicker];
-            }
+            [lPicker removeFromSuperview];
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventLocationPickerCell"];
+            [cell.contentView addSubview:lPicker];
             return cell;
         }
         case 10:
@@ -254,19 +256,22 @@
         }
         case 15:
         {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EventMediaPickerCell"];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
-                [cell.contentView addSubview: mPicker];
-            }
+            [mPicker removeFromSuperview];
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
+            [cell.contentView addSubview: mPicker];
             return cell;
         }
+        
         default:
             break;
     }
     return [UITableViewCell new];
 }
 
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

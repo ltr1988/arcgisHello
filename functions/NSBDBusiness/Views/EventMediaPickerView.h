@@ -10,6 +10,11 @@
 #import "CommonDefine.h"
 
 @interface EventMediaPickerView : UIView
-@property (nonatomic,strong) NSArray * data;
--(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback ;
+
+-(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback relayoutCallback:(ActionCallback)relayoutCallback;
+
+
+-(void) setImages:(NSArray *)data;
+-(void) setVideo:(NSString *)data;
+-(void) relayout;
 @end

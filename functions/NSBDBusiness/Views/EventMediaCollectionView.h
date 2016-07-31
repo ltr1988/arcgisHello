@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "CheckableImageView.h"
-
+#import "CommonDefine.h"
 
 @interface EventMediaCollectionView : UIView<ItemCallBackDelegate>
 {
     NSMutableArray *picArray; //image content
     NSMutableArray *videoArray; //string content
+    CGFloat _height;
 }
--(void) setImages:(NSArray *)imageList;
+
+@property (nonatomic,copy) ActionCallback callBack;
+-(CGFloat) height;
+
+-(void) setPics:(NSArray *)imageList;
 -(void) setVideo:(NSString *)videoPath;
 
 @end
