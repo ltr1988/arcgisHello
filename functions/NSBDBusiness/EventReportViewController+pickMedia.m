@@ -142,11 +142,14 @@
             urlStr=[url path];
         }
     }
+    
     if (images.count>0) {
-        [mPicker setImages:images];
+        [model.eventPic addObjectsFromArray:images];
+        [mPicker setImages:model.eventPic];
     }
     if (urlStr && urlStr.length>0) {
-        [mPicker setVideo:urlStr];
+        model.eventVideo = urlStr;
+        [mPicker setVideo:model.eventVideo];
     }
     
     [mPicker relayout];
@@ -157,4 +160,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void) mediaRemove:(NSNotification *)noti
+{
+    BOOL isImage = [noti.userInfo[@"itemType"] isEqualToString:@"image"];
+    NSNumber *index = noti.userInfo[@"index"];
+    if (isImage) {
+        [model.eventPic removeObjectAtIndex:index.intValue];
+    }else
+    {
+        model.eventVideo = nil;
+    }
+}
 @end

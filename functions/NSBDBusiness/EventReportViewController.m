@@ -10,7 +10,6 @@
 #import "EventReportViewController+pickMedia.h"
 
 #import "UIDownPicker.h"
-#import "EventReportModel.h"
 #import "TitleTextInputCell.h"
 #import "TitleDetailCell.h"
 #import "CheckableTitleCell.h"
@@ -25,7 +24,6 @@
 {
     UITableView *eventTableView;
     EventLocationPickerView *lPicker;
-    EventReportModel *model;
 }
 @end
 
@@ -42,8 +40,6 @@
 }
 -(void) setupModel
 {
-    mediaList = [NSMutableArray array];
-    
     model = [EventReportModel new];
     model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
     model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
@@ -59,22 +55,26 @@
     model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
     model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
     model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+    model.eventPic = [NSMutableArray arrayWithCapacity:6];
 }
 -(void) addObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyDatePicker:) name:@"DatePickerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mediaRemove:) name:@"ItemRemovedNotification" object:nil];
+    
 }
 
 -(void) notifyDatePicker:(NSNotification *)noti
 {
     NSDate * date = (NSDate *)[noti userInfo][@"date"];
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
-    NSString *str=[outputFormatter stringFromDate:date];
-    TitleDetailCell *cell = [eventTableView dequeueReusableCellWithIdentifier:@"datePickerCell"];
-    if (cell) {
-        [cell.data setValue:str forKey:@"_detail"];
-    }
+//    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+//    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+//    NSString *str=[outputFormatter stringFromDate:date];
+    
+    model.eventDate.date = date;
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:6 inSection:0];
+    [eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 -(void) setupSubViews
@@ -271,6 +271,63 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    switch (indexPath.row) {
+        case 0:
+        case 5:
+        case 9:
+        case 14:
+        case 7:
+        case 8:
+        case 10:
+        case 11:
+        case 15:
+        {
+            break;
+        }
+        case 1: //eventType
+        {
+        }
+        case 2: //eventXingzhi
+        {
+        }
+        case 3: //level
+        {
+        }
+        case 4: //reason
+        {
+            break;
+        }
+        case 6: //eventDate
+        {
+            DatePickViewController *pickerVC = [[DatePickViewController alloc] init];
+            [self.navigationController pushViewController:pickerVC animated:YES];
+            break;
+        }
+        case 12:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventStatus;
+        }
+        case 13:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.data = model.eventPreprocess;
+        }
+        
+            
+        default:
+            break;
+    }
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

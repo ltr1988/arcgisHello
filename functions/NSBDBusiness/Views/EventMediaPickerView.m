@@ -155,6 +155,14 @@
     SafelyDoBlock(self.relayoutCallback);
 }
 
+
+-(void) addImages:(NSArray *)data
+{
+    //set picContentView.frame for data counts
+    [picContentView addPics:data];
+    
+}
+
 -(void) setImages:(NSArray *)data
 {
     //set picContentView.frame for data counts

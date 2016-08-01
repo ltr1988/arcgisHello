@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "EventMediaPickerView.h"
+#import "DatePickViewController.h"
+
+#import "EventReportModel.h"
 
 @interface EventReportViewController : SupportRotationSelectBaseViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
 {
@@ -16,8 +19,8 @@
     UIActionSheet *myActionSheetPic;
     UIActionSheet *myActionSheetVideo;
     
-    NSMutableArray *mediaList;
     EventMediaPickerView *mPicker;
-
+    
+    EventReportModel *model;
 }
 @end

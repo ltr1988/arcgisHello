@@ -53,7 +53,7 @@ objc_setAssociatedObject(self, &(kProperty##PROPERTY_NAME), PROPERTY_NAME, OBJC_
 
 //block
 typedef void (^ActionCallback)();
-
+typedef void (^InfoCallback)(NSDictionary *dict);
 //Font
 #define UI_FONT(size) [UIFont systemFontOfSize:size]
 #define UI_BOLD_FONT(size) [UIFont boldSystemFontOfSize:size]

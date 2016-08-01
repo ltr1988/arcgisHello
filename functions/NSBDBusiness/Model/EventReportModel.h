@@ -25,6 +25,6 @@
 @property (nonatomic,strong) TitleDetailItem *eventStatus;
 @property (nonatomic,strong) TitleDetailItem *eventPreprocess;
 
-@property (nonatomic,strong) NSArray  *eventPic;
+@property (nonatomic,strong) NSMutableArray  *eventPic;
 @property (nonatomic,strong) NSString *eventVideo;
 @end

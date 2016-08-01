@@ -13,4 +13,5 @@
 @interface EventReportViewController (pickMedia) <ELCImagePickerControllerDelegate>
 -(void)openPicMenu;
 -(void)openVideoMenu;
+-(void)mediaRemove:(NSNotification *)noti;
 @end

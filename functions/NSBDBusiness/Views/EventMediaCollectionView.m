@@ -9,6 +9,8 @@
 #import "EventMediaCollectionView.h"
 #import "UIImage+VideoThumb.h"
 
+
+
 @implementation EventMediaCollectionView
 
 -(instancetype) initWithFrame:(CGRect)frame
@@ -27,6 +29,12 @@
     [self relayout];
 }
 
+-(void) addPics:(NSArray *)imageList
+{
+    [picArray addObjectsFromArray:imageList];
+    [self relayout];
+}
+
 -(void) setVideo:(NSString *)videoPath
 {
     videoArray = [NSMutableArray arrayWithObject:videoPath];
@@ -35,12 +43,16 @@
 
 -(void) removeImageAtIndex:(NSInteger) index
 {
+    NSDictionary *userInfo = @{@"itemType":@"image",@"index":@(index)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemRemovedNotification object:nil userInfo:userInfo];
     [picArray removeObjectAtIndex:index];
     [self relayout];
 }
 
 -(void) removeVideoAtIndex:(NSInteger) index
 {
+    NSDictionary *userInfo = @{@"itemType":@"video",@"index":@(index)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:ItemRemovedNotification object:nil userInfo:userInfo];
     [videoArray removeAllObjects];
     [self relayout];
 }
@@ -98,7 +110,11 @@
 -(void) itemCalled:(id)sender
 {
     CheckableImageView *view = (CheckableImageView *)sender;
-    [self removeImageAtIndex:view.tag - 1000];
+    NSInteger index = view.tag - 1000;
+    if (index>=picArray.count) {
+        [self removeVideoAtIndex:index - picArray.count];
+    }else
+        [self removeImageAtIndex:index];
     if (_callBack) {
         _callBack();
     }

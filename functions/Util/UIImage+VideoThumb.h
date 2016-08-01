@@ -10,4 +10,5 @@
 
 @interface UIImage (VideoThumb)
 +(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL;
++(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL localURL:(BOOL) local;
 @end

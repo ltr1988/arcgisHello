@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CheckableImageView.h"
 #import "CommonDefine.h"
+#define ItemRemovedNotification @"ItemRemovedNotification"
 
 @interface EventMediaCollectionView : UIView<ItemCallBackDelegate>
 {
@@ -20,6 +21,7 @@
 @property (nonatomic,copy) ActionCallback callBack;
 -(CGFloat) height;
 
+-(void) addPics:(NSArray *)imageList;
 -(void) setPics:(NSArray *)imageList;
 -(void) setVideo:(NSString *)videoPath;
 
