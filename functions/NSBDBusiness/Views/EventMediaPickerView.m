@@ -170,7 +170,7 @@
 
 }
 
--(void) setVideo:(NSString *)data
+-(void) setVideo:(NSURL *)data
 {
     //set picContentView.frame for data counts
     [picContentView setVideo:data];

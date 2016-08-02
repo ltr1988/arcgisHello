@@ -35,7 +35,7 @@
     [self relayout];
 }
 
--(void) setVideo:(NSString *)videoPath
+-(void) setVideo:(NSURL *)videoPath
 {
     videoArray = [NSMutableArray arrayWithObject:videoPath];
     [self relayout];
@@ -79,13 +79,14 @@
     }
     
     //set video
-    for (NSString *videoStr in videoArray)
+    for (NSURL *videoStr in videoArray)
     {
         UIImage *img = [UIImage getThumbImageWithVideoURL:videoStr];
         if (img) {
             CheckableImageView * view = [[CheckableImageView alloc] initWithFrame:CGRectMake( space+(70+space)*(column%4),10 +(80)*row , 70, 70)];
             [view setImage:img];
             view.tag = tag++;
+            [view setVideo:YES];
             view.delegate = self;
             [self addSubview:view];
         }

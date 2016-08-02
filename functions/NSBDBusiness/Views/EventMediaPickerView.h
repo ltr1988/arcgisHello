@@ -15,6 +15,6 @@
 
 -(void) addImages:(NSArray *)data;
 -(void) setImages:(NSArray *)data;
--(void) setVideo:(NSString *)data;
+-(void) setVideo:(NSURL *)data;
 -(void) relayout;
 @end

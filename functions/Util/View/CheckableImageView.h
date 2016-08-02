@@ -24,5 +24,5 @@
 @interface CheckableImageView : UIImageView
 
 @property (nonatomic, weak, nullable) id <ItemCallBackDelegate> delegate;
-
+-(void) setVideo:(BOOL) isVideo;
 @end

@@ -35,7 +35,6 @@
 		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
 		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
 		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
-		A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A485992B1D3B42BD0050AC88 /* launchScreen.jpg */; };
 		A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */; };
 		A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */; };
 		A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599381D3B4C840050AC88 /* SVProgressHUD.m */; };
@@ -101,6 +100,9 @@
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
+		B2C6B1A61D507F7D00B0B12A /* launchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A51D507F7D00B0B12A /* launchScreen.png */; };
+		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
+		B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1AA1D5091CD00B0B12A /* play@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +159,6 @@
 		A48022111D32365500AE2AF9 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
 		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
-		A485992B1D3B42BD0050AC88 /* launchScreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = launchScreen.jpg; path = images/launchScreen.jpg; sourceTree = "<group>"; };
 		A48599331D3B4C840050AC88 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		A48599351D3B4C840050AC88 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "functions/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -290,6 +291,9 @@
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
+		B2C6B1A51D507F7D00B0B12A /* launchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launchScreen.png; path = images/launchScreen.png; sourceTree = "<group>"; };
+		B2C6B1A91D5091CD00B0B12A /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@2x.png"; path = "images/play@2x.png"; sourceTree = "<group>"; };
+		B2C6B1AA1D5091CD00B0B12A /* play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@3x.png"; path = "images/play@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,9 +499,11 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B2C6B1A91D5091CD00B0B12A /* play@2x.png */,
+				B2C6B1AA1D5091CD00B0B12A /* play@3x.png */,
+				B2C6B1A51D507F7D00B0B12A /* launchScreen.png */,
 				B28653B61D4862B3002D4139 /* delete@2x.png */,
 				B28653B71D4862B3002D4139 /* delete@3x.png */,
-				A485992B1D3B42BD0050AC88 /* launchScreen.jpg */,
 				A414AC8B1D3A08150065AAA7 /* RedPushpin.png */,
 				A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */,
 			);
@@ -751,6 +757,8 @@
 			files = (
 				A414ACAD1D3A1D6C0065AAA7 /* Overlay.png in Resources */,
 				A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */,
+				B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */,
+				B2C6B1A61D507F7D00B0B12A /* launchScreen.png in Resources */,
 				A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */,
 				A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */,
 				A414ACAE1D3A1D6C0065AAA7 /* Overlay@2x.png in Resources */,
@@ -760,9 +768,9 @@
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
 				A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */,
-				A485992C1D3B42BD0050AC88 /* launchScreen.jpg in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
 				B28653B81D4862B3002D4139 /* delete@2x.png in Resources */,
+				B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */,
 				A414ACAB1D3A1D6C0065AAA7 /* ELCAssetPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -912,7 +920,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -949,7 +957,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -967,7 +975,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -992,7 +1000,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",

@@ -79,7 +79,7 @@
     picker.cameraDevice=UIImagePickerControllerCameraDeviceRear;//设置使用哪个摄像头，这里设置为后置摄像头
     
     if (!isImage) {
-        picker.mediaTypes=@[(NSString *)kUTTypeMPEG4];
+        picker.mediaTypes=@[(NSString *)kUTTypeMovie];
         picker.videoQuality=UIImagePickerControllerQualityTypeMedium;
         picker.cameraCaptureMode=UIImagePickerControllerCameraCaptureModeVideo;//设置摄像头模式（拍照，录制视频）
         
@@ -123,13 +123,19 @@
     if ([mediaType isEqualToString:@"public.image"]){
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         [UIImageJPEGRepresentation(image, 1.0f) writeToFile:[self findUniqueSavePath] atomically:YES];
-
+        [model.eventPic addObject:image];
+        [mPicker setImages:model.eventPic];
     }
     else if ([mediaType isEqualToString:@"public.movie"]){
         NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
         NSData *webData = [NSData dataWithContentsOfURL:videoURL];
+        
         [webData writeToFile:[self findUniqueMoviePath] atomically:YES];
+        model.eventVideo = videoURL;
+        [mPicker setVideo:model.eventVideo];
     }
+    
+    [mPicker relayout];
     [picker dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -147,7 +153,7 @@
     
     
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    NSString *urlStr = nil;
+    NSURL *urlStr = nil;
     for (NSDictionary *dict in info) {
         if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
             if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
@@ -160,7 +166,7 @@
         else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo)
         {
             NSURL *url=[dict objectForKey:UIImagePickerControllerReferenceURL];//视频路径
-            urlStr=[url path];
+            urlStr = url;
         }
     }
     
@@ -168,7 +174,7 @@
         [model.eventPic addObjectsFromArray:images];
         [mPicker setImages:model.eventPic];
     }
-    if (urlStr && urlStr.length>0) {
+    if (urlStr) {
         model.eventVideo = urlStr;
         [mPicker setVideo:model.eventVideo];
     }
@@ -195,29 +201,62 @@
 
 -(NSString *) findUniqueSavePath
 {
-    int i = 1;
-    NSString *path;
 
-    do {
-        // 这个循环为了实现保存一副新的图片 你懂得......
-        path = [NSString stringWithFormat:@"%@/Documents/IMAGE_%04d.jpg", NSHomeDirectory(), i++];
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
+    
+    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSString * resultPath = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/output-%@.jpg", [formater stringFromDate:[NSDate date]]];
 
-    } while ([[NSFileManager defaultManager] fileExistsAtPath:path]);
-
-    return path;
+    return resultPath;
 }
 
 -(NSString *) findUniqueMoviePath
 {
-    int i = 1;
-    NSString *path;
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
     
-    do {
-        // 这个循环为了实现保存一副新的图片 你懂得......
-        path = [NSString stringWithFormat:@"%@/Documents/VIDEO_%04d.mp4", NSHomeDirectory(), i++];
-        
-    } while ([[NSFileManager defaultManager] fileExistsAtPath:path]);
+    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSString * resultPath = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/output-%@.mov", [formater stringFromDate:[NSDate date]]];
     
-    return path;
+    return resultPath;
+}
+
+
+- (NSString *)videoWithUrl:(NSURL *)url
+{
+    // 解析一下,为什么视频不像图片一样一次性开辟本身大小的内存写入?
+    // 想想,如果1个视频有1G多,难道直接开辟1G多的空间大小来写?
+    ALAssetsLibrary *assetLibrary = [[ALAssetsLibrary alloc] init];
+    NSString * videoPath = [self findUniqueMoviePath];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (url) {
+            [assetLibrary assetForURL:url resultBlock:^(ALAsset *asset) {
+                ALAssetRepresentation *rep = [asset defaultRepresentation];
+                
+                char const *cvideoPath = [videoPath UTF8String];
+                FILE *file = fopen(cvideoPath, "a+");
+                if (file) {
+                    const int bufferSize = 11024 * 1024;
+                    // 初始化一个1M的buffer
+                    Byte *buffer = (Byte*)malloc(bufferSize);
+                    NSUInteger read = 0, offset = 0, written = 0;
+                    NSError* err = nil;
+                    if (rep.size != 0)
+                    {
+                        do {
+                            read = [rep getBytes:buffer fromOffset:offset length:bufferSize error:&err];
+                            written = fwrite(buffer, sizeof(char), read, file);
+                            offset += read;
+                        } while (read != 0 && !err);//没到结尾，没出错，ok继续
+                    }
+                    // 释放缓冲区，关闭文件
+                    free(buffer);
+                    buffer = NULL;
+                    fclose(file);
+                    file = NULL;
+                }
+            } failureBlock:nil];
+        }
+    });
+    return videoPath;
 }
 @end

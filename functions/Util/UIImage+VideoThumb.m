@@ -12,15 +12,8 @@
 
 @implementation UIImage (VideoThumb)
 
-+(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL localURL:(BOOL) local
++(UIImage *)getThumbImageWithVideoURL:(NSURL *)url
 {
-    NSURL *url;
-    if (local) {
-        url = [NSURL fileURLWithPath:videoURL];
-    }else
-    {
-        url = [NSURL URLWithString:videoURL];
-    }
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
     
     AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
@@ -43,8 +36,5 @@
     
 }
 
-+(UIImage *)getThumbImageWithVideoURL:(NSString *)videoURL
-{
-    return [UIImage getThumbImageWithVideoURL:videoURL localURL:YES];
-}
+
 @end
