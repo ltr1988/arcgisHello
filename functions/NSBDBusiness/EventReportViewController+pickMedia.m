@@ -79,7 +79,7 @@
     picker.cameraDevice=UIImagePickerControllerCameraDeviceRear;//设置使用哪个摄像头，这里设置为后置摄像头
     
     if (!isImage) {
-        picker.mediaTypes=@[(NSString *)kUTTypeMovie];
+        picker.mediaTypes=@[(NSString *)kUTTypeMPEG4];
         picker.videoQuality=UIImagePickerControllerQualityTypeMedium;
         picker.cameraCaptureMode=UIImagePickerControllerCameraCaptureModeVideo;//设置摄像头模式（拍照，录制视频）
         
@@ -117,6 +117,27 @@
     
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        [UIImageJPEGRepresentation(image, 1.0f) writeToFile:[self findUniqueSavePath] atomically:YES];
+
+    }
+    else if ([mediaType isEqualToString:@"public.movie"]){
+        NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSData *webData = [NSData dataWithContentsOfURL:videoURL];
+        [webData writeToFile:[self findUniqueMoviePath] atomically:YES];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark ELCImagePickerControllerDelegate Methods
 
@@ -138,7 +159,7 @@
         }
         else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo)
         {
-            NSURL *url=[dict objectForKey:UIImagePickerControllerMediaURL];//视频路径
+            NSURL *url=[dict objectForKey:UIImagePickerControllerReferenceURL];//视频路径
             urlStr=[url path];
         }
     }
@@ -170,5 +191,33 @@
     {
         model.eventVideo = nil;
     }
+}
+
+-(NSString *) findUniqueSavePath
+{
+    int i = 1;
+    NSString *path;
+
+    do {
+        // 这个循环为了实现保存一副新的图片 你懂得......
+        path = [NSString stringWithFormat:@"%@/Documents/IMAGE_%04d.jpg", NSHomeDirectory(), i++];
+
+    } while ([[NSFileManager defaultManager] fileExistsAtPath:path]);
+
+    return path;
+}
+
+-(NSString *) findUniqueMoviePath
+{
+    int i = 1;
+    NSString *path;
+    
+    do {
+        // 这个循环为了实现保存一副新的图片 你懂得......
+        path = [NSString stringWithFormat:@"%@/Documents/VIDEO_%04d.mp4", NSHomeDirectory(), i++];
+        
+    } while ([[NSFileManager defaultManager] fileExistsAtPath:path]);
+    
+    return path;
 }
 @end
