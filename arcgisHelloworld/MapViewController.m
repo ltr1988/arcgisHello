@@ -106,16 +106,6 @@
     return view;
 }
 
--(void)pickPoint
-{
-    AGSPoint *point = (AGSPoint *)[[AGSGeometryEngine defaultGeometryEngine] projectGeometry:self.mapView.mapAnchor
-                                   
-                                                                       toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
-    
-
-    [self.tabBarController setSelectedIndex:1];
-}
-
 -(void) setupSubviews
 {
    // [self.view]

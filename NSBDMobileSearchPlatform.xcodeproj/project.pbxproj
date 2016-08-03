@@ -49,12 +49,13 @@
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
 		A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378911D378D7600A7342D /* QRCodeViewController.m */; };
+		A4D59AB71D523C6C00511F81 /* startup.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D59AB61D523C6C00511F81 /* startup.png */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
 		A4DD86911D0976B00096B548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD868F1D0976B00096B548 /* Main.storyboard */; };
 		A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86921D0976B00096B548 /* Assets.xcassets */; };
-		A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */; };
+		A4DD86961D0976B00096B548 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* Launch.storyboard */; };
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
 		A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7651D46495900E3C94C /* DatePickViewController.m */; };
@@ -99,7 +100,6 @@
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
 		B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = B298C7021D519C74002B40D2 /* NSString+Location.m */; };
-		B298C7051D51A097002B40D2 /* launch.png in Resources */ = {isa = PBXBuildFile; fileRef = B298C7041D51A097002B40D2 /* launch.png */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -189,6 +189,7 @@
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		A4A378901D378D7600A7342D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = functions/NSBDBusiness/QRCodeViewController.h; sourceTree = "<group>"; };
 		A4A378911D378D7600A7342D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = functions/NSBDBusiness/QRCodeViewController.m; sourceTree = "<group>"; };
+		A4D59AB61D523C6C00511F81 /* startup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = startup.png; path = images/startup.png; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -197,7 +198,7 @@
 		A4DD868D1D0976B00096B548 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		A4DD86901D0976B00096B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4DD86921D0976B00096B548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A4DD86951D0976B00096B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A4DD86951D0976B00096B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		A4DD86971D0976B00096B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		A4DD869F1D097A9A0096B548 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -291,7 +292,6 @@
 		B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+UIButtonSetEdgeInsets.m"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.m"; sourceTree = "<group>"; };
 		B298C7011D519C74002B40D2 /* NSString+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Location.h"; path = "functions/Util/NSString+Location.h"; sourceTree = "<group>"; };
 		B298C7021D519C74002B40D2 /* NSString+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Location.m"; path = "functions/Util/NSString+Location.m"; sourceTree = "<group>"; };
-		B298C7041D51A097002B40D2 /* launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch.png; path = images/launch.png; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -504,7 +504,7 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				B298C7041D51A097002B40D2 /* launch.png */,
+				A4D59AB61D523C6C00511F81 /* startup.png */,
 				B2C6B1A91D5091CD00B0B12A /* play@2x.png */,
 				B2C6B1AA1D5091CD00B0B12A /* play@3x.png */,
 				B28653B61D4862B3002D4139 /* delete@2x.png */,
@@ -576,7 +576,7 @@
 				A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */,
 				A4DD868F1D0976B00096B548 /* Main.storyboard */,
 				A4DD86921D0976B00096B548 /* Assets.xcassets */,
-				A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */,
+				A4DD86941D0976B00096B548 /* Launch.storyboard */,
 				A4DD86971D0976B00096B548 /* Info.plist */,
 				A4DD86861D0976B00096B548 /* Supporting Files */,
 			);
@@ -764,10 +764,10 @@
 				A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */,
 				B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */,
 				A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */,
-				B298C7051D51A097002B40D2 /* launch.png in Resources */,
+				A4D59AB71D523C6C00511F81 /* startup.png in Resources */,
 				A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */,
 				A414ACAE1D3A1D6C0065AAA7 /* Overlay@2x.png in Resources */,
-				A4DD86961D0976B00096B548 /* LaunchScreen.storyboard in Resources */,
+				A4DD86961D0976B00096B548 /* Launch.storyboard in Resources */,
 				B28653B91D4862B3002D4139 /* delete@3x.png in Resources */,
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
@@ -879,12 +879,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A4DD86941D0976B00096B548 /* LaunchScreen.storyboard */ = {
+		A4DD86941D0976B00096B548 /* Launch.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A4DD86951D0976B00096B548 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Launch.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

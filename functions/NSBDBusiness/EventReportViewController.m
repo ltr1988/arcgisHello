@@ -9,6 +9,8 @@
 #import "EventReportViewController.h"
 #import "EventReportViewController+pickMedia.h"
 
+#import "RouteStartEndPickerController.h"
+
 #import "UIDownPicker.h"
 #import "TitleTextInputCell.h"
 #import "TitleDetailCell.h"
@@ -103,7 +105,8 @@
     }];
     
     lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) callBack:^{
-        NSLog(@"go to locate in map vc");
+        RouteStartEndPickerController *vc = [[RouteStartEndPickerController alloc] init];
+        [weakself.navigationController pushViewController:vc animated:YES];
     }];
     
 }

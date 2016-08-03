@@ -51,35 +51,37 @@
     
     
     title.font = UI_FONT(16);
-    title.textAlignment = NSTextAlignmentLeft;
+    title.textAlignment = NSTextAlignmentCenter;
     title.textColor = [UIColor blackColor];
     
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).with.offset(10);
         make.height.mas_equalTo(16);
         make.left.mas_equalTo(weakSelf.mas_left).with.offset(16);
-        make.width.mas_equalTo(60);
+        make.width.mas_equalTo(myLocationBtn.mas_width);
     }];
     
     [myLocationBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [myLocationBtn setTitle:@"我的位置" forState:UIControlStateNormal];
     [myLocationBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [myLocationBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
     
     [myLocationBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(title.mas_bottom).with.offset(10);
         make.height.mas_equalTo(15);
         make.left.mas_equalTo(title.mas_left);
-        make.width.mas_equalTo(80);
+        make.width.mas_equalTo(120);
     }];
     
     [locateInMapBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     [locateInMapBtn setTitle:@"地图选点" forState:UIControlStateNormal];
     [locateInMapBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [locateInMapBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
     [locateInMapBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weakSelf.mas_right).with.offset(-16);
         make.centerY.mas_equalTo(weakSelf.mas_centerY);
-        make.width.mas_equalTo(100);
+        make.width.mas_equalTo(120);
         make.height.mas_equalTo(60);
     }];
     

@@ -52,8 +52,8 @@
 
 -(void) actionNavigation
 {
-    if(!self.mapView.locationDisplay.dataSourceStarted)
-        [self.mapView.locationDisplay startDataSource];
+
+    [self.mapView.locationDisplay startDataSource];
     
     [self.mapView addObserver:self
                    forKeyPath:@"mapScale"

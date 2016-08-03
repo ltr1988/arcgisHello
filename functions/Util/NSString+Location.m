@@ -16,11 +16,11 @@
 
 +(instancetype) stringWithLocationAGSPoint:(AGSPoint *) point
 {
-    return [NSString stringWithLatitude:point.y Lontitude:point.x];
+    return [NSString stringWithLatitude:point.x Lontitude:point.y];
 }
 
 +(instancetype) stringWithLocationPoint:(CGPoint) point
 {
-    return [NSString stringWithLatitude:point.y Lontitude:point.x];
+    return [NSString stringWithLatitude:point.x Lontitude:point.y];
 }
 @end

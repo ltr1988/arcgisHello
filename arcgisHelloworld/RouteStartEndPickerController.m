@@ -71,29 +71,29 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"导航" forState:UIControlStateNormal];
     [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(navi) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 
     
     [_tfStart mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top).offset(8);
-        make.width.mas_equalTo(100);
+        make.right.mas_equalTo(weakView.mas_centerX);
         make.height.mas_equalTo(30);
         make.left.mas_equalTo(weakView.mas_left).offset(16);
     }];
     
     [_tfEnd mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(hLine.mas_bottom).offset(8);
-        make.width.mas_equalTo(100);
+        make.right.mas_equalTo(weakView.mas_centerX);
         make.height.mas_equalTo(30);
         make.left.mas_equalTo(weakView.mas_left).offset(16);
     }];
     
     
     [hLine mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(hLine.mas_bottom).offset(8);
-        make.right.mas_equalTo(weakView.mas_right).offset(-16);
+        make.top.mas_equalTo(_tfStart.mas_bottom).offset(8);
+        make.right.mas_equalTo(weakView.mas_centerX);
         make.height.mas_equalTo(0.5);
         make.left.mas_equalTo(weakView.mas_left).offset(16);
     }];
@@ -158,6 +158,10 @@
 #pragma mark - route-navi
 -(void) navi
 {
+    if (!startPoint || !endPoint) {
+        return;
+    }
+    
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     // app名称
     NSString *app_Name = [infoDictionary objectForKey:@"CFBundleName"];
@@ -175,11 +179,11 @@
     
     float currentLat,currentLon,_shopLat,_shopLon;
     
-    currentLat = startPoint.y;
-    currentLon = startPoint.x;
+    currentLat = startPoint.x;
+    currentLon = startPoint.y;
     
-    _shopLat = endPoint.y;
-    _shopLon = endPoint.x;
+    _shopLat = endPoint.x;
+    _shopLon = endPoint.y;
     
     if (hasBaiduMap)
     {
