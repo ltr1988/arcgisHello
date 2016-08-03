@@ -18,22 +18,44 @@
 @end
 @implementation DatePickViewController
 
--(BOOL)navigationShouldPopOnBackButton
+-(instancetype) init
+{
+    self = [super init];
+    if (self) {
+        date= [NSDate date];
+    }
+    return self;
+}
+
+-(instancetype) initWithDate:(NSDate *)initDate
+{
+    self = [super init];
+    if (self) {
+        if (!initDate) {
+            date= [NSDate date];
+        }else
+            date= initDate;
+    }
+    return self;
+}
+
+-(void)saveDate
 {
     NSDictionary *userInfo = @{@"date":date};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"DatePickerNotification" object:nil userInfo:userInfo];
-    return YES;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     [self setupSubViews];
-    date = [NSDate date];
 }
 
 -(void) setupSubViews
 {
+    UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveDate)];
+    [self.navigationItem setRightBarButtonItem:saveBtn];
     self.view.backgroundColor = [UIColor whiteColor];
     UIDatePicker *_datePicker=[[UIDatePicker alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 300)];
     _datePicker.datePickerMode=UIDatePickerModeDate;

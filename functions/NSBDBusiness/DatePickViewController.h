@@ -10,5 +10,5 @@
 #import "UIViewController+BackButtonHandler.h"
 
 @interface DatePickViewController : SupportRotationSelectBaseViewController
-
+-(instancetype) initWithDate:(NSDate *)initDate;
 @end

@@ -13,13 +13,13 @@
 #import "VideoPlayViewController.h"
 #import "ImagePickerViewController.h"
 #import "WebViewController.h"
-#import "RouteViewController.h"
+#import "RouteStartEndPickerController.h"
 
 @implementation MapViewController (Action)
 
 -(void) actionNavi
 {
-    RouteViewController *vc =[[RouteViewController alloc] init];
+    RouteStartEndPickerController *vc =[[RouteStartEndPickerController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark - bottom view actions

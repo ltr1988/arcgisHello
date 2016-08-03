@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RouteViewController : SupportRotationSelectBaseViewController
+@interface RouteStartEndPickerController : SupportRotationSelectBaseViewController
 @end

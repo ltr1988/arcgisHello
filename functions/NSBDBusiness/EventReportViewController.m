@@ -300,7 +300,8 @@
         }
         case 6: //eventDate
         {
-            DatePickViewController *pickerVC = [[DatePickViewController alloc] init];
+            NSDate *date = model.eventDate.date;
+            DatePickViewController *pickerVC = [[DatePickViewController alloc] initWithDate:date];
             [self.navigationController pushViewController:pickerVC animated:YES];
             break;
         }
@@ -333,6 +334,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

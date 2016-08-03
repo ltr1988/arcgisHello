@@ -10,6 +10,7 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "MapViewManager.h"
+#import "NSString+Location.h"
 
 @interface EventLocationPickerView()
 {
@@ -93,8 +94,13 @@
 {
     AGSLocation *location = [MapViewManager sharedMapView].locationDisplay.location;
     if (location) {
-        title.text = [NSString stringWithFormat:@"%.2f,%.2f",location.point.y,location.point.x];
+        title.text = [NSString stringWithLocationAGSPoint:location.point];
         [title sizeToFit];
+    }else
+    {
+        title.text = [NSString stringWithLatitude:116. Lontitude:40.];
+        [title sizeToFit];
+
     }
 }
 
@@ -106,7 +112,7 @@
 -(void) setLocation:(CGPoint) location
 {
     _location = location;
-    title.text = [NSString stringWithFormat:@"%.2f,%.2f",location.y,location.x];
+    title.text = [NSString stringWithLocationPoint:location];
     [title sizeToFit];
 }
 @end
