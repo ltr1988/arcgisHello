@@ -10,6 +10,7 @@
 #import "EventReportViewController+pickMedia.h"
 
 #import "RouteStartEndPickerController.h"
+#import "ChoicePickerViewController.h"
 
 #import "UIDownPicker.h"
 #import "TitleTextInputCell.h"
@@ -24,9 +25,10 @@
 
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
-    UITableView *eventTableView;
+
     EventLocationPickerView *lPicker;
 }
+@property (nonatomic,strong)     UITableView *eventTableView;
 @end
 
 @implementation EventReportViewController
@@ -42,22 +44,22 @@
 }
 -(void) setupModel
 {
-    model = [EventReportModel new];
-    model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
-    model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
-    model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
-    model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
-    model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
+    self.model = [EventReportModel new];
+    self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
+    self.model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
+    self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
+    self.model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
+    self.model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
     
     
-    model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
-    model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
+    self.model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
+    self.model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
     
-    model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
-    model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-    model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
-    model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
-    model.eventPic = [NSMutableArray arrayWithCapacity:6];
+    self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
+    self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+    self.model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
+    self.model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+    self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
 }
 -(void) addObservers
 {
@@ -73,24 +75,24 @@
 //    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
 //    NSString *str=[outputFormatter stringFromDate:date];
     
-    model.eventDate.date = date;
+    self.model.eventDate.date = date;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:6 inSection:0];
-    [eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 -(void) setupSubViews
 {
     self.title = @"突发事件上报";
     
-    eventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    eventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.eventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.eventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    eventTableView.backgroundColor = [UIColor whiteColor];
-    eventTableView.delegate = self;
-    eventTableView.dataSource = self;
-    eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
-    [self.view addSubview:eventTableView];
+    self.eventTableView.backgroundColor = [UIColor whiteColor];
+    self.eventTableView.delegate = self;
+    self.eventTableView.dataSource = self;
+    self.eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    [self.view addSubview:self.eventTableView];
     
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
@@ -101,7 +103,7 @@
     } videoCallback:^{
         [weakself openVideoMenu];
     } relayoutCallback:^{
-        [eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }];
     
     lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) callBack:^{
@@ -140,7 +142,7 @@
             if (!cell) {
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
-            cell.data = model.eventName;
+            cell.data = self.model.eventName;
             return cell;
         }
         case 1:
@@ -150,7 +152,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventType;
+            cell.data = self.model.eventType;
             return cell;
         }
         case 2:
@@ -160,7 +162,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventXingzhi;
+            cell.data = self.model.eventXingzhi;
             return cell;
         }
         case 3:
@@ -170,7 +172,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.level;
+            cell.data = self.model.level;
             return cell;
         }
         case 4:
@@ -180,7 +182,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.reason;
+            cell.data = self.model.reason;
             return cell;
         }
         case 5:
@@ -200,7 +202,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventDate;
+            cell.data = self.model.eventDate;
             return cell;
         }
         case 7:
@@ -209,7 +211,7 @@
             if (!cell) {
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
-            cell.data = model.place;
+            cell.data = self.model.place;
             return cell;
         }
         case 8:
@@ -225,7 +227,7 @@
             if (!cell) {
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
-            cell.data = model.department;
+            cell.data = self.model.department;
             return cell;
         }
         case 11:
@@ -234,7 +236,7 @@
             if (!cell) {
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
-            cell.data = model.reporter;
+            cell.data = self.model.reporter;
             return cell;
         }
         case 12:
@@ -244,7 +246,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventStatus;
+            cell.data = self.model.eventStatus;
             return cell;
         }
         case 13:
@@ -254,7 +256,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventPreprocess;
+            cell.data = self.model.eventPreprocess;
             return cell;
         }
         case 15:
@@ -274,7 +276,7 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    __weak __typeof(self) weakSelf = self;
     switch (indexPath.row) {
         case 0:
         case 5:
@@ -290,20 +292,52 @@
         }
         case 1: //eventType
         {
+            NSArray *choices = @[@"t1",@"t2"];
+            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
+                NSString *choice = dict[@"choice"];
+                weakSelf.model.eventType.detail = choice;
+                [weakSelf.eventTableView reloadData];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+            
         }
         case 2: //eventXingzhi
         {
+            NSArray *choices = @[@"x1",@"x2"];
+            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
+                NSString *choice = dict[@"choice"];
+                weakSelf.model.eventXingzhi.detail = choice;
+                [weakSelf.eventTableView reloadData];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
         }
         case 3: //level
         {
+            NSArray *choices = @[@"l1",@"l2"];
+            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
+                NSString *choice = dict[@"choice"];
+                weakSelf.model.level.detail = choice;
+                [weakSelf.eventTableView reloadData];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
         }
         case 4: //reason
         {
+            NSArray *choices = @[@"r1",@"r2"];
+            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
+                NSString *choice = dict[@"choice"];
+                weakSelf.model.reason.detail = choice;
+                [weakSelf.eventTableView reloadData];
+            }];
+            [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 6: //eventDate
         {
-            NSDate *date = model.eventDate.date;
+            NSDate *date = self.model.eventDate.date;
             DatePickViewController *pickerVC = [[DatePickViewController alloc] initWithDate:date];
             [self.navigationController pushViewController:pickerVC animated:YES];
             break;
@@ -315,7 +349,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventStatus;
+            cell.data = self.model.eventStatus;
         }
         case 13:
         {
@@ -324,7 +358,7 @@
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = model.eventPreprocess;
+            cell.data = self.model.eventPreprocess;
         }
         
             
@@ -344,4 +378,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark scrollview delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+    
+}
 @end

@@ -8,6 +8,8 @@
 
 #import "RouteMapViewController.h"
 #import "MapViewManager.h"
+#import "CommonDefine.h"
+#import "Masonry.h"
 
 @interface RouteMapViewController()
 {
@@ -24,10 +26,25 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(actionPickPoint)];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
+    
+}
+
+-(void) setupSubviews
+{
     anchorView = [UIImageView new];
     anchorView.bounds = CGRectMake(0, 0, 36,36);
     anchorView.center = self.view.center;
     anchorView.image = [UIImage imageNamed:@"RedPushpin"];
+    
+    [self.view addSubview:anchorView];
+    
+    __weak UIView *weakView = self.view;
+    [anchorView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(36);
+        make.height.mas_equalTo(36);
+        make.centerX.mas_equalTo(weakView.mas_centerX);
+        make.bottom.mas_equalTo(weakView.mas_centerY);
+    }];
 }
 
 -(void)actionPickPoint

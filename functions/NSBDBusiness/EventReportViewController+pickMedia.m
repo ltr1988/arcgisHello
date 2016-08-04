@@ -123,16 +123,16 @@
     if ([mediaType isEqualToString:@"public.image"]){
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         [UIImageJPEGRepresentation(image, 1.0f) writeToFile:[self findUniqueSavePath] atomically:YES];
-        [model.eventPic addObject:image];
-        [mPicker setImages:model.eventPic];
+        [self.model.eventPic addObject:image];
+        [mPicker setImages:self.model.eventPic];
     }
     else if ([mediaType isEqualToString:@"public.movie"]){
         NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
         NSData *webData = [NSData dataWithContentsOfURL:videoURL];
         
         [webData writeToFile:[self findUniqueMoviePath] atomically:YES];
-        model.eventVideo = videoURL;
-        [mPicker setVideo:model.eventVideo];
+        self.model.eventVideo = videoURL;
+        [mPicker setVideo:self.model.eventVideo];
     }
     
     [mPicker relayout];
@@ -171,12 +171,12 @@
     }
     
     if (images.count>0) {
-        [model.eventPic addObjectsFromArray:images];
-        [mPicker setImages:model.eventPic];
+        [self.model.eventPic addObjectsFromArray:images];
+        [mPicker setImages:self.model.eventPic];
     }
     if (urlStr) {
-        model.eventVideo = urlStr;
-        [mPicker setVideo:model.eventVideo];
+        self.model.eventVideo = urlStr;
+        [mPicker setVideo:self.model.eventVideo];
     }
     
     [mPicker relayout];
@@ -192,10 +192,10 @@
     BOOL isImage = [noti.userInfo[@"itemType"] isEqualToString:@"image"];
     NSNumber *index = noti.userInfo[@"index"];
     if (isImage) {
-        [model.eventPic removeObjectAtIndex:index.intValue];
+        [self.model.eventPic removeObjectAtIndex:index.intValue];
     }else
     {
-        model.eventVideo = nil;
+        self.model.eventVideo = nil;
     }
 }
 

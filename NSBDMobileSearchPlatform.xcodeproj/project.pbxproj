@@ -64,6 +64,7 @@
 		A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
 		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
+		B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
 		B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286535E1D45E769002D4139 /* TitleTextInputCell.m */; };
 		B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653601D45E769002D4139 /* QRSeparatorCell.m */; };
@@ -214,6 +215,8 @@
 		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
 		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
+		B205A4441D532CE8007530EB /* ChoicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoicePickerViewController.h; path = functions/NSBDBusiness/ChoicePickerViewController.h; sourceTree = "<group>"; };
+		B205A4451D532CE8007530EB /* ChoicePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoicePickerViewController.m; path = functions/NSBDBusiness/ChoicePickerViewController.m; sourceTree = "<group>"; };
 		B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStartEndPickerController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStartEndPickerController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 				A4E9E7651D46495900E3C94C /* DatePickViewController.m */,
 				B28653E51D49A3A0002D4139 /* EventReportViewController+pickMedia.h */,
 				B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */,
+				B205A4441D532CE8007530EB /* ChoicePickerViewController.h */,
+				B205A4451D532CE8007530EB /* ChoicePickerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
+				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
 				B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */,

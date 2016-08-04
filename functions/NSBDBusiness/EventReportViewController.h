@@ -20,7 +20,7 @@
     UIActionSheet *myActionSheetVideo;
     
     EventMediaPickerView *mPicker;
-    
-    EventReportModel *model;
+
 }
+@property (nonatomic,strong) EventReportModel *model;
 @end
