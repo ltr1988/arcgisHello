@@ -42,6 +42,14 @@
     id<TitleTextInputCellViewModel> item = (id<TitleTextInputCellViewModel>)data;
     inputTextField.text = [item detail];
     inputTextField.placeholder = [item placeholder];
+    NSKeyValueObservingOptions static const
+    options =
+    NSKeyValueObservingOptionInitial |
+    NSKeyValueObservingOptionOld |
+    NSKeyValueObservingOptionNew;
+    [inputTextField addObserver:self
+           forKeyPath:@"text"
+              options:options context:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -52,4 +60,15 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"text"]) {
+        if (_data) {
+            [_data setValue:change[NSKeyValueChangeNewKey] forKey:@"_detail"];
+        }
+    }
+}
+
+
 @end

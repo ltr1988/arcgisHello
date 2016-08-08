@@ -10,7 +10,7 @@
 #import "TitleDetailCell.h"
 #import "TitleTextInputCell.h"
 
-@interface TitleDetailItem : TitleItem<TitleDetailCellViewModel>
+@interface TitleDetailItem : TitleItem<TitleDetailCellViewModel,NSCoding>
 @property (nonatomic,strong) NSString *detail;
 +(instancetype) itemWithTitle:(NSString *)title detail:(NSString *)detail;
 @end
@@ -18,7 +18,7 @@
 
 
 
-@interface TitleDateItem : TitleItem<TitleDetailCellViewModel>
+@interface TitleDateItem : TitleItem<TitleDetailCellViewModel,NSCoding>
 @property (nonatomic,strong) NSDate *date;
 +(instancetype) itemWithTitle:(NSString *)title;
 @end
@@ -26,7 +26,7 @@
 
 
 
-@interface TitleInputItem : TitleDetailItem<TitleTextInputCellViewModel>
+@interface TitleInputItem : TitleDetailItem<TitleTextInputCellViewModel,NSCoding>
 @property (nonatomic,strong) NSString *placeholder;
 +(instancetype) itemWithTitle:(NSString *)title placeholder:(NSString *)placeholder;
 @end

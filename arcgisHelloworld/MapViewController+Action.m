@@ -37,14 +37,8 @@
 
 -(void) actionQRCodeSwipe
 {
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    QRCodeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"qrCodeViewController"];
-//    [self.navigationController pushViewController:controller animated:YES];
-    
-    
-    WebViewController *controller = [[WebViewController alloc] init];
-    
-    [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    QRCodeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"qrCodeViewController"];
     [self.navigationController pushViewController:controller animated:YES];
     
 

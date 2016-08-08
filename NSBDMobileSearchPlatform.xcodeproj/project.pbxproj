@@ -49,7 +49,6 @@
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
 		A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378911D378D7600A7342D /* QRCodeViewController.m */; };
-		A4D59AB71D523C6C00511F81 /* startup.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D59AB61D523C6C00511F81 /* startup.png */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -65,6 +64,8 @@
 		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
 		B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
+		B205A4841D58790F007530EB /* startup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B205A4831D58790F007530EB /* startup.jpg */; };
+		B205A4881D587A49007530EB /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4871D587A49007530EB /* ToastView.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
 		B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286535E1D45E769002D4139 /* TitleTextInputCell.m */; };
 		B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653601D45E769002D4139 /* QRSeparatorCell.m */; };
@@ -190,7 +191,6 @@
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		A4A378901D378D7600A7342D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = functions/NSBDBusiness/QRCodeViewController.h; sourceTree = "<group>"; };
 		A4A378911D378D7600A7342D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = functions/NSBDBusiness/QRCodeViewController.m; sourceTree = "<group>"; };
-		A4D59AB61D523C6C00511F81 /* startup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = startup.png; path = images/startup.png; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,6 +217,9 @@
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
 		B205A4441D532CE8007530EB /* ChoicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoicePickerViewController.h; path = functions/NSBDBusiness/ChoicePickerViewController.h; sourceTree = "<group>"; };
 		B205A4451D532CE8007530EB /* ChoicePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoicePickerViewController.m; path = functions/NSBDBusiness/ChoicePickerViewController.m; sourceTree = "<group>"; };
+		B205A4831D58790F007530EB /* startup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = startup.jpg; path = images/startup.jpg; sourceTree = "<group>"; };
+		B205A4861D587A49007530EB /* ToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToastView.h; path = functions/Toast/ToastView.h; sourceTree = "<group>"; };
+		B205A4871D587A49007530EB /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToastView.m; path = functions/Toast/ToastView.m; sourceTree = "<group>"; };
 		B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStartEndPickerController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStartEndPickerController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -424,6 +427,7 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				B205A4851D587A29007530EB /* Toast */,
 				B28653BA1D4863A3002D4139 /* UIKit+AFNetworking */,
 				B28653661D45E9EA002D4139 /* Masonry */,
 				A48599321D3B4C720050AC88 /* SVProgresssHUD */,
@@ -509,7 +513,7 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
-				A4D59AB61D523C6C00511F81 /* startup.png */,
+				B205A4831D58790F007530EB /* startup.jpg */,
 				B2C6B1A91D5091CD00B0B12A /* play@2x.png */,
 				B2C6B1AA1D5091CD00B0B12A /* play@3x.png */,
 				B28653B61D4862B3002D4139 /* delete@2x.png */,
@@ -599,6 +603,15 @@
 				A4DD86871D0976B00096B548 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B205A4851D587A29007530EB /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				B205A4861D587A49007530EB /* ToastView.h */,
+				B205A4871D587A49007530EB /* ToastView.m */,
+			);
+			name = Toast;
 			sourceTree = "<group>";
 		};
 		B21163EA1D0FB224003F90A6 /* Views */ = {
@@ -769,9 +782,9 @@
 				A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */,
 				B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */,
 				A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */,
-				A4D59AB71D523C6C00511F81 /* startup.png in Resources */,
 				A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */,
 				A414ACAE1D3A1D6C0065AAA7 /* Overlay@2x.png in Resources */,
+				B205A4841D58790F007530EB /* startup.jpg in Resources */,
 				A4DD86961D0976B00096B548 /* Launch.storyboard in Resources */,
 				B28653B91D4862B3002D4139 /* delete@3x.png in Resources */,
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
@@ -857,6 +870,7 @@
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
+				B205A4881D587A49007530EB /* ToastView.m in Sources */,
 				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,

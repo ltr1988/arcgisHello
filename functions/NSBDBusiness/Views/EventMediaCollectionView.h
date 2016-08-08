@@ -23,6 +23,6 @@
 
 -(void) addPics:(NSArray *)imageList;
 -(void) setPics:(NSArray *)imageList;
--(void) setVideo:(NSString *)videoPath;
+-(void) setVideo:(NSURL *)videoPath;
 
 @end

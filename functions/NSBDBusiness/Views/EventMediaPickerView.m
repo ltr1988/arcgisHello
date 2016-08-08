@@ -165,6 +165,8 @@
 
 -(void) setImages:(NSArray *)data
 {
+    if (nil == data)
+        return;
     //set picContentView.frame for data counts
     [picContentView setPics:data];
 
@@ -173,6 +175,8 @@
 -(void) setVideo:(NSURL *)data
 {
     //set picContentView.frame for data counts
+    if (nil == data)
+        return;
     [picContentView setVideo:data];
 }
 

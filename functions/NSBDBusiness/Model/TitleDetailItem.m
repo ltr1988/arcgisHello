@@ -16,6 +16,27 @@
     item.detail = detail;
     return item;
 }
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"_title"];
+    [aCoder encodeObject:_detail forKey:@"_detail"];
+
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"_title"];
+        _detail = [aDecoder decodeObjectForKey:@"_detail"];
+    }
+    
+    return self;
+}
+
+
+
 @end
 
 
@@ -36,6 +57,23 @@
     item.date = [NSDate date];
     return item;
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"_title"];
+    [aCoder encodeObject:_date forKey:@"_date"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"_title"];
+        _date = [aDecoder decodeObjectForKey:@"_date"];
+    }
+    
+    return self;
+}
 @end
 
 
@@ -48,5 +86,26 @@
     item.detail = @"";
     item.placeholder = placeholder;
     return item;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"_title"];
+    [aCoder encodeObject:self.detail forKey:@"_detail"];
+    
+    [aCoder encodeObject:_placeholder forKey:@"_placeholder"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"_title"];
+        self.detail = [aDecoder decodeObjectForKey:@"_detail"];
+        _placeholder = [aDecoder decodeObjectForKey:@"_placeholder"];
+    }
+    
+    return self;
 }
 @end

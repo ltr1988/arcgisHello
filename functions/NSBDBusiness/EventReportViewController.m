@@ -23,6 +23,11 @@
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
 
+#import "ToastView.h"
+
+#import "CommonDefine.h"
+#import "Masonry.h"
+
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
 
@@ -34,32 +39,48 @@
 @implementation EventReportViewController
 
 
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setupModel];
     [self setupSubViews];
     [self addObservers];
-    [self setupModel];
     
 }
+
 -(void) setupModel
 {
-    self.model = [EventReportModel new];
-    self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
-    self.model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
-    self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
-    self.model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
-    self.model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
-    
-    
-    self.model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
-    self.model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
-    
-    self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
-    self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-    self.model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
-    self.model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
-    self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
+    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSData * data= [NSData dataWithContentsOfFile:path];
+        self.model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+    }else
+    {
+        self.model = [EventReportModel new];
+        self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
+        self.model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
+        self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
+        self.model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
+        self.model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
+        
+        
+        self.model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
+        self.model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
+        
+        self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
+        self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+        self.model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
+        self.model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+        self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
+    }
 }
 -(void) addObservers
 {
@@ -92,6 +113,9 @@
     self.eventTableView.delegate = self;
     self.eventTableView.dataSource = self;
     self.eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    
+    self.eventTableView.tableFooterView = [self footerView];
+    
     [self.view addSubview:self.eventTableView];
     
     
@@ -111,6 +135,78 @@
         [weakself.navigationController pushViewController:vc animated:YES];
     }];
     
+    
+    [mPicker setImages:self.model.eventPic];
+    [mPicker setVideo:self.model.eventVideo];
+    [mPicker relayout];
+    
+    [self.eventTableView reloadData];
+}
+
+-(UIView*) footerView
+{
+    UIView *footer = [UIView new];
+    footer.frame = CGRectMake(0, 0, kScreenWidth, 16*3+40*2);
+    UIButton *btnUpload = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnSaveLocal = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    btnUpload.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
+    [btnUpload setTitle:@"完成并上报" forState:UIControlStateNormal];
+    [btnUpload setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnUpload.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    
+    btnSaveLocal.backgroundColor = [UIColor blueColor];
+    [btnSaveLocal setTitle:@"保存至本地" forState:UIControlStateNormal];
+    [btnSaveLocal setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnSaveLocal.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    
+    [btnUpload addTarget:self action:@selector(actionUpload:) forControlEvents:UIControlEventTouchUpInside];
+    [btnSaveLocal addTarget:self action:@selector(actionSaveLocal:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [footer addSubview:btnUpload];
+    [footer addSubview:btnSaveLocal];
+    
+    CGFloat margin = 50;
+    __weak UIView* weakView = footer;
+    [btnUpload mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top).offset(16);
+        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(weakView.mas_left).offset(margin);
+        make.right.mas_equalTo(weakView.mas_right).offset(0-margin);
+    }];
+    
+    [btnSaveLocal mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(btnUpload.mas_bottom).offset(16);
+        make.height.mas_equalTo(40);
+        
+        make.left.mas_equalTo(weakView.mas_left).offset(margin);
+        make.right.mas_equalTo(weakView.mas_right).offset(0-margin);
+    }];
+    
+    return footer;
+}
+
+
+-(void) actionUpload:(id) sender
+{
+    NSLog(@"upload");
+    
+    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        NSLog(@"delete local save");
+    }
+}
+
+-(void) actionSaveLocal:(id) sender
+{
+    UIButton *btn = sender;
+    btn.enabled = NO;
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.model];
+    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    [data writeToFile:path atomically:YES];
+    [ToastView popToast:@"保存成功"];
+    btn.enabled = YES;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,7 +226,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 17;
+    return 16;
 }
 
 

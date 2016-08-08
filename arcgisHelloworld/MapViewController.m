@@ -17,7 +17,7 @@
 #import "AppDelegate.h"
 #import "UIButton+UIButtonSetEdgeInsets.h"
 #import "MapViewManager.h"
-
+#import "WebViewController.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate>
 {
@@ -83,27 +83,6 @@
     self.identifyTask.delegate = self;
     self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
     self.queryTask.delegate = self;
-}
-
--(UIView*) pickPointView
-{
-    float height = CGRectGetHeight(self.tabBarController.tabBar.frame);
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight-30-height, kScreenWidth, 30)];
-    view.tag = 998;
-    view.backgroundColor = [UIColor whiteColor];
-    //view.hidden = YES;
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-    label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor blackColor];
-    [view addSubview:label];
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 40, 3, 40, 24)];
-    [btn setTitle:@"确定" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(pickPoint) forControlEvents:UIControlEventTouchUpInside];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [view addSubview:btn];
-    return view;
 }
 
 -(void) setupSubviews
@@ -325,12 +304,20 @@
             item.moreInfo = [[((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes] copy];
             calloutView.model = (id<ItemCallOutViewModel>)item;
             
+            
+            __weak __typeof(self) weakSelf = self;
             calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
                     DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
                 
-                    [self.navigationController pushViewController:detailVC animated:YES];
+                    [weakSelf.navigationController pushViewController:detailVC animated:YES];
             };
-
+            calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
+                WebViewController *controller = [[WebViewController alloc] init];
+                
+                [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+                
+                [weakSelf.navigationController pushViewController:controller animated:YES];
+            };
             
             //show callout
             [self.mapView showInfoView:YES];
