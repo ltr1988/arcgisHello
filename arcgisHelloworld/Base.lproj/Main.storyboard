@@ -385,52 +385,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo7-pL-4As">
-                                <rect key="frame" x="109" y="40" width="382" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="openSystemLight:" destination="Vu9-wt-6bA" eventType="touchUpInside" id="OAL-o5-9ql"/>
-                                    <action selector="startScanner:" destination="Vu9-wt-6bA" eventType="touchUpInside" id="gQd-M5-t71"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vG-MC-VBa">
-                                <rect key="frame" x="109" y="502" width="382" height="62"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startScanner:" destination="Vu9-wt-6bA" eventType="touchUpInside" id="jnd-bX-WOc"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDN-Jr-Bfb">
-                                <rect key="frame" x="46" y="101" width="509" height="316"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CDN-Jr-Bfb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vo7-pL-4As" secondAttribute="trailing" constant="89" id="4at-x9-d6S"/>
                             <constraint firstItem="CDN-Jr-Bfb" firstAttribute="top" secondItem="Txf-ot-oSb" secondAttribute="bottom" constant="81" id="6wp-J8-7kU"/>
                             <constraint firstAttribute="centerY" secondItem="CDN-Jr-Bfb" secondAttribute="centerY" constant="41" id="9PY-tG-TEY"/>
-                            <constraint firstItem="Ulx-Gn-w6f" firstAttribute="top" secondItem="1vG-MC-VBa" secondAttribute="bottom" constant="36" id="B1A-dS-1l2"/>
+                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leading" id="BaZ-GC-Lis"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CDN-Jr-Bfb" secondAttribute="trailing" constant="25" id="Cx6-q4-gUa"/>
-                            <constraint firstItem="Vo7-pL-4As" firstAttribute="top" secondItem="Txf-ot-oSb" secondAttribute="bottom" constant="20" id="H6c-2e-vCQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1vG-MC-VBa" secondAttribute="trailing" constant="89" id="LuU-ba-svn"/>
-                            <constraint firstItem="Ulx-Gn-w6f" firstAttribute="top" secondItem="Vo7-pL-4As" secondAttribute="bottom" constant="498" id="SyI-Te-arz"/>
-                            <constraint firstItem="1vG-MC-VBa" firstAttribute="top" secondItem="Txf-ot-oSb" secondAttribute="bottom" constant="482" id="Wh3-ba-tLK"/>
-                            <constraint firstItem="Vo7-pL-4As" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leadingMargin" constant="89" id="bOH-vo-Gch"/>
-                            <constraint firstItem="1vG-MC-VBa" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leadingMargin" constant="89" id="bi3-Rb-x75"/>
+                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="bottom" secondItem="Ulx-Gn-w6f" secondAttribute="top" id="Iea-5o-nnw"/>
+                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="top" secondItem="ulH-7L-Lr2" secondAttribute="top" id="XVF-5Q-H1J"/>
                             <constraint firstItem="Ulx-Gn-w6f" firstAttribute="top" secondItem="CDN-Jr-Bfb" secondAttribute="bottom" constant="183" id="lCO-XQ-FVb"/>
                             <constraint firstItem="CDN-Jr-Bfb" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leadingMargin" constant="26" id="wVo-0H-5Gj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6wp-J8-7kU"/>
+                                <exclude reference="9PY-tG-TEY"/>
+                                <exclude reference="Cx6-q4-gUa"/>
+                                <exclude reference="wVo-0H-5Gj"/>
+                                <exclude reference="lCO-XQ-FVb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="button" destination="1vG-MC-VBa" id="crQ-GW-c1B"/>
-                        <outlet property="lightButton" destination="Vo7-pL-4As" id="LvT-p2-4FI"/>
                         <outlet property="sanFrameView" destination="CDN-Jr-Bfb" id="29o-jA-4JG"/>
                     </connections>
                 </viewController>
