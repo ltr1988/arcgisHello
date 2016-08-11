@@ -14,6 +14,7 @@
 #import "ImagePickerViewController.h"
 #import "WebViewController.h"
 #import "RouteStartEndPickerController.h"
+#import "SearchChoiceController.h"
 
 @implementation MapViewController (Action)
 
@@ -25,8 +26,16 @@
 #pragma mark - bottom view actions
 -(void) actionSearchUpload
 {
-    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    BOOL haveTask = YES;
+    if (haveTask) {
+        SearchChoiceController *vc = [[SearchChoiceController alloc] init];
+        vc.definesPresentationContext = YES;
+        vc.providesPresentationContextTransitionStyle = YES;
+        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+//    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void) actionEventUpload

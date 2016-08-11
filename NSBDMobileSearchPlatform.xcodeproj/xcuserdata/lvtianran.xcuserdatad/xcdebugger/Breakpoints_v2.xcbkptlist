@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/EventReportViewController.m"
-            timestampString = "492423852.562262"
+            filePath = "functions/NSBDBusiness/SearchChoiceController.m"
+            timestampString = "492598092.69955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "-actionSaveLocal"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "-tapToClose:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/EventReportViewController.m"
-            timestampString = "492423852.562262"
+            filePath = "functions/NSBDBusiness/SearchChoiceController.m"
+            timestampString = "492598092.69955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-gestureRecognizer:shouldReceiveTouch:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/SearchChoiceController.m"
+            timestampString = "492598092.69955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
