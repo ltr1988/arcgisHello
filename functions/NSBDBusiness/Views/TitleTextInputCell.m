@@ -70,5 +70,9 @@
     }
 }
 
+-(void) dealloc
+{
+    [inputTextField removeObserver:self forKeyPath:@"text"];
+}
 
 @end

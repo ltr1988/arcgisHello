@@ -48,7 +48,6 @@
 		A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */; };
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
-		A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378911D378D7600A7342D /* QRCodeViewController.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -67,6 +66,10 @@
 		B205A4841D58790F007530EB /* startup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B205A4831D58790F007530EB /* startup.jpg */; };
 		B205A4881D587A49007530EB /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4871D587A49007530EB /* ToastView.m */; };
 		B205A4901D5C51FC007530EB /* SearchChoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A48F1D5C51FC007530EB /* SearchChoiceController.m */; };
+		B205A4991D5D7ABC007530EB /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4921D5D7ABC007530EB /* QRCodeReaderViewController.m */; };
+		B205A49B1D5D7ABC007530EB /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4971D5D7ABC007530EB /* QRCodeReaderView.m */; };
+		B205A49E1D5DB874007530EB /* SearchStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A49D1D5DB874007530EB /* SearchStartViewController.m */; };
+		B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4A01D5DBF58007530EB /* SearchStartModel.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
 		B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286535E1D45E769002D4139 /* TitleTextInputCell.m */; };
 		B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653601D45E769002D4139 /* QRSeparatorCell.m */; };
@@ -190,8 +193,6 @@
 		A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = functions/AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		A4A378871D365DC100A7342D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = functions/AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		A4A378901D378D7600A7342D /* QRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeViewController.h; path = functions/NSBDBusiness/QRCodeViewController.h; sourceTree = "<group>"; };
-		A4A378911D378D7600A7342D /* QRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeViewController.m; path = functions/NSBDBusiness/QRCodeViewController.m; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +224,15 @@
 		B205A4871D587A49007530EB /* ToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToastView.m; path = functions/Toast/ToastView.m; sourceTree = "<group>"; };
 		B205A48E1D5C51FC007530EB /* SearchChoiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchChoiceController.h; path = functions/NSBDBusiness/SearchChoiceController.h; sourceTree = "<group>"; };
 		B205A48F1D5C51FC007530EB /* SearchChoiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchChoiceController.m; path = functions/NSBDBusiness/SearchChoiceController.m; sourceTree = "<group>"; };
+		B205A4921D5D7ABC007530EB /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderViewController.m; path = functions/QRCodeReaderViewController/QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		B205A4951D5D7ABC007530EB /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderDelegate.h; path = functions/QRCodeReaderViewController/QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		B205A4961D5D7ABC007530EB /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderView.h; path = functions/QRCodeReaderViewController/QRCodeReaderView.h; sourceTree = "<group>"; };
+		B205A4971D5D7ABC007530EB /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderView.m; path = functions/QRCodeReaderViewController/QRCodeReaderView.m; sourceTree = "<group>"; };
+		B205A4981D5D7ABC007530EB /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderViewController.h; path = functions/QRCodeReaderViewController/QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		B205A49C1D5DB874007530EB /* SearchStartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchStartViewController.h; path = functions/NSBDBusiness/SearchStartViewController.h; sourceTree = "<group>"; };
+		B205A49D1D5DB874007530EB /* SearchStartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchStartViewController.m; path = functions/NSBDBusiness/SearchStartViewController.m; sourceTree = "<group>"; };
+		B205A49F1D5DBF58007530EB /* SearchStartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchStartModel.h; path = functions/NSBDBusiness/Model/SearchStartModel.h; sourceTree = "<group>"; };
+		B205A4A01D5DBF58007530EB /* SearchStartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchStartModel.m; path = functions/NSBDBusiness/Model/SearchStartModel.m; sourceTree = "<group>"; };
 		B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStartEndPickerController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStartEndPickerController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -409,8 +419,6 @@
 				A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */,
 				A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */,
 				A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */,
-				A4A378901D378D7600A7342D /* QRCodeViewController.h */,
-				A4A378911D378D7600A7342D /* QRCodeViewController.m */,
 				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
 				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
 				A414ACC71D3B20970065AAA7 /* WebViewController.h */,
@@ -425,6 +433,8 @@
 				B205A4451D532CE8007530EB /* ChoicePickerViewController.m */,
 				B205A48E1D5C51FC007530EB /* SearchChoiceController.h */,
 				B205A48F1D5C51FC007530EB /* SearchChoiceController.m */,
+				B205A49C1D5DB874007530EB /* SearchStartViewController.h */,
+				B205A49D1D5DB874007530EB /* SearchStartViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -432,6 +442,7 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				B205A4911D5D7AAA007530EB /* QRCodeReaderViewController */,
 				B205A4851D587A29007530EB /* Toast */,
 				B28653BA1D4863A3002D4139 /* UIKit+AFNetworking */,
 				B28653661D45E9EA002D4139 /* Masonry */,
@@ -619,6 +630,18 @@
 			name = Toast;
 			sourceTree = "<group>";
 		};
+		B205A4911D5D7AAA007530EB /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B205A4951D5D7ABC007530EB /* QRCodeReaderDelegate.h */,
+				B205A4961D5D7ABC007530EB /* QRCodeReaderView.h */,
+				B205A4971D5D7ABC007530EB /* QRCodeReaderView.m */,
+				B205A4981D5D7ABC007530EB /* QRCodeReaderViewController.h */,
+				B205A4921D5D7ABC007530EB /* QRCodeReaderViewController.m */,
+			);
+			name = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
 		B21163EA1D0FB224003F90A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +694,8 @@
 				A4E9E76B1D4650BD00E3C94C /* TitleItem.m */,
 				A4E9E7701D46511C00E3C94C /* CheckableTitleItem.h */,
 				A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */,
+				B205A49F1D5DBF58007530EB /* SearchStartModel.h */,
+				B205A4A01D5DBF58007530EB /* SearchStartModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -818,7 +843,9 @@
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
 				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
+				B205A49B1D5D7ABC007530EB /* QRCodeReaderView.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
+				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
 				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
 				B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */,
 				B286537F1D45EA03002D4139 /* MASConstraint.m in Sources */,
@@ -835,6 +862,7 @@
 				B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */,
 				B28653D71D4863B2002D4139 /* UIWebView+AFNetworking.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
+				B205A4991D5D7ABC007530EB /* QRCodeReaderViewController.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
@@ -870,13 +898,13 @@
 				B28653EF1D49FF54002D4139 /* UIColor+BorderColor.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */,
+				B205A49E1D5DB874007530EB /* SearchStartViewController.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
-				A4A378921D378D7600A7342D /* QRCodeViewController.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,

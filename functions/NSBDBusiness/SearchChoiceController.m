@@ -9,6 +9,7 @@
 #import "SearchChoiceController.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
+#import "VideoPlayViewController.h"
 
 @interface SearchChoiceController()
 {
@@ -114,17 +115,23 @@
 
 - (void)tapToClose:(UITapGestureRecognizer *)gesture
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (_delegate) {
+        [_delegate dismissController];
+    }
 }
 
 #pragma mark actions
 - (void)actionContinue:(id) sender
 {
-    
+    if (_delegate) {
+        [_delegate continueSession];
+    }
 }
 
 - (void)actionEndSession:(id) sender
 {
-    
+    if (_delegate) {
+        [_delegate endSession];
+    }
 }
 @end

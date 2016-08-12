@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -372,52 +371,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgt-e9-CE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="240" y="341"/>
-        </scene>
-        <!--Code View Controller-->
-        <scene sceneID="G97-AW-8ho">
-            <objects>
-                <viewController storyboardIdentifier="qrCodeViewController" id="Vu9-wt-6bA" customClass="QRCodeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Txf-ot-oSb"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ulx-Gn-w6f"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ulH-7L-Lr2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CDN-Jr-Bfb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="top" secondItem="Txf-ot-oSb" secondAttribute="bottom" constant="81" id="6wp-J8-7kU"/>
-                            <constraint firstAttribute="centerY" secondItem="CDN-Jr-Bfb" secondAttribute="centerY" constant="41" id="9PY-tG-TEY"/>
-                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leading" id="BaZ-GC-Lis"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CDN-Jr-Bfb" secondAttribute="trailing" constant="25" id="Cx6-q4-gUa"/>
-                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="bottom" secondItem="Ulx-Gn-w6f" secondAttribute="top" id="Iea-5o-nnw"/>
-                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="top" secondItem="ulH-7L-Lr2" secondAttribute="top" id="XVF-5Q-H1J"/>
-                            <constraint firstItem="Ulx-Gn-w6f" firstAttribute="top" secondItem="CDN-Jr-Bfb" secondAttribute="bottom" constant="183" id="lCO-XQ-FVb"/>
-                            <constraint firstItem="CDN-Jr-Bfb" firstAttribute="leading" secondItem="ulH-7L-Lr2" secondAttribute="leadingMargin" constant="26" id="wVo-0H-5Gj"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="6wp-J8-7kU"/>
-                                <exclude reference="9PY-tG-TEY"/>
-                                <exclude reference="Cx6-q4-gUa"/>
-                                <exclude reference="wVo-0H-5Gj"/>
-                                <exclude reference="lCO-XQ-FVb"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="sanFrameView" destination="CDN-Jr-Bfb" id="29o-jA-4JG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Bk-b0-Crt" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="71" y="-478"/>
         </scene>
     </scenes>
 </document>

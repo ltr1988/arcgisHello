@@ -167,7 +167,7 @@
     btn4.backgroundColor = [UIColor whiteColor];
     [btn4 setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
     [btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn4 addTarget:self action:@selector(actionQRCodeMyWork) forControlEvents:UIControlEventTouchUpInside];
+    [btn4 addTarget:self action:@selector(actionMyWork) forControlEvents:UIControlEventTouchUpInside];
     [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
     btn4.titleLabel.font = UI_FONT(16);
     
@@ -396,7 +396,6 @@
     
     [self actionNavigation];
 }
-
 
 
 @end

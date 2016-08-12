@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "InfoAGSMapView.h"
+#import "SearchChoiceController.h"
+#import "QRCodeReaderDelegate.h"
 
-@interface MapViewController : SupportRotationSelectBaseViewController
+@interface MapViewController : SupportRotationSelectBaseViewController<SearchChoiceControllerDelegate,QRCodeReaderDelegate>
 
 @property (weak, nonatomic) InfoAGSMapView *mapView;
 @end

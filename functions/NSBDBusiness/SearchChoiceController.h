@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchChoiceController : UIViewController<UIGestureRecognizerDelegate>
 
+@protocol SearchChoiceControllerDelegate <NSObject>
+
+-(void) dismissController;
+-(void) continueSession;
+-(void) endSession;
+
+@end
+
+@interface SearchChoiceController : UIViewController<UIGestureRecognizerDelegate>
+@property (nonatomic,weak) id<SearchChoiceControllerDelegate> delegate;
 @end

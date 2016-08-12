@@ -9,12 +9,13 @@
 #import "MapViewController+Action.h"
 #import "MapViewController.h"
 #import "EventReportViewController.h"
-#import "QRCodeViewController.h"
+#import "QRCodeReaderViewController.h"
 #import "VideoPlayViewController.h"
 #import "ImagePickerViewController.h"
 #import "WebViewController.h"
 #import "RouteStartEndPickerController.h"
 #import "SearchChoiceController.h"
+#import "SearchStartViewController.h"
 
 @implementation MapViewController (Action)
 
@@ -32,6 +33,7 @@
         vc.definesPresentationContext = YES;
         vc.providesPresentationContextTransitionStyle = YES;
         vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     }
 //    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
@@ -46,10 +48,9 @@
 
 -(void) actionQRCodeSwipe
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    QRCodeViewController *controller = [sb instantiateViewControllerWithIdentifier:@"qrCodeViewController"];
-    [self.navigationController pushViewController:controller animated:YES];
-    
+    QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
+    reader.delegate = self;
+    [self.navigationController pushViewController:reader animated:YES];
 
 }
 
@@ -71,7 +72,7 @@
     self.mapView.locationDisplay.wanderExtentFactor = 0.75;
 }
 
--(void) actionQRCodeMyWork
+-(void) actionMyWork
 {
     
     
@@ -79,4 +80,42 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+
+#pragma mark choice modal vc delegate
+-(void) dismissController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) endSession
+{
+    __weak __typeof(self) weakSelf = self;
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        SearchStartViewController *vc = [[SearchStartViewController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
+-(void) continueSession
+{
+    __weak __typeof(self) weakSelf = self;
+    [self dismissViewControllerAnimated:YES completion:^{
+        VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [[[UIAlertView alloc] initWithTitle:@"" message:result delegate:self cancelButtonTitle:@"好的" otherButtonTitles: nil] show];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
