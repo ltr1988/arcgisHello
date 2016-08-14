@@ -36,6 +36,15 @@
 }
 
 
+-(void) setData:(id)data
+{
+    if (self.data != nil) {
+        [inputTextField removeObserver:self forKeyPath:@"text"];
+    }
+    _data = data;
+    [self bindData:data];
+}
+
 -(void) bindData:(id) data
 {
     [super bindData:data];
@@ -47,6 +56,7 @@
     NSKeyValueObservingOptionInitial |
     NSKeyValueObservingOptionOld |
     NSKeyValueObservingOptionNew;
+    
     [inputTextField addObserver:self
            forKeyPath:@"text"
               options:options context:nil];

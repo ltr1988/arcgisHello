@@ -16,7 +16,7 @@
 
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
-#define HOSTIP @"192.168.1.101"
+#define HOSTIP @"192.168.1.106"
 
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\

@@ -35,10 +35,13 @@
 
 -(void) setBottomView:(UIView *)bottomView
 {
-    if (_bottomView && (_infoView!= bottomView)) {
+    if (_bottomView && (_bottomView!= bottomView)) {
         [_bottomView removeFromSuperview];
     }
     _bottomView = bottomView;
+    
+    if (bottomView == nil)
+        return;
     CGRect frame = self.bounds;
     frame.origin.y = self.bounds.size.height - bottomView.frame.size.height;
     frame.size.height = bottomView.frame.size.height;
@@ -56,6 +59,8 @@
         [_infoView removeFromSuperview];
     }
     _infoView = infoView;
+    if (infoView == nil)
+        return;
     CGRect frame = self.bounds;
     frame.origin.y = self.bounds.size.height - infoView.frame.size.height;
     frame.size.height = infoView.frame.size.height;
@@ -67,6 +72,8 @@
     
     [self bringSubviewToFront:_infoView];
 }
+
+
 
 -(void) showInfoView:(BOOL)animated
 {

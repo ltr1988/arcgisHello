@@ -40,28 +40,6 @@
 }
 
 
--(void) viewWillAppear:(BOOL)animated
-{
-    self.mapView = [MapViewManager sharedMapView];
-    self.mapView.frame = self.view.bounds;
-    [self.view insertSubview:self.mapView atIndex:0];
-    self.mapView.touchDelegate = self;
-    self.mapView.callout.delegate = self;
-    self.mapView.layerDelegate = self;
-    self.mapView.bottomView = [self bottomView];
-}
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [self.mapView removeFromSuperview];
-    self.mapView.touchDelegate = nil;
-    self.mapView.callout.delegate = nil;
-    self.mapView.layerDelegate = nil;
-    self.mapView.bottomView = nil;
-    self.mapView.infoView = nil;
-    self.mapView = nil;
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,7 +65,7 @@
 
 -(void) setupSubviews
 {
-   // [self.view]
+    // [self.view]
     //[self.view addSubview:[self pickPointView]];
     
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
@@ -122,6 +100,13 @@
     alart.alertViewStyle = UIAlertViewStylePlainTextInput;
     alart.delegate = self;
     
+    self.mapView = [MapViewManager sharedMapView];
+    self.mapView.frame = self.view.bounds;
+    [self.view insertSubview:self.mapView atIndex:0];
+    self.mapView.touchDelegate = self;
+    self.mapView.callout.delegate = self;
+    self.mapView.layerDelegate = self;
+    self.mapView.bottomView = [self bottomView];
 }
 
 -(UIView *) bottomView
@@ -181,7 +166,7 @@
     [bottomView addSubview:btn2];
     [bottomView addSubview:btn3];
     [bottomView addSubview:btn4];
-
+    
     return bottomView;
 }
 
@@ -297,7 +282,7 @@
             
             ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
             self.mapView.infoView = calloutView;
-
+            
             CallOutItem *item = [[CallOutItem alloc] init];
             item.title = name;
             item.detail = @"detail Info";
@@ -307,9 +292,9 @@
             
             __weak __typeof(self) weakSelf = self;
             calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
-                    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+                DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
                 
-                    [weakSelf.navigationController pushViewController:detailVC animated:YES];
+                [weakSelf.navigationController pushViewController:detailVC animated:YES];
             };
             calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
                 WebViewController *controller = [[WebViewController alloc] init];
@@ -386,12 +371,12 @@
                        context:(void *)context {
     
     //if mapscale changed
-//    if([keyPath isEqual:@"mapAnchor"]){
-//        [self addSymbol];
-//    }
+    //    if([keyPath isEqual:@"mapAnchor"]){
+    //        [self addSymbol];
+    //    }
 }
 #pragma mark - AGSMapViewLayerDelegate
-    
+
 -(void) mapViewDidLoad:(AGSMapView*)mapView {
     
     [self actionNavigation];

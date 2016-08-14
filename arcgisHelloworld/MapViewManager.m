@@ -11,7 +11,46 @@
 
 @implementation MapViewManager
 static InfoAGSMapView *mapView;
+static InfoAGSMapView *routeMapView;
 static NSString *ip;
+
++(InfoAGSMapView *) sharedRouteMapView
+{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        routeMapView = [[InfoAGSMapView alloc] init];
+        routeMapView.gridLineWidth = 0.1;
+        NSString *ip = HOSTIP;
+        
+        if ([routeMapView mapLayers].count>0) {
+            for (AGSLayer *layer in [[routeMapView mapLayers] copy]) {
+                [routeMapView removeMapLayer:layer];
+            }
+        }
+        
+        AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
+                                                                                            [NSString stringWithFormat:WMTSRESTURL,ip]]];
+        
+        
+        
+        AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
+                                                                   [NSString stringWithFormat:WMSURL,ip]]];
+        
+        
+        AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
+        
+        //Add it to the map view
+        [routeMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
+        [routeMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
+        [routeMapView addMapLayer:glayer withName:@"Graphics Layer"];
+        
+        routeMapView.backgroundColor = [UIColor lightGrayColor];
+        
+    });
+    return routeMapView;
+}
+
 +(InfoAGSMapView *) sharedMapView
 {
     

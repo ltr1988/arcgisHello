@@ -25,6 +25,21 @@
     return manager;
 }
 
++(AFHTTPSessionManager *)jsonManager
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 超时时间
+    manager.requestSerializer.timeoutInterval = kForegroundTimeout;
+    
+    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
+    
+    // 声明获取到的数据格式
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    return manager;
+}
+
 + (void)loginWithUserAccount:(NSString *)account password:(NSString *)password success:(SuccessBlock)success fail:(AFNErrorBlock)fail
 {
     // 将请求参数放在请求的字典里
