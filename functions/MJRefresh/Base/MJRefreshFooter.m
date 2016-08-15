@@ -1,0 +1,99 @@
+//  代码地址: https://github.com/CoderMJLee/MJRefresh
+//  代码地址: http://code4app.com/ios/%E5%BF%AB%E9%80%9F%E9%9B%86%E6%88%90%E4%B8%8B%E6%8B%89%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B0/52326ce26803fabc46000000
+//  MJRefreshFooter.m
+//  MJRefreshExample
+//
+//  Created by MJ Lee on 15/3/5.
+//  Copyright (c) 2015年 小码哥. All rights reserved.
+//
+/***********************注意: 该源文件是ARC的!!!************************/
+
+#if !__has_feature(objc_arc)
+#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+#import "MJRefreshFooter.h"
+
+@interface MJRefreshFooter()
+
+@end
+
+@implementation MJRefreshFooter
+#pragma mark - 构造方法
++ (instancetype)footerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
+{
+    MJRefreshFooter *cmp = [[self alloc] init];
+    cmp.refreshingBlock = refreshingBlock;
+    return cmp;
+}
++ (instancetype)footerWithRefreshingTarget:(id)target refreshingAction:(SEL)action
+{
+    MJRefreshFooter *cmp = [[self alloc] init];
+    [cmp setRefreshingTarget:target refreshingAction:action];
+    return cmp;
+}
+
+#pragma mark - 重写父类的方法
+- (void)prepare
+{
+    [super prepare];
+    
+    // 设置自己的高度
+    self.mj_h = MJRefreshFooterHeight;
+    
+    // 默认是自动隐藏
+    self.automaticallyHidden = YES;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [super willMoveToSuperview:newSuperview];
+    
+    if (newSuperview) {
+        // 监听scrollView数据的变化
+        if ([self.scrollView isKindOfClass:[UITableView class]] || [self.scrollView isKindOfClass:[UICollectionView class]]) {
+            [self.scrollView setMj_reloadDataBlock:^(NSInteger totalDataCount) {
+                if (self.isAutomaticallyHidden) {
+                    self.hidden = (totalDataCount == 0);
+                }
+            }];
+        }
+    }
+}
+
+#pragma mark - 公共方法
+- (void)endRefreshingWithNoMoreData
+{
+    self.state = MJRefreshStateNoMoreData;
+}
+
+- (void)noticeNoMoreData
+{
+    [self endRefreshingWithNoMoreData];
+}
+
+- (void)resetNoMoreData
+{
+    self.state = MJRefreshStateIdle;
+}
+#pragma mark 等待子类实现
+-(void)setStatusLabelText:(NSString *)text{
+    
+}
+/**
+ *  开始刷新
+ */
+
+- (void)qrBeginRefreshing{
+   self.state = MJRefreshStateRefreshing;
+}
+/**
+ *  结束刷新
+ */
+- (void)qrEndRefreshing{
+    double delayInSeconds = 0.3;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        self.state = MJRefreshStateIdle;
+    });
+}
+@end
