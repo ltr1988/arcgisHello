@@ -5,9 +5,7 @@
 //  Created by MJ Lee on 15/6/13.
 //  Copyright © 2015年 小码哥. All rights reserved.
 //
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+
 #import "MJRefreshAutoStateFooter.h"
 
 @interface MJRefreshAutoStateFooter()
@@ -32,7 +30,7 @@
 - (UILabel *)stateLabel
 {
     if (!_stateLabel) {
-        [self addSubview:_stateLabel = [UILabel label]];
+        [self addSubview:_stateLabel = [UILabel mj_label]];
     }
     return _stateLabel;
 }
@@ -58,10 +56,13 @@
 {
     [super prepare];
     
+    // 初始化间距
+    self.labelLeftInset = MJRefreshLabelLeftInset;
+    
     // 初始化文字
-    [self setTitle:MJRefreshAutoFooterIdleText forState:MJRefreshStateIdle];
-    [self setTitle:MJRefreshAutoFooterRefreshingText forState:MJRefreshStateRefreshing];
-    [self setTitle:MJRefreshAutoFooterNoMoreDataText forState:MJRefreshStateNoMoreData];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshAutoFooterIdleText] forState:MJRefreshStateIdle];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshAutoFooterRefreshingText] forState:MJRefreshStateRefreshing];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshAutoFooterNoMoreDataText] forState:MJRefreshStateNoMoreData];
     
     // 监听label
     self.stateLabel.userInteractionEnabled = YES;

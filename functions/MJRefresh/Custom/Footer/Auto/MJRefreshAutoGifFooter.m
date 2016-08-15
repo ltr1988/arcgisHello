@@ -5,11 +5,7 @@
 //  Created by MJ Lee on 15/4/24.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
-/***********************注意: 该源文件是ARC的!!!************************/
 
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 #import "MJRefreshAutoGifFooter.h"
 
 @interface MJRefreshAutoGifFooter()
@@ -70,6 +66,14 @@
 }
 
 #pragma mark - 实现父类的方法
+- (void)prepare
+{
+    [super prepare];
+    
+    // 初始化间距
+    self.labelLeftInset = 20;
+}
+
 - (void)placeSubviews
 {
     [super placeSubviews];
@@ -81,7 +85,7 @@
         self.gifView.contentMode = UIViewContentModeCenter;
     } else {
         self.gifView.contentMode = UIViewContentModeRight;
-        self.gifView.mj_w = self.mj_w * 0.5 - 90;
+        self.gifView.mj_w = self.mj_w * 0.5 - self.labelLeftInset - self.stateLabel.mj_textWith * 0.5;
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "SearchStartViewController.h"
+#import "WeatherManager.h"
 
 #import "TitleTextInputCell.h"
 #import "TitleDetailCell.h"
@@ -15,6 +16,7 @@
 #import "CheckableTitleItem.h"
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
+#import "TitleDetailCell.h"
 
 #import "ToastView.h"
 
@@ -22,7 +24,9 @@
 #import "Masonry.h"
 
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
-
+{
+    WeatherManager *manager;
+}
 @property (nonatomic,strong)     UITableView *tableView;
 @end
 
@@ -48,15 +52,38 @@
 -(void) setupModel
 {
     self.model = [SearchStartModel new];
-    self.model.weather = [TitleInputItem itemWithTitle:@"天气" placeholder:@"查询中..."];
+    self.model.weather = [TitleDetailItem itemWithTitle:@"天气" detail:@"查询中..."];
     self.model.searcher = [TitleInputItem itemWithTitle:@"巡查人" placeholder:@"巡查人姓名"];
     self.model.searchAdmin = [TitleInputItem itemWithTitle:@"巡查管理员" placeholder:@"巡查管理员姓名"];
 }
 
 -(void) requestData
 {
-    //todo request weather
+    manager = [WeatherManager sharedInstance];
     
+    NSKeyValueObservingOptions static const
+    options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionOld |
+    NSKeyValueObservingOptionNew;
+    [manager addObserver:self
+                     forKeyPath:@"weather"
+                        options:options context:nil];
+    
+    [manager requestData];
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"weather"]) {
+        if (self.model.weather && ![change[NSKeyValueChangeNewKey] isKindOfClass:[NSNull class]]) {
+            self.model.weather.detail = change[NSKeyValueChangeNewKey];
+            [self.tableView reloadData];
+        }
+    }
+}
+
+-(void) dealloc
+{
+    [manager removeObserver:self forKeyPath:@"weather"];
 }
 
 -(void) setupSubViews
@@ -133,30 +160,42 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
-    if (!cell) {
-        cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
-    }
+    
     switch (indexPath.row) {
         case 0:
         {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCellSearcher"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCellSearcher"];
+            }
             cell.data = self.model.searcher;
+            return cell;
             break;
         }
         case 1:
         {
+            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCellSearchAdmin"];
+            if (!cell) {
+                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCellSearchAdmin"];
+            }
             cell.data = self.model.searchAdmin;
+            return cell;
             break;
         }
         case 2:
         {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
             cell.data = self.model.weather;
+            return cell;
             break;
         }
         default:
             break;
     }
-    return cell;
+    return [UITableViewCell new];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -174,5 +213,16 @@
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
     
+}
+
+#pragma mark actions
+-(void) actionUpload:(id) sender
+{
+    
+}
+
+-(void) actionSaveLocal:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

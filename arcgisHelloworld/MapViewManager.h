@@ -11,6 +11,7 @@
 
 @interface MapViewManager : NSObject
 +(InfoAGSMapView *) sharedMapView;
++(InfoAGSMapView *) sharedRouteMapView;
 +(NSString *)IP;
 
 +(void)SetIP:(NSString *)ip_new;

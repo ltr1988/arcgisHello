@@ -6,34 +6,15 @@
 //  Created by MJ Lee on 15/3/4.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
-/***********************注意: 该源文件是ARC的!!!************************/
 
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 #import "MJRefreshHeader.h"
-#import <QuartzCore/QuartzCore.h>
-#import "ColorDefine.h"
-
-
 
 @interface MJRefreshHeader()
 @property (assign, nonatomic) CGFloat insetTDelta;
-
-//计算下拉百分比
-@property (nonatomic, assign) double progress;
-@property (nonatomic, assign) double prevProgress;
 @end
 
 @implementation MJRefreshHeader
 #pragma mark - 构造方法
--(id)init{
-    self = [super init];
-    if (self) {
-        [self commonInit];
-    }
-    return self;
-}
 + (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
 {
     MJRefreshHeader *cmp = [[self alloc] init];
@@ -46,13 +27,12 @@
     [cmp setRefreshingTarget:target refreshingAction:action];
     return cmp;
 }
-- (void) commonInit
-{ //交给子类实现
-}
+
 #pragma mark - 覆盖父类的方法
 - (void)prepare
 {
     [super prepare];
+    
     // 设置key
     self.lastUpdatedTimeKey = MJRefreshHeaderLastUpdatedTimeKey;
     
@@ -66,16 +46,6 @@
     
     // 设置y值(当自己的高度发生改变了，肯定要重新调整Y值，所以放到placeSubviews方法中设置y值)
     self.mj_y = - self.mj_h - self.ignoredScrollViewContentInsetTop;
-    CGFloat shapeCenterY = self.mj_h * 0.5;
-    self.shapeLayer.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width/2-11,shapeCenterY-11,22,22);
-    
-}
-- (void)setSize:(CGSize) size
-{
-    CGRect rect = CGRectMake((self.scrollView.bounds.size.width - size.width)/2.0f,
-                             -size.height, size.width, size.height);
-    self.frame = rect;
-    self.shapeLayer.frame = self.bounds;
 }
 
 - (void)scrollViewContentOffsetDidChange:(NSDictionary *)change
@@ -110,7 +80,7 @@
     // 普通 和 即将刷新 的临界点
     CGFloat normal2pullingOffsetY = happenOffsetY - self.mj_h;
     CGFloat pullingPercent = (happenOffsetY - offsetY) / self.mj_h;
-    self.progress = pullingPercent;
+    
     if (self.scrollView.isDragging) { // 如果正在拖拽
         self.pullingPercent = pullingPercent;
         if (self.state == MJRefreshStateIdle && offsetY < normal2pullingOffsetY) {
@@ -127,33 +97,10 @@
         self.pullingPercent = pullingPercent;
     }
 }
-//根据百分比来绘制白圈
--(void)setProgress:(double)progress{
-    if (progress > 1.0) {
-        progress = 1.0;
-    }
-    
-    if (progress >= 0 && progress <= 1.0f) {
-        //strokeAnimation
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        animation.fromValue = [NSNumber numberWithFloat:((CAShapeLayer *)self.shapeLayer.presentationLayer).strokeEnd];
-        animation.toValue = [NSNumber numberWithFloat:progress];
-        animation.duration = 0.1f;
-        animation.removedOnCompletion = NO;
-        animation.fillMode = kCAFillModeForwards;
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-        [self.shapeLayer addAnimation:animation forKey:@"animation"];
-    }
-    self.prevProgress = self.progress;
-    _progress = progress;
-}
+
 - (void)setState:(MJRefreshState)state
 {
-    MJRefreshState oldState = self.state;
-    if (state == oldState) return;
-    if (NO == ((state == MJRefreshStateIdle) && (oldState == MJRefreshStateRefreshing))) {
-        [super setState:state];
-    }
+    MJRefreshCheckState
     
     // 根据状态做事情
     if (state == MJRefreshStateIdle) {
@@ -162,103 +109,45 @@
         // 保存刷新时间
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:self.lastUpdatedTimeKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
-       
         
-         // 恢复inset和offset
-        [UIView animateWithDuration:MJRefreshSlowAnimationDuration delay:MJRefreshHeadNeedStayTime options:nil animations:^{
-            [super setState:state];
+        // 恢复inset和offset
+        [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
             self.scrollView.mj_insetT += self.insetTDelta;
             
             // 自动调整透明度
-            if (self.isAutomaticallyChangeAlpha)
-                self.alpha = 0.0;
-            
+            if (self.isAutomaticallyChangeAlpha) self.alpha = 0.0;
         } completion:^(BOOL finished) {
-            self.shapeLayer.hidden = NO;
-            self.shapeLayer.opacity = 1;
             self.pullingPercent = 0.0;
             
+            if (self.endRefreshingCompletionBlock) {
+                self.endRefreshingCompletionBlock();
+            }
         }];
-
     } else if (state == MJRefreshStateRefreshing) {
-        [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-            // 增加滚动区域
-            CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
-            self.scrollView.mj_insetT = top;
-            self.shapeLayer.opacity = 0;
-            // 设置滚动位置
-            self.scrollView.mj_offsetY = - top;
-        } completion:^(BOOL finished) {
-            self.shapeLayer.hidden = YES;
-            [self executeRefreshingCallback];
-        }];
+         dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+                CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
+                // 增加滚动区域top
+                self.scrollView.mj_insetT = top;
+                // 设置滚动位置
+                [self.scrollView setContentOffset:CGPointMake(0, -top) animated:NO];
+            } completion:^(BOOL finished) {
+                [self executeRefreshingCallback];
+            }];
+         });
     }
-}
-
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    
-    
 }
 
 #pragma mark - 公共方法
 - (void)endRefreshing
 {
-    if ([self.scrollView isKindOfClass:[UICollectionView class]]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [super endRefreshing];
-        });
-    } else {
-        [super endRefreshing];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.state = MJRefreshStateIdle;
+    });
 }
 
 - (NSDate *)lastUpdatedTime
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:self.lastUpdatedTimeKey];
-}
-
-#pragma mark --------------------QQreader改写。等待子类实现-------------------------
--(void)setStatusLabelTextColor:(UIColor *)backgroundColor{
-    
-}
--(void)setStatusLabelText:(NSString *)text{
-    
-}
-- (void)setBorderWidth:(CGFloat)borderWidth
-{
-    _borderWidth = borderWidth;
-    _shapeLayer.lineWidth = _borderWidth;
-}
-- (void)setBorderColor:(UIColor *)borderColor
-{
-    _borderColor = borderColor;
-    _shapeLayer.strokeColor = _borderColor.CGColor;
-}
-
-/**
- *  开始刷新
- */
-
-- (void)qrBeginRefreshing{
-    [self beginRefreshing];
-}
-#pragma mark 暂未实现 交给子类实现
-/**
- *  结束刷新
- */
--(void)setStatusLabelHidden:(BOOL)hidden{
-    
-}
-- (void)qrEndRefreshing{
-
-}
-
-- (void)stopRotateInfinitly{
-    
-}
-- (void)startRotateInfinitly{
-    
 }
 @end

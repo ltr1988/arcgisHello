@@ -6,11 +6,7 @@
 //  Created by MJ Lee on 15/3/5.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
-/***********************注意: 该源文件是ARC的!!!************************/
 
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 #import "MJRefreshFooter.h"
 
 @interface MJRefreshFooter()
@@ -40,8 +36,8 @@
     // 设置自己的高度
     self.mj_h = MJRefreshFooterHeight;
     
-    // 默认是自动隐藏
-    self.automaticallyHidden = YES;
+    // 默认不会自动隐藏
+    self.automaticallyHidden = NO;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview
@@ -74,26 +70,5 @@
 - (void)resetNoMoreData
 {
     self.state = MJRefreshStateIdle;
-}
-#pragma mark 等待子类实现
--(void)setStatusLabelText:(NSString *)text{
-    
-}
-/**
- *  开始刷新
- */
-
-- (void)qrBeginRefreshing{
-   self.state = MJRefreshStateRefreshing;
-}
-/**
- *  结束刷新
- */
-- (void)qrEndRefreshing{
-    double delayInSeconds = 0.3;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        self.state = MJRefreshStateIdle;
-    });
 }
 @end

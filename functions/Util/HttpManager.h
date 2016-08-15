@@ -22,7 +22,7 @@ typedef void (^AFNErrorBlock)(NSError* error);
 
 @interface HttpManager : NSObject
 +(AFHTTPSessionManager *)manager;
-
++(AFHTTPSessionManager *)jsonManager;
 
 + (void)loginWithUserAccount:(NSString *)account password:(NSString *)password success:(SuccessBlock)success fail:(AFNErrorBlock)fail;
 

@@ -5,9 +5,7 @@
 //  Created by MJ Lee on 15/4/24.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+
 #import "MJRefreshStateHeader.h"
 
 @interface MJRefreshStateHeader()
@@ -34,8 +32,7 @@
 - (UILabel *)stateLabel
 {
     if (!_stateLabel) {
-        
-        [self addSubview:_stateLabel = [UILabel label]];
+        [self addSubview:_stateLabel = [UILabel mj_label]];
     }
     return _stateLabel;
 }
@@ -43,7 +40,7 @@
 - (UILabel *)lastUpdatedTimeLabel
 {
     if (!_lastUpdatedTimeLabel) {
-        [self addSubview:_lastUpdatedTimeLabel = [UILabel label]];
+        [self addSubview:_lastUpdatedTimeLabel = [UILabel mj_label]];
     }
     return _lastUpdatedTimeLabel;
 }
@@ -89,8 +86,10 @@
         
         // 2.格式化日期
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        BOOL isToday = NO;
         if ([cmp1 day] == [cmp2 day]) { // 今天
-            formatter.dateFormat = @"今天 HH:mm";
+            formatter.dateFormat = @" HH:mm";
+            isToday = YES;
         } else if ([cmp1 year] == [cmp2 year]) { // 今年
             formatter.dateFormat = @"MM-dd HH:mm";
         } else {
@@ -99,24 +98,29 @@
         NSString *time = [formatter stringFromDate:lastUpdatedTime];
         
         // 3.显示日期
-        self.lastUpdatedTimeLabel.text = [NSString stringWithFormat:@"最后更新：%@", time];
+        self.lastUpdatedTimeLabel.text = [NSString stringWithFormat:@"%@%@%@",
+                                          [NSBundle mj_localizedStringForKey:MJRefreshHeaderLastTimeText],
+                                          isToday ? [NSBundle mj_localizedStringForKey:MJRefreshHeaderDateTodayText] : @"",
+                                          time];
     } else {
-        self.lastUpdatedTimeLabel.text = @"最后更新：无记录";
+        self.lastUpdatedTimeLabel.text = [NSString stringWithFormat:@"%@%@",
+                                          [NSBundle mj_localizedStringForKey:MJRefreshHeaderLastTimeText],
+                                          [NSBundle mj_localizedStringForKey:MJRefreshHeaderNoneLastDateText]];
     }
 }
 
 #pragma mark - 覆盖父类的方法
--(void)commonInit{
-    [super commonInit];
-}
 - (void)prepare
 {
     [super prepare];
     
+    // 初始化间距
+    self.labelLeftInset = MJRefreshLabelLeftInset;
+    
     // 初始化文字
-      [self setTitle:MJRefreshHeaderIdleText forState:MJRefreshStateIdle];
-//    [self setTitle:MJRefreshHeaderPullingText forState:MJRefreshStatePulling];
- //     [self setTitle:MJRefreshHeaderRefreshingText forState:MJRefreshStateRefreshing];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderIdleText] forState:MJRefreshStateIdle];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderPullingText] forState:MJRefreshStatePulling];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshHeaderRefreshingText] forState:MJRefreshStateRefreshing];
 }
 
 - (void)placeSubviews
@@ -159,25 +163,5 @@
     
     // 重新设置key（重新显示时间）
     self.lastUpdatedTimeKey = self.lastUpdatedTimeKey;
-}
-#pragma mark ----------------QQReader 扩展复写父类方法-----------------
--(void)setStatusLabelTextColor:(UIColor *)textColor{
-    self.stateLabel.textColor = textColor;
-}
--(void)setStatusLabelText:(NSString *)text{
-    [self setTitle:text forState:MJRefreshStateIdle];
-}
--(void)setStatusLabelHidden:(BOOL)hidden{
-    self.stateLabel.hidden = hidden;
-}
-
-- (void)stopRotateInfinitly{
-    
-}
-- (void)startRotateInfinitly{
-    
-}
--(void)qrEndRefreshing{
-
 }
 @end

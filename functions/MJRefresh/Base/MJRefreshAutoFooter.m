@@ -5,18 +5,10 @@
 //  Created by MJ Lee on 15/4/24.
 //  Copyright (c) 2015年 小码哥. All rights reserved.
 //
-/***********************注意: 该源文件是ARC的!!!************************/
 
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
 #import "MJRefreshAutoFooter.h"
 
 @interface MJRefreshAutoFooter()
-{
-    /** 显示刷新状态的label */
-    __unsafe_unretained UILabel *_stateLabel;
-}
 @end
 
 @implementation MJRefreshAutoFooter
@@ -40,15 +32,6 @@
     }
 }
 
-- (UILabel *)stateLabel
-{
-    if (!_stateLabel) {
-        [self addSubview:_stateLabel = [UILabel label]];
-    }
-    return _stateLabel;
-}
-
-
 #pragma mark - 过期方法
 - (void)setAppearencePercentTriggerAutoRefresh:(CGFloat)appearencePercentTriggerAutoRefresh
 {
@@ -64,21 +47,12 @@
 - (void)prepare
 {
     [super prepare];
-
-    self.mj_h = MJRefreshFooterHeight/2.0;
-
-    // 默认底部控件30%出现时才会自动刷新
-    self.triggerAutomaticallyRefreshPercent = 0.3;
+    
+    // 默认底部控件100%出现时才会自动刷新
+    self.triggerAutomaticallyRefreshPercent = 1.0;
     
     // 设置为默认状态
     self.automaticallyRefresh = YES;
-}
-
-- (void)placeSubviews
-{
-    [super placeSubviews];
-    // 状态标签
-    self.stateLabel.frame = CGRectMake(0,0,self.bounds.size.width,self.bounds.size.height);
 }
 
 - (void)scrollViewContentSizeDidChange:(NSDictionary *)change
@@ -133,29 +107,16 @@
     MJRefreshCheckState
     
     if (state == MJRefreshStateRefreshing) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self setTitle:MJRefreshAutoFooterRefreshingText];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self executeRefreshingCallback];
         });
-    }
-    else if (state == MJRefreshStateIdle) {
-        if (oldState == MJRefreshStateRefreshing) {
-            if (self.MJRefreshFooterEndRefreshingCustom) {
-                self.stateLabel.hidden = NO;
-                [self setTitle:self.MJRefreshFooterEndRefreshingCustom];
-            }
-            else
-            {
-                [self setTitle:MJRefreshBackFooterIdleText];
+    } else if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
+        if (MJRefreshStateRefreshing == oldState) {
+            if (self.endRefreshingCompletionBlock) {
+                self.endRefreshingCompletionBlock();
             }
         }
     }
-}
-
-- (void)setTitle:(NSString *)title
-{
-    if (title == nil) return;
-    self.stateLabel.text = title;
 }
 
 - (void)setHidden:(BOOL)hidden

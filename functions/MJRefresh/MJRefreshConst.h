@@ -24,23 +24,17 @@
 #define MJRefreshColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 // 文字颜色
-#define MJRefreshLabelTextColor MJRefreshColor(150,150,150)
+#define MJRefreshLabelTextColor MJRefreshColor(90, 90, 90)
 
 // 字体大小
-#define MJRefreshLabelFont [UIFont systemFontOfSize:13]
-
-// 图片路径
-#define MJRefreshSrcName(file) [@"MJRefresh.bundle" stringByAppendingPathComponent:file]
-#define MJRefreshFrameworkSrcName(file) [@"Frameworks/MJRefresh.framework/MJRefresh.bundle" stringByAppendingPathComponent:file]
+#define MJRefreshLabelFont [UIFont boldSystemFontOfSize:14]
 
 // 常量
+UIKIT_EXTERN const CGFloat MJRefreshLabelLeftInset;
 UIKIT_EXTERN const CGFloat MJRefreshHeaderHeight;
 UIKIT_EXTERN const CGFloat MJRefreshFooterHeight;
 UIKIT_EXTERN const CGFloat MJRefreshFastAnimationDuration;
 UIKIT_EXTERN const CGFloat MJRefreshSlowAnimationDuration;
-#pragma mark QQReader 拓展
-UIKIT_EXTERN const CGFloat MJRefreshHeadNeedStayTime;
-#pragma mark QQReader 拓展end
 
 UIKIT_EXTERN NSString *const MJRefreshKeyPathContentOffset;
 UIKIT_EXTERN NSString *const MJRefreshKeyPathContentSize;
@@ -61,6 +55,10 @@ UIKIT_EXTERN NSString *const MJRefreshBackFooterIdleText;
 UIKIT_EXTERN NSString *const MJRefreshBackFooterPullingText;
 UIKIT_EXTERN NSString *const MJRefreshBackFooterRefreshingText;
 UIKIT_EXTERN NSString *const MJRefreshBackFooterNoMoreDataText;
+
+UIKIT_EXTERN NSString *const MJRefreshHeaderLastTimeText;
+UIKIT_EXTERN NSString *const MJRefreshHeaderDateTodayText;
+UIKIT_EXTERN NSString *const MJRefreshHeaderNoneLastDateText;
 
 // 状态检查
 #define MJRefreshCheckState \

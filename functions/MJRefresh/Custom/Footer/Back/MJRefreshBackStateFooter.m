@@ -5,9 +5,7 @@
 //  Created by MJ Lee on 15/6/13.
 //  Copyright © 2015年 小码哥. All rights reserved.
 //
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+
 #import "MJRefreshBackStateFooter.h"
 
 @interface MJRefreshBackStateFooter()
@@ -32,7 +30,7 @@
 - (UILabel *)stateLabel
 {
     if (!_stateLabel) {
-        [self addSubview:_stateLabel = [UILabel label]];
+        [self addSubview:_stateLabel = [UILabel mj_label]];
     }
     return _stateLabel;
 }
@@ -54,11 +52,14 @@
 {
     [super prepare];
     
+    // 初始化间距
+    self.labelLeftInset = MJRefreshLabelLeftInset;
+    
     // 初始化文字
-    [self setTitle:MJRefreshBackFooterIdleText forState:MJRefreshStateIdle];
-//    [self setTitle:MJRefreshBackFooterPullingText forState:MJRefreshStatePulling];
-    [self setTitle:MJRefreshBackFooterRefreshingText forState:MJRefreshStateRefreshing];
-    [self setTitle:MJRefreshBackFooterNoMoreDataText forState:MJRefreshStateNoMoreData];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshBackFooterIdleText] forState:MJRefreshStateIdle];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshBackFooterPullingText] forState:MJRefreshStatePulling];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshBackFooterRefreshingText] forState:MJRefreshStateRefreshing];
+    [self setTitle:[NSBundle mj_localizedStringForKey:MJRefreshBackFooterNoMoreDataText] forState:MJRefreshStateNoMoreData];
 }
 
 - (void)placeSubviews
@@ -68,7 +69,7 @@
     if (self.stateLabel.constraints.count) return;
     
     // 状态标签
-    self.stateLabel.frame = CGRectMake(0,0,self.bounds.size.width,self.bounds.size.height/2);
+    self.stateLabel.frame = self.bounds;
 }
 
 - (void)setState:(MJRefreshState)state
@@ -77,9 +78,5 @@
     
     // 设置状态文字
     self.stateLabel.text = self.stateTitles[@(state)];
-}
-
--(void)setStatusLabelText:(NSString *)text{
-    [self setTitle:text forState:MJRefreshStateIdle];
 }
 @end

@@ -22,26 +22,4 @@
 
 /** 忽略多少scrollView的contentInset的top */
 @property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetTop;
-
-#pragma mark QQReader自定义 外部字符串
-@property(nonatomic,copy)NSString *MJRefreshHeaderEndRefreshingCustom;
-@property (nonatomic, strong) UIColor *borderColor;
-@property (nonatomic, assign) CGFloat borderWidth;
-@property (nonatomic, strong) CAShapeLayer *shapeLayer;
-
--(void)setStatusLabelTextColor:(UIColor *)textColor;
--(void)setStatusLabelText:(NSString *)text;
--(void)setStatusLabelHidden:(BOOL)hidden;
-- (void)stopRotateInfinitly;
-- (void)startRotateInfinitly;
-- (void) commonInit;
-/**
- *  开始刷新
- */
-
-- (void)qrBeginRefreshing;
-/**
- *  结束刷新
- */
-- (void)qrEndRefreshing;
 @end

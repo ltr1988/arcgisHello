@@ -10,9 +10,6 @@
 #import "UIScrollView+MJRefresh.h"
 #import "MJRefreshHeader.h"
 #import "MJRefreshFooter.h"
-#import "MJRefreshNormalHeader.h"
-#import "MJRefreshBackNormalFooter.h"
-#import "MJRefreshAutoNormalFooter.h"
 #import <objc/runtime.h>
 
 @implementation NSObject (MJRefresh)
@@ -60,7 +57,7 @@ static const char MJRefreshFooterKey = '\0';
     if (mj_footer != self.mj_footer) {
         // 删除旧的，添加新的
         [self.mj_footer removeFromSuperview];
-        [self addSubview:mj_footer];
+        [self insertSubview:mj_footer atIndex:0];
         
         // 存储新的
         [self willChangeValueForKey:@"mj_footer"]; // KVO
@@ -133,156 +130,6 @@ static const char MJRefreshReloadDataBlockKey = '\0';
 {
     !self.mj_reloadDataBlock ? : self.mj_reloadDataBlock(self.mj_totalDataCount);
 }
-#pragma mark QQReader 扩展
-#pragma mark HEADER
-- (void)setCustomHeaderRefreshEndText:(NSString *)text
-{
-    self.mj_header.MJRefreshHeaderEndRefreshingCustom = text;
-}
-- (BOOL)isHeaderRefreshing{
-    return self.mj_header.isRefreshing;
-}
-- (void)setHeaderBackgroundColor:(UIColor *)backgroundColor{
-    self.mj_header.backgroundColor = backgroundColor;
-}
-- (void)setHeaderStatusLabelColor:(UIColor *)color{
-    [self.mj_header setStatusLabelTextColor:color];
-}
-- (void)setHeaderStatusLabelText:(NSString *)text{
-    [self.mj_header setStatusLabelText:text];
-}
-- (void)setHeaderBoderColor:(UIColor *)borderColor{
-    self.mj_header.borderColor = borderColor;
-}
-- (void)headerStatusLabelHidden:(BOOL)hidden{
-    [self.mj_header setStatusLabelHidden:hidden];
-}
-- (void)stopAnimatingHeaderActivityView:(BOOL)stop{
-    if (stop)
-    {
-        [self.mj_header stopRotateInfinitly];
-    }
-    else
-    {
-        [self.mj_header startRotateInfinitly];
-    }
-}
-#pragma mark FOOTER
-- (void)setCustomFooterRefreshEndText:(NSString *)text{
-    self.mj_footer.MJRefreshFooterEndRefreshingCustom = text;
-}
-- (void)setFooterStatusLableText:(NSString *)text{
-    [self.mj_footer setStatusLabelText:text];
-}
-- (BOOL)isFooterRefreshing{
-    return self.mj_footer.isRefreshing;
-}
-
-#pragma mark 对旧版本的兼容
-#pragma mark - 下拉刷新
-/**
- *  添加一个下拉刷新头部控件
- *
- *  @param callback 回调
- */
-- (void)addHeaderWithCallback:(void (^)())callback{
-    if (!self.mj_header) {
-        self.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(){
-            callback();
-        }];
-        [self bringSubviewToFront:self.mj_header];
-    }
-}
-/**
- *  添加一个下拉刷新头部控件
- *
- *  @param target 目标
- *  @param action 回调方法
- */
-- (void)addHeaderWithTarget:(id)target action:(SEL)action{
-    if (!self.mj_header) {
-        self.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:target refreshingAction:action];
-         [self bringSubviewToFront:self.mj_header];
-    }
-   
-}
-/**
- *  移除下拉刷新头部控件
- */
-- (void)removeHeader{
-    self.mj_header = nil;
-}
-/**
- *  主动让下拉刷新头部控件进入刷新状态
- */
-- (void)headerBeginRefreshing{
-    [self.mj_header qrBeginRefreshing];
-}
-
-/**
- *  让下拉刷新头部控件停止刷新状态
- */
-- (void)headerEndRefreshing{
-    [self.mj_header qrEndRefreshing];
-}
-- (BOOL)isHeaderHidden
-{
-    return self.mj_header.isHidden;
-}
-#pragma mark - 上拉刷新
-/**
- *  添加一个上拉刷新尾部控件
- *
- *  @param callback 回调
- */
-- (void)addFooterWithCallback:(void (^)())callback{
-    if (!self.mj_footer) {
-//        self.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(){
-//            callback();
-//        }];
-        self.mj_footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
-            callback();
-        }];
-        [self bringSubviewToFront:self.mj_footer];
-    }
-    
-}
-/**
- *  添加一个上拉刷新尾部控件
- *
- *  @param target 目标
- *  @param action 回调方法
- */
-- (void)addFooterWithTarget:(id)target action:(SEL)action{
-    if (!self.mj_footer) {
-        self.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:target refreshingAction:action];//[MJRefreshBackNormalFooter footerWithRefreshingTarget:target refreshingAction:action];
-        [self bringSubviewToFront:self.mj_footer];
-    }
-}
-/**
- *  移除上拉刷新尾部控件
- */
-- (void)removeFooter{
-    self.mj_footer = nil;
-}
-/**
- *  主动让上拉刷新尾部控件进入刷新状态
- */
-- (void)footerBeginRefreshing{
-    [self.mj_footer qrBeginRefreshing];
-}
-
-/**
- *  让上拉刷新尾部控件停止刷新状态
- */
-- (void)footerEndRefreshing{
-    [self.mj_footer qrEndRefreshing];
-}
-
-/**
- *  下拉刷新头部控件的可见性
- */
-
 @end
 
 @implementation UITableView (MJRefresh)
@@ -313,7 +160,4 @@ static const char MJRefreshReloadDataBlockKey = '\0';
     
     [self executeReloadDataBlock];
 }
-
-
-
 @end
