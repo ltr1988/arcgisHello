@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, SearchSecondaryType) {
-    
+    SearchSecondaryType_ShortText,
     SearchSecondaryType_Text,
-    SearchSecondaryType_Confirm,
-    SearchSecondaryType_Image,
+    SearchSecondaryType_Confirm, // UISwitch
+    SearchSecondaryType_ImageAndVideo, //EventMediaPickerView
     
 };
 

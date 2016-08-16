@@ -46,8 +46,13 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UIButton *switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [switchButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [switchButton addTarget:self action:@selector(actionSwitch:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:switchButton];
+    
+    
     _tfStart = [[UITextField alloc] init];
-    _tfStart.borderStyle = UITextBorderStyleRoundedRect;
     _tfStart.tintColor = [UIColor grayColor];
     [_tfStart setFont:[UIFont systemFontOfSize:15]];
     _tfStart.delegate = self;
@@ -57,7 +62,6 @@
     hLine.backgroundColor = [UIColor borderColor];
     
     _tfEnd = [[UITextField alloc] init];
-    _tfEnd.borderStyle = UITextBorderStyleRoundedRect;
     _tfEnd.tintColor = [UIColor grayColor];
     [_tfEnd setFont:[UIFont systemFontOfSize:15]];
     _tfEnd.delegate = self;
@@ -67,42 +71,34 @@
     [self.view addSubview:hLine];
     [self.view addSubview:_tfStart];
     [self.view addSubview:_tfEnd];
-    
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:@"导航" forState:UIControlStateNormal];
-    [btn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(navi) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
 
-    
-    [_tfStart mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_top).offset(8);
-        make.right.mas_equalTo(weakView.mas_centerX);
+    [switchButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(hLine.mas_top);
+        make.width.mas_equalTo(30);
         make.height.mas_equalTo(30);
         make.left.mas_equalTo(weakView.mas_left).offset(16);
     }];
     
+    [_tfStart mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top).offset(4);
+        make.right.mas_equalTo(weakView.mas_right);
+        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(switchButton.mas_right).offset(16);
+    }];
+    
     [_tfEnd mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(hLine.mas_bottom).offset(8);
-        make.right.mas_equalTo(weakView.mas_centerX);
-        make.height.mas_equalTo(30);
-        make.left.mas_equalTo(weakView.mas_left).offset(16);
+        make.top.mas_equalTo(hLine.mas_bottom).offset(4);
+        make.right.mas_equalTo(weakView.mas_right);
+        make.height.mas_equalTo(40);
+        make.left.mas_equalTo(switchButton.mas_right).offset(16);
     }];
     
     
     [hLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(_tfStart.mas_bottom).offset(8);
-        make.right.mas_equalTo(weakView.mas_centerX);
+        make.right.mas_equalTo(weakView.mas_right);
         make.height.mas_equalTo(0.5);
-        make.left.mas_equalTo(weakView.mas_left).offset(16);
-    }];
-    
-    [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(_tfEnd.mas_bottom).offset(8);
-        make.width.mas_equalTo(40);
-        make.height.mas_equalTo(30);
-        make.left.mas_equalTo(weakView.mas_left).offset(16);
+        make.left.mas_equalTo(switchButton.mas_right).offset(16);
     }];
 }
 
@@ -215,4 +211,8 @@
     
 }
 
+-(void) actionSwitch:(id) sender
+{
+    
+}
 @end
