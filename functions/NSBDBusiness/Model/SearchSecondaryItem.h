@@ -9,16 +9,18 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, SearchSecondaryType) {
-    SearchSecondaryType_ShortText,
-    SearchSecondaryType_Text,
-    SearchSecondaryType_Confirm, // UISwitch
+    SearchSecondaryType_ShortText, //TitleDetailCell
+    SearchSecondaryType_Text,     //vc
+    SearchSecondaryType_Confirm, // CheckableTitleCell
     SearchSecondaryType_ImageAndVideo, //EventMediaPickerView
     
 };
 
 
 @interface SearchSecondaryItem : NSObject
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,strong) id detail;
+
+-(instancetype) initWithDict:(NSDictionary *)dict;
+@property (nonatomic,strong) id item;
 @property (nonatomic,assign) SearchSecondaryType type;
+
 @end

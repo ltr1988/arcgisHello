@@ -13,6 +13,11 @@
 -(NSString *) detail;
 @end
 
+@protocol TitleDetailTextCellViewModel <TitleDetailCellViewModel>
+
+-(NSString *) text;
+
+@end
 
 @interface TitleDetailCell : TitleOnlyCell
 {

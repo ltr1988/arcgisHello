@@ -109,3 +109,36 @@
     return self;
 }
 @end
+
+
+@implementation TitleDetailTextItem
++(instancetype) itemWithTitle:(NSString *)title detail:(NSString *)detail text:(NSString *)text
+{
+    TitleDetailTextItem *item = [TitleDetailTextItem new];
+    item.title = title;
+    item.detail = detail;
+    item.text = text;
+    return item;
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"_title"];
+    [aCoder encodeObject:self.detail forKey:@"_detail"];
+    
+    [aCoder encodeObject:self.text forKey:@"_text"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"_title"];
+        self.detail = [aDecoder decodeObjectForKey:@"_detail"];
+        self.text = [aDecoder decodeObjectForKey:@"_text"];
+    }
+    
+    return self;
+}
+@end

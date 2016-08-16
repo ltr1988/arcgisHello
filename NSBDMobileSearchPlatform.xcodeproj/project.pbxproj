@@ -132,6 +132,9 @@
 		B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
 		B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
 		B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = B298C7021D519C74002B40D2 /* NSString+Location.m */; };
+		B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */; };
+		B2A186EC1D631763006D8CA7 /* HttpHost.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186EB1D631763006D8CA7 /* HttpHost.m */; };
+		B2A186F21D632AEB006D8CA7 /* SearchSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -389,6 +392,12 @@
 		B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+UIButtonSetEdgeInsets.m"; path = "functions/Util/View/UIButton+UIButtonSetEdgeInsets.m"; sourceTree = "<group>"; };
 		B298C7011D519C74002B40D2 /* NSString+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Location.h"; path = "functions/Util/NSString+Location.h"; sourceTree = "<group>"; };
 		B298C7021D519C74002B40D2 /* NSString+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Location.m"; path = "functions/Util/NSString+Location.m"; sourceTree = "<group>"; };
+		B2A186E71D62FD38006D8CA7 /* TextPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextPickerViewController.h; path = functions/NSBDBusiness/TextPickerViewController.h; sourceTree = "<group>"; };
+		B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextPickerViewController.m; path = functions/NSBDBusiness/TextPickerViewController.m; sourceTree = "<group>"; };
+		B2A186EA1D631763006D8CA7 /* HttpHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpHost.h; path = functions/Util/HttpHost.h; sourceTree = "<group>"; };
+		B2A186EB1D631763006D8CA7 /* HttpHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpHost.m; path = functions/Util/HttpHost.m; sourceTree = "<group>"; };
+		B2A186F01D632AEB006D8CA7 /* SearchSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSessionManager.h; sourceTree = "<group>"; };
+		B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSessionManager.m; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -415,8 +424,7 @@
 				A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */,
 				A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */,
 				A48599421D3CEC680050AC88 /* Views */,
-				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
-				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
+				B2A186ED1D63176B006D8CA7 /* Http */,
 				B28653ED1D49FF54002D4139 /* UIColor+BorderColor.h */,
 				B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */,
 				B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */,
@@ -481,6 +489,7 @@
 		A4569C931D33B54E00A06B1C /* NSBDBusiness */ = {
 			isa = PBXGroup;
 			children = (
+				B2A186EF1D632A97006D8CA7 /* Manager */,
 				B286538A1D45FA02002D4139 /* Model */,
 				B28AE8591D3DCEDE00ABDB28 /* Views */,
 				A4569C941D33B55B00A06B1C /* Controllers */,
@@ -491,32 +500,10 @@
 		A4569C941D33B55B00A06B1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A414AC971D3A1CD10065AAA7 /* ImagePickerViewController.h */,
-				A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */,
-				A414AC991D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.h */,
-				A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */,
-				A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */,
-				A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */,
-				A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */,
-				A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */,
-				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
-				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
-				A414ACC71D3B20970065AAA7 /* WebViewController.h */,
-				A414ACC81D3B20970065AAA7 /* WebViewController.m */,
-				A485993C1D3B51610050AC88 /* LoginViewController.h */,
-				A485993D1D3B51610050AC88 /* LoginViewController.m */,
-				A4E9E7641D46495900E3C94C /* DatePickViewController.h */,
-				A4E9E7651D46495900E3C94C /* DatePickViewController.m */,
-				B28653E51D49A3A0002D4139 /* EventReportViewController+pickMedia.h */,
-				B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */,
-				B205A4441D532CE8007530EB /* ChoicePickerViewController.h */,
-				B205A4451D532CE8007530EB /* ChoicePickerViewController.m */,
-				B205A48E1D5C51FC007530EB /* SearchChoiceController.h */,
-				B205A48F1D5C51FC007530EB /* SearchChoiceController.m */,
-				B205A49C1D5DB874007530EB /* SearchStartViewController.h */,
-				B205A49D1D5DB874007530EB /* SearchStartViewController.m */,
-				B205A4A21D61A316007530EB /* SearchHomePageViewController.h */,
-				B205A4A31D61A316007530EB /* SearchHomePageViewController.m */,
+				B2A186E21D62DB3F006D8CA7 /* Common */,
+				B2A186E11D62DB23006D8CA7 /* EventReport */,
+				B2A186E01D62DB16006D8CA7 /* Search */,
+				B2A186E31D62DB5A006D8CA7 /* Login */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -595,16 +582,8 @@
 		A4958F981D0DAC7B001FCE6F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A4DD868C1D0976B00096B548 /* MapViewController.h */,
-				A4DD868D1D0976B00096B548 /* MapViewController.m */,
-				B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */,
-				B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */,
-				A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */,
-				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
-				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
-				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
-				B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */,
-				B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */,
+				B2A186E51D62DB92006D8CA7 /* Map */,
+				B2A186E41D62DB84006D8CA7 /* Route */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -865,6 +844,7 @@
 		B286538A1D45FA02002D4139 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2A186E61D62DBA8006D8CA7 /* Search */,
 				A4E9E7781D46640000E3C94C /* TitleDetailItem.h */,
 				A4E9E7791D46640000E3C94C /* TitleDetailItem.m */,
 				B286538B1D45FA30002D4139 /* EventReportModel.h */,
@@ -873,16 +853,6 @@
 				A4E9E76B1D4650BD00E3C94C /* TitleItem.m */,
 				A4E9E7701D46511C00E3C94C /* CheckableTitleItem.h */,
 				A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */,
-				B205A49F1D5DBF58007530EB /* SearchStartModel.h */,
-				B205A4A01D5DBF58007530EB /* SearchStartModel.m */,
-				B205A4A51D61C4FF007530EB /* SearchHomePageModel.h */,
-				B205A4A61D61C4FF007530EB /* SearchHomePageModel.m */,
-				B205A4EB1D61CC81007530EB /* SearchHomePageItem.h */,
-				B205A4EC1D61CC81007530EB /* SearchHomePageItem.m */,
-				B205A4EE1D61CD3F007530EB /* SearchSecondaryGroupItem.h */,
-				B205A4EF1D61CD3F007530EB /* SearchSecondaryGroupItem.m */,
-				B205A4F11D61CE1E007530EB /* SearchSecondaryItem.h */,
-				B205A4F21D61CE1E007530EB /* SearchSecondaryItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -935,6 +905,124 @@
 				B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B2A186E01D62DB16006D8CA7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B205A48E1D5C51FC007530EB /* SearchChoiceController.h */,
+				B205A48F1D5C51FC007530EB /* SearchChoiceController.m */,
+				B205A49C1D5DB874007530EB /* SearchStartViewController.h */,
+				B205A49D1D5DB874007530EB /* SearchStartViewController.m */,
+				B205A4A21D61A316007530EB /* SearchHomePageViewController.h */,
+				B205A4A31D61A316007530EB /* SearchHomePageViewController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B2A186E11D62DB23006D8CA7 /* EventReport */ = {
+			isa = PBXGroup;
+			children = (
+				A4569C951D33B5AE00A06B1C /* EventReportViewController.h */,
+				A4569C961D33B5AE00A06B1C /* EventReportViewController.m */,
+				B28653E51D49A3A0002D4139 /* EventReportViewController+pickMedia.h */,
+				B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */,
+			);
+			name = EventReport;
+			sourceTree = "<group>";
+		};
+		B2A186E21D62DB3F006D8CA7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A414AC971D3A1CD10065AAA7 /* ImagePickerViewController.h */,
+				A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */,
+				A414AC991D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.h */,
+				A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */,
+				A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */,
+				A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */,
+				A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */,
+				A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */,
+				A414ACC71D3B20970065AAA7 /* WebViewController.h */,
+				A414ACC81D3B20970065AAA7 /* WebViewController.m */,
+				A4E9E7641D46495900E3C94C /* DatePickViewController.h */,
+				A4E9E7651D46495900E3C94C /* DatePickViewController.m */,
+				B205A4441D532CE8007530EB /* ChoicePickerViewController.h */,
+				B205A4451D532CE8007530EB /* ChoicePickerViewController.m */,
+				B2A186E71D62FD38006D8CA7 /* TextPickerViewController.h */,
+				B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		B2A186E31D62DB5A006D8CA7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A485993C1D3B51610050AC88 /* LoginViewController.h */,
+				A485993D1D3B51610050AC88 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		B2A186E41D62DB84006D8CA7 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */,
+				B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */,
+				B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */,
+				B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */,
+			);
+			name = Route;
+			sourceTree = "<group>";
+		};
+		B2A186E51D62DB92006D8CA7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD868C1D0976B00096B548 /* MapViewController.h */,
+				A4DD868D1D0976B00096B548 /* MapViewController.m */,
+				A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */,
+				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
+				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
+				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		B2A186E61D62DBA8006D8CA7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B205A49F1D5DBF58007530EB /* SearchStartModel.h */,
+				B205A4A01D5DBF58007530EB /* SearchStartModel.m */,
+				B205A4A51D61C4FF007530EB /* SearchHomePageModel.h */,
+				B205A4A61D61C4FF007530EB /* SearchHomePageModel.m */,
+				B205A4EB1D61CC81007530EB /* SearchHomePageItem.h */,
+				B205A4EC1D61CC81007530EB /* SearchHomePageItem.m */,
+				B205A4EE1D61CD3F007530EB /* SearchSecondaryGroupItem.h */,
+				B205A4EF1D61CD3F007530EB /* SearchSecondaryGroupItem.m */,
+				B205A4F11D61CE1E007530EB /* SearchSecondaryItem.h */,
+				B205A4F21D61CE1E007530EB /* SearchSecondaryItem.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		B2A186ED1D63176B006D8CA7 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				A414AC801D39D17B0065AAA7 /* HttpManager.h */,
+				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
+				B2A186EA1D631763006D8CA7 /* HttpHost.h */,
+				B2A186EB1D631763006D8CA7 /* HttpHost.m */,
+			);
+			name = Http;
+			sourceTree = "<group>";
+		};
+		B2A186EF1D632A97006D8CA7 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B2A186F01D632AEB006D8CA7 /* SearchSessionManager.h */,
+				B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */,
+			);
+			name = Manager;
+			path = functions/NSBDBusiness/Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1039,6 +1127,7 @@
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
 				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
+				B2A186EC1D631763006D8CA7 /* HttpHost.m in Sources */,
 				B205A52D1D61D378007530EB /* MJRefreshBackStateFooter.m in Sources */,
 				B28AE85C1D3DD2C100ABDB28 /* InfoAGSMapView.m in Sources */,
 				B205A5331D61D378007530EB /* NSBundle+MJRefresh.m in Sources */,
@@ -1058,7 +1147,9 @@
 				B28653D21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B205A5351D61D378007530EB /* UIScrollView+MJRefresh.m in Sources */,
 				B205A4A71D61C4FF007530EB /* SearchHomePageModel.m in Sources */,
+				B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
+				B2A186F21D632AEB006D8CA7 /* SearchSessionManager.m in Sources */,
 				B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */,
 				B28653D71D4863B2002D4139 /* UIWebView+AFNetworking.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,

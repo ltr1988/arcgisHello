@@ -8,6 +8,7 @@
 
 #import "SearchStartViewController.h"
 #import "WeatherManager.h"
+#import "SearchSessionManager.h"
 
 #import "TitleTextInputCell.h"
 #import "TitleDetailCell.h"
@@ -22,6 +23,8 @@
 
 #import "CommonDefine.h"
 #import "Masonry.h"
+#import "HttpManager.h"
+#import "ToastView.h"
 
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -31,13 +34,6 @@
 @end
 
 @implementation SearchStartViewController
-
-
--(void) viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-}
 
 -(void) viewDidLoad
 {
@@ -122,8 +118,8 @@
     [btnQuit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnQuit.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    [btnNewSession addTarget:self action:@selector(actionUpload:) forControlEvents:UIControlEventTouchUpInside];
-    [btnQuit addTarget:self action:@selector(actionSaveLocal:) forControlEvents:UIControlEventTouchUpInside];
+    [btnNewSession addTarget:self action:@selector(actionNewSession:) forControlEvents:UIControlEventTouchUpInside];
+    [btnQuit addTarget:self action:@selector(actionLeave:) forControlEvents:UIControlEventTouchUpInside];
     
     [footer addSubview:btnNewSession];
     [footer addSubview:btnQuit];
@@ -201,6 +197,11 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row ==2)
+    {
+        [manager requestData];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -216,12 +217,31 @@
 }
 
 #pragma mark actions
--(void) actionUpload:(id) sender
+-(void) actionNewSession:(id) sender
 {
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
     
+    __weak UIButton *btn = (UIButton *)sender;
+    if (_model.searcher.detail && _model.searcher.detail.length>0 &&
+        _model.searchAdmin.detail && _model.searchAdmin.detail.length>0) {
+        btn.enabled = NO;
+        [[SearchSessionManager sharedManager] requestNewSearchSessionWithSuccessCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+            btn.enabled = YES;
+        } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // 请求失败
+            [ToastView popToast:@"请稍后再试"];
+            btn.enabled = YES;
+        }];
+
+    }
 }
 
--(void) actionSaveLocal:(id) sender
+-(void) actionLeave:(id) sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

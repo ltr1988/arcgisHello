@@ -16,6 +16,9 @@
 #import "RouteStartEndPickerController.h"
 #import "SearchChoiceController.h"
 #import "SearchStartViewController.h"
+#import "SearchSessionManager.h"
+
+#import "TextPickerViewController.h"
 
 @implementation MapViewController (Action)
 
@@ -27,14 +30,17 @@
 #pragma mark - bottom view actions
 -(void) actionSearchUpload
 {
-    BOOL haveTask = YES;
-    if (haveTask) {
+    if ([[SearchSessionManager sharedManager] hasSession]) {
         SearchChoiceController *vc = [[SearchChoiceController alloc] init];
         vc.definesPresentationContext = YES;
         vc.providesPresentationContextTransitionStyle = YES;
         vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
+    }else
+    {
+        SearchStartViewController *vc = [[SearchStartViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 //    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -101,7 +107,8 @@
 {
     __weak __typeof(self) weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
-        VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
+        TextPickerViewController *vc = [[TextPickerViewController alloc] init];
+        //VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
 }

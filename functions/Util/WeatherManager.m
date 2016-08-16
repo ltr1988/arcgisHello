@@ -38,7 +38,7 @@
     NSDictionary *param = @{@"ak":lbsyun_ak, @"output":@"json",@"location":@"北京"};
     // 创建请求类
     AFHTTPSessionManager *manager = [HttpManager jsonManager];
-    [manager GET:@"http://api.map.baidu.com/telematics/v3/weather"
+    [manager GET:[HttpHost weatherURL]
       parameters:param
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
@@ -51,10 +51,13 @@
                      self.weather = [weatherData firstObject][@"weather"];
                  }
              } else {
-                 
+                 self.date = @"not set";
+                 self.weather = @"未知";
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              // 请求失败
+             self.date = @"not set";
+             self.weather = @"未知";
          }];
 }
 @end

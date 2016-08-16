@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface SearchSecondaryGroupItem : NSObject
+
+-(instancetype) initWithDict:(NSDictionary *)dict;
+
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSArray *datalist;
 @end

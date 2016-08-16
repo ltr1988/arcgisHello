@@ -17,6 +17,6 @@
 
 @interface CheckableTitleCell : TitleOnlyCell
 {
-    UIImageView *checkImgView;
+    UISwitch *switchView;
 }
 @end
