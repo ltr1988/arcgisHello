@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SupportRotationSelectNavigationController : UINavigationController
+@interface SupportRotationSelectNavigationController : UINavigationController<UINavigationControllerDelegate>
 
 @end

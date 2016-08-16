@@ -17,19 +17,6 @@
     [self.navigationItem setBackBarButtonItem:backItem];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [super.navigationController setNavigationBarHidden:[self hideNavBar] animated:YES];
-}
-
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [super.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
 -(BOOL) hideNavBar
 {
     return NO;

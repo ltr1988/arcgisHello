@@ -14,6 +14,7 @@
 {
     [super viewDidLoad];
     self.navigationBar.translucent = NO;
+    self.delegate =self;
 }
 
 - (BOOL)shouldAutorotate
@@ -26,4 +27,11 @@
         return YES;
 }
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([viewController respondsToSelector:@selector(hideNavBar)])
+    {
+        [self setNavigationBarHidden:[viewController performSelector:@selector(hideNavBar)] animated:YES];
+    }
+}
 @end
