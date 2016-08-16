@@ -16,15 +16,20 @@
 #define kSynchronousTimeout     180.0   //同步通信超时时间
 #define kFileRequestTimeout     300.0   //文件，图片请求的超时时间
 
-typedef void (^SuccessBlock)(NSDictionary *resultDict, BOOL hasResult);
-
-typedef void (^AFNErrorBlock)(NSError* error);
+typedef NS_ENUM(NSUInteger, HttpTaskType) {
+    HttpTaskType_Foreground,
+    HttpTaskType_Asynchronous,
+    HttpTaskType_Synchronous,
+    HttpTaskType_FileRequest,
+    
+};
 
 @interface HttpManager : NSObject
 +(AFHTTPSessionManager *)manager;
 +(AFHTTPSessionManager *)jsonManager;
 
-+ (void)loginWithUserAccount:(NSString *)account password:(NSString *)password success:(SuccessBlock)success fail:(AFNErrorBlock)fail;
 
-+(void) test;
++(AFHTTPSessionManager *)managerWithType:(HttpTaskType)type;
++(AFHTTPSessionManager *)jsonManagerWithType:(HttpTaskType)type;
+
 @end
