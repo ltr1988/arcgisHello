@@ -139,6 +139,8 @@
 		B2A186FB1D643CF8006D8CA7 /* SearchTaskStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusItem.m */; };
 		B2A186FE1D644042006D8CA7 /* HttpBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */; };
 		B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */; };
+		B2A187071D646984006D8CA7 /* TokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187061D646984006D8CA7 /* TokenManager.m */; };
+		B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -410,6 +412,10 @@
 		B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpBaseItem.m; path = functions/NSBDBusiness/Model/HttpBaseItem.m; sourceTree = "<group>"; };
 		B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JSON.h"; path = "functions/Util/NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JSON.m"; path = "functions/Util/NSDictionary+JSON.m"; sourceTree = "<group>"; };
+		B2A187051D646984006D8CA7 /* TokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TokenManager.h; path = functions/Util/TokenManager.h; sourceTree = "<group>"; };
+		B2A187061D646984006D8CA7 /* TokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TokenManager.m; path = functions/Util/TokenManager.m; sourceTree = "<group>"; };
+		B2A187081D646AF0006D8CA7 /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Conversion.h"; path = "functions/Util/NSData+Conversion.h"; sourceTree = "<group>"; };
+		B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Conversion.m"; path = "functions/Util/NSData+Conversion.m"; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -433,6 +439,8 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B2A187081D646AF0006D8CA7 /* NSData+Conversion.h */,
+				B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */,
 				B2A186F61D6406F2006D8CA7 /* NSString+MD5Addition.h */,
 				B2A186F71D6406F2006D8CA7 /* NSString+MD5Addition.m */,
 				A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */,
@@ -449,6 +457,8 @@
 				A4FC6E6E1D60552E008486E0 /* WeatherManager.m */,
 				B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */,
 				B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */,
+				B2A187051D646984006D8CA7 /* TokenManager.h */,
+				B2A187061D646984006D8CA7 /* TokenManager.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1209,6 +1219,7 @@
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
+				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
@@ -1234,6 +1245,7 @@
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
+				B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */,
 				B205A4901D5C51FC007530EB /* SearchChoiceController.m in Sources */,
 				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 				B28653901D460057002D4139 /* CheckableTitleCell.m in Sources */,

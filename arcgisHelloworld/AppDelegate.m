@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AppDelegate+LaunchInits.h"
 #import "MapViewManager.h"
+#import "TokenManager.h"
+#import "NSData+Conversion.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[TokenManager sharedManager] registerForRemoteNotifications];
     [self setupArcgis];
     [MapViewManager sharedMapView];
     [NSThread sleepForTimeInterval:1.5];
@@ -47,4 +51,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSLog(@"%@ \n%@", NSStringFromSelector(_cmd), deviceToken.hexadecimalString);
+    [TokenManager sharedManager].deviceToken = deviceToken.hexadecimalString;
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    NSLog(@"%@ \n%@", NSStringFromSelector(_cmd), error);
+    NSString* token = @"notoken";
+    [TokenManager sharedManager].deviceToken = token;
+}
 @end
