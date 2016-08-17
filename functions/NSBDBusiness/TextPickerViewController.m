@@ -54,9 +54,13 @@
 
 -(void)saveData
 {
+    if (readonly) {
+        return;
+    }
     if ([_textView isFirstResponder]) {
         [_textView resignFirstResponder];
     }
+    
     NSDictionary *userInfo = @{@"title":[pickerTitle copy],@"text":[_textView.text copy]};
     [[NSNotificationCenter defaultCenter] postNotificationName:@"TextPickerNotification" object:nil userInfo:userInfo];
     [self.navigationController popViewControllerAnimated:YES];
@@ -72,7 +76,7 @@
     UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveData)];
     [self.navigationItem setRightBarButtonItem:saveBtn];
     
-    
+    saveBtn.enabled = !readonly;
     _textView = [UITextView new];
     _textView.font = [UIFont systemFontOfSize:14];
     _textView.textColor =[UIColor blackColor];

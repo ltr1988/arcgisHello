@@ -26,6 +26,8 @@
 #import "HttpManager.h"
 #import "ToastView.h"
 
+
+#import "SearchTaskStatusItem.h"
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     WeatherManager *manager;
@@ -230,7 +232,13 @@
     if (_model.searcher.detail && _model.searcher.detail.length>0 &&
         _model.searchAdmin.detail && _model.searchAdmin.detail.length>0) {
         btn.enabled = NO;
-        [[SearchSessionManager sharedManager] requestNewSearchSessionWithSuccessCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+        [[SearchSessionManager sharedManager] requestNewSearchSessionWithSearchStartModel:_model successCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+            
+            SearchTaskStatusItem *item = [[SearchTaskStatusItem alloc] initWithDict:dict];
+            if (item.success)
+            {
+                [[SearchSessionManager sharedManager] setSessionId:item.tid];
+            }
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             // 请求失败

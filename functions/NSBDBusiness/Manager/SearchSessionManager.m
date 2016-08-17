@@ -7,8 +7,8 @@
 //
 
 #import "SearchSessionManager.h"
-
-
+#import "SearchStartModel.h"
+#import "NSDictionary+JSON.h"
 @implementation SearchSessionManager
 +(instancetype) sharedManager
 {
@@ -43,15 +43,26 @@
     return (_sessionId && _sessionId.length>0);
 }
 
--(void) requestNewSearchSessionWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
+    NSString *sessionId = [[SearchSessionManager sharedManager] sessionId];
+    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *date = [outputFormatter stringFromDate:[NSDate date]];
+    NSDictionary *info = @{@"taskid":sessionId,
+                           @"executor":model.searcher.detail,
+                           @"exetime":date,
+                           @"weather":model.weather.detail,
+                           @"auditor":model.searchAdmin.detail};
+    
+    NSDictionary *param = @{@"Req":info.json};
+
     [[HttpManager manager] GET:[HttpHost testURL]
-                    parameters:nil
+                    parameters:param
                       progress:nil
                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
                            // 请求成功
                            dispatch_main_async_safe(^{
-                               self.sessionId = @"a";//from dict
                                success(task,dict);
                            });
                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -71,7 +82,6 @@
                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
                            // 请求成功
                            dispatch_main_async_safe(^{
-                               self.sessionId = @"";
                                success(task,dict);
                            });
                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

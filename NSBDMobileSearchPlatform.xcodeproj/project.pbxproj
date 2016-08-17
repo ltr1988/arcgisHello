@@ -135,6 +135,10 @@
 		B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */; };
 		B2A186EC1D631763006D8CA7 /* HttpHost.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186EB1D631763006D8CA7 /* HttpHost.m */; };
 		B2A186F21D632AEB006D8CA7 /* SearchSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */; };
+		B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186F71D6406F2006D8CA7 /* NSString+MD5Addition.m */; };
+		B2A186FB1D643CF8006D8CA7 /* SearchTaskStatusItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusItem.m */; };
+		B2A186FE1D644042006D8CA7 /* HttpBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */; };
+		B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -398,6 +402,14 @@
 		B2A186EB1D631763006D8CA7 /* HttpHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpHost.m; path = functions/Util/HttpHost.m; sourceTree = "<group>"; };
 		B2A186F01D632AEB006D8CA7 /* SearchSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSessionManager.h; sourceTree = "<group>"; };
 		B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSessionManager.m; sourceTree = "<group>"; };
+		B2A186F61D6406F2006D8CA7 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5Addition.h"; path = "functions/Util/NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		B2A186F71D6406F2006D8CA7 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5Addition.m"; path = "functions/Util/NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		B2A186F91D643CF8006D8CA7 /* SearchTaskStatusItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTaskStatusItem.h; path = functions/NSBDBusiness/Model/SearchTaskStatusItem.h; sourceTree = "<group>"; };
+		B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTaskStatusItem.m; path = functions/NSBDBusiness/Model/SearchTaskStatusItem.m; sourceTree = "<group>"; };
+		B2A186FC1D644042006D8CA7 /* HttpBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseItem.h; path = functions/NSBDBusiness/Model/HttpBaseItem.h; sourceTree = "<group>"; };
+		B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpBaseItem.m; path = functions/NSBDBusiness/Model/HttpBaseItem.m; sourceTree = "<group>"; };
+		B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JSON.h"; path = "functions/Util/NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JSON.m"; path = "functions/Util/NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -421,6 +433,8 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B2A186F61D6406F2006D8CA7 /* NSString+MD5Addition.h */,
+				B2A186F71D6406F2006D8CA7 /* NSString+MD5Addition.m */,
 				A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */,
 				A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */,
 				A48599421D3CEC680050AC88 /* Views */,
@@ -433,6 +447,8 @@
 				B298C7021D519C74002B40D2 /* NSString+Location.m */,
 				A4FC6E6D1D60552E008486E0 /* WeatherManager.h */,
 				A4FC6E6E1D60552E008486E0 /* WeatherManager.m */,
+				B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */,
+				B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -853,6 +869,8 @@
 				A4E9E76B1D4650BD00E3C94C /* TitleItem.m */,
 				A4E9E7701D46511C00E3C94C /* CheckableTitleItem.h */,
 				A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */,
+				B2A186FC1D644042006D8CA7 /* HttpBaseItem.h */,
+				B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1000,6 +1018,8 @@
 				B205A4EF1D61CD3F007530EB /* SearchSecondaryGroupItem.m */,
 				B205A4F11D61CE1E007530EB /* SearchSecondaryItem.h */,
 				B205A4F21D61CE1E007530EB /* SearchSecondaryItem.m */,
+				B2A186F91D643CF8006D8CA7 /* SearchTaskStatusItem.h */,
+				B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusItem.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1163,6 +1183,7 @@
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
 				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				B28653D11D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				B2A186FE1D644042006D8CA7 /* HttpBaseItem.m in Sources */,
 				B28653D41D4863B2002D4139 /* UIImageView+AFNetworking.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				B205A52F1D61D378007530EB /* MJRefreshNormalHeader.m in Sources */,
@@ -1184,9 +1205,11 @@
 				B205A5281D61D378007530EB /* MJRefreshAutoGifFooter.m in Sources */,
 				A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
+				B2A186FB1D643CF8006D8CA7 /* SearchTaskStatusItem.m in Sources */,
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
+				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
@@ -1218,6 +1241,7 @@
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
+				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,

@@ -10,6 +10,9 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "VideoPlayViewController.h"
+#import "SearchSessionManager.h"
+#import "SearchTaskStatusItem.h"
+#import "ToastView.h"
 
 @interface SearchChoiceController()
 {
@@ -131,7 +134,23 @@
 - (void)actionEndSession:(id) sender
 {
     if (_delegate) {
-        [_delegate endSession];
+        __weak UIButton *btn = sender;
+        btn.enabled = NO;
+        [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+            
+            SearchTaskStatusItem *item = [[SearchTaskStatusItem alloc] initWithDict:dict];
+            if (item.success)
+            {
+                [[SearchSessionManager sharedManager] setSessionId:@""];
+            }
+            btn.enabled = YES;
+            [_delegate endSession];
+        } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // 请求失败
+            [ToastView popToast:@"请稍后再试"];
+            btn.enabled = YES;
+        }];
+        
     }
 }
 @end
