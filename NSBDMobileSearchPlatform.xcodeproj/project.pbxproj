@@ -141,6 +141,8 @@
 		B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */; };
 		B2A187071D646984006D8CA7 /* TokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187061D646984006D8CA7 /* TokenManager.m */; };
 		B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */; };
+		B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */; };
+		B2A187161D65A49A006D8CA7 /* LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187151D65A49A006D8CA7 /* LoginItem.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -252,8 +254,8 @@
 		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
 		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
-		A4FC6E6D1D60552E008486E0 /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = functions/Util/WeatherManager.h; sourceTree = "<group>"; };
-		A4FC6E6E1D60552E008486E0 /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherManager.m; path = functions/Util/WeatherManager.m; sourceTree = "<group>"; };
+		A4FC6E6D1D60552E008486E0 /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = ../../Util/WeatherManager.h; sourceTree = "<group>"; };
+		A4FC6E6E1D60552E008486E0 /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherManager.m; path = ../../Util/WeatherManager.m; sourceTree = "<group>"; };
 		B205A4441D532CE8007530EB /* ChoicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoicePickerViewController.h; path = functions/NSBDBusiness/ChoicePickerViewController.h; sourceTree = "<group>"; };
 		B205A4451D532CE8007530EB /* ChoicePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChoicePickerViewController.m; path = functions/NSBDBusiness/ChoicePickerViewController.m; sourceTree = "<group>"; };
 		B205A4831D58790F007530EB /* startup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = startup.jpg; path = images/startup.jpg; sourceTree = "<group>"; };
@@ -412,10 +414,14 @@
 		B2A186FD1D644042006D8CA7 /* HttpBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpBaseItem.m; path = functions/NSBDBusiness/Model/HttpBaseItem.m; sourceTree = "<group>"; };
 		B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JSON.h"; path = "functions/Util/NSDictionary+JSON.h"; sourceTree = "<group>"; };
 		B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JSON.m"; path = "functions/Util/NSDictionary+JSON.m"; sourceTree = "<group>"; };
-		B2A187051D646984006D8CA7 /* TokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TokenManager.h; path = functions/Util/TokenManager.h; sourceTree = "<group>"; };
-		B2A187061D646984006D8CA7 /* TokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TokenManager.m; path = functions/Util/TokenManager.m; sourceTree = "<group>"; };
+		B2A187051D646984006D8CA7 /* TokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TokenManager.h; path = ../../Util/TokenManager.h; sourceTree = "<group>"; };
+		B2A187061D646984006D8CA7 /* TokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TokenManager.m; path = ../../Util/TokenManager.m; sourceTree = "<group>"; };
 		B2A187081D646AF0006D8CA7 /* NSData+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Conversion.h"; path = "functions/Util/NSData+Conversion.h"; sourceTree = "<group>"; };
 		B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Conversion.m"; path = "functions/Util/NSData+Conversion.m"; sourceTree = "<group>"; };
+		B2A187101D659B6E006D8CA7 /* AuthorizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeManager.h; sourceTree = "<group>"; };
+		B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
+		B2A187141D65A49A006D8CA7 /* LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginItem.h; path = functions/NSBDBusiness/Model/LoginItem.h; sourceTree = "<group>"; };
+		B2A187151D65A49A006D8CA7 /* LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginItem.m; path = functions/NSBDBusiness/Model/LoginItem.m; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -446,19 +452,14 @@
 				A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */,
 				A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */,
 				A48599421D3CEC680050AC88 /* Views */,
-				B2A186ED1D63176B006D8CA7 /* Http */,
 				B28653ED1D49FF54002D4139 /* UIColor+BorderColor.h */,
 				B28653EE1D49FF54002D4139 /* UIColor+BorderColor.m */,
 				B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */,
 				B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */,
 				B298C7011D519C74002B40D2 /* NSString+Location.h */,
 				B298C7021D519C74002B40D2 /* NSString+Location.m */,
-				A4FC6E6D1D60552E008486E0 /* WeatherManager.h */,
-				A4FC6E6E1D60552E008486E0 /* WeatherManager.m */,
 				B2A187021D645324006D8CA7 /* NSDictionary+JSON.h */,
 				B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */,
-				B2A187051D646984006D8CA7 /* TokenManager.h */,
-				B2A187061D646984006D8CA7 /* TokenManager.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -515,6 +516,7 @@
 		A4569C931D33B54E00A06B1C /* NSBDBusiness */ = {
 			isa = PBXGroup;
 			children = (
+				B2A186ED1D63176B006D8CA7 /* Http */,
 				B2A186EF1D632A97006D8CA7 /* Manager */,
 				B286538A1D45FA02002D4139 /* Model */,
 				B28AE8591D3DCEDE00ABDB28 /* Views */,
@@ -870,6 +872,7 @@
 		B286538A1D45FA02002D4139 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2A187131D65A480006D8CA7 /* Login */,
 				B2A186E61D62DBA8006D8CA7 /* Search */,
 				A4E9E7781D46640000E3C94C /* TitleDetailItem.h */,
 				A4E9E7791D46640000E3C94C /* TitleDetailItem.m */,
@@ -1048,11 +1051,26 @@
 		B2A186EF1D632A97006D8CA7 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				A4FC6E6D1D60552E008486E0 /* WeatherManager.h */,
+				A4FC6E6E1D60552E008486E0 /* WeatherManager.m */,
+				B2A187051D646984006D8CA7 /* TokenManager.h */,
+				B2A187061D646984006D8CA7 /* TokenManager.m */,
 				B2A186F01D632AEB006D8CA7 /* SearchSessionManager.h */,
 				B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */,
+				B2A187101D659B6E006D8CA7 /* AuthorizeManager.h */,
+				B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
+			sourceTree = "<group>";
+		};
+		B2A187131D65A480006D8CA7 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B2A187141D65A49A006D8CA7 /* LoginItem.h */,
+				B2A187151D65A49A006D8CA7 /* LoginItem.m */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1219,6 +1237,7 @@
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
+				B2A187161D65A49A006D8CA7 /* LoginItem.m in Sources */,
 				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
@@ -1258,6 +1277,7 @@
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
 				B205A5261D61D378007530EB /* MJRefreshFooter.m in Sources */,
+				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,
 				B205A5291D61D378007530EB /* MJRefreshAutoNormalFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

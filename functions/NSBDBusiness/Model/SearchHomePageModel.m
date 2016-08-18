@@ -9,5 +9,26 @@
 #import "SearchHomePageModel.h"
 
 @implementation SearchHomePageModel
-
++(instancetype) modelForDepartment:(NSBD_Department) department
+{
+    SearchHomePageModel *model = [SearchHomePageModel new];
+    switch (department) {
+        case DepartmentDaNingGuanLiChu: {
+            datalist =
+            break;
+        }
+        case DepartmentDongGanQu: {
+            <#statement#>
+            break;
+        }
+        case DepartmentNanGanQu: {
+            <#statement#>
+            break;
+        }
+        case DepartmentDaNingXuTiaoShuiKu: {
+            <#statement#>
+            break;
+        }
+    }
+}
 @end

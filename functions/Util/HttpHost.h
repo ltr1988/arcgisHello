@@ -10,5 +10,6 @@
 
 @interface HttpHost : NSObject
 +(NSString *) weatherURL;
-+(NSString *) testURL;
++(NSString *) hostURL;
++(NSMutableDictionary *) loginParamWithUser:(NSString *)user password:(NSString *)psw;
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AuthorizeManager.h"
 
 @interface SearchHomePageModel : NSObject
 
 @property (nonatomic,strong) NSArray *datalist;
 @property (nonatomic,strong) NSString *name;
 
++(instancetype) modelForDepartment:(NSBD_Department) department;
 @end

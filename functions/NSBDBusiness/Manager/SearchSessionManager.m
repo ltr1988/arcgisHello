@@ -57,7 +57,7 @@
     
     NSDictionary *param = @{@"Req":info.json};
 
-    [[HttpManager manager] GET:[HttpHost testURL]
+    [[HttpManager manager] GET:[HttpHost hostURL]
                     parameters:param
                       progress:nil
                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
@@ -76,7 +76,7 @@
 
 -(void) requestEndSearchSessionWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [[HttpManager manager] GET:[HttpHost testURL]
+    [[HttpManager manager] GET:[HttpHost hostURL]
                     parameters:nil
                       progress:nil
                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {

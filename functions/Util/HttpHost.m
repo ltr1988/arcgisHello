@@ -7,29 +7,53 @@
 //
 
 #import "HttpHost.h"
+#import "TokenManager.h"
+#import "NSString+MD5Addition.h"
+#import "NSDictionary+JSON.h"
 
 @implementation HttpHost
 +(NSString *) hostURL
 {
+    return [HttpHost testURL];
     NSAssert(NO, @"not enabled url");
     return @"not set";
 }
 
-+(NSDictionary *)param
++(NSMutableDictionary *) param
 {
-    NSDictionary *dict = @{@"Version":@"1.0",
-             @"Action":@"",
-             @"Method":@"",
-             @"AppKey":@"100",
-             @"Req":@"",
-             @"Signature":@"加密的字符串"};
-    return [dict copy];
+    NSMutableDictionary *dict = [@{@"Version":@"1.0",
+                                   @"AppKey":[TokenManager sharedManager].deviceToken,
+                                   } mutableCopy];
+    return dict;
+}
+
++(NSString *) SignatureWithInfo:(NSDictionary *)info
+{
+    return @"";
+}
+
++(NSMutableDictionary *) loginParamWithUser:(NSString *)user password:(NSString *)psw
+{
+    NSMutableDictionary *dict = [HttpHost param];
+    dict[@"Action"] = @"Login";
+    dict[@"Method"] = @"login";
+    dict[@"Signature"] = [HttpHost SignatureWithInfo:dict];
+    
+    NSDictionary *info = @{@"userName":user,
+                           @"userPwd":[psw stringFromMD5],
+                           @"model":[UIDevice currentDevice].model,
+                           @"serialnumber":[UIDevice currentDevice].identifierForVendor,
+                           @"devicename":[UIDevice currentDevice].name};
+    
+    dict[@"Req"] = info.json;
+    return dict;
 }
 
 +(NSString *) weatherURL
 {
     return @"http://api.map.baidu.com/telematics/v3/weather";
 }
+
 
 +(NSString *) testURL
 {

@@ -13,6 +13,9 @@
 {
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:0];
     NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    if (!jsonStr) {
+        jsonStr = @"";
+    }
     return jsonStr;
 }
 @end

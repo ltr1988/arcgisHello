@@ -1,24 +1,21 @@
 //
-//  SearchStartItem.m
+//  LoginItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/8/17.
+//  Created by LvTianran on 16/8/18.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SearchTaskStatusItem.h"
+#import "LoginItem.h"
 
-@implementation SearchTaskStatusItem
-
+@implementation LoginItem
 -(instancetype) initWithDict:(NSDictionary *)dictionary
 {
     self = [super initWithDict:dictionary];
     if (self) {
         NSDictionary *dict = dictionary[@"data"];
         if (dict) {
-            _tid = dict[@"tid"];
-            _name = dict[@"name"];
-            _type = dict[@"type"];
+            _department = dict[@"department"];
         }
     }
     return self;

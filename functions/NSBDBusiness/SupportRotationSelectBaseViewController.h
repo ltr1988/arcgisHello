@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ToastView.h"
+
 @interface SupportRotationSelectBaseViewController : UIViewController
 
 

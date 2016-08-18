@@ -14,8 +14,15 @@
 {
     self = [super init];
     if (self) {
-        _success = ([dict[@"status"] intValue] ==100);
+        self.status = [dict[@"status"] intValue];
     }
     return self;
+}
+
+-(void) setStatus:(NSInteger)status
+{
+    _status = status;
+    
+    _success = (_status == HttpResultSuccess);
 }
 @end
