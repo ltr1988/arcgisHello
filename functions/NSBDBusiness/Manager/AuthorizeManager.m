@@ -7,7 +7,7 @@
 //
 
 #import "AuthorizeManager.h"
-#import "LoginItem.h"
+#import "LoginModel.h"
 
 @implementation AuthorizeManager
 +(instancetype) sharedInstance
@@ -49,13 +49,23 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
              // 请求成功
-             LoginItem * item = [[LoginItem alloc] initWithDict:dict];
-             if (item.success) {
-                 if (callback) {
-                     callback(@{@"success":@(item.success),
-                                @"department":item.department});
+             LoginModel *item = [LoginModel objectWithKeyValues:dict];
+             if (item.success)
+             {
+                 
+                 if (item.loginInfo) {
+                     if (callback) {
+                         callback(@{@"success":@(item.success),
+                                    @"department":loginInfo.department});
+                     }
+                 }else
+                 {
+                     if (callback) {
+                         callback(@{@"success":@(item.success)});
+                     }
                  }
-             }else
+             }
+             else
              {
                  if (callback) {
                      callback(@{@"success":@(item.success)});

@@ -1,23 +1,20 @@
 //
-//  LoginItem.m
+//  LoginModel.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/8/18.
+//  Created by LvTianran on 16/8/19.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "LoginItem.h"
-#import "MJExtension.h"
+#import "LoginModel.h"
 
-@implementation LoginItem
-
+@implementation LoginModel
 +(NSDictionary *)replacedKeyFromPropertyName
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  [super replacedKeyFromPropertyName]];
     
-    [dict setObject:@"department" forKey:@"department"];
+    [dict setObject:@"data" forKey:@"loginInfo"];
     return dict;
 }
-
 @end

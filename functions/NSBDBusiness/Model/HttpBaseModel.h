@@ -1,5 +1,5 @@
 //
-//  HttpBaseItem.h
+//  HttpBaseModel.h
 //  NSBDMobileSearchPlatform
 //
 //  Created by LvTianran on 16/8/17.
@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MJExtension.h"
 
 typedef NS_ENUM(NSInteger,HttpResultStatus){
    HttpResultSuccess = 100, //成功
@@ -22,8 +22,8 @@ typedef NS_ENUM(NSInteger,HttpResultStatus){
 
 
 
-@interface HttpBaseItem : NSObject
--(instancetype) initWithDict:(NSDictionary *)dict;
+@interface HttpBaseModel : NSObject
+
 @property (nonatomic,assign) BOOL success;  //status == 100
 @property (nonatomic,assign) NSInteger status;
 @end

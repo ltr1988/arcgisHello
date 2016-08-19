@@ -1,16 +1,17 @@
 //
-//  SearchHomePageModel.m
+//  SearchStartItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/8/15.
+//  Created by LvTianran on 16/8/17.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SearchHomePageModel.h"
+#import "SearchTaskStatusModel.h"
 #import "MJExtension.h"
 
-@implementation SearchHomePageModel
-+(NSDictionary *) replacedKeyFromPropertyName
+@implementation SearchTaskStatusModel
+
++ (NSDictionary *)replacedKeyFromPropertyName
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  [super replacedKeyFromPropertyName]];
@@ -20,5 +21,4 @@
     [dict setObject:@"type" forKey:@"type"];
     return dict;
 }
-
 @end

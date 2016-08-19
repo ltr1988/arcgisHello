@@ -6,8 +6,6 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "HttpBaseItem.h"
-
-@interface LoginItem : HttpBaseItem
+@interface LoginItem : NSObject
 @property (nonatomic,strong) NSString *department;
 @end

@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "AuthorizeManager.h"
+#import "HttpBaseModel.h"
 
-@interface SearchHomePageModel : NSObject
+@interface SearchHomePageModel : HttpBaseModel
 
 @property (nonatomic,strong) NSArray *datalist;
-@property (nonatomic,strong) NSString *name;
 
-+(instancetype) modelForDepartment:(NSBD_Department) department;
 @end

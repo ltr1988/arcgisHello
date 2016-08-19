@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HttpBaseItem.h"
+#import "HttpBaseModel.h"
 
-@interface SearchTaskStatusItem : HttpBaseItem
+@interface SearchTaskStatusModel : HttpBaseModel
 
--(instancetype) initWithDict:(NSDictionary *)dict;
+
 @property (nonatomic,strong) NSString *tid;  //task id
 @property (nonatomic,strong) NSString *name; //name
 @property (nonatomic,strong) NSString *type; //type

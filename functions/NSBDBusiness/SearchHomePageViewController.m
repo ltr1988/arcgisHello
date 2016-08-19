@@ -18,6 +18,16 @@
 
 @implementation SearchHomePageViewController
 
+-(instancetype) initWithTaskId:(NSString *) taskid
+{
+    self = [super init];
+    if (self)
+    {
+        self.taskid = taskid;
+    }
+    return self;
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];

@@ -19,7 +19,6 @@ typedef NS_ENUM(NSUInteger, SearchSecondaryType) {
 
 @interface SearchSecondaryItem : NSObject
 
--(instancetype) initWithDict:(NSDictionary *)dict;
 @property (nonatomic,strong) id item;
 @property (nonatomic,assign) SearchSecondaryType type;
 

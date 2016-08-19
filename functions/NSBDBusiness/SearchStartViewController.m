@@ -7,6 +7,7 @@
 //
 
 #import "SearchStartViewController.h"
+#import "SearchHomePageViewController.h"
 #import "WeatherManager.h"
 #import "SearchSessionManager.h"
 
@@ -27,7 +28,7 @@
 #import "ToastView.h"
 
 
-#import "SearchTaskStatusItem.h"
+#import "SearchTaskStatusModel.h"
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     WeatherManager *manager;
@@ -234,10 +235,12 @@
         btn.enabled = NO;
         [[SearchSessionManager sharedManager] requestNewSearchSessionWithSearchStartModel:_model successCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
             
-            SearchTaskStatusItem *item = [[SearchTaskStatusItem alloc] initWithDict:dict];
+            SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setSessionId:item.tid];
+                SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] initWithTaskId:item.tid];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

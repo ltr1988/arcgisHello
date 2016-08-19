@@ -11,7 +11,7 @@
 #import "Masonry.h"
 #import "VideoPlayViewController.h"
 #import "SearchSessionManager.h"
-#import "SearchTaskStatusItem.h"
+#import "SearchTaskStatusModel.h"
 #import "ToastView.h"
 
 @interface SearchChoiceController()
@@ -138,7 +138,7 @@
         btn.enabled = NO;
         [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
             
-            SearchTaskStatusItem *item = [[SearchTaskStatusItem alloc] initWithDict:dict];
+            SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setSessionId:@""];
