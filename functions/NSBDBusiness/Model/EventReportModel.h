@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CheckableTitleItem.h"
 #import "TitleDetailItem.h"
+#import "TitleDateItem.h"
 #import "TitleItem.h"
 
 @interface EventReportModel : NSObject<NSCoding>

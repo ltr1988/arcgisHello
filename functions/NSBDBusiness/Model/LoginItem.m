@@ -13,8 +13,7 @@
 
 +(NSDictionary *)replacedKeyFromPropertyName
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-                                 [super replacedKeyFromPropertyName]];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     [dict setObject:@"department" forKey:@"department"];
     return dict;

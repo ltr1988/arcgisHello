@@ -22,6 +22,8 @@
 #import "CheckableTitleItem.h"
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
+#import "TitleInputItem.h"
+#import "TitleDateItem.h"
 
 #import "ToastView.h"
 

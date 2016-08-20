@@ -9,11 +9,11 @@
 #import "CheckableTitleItem.h"
 
 @implementation CheckableTitleItem
-+(instancetype) itemWithTitle:(NSString *)title
++(instancetype) itemWithTitle:(NSString *)title checked:(BOOL)checked
 {
     CheckableTitleItem *item = [CheckableTitleItem new];
     item.title = title;
-    item.checked = NO;
+    item.checked = checked;
     return item;
 }
 @end

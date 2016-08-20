@@ -6,15 +6,15 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "TitleOnlyCell.h"
+#import "BaseTitleCell.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
 
-@interface TitleOnlyCell()
+@interface BaseTitleCell()
 
 @end
 
-@implementation TitleOnlyCell
+@implementation BaseTitleCell
 
 @synthesize data = _data;
 
@@ -60,6 +60,7 @@
     
     
 }
+
 
 -(void) setData:(id) data
 {

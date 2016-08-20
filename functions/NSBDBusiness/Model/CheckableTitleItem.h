@@ -12,5 +12,5 @@
 @interface CheckableTitleItem : TitleItem<CheckableTitleCellViewModel>
 @property (nonatomic,assign) BOOL checked;
 
-+(instancetype) itemWithTitle:(NSString *)title;
++(instancetype) itemWithTitle:(NSString *)title  checked:(BOOL)checked;
 @end

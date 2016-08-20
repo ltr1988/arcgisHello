@@ -6,7 +6,7 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "TitleOnlyCell.h"
+#import "BaseTitleCell.h"
 
 @protocol TitleDetailCellViewModel <TitleOnlyCellViewModel>
 
@@ -19,7 +19,7 @@
 
 @end
 
-@interface TitleDetailCell : TitleOnlyCell
+@interface TitleDetailCell : BaseTitleCell
 {
     UILabel *detail;
 }

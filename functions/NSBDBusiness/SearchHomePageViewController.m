@@ -134,7 +134,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    return [UITableViewCell new];
+    NSInteger row = indexPath.row;
+    UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"textCell"];
+    if (!cell) {
+        cell = [UITableViewCell new];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    if (row<_model.datalist.count) {
+        
+        cell.textLabel.text = _model.datalist[row];
+    }
+    return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

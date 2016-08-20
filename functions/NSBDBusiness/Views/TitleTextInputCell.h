@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TitleOnlyCell.h"
+#import "BaseTitleCell.h"
 #import "TitleDetailCell.h"
 
 
@@ -16,7 +16,7 @@
 -(NSString *) placeholder;
 @end
 
-@interface TitleTextInputCell : TitleOnlyCell<UITextFieldDelegate>
+@interface TitleTextInputCell : BaseTitleCell<UITextFieldDelegate>
 {
     UITextField *inputTextField;
 }

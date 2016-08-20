@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6jO-KG-fyN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6jO-KG-fyN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -17,8 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="XBM-MZ-zR6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE8-lI-hBq">
-                                <rect key="frame" x="180" y="209.5" width="240" height="180"/>
+                                <rect key="frame" x="180" y="210" width="240" height="180"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9of-hc-yrx">
                                         <rect key="frame" x="16" y="21" width="35" height="34"/>
@@ -64,8 +68,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZE8-lI-hBq" firstAttribute="centerY" secondItem="6cv-7y-2v3" secondAttribute="centerY" id="22F-sa-uKa"/>
+                            <constraint firstItem="XBM-MZ-zR6" firstAttribute="top" secondItem="h3l-LO-Skf" secondAttribute="bottom" id="8df-NF-9qU"/>
+                            <constraint firstAttribute="trailing" secondItem="XBM-MZ-zR6" secondAttribute="trailing" id="Iwe-c2-QeG"/>
                             <constraint firstItem="ZE8-lI-hBq" firstAttribute="centerX" secondItem="6cv-7y-2v3" secondAttribute="centerX" id="JlU-1O-JKu"/>
+                            <constraint firstItem="uEM-ez-a7e" firstAttribute="top" secondItem="XBM-MZ-zR6" secondAttribute="bottom" id="k5T-O2-9qL"/>
+                            <constraint firstItem="uEM-ez-a7e" firstAttribute="top" secondItem="XBM-MZ-zR6" secondAttribute="bottom" id="l02-yH-j7S"/>
+                            <constraint firstItem="XBM-MZ-zR6" firstAttribute="top" secondItem="h3l-LO-Skf" secondAttribute="bottom" id="q5g-lU-Tbz"/>
+                            <constraint firstItem="XBM-MZ-zR6" firstAttribute="leading" secondItem="6cv-7y-2v3" secondAttribute="leadingMargin" id="tcA-or-IdT"/>
+                            <constraint firstItem="XBM-MZ-zR6" firstAttribute="leading" secondItem="6cv-7y-2v3" secondAttribute="leading" id="tjz-eE-2Wl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XBM-MZ-zR6" secondAttribute="trailing" id="wKe-4u-66t"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8df-NF-9qU"/>
+                                <exclude reference="tcA-or-IdT"/>
+                                <exclude reference="wKe-4u-66t"/>
+                                <exclude reference="k5T-O2-9qL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="vck-n4-df0"/>
                     <connections>
@@ -373,4 +393,7 @@
             <point key="canvasLocation" x="240" y="341"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login_bg.png" width="1080" height="1920"/>
+    </resources>
 </document>

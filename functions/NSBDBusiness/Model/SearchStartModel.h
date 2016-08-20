@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
+#import "TitleInputItem.h"
 
 @interface SearchStartModel : NSObject
 @property (nonatomic,strong) TitleInputItem *searcher;

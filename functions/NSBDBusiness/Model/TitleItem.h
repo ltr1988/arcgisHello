@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TitleOnlyCell.h"
+#import "BaseTitleCell.h"
 
 @interface TitleItem : NSObject<TitleOnlyCellViewModel>
 @property (nonatomic,strong) NSString *title;

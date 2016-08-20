@@ -15,7 +15,7 @@
 @end
 
 
-@interface TitleOnlyCell : UITableViewCell
+@interface BaseTitleCell : UITableViewCell
 {
     UILabel *label;
     id _data;
@@ -26,6 +26,5 @@
 -(void) setupSubViews;
 -(void) setData:(id)data;
 -(void) bindData:(id) data;
-
 
 @end

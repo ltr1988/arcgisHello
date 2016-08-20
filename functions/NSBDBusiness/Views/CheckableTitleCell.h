@@ -6,7 +6,7 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "TitleOnlyCell.h"
+#import "BaseTitleCell.h"
 
 
 @protocol CheckableTitleCellViewModel <TitleOnlyCellViewModel>
@@ -15,7 +15,7 @@
 @end
 
 
-@interface CheckableTitleCell : TitleOnlyCell
+@interface CheckableTitleCell : BaseTitleCell
 {
     UISwitch *switchView;
 }

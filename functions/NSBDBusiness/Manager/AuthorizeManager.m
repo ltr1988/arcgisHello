@@ -56,7 +56,7 @@
                  if (item.loginInfo) {
                      if (callback) {
                          callback(@{@"success":@(item.success),
-                                    @"department":loginInfo.department});
+                                    @"department":item.loginInfo.department});
                      }
                  }else
                  {
