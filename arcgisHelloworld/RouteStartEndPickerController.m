@@ -12,7 +12,7 @@
 #import "NSString+Location.h"
 #import "Masonry.h"
 #import "CommonDefine.h"
-#import "UIColor+BorderColor.h"
+#import "UIColor+ThemeColor.h"
 
 @interface RouteStartEndPickerController()<UITextFieldDelegate>
 {
@@ -47,7 +47,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIButton *switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [switchButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [switchButton setImage:[UIImage imageNamed:@"icon_change"] forState:UIControlStateNormal];
     [switchButton addTarget:self action:@selector(actionSwitch:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:switchButton];
     

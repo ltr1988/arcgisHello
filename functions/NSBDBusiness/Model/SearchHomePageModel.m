@@ -7,17 +7,24 @@
 //
 
 #import "SearchHomePageModel.h"
+#import "SearchCategoryItem.h"
 #import "MJExtension.h"
 
 @implementation SearchHomePageModel
-+(NSDictionary *) replacedKeyFromPropertyName
+
+
++ (NSDictionary *)replacedKeyFromPropertyName
+
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
-                                 [super replacedKeyFromPropertyName]];
     
-    [dict setObject:@"taskid" forKey:@"tid"];
-    [dict setObject:@"name" forKey:@"name"];
-    [dict setObject:@"type" forKey:@"type"];
+    return @{@"datalist" :@"data"};
+    
+}
++(NSDictionary *) objectClassInArray
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    [dict setObject:[SearchCategoryItem class] forKey:@"datalist"];
     return dict;
 }
 

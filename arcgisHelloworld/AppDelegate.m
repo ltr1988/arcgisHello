@@ -11,6 +11,7 @@
 #import "MapViewManager.h"
 #import "TokenManager.h"
 #import "NSData+Conversion.h"
+#import "AFNetworking.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,7 @@
     
     [[TokenManager sharedManager] registerForRemoteNotifications];
     [self setupArcgis];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [MapViewManager sharedMapView];
     [NSThread sleepForTimeInterval:1.5];
     return YES;

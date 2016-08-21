@@ -10,7 +10,7 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "UIKit+AFNetworking.h"
-#import "UIColor+BorderColor.h"
+#import "UIColor+ThemeColor.h"
 #import "EventMediaCollectionView.h"
 
 @interface EventMediaPickerView()
@@ -55,17 +55,19 @@
     vLine = [UIView new];
     hLine = [UIView new];
     
-    [pickImageBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [pickImageBtn setImage:[UIImage imageNamed:@"icon_photo"] forState:UIControlStateNormal];
     [pickImageBtn setTitle:@"照片上传" forState:UIControlStateNormal];
+    pickImageBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [pickImageBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [pickImageBtn addTarget:self action:@selector(pickImage) forControlEvents:UIControlEventTouchUpInside];
-    [pickImageBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -6, 0, 0)];
+    [pickImageBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -8, 0, 0)];
     
-    [pickVideoBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    [pickVideoBtn setImage:[UIImage imageNamed:@"icon_movie"] forState:UIControlStateNormal];
     [pickVideoBtn setTitle:@"视频上传" forState:UIControlStateNormal];
+    pickVideoBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [pickVideoBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [pickVideoBtn addTarget:self action:@selector(pickVideo) forControlEvents:UIControlEventTouchUpInside];
-    [pickVideoBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -6, 0, 0)];
+    [pickVideoBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -8, 0, 0)];
     
     vLine.backgroundColor = [UIColor borderColor];
 

@@ -41,7 +41,7 @@
     responseView.backgroundColor = [UIColor clearColor];
     
     
-    _checkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"delete"]];
+    _checkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_delete"]];
     _centerView = [UIButton buttonWithType:UIButtonTypeCustom];
     [_centerView setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     
@@ -61,14 +61,14 @@
     
     
     [responseView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.mas_top);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom);
         make.right.mas_equalTo(weakSelf.mas_right);
         make.height.mas_equalTo(width);
         make.width.mas_equalTo(width);
     }];
     
     [_checkView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakSelf.mas_top).offset(4);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(-4);
         make.right.mas_equalTo(weakSelf.mas_right).offset(-4);
         make.height.mas_equalTo(12);
         make.width.mas_equalTo(12);

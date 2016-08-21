@@ -40,7 +40,7 @@
     anchorView = [UIImageView new];
     anchorView.bounds = CGRectMake(0, 0, 36,36);
     anchorView.center = self.view.center;
-    anchorView.image = [UIImage imageNamed:@"RedPushpin"];
+    anchorView.image = [UIImage imageNamed:@"icon_location"];
     
     [self.mapView addSubview:anchorView];
     

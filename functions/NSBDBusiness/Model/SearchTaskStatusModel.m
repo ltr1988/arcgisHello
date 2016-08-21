@@ -21,4 +21,5 @@
     [dict setObject:@"type" forKey:@"type"];
     return dict;
 }
+
 @end

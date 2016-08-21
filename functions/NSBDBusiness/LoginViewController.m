@@ -9,22 +9,30 @@
 #import "LoginViewController.h"
 #import "MapViewController.h"
 #import "AuthorizeManager.h"
+#import "ToastView.h"
 
-@interface LoginViewController()
+@interface LoginViewController()<UITextFieldDelegate>
 {
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
 @implementation LoginViewController
+- (IBAction)actionForget:(id)sender {
+    UIAlertView *alart = [[UIAlertView alloc] initWithTitle:nil message:@"请拨打110重置密码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+
+    
+    [alart show];
+}
 
 -(void)shakeView:(UIView*)viewToShake
 {
-    CGFloat t =2.0;
+    CGFloat t =4.0;
     CGAffineTransform translateRight  =CGAffineTransformTranslate(CGAffineTransformIdentity, t,0.0);
     CGAffineTransform translateLeft =CGAffineTransformTranslate(CGAffineTransformIdentity,-t,0.0);
     
@@ -42,10 +50,10 @@
     }];
 }
 - (IBAction)actionLogin:(id)sender {
-    if (!(_userNameField.text.length && _passwordField.text.length)) {
-        [self shakeView:_loginBtn];
-        return;
-    }
+//    if (!(_userNameField.text.length && _passwordField.text.length)) {
+//        [self shakeView:_loginBtn];
+//        return;
+//    }
     
     _loginBtn.enabled = NO;
     
@@ -86,11 +94,32 @@
 
 -(void) setupSubviews
 {
+    _contentView.layer.cornerRadius = 10;
+    _contentView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _contentView.layer.shadowOpacity = 0.8;
+    _contentView.layer.shadowOffset = CGSizeMake(4,4);//shadowOffset阴影偏移,x向右偏移4，y向下偏移4，默认(0, -3),这个跟shadowRadius配合使用
+    _contentView.layer.shadowRadius = 4;//阴影半径，默认3
     _loginBtn.layer.cornerRadius = 5;
     _userNameField.text = [AuthorizeManager sharedInstance].userName?:@"";
+    _userNameField.keyboardType = UIKeyboardTypeASCIICapable;
+    _passwordField.keyboardType = UIKeyboardTypeASCIICapable;
     
+    _userNameField.delegate = self;
+    _passwordField.delegate = self;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == _userNameField) {
+        [_userNameField resignFirstResponder];
+        [_passwordField becomeFirstResponder];
+    }else
+    {
+        [textField resignFirstResponder];
+        [self actionLogin:textField];
+    }
+    return YES;
+}
 -(BOOL) prefersStatusBarHidden
 {
     return YES;

@@ -9,7 +9,7 @@
 #import "ItemCallOutView.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
-#import "UIColor+BorderColor.h"
+#import "UIColor+ThemeColor.h"
 
 @interface ItemCallOutView()
 @property (nonatomic,strong) UILabel *titleLabel;

@@ -10,6 +10,7 @@
 #import "HttpBaseModel.h"
 #import "SearchHomePageModel.h"
 #import "SearchTaskStatusModel.h"
+#import "SearchCategoryItem.h"
 
 @implementation QRModelsManager
 
@@ -39,6 +40,7 @@
       [HttpBaseModel class],
       [SearchHomePageModel class],
       [SearchTaskStatusModel class],
+      [SearchCategoryItem class],
       ];
     
     

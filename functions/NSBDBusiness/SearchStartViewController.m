@@ -26,9 +26,10 @@
 #import "Masonry.h"
 #import "HttpManager.h"
 #import "ToastView.h"
-
+#import "UIColor+ThemeColor.h"
 
 #import "SearchTaskStatusModel.h"
+
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     WeatherManager *manager;
@@ -92,7 +93,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor =  [UIColor backGroundGrayColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
@@ -111,12 +112,12 @@
     UIButton *btnNewSession = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton *btnQuit = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    btnNewSession.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
+    btnNewSession.backgroundColor = [UIColor themeBlueColor];
     [btnNewSession setTitle:@"开始新一期填报" forState:UIControlStateNormal];
     [btnNewSession setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnNewSession.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    btnQuit.backgroundColor = [UIColor blueColor];
+    btnQuit.backgroundColor = [UIColor themeDarkBlackColor];
     [btnQuit setTitle:@"不写了，离开" forState:UIControlStateNormal];
     [btnQuit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnQuit.titleLabel setFont:[UIFont systemFontOfSize:14]];
@@ -149,7 +150,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -222,6 +223,14 @@
 #pragma mark actions
 -(void) actionNewSession:(id) sender
 {
+    
+    //-----------------
+    //to be deleted
+    SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] initWithTaskId:@"task"];
+    [self.navigationController pushViewController:vc animated:YES];
+    return;
+    //-----------------
+    
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
         
