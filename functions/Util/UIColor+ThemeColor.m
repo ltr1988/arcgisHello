@@ -26,6 +26,11 @@
     return UI_COLOR(26, 117, 237);
 }
 
++(UIColor *) themeLightBlueColor
+{
+    return UI_COLOR(61, 147, 253);
+}
+
 +(UIColor *) themeDarkBlackColor
 {
     return UI_COLOR(32, 41, 50);
@@ -33,6 +38,6 @@
 
 +(UIColor *) themeGrayTextColor
 {
-    return UI_COLOR(110, 110, 110)
+    return UI_COLOR(110, 110, 110);
 }
 @end

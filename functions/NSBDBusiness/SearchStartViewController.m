@@ -88,7 +88,8 @@
 
 -(void) setupSubViews
 {
-    self.title = @"巡查信息填报";
+    self.navigationItem.title = @"巡查信息填报";
+    //self.title = @"巡查信息填报";
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

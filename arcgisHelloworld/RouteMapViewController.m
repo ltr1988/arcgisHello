@@ -68,9 +68,12 @@
                                    
                                                                           toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
     
-    NSDictionary *userInfo = @{@"location":point};
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:userInfo];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (point)
+    {
+        NSDictionary *userInfo = @{@"location":point};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:userInfo];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

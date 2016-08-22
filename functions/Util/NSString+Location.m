@@ -23,4 +23,5 @@
 {
     return [NSString stringWithLatitude:point.x Lontitude:point.y];
 }
+
 @end

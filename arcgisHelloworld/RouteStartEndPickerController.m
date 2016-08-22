@@ -7,20 +7,20 @@
 //
 
 #import "RouteStartEndPickerController.h"
-#import "RouteMapViewController.h"
 #import "MapViewManager.h"
 #import "NSString+Location.h"
 #import "Masonry.h"
 #import "CommonDefine.h"
 #import "UIColor+ThemeColor.h"
+#import "RouteSearchViewController.h"
 
 @interface RouteStartEndPickerController()<UITextFieldDelegate>
 {
     AGSPoint *startPoint;
     AGSPoint *endPoint;
     AGSPoint *currentPoint;
-    
-    RouteMapViewController *mapVC;
+
+    RouteSearchViewController *searchVC;
     BOOL pickStart;
 }
 @property (strong, nonatomic) UITextField *tfStart;
@@ -42,9 +42,15 @@
 
 -(void) setupSubviews
 {
+    self.title = @"路线";
+    
     __weak UIView *weakView = self.view;
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIView * contentView = [UIView new];
+    contentView.backgroundColor = [UIColor themeLightBlueColor];
+    [self.view addSubview:contentView];
     
     UIButton *switchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [switchButton setImage:[UIImage imageNamed:@"icon_change"] forState:UIControlStateNormal];
@@ -52,26 +58,36 @@
     [self.view addSubview:switchButton];
     
     
+    
     _tfStart = [[UITextField alloc] init];
-    _tfStart.tintColor = [UIColor grayColor];
+    _tfStart.textColor = [UIColor whiteColor];
+    _tfStart.tintColor = [UIColor whiteColor];
     [_tfStart setFont:[UIFont systemFontOfSize:15]];
     _tfStart.delegate = self;
     _tfStart.placeholder = @"输入起点";
+    [_tfStart setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     UIView * hLine = [UIView new];
     hLine.backgroundColor = [UIColor borderColor];
     
     _tfEnd = [[UITextField alloc] init];
-    _tfEnd.tintColor = [UIColor grayColor];
+    _tfEnd.textColor = [UIColor whiteColor];
+    _tfEnd.tintColor = [UIColor whiteColor];
     [_tfEnd setFont:[UIFont systemFontOfSize:15]];
     _tfEnd.delegate = self;
     _tfEnd.placeholder = @"输入终点";
-    
+    [_tfEnd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     
     [self.view addSubview:hLine];
     [self.view addSubview:_tfStart];
     [self.view addSubview:_tfEnd];
 
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top);
+        make.width.mas_equalTo(weakView.mas_width);
+        make.height.mas_equalTo(104);
+        make.left.mas_equalTo(weakView.mas_left);
+    }];
     [switchButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(hLine.mas_top);
         make.width.mas_equalTo(30);
@@ -104,12 +120,11 @@
 
 -(void) addObservers
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionPickLocation:) name:@"pickLocationNotification" object:mapVC];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionPickLocation:) name:@"pickLocationNotification" object:nil];
 }
 
 -(void) setupMembers
 {
-    mapVC = [[RouteMapViewController alloc] init];
     pickStart = YES;
 }
 
@@ -146,13 +161,14 @@
     }
     
     
-    [self.navigationController pushViewController:mapVC animated:YES];
+    searchVC = [[RouteSearchViewController alloc] initWithPointFlag:pickStart];
+    [self.navigationController pushViewController:searchVC animated:YES];
     
     return NO;
 }
 
 #pragma mark - route-navi
--(void) navi
+-(void) actionNavi
 {
     if (!startPoint || !endPoint) {
         return;
@@ -211,8 +227,17 @@
     
 }
 
+
+
+
 -(void) actionSwitch:(id) sender
 {
+    AGSPoint* point =  startPoint;
+    startPoint = endPoint;
+    endPoint = point;
     
+    NSString *tmpStr = [_tfStart.text copy];
+    _tfStart.text = _tfEnd.text;
+    _tfEnd.text = tmpStr;
 }
 @end

@@ -114,9 +114,9 @@
 		B28069E11D682AC90097F7E4 /* icon_movie@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C11D682AC80097F7E4 /* icon_movie@3x.png */; };
 		B28069E21D682AC90097F7E4 /* icon_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C21D682AC80097F7E4 /* icon_stop.png */; };
 		B28069E41D682AC90097F7E4 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C41D682AC80097F7E4 /* close.png */; };
-		B28069E51D682AC90097F7E4 /* icon_goback.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C51D682AC80097F7E4 /* icon_goback.png */; };
+		B28069E51D682AC90097F7E4 /* icon_goback@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C51D682AC80097F7E4 /* icon_goback@3x.png */; };
 		B28069E61D682AC90097F7E4 /* icon_more_white.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C61D682AC80097F7E4 /* icon_more_white.png */; };
-		B28069E81D682AC90097F7E4 /* icon_map_searchistory.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C81D682AC80097F7E4 /* icon_map_searchistory.png */; };
+		B28069E81D682AC90097F7E4 /* icon_map_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C81D682AC80097F7E4 /* icon_map_search@3x.png */; };
 		B28069E91D682AC90097F7E4 /* icon_map_searchpoint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C91D682AC80097F7E4 /* icon_map_searchpoint@2x.png */; };
 		B28069EA1D682AC90097F7E4 /* icon_gogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CA1D682AC80097F7E4 /* icon_gogo.png */; };
 		B28069EB1D682AC90097F7E4 /* icon_login.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CB1D682AC80097F7E4 /* icon_login.png */; };
@@ -192,6 +192,10 @@
 		B2A187321D66AF4B006D8CA7 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187291D66AF4B006D8CA7 /* NSObject+MJProperty.m */; };
 		B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1872B1D66AF4B006D8CA7 /* NSString+MJExtension.m */; };
 		B2A187361D6708D2006D8CA7 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187351D6708D2006D8CA7 /* LoginModel.m */; };
+		B2B468EA1D6AA0E800AB84AF /* RouteSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */; };
+		B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */; };
+		B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468F11D6AF79900AB84AF /* MapKit.framework */; };
+		B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468F41D6AF7C400AB84AF /* LocationManager.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -393,9 +397,9 @@
 		B28069C11D682AC80097F7E4 /* icon_movie@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_movie@3x.png"; path = "images/icon_movie@3x.png"; sourceTree = "<group>"; };
 		B28069C21D682AC80097F7E4 /* icon_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_stop.png; path = images/icon_stop.png; sourceTree = "<group>"; };
 		B28069C41D682AC80097F7E4 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = images/close.png; sourceTree = "<group>"; };
-		B28069C51D682AC80097F7E4 /* icon_goback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_goback.png; path = images/icon_goback.png; sourceTree = "<group>"; };
+		B28069C51D682AC80097F7E4 /* icon_goback@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_goback@3x.png"; path = "images/icon_goback@3x.png"; sourceTree = "<group>"; };
 		B28069C61D682AC80097F7E4 /* icon_more_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_more_white.png; path = images/icon_more_white.png; sourceTree = "<group>"; };
-		B28069C81D682AC80097F7E4 /* icon_map_searchistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_map_searchistory.png; path = images/icon_map_searchistory.png; sourceTree = "<group>"; };
+		B28069C81D682AC80097F7E4 /* icon_map_search@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_map_search@3x.png"; path = "images/icon_map_search@3x.png"; sourceTree = "<group>"; };
 		B28069C91D682AC80097F7E4 /* icon_map_searchpoint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_map_searchpoint@2x.png"; path = "images/icon_map_searchpoint@2x.png"; sourceTree = "<group>"; };
 		B28069CA1D682AC80097F7E4 /* icon_gogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_gogo.png; path = images/icon_gogo.png; sourceTree = "<group>"; };
 		B28069CB1D682AC80097F7E4 /* icon_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_login.png; path = images/icon_login.png; sourceTree = "<group>"; };
@@ -538,6 +542,12 @@
 		B2A1872B1D66AF4B006D8CA7 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		B2A187341D6708D2006D8CA7 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = functions/NSBDBusiness/Model/LoginModel.h; sourceTree = "<group>"; };
 		B2A187351D6708D2006D8CA7 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = functions/NSBDBusiness/Model/LoginModel.m; sourceTree = "<group>"; };
+		B2B468E81D6AA0E800AB84AF /* RouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchViewController.h; sourceTree = "<group>"; };
+		B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchViewController.m; sourceTree = "<group>"; };
+		B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B2B468F11D6AF79900AB84AF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B2B468F31D6AF7C400AB84AF /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		B2B468F41D6AF7C400AB84AF /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -550,6 +560,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */,
+				B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */,
 				B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */,
 				A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */,
 			);
@@ -754,9 +766,9 @@
 				B28069C11D682AC80097F7E4 /* icon_movie@3x.png */,
 				B28069C21D682AC80097F7E4 /* icon_stop.png */,
 				B28069C41D682AC80097F7E4 /* close.png */,
-				B28069C51D682AC80097F7E4 /* icon_goback.png */,
+				B28069C51D682AC80097F7E4 /* icon_goback@3x.png */,
 				B28069C61D682AC80097F7E4 /* icon_more_white.png */,
-				B28069C81D682AC80097F7E4 /* icon_map_searchistory.png */,
+				B28069C81D682AC80097F7E4 /* icon_map_search@3x.png */,
 				B28069C91D682AC80097F7E4 /* icon_map_searchpoint@2x.png */,
 				B28069CA1D682AC80097F7E4 /* icon_gogo.png */,
 				B28069CB1D682AC80097F7E4 /* icon_login.png */,
@@ -786,6 +798,8 @@
 			children = (
 				A485993F1D3BB52B0050AC88 /* MapViewManager.h */,
 				A48599401D3BB52B0050AC88 /* MapViewManager.m */,
+				B2B468F31D6AF7C400AB84AF /* LocationManager.h */,
+				B2B468F41D6AF7C400AB84AF /* LocationManager.m */,
 			);
 			name = manager;
 			sourceTree = "<group>";
@@ -813,6 +827,8 @@
 		A4DD867A1D0976B00096B548 = {
 			isa = PBXGroup;
 			children = (
+				B2B468F11D6AF79900AB84AF /* MapKit.framework */,
+				B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */,
 				B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */,
 				A48021FF1D32210900AE2AF9 /* functions */,
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
@@ -1173,6 +1189,8 @@
 			children = (
 				B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */,
 				B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */,
+				B2B468E81D6AA0E800AB84AF /* RouteSearchViewController.h */,
+				B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */,
 				B28AE8621D3E183200ABDB28 /* RouteMapViewController.h */,
 				B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */,
 			);
@@ -1363,14 +1381,14 @@
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
 				A4E68C1B1D693F6300DD603B /* icon_eventreport@3x.png in Resources */,
 				B28069E11D682AC90097F7E4 /* icon_movie@3x.png in Resources */,
-				B28069E81D682AC90097F7E4 /* icon_map_searchistory.png in Resources */,
+				B28069E81D682AC90097F7E4 /* icon_map_search@3x.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
 				B28069E41D682AC90097F7E4 /* close.png in Resources */,
 				B28069EE1D682AC90097F7E4 /* mappoint@2x.png in Resources */,
 				A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */,
 				A4DD86911D0976B00096B548 /* Main.storyboard in Resources */,
-				B28069E51D682AC90097F7E4 /* icon_goback.png in Resources */,
+				B28069E51D682AC90097F7E4 /* icon_goback@3x.png in Resources */,
 				B28069ED1D682AC90097F7E4 /* icon_map_searchgo.png in Resources */,
 				A4E68B731D68A0C800DD603B /* title@2x.png in Resources */,
 				B28653B81D4862B3002D4139 /* delete@2x.png in Resources */,
@@ -1393,6 +1411,7 @@
 			files = (
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
+				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
@@ -1457,6 +1476,7 @@
 				B205A52A1D61D378007530EB /* MJRefreshAutoStateFooter.m in Sources */,
 				B2A1872E1D66AF4B006D8CA7 /* MJProperty.m in Sources */,
 				B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */,
+				B2B468EA1D6AA0E800AB84AF /* RouteSearchViewController.m in Sources */,
 				B205A52C1D61D378007530EB /* MJRefreshBackNormalFooter.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
 				B28653DA1D488320002D4139 /* CheckableImageView.m in Sources */,

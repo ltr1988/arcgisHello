@@ -14,4 +14,5 @@
 +(UIColor *) themeBlueColor;
 +(UIColor *) themeDarkBlackColor;
 +(UIColor *) themeGrayTextColor;
++(UIColor *) themeLightBlueColor;
 @end
