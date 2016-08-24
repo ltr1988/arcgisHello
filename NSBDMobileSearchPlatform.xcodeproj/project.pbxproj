@@ -1323,6 +1323,11 @@
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = YEPQ327WH5;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
