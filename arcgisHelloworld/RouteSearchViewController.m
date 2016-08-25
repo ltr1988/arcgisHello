@@ -25,6 +25,7 @@
     BOOL isStart;
     BOOL showResult;
     RouteMapViewController *mapVC;
+    LocationManager *locationMgr;
 }
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *historyList;
@@ -67,6 +68,23 @@
     mapVC = [[RouteMapViewController alloc] init];
 }
 
+-(void) mock
+{
+    NSArray *array1 = @[@"test1",@"test2"];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:array1.count];
+    for (NSString *feature in array1) {
+        RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
+        item.title = feature;
+        [array addObject:item];
+    }
+    _resultList = [array copy];
+    if (_resultList.count) {
+        showResult = YES;
+    }else
+        showResult = NO;
+    [self.table reloadData];
+}
+
 -(void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -76,7 +94,16 @@
 {
     showResult = NO;
     _resultList = [NSArray array];
-    _historyList = [[NSUserDefaults standardUserDefaults] objectForKey:@"search_history"];
+    _historyList = [NSMutableArray array];
+    
+    NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:@"search_history"];
+    
+    for(id aHistory in list )
+    {
+        RouteSearchResultItem *historyItem = [NSKeyedUnarchiver unarchiveObjectWithData:aHistory];
+        [_historyList addObject:historyItem];
+    }
+    
     
     //self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
     self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4"]];
@@ -142,21 +169,32 @@
     pickInMap.backgroundColor = [UIColor whiteColor];
     [weakView addSubview:pickInMap];
     
-    _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
+    UIView *vline = [UIView new];
+    vline.backgroundColor = [UIColor borderColor];
+    [weakView addSubview:vline];
+    
+    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     _table.delegate = self;
     _table.dataSource = self;
-    
+    _table.separatorStyle = UITableViewCellSelectionStyleNone;
     _table.backgroundColor = [UIColor whiteColor];
-    _table.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
-    _table.hidden = YES;
+    
     [self.view addSubview:_table];
     
     CGFloat height = 55;
     [myLocation mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top).offset(4);
         make.left.mas_equalTo(weakView.mas_left);
-        make.right.mas_equalTo(weakView.mas_centerX).offset(-0.5);
+        make.right.mas_equalTo(weakView.mas_centerX);
         make.height.mas_equalTo(height);
+    }];
+    
+    [vline mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(myLocation.mas_centerY);
+        make.height.mas_equalTo(height-4);
+        make.width.mas_equalTo(0.5);
+        make.right.mas_equalTo(weakView.mas_centerX);
     }];
     
     [pickInMap mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -167,17 +205,21 @@
     }];
     
     [_table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(myLocation.mas_top).offset(4);
+        make.top.mas_equalTo(myLocation.mas_bottom).offset(4);
         make.left.mas_equalTo(weakView.mas_left);
         make.right.mas_equalTo(weakView.mas_right);
         make.bottom.mas_equalTo(weakView.mas_bottom);
     }];
 
+    [_table reloadData];
 
 }
 
 -(void) saveHistory:(RouteSearchResultItem*)item
 {
+    if (!item) {
+        return;
+    }
     BOOL DidHave = NO;
     NSInteger index = 0;
     
@@ -203,11 +245,25 @@
         
         [_historyList insertObject: item atIndex:0];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:_historyList forKey:@"search_history"];
+    
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for(id aHistory in _historyList)
+    {
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:aHistory];
+        [tempArray addObject:data];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:tempArray forKey:@"search_history"];
 }
 
 -(void) searchWithText:(NSString *)text
 {
+    
+    //--------------
+    //to be deleted
+    [self mock];
+    return;
+    //--------------
     if (text && text.length>0) {
         NSLog(@"search %@",text);
         AGSQuery *params = [AGSQuery new];
@@ -236,7 +292,8 @@
 
 -(void) actionMyLocation:(id) sender
 {
-    [[[LocationManager alloc] init] startLocating];
+    locationMgr = [[LocationManager alloc] init];
+    [locationMgr startLocating];
 }
 
 -(void) actionPickInMap:(id) sender
@@ -255,7 +312,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return showResult?_resultList.count:_historyList.count;
+    NSInteger count = showResult?_resultList.count:_historyList.count;
+    tableView.hidden = count==0;
+    return count;
 }
 
 
@@ -265,18 +324,18 @@
         return [UITableViewCell new];
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
+    RouteSearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
+        cell = [[RouteSearchResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
     }
     
     if (showResult) {
         RouteSearchResultItem * item = _resultList[row];
-        cell.textLabel.text = item.title;
+        [cell setTitle:item.title];
     }else
     {
         RouteSearchResultItem * item = _historyList[row];
-        cell.textLabel.text = item.title;
+        [cell setTitle:item.title];
     }
 
     return cell;
@@ -288,6 +347,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RouteSearchResultItem * item = showResult? _resultList[row] :_historyList[row];
+    [self saveHistory:item];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:item.location.x longitude:item.location.y];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:nil userInfo:@{@"place":item.title,@"location":location}];
     [self.navigationController popViewControllerAnimated:YES];
@@ -307,6 +367,8 @@
         [SVProgressHUD dismiss];
     }
     
+    
+    
     NSLog(@"call back");
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:featureSet.features.count];
     for (AGSGraphic *feature in featureSet.features) {
@@ -318,7 +380,8 @@
     _resultList = [array copy];
     if (_resultList.count) {
         showResult = YES;
-    }
+    }else
+        showResult = NO;
     [self.table reloadData];
 }
 

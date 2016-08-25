@@ -20,6 +20,7 @@
     UILabel *title;
     UIButton * myLocationBtn;
     UIButton * locateInMapBtn;
+    LocationManager* manager;
 }
 @property (nonatomic,copy) ActionCallback callback;
 @end
@@ -35,9 +36,41 @@
         self.location = CGPointMake(0, 0);
         self.callback = callback;
         [self setupSubViews];
+        [self setupMembers];
         [self actionMyLocation];
     }
     return self;
+}
+
+-(void) setupMembers
+{
+    manager = [[LocationManager alloc] initWthCallback:^(NSDictionary *dict) {
+        if (dict[@"error"] == nil) {
+            NSString *place = dict[@"place"];
+            if (place) {
+                title.text = place;
+            }else
+            {
+                CLLocation * location = dict[@"location"];
+                if (location) {
+                    self.location = CGPointMake(location.coordinate.latitude, location.coordinate.longitude);
+                }else
+                {
+                    self.location = CGPointMake(116.,40.);
+                }
+                title.text = [NSString stringWithLocationPoint:self.location];
+            }
+        }else
+        {
+            self.location = CGPointMake(116.,40.);
+            title.text = [NSString stringWithLocationPoint:self.location];
+        }
+        
+        if ([SVProgressHUD isVisible])
+        {
+            [SVProgressHUD dismiss];
+        }
+    }];
 }
 
 -(void) setupSubViews
@@ -54,14 +87,15 @@
     [self addSubview:locateInMapBtn];
     
     title.font = UI_FONT(16);
-    title.textAlignment = NSTextAlignmentCenter;
+    title.textAlignment = NSTextAlignmentLeft;
+    title.lineBreakMode = NSLineBreakByTruncatingMiddle;
     title.textColor = [UIColor blackColor];
     
     [title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakSelf.mas_top).with.offset(10);
         make.height.mas_equalTo(16);
         make.left.mas_equalTo(weakSelf.mas_left).with.offset(16);
-        make.width.mas_equalTo(myLocationBtn.mas_width);
+        make.right.mas_equalTo(locateInMapBtn.mas_left).offset(-16);
     }];
     
     
@@ -105,37 +139,10 @@
 
 -(void) actionMyLocation
 {
-    LocationManager* manager = [[LocationManager alloc] initWthCallback:^(NSDictionary *dict) {
-        if (dict[@"error"] == nil) {
-            NSString *place = dict[@"place"];
-            if (place) {
-                title.text = place;
-            }else
-            {
-                CLLocation * location = dict[@"location"];
-                if (location) {
-                    self.location = CGPointMake(location.coordinate.latitude, location.coordinate.longitude);
-                }else
-                {
-                    self.location = CGPointMake(116.,40.);
-                }
-                title.text = [NSString stringWithLocationPoint:self.location];
-            }
-        }else
-        {
-            self.location = CGPointMake(116.,40.);
-            title.text = [NSString stringWithLocationPoint:self.location];
-        }
-        
-        if ([SVProgressHUD isVisible])
-        {
-            [SVProgressHUD dismiss];
-        }
-    }];
+    
     
     [manager startLocating];
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 }
 
 

@@ -18,16 +18,21 @@
 @implementation LocationManager
 
 
+-(void) setupMembers
+{
+    locationManager = [[CLLocationManager alloc] init];
+    // 设置定位精度，十米，百米，最好
+    
+    [locationManager requestAlwaysAuthorization];
+    [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    locationManager.delegate = self;
+}
+
 -(instancetype) initWthCallback:(InfoCallback) callback
 {
     self = [super init];
     if (self) {
-        locationManager = [[CLLocationManager alloc] init];
-        // 设置定位精度，十米，百米，最好
-        
-        [locationManager requestAlwaysAuthorization];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
-        locationManager.delegate = self;
+        [self setupMembers];
         self.callback = callback;
     }
     return self;
@@ -37,12 +42,7 @@
 {
     self = [super init];
     if (self) {
-        locationManager = [[CLLocationManager alloc] init];
-        // 设置定位精度，十米，百米，最好
-        
-        [locationManager requestAlwaysAuthorization];
-        [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
-        locationManager.delegate = self;
+        [self setupMembers];
     }
     return self;
 }
@@ -54,8 +54,7 @@
 
 -(void) startLocating
 {
-    // 开始时时定位
-    [locationManager requestLocation];
+    [locationManager startUpdatingLocation];
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
@@ -70,21 +69,10 @@
 // 6.0 以上调用这个函数
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     
+    [locationManager stopUpdatingLocation];
     NSLog(@"%lu", (unsigned long)[locations count]);
     
     CLLocation *newLocation = [locations lastObject];
-    CLLocationCoordinate2D coordinate = newLocation.coordinate;
-    NSLog(@"旧的经度：%f,旧的纬度：%f",coordinate.longitude,coordinate.latitude);
-    
-    //    CLLocation *newLocation = locations[1];
-    //    CLLocationCoordinate2D newCoordinate = newLocation.coordinate;
-    //    NSLog(@"经度：%f,纬度：%f",newCoordinate.longitude,newCoordinate.latitude);
-    
-    // 计算两个坐标距离
-    //    float distance = [newLocation distanceFromLocation:oldLocation];
-    //    NSLog(@"%f",distance);
-    
-    [manager stopUpdatingLocation];
     
     [self postLocationNotifcationWithLocation:newLocation];
     
@@ -96,21 +84,6 @@
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:newLocation
                    completionHandler:^(NSArray *placemarks, NSError *error){
-                       //                       for (CLPlacemark *place in placemarks) {
-                       //
-                       //                           NSLog(@"name,%@",place.name);                       // 位置名
-                       //                           //
-                       //                           NSLog(@"thoroughfare,%@",place.thoroughfare);       // 街道
-                       //                           //
-                       //                           NSLog(@"subThoroughfare,%@",place.subThoroughfare); // 子街道
-                       //                           //
-                       //                           NSLog(@"locality,%@",place.locality);               // 市
-                       //                           //
-                       //                           NSLog(@"subLocality,%@",place.subLocality);         // 区
-                       //                           //
-                       //                           NSLog(@"country,%@",place.country);                 // 国家
-                       //                       }
-                       //
                        
                        CLPlacemark *place = [placemarks firstObject];
                        

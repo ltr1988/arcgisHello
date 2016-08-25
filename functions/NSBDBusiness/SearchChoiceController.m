@@ -141,7 +141,7 @@
             SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
             if (item.success)
             {
-                [[SearchSessionManager sharedManager] setSessionId:@""];
+                [[SearchSessionManager sharedManager] setSession:nil];
             }
             btn.enabled = YES;
             [_delegate endSession];

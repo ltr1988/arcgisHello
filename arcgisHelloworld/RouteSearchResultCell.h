@@ -10,7 +10,7 @@
 
 @interface RouteSearchResultCell : UITableViewCell
 
-@property (nonatomic,strong) UILabel *label;
+@property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UIImageView *leftIcon;
 
 -(void) setTitle:(NSString *) text;

@@ -18,7 +18,6 @@
 {
     AGSPoint *startPoint;
     AGSPoint *endPoint;
-    AGSPoint *currentPoint;
 
     RouteSearchViewController *searchVC;
     BOOL pickStart;
@@ -31,14 +30,6 @@
 
 @implementation RouteStartEndPickerController
 
--(instancetype) init
-{
-    self = [super init];
-    if (self) {
-        currentPoint = [MapViewManager sharedMapView].locationDisplay.location.point;
-    }
-    return self;
-}
 
 -(void) setupSubviews
 {
@@ -214,14 +205,16 @@
 #pragma mark -- notification
 -(void) actionPickLocation:(NSNotification *)notification
 {
-    AGSPoint *point = notification.userInfo[@"location"];
+    CLLocation *location = notification.userInfo[@"location"];
+    NSString *place = notification.userInfo[@"place"];
+    AGSPoint * point = [AGSPoint pointWithLocation:location];
     if (point) {
         if (pickStart) {
             startPoint = point;
-            _tfStart.text = [NSString stringWithLocationAGSPoint:point];
+            _tfStart.text = place?:[NSString stringWithLocationAGSPoint:point];
         }else{
             endPoint = point;
-            _tfEnd.text = [NSString stringWithLocationAGSPoint:point];
+            _tfEnd.text = place?:[NSString stringWithLocationAGSPoint:point];
         }
     }
     

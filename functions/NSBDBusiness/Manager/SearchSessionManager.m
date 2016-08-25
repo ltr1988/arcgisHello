@@ -9,6 +9,10 @@
 #import "SearchSessionManager.h"
 #import "SearchStartModel.h"
 #import "NSDictionary+JSON.h"
+
+#import "SearchSessionItem.h"
+
+
 @implementation SearchSessionManager
 +(instancetype) sharedManager
 {
@@ -24,28 +28,38 @@
 {
     self = [super init];
     if (self) {
-        self.sessionId = [[NSUserDefaults standardUserDefaults] objectForKey:@"current search id"];
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"current session"];
+        self.session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
     return self;
 }
 
--(void) setSessionId:(NSString *)sid
+-(void) setSession:(SearchSessionItem *)session
 {
-    _sessionId = [sid copy];
-    if (sid && sid.length>0) {
-        
-        [[NSUserDefaults standardUserDefaults] setObject:sid forKey:@"current search id"];
+    if (!session)
+        _session = [SearchSessionItem new];
+    else
+        _session = [session copy];
+    if (_session && _session.sessionId && _session.sessionId.length>0) {
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:_session];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"current session"];
     }
+}
+-(void) setNewSessionWithId:(NSString *)sessionId
+{
+    _session = [SearchSessionItem new];
+    _session.sessionId = sessionId;
+    _session.sessionStartTime = [[NSDate date] timeIntervalSince1970];
 }
 
 -(BOOL) hasSession
 {
-    return (_sessionId && _sessionId.length>0);
+    return (_session && _session.sessionId && _session.sessionId.length>0);
 }
 
 -(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSString *sessionId = [[SearchSessionManager sharedManager] sessionId];
+    NSString *sessionId = [[SearchSessionManager sharedManager] session].sessionId;
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
     [outputFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *date = [outputFormatter stringFromDate:[NSDate date]];

@@ -19,6 +19,27 @@
     return @"not set";
 }
 
++(NSString *) hostLoginURL
+{
+    return [HttpHost testURL];
+    NSAssert(NO, @"not enabled url");
+    return @"not set";
+}
+
++(NSString *) hostLogin3DURL
+{
+    return [HttpHost testURL];
+    NSAssert(NO, @"not enabled url");
+    return @"not set";
+}
+
++(NSString *) liveDataURL
+{
+    return [HttpHost testURL];
+    NSAssert(NO, @"not enabled url");
+    return @"not set";
+}
+
 +(NSMutableDictionary *) param
 {
     NSMutableDictionary *dict = [@{@"Version":@"1.0",

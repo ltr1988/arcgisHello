@@ -9,6 +9,7 @@
 #import "RouteSearchResultCell.h"
 #import "Masonry.h"
 #import "CommonDefine.h"
+#import "UIColor+ThemeColor.h"
 
 @implementation RouteSearchResultCell
 
@@ -25,36 +26,46 @@
 {
     __weak UIView *weakView = self.contentView;
     
-    _label = [UILabel new];
-    _label.font = [UIFont systemFontOfSize:16];
-    _label.textColor = [UIColor blackColor];
-    [weakView addSubview:_label];
+    _titleLabel = [UILabel new];
+    _titleLabel.font = [UIFont systemFontOfSize:16];
+    _titleLabel.textColor = [UIColor blackColor];
+    [weakView addSubview:_titleLabel];
     
     _leftIcon = [UIImageView new];
     _leftIcon.image = [UIImage imageNamed:@"icon_map_searchpoint"];
     _leftIcon.contentMode = UIViewContentModeScaleAspectFit;
     [weakView addSubview:_leftIcon];
     
-    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_top);
-        make.bottom.mas_equalTo(weakView.mas_bottom);
-        make.right.mas_equalTo(weakView.mas_right).with.offset(-16);
-        make.left.mas_equalTo(_leftIcon.mas_right).with.offset(16);
-    }];
-    
     [_leftIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom);
         make.width.mas_equalTo(25);
-        make.left.mas_equalTo(_leftIcon.mas_right).with.offset(16);
+        make.left.mas_equalTo(weakView.mas_left).with.offset(16);
     }];
     
+    [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top);
+        make.bottom.mas_equalTo(weakView.mas_bottom);
+        make.left.mas_equalTo(_leftIcon.mas_right).with.offset(16);
+        make.right.mas_equalTo(weakView.mas_right).with.offset(-16);
+    }];
+    
+    UIView *bottomLine = [UIView new];
+    bottomLine.backgroundColor = [UIColor borderColor];
+    [weakView addSubview:bottomLine];
+    
+    [bottomLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(weakView.mas_bottom);
+        make.height.mas_equalTo(.5);
+        make.left.mas_equalTo(_titleLabel.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+    }];
 }
 
 
 -(void) setTitle:(NSString *) text
 {
-    _label.text = text;
+    _titleLabel.text = text;
 }
 
 @end

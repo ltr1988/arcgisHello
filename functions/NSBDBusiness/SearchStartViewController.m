@@ -248,7 +248,7 @@
             SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
             if (item.success)
             {
-                [[SearchSessionManager sharedManager] setSessionId:item.tid];
+                [[SearchSessionManager sharedManager] setNewSessionWithId:item.tid];
                 SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] initWithTaskId:item.tid];
                 [self.navigationController pushViewController:vc animated:YES];
             }

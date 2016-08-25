@@ -11,7 +11,7 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 
-@interface RouteMapViewController()
+@interface RouteMapViewController()<AGSMapViewTouchDelegate>
 {
     UIImageView * anchorView;
 }
@@ -41,7 +41,7 @@
     anchorView.bounds = CGRectMake(0, 0, 36,36);
     anchorView.center = self.view.center;
     anchorView.image = [UIImage imageNamed:@"icon_location"];
-    
+    self.mapView.touchDelegate = self;
     [self.mapView addSubview:anchorView];
     
     __weak UIView *weakView = self.mapView;
@@ -53,6 +53,24 @@
     }];
     
     
+}
+
+
+- (void)mapView:(AGSMapView *)mapView didMoveTapAndHoldAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features
+{
+    
+    CGAffineTransform translateUp =CGAffineTransformTranslate(CGAffineTransformIdentity,0.,-20);
+    [UIView animateWithDuration:0.5 animations:^{
+        anchorView.transform = translateUp;
+    }];
+    
+}
+
+- (void)mapView:(AGSMapView *)mapView didEndTapAndHoldAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        anchorView.transform = CGAffineTransformIdentity;
+    }];
 }
 
 -(void) viewWillAppear:(BOOL)animated
