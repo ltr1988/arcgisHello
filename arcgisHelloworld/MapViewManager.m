@@ -21,31 +21,9 @@ static NSString *ip;
     dispatch_once(&onceToken, ^{
         routeMapView = [[InfoAGSMapView alloc] init];
         routeMapView.gridLineWidth = 0.1;
-        NSString *ip = HOSTIP;
         
-        if ([routeMapView mapLayers].count>0) {
-            for (AGSLayer *layer in [[routeMapView mapLayers] copy]) {
-                [routeMapView removeMapLayer:layer];
-            }
-        }
+        [MapViewManager resetLayer:routeMapView];
         
-        AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                                            [NSString stringWithFormat:WMTSRESTURL,ip]]];
-        
-        
-        
-        AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                   [NSString stringWithFormat:WMSURL,ip]]];
-        
-        
-        AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
-        
-        //Add it to the map view
-        [routeMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
-        [routeMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
-        [routeMapView addMapLayer:glayer withName:@"Graphics Layer"];
-        
-        routeMapView.backgroundColor = [UIColor lightGrayColor];
         
     });
     return routeMapView;
@@ -58,31 +36,8 @@ static NSString *ip;
     dispatch_once(&onceToken, ^{
         mapView = [[InfoAGSMapView alloc] init];
         mapView.gridLineWidth = 0.1;
-        NSString *ip = HOSTIP;
         
-        if ([mapView mapLayers].count>0) {
-            for (AGSLayer *layer in [[mapView mapLayers] copy]) {
-                [mapView removeMapLayer:layer];
-            }
-        }
-        
-        AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                                            [NSString stringWithFormat:WMTSRESTURL,ip]]];
-        
-        
-        
-        AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                   [NSString stringWithFormat:WMSURL,ip]]];
-        
-        
-        AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
-        
-        //Add it to the map view
-        [mapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
-        [mapView addMapLayer:wmsLayer withName:@"WMS Layer"];
-        [mapView addMapLayer:glayer withName:@"Graphics Layer"];
-        
-        mapView.backgroundColor = [UIColor lightGrayColor];
+        [MapViewManager resetLayer:mapView];
 
     });
     return mapView;
@@ -96,9 +51,44 @@ static NSString *ip;
     return ip;
 }
 
+
++(void) resetLayer:(InfoAGSMapView *)aMapView
+{
+    if (aMapView == nil) {
+        return;
+    }
+    if ([aMapView mapLayers].count>0) {
+        for (AGSLayer *layer in [[aMapView mapLayers] copy]) {
+            [aMapView removeMapLayer:layer];
+        }
+    }
+    
+    AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
+                                                                                        [NSString stringWithFormat:WMTSRESTURL,ip]]];
+    
+    
+    
+    AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
+                                                               [NSString stringWithFormat:WMSURL,ip]]];
+    
+    
+    AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
+    
+    //Add it to the map view
+    [aMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
+    [aMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
+    [aMapView addMapLayer:glayer withName:@"Graphics Layer"];
+    
+    aMapView.backgroundColor = [UIColor lightGrayColor];
+
+}
+
 +(void)SetIP:(NSString *)ip_new
 {
     ip = [ip_new copy];
+    
+    [MapViewManager resetLayer:mapView];
+    [MapViewManager resetLayer:routeMapView];
 }
 
 @end
