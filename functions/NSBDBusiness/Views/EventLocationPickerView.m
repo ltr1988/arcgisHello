@@ -12,6 +12,8 @@
 #import "MapViewManager.h"
 #import "NSString+Location.h"
 #import "UIButton+UIButtonSetEdgeInsets.h"
+#import "LocationManager.h"
+#import "SVProgressHUD.h"
 
 @interface EventLocationPickerView()
 {
@@ -103,16 +105,37 @@
 
 -(void) actionMyLocation
 {
-    AGSLocation *location = [MapViewManager sharedMapView].locationDisplay.location;
-    if (location) {
-        title.text = [NSString stringWithLocationAGSPoint:location.point];
+    LocationManager* manager = [[LocationManager alloc] initWthCallback:^(NSDictionary *dict) {
+        if (dict[@"error"] == nil) {
+            NSString *place = dict[@"place"];
+            if (place) {
+                title.text = place;
+            }else
+            {
+                CLLocation * location = dict[@"location"];
+                if (location) {
+                    self.location = CGPointMake(location.coordinate.latitude, location.coordinate.longitude);
+                }else
+                {
+                    self.location = CGPointMake(116.,40.);
+                }
+                title.text = [NSString stringWithLocationPoint:self.location];
+            }
+        }else
+        {
+            self.location = CGPointMake(116.,40.);
+            title.text = [NSString stringWithLocationPoint:self.location];
+        }
         
-    }else
-    {
-        title.text = [NSString stringWithLatitude:116. Lontitude:40.];
-        
-
-    }
+        if ([SVProgressHUD isVisible])
+        {
+            [SVProgressHUD dismiss];
+        }
+    }];
+    
+    [manager startLocating];
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 }
 
 

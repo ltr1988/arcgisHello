@@ -196,6 +196,8 @@
 		B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */; };
 		B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468F11D6AF79900AB84AF /* MapKit.framework */; };
 		B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468F41D6AF7C400AB84AF /* LocationManager.m */; };
+		B2B468FD1D6BF55D00AB84AF /* RouteSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468FC1D6BF55D00AB84AF /* RouteSearchResultItem.m */; };
+		B2B469001D6C3B4000AB84AF /* RouteSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468FF1D6C3B4000AB84AF /* RouteSearchResultCell.m */; };
 		B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
 		B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
@@ -548,6 +550,10 @@
 		B2B468F11D6AF79900AB84AF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2B468F31D6AF7C400AB84AF /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		B2B468F41D6AF7C400AB84AF /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		B2B468FB1D6BF55D00AB84AF /* RouteSearchResultItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchResultItem.h; sourceTree = "<group>"; };
+		B2B468FC1D6BF55D00AB84AF /* RouteSearchResultItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchResultItem.m; sourceTree = "<group>"; };
+		B2B468FE1D6C3B4000AB84AF /* RouteSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchResultCell.h; sourceTree = "<group>"; };
+		B2B468FF1D6C3B4000AB84AF /* RouteSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchResultCell.m; sourceTree = "<group>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -708,6 +714,8 @@
 			children = (
 				A48022091D3229AB00AE2AF9 /* CallOutItem.h */,
 				A480220A1D3229AB00AE2AF9 /* CallOutItem.m */,
+				B2B468FB1D6BF55D00AB84AF /* RouteSearchResultItem.h */,
+				B2B468FC1D6BF55D00AB84AF /* RouteSearchResultItem.m */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -1002,6 +1010,8 @@
 				A48022051D32262600AE2AF9 /* ItemCallOutView.m */,
 				B28AE85A1D3DD2C100ABDB28 /* InfoAGSMapView.h */,
 				B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */,
+				B2B468FE1D6C3B4000AB84AF /* RouteSearchResultCell.h */,
+				B2B468FF1D6C3B4000AB84AF /* RouteSearchResultCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1474,8 +1484,10 @@
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				B205A52F1D61D378007530EB /* MJRefreshNormalHeader.m in Sources */,
 				B205A52A1D61D378007530EB /* MJRefreshAutoStateFooter.m in Sources */,
+				B2B468FD1D6BF55D00AB84AF /* RouteSearchResultItem.m in Sources */,
 				B2A1872E1D66AF4B006D8CA7 /* MJProperty.m in Sources */,
 				B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */,
+				B2B469001D6C3B4000AB84AF /* RouteSearchResultCell.m in Sources */,
 				B2B468EA1D6AA0E800AB84AF /* RouteSearchViewController.m in Sources */,
 				B205A52C1D61D378007530EB /* MJRefreshBackNormalFooter.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,

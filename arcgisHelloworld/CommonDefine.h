@@ -14,6 +14,7 @@
 #define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/test_BJDLG/MapServer"
 #define WMS_FIND_URL @"http://%@:6080/arcgis/services/nsbd_gongcheng_all/MapServer/WMSServer"
 
+#define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
 #define HOSTIP @"192.168.1.106"

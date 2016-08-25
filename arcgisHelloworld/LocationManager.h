@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CommonDefine.h"
 
 @interface LocationManager : NSObject<CLLocationManagerDelegate>
-+(LocationManager *) shared;
+
+-(instancetype) initWthCallback:(InfoCallback) callback;
 -(void) startLocating;
 -(void) stopLocating;
+-(void)postLocationNotifcationWithLat:(CGFloat) lat lon:(CGFloat) lon;
+
+
+@property (nonatomic,copy) InfoCallback callback;
 @end

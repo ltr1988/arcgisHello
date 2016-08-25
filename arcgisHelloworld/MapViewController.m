@@ -59,7 +59,7 @@
 {
     self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,[MapViewManager IP]]]];
     self.identifyTask.delegate = self;
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
+    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_QUERY_URL,[MapViewManager IP]]]];
     self.queryTask.delegate = self;
 }
 
@@ -347,6 +347,9 @@
     }
     
     free(vars);
+    
+    //to be test
+    //layerName =[layer valueForKey:@"_layerNames"];
     
     NSArray *layerNames = [layerName componentsSeparatedByString:@","];
     

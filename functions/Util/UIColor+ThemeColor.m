@@ -16,6 +16,11 @@
 }
 
 
++(UIColor *) themeGrayBackgroundColor
+{
+    return UI_COLOR(0xfa, 0xfb, 0xfc);
+}
+
 +(UIColor *) backGroundGrayColor
 {
     return UI_COLOR(231,232,234);

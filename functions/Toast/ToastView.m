@@ -8,8 +8,8 @@
 
 #import "ToastView.h"
 
-#define ONE_LINE_SIZE 150
-#define TWO_LINE_SIZE 170
+#define ONE_LINE_SIZE 120
+#define TWO_LINE_SIZE 140
 #define CORNER_RADIUS 10
 
 @interface ToastView () {
