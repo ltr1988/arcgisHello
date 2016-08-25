@@ -17,6 +17,7 @@
 #import "RouteSearchResultItem.h"
 #import "RouteSearchResultCell.h"
 #import "SVProgressHUD.h"
+#import "CenterTitleCell.h"
 
 #define MAXIMUM_HISTORYS 10
 
@@ -56,7 +57,7 @@
 
 -(void) addObservers
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLocation:) name:@"pickLocationNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLocation:) name:@"pickMyLocationNotification" object:nil];
 }
 
 -(void) viewDidLoad
@@ -105,8 +106,8 @@
     }
     
     
-    //self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4"]];
+    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
+    //self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4"]];
     self.queryTask.delegate = self;
 }
 
@@ -261,8 +262,8 @@
     
     //--------------
     //to be deleted
-    [self mock];
-    return;
+//    [self mock];
+//    return;
     //--------------
     if (text && text.length>0) {
         NSLog(@"search %@",text);
@@ -285,6 +286,24 @@
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (NSEqualRanges(range, NSMakeRange(0, 1)) && [string length] == 0 && textField.text.length ==1) {
+        [self textFieldShouldClear:textField];
+    }
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    textField.text = @"";
+    [textField resignFirstResponder];
+    showResult = NO;
+    [self.table reloadData];
+    return YES;
+}
+
 -(void) actionSearch
 {
     [self searchWithText:_searchField.text];
@@ -304,15 +323,23 @@
     [self.navigationController pushViewController:mapVC animated:YES];
 }
 
+- (void)cleanHistory
+{
+    [_historyList removeAllObjects];
+    [[NSUserDefaults standardUserDefaults] setObject:_historyList forKey:@"search_history"];
+    [self.table reloadData];
+}
+
 #pragma mark tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSInteger count = showResult?_resultList.count:_historyList.count;
+    NSInteger count = showResult?_resultList.count:(_historyList.count==0?0:_historyList.count+1);
     tableView.hidden = count==0;
     return count;
 }
@@ -320,25 +347,36 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = indexPath.row;
-    if (row<0 || row>=  (showResult?_resultList.count:_historyList.count)) {
+    if (row<0 || row>=  (showResult?_resultList.count:(_historyList.count==0?0:_historyList.count+1))) {
         return [UITableViewCell new];
     }
-    
-    RouteSearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
-    if (!cell) {
-        cell = [[RouteSearchResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
+    if (!showResult && (row == _historyList.count)) {
+        CenterTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cleanCell"];
+        if (!cell)
+        {
+            cell = [[CenterTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cleanCell"];
+        }
+        [cell setTitle: @"清空搜索历史"];
+        return cell;
+    }else{
+        RouteSearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
+        if (!cell) {
+            cell = [[RouteSearchResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
+        }
+        
+        if (showResult) {
+            RouteSearchResultItem * item = _resultList[row];
+            [cell setTitle:item.title];
+        }else
+        {
+            
+            RouteSearchResultItem * item = _historyList[row];
+            [cell setTitle:item.title];
+            
+        }
+        return cell;
     }
-    
-    if (showResult) {
-        RouteSearchResultItem * item = _resultList[row];
-        [cell setTitle:item.title];
-    }else
-    {
-        RouteSearchResultItem * item = _historyList[row];
-        [cell setTitle:item.title];
-    }
-
-    return cell;
+    return [UITableViewCell new];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -346,11 +384,16 @@
     NSInteger row = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    RouteSearchResultItem * item = showResult? _resultList[row] :_historyList[row];
-    [self saveHistory:item];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:item.location.x longitude:item.location.y];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:nil userInfo:@{@"place":item.title,@"location":location}];
-    [self.navigationController popViewControllerAnimated:YES];
+    if (!showResult && indexPath.row == (_historyList.count)) {
+        [self cleanHistory];
+    }else
+    {
+        RouteSearchResultItem * item = showResult? _resultList[row] :_historyList[row];
+        [self saveHistory:item];
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:item.location.y longitude:item.location.x];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:nil userInfo:@{@"place":item.title,@"location":location}];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -374,6 +417,8 @@
     for (AGSGraphic *feature in featureSet.features) {
         NSString *title = [feature attributeForKey:@"NAME"];
         RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
+        AGSPoint *point = (AGSPoint *)feature.geometry;
+        item.location = CGPointMake(point.x, point.y);
         item.title = title;
         [array addObject:item];
     }

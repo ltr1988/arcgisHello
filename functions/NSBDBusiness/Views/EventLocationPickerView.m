@@ -56,13 +56,13 @@
                     self.location = CGPointMake(location.coordinate.latitude, location.coordinate.longitude);
                 }else
                 {
-                    self.location = CGPointMake(116.,40.);
+                    self.location = CGPointMake(40.,116.);
                 }
                 title.text = [NSString stringWithLocationPoint:self.location];
             }
         }else
         {
-            self.location = CGPointMake(116.,40.);
+            self.location = CGPointMake(40.,116.);
             title.text = [NSString stringWithLocationPoint:self.location];
         }
         

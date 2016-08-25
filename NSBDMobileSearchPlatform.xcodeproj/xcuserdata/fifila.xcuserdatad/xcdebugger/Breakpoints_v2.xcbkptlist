@@ -99,5 +99,69 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arcgisHelloworld/RouteSearchViewController.m"
+            timestampString = "493830575.023595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-receiveLocation:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arcgisHelloworld/RouteSearchViewController.m"
+            timestampString = "493830868.355746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
+            landmarkName = "-queryTask:operation:didExecuteWithFeatureSetResult:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RouteSearchViewController queryTask:operation:didExecuteWithFeatureSetResult:]"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
+                  timestampString = "493830868.446299"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "399"
+                  endingLineNumber = "399"
+                  offsetFromSymbolStart = "372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RouteSearchViewController queryTask:operation:didExecuteWithFeatureSetResult:]"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
+                  timestampString = "493830868.446425"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "399"
+                  endingLineNumber = "399"
+                  offsetFromSymbolStart = "384">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

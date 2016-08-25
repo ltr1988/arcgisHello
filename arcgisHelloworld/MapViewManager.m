@@ -64,12 +64,12 @@ static NSString *ip;
     }
     
     AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                                        [NSString stringWithFormat:WMTSRESTURL,ip]]];
+                                                                                        [NSString stringWithFormat:WMTSRESTURL,[MapViewManager IP]]]];
     
     
     
     AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
-                                                               [NSString stringWithFormat:WMSURL,ip]]];
+                                                               [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];
     
     
     AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];

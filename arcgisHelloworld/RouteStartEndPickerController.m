@@ -34,6 +34,8 @@
 -(void) setupSubviews
 {
     self.title = @"路线";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"导航" style:UIBarButtonItemStylePlain target:self action:@selector(actionNavi)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     __weak UIView *weakView = self.view;
     
@@ -81,8 +83,8 @@
     }];
     [switchButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(hLine.mas_top);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(30);
+        make.width.mas_equalTo(40);
+        make.height.mas_equalTo(50);
         make.left.mas_equalTo(weakView.mas_left).offset(16);
     }];
     
@@ -112,6 +114,8 @@
 -(void) addObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionPickLocation:) name:@"pickLocationNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(actionPickLocation:) name:@"pickMyLocationNotification" object:nil];
+    
 }
 
 -(void) setupMembers
@@ -182,11 +186,11 @@
     
     float currentLat,currentLon,_shopLat,_shopLon;
     
-    currentLat = startPoint.x;
-    currentLon = startPoint.y;
+    currentLat = startPoint.y;
+    currentLon = startPoint.x;
     
-    _shopLat = endPoint.x;
-    _shopLon = endPoint.y;
+    _shopLat = endPoint.y;
+    _shopLon = endPoint.x;
     
     if (hasBaiduMap)
     {
@@ -218,6 +222,10 @@
         }
     }
     
+    self.navigationItem.rightBarButtonItem.enabled = startPoint && endPoint;
+    if (startPoint && endPoint) {
+        [self actionNavi];
+    }
 }
 
 

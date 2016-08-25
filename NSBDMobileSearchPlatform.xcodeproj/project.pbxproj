@@ -68,6 +68,7 @@
 		A4E68C211D69403100DD603B /* icon_mywork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C1F1D69403100DD603B /* icon_mywork@3x.png */; };
 		A4E68C221D69403100DD603B /* icon_qrcode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C201D69403100DD603B /* icon_qrcode@3x.png */; };
 		A4E68C2A1D6994BE00DD603B /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C291D6994BE00DD603B /* SearchCategoryItem.m */; };
+		A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */; };
 		A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7651D46495900E3C94C /* DatePickViewController.m */; };
 		A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */; };
 		A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E76B1D4650BD00E3C94C /* TitleItem.m */; };
@@ -312,6 +313,8 @@
 		A4E68C201D69403100DD603B /* icon_qrcode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_qrcode@3x.png"; path = "images/icon_qrcode@3x.png"; sourceTree = "<group>"; };
 		A4E68C281D6994BE00DD603B /* SearchCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryItem.h; path = functions/NSBDBusiness/Model/SearchCategoryItem.h; sourceTree = "<group>"; };
 		A4E68C291D6994BE00DD603B /* SearchCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryItem.m; path = functions/NSBDBusiness/Model/SearchCategoryItem.m; sourceTree = "<group>"; };
+		A4E68C2B1D6F408000DD603B /* CenterTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterTitleCell.h; path = functions/NSBDBusiness/Views/CenterTitleCell.h; sourceTree = "<group>"; };
+		A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterTitleCell.m; path = functions/NSBDBusiness/Views/CenterTitleCell.m; sourceTree = "<group>"; };
 		A4E9E7641D46495900E3C94C /* DatePickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickViewController.h; path = functions/NSBDBusiness/DatePickViewController.h; sourceTree = "<group>"; };
 		A4E9E7651D46495900E3C94C /* DatePickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickViewController.m; path = functions/NSBDBusiness/DatePickViewController.m; sourceTree = "<group>"; };
 		A4E9E7671D464BB000E3C94C /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+BackButtonHandler.h"; path = "functions/Util/UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
@@ -560,7 +563,6 @@
 		B2B469021D6E9DD300AB84AF /* SearchLocationReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchLocationReportManager.m; sourceTree = "<group>"; };
 		B2B469041D6EC4E600AB84AF /* SearchSessionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSessionItem.h; path = functions/NSBDBusiness/Model/SearchSessionItem.h; sourceTree = "<group>"; };
 		B2B469051D6EC4E600AB84AF /* SearchSessionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSessionItem.m; path = functions/NSBDBusiness/Model/SearchSessionItem.m; sourceTree = "<group>"; };
-		B2B469D41D6ECC4D00AB84AF /* NSBDMobileSearchPlatform copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "NSBDMobileSearchPlatform copy-Info.plist"; path = "/Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/NSBDMobileSearchPlatform copy-Info.plist"; sourceTree = "<absolute>"; };
 		B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B2C6B19D1D4B2D1400B0B12A /* UIImage+VideoThumb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+VideoThumb.h"; path = "functions/Util/UIImage+VideoThumb.h"; sourceTree = "<group>"; };
 		B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+VideoThumb.m"; path = "functions/Util/UIImage+VideoThumb.m"; sourceTree = "<group>"; };
@@ -851,7 +853,6 @@
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
 				A4DD86851D0976B00096B548 /* arcgis */,
 				A4DD86841D0976B00096B548 /* Products */,
-				B2B469D41D6ECC4D00AB84AF /* NSBDMobileSearchPlatform copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1144,6 +1145,8 @@
 				B28653A11D46FB73002D4139 /* EventMediaPickerView.m */,
 				B28653F01D4A094E002D4139 /* EventMediaCollectionView.h */,
 				B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */,
+				A4E68C2B1D6F408000DD603B /* CenterTitleCell.h */,
+				A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1563,6 +1566,7 @@
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
+				A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */,
 				B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */,
 				B2806A081D683B390097F7E4 /* SearchSheetInfoItem.m in Sources */,
 				B205A4901D5C51FC007530EB /* SearchChoiceController.m in Sources */,

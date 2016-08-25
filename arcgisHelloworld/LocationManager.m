@@ -60,7 +60,7 @@
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     dispatch_main_async_safe(^{
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification"
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"pickMyLocationNotification"
                                                             object:self
                                                           userInfo:@{@"error":error}];
     });
@@ -99,7 +99,7 @@
                        
                        dispatch_main_async_safe(^{
                            
-                           [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification"
+                           [[NSNotificationCenter defaultCenter] postNotificationName:@"pickMyLocationNotification"
                                                                                object:self
                                                                              userInfo:userInfo];
                            

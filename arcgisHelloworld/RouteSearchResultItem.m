@@ -14,7 +14,7 @@
 -(instancetype) init
 {
     if (self = [super init]) {
-        self.location = CGPointMake(116., 40.);//beijing default
+        self.location = CGPointMake(116.,40.);//beijing default
     }
     return self;
 }
