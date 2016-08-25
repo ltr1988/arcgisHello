@@ -13,11 +13,13 @@
 #import "CommonDefine.h"
 #import "UIColor+ThemeColor.h"
 #import "RouteSearchViewController.h"
+#import "LocationManager.h"
 
 @interface RouteStartEndPickerController()<UITextFieldDelegate>
 {
     AGSPoint *startPoint;
     AGSPoint *endPoint;
+    LocationManager* locationMgr;
 
     RouteSearchViewController *searchVC;
     BOOL pickStart;
@@ -137,6 +139,9 @@
     [self setupMembers];
     [self setupSubviews];
     [self addObservers];
+    
+    locationMgr = [[LocationManager alloc] init];
+    [locationMgr startLocating];
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -211,14 +216,23 @@
 {
     CLLocation *location = notification.userInfo[@"location"];
     NSString *place = notification.userInfo[@"place"];
+    NSString *myplace = notification.userInfo[@"mylocation"];
+    
+    NSString *text;
+    
+    
     AGSPoint * point = [AGSPoint pointWithLocation:location];
     if (point) {
+        if (myplace) {
+            text = [NSString stringWithFormat:@"%@-%@",myplace,place?:[NSString stringWithLocationAGSPoint:point]];
+        }else
+            text = place?:[NSString stringWithLocationAGSPoint:point];
         if (pickStart) {
             startPoint = point;
-            _tfStart.text = place?:[NSString stringWithLocationAGSPoint:point];
+            _tfStart.text = text;
         }else{
             endPoint = point;
-            _tfEnd.text = place?:[NSString stringWithLocationAGSPoint:point];
+            _tfEnd.text = text;
         }
     }
     
@@ -227,9 +241,6 @@
         [self actionNavi];
     }
 }
-
-
-
 
 -(void) actionSwitch:(id) sender
 {

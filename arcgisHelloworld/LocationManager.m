@@ -90,10 +90,10 @@
                        NSDictionary *userInfo;
                        if (place)
                        {
-                           userInfo = @{@"location":newLocation,@"place":place.name};
+                           userInfo = @{@"mylocation":@"我的位置",@"location":newLocation,@"place":place.name};
                        }else
                        {
-                           userInfo = @{@"location":newLocation};
+                           userInfo = @{@"mylocation":@"我的位置",@"location":newLocation};
                        }
                        
                        
