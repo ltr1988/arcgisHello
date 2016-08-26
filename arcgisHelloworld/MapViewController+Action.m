@@ -17,6 +17,7 @@
 #import "SearchChoiceController.h"
 #import "SearchStartViewController.h"
 #import "SearchSessionManager.h"
+#import "SearchHomePageViewController.h"
 
 #import "TextPickerViewController.h"
 
@@ -107,8 +108,9 @@
 {
     __weak __typeof(self) weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
-        TextPickerViewController *vc = [[TextPickerViewController alloc] init];
-        //VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
+        SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
+        //TextPickerViewController *vc = [[TextPickerViewController alloc] init]; 备注
+        //VideoPlayViewController *vc = [[VideoPlayViewController alloc] init]; 视频
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
 }

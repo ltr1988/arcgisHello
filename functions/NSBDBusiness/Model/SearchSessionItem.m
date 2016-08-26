@@ -16,6 +16,8 @@
     [aCoder encodeInteger:self.sessionTime forKey:@"_sessionTime"];
     [aCoder encodeDouble:self.sessionStartTime forKey:@"_sessionStartTime"];
     
+    [aCoder encodeBool:self.pauseState forKey:@"_sessionPauseState"];
+    
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -24,6 +26,7 @@
         self.sessionId = [aDecoder decodeObjectForKey:@"_sessionId"];
         self.sessionTime = [aDecoder decodeIntegerForKey:@"_sessionTime"];
         self.sessionStartTime = [aDecoder decodeDoubleForKey:@"_sessionStartTime"];
+        self.pauseState = [aDecoder decodeBoolForKey:@"_sessionPauseState"];
     }
     
     return self;
@@ -33,8 +36,9 @@
 {
     if (self = [super init]) {
         _sessionId = @"";
-        _sessionStartTime = 0.;
+        _sessionStartTime = [[NSDate date] timeIntervalSince1970];
         _sessionTime = 0;
+        _pauseState = NO;
     }
     return self;
 }
@@ -45,6 +49,34 @@
     item.sessionId = _sessionId;
     item.sessionTime = _sessionTime;
     item.sessionStartTime = _sessionStartTime;
+    item.pauseState = _pauseState;
     return item;
+}
+
+-(NSInteger) totalTime
+{
+    return _sessionTime + (_pauseState?0:([[NSDate date] timeIntervalSince1970] - (long long)_sessionStartTime));
+}
+
+-(void) resetTime:(BOOL)willPause
+{
+    if (willPause) {
+        [self pause];
+    }else
+    {
+        [self resume];
+    }
+    _pauseState = willPause;
+}
+
+-(void) pause
+{
+    _sessionTime = _sessionTime + ([[NSDate date] timeIntervalSince1970] - (long long)_sessionStartTime);
+}
+
+-(void) resume
+{
+    
+    _sessionStartTime = [[NSDate date] timeIntervalSince1970];
 }
 @end

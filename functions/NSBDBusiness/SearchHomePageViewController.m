@@ -14,29 +14,63 @@
 #import "SearchCategoryItem.h"
 #import "UIColor+ThemeColor.h"
 #import "NSBDBaseUIItem.h"
+#import "TimerView.h"
+#import "SearchSessionManager.h"
+#import "SearchSessionItem.h"
 
 @interface SearchHomePageViewController()
+{
+}
 
+@property (nonatomic,strong) SearchSessionItem* sessionItem;
+@property (nonatomic,strong) TimerView *timerView;
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation SearchHomePageViewController
 
--(instancetype) initWithTaskId:(NSString *) taskid
+
+-(instancetype) init
 {
     self = [super init];
-    if (self)
-    {
-        self.taskid = taskid;
-    }
     return self;
 }
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    [self setupMembers];
     [self setupSubviews];
     [self requestData];
+}
+
+-(SearchSessionItem *) sessionItem
+{
+    return [SearchSessionManager sharedManager].session;
+}
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_timerView setShowTime:[self.sessionItem totalTime]];
+    if (!self.sessionItem.pauseState) {
+        
+        [_timerView continueTiming];
+    }
+    
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    if (!self.sessionItem.pauseState) {
+        [_timerView pauseTiming];
+    }
+    
+}
+
+-(void) setupMembers
+{
+    self.sessionItem = [SearchSessionManager sharedManager].session;
+    self.taskid = self.sessionItem.sessionId;
 }
 
 -(void) requestData
@@ -59,13 +93,32 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [self.view addSubview:_tableView];
-    
-    _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
     _tableView.backgroundColor = [UIColor backGroundGrayColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     _tableView.tableFooterView = [self footerView];
+    [self.view addSubview:_tableView];
+    
+    __weak UIView * weakView = self.view;
+    
+    CGFloat height = 30;
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top);
+        make.bottom.mas_equalTo(weakView.mas_bottom).offset(-height);
+        make.left.mas_equalTo(weakView.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+    }];
+    
+    __weak UIView * weakTableView = self.tableView;
+    _timerView = [[TimerView alloc] initWithStartTime:[self.sessionItem totalTime] frame:CGRectMake(0, 0, 0, 0)];
+    [self.view addSubview:_timerView];
+    [_timerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakTableView.mas_bottom);
+        make.bottom.mas_equalTo(weakView.mas_bottom);
+        make.left.mas_equalTo(weakView.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+    }];
+    
+    
 }
 
 -(UIView*) footerView
@@ -77,8 +130,11 @@
     UIButton *btnPause = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton *btnEndSession = [UIButton buttonWithType:UIButtonTypeCustom];
     
+    
+    
     btnPause.backgroundColor = [UIColor themeBlueColor];
-    [btnPause setTitle:@"暂停" forState:UIControlStateNormal];
+    NSString *text = self.sessionItem.pauseState?@"继续":@"暂停";
+    [btnPause setTitle:text forState:UIControlStateNormal];
     [btnPause setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnPause.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
@@ -117,6 +173,23 @@
 
 -(void) actionPause:(id) sender
 {
+    UIButton *button = sender;
+    BOOL willPause = !self.sessionItem.pauseState;
+    [self.sessionItem resetTime: willPause];
+    [[SearchSessionManager sharedManager] setSession:self.sessionItem];
+    
+    if (!willPause) {
+        [_timerView pauseTiming];
+        NSLog(@"time when  pausing total:%d,sessionTime:%d,sessionStartTime:%ld",[self.sessionItem totalTime],self.sessionItem.sessionTime,(long)self.sessionItem.sessionStartTime);
+        [button setTitle:@"继续" forState:UIControlStateNormal];
+    }else
+    {
+        NSLog(@"time when resuming total:%d,sessionTime:%d,sessionStartTime:%ld",[self.sessionItem totalTime],self.sessionItem.sessionTime,(long)self.sessionItem.sessionStartTime);
+        [_timerView setShowTime:[self.sessionItem totalTime]];
+        [_timerView continueTiming];
+        [button setTitle:@"暂停" forState:UIControlStateNormal];
+    }
+    
 }
 
 -(void) actionEndSesson:(id) sender

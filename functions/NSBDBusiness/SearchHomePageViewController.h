@@ -11,7 +11,6 @@
 
 @interface SearchHomePageViewController : SupportRotationSelectBaseViewController <UITableViewDelegate,UITableViewDataSource>
 
--(instancetype) initWithTaskId:(NSString *) taskid;
 @property (nonatomic,strong) SearchHomePageModel *model;
-@property (nonatomic,strong) NSString *taskid;
+@property (nonatomic,copy) NSString *taskid;
 @end

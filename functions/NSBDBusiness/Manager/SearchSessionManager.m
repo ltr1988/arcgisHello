@@ -45,6 +45,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"current session"];
     }
 }
+
 -(void) setNewSessionWithId:(NSString *)sessionId
 {
     _session = [SearchSessionItem new];

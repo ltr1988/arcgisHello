@@ -221,14 +221,26 @@
     
 }
 
+
+
+-(void) popSelfAndPush:(UIViewController *)vc
+{
+    int index = (int)[[self.navigationController viewControllers] indexOfObject:self];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[self.navigationController viewControllers]];
+    array[index] = vc;
+    [self.navigationController setViewControllers:[array copy] animated:YES];
+}
+
 #pragma mark actions
 -(void) actionNewSession:(id) sender
 {
     
     //-----------------
     //to be deleted
-    SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] initWithTaskId:@"task"];
-    [self.navigationController pushViewController:vc animated:YES];
+    [[SearchSessionManager sharedManager] setNewSessionWithId:@"test"];
+    SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
+    
+    [self popSelfAndPush:vc];
     return;
     //-----------------
     
@@ -249,8 +261,8 @@
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setNewSessionWithId:item.tid];
-                SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] initWithTaskId:item.tid];
-                [self.navigationController pushViewController:vc animated:YES];
+                SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
+                [self popSelfAndPush:vc];
             }
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
