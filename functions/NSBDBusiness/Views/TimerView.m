@@ -44,9 +44,10 @@
     self.backgroundColor = [UIColor orangeColor];
     
     _timeLabel = [[UILabel alloc] initWithFrame:self.bounds];;
-    _timeLabel.font =UI_FONT(14);
+    _timeLabel.font =UI_FONT(16);
     _timeLabel.textColor = [UIColor whiteColor];
     _timeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
     
 }
@@ -64,15 +65,21 @@
 
 -(void) pauseTiming
 {
+    _pause = YES;
     [timer invalidate];
     timer = nil;
+    _timeLabel.text = [self timeText];
+    
 }
 
 -(void) continueTiming
 {
+    _pause = NO;
     if (timer) {
-        [self pauseTiming];
+        [timer invalidate];
+        timer = nil;
     }
+    _timeLabel.text = [self timeText];
     timer =  [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(actionTimer) userInfo:nil repeats:YES];
 }
 
@@ -88,6 +95,6 @@
     h = showTime/3600;
     m = (showTime/60) %60;
     s = showTime % 60;
-    return [NSString stringWithFormat:@"%2ld:%2ld:%2ld",(long)h,(long)m,(long)s];
+    return [NSString stringWithFormat:@"%ld:%02ld:%02ld%@",(long)h,(long)m,(long)s,_pause?@" (暂停)":@""];
 }
 @end

@@ -224,7 +224,7 @@
     AGSPoint * point = [AGSPoint pointWithLocation:location];
     if (point) {
         if (myplace) {
-            text = [NSString stringWithFormat:@"%@-%@",myplace,place?:[NSString stringWithLocationAGSPoint:point]];
+            text = myplace;
         }else
             text = place?:[NSString stringWithLocationAGSPoint:point];
         if (pickStart) {

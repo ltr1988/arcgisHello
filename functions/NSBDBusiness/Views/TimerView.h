@@ -16,6 +16,8 @@
 
 @property (nonatomic,strong,readonly) UILabel *timeLabel;
 
+@property (nonatomic,assign) BOOL pause;
+
 -(instancetype) initWithStartTime:(NSInteger) time frame:(CGRect) frame;
 
 -(void) setFont:(UIFont *)font;

@@ -52,6 +52,7 @@
 {
     [super viewWillAppear:animated];
     [_timerView setShowTime:[self.sessionItem totalTime]];
+    
     if (!self.sessionItem.pauseState) {
         
         [_timerView continueTiming];
@@ -61,6 +62,7 @@
 
 -(void) viewDidDisappear:(BOOL)animated
 {
+    
     if (!self.sessionItem.pauseState) {
         [_timerView pauseTiming];
     }
@@ -100,7 +102,7 @@
     
     __weak UIView * weakView = self.view;
     
-    CGFloat height = 30;
+    CGFloat height = 40;
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom).offset(-height);
@@ -110,6 +112,7 @@
     
     __weak UIView * weakTableView = self.tableView;
     _timerView = [[TimerView alloc] initWithStartTime:[self.sessionItem totalTime] frame:CGRectMake(0, 0, 0, 0)];
+    _timerView.pause = self.sessionItem.pauseState;
     [self.view addSubview:_timerView];
     [_timerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakTableView.mas_bottom);
@@ -178,13 +181,11 @@
     [self.sessionItem resetTime: willPause];
     [[SearchSessionManager sharedManager] setSession:self.sessionItem];
     
-    if (!willPause) {
+    if (willPause) {
         [_timerView pauseTiming];
-        NSLog(@"time when  pausing total:%d,sessionTime:%d,sessionStartTime:%ld",[self.sessionItem totalTime],self.sessionItem.sessionTime,(long)self.sessionItem.sessionStartTime);
         [button setTitle:@"继续" forState:UIControlStateNormal];
     }else
     {
-        NSLog(@"time when resuming total:%d,sessionTime:%d,sessionStartTime:%ld",[self.sessionItem totalTime],self.sessionItem.sessionTime,(long)self.sessionItem.sessionStartTime);
         [_timerView setShowTime:[self.sessionItem totalTime]];
         [_timerView continueTiming];
         [button setTitle:@"暂停" forState:UIControlStateNormal];
