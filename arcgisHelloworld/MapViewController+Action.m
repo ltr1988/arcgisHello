@@ -18,7 +18,7 @@
 #import "SearchStartViewController.h"
 #import "SearchSessionManager.h"
 #import "SearchHomePageViewController.h"
-
+#import "MyWorkViewController.h"
 #import "TextPickerViewController.h"
 
 @implementation MapViewController (Action)
@@ -82,8 +82,8 @@
 -(void) actionMyWork
 {
     
-    
-    ImagePickerViewController *controller = [[ImagePickerViewController alloc] init];
+    MyWorkViewController *controller = [[MyWorkViewController alloc] init];
+    //ImagePickerViewController *controller = [[ImagePickerViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

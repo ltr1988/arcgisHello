@@ -50,6 +50,8 @@
     }];
 }
 - (IBAction)actionLogin:(id)sender {
+    
+    //to be reset in normal condition
 //    if (!(_userNameField.text.length && _passwordField.text.length)) {
 //        [self shakeView:_loginBtn];
 //        return;
@@ -59,7 +61,10 @@
     
     AuthorizeManager *manager =[AuthorizeManager sharedInstance];
     
-    [manager requestLoginWithUser:_userNameField.text password:_passwordField.text callback:^(NSDictionary *dict) {
+    NSString *psw = [_passwordField.text copy];
+    
+    _passwordField.text = @"";
+    [manager requestLoginWithUser:_userNameField.text password:psw callback:^(NSDictionary *dict) {
         BOOL success= [dict[@"success"] boolValue];
         manager.userName = _userNameField.text;
         dispatch_main_async_safe(^{
