@@ -207,6 +207,10 @@
 		B2C6B1AB1D5091CD00B0B12A /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
 		B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1AA1D5091CD00B0B12A /* play@3x.png */; };
 		B2CFC3541D76ABAE00FA97D3 /* MyWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */; };
+		B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */; };
+		B2CFC35B1D78069000FA97D3 /* MyEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35A1D78069000FA97D3 /* MyEventItem.m */; };
+		B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */; };
+		B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -574,6 +578,14 @@
 		B2C6B1AA1D5091CD00B0B12A /* play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play@3x.png"; path = "images/play@3x.png"; sourceTree = "<group>"; };
 		B2CFC3521D76ABAE00FA97D3 /* MyWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyWorkViewController.h; path = functions/NSBDBusiness/MyWorkViewController.h; sourceTree = "<group>"; };
 		B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyWorkViewController.m; path = functions/NSBDBusiness/MyWorkViewController.m; sourceTree = "<group>"; };
+		B2CFC3551D7805C400FA97D3 /* MyEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventViewController.h; path = functions/NSBDBusiness/MyEventViewController.h; sourceTree = "<group>"; };
+		B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventViewController.m; path = functions/NSBDBusiness/MyEventViewController.m; sourceTree = "<group>"; };
+		B2CFC3591D78069000FA97D3 /* MyEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventItem.h; path = functions/NSBDBusiness/Model/MyEventItem.h; sourceTree = "<group>"; };
+		B2CFC35A1D78069000FA97D3 /* MyEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItem.m; path = functions/NSBDBusiness/Model/MyEventItem.m; sourceTree = "<group>"; };
+		B2CFC35C1D7813D500FA97D3 /* MyEventItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventItemCell.h; path = functions/NSBDBusiness/Views/MyEventItemCell.h; sourceTree = "<group>"; };
+		B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItemCell.m; path = functions/NSBDBusiness/Views/MyEventItemCell.m; sourceTree = "<group>"; };
+		B2CFC35F1D7849EF00FA97D3 /* MyEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventDetailViewController.h; path = functions/NSBDBusiness/MyEventDetailViewController.h; sourceTree = "<group>"; };
+		B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventDetailViewController.m; path = functions/NSBDBusiness/MyEventDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1082,6 +1094,7 @@
 		B286538A1D45FA02002D4139 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2CFC3581D78066A00FA97D3 /* Mywork */,
 				B2A187131D65A480006D8CA7 /* Login */,
 				B2A186E61D62DBA8006D8CA7 /* Search */,
 				A4E9E76A1D4650BD00E3C94C /* TitleItem.h */,
@@ -1156,6 +1169,8 @@
 				A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */,
 				B2B469D51D6FDDF600AB84AF /* TimerView.h */,
 				B2B469D61D6FDDF600AB84AF /* TimerView.m */,
+				B2CFC35C1D7813D500FA97D3 /* MyEventItemCell.h */,
+				B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1330,6 +1345,19 @@
 			children = (
 				B2CFC3521D76ABAE00FA97D3 /* MyWorkViewController.h */,
 				B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */,
+				B2CFC3551D7805C400FA97D3 /* MyEventViewController.h */,
+				B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */,
+				B2CFC35F1D7849EF00FA97D3 /* MyEventDetailViewController.h */,
+				B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */,
+			);
+			name = Mywork;
+			sourceTree = "<group>";
+		};
+		B2CFC3581D78066A00FA97D3 /* Mywork */ = {
+			isa = PBXGroup;
+			children = (
+				B2CFC3591D78069000FA97D3 /* MyEventItem.h */,
+				B2CFC35A1D78069000FA97D3 /* MyEventItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1565,6 +1593,7 @@
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				B28653D01D4863B2002D4139 /* AFImageDownloader.m in Sources */,
+				B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
@@ -1581,8 +1610,10 @@
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
+				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
+				B2CFC35B1D78069000FA97D3 /* MyEventItem.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
@@ -1601,6 +1632,7 @@
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
 				B205A5261D61D378007530EB /* MJRefreshFooter.m in Sources */,
+				B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */,
 				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,
 				B205A5291D61D378007530EB /* MJRefreshAutoNormalFooter.m in Sources */,
 			);

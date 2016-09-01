@@ -87,6 +87,7 @@
         separatorView.tag = 999;
         separatorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.contentView addSubview:separatorView];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     return self;

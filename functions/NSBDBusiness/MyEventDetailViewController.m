@@ -1,23 +1,17 @@
 //
-//  MyWorkViewController.m
+//  MyEventDetailViewController.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/8/31.
+//  Created by LvTianran on 16/9/1.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "MyWorkViewController.h"
-#import "CommonDefine.h"
+#import "MyEventDetailViewController.h"
 #import "Masonry.h"
+#import "CommonDefine.h"
 #import "UIColor+ThemeColor.h"
-#import "MyEventViewController.h"
 
-@interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong) UITableView *myworkTableView;
-@property (nonatomic,strong) NSArray *modelList;
-@end
-
-@implementation MyWorkViewController
+@implementation MyEventDetailViewController
 
 -(void) viewDidLoad
 {
@@ -36,42 +30,59 @@
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     self.title = @"突发事件上报";
     
-    self.myworkTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.myworkTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.detailTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.detailTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    self.myworkTableView.backgroundColor = [UIColor whiteColor];
-    self.myworkTableView.delegate = self;
-    self.myworkTableView.dataSource = self;
-    self.myworkTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    self.detailTableView.backgroundColor = [UIColor whiteColor];
+    self.detailTableView.delegate = self;
+    self.detailTableView.dataSource = self;
+    self.detailTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
-    self.myworkTableView.tableFooterView = [self footerView];
+    self.detailTableView.tableFooterView = [self footerView];
     
-    [self.view addSubview:self.myworkTableView];
+    [self.view addSubview:self.detailTableView];
     
-
-    [self.myworkTableView reloadData];
+    
+    [self.detailTableView reloadData];
     
 }
 
 -(UIView*) footerView
 {
     UIView *footer = [UIView new];
-    footer.frame = CGRectMake(0, 0, kScreenWidth, 16*2+40);
-    UIButton *btnLogout = [UIButton buttonWithType:UIButtonTypeCustom];
+    footer.frame = CGRectMake(0, 0, kScreenWidth, 16*3+40*2);
+    UIButton *btnCommit = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnCancel = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    btnLogout.backgroundColor = [UIColor themeBlueColor];
-    [btnLogout setTitle:@"退出登录" forState:UIControlStateNormal];
-    [btnLogout setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnLogout.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    btnCommit.backgroundColor = [UIColor themeBlueColor];
+    [btnCommit setTitle:@"提交" forState:UIControlStateNormal];
+    [btnCommit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnCommit.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    [btnLogout addTarget:self action:@selector(actionLogout:) forControlEvents:UIControlEventTouchUpInside];
+    btnCancel.backgroundColor = [UIColor themeDarkBlackColor];
+    [btnCancel setTitle:@"取消" forState:UIControlStateNormal];
+    [btnCancel setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnCancel.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    [footer addSubview:btnLogout];
+    [btnCommit addTarget:self action:@selector(actionCommit:) forControlEvents:UIControlEventTouchUpInside];
+    [btnCancel addTarget:self action:@selector(actionCancel:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [footer addSubview:btnCommit];
+    [footer addSubview:btnCancel];
+    
     CGFloat margin = 50;
     __weak UIView* weakView = footer;
-    [btnLogout mas_makeConstraints:^(MASConstraintMaker *make) {
+    [btnCommit mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top).offset(16);
         make.height.mas_equalTo(40);
+        make.left.mas_equalTo(weakView.mas_left).offset(margin);
+        make.right.mas_equalTo(weakView.mas_right).offset(0-margin);
+    }];
+    
+    [btnCancel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(btnCommit.mas_bottom).offset(16);
+        make.height.mas_equalTo(40);
+        
         make.left.mas_equalTo(weakView.mas_left).offset(margin);
         make.right.mas_equalTo(weakView.mas_right).offset(0-margin);
     }];
@@ -121,8 +132,7 @@
     switch (indexPath.row) {
         case 0:
         {
-            MyEventViewController *vc = [[MyEventViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
+            
         }
             break;
         case 1:
@@ -150,4 +160,16 @@
     return 1;
 }
 
+
+
+#pragma mark actions
+-(void) actionCommit:(id) sender
+{
+    
+}
+
+-(void) actionCancel:(id) sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
