@@ -10,7 +10,10 @@
 
 
 #import "CenterSwitchView.h"
+#import "UIColor+ThemeColor.h"
 
+#define SelectColor [UIColor whiteColor]
+#define NormalColor [UIColor themeBlueColor]
 @implementation CenterSwitchView
 - (instancetype)initWithFrame:(CGRect)frame andTitleArray:(NSArray *)titleArray andDelegate:(id<CenterSwitchActionDelegate>)aDelegate andSelectIndex:(NSInteger)index{
     if (self=[super initWithFrame:frame]) {

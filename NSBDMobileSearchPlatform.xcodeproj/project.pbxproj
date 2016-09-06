@@ -75,6 +75,8 @@
 		A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
 		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
+		A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC011D7F05E500B0532B /* FeedbackModel.m */; };
+		A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */; };
 		A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC6E6E1D60552E008486E0 /* WeatherManager.m */; };
 		B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
 		B205A4841D58790F007530EB /* startup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B205A4831D58790F007530EB /* startup.jpg */; };
@@ -333,6 +335,10 @@
 		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
 		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
+		A4F2FC001D7F05E500B0532B /* FeedbackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackModel.h; path = functions/NSBDBusiness/Model/FeedbackModel.h; sourceTree = "<group>"; };
+		A4F2FC011D7F05E500B0532B /* FeedbackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackModel.m; path = functions/NSBDBusiness/Model/FeedbackModel.m; sourceTree = "<group>"; };
+		A4F2FC031D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyEventDetailViewController+pickMedia.h"; path = "functions/NSBDBusiness/MyEventDetailViewController+pickMedia.h"; sourceTree = "<group>"; };
+		A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MyEventDetailViewController+pickMedia.m"; path = "functions/NSBDBusiness/MyEventDetailViewController+pickMedia.m"; sourceTree = "<group>"; };
 		A4FC6E6D1D60552E008486E0 /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = ../../Util/WeatherManager.h; sourceTree = "<group>"; };
 		A4FC6E6E1D60552E008486E0 /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherManager.m; path = ../../Util/WeatherManager.m; sourceTree = "<group>"; };
 		B205A4441D532CE8007530EB /* ChoicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoicePickerViewController.h; path = functions/NSBDBusiness/ChoicePickerViewController.h; sourceTree = "<group>"; };
@@ -1349,6 +1355,8 @@
 				B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */,
 				B2CFC35F1D7849EF00FA97D3 /* MyEventDetailViewController.h */,
 				B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */,
+				A4F2FC031D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.h */,
+				A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1358,6 +1366,8 @@
 			children = (
 				B2CFC3591D78069000FA97D3 /* MyEventItem.h */,
 				B2CFC35A1D78069000FA97D3 /* MyEventItem.m */,
+				A4F2FC001D7F05E500B0532B /* FeedbackModel.h */,
+				A4F2FC011D7F05E500B0532B /* FeedbackModel.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1515,6 +1525,7 @@
 				A414ACC11D3A1D890065AAA7 /* ELCAsset.m in Sources */,
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				B28653801D45EA03002D4139 /* MASConstraintMaker.m in Sources */,
+				A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */,
 				B2B469D71D6FDDF600AB84AF /* TimerView.m in Sources */,
 				B2CFC3541D76ABAE00FA97D3 /* MyWorkViewController.m in Sources */,
 				B2806A051D6839B40097F7E4 /* SearchSheetGroupItem.m in Sources */,
@@ -1618,6 +1629,7 @@
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
 				A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */,
+				A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */,
 				B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */,
 				B2806A081D683B390097F7E4 /* SearchSheetInfoItem.m in Sources */,
 				B205A4901D5C51FC007530EB /* SearchChoiceController.m in Sources */,

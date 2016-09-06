@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "UIColor+ThemeColor.h"
 #import "MyEventViewController.h"
+#import "MyEventDetailViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -127,6 +128,8 @@
             break;
         case 1:
         {
+            MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
             
         }
             break;
