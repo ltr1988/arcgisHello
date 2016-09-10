@@ -14,12 +14,23 @@
 -(void)openPicMenu
 {
     //在这里呼出下方菜单按钮项
-    myActionSheetPic = [[UIActionSheet alloc]
-                     initWithTitle:nil
-                     delegate:self
-                     cancelButtonTitle:@"取消"
-                     destructiveButtonTitle:nil
-                     otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
+        
+        myActionSheetPic = [[UIActionSheet alloc]
+                              initWithTitle:nil
+                              delegate:self
+                              cancelButtonTitle:@"取消"
+                              destructiveButtonTitle:nil
+                              otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
+    }else
+    {
+        myActionSheetPic = [[UIActionSheet alloc]
+                              initWithTitle:nil
+                              delegate:self
+                              cancelButtonTitle:@"取消"
+                              destructiveButtonTitle:nil
+                              otherButtonTitles: @"从手机相册获取",nil];
+    }
     
     [myActionSheetPic showInView:self.view];
     
@@ -28,13 +39,23 @@
 -(void)openVideoMenu
 {
     //在这里呼出下方菜单按钮项
-    myActionSheetVideo = [[UIActionSheet alloc]
-                     initWithTitle:nil
-                     delegate:self
-                     cancelButtonTitle:@"取消"
-                     destructiveButtonTitle:nil
-                     otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
-    
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
+        
+        myActionSheetVideo = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self
+                            cancelButtonTitle:@"取消"
+                            destructiveButtonTitle:nil
+                            otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
+    }else
+    {
+        myActionSheetVideo = [[UIActionSheet alloc]
+                            initWithTitle:nil
+                            delegate:self
+                            cancelButtonTitle:@"取消"
+                            destructiveButtonTitle:nil
+                            otherButtonTitles: @"从手机相册获取",nil];
+    }
     [myActionSheetVideo showInView:self.view];
     
 }

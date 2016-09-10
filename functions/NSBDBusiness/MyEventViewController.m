@@ -13,6 +13,7 @@
 #import "QRSeparatorCell.h"
 #import "MyEventItem.h"
 #import "MyEventItemCell.h"
+#import "MyEventDetailViewController.h"
 
 @implementation MyEventViewController
 
@@ -52,7 +53,7 @@
     self.myEventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.myEventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    self.myEventTableView.backgroundColor = [UIColor themeGrayBackgroundColor];
+    self.myEventTableView.backgroundColor = [UIColor seperatorColor];
     self.myEventTableView.delegate = self;
     self.myEventTableView.dataSource = self;
     self.myEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -63,11 +64,6 @@
     
 }
 
--(void) actionLogout:(id) sender
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 
 #pragma mark --tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +72,10 @@
         
         return 8;
     }
-    return [MyEventItemCell heightForCell];
+    if (indexPath.row/2 <_modelList.count)
+        return [MyEventItemCell heightForCell];
+    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -124,6 +123,8 @@
     NSInteger row = indexPath.row /2;
     MyEventItem *item = _modelList[row];
     //todo push to new vc
+    MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

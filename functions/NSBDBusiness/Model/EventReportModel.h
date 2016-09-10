@@ -28,4 +28,5 @@
 
 @property (nonatomic,strong) NSMutableArray  *eventPic;
 @property (nonatomic,strong) NSURL *eventVideo;
+@property (nonatomic,assign) NSInteger reviewState; //0 未审核 1 通过 2 未通过
 @end

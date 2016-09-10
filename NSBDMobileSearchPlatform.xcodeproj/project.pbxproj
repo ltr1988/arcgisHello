@@ -77,6 +77,12 @@
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
 		A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC011D7F05E500B0532B /* FeedbackModel.m */; };
 		A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */; };
+		A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC071D8069AD00B0532B /* MyEventHistoryCell.m */; };
+		A4F2FC0E1D806D4900B0532B /* MyEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */; };
+		A4F2FC111D8458FB00B0532B /* MyUploadEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */; };
+		A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */; };
+		A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC161D84618F00B0532B /* EventDetailView.m */; };
+		A4F2FC1A1D846A3200B0532B /* MyLocalEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */; };
 		A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC6E6E1D60552E008486E0 /* WeatherManager.m */; };
 		B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
 		B205A4841D58790F007530EB /* startup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B205A4831D58790F007530EB /* startup.jpg */; };
@@ -339,6 +345,18 @@
 		A4F2FC011D7F05E500B0532B /* FeedbackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackModel.m; path = functions/NSBDBusiness/Model/FeedbackModel.m; sourceTree = "<group>"; };
 		A4F2FC031D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyEventDetailViewController+pickMedia.h"; path = "functions/NSBDBusiness/MyEventDetailViewController+pickMedia.h"; sourceTree = "<group>"; };
 		A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MyEventDetailViewController+pickMedia.m"; path = "functions/NSBDBusiness/MyEventDetailViewController+pickMedia.m"; sourceTree = "<group>"; };
+		A4F2FC061D8069AD00B0532B /* MyEventHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventHistoryCell.h; path = functions/NSBDBusiness/Views/MyEventHistoryCell.h; sourceTree = "<group>"; };
+		A4F2FC071D8069AD00B0532B /* MyEventHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventHistoryCell.m; path = functions/NSBDBusiness/Views/MyEventHistoryCell.m; sourceTree = "<group>"; };
+		A4F2FC0C1D806D4900B0532B /* MyEventHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventHistoryItem.h; path = functions/NSBDBusiness/Model/MyEventHistoryItem.h; sourceTree = "<group>"; };
+		A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventHistoryItem.m; path = functions/NSBDBusiness/Model/MyEventHistoryItem.m; sourceTree = "<group>"; };
+		A4F2FC0F1D8458FB00B0532B /* MyUploadEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyUploadEventViewController.h; path = functions/NSBDBusiness/MyUploadEventViewController.h; sourceTree = "<group>"; };
+		A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyUploadEventViewController.m; path = functions/NSBDBusiness/MyUploadEventViewController.m; sourceTree = "<group>"; };
+		A4F2FC121D845E0500B0532B /* MyUploadedEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyUploadedEventCell.h; path = functions/NSBDBusiness/Views/MyUploadedEventCell.h; sourceTree = "<group>"; };
+		A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyUploadedEventCell.m; path = functions/NSBDBusiness/Views/MyUploadedEventCell.m; sourceTree = "<group>"; };
+		A4F2FC151D84618F00B0532B /* EventDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailView.h; path = functions/NSBDBusiness/EventDetailView.h; sourceTree = "<group>"; };
+		A4F2FC161D84618F00B0532B /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailView.m; path = functions/NSBDBusiness/EventDetailView.m; sourceTree = "<group>"; };
+		A4F2FC181D846A3200B0532B /* MyLocalEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLocalEventCell.h; path = functions/NSBDBusiness/Views/MyLocalEventCell.h; sourceTree = "<group>"; };
+		A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLocalEventCell.m; path = functions/NSBDBusiness/Views/MyLocalEventCell.m; sourceTree = "<group>"; };
 		A4FC6E6D1D60552E008486E0 /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = ../../Util/WeatherManager.h; sourceTree = "<group>"; };
 		A4FC6E6E1D60552E008486E0 /* WeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherManager.m; path = ../../Util/WeatherManager.m; sourceTree = "<group>"; };
 		B205A4441D532CE8007530EB /* ChoicePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoicePickerViewController.h; path = functions/NSBDBusiness/ChoicePickerViewController.h; sourceTree = "<group>"; };
@@ -922,6 +940,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A4F2FC091D8069DE00B0532B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */,
+				A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */,
+				B286535D1D45E769002D4139 /* TitleTextInputCell.h */,
+				B286535E1D45E769002D4139 /* TitleTextInputCell.m */,
+				B286535F1D45E769002D4139 /* QRSeparatorCell.h */,
+				B28653601D45E769002D4139 /* QRSeparatorCell.m */,
+				B28653631D45E851002D4139 /* BaseTitleCell.h */,
+				B28653641D45E851002D4139 /* BaseTitleCell.m */,
+				B286538E1D460057002D4139 /* CheckableTitleCell.h */,
+				B286538F1D460057002D4139 /* CheckableTitleCell.m */,
+				A4E68C2B1D6F408000DD603B /* CenterTitleCell.h */,
+				A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */,
+				B2B469D51D6FDDF600AB84AF /* TimerView.h */,
+				B2B469D61D6FDDF600AB84AF /* TimerView.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		A4F2FC0A1D8069ED00B0532B /* EventReport */ = {
+			isa = PBXGroup;
+			children = (
+				B286539D1D46FB55002D4139 /* EventLocationPickerView.h */,
+				B286539E1D46FB55002D4139 /* EventLocationPickerView.m */,
+				B28653A01D46FB73002D4139 /* EventMediaPickerView.h */,
+				B28653A11D46FB73002D4139 /* EventMediaPickerView.m */,
+				B28653F01D4A094E002D4139 /* EventMediaCollectionView.h */,
+				B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */,
+			);
+			name = EventReport;
+			sourceTree = "<group>";
+		};
+		A4F2FC0B1D8069FF00B0532B /* Mywork */ = {
+			isa = PBXGroup;
+			children = (
+				B2CFC35C1D7813D500FA97D3 /* MyEventItemCell.h */,
+				B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */,
+				A4F2FC061D8069AD00B0532B /* MyEventHistoryCell.h */,
+				A4F2FC071D8069AD00B0532B /* MyEventHistoryCell.m */,
+				A4F2FC151D84618F00B0532B /* EventDetailView.h */,
+				A4F2FC161D84618F00B0532B /* EventDetailView.m */,
+				A4F2FC181D846A3200B0532B /* MyLocalEventCell.h */,
+				A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */,
+				A4F2FC121D845E0500B0532B /* MyUploadedEventCell.h */,
+				A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */,
+			);
+			name = Mywork;
+			sourceTree = "<group>";
+		};
 		B205A4851D587A29007530EB /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -1155,28 +1224,9 @@
 		B28AE8591D3DCEDE00ABDB28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */,
-				A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */,
-				B286535D1D45E769002D4139 /* TitleTextInputCell.h */,
-				B286535E1D45E769002D4139 /* TitleTextInputCell.m */,
-				B286535F1D45E769002D4139 /* QRSeparatorCell.h */,
-				B28653601D45E769002D4139 /* QRSeparatorCell.m */,
-				B28653631D45E851002D4139 /* BaseTitleCell.h */,
-				B28653641D45E851002D4139 /* BaseTitleCell.m */,
-				B286538E1D460057002D4139 /* CheckableTitleCell.h */,
-				B286538F1D460057002D4139 /* CheckableTitleCell.m */,
-				B286539D1D46FB55002D4139 /* EventLocationPickerView.h */,
-				B286539E1D46FB55002D4139 /* EventLocationPickerView.m */,
-				B28653A01D46FB73002D4139 /* EventMediaPickerView.h */,
-				B28653A11D46FB73002D4139 /* EventMediaPickerView.m */,
-				B28653F01D4A094E002D4139 /* EventMediaCollectionView.h */,
-				B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */,
-				A4E68C2B1D6F408000DD603B /* CenterTitleCell.h */,
-				A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */,
-				B2B469D51D6FDDF600AB84AF /* TimerView.h */,
-				B2B469D61D6FDDF600AB84AF /* TimerView.m */,
-				B2CFC35C1D7813D500FA97D3 /* MyEventItemCell.h */,
-				B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */,
+				A4F2FC091D8069DE00B0532B /* Common */,
+				A4F2FC0A1D8069ED00B0532B /* EventReport */,
+				A4F2FC0B1D8069FF00B0532B /* Mywork */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1357,6 +1407,8 @@
 				B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */,
 				A4F2FC031D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.h */,
 				A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */,
+				A4F2FC0F1D8458FB00B0532B /* MyUploadEventViewController.h */,
+				A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1368,6 +1420,8 @@
 				B2CFC35A1D78069000FA97D3 /* MyEventItem.m */,
 				A4F2FC001D7F05E500B0532B /* FeedbackModel.h */,
 				A4F2FC011D7F05E500B0532B /* FeedbackModel.m */,
+				A4F2FC0C1D806D4900B0532B /* MyEventHistoryItem.h */,
+				A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1496,6 +1550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
+				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
@@ -1505,6 +1560,7 @@
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
+				A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */,
 				B205A5361D61D378007530EB /* UIView+MJExtension.m in Sources */,
 				B2806A0E1D68401D0097F7E4 /* TitleInputItem.m in Sources */,
 				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
@@ -1555,6 +1611,7 @@
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
+				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
@@ -1610,12 +1667,14 @@
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,
 				B28653EF1D49FF54002D4139 /* UIColor+ThemeColor.m in Sources */,
+				A4F2FC1A1D846A3200B0532B /* MyLocalEventCell.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */,
 				B205A49E1D5DB874007530EB /* SearchStartViewController.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				A4F2FC111D8458FB00B0532B /* MyUploadEventViewController.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				B205A4A41D61A316007530EB /* SearchHomePageViewController.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
@@ -1636,6 +1695,7 @@
 				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,
 				B28653901D460057002D4139 /* CheckableTitleCell.m in Sources */,
 				B28653A21D46FB73002D4139 /* EventMediaPickerView.m in Sources */,
+				A4F2FC0E1D806D4900B0532B /* MyEventHistoryItem.m in Sources */,
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,

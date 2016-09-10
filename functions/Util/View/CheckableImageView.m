@@ -8,7 +8,7 @@
 
 #import "CheckableImageView.h"
 #import "Masonry.h"
-#import "UIImageView+AFNetworking.h"
+
 
 
 @interface CheckableImageView ()
@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupSubViews];
-        
+        _readonly = NO;
         self.contentMode = UIViewContentModeScaleAspectFill;
         self.clipsToBounds = YES;
         self.userInteractionEnabled = YES;
@@ -33,6 +33,13 @@
     return self;
 }
 
+-(void) setReadonly:(BOOL)readonly
+{
+    _readonly = readonly;
+    if (_checkView) {
+        _checkView.hidden = _readonly;
+    }
+}
 
 -(void) setupSubViews
 {

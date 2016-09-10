@@ -7,6 +7,11 @@
 //
 
 #import "EventReportModel.h"
+#import "EventDetailView.h"
+
+@interface EventReportModel()<EventDetailViewDelegate>
+
+@end
 
 @implementation EventReportModel
 - (void)encodeWithCoder:(NSCoder *)aCoder
@@ -54,5 +59,42 @@
     }
     
     return self;
+}
+
+#pragma mark eventDetailViewDelegate
+-(NSString *) eventDetailViewTitle
+{
+    if (_eventName.detail && _eventName.detail.length>0) {
+        
+        return _eventName.detail;
+    }
+    return @"";
+}
+
+-(NSString *) eventDetailViewDate
+{
+    if (_eventDate.detail && _eventName.detail.length>0) {
+        
+        return _eventDate.detail;
+    }
+    return @"";
+}
+
+-(NSString *) eventDetailViewPlace
+{
+    if (_place.detail && _place.detail.length>0) {
+        
+        return _place.detail;
+    }
+    return @"";
+}
+
+-(NSString *) eventDetailViewFinder
+{
+    if (_reporter.detail && _reporter.detail.length>0) {
+        
+        return _reporter.detail;
+    }
+    return @"";
 }
 @end

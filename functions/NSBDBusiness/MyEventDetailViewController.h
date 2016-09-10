@@ -21,6 +21,7 @@
 @property (nonatomic,strong) UITableView *feedbackTableView;
 @property (nonatomic,strong) UITableView *historyTableView;
 @property (nonatomic,strong) FeedbackModel *feedbackModel;
+@property (nonatomic,strong) NSArray *historyModel;
 
 
 @end

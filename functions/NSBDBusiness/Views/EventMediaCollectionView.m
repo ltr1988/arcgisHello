@@ -8,7 +8,7 @@
 
 #import "EventMediaCollectionView.h"
 #import "UIImage+VideoThumb.h"
-
+#import "UIImageView+AFNetworking.h"
 
 
 @implementation EventMediaCollectionView
@@ -19,19 +19,20 @@
     if (self) {
         picArray = [NSMutableArray array];
         videoArray = [NSMutableArray array];
+        _readonly = NO;
     }
     return self;
+}
+
+-(void) setReadonly:(BOOL)readonly
+{
+    _readonly = readonly;
+    [self relayout];
 }
 
 -(void) setPics:(NSArray *)imageList
 {
     picArray = [imageList mutableCopy];
-    [self relayout];
-}
-
--(void) addPics:(NSArray *)imageList
-{
-    [picArray addObjectsFromArray:imageList];
     [self relayout];
 }
 
@@ -65,9 +66,24 @@
     
     int tag = 1000;
     //set image
-    for (UIImage *img in picArray) {
+    for (id obj in picArray) {
+        
+        
         CheckableImageView * view = [[CheckableImageView alloc] initWithFrame:CGRectMake(space+(70+space)*(column%4),10 +(80)*row ,  70, 70)];
-        [view setImage:img];
+        view.readonly = _readonly;
+        
+        if ([obj isKindOfClass:[UIImage class]]) {
+            UIImage *img =obj;
+            [view setImage:img];
+        }else if([obj isKindOfClass:[NSString class]])
+        {
+            NSURL *url = [NSURL URLWithString:obj];
+            [view setImageWithURL:url];
+        }else if([obj isKindOfClass:[NSURL class]])
+        {
+            NSURL *url = obj;
+            [view setImageWithURL:url];
+        }
         view.delegate = self;
         view.tag = tag++;
         [self addSubview:view];
@@ -124,5 +140,14 @@
 -(CGFloat) height
 {
     return _height;
+}
+
++(CGFloat) heightForItemCount:(NSInteger) count
+{
+    if (count==0) {
+        return 0;
+    }
+    NSInteger row = count/4;
+    return 10 +(80)*(row+1);
 }
 @end

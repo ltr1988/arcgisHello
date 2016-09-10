@@ -25,4 +25,6 @@
 
 @property (nonatomic, weak, nullable) id <ItemCallBackDelegate> delegate;
 -(void) setVideo:(BOOL) isVideo;
+
+@property (nonatomic,assign) BOOL readonly;
 @end

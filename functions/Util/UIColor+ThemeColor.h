@@ -10,6 +10,8 @@
 
 @interface UIColor (ThemeColor)
 +(UIColor *) borderColor;
++(UIColor *) themeLightBlackColor;
++(UIColor *) seperatorColor;
 +(UIColor *) backGroundGrayColor;
 +(UIColor *) themeBlueColor;
 +(UIColor *) themeDarkBlackColor;

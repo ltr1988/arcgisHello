@@ -13,7 +13,6 @@
 
 -(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback relayoutCallback:(ActionCallback)relayoutCallback;
 
--(void) addImages:(NSArray *)data;
 -(void) setImages:(NSArray *)data;
 -(void) setVideo:(NSURL *)data;
 -(void) relayout;

@@ -16,6 +16,8 @@
 #import "FeedbackModel.h"
 #import "TitleDetailTextItem.h"
 #import "TitleDetailItem.h"
+#import "MyEventHistoryCell.h"
+#import "MyEventHistoryItem.h"
 
 #import "TitleDetailCell.h"
 #import "QRSeparatorCell.h"
@@ -37,6 +39,7 @@
 
 -(void) setupModel
 {
+    //model for feedback
     _feedbackModel = [FeedbackModel new];
     
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
@@ -44,8 +47,22 @@
     [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
     _feedbackModel.date = [TitleDetailItem itemWithTitle:@"反馈时间" detail:[formater stringFromDate:[NSDate date]]];
     _feedbackModel.detail = [TitleDetailTextItem itemWithTitle:@"进展描述" detail:@"未填写" text:@""];
+    _feedbackModel.images = [NSMutableArray arrayWithCapacity:6];
     
+    //model for history
+    MyEventHistoryItem *item1 =[[MyEventHistoryItem alloc] init];
+    item1.title = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item1.date = @"2016-1-2";
+    item1.place = @"北京";
+    item1.finder = @"勿忘我";
+    item1.images =@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"];
     
+    MyEventHistoryItem *item2 =[[MyEventHistoryItem alloc] init];
+    item2.title = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item2.date = @"2016-1-2 13:00:01";
+    item2.place = @"北京";
+    item2.finder = @"lls";
+    _historyModel = @[item1,item2];
 }
 
 -(void) setupSubviews
@@ -71,11 +88,10 @@
     
     self.historyTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.historyTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    self.historyTableView.backgroundColor = [UIColor whiteColor];
+    self.historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.historyTableView.backgroundColor = [UIColor seperatorColor];
     self.historyTableView.delegate = self;
     self.historyTableView.dataSource = self;
-    self.historyTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     self.historyTableView.hidden = (selectedIndex==0);
     
     [self.view addSubview:self.historyTableView];
@@ -147,11 +163,6 @@
     return footer;
 }
 
--(void) actionLogout:(id) sender
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 
 #pragma mark --centerSwitch delegate
 - (void)centerSwitchToIndex:(NSUInteger)index
@@ -175,14 +186,28 @@
             return mPicker.frame.size.height;
         }
         return 55;
+    }else if(tableView == self.historyTableView)
+    {
+        NSInteger row = indexPath.row;
+        if (row%2 == 1) {
+            return 8;
+        }
+        row = row/2;
+        if (row < _historyModel.count) {
+            
+            return [MyEventHistoryCell heightForData:_historyModel[row]];
+        }
     }
     
-    return 55;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView == self.feedbackTableView) {
         return 4;
+    }else if(tableView == self.historyTableView)
+    {
+        return _historyModel.count*2-1;
     }
     return 0;
 }
@@ -230,9 +255,30 @@
             }
         }
 
+    }else if(tableView == self.historyTableView)
+    {
+        if (row%2 == 1) {
+            QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
+            if (!cell) {
+                cell = [[QRSeparatorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"separatorCell"];
+            }
+            return cell;
+        }else
+        {
+            row = row /2;
+            if (row<_historyModel.count) {
+                MyEventHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyEventHistoryCell"];
+                if (!cell) {
+                    cell = [[MyEventHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyEventHistoryCell"];
+                }
+                cell.data = _historyModel[row];
+                return cell;
+            }
+            
+        }
     }
     
-    return [UITableViewCell new];
+    return nil;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -249,6 +295,9 @@
                 break;
         }
 
+    }else if(tableView == self.historyTableView)
+    {
+        
     }
 }
 

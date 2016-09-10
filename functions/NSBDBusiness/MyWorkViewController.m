@@ -11,7 +11,7 @@
 #import "Masonry.h"
 #import "UIColor+ThemeColor.h"
 #import "MyEventViewController.h"
-#import "MyEventDetailViewController.h"
+#import "MyUploadEventViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -128,14 +128,13 @@
             break;
         case 1:
         {
-            MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] init];
-            [self.navigationController pushViewController:vc animated:YES];
             
         }
             break;
         case 2:
         {
-            
+            MyUploadEventViewController *vc = [[MyUploadEventViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 3:

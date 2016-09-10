@@ -23,7 +23,7 @@
     UIImageView *placeIcon;
 }
 
-@property (nonatomic,strong) MyEventItem * data;
+-(void) setData:(MyEventItem *) data;
 +(CGFloat) heightForCell;
 
 @end
