@@ -24,6 +24,7 @@
 #import "TitleItem.h"
 #import "TitleInputItem.h"
 #import "TitleDateItem.h"
+#import "TitleDetailTextItem.h"
 
 #import "ToastView.h"
 
@@ -31,6 +32,7 @@
 #import "Masonry.h"
 
 #import "EventModelPathManager.h"
+#import "TextPickerViewController.h"
 
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -72,8 +74,8 @@
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+    NSString *path = [EventModelPathManager lastestEventPath];
+    if (path && [[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData * data= [NSData dataWithContentsOfFile:path];
         self.model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
@@ -92,8 +94,8 @@
         
         self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
         self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-        self.model.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
-        self.model.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+        self.model.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
+        self.model.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
         self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
     }
 }
@@ -101,6 +103,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyDatePicker:) name:@"DatePickerNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mediaRemove:) name:@"ItemRemovedNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textPicked:) name:@"TextPickerNotification" object:nil];
     
 }
 
@@ -478,21 +481,15 @@
         }
         case 12:
         {
-            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
-            if (!cell) {
-                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
-            }
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = self.model.eventStatus;
+            TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventStatus readOnly:_readonly];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
         }
         case 13:
         {
-            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
-            if (!cell) {
-                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
-            }
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = self.model.eventPreprocess;
+            TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventPreprocess readOnly:_readonly];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
         }
         
             
@@ -523,5 +520,11 @@
 {
     _readonly = readonly;
     [_eventTableView reloadData];
+}
+
+
+-(void) textPicked:(NSNotification *)noti
+{
+    [self.eventTableView reloadData];
 }
 @end

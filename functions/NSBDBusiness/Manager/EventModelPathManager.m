@@ -25,7 +25,12 @@
     }
     [list addObject:path];
     [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"eventModels"];
+    [[NSUserDefaults standardUserDefaults] setObject:path forKey:@"lastestEvent"];
 
+}
+
++(NSString *) lastestEventPath{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"lastestEvent"];
 }
 
 +(NSArray *) getEventModels

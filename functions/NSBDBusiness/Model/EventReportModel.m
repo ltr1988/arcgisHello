@@ -8,6 +8,11 @@
 
 #import "EventReportModel.h"
 #import "EventDetailView.h"
+#import "CheckableTitleItem.h"
+#import "TitleDetailItem.h"
+#import "TitleDateItem.h"
+#import "TitleItem.h"
+#import "TitleDetailTextItem.h"
 
 @interface EventReportModel()<EventDetailViewDelegate>
 

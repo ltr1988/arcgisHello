@@ -12,5 +12,5 @@
 
 +(void) addEventModelWithPath:(NSString *)path;
 +(NSArray *) getEventModels;
-
++(NSString *) lastestEventPath;
 @end

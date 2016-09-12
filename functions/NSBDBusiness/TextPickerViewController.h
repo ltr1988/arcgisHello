@@ -8,7 +8,9 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 
+@class TitleDetailTextItem;
+
 @interface TextPickerViewController : SupportRotationSelectBaseViewController<UIGestureRecognizerDelegate>
--(instancetype) initWithTitle:(NSString *)title;
--(instancetype) initWithTitle:(NSString *)title text:(NSString *)detail;
+-(instancetype) initWithData:(TitleDetailTextItem *)data;
+-(instancetype) initWithData:(TitleDetailTextItem *)data readOnly:(BOOL) readOnly;
 @end

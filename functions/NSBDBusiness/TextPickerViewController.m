@@ -9,41 +9,34 @@
 #import "TextPickerViewController.h"
 #import "Masonry.h"
 #import "CommonDefine.h"
+#import "TitleDetailTextItem.h"
 
 @interface TextPickerViewController()
 {
-    NSString *pickerTitle;
-    NSString *text;
     BOOL readonly;
 }
-
+@property (nonatomic,weak) TitleDetailTextItem *data;
 @property (nonatomic,strong) UITextView *textView;
 @end
 
 @implementation TextPickerViewController
 
--(instancetype) initWithTitle:(NSString *)title
+-(instancetype) initWithData:(TitleDetailTextItem *)data readOnly:(BOOL) readOnly
 {
     self = [super init];
     if (self) {
-        pickerTitle = title;
-        readonly = NO;
+        self.data = data;
+        readonly = readOnly;
     }
     
     return self;
 }
 
--(instancetype) initWithTitle:(NSString *)title text:(NSString *)detail
+-(instancetype) initWithData:(TitleDetailTextItem *)data
 {
-    self = [super init];
-    if (self) {
-        pickerTitle = title;
-        text = detail;
-        readonly = YES;
-    }
-    
-    return self;
+    return [self initWithData:data readOnly:NO];
 }
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,8 +54,10 @@
         [_textView resignFirstResponder];
     }
     
-    NSDictionary *userInfo = @{@"title":[pickerTitle copy],@"text":[_textView.text copy]};
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"TextPickerNotification" object:nil userInfo:userInfo];
+    self.data.detail = @"已填写";
+    self.data.text = _textView.text;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"TextPickerNotification" object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -71,12 +66,13 @@
 {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    self.title = pickerTitle?:@"";
+    self.title = self.data.title?:@"";
     
-    UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveData)];
-    [self.navigationItem setRightBarButtonItem:saveBtn];
+    if (!readonly) {
+        UIBarButtonItem *saveBtn = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveData)];
+        [self.navigationItem setRightBarButtonItem:saveBtn];
+    }
     
-    saveBtn.enabled = !readonly;
     _textView = [UITextView new];
     _textView.font = [UIFont systemFontOfSize:14];
     _textView.textColor =[UIColor blackColor];
@@ -95,6 +91,8 @@
     
     _textView.editable = !readonly;
     [_textView becomeFirstResponder];
+    
+    _textView.text = self.data.text?:@"";
     
     UITapGestureRecognizer *_tapToCloseGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToClose:)];
     _tapToCloseGesture.numberOfTapsRequired = 1;

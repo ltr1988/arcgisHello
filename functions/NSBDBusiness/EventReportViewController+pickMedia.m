@@ -204,6 +204,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
+
 -(void) mediaRemove:(NSNotification *)noti
 {
     BOOL isImage = [noti.userInfo[@"itemType"] isEqualToString:@"image"];

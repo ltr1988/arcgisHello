@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CheckableTitleItem.h"
-#import "TitleDetailItem.h"
-#import "TitleDateItem.h"
-#import "TitleItem.h"
+@class CheckableTitleItem;
+@class TitleDetailItem;
+@class TitleDateItem;
+@class TitleItem;
+@class TitleDetailTextItem;
 
 @interface EventReportModel : NSObject<NSCoding>
 @property (nonatomic,strong) TitleDetailItem *eventName;
@@ -23,8 +24,8 @@
 @property (nonatomic,strong) TitleDetailItem *department;
 @property (nonatomic,strong) TitleDetailItem *reporter;
 @property (nonatomic,assign) CGPoint location;
-@property (nonatomic,strong) TitleDetailItem *eventStatus;
-@property (nonatomic,strong) TitleDetailItem *eventPreprocess;
+@property (nonatomic,strong) TitleDetailTextItem *eventStatus;
+@property (nonatomic,strong) TitleDetailTextItem *eventPreprocess;
 
 @property (nonatomic,strong) NSMutableArray  *eventPic;
 @property (nonatomic,strong) NSURL *eventVideo;

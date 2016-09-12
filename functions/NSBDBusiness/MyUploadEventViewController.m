@@ -18,8 +18,9 @@
 #import "EventModelPathManager.h"
 #import "UITableView+EmptyView.h"
 #import "EventReportViewController.h"
-
+#import "TitleDateItem.h"
 #import "TitleInputItem.h"
+#import "TitleDetailTextItem.h"
 
 
 @interface MyUploadEventViewController()<CenterSwitchActionDelegate>
@@ -52,8 +53,8 @@
     
     eventModel.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
     eventModel.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-    eventModel.eventStatus = [TitleDetailItem itemWithTitle:@"事件情况" detail:@"未填写"];
-    eventModel.eventPreprocess = [TitleDetailItem itemWithTitle:@"先期处置情况" detail:@"未填写"];
+    eventModel.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
+    eventModel.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写" text:@""];
     eventModel.eventPic = [NSMutableArray arrayWithCapacity:6];
     eventModel.eventName.detail = @"test";
     
