@@ -7,7 +7,6 @@
 //
 
 #import "MyLocalEventCell.h"
-#import "CommonDefine.h"
 #import "Masonry.h"
 #import "UIColor+ThemeColor.h"
 #import "EventDetailView.h"
@@ -39,6 +38,7 @@
     btnDelete.layer.borderColor = [UIColor themeLightBlackColor].CGColor;
     btnDelete.layer.borderWidth = 1;
     btnDelete.layer.cornerRadius = 2;
+    [btnDelete addTarget:self action:@selector(actionDelete) forControlEvents:UIControlEventTouchUpInside];
     [weakView addSubview:btnDelete];
     
     btnReport = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -49,6 +49,7 @@
     btnReport.layer.borderColor = [UIColor themeBlueColor].CGColor;
     btnReport.layer.borderWidth = 1;
     btnReport.layer.cornerRadius = 2;
+    [btnReport addTarget:self action:@selector(actionReport) forControlEvents:UIControlEventTouchUpInside];
     [weakView addSubview:btnReport];
     
     CGFloat padding = 8;
@@ -72,6 +73,7 @@
 
 -(void) setData:(EventReportModel *) data
 {
+    _data = data;
     [eventDetailView setViewData:(id<EventDetailViewDelegate>)data];
 }
 
@@ -80,5 +82,21 @@
     CGFloat buttonHeight = 25,padding = 8;
     CGFloat height = [EventDetailView heightForView] + padding*2 +buttonHeight;
     return height;
+}
+
+#pragma mark actions
+
+-(void) actionReport
+{
+    if (_reportCallback) {
+        _reportCallback(_data);
+    }
+}
+-(void) actionDelete
+{
+    if (_deleteCallback) {
+        _deleteCallback(_data);
+    }
+    
 }
 @end

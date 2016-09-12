@@ -20,8 +20,9 @@
  *
  *  @return instance type
  */
--(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback)callback;
+-(instancetype) initWithFrame:(CGRect)frame
+                     readOnly:(BOOL)readOnly
+                     callBack:(ActionCallback)callback;
 
 @property (nonatomic,assign) CGPoint location;
-
 @end

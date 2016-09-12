@@ -100,13 +100,15 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
     
     __weak __typeof(self) weakself = self;
-    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) picCallback:^{
-        [weakself openPicMenu];
-    } videoCallback:^{
-        [weakself openVideoMenu];
-    } relayoutCallback:^{
-        [self.feedbackTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
-    }];
+    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)
+                                                 readOnly:NO
+                                              picCallback:^{
+                                                  [weakself openPicMenu];
+                                              } videoCallback:^{
+                                                  [weakself openVideoMenu];
+                                              } relayoutCallback:^{
+                                                  [self.feedbackTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+                                              }];
     
     
     [mPicker setImages:self.feedbackModel.images];

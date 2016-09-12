@@ -61,6 +61,13 @@
     
 }
 
+-(void) setReadOnly:(BOOL)readOnly
+{
+    _readOnly = readOnly;
+    if (_readOnly) {
+        self.accessoryType = UITableViewCellAccessoryNone;
+    }
+}
 
 -(void) setData:(id) data
 {

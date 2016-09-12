@@ -22,6 +22,7 @@
 }
 
 @property (nonatomic,strong) id data;
+@property (nonatomic,assign) BOOL readOnly;
 
 -(void) setupSubViews;
 -(void) setData:(id)data;

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VideoPlayViewController : SupportRotationSelectBaseViewController
-
+-(instancetype) initWithURL:(NSURL *)url;
 @end

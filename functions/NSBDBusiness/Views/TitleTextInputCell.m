@@ -85,4 +85,9 @@
     [inputTextField removeObserver:self forKeyPath:@"text"];
 }
 
+-(void) setReadOnly:(BOOL)readOnly
+{
+    [super setReadOnly:readOnly];
+    inputTextField.enabled = !readOnly;
+}
 @end

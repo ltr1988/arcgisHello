@@ -66,4 +66,10 @@
 {
     [switchView removeObserver:self forKeyPath:@"on"];
 }
+
+-(void) setReadOnly:(BOOL)readOnly
+{
+    [super setReadOnly:readOnly];
+    switchView.enabled = !readOnly;
+}
 @end

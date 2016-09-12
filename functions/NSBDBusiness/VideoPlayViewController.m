@@ -11,11 +11,18 @@
 @interface VideoPlayViewController()
 {
     MPMoviePlayerViewController *_mvPlayer;
+    NSURL *videoUrl;
 }
 @end
 
 @implementation VideoPlayViewController
-
+-(instancetype) initWithURL:(NSURL *)url
+{
+    if (self = [super init]) {
+        videoUrl = url;
+    }
+    return self;
+}
 -(void) viewDidLoad
 {
     self.view.backgroundColor = [UIColor whiteColor];
@@ -25,16 +32,21 @@
     [btn setTitle:@"play" forState:UIControlStateNormal];
     
     [self.view addSubview:btn];
-    NSURL *videoUrl = [NSURL URLWithString:@"http://7xawdc.com2.z0.glb.qiniucdn.com/o_19p6vdmi9148s16fs1ptehbm1vd59.mp4"];
-    _mvPlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:videoUrl];
+    //NSURL *videoUrl = [NSURL URLWithString:@"http://7xawdc.com2.z0.glb.qiniucdn.com/o_19p6vdmi9148s16fs1ptehbm1vd59.mp4"];
+    if (videoUrl) {
+        
+        _mvPlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:videoUrl];
+    }
     
 }
 
 
 -(void) play
 {
-    [self presentMoviePlayerViewControllerAnimated:_mvPlayer];
-    [_mvPlayer.moviePlayer play];
+    if (videoUrl) {
+        [self presentMoviePlayerViewControllerAnimated:_mvPlayer];
+        [_mvPlayer.moviePlayer play];
+    }
 }
 
 @end

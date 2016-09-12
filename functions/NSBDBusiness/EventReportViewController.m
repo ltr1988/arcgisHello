@@ -30,6 +30,8 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 
+#import "EventModelPathManager.h"
+
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
 
@@ -40,6 +42,13 @@
 
 @implementation EventReportViewController
 
+-(instancetype) initWithModel:(EventReportModel *) model
+{
+    if (self = [super init]) {
+        _model = model;
+    }
+    return self;
+}
 
 -(void) viewWillDisappear:(BOOL)animated
 {
@@ -59,6 +68,10 @@
 
 -(void) setupModel
 {
+    if (_model) {
+        return;
+    }
+    
     NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData * data= [NSData dataWithContentsOfFile:path];
@@ -116,7 +129,9 @@
     self.eventTableView.dataSource = self;
     self.eventTableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
-    self.eventTableView.tableFooterView = [self footerView];
+    if (!_readonly) {
+        self.eventTableView.tableFooterView = [self footerView];
+    }
     
     [self.view addSubview:self.eventTableView];
     
@@ -124,7 +139,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
     
     __weak __typeof(self) weakself = self;
-    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) picCallback:^{
+    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) readOnly:_readonly picCallback:^{
         [weakself openPicMenu];
     } videoCallback:^{
         [weakself openVideoMenu];
@@ -132,7 +147,7 @@
         [self.eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
     }];
     
-    lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) callBack:^{
+    lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) readOnly:_readonly callBack:^{
         RouteStartEndPickerController *vc = [[RouteStartEndPickerController alloc] init];
         [weakself.navigationController pushViewController:vc animated:YES];
     }];
@@ -205,8 +220,13 @@
     UIButton *btn = sender;
     btn.enabled = NO;
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.model];
-    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
+    NSString *path = [NSString stringWithFormat:@"%@/event%@.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],self.model.eventName.detail?:@""];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+    }
     [data writeToFile:path atomically:YES];
+    [EventModelPathManager addEventModelWithPath:path];
+    
     [ToastView popToast:@"保存成功"];
     btn.enabled = YES;
 }
@@ -241,6 +261,7 @@
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
             cell.data = self.model.eventName;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 1:
@@ -251,6 +272,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.eventType;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 2:
@@ -261,6 +283,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.eventXingzhi;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 3:
@@ -271,6 +294,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.level;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 4:
@@ -281,6 +305,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.reason;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 5:
@@ -301,6 +326,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.eventDate;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 7:
@@ -310,6 +336,7 @@
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
             cell.data = self.model.place;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 8:
@@ -326,6 +353,7 @@
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
             cell.data = self.model.department;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 11:
@@ -335,6 +363,7 @@
                 cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
             }
             cell.data = self.model.reporter;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 12:
@@ -345,6 +374,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.eventStatus;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 13:
@@ -355,6 +385,7 @@
             }
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.eventPreprocess;
+            cell.readOnly = _readonly;
             return cell;
         }
         case 15:
@@ -374,6 +405,11 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (_readonly) {
+        return;
+    }
+    
     __weak __typeof(self) weakSelf = self;
     switch (indexPath.row) {
         case 0:
@@ -481,5 +517,11 @@
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
     
+}
+
+-(void) setReadonly:(BOOL)readonly
+{
+    _readonly = readonly;
+    [_eventTableView reloadData];
 }
 @end

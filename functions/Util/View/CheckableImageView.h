@@ -12,7 +12,8 @@
 
 @protocol ItemCallBackDelegate <NSObject>
 
--(void) itemCalled:(_Nonnull id) sender;
+-(void) itemChecked:(_Nonnull id) sender;
+-(void) itemTapped:(_Nonnull id) sender;
 
 @end
 
@@ -24,7 +25,8 @@
 @interface CheckableImageView : UIImageView
 
 @property (nonatomic, weak, nullable) id <ItemCallBackDelegate> delegate;
--(void) setVideo:(BOOL) isVideo;
 
+@property (nullable, nonatomic,strong) NSURL *contentURL;
+@property (nonatomic,assign) BOOL isVideo;
 @property (nonatomic,assign) BOOL readonly;
 @end

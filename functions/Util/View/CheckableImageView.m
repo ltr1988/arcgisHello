@@ -12,7 +12,9 @@
 
 
 @interface CheckableImageView ()
-
+{
+    UIView *responseView;
+}
 @property (nonatomic,strong) UIButton *centerView;
 @property (nonatomic,strong) UIImageView *checkView;
 @end
@@ -44,7 +46,7 @@
 -(void) setupSubViews
 {
     float width = self.bounds.size.width / 3.0;
-    UIView *responseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
+    responseView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
     responseView.backgroundColor = [UIColor clearColor];
     
     
@@ -54,6 +56,7 @@
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [responseView addGestureRecognizer:tap];
+    [self addGestureRecognizer:tap];
     
     _centerView.alpha = 1;
     _centerView.hidden = YES;
@@ -90,7 +93,7 @@
     
 }
 
--(void) setVideo:(BOOL) isVideo
+-(void) setIsVideo:(BOOL) isVideo
 {
     if (_centerView) {
         _centerView.hidden = !isVideo;
@@ -99,7 +102,20 @@
 
 - (void)tapAction:(UITapGestureRecognizer *)tap{
     if (_delegate) {
-        [_delegate itemCalled:self];
+        
+        CGPoint touchPoint = [tap locationInView:self];
+        
+        if (CGRectContainsPoint(responseView.frame, touchPoint)) {
+            if ([_delegate respondsToSelector:@selector(itemChecked:)]) {
+                [_delegate itemChecked:self];
+            }
+        }else
+        {
+            NSLog(@"itemTapped");
+            if ([_delegate respondsToSelector:@selector(itemTapped:)]) {
+                [_delegate itemTapped:self];
+            }
+        }
     }
 }
 

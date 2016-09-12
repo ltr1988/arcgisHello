@@ -23,16 +23,18 @@
     LocationManager* manager;
 }
 @property (nonatomic,copy) ActionCallback callback;
+@property (nonatomic,assign) BOOL readOnly;
 @end
 
 
 @implementation EventLocationPickerView
 
 
--(instancetype) initWithFrame:(CGRect)frame callBack:(ActionCallback)callback
+-(instancetype) initWithFrame:(CGRect)frame readOnly:(BOOL)readOnly callBack:(ActionCallback)callback
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.readOnly = readOnly;
         self.location = CGPointMake(0, 0);
         self.callback = callback;
         [self setupSubViews];
@@ -139,16 +141,19 @@
 
 -(void) actionMyLocation
 {
+    if (!_readOnly) {
+        [manager startLocating];
+    }
     
-    
-    [manager startLocating];
     
 }
 
 
 -(void) actionLocate
 {
-    SafelyDoBlock(_callback);
+    if (!_readOnly) {
+        SafelyDoBlock(_callback);
+    }
 }
 
 -(void) setLocation:(CGPoint) location

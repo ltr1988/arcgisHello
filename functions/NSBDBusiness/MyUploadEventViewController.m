@@ -15,6 +15,9 @@
 #import "MyLocalEventCell.h"
 #import "MyUploadedEventCell.h"
 #import "EventReportModel.h"
+#import "EventModelPathManager.h"
+#import "UITableView+EmptyView.h"
+#import "EventReportViewController.h"
 
 #import "TitleInputItem.h"
 
@@ -54,7 +57,8 @@
     eventModel.eventPic = [NSMutableArray arrayWithCapacity:6];
     eventModel.eventName.detail = @"test";
     
-    _localEventModel = @[eventModel];
+    _localEventModel = [EventModelPathManager getEventModels];
+
     _uploadedEventModel = @[eventModel];
 }
 
@@ -76,6 +80,7 @@
     self.localEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.localEventTableView.hidden = (selectedIndex!=0);
     [self.view addSubview:self.localEventTableView];
+    [self.localEventTableView reloadData];
     
     self.uploadedEventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.uploadedEventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -86,7 +91,7 @@
     self.uploadedEventTableView.hidden = (selectedIndex==0);
     
     [self.view addSubview:self.uploadedEventTableView];
-    
+    [self.uploadedEventTableView reloadData];
 }
 
 #pragma mark --centerSwitch delegate
@@ -123,9 +128,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView == self.localEventTableView) {
+        if (_localEventModel.count == 0)
+        {
+            [tableView setEmptyView];
+        }else
+        {
+            [tableView removeEmptyView];
+        }
         return _localEventModel.count*2-1;
     }else if(tableView == self.uploadedEventTableView)
     {
+        if (_uploadedEventModel.count == 0)
+        {
+            [tableView setEmptyView];
+        }else
+        {
+            [tableView removeEmptyView];
+        }
         return _uploadedEventModel.count*2-1;
     }
     return 0;
@@ -136,6 +155,7 @@
     
     NSInteger row = indexPath.row;
     if (tableView == self.localEventTableView) {
+        
         if (row%2 == 1) {
             QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
             if (!cell) {
@@ -149,8 +169,26 @@
                 MyLocalEventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyLocalEventCell"];
                 if (!cell) {
                     cell = [[MyLocalEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyLocalEventCell"];
+                    cell.deleteCallback = ^(EventReportModel *model)
+                    {
+                        NSMutableArray *array = [_localEventModel mutableCopy];
+                        [array removeObject:model];
+                        _localEventModel = [array copy];
+                        [tableView reloadData];
+                        
+                    };
+                    cell.reportCallback = ^(EventReportModel *model)
+                    {
+                        //report first
+                        @throw [NSException exceptionWithName:@"report first" reason:@"implement report first" userInfo:nil];
+                        NSMutableArray *array = [_localEventModel mutableCopy];
+                        [array removeObject:model];
+                        _localEventModel = [array copy];
+                        [tableView reloadData];
+                    };
                 }
                 cell.data = _localEventModel[row];
+                
                 return cell;
             }
             
@@ -186,10 +224,25 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView == self.localEventTableView) {
-        
+        if (indexPath.row %2 ==1) {
+            return;
+        }
+        NSInteger row = indexPath.row/2;
+        if (row <self.localEventModel.count) {
+            EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:_localEventModel[row]];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }else if(tableView == self.uploadedEventTableView)
     {
-        
+        if (indexPath.row %2 ==1) {
+            return;
+        }
+        NSInteger row = indexPath.row/2;
+        if (row <self.uploadedEventModel.count) {
+            EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:_uploadedEventModel[row]];
+            vc.readonly = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

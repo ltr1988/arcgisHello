@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonDefine.h"
 @class EventReportModel;
 @class EventDetailView;
+
+typedef void (^EventCellCallback)(EventReportModel *model);
 
 @interface MyLocalEventCell : UITableViewCell
 {
@@ -18,6 +21,8 @@
     UIButton *btnReport;
 }
 
--(void) setData:(EventReportModel *) data;
+@property (nonatomic,strong) EventReportModel *data;
+@property (nonatomic,copy) EventCellCallback deleteCallback;
+@property (nonatomic,copy) EventCellCallback reportCallback;
 +(CGFloat) heightForCell;
 @end

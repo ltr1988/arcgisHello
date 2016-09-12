@@ -23,4 +23,7 @@
 
 }
 @property (nonatomic,strong) EventReportModel *model;
+@property (nonatomic,assign) BOOL readonly;
+
+-(instancetype) initWithModel:(EventReportModel *) model;
 @end

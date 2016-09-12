@@ -41,4 +41,5 @@
     id<TitleDetailCellViewModel> item = (id<TitleDetailCellViewModel>)data;
     detail.text = [item detail];
 }
+
 @end

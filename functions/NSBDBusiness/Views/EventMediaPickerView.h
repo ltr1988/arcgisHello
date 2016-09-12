@@ -11,7 +11,13 @@
 
 @interface EventMediaPickerView : UIView
 
--(instancetype) initWithFrame:(CGRect)frame picCallback:(ActionCallback)picCallback videoCallback:(ActionCallback)videoCallback relayoutCallback:(ActionCallback)relayoutCallback;
+
+
+-(instancetype) initWithFrame:(CGRect)frame
+                     readOnly:(BOOL)readOnly
+                  picCallback:(ActionCallback)picCallback
+                videoCallback:(ActionCallback)videoCallback
+             relayoutCallback:(ActionCallback)relayoutCallback;
 
 -(void) setImages:(NSArray *)data;
 -(void) setVideo:(NSURL *)data;

@@ -70,22 +70,18 @@
     if (buttonIndex == actionSheet.cancelButtonIndex)
     {
         NSLog(@"取消");
+        return;
     }
     
-    switch (buttonIndex)
+    if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"打开照相机"])
     {
-        case 0:  //打开照相机拍照
-            [self takePhoto:pickImage];
-            break;
-            
-        case 1:  //打开本地相册
-            [self LocalPhoto:pickImage];
-            break;
+        [self takePhoto:pickImage];
     }
-    
-    
-    
-    
+    else
+    {
+        [self LocalPhoto:pickImage];
+    }
+
 }
 
 //开始拍照

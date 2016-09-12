@@ -9,7 +9,9 @@
 #import "EventMediaCollectionView.h"
 #import "UIImage+VideoThumb.h"
 #import "UIImageView+AFNetworking.h"
-
+#import "ImageContentViewController.h"
+#import "UIView+ViewController.h"
+#import "VideoPlayViewController.h"
 
 @implementation EventMediaCollectionView
 
@@ -79,10 +81,12 @@
         {
             NSURL *url = [NSURL URLWithString:obj];
             [view setImageWithURL:url];
+            view.contentURL = url;
         }else if([obj isKindOfClass:[NSURL class]])
         {
             NSURL *url = obj;
             [view setImageWithURL:url];
+            view.contentURL = url;
         }
         view.delegate = self;
         view.tag = tag++;
@@ -102,7 +106,8 @@
             CheckableImageView * view = [[CheckableImageView alloc] initWithFrame:CGRectMake( space+(70+space)*(column%4),10 +(80)*row , 70, 70)];
             [view setImage:img];
             view.tag = tag++;
-            [view setVideo:YES];
+            [view setContentURL:videoStr];
+            [view setIsVideo:YES];
             view.delegate = self;
             [self addSubview:view];
         }
@@ -124,7 +129,21 @@
     }
 }
 
--(void) itemCalled:(id)sender
+-(void) itemTapped:(id)sender
+{
+    CheckableImageView *view = (CheckableImageView *)sender;
+    if (view.isVideo) {
+        VideoPlayViewController *vc = [[VideoPlayViewController alloc] initWithURL:view.contentURL];
+        [[self viewController].navigationController pushViewController:vc animated:YES];
+    }else
+    {
+        ImageContentViewController *vc = [ImageContentViewController new];
+        [vc setImage:view.image];
+        [[self viewController].navigationController pushViewController:vc animated:YES];
+    }
+}
+
+-(void) itemChecked:(id)sender
 {
     CheckableImageView *view = (CheckableImageView *)sender;
     NSInteger index = view.tag - 1000;

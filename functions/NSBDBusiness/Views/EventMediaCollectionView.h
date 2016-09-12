@@ -20,6 +20,9 @@
 
 @property (nonatomic,assign) BOOL readonly;
 @property (nonatomic,copy) ActionCallback callBack;
+
+
+
 -(CGFloat) height;
 +(CGFloat) heightForItemCount:(NSInteger) count;
 
