@@ -20,6 +20,7 @@
 #import "SearchHomePageViewController.h"
 #import "MyWorkViewController.h"
 #import "TextPickerViewController.h"
+#import "LiveDataMainViewController.h"
 
 @implementation MapViewController (Action)
 
@@ -50,6 +51,12 @@
 -(void) actionEventUpload
 {
     EventReportViewController *controller = [[EventReportViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+-(void) actionLiveData
+{
+    LiveDataMainViewController *controller = [[LiveDataMainViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

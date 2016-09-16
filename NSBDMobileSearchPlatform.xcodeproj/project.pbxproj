@@ -223,6 +223,8 @@
 		B2CFC35B1D78069000FA97D3 /* MyEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35A1D78069000FA97D3 /* MyEventItem.m */; };
 		B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */; };
 		B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */; };
+		B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */; };
+		B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -622,6 +624,10 @@
 		B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItemCell.m; path = functions/NSBDBusiness/Views/MyEventItemCell.m; sourceTree = "<group>"; };
 		B2CFC35F1D7849EF00FA97D3 /* MyEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventDetailViewController.h; path = functions/NSBDBusiness/MyEventDetailViewController.h; sourceTree = "<group>"; };
 		B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventDetailViewController.m; path = functions/NSBDBusiness/MyEventDetailViewController.m; sourceTree = "<group>"; };
+		B2F1D8941D8BE62800A6EDCA /* LiveDataMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataMainViewController.h; path = functions/NSBDBusiness/LiveDataMainViewController.h; sourceTree = "<group>"; };
+		B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataMainViewController.m; path = functions/NSBDBusiness/LiveDataMainViewController.m; sourceTree = "<group>"; };
+		B2F1D8981D8BF03F00A6EDCA /* ThreeColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnView.h; path = functions/NSBDBusiness/Views/ThreeColumnView.h; sourceTree = "<group>"; };
+		B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnView.m; path = functions/NSBDBusiness/Views/ThreeColumnView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -729,6 +735,7 @@
 		A4569C941D33B55B00A06B1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2F1D8931D8BE5DF00A6EDCA /* LiveData */,
 				B2CFC3511D76AB6200FA97D3 /* Mywork */,
 				B2A186E21D62DB3F006D8CA7 /* Common */,
 				B2A186E11D62DB23006D8CA7 /* EventReport */,
@@ -1241,6 +1248,7 @@
 			isa = PBXGroup;
 			children = (
 				A4F2FC091D8069DE00B0532B /* Common */,
+				B2F1D8971D8BEFC100A6EDCA /* LiveData */,
 				A4F2FC0A1D8069ED00B0532B /* EventReport */,
 				A4F2FC0B1D8069FF00B0532B /* Mywork */,
 			);
@@ -1444,6 +1452,24 @@
 				A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */,
 			);
 			name = Mywork;
+			sourceTree = "<group>";
+		};
+		B2F1D8931D8BE5DF00A6EDCA /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				B2F1D8941D8BE62800A6EDCA /* LiveDataMainViewController.h */,
+				B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */,
+			);
+			name = LiveData;
+			sourceTree = "<group>";
+		};
+		B2F1D8971D8BEFC100A6EDCA /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				B2F1D8981D8BF03F00A6EDCA /* ThreeColumnView.h */,
+				B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */,
+			);
+			name = LiveData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1657,6 +1683,7 @@
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
+				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
 				B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */,
 				B28653D31D4863B2002D4139 /* UIButton+AFNetworking.m in Sources */,
@@ -1681,6 +1708,7 @@
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
+				B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */,
 				A4E68C2A1D6994BE00DD603B /* SearchCategoryItem.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,

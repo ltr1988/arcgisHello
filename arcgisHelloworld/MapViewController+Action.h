@@ -16,5 +16,6 @@
 -(void) actionSearchUpload;
 -(void) actionEventUpload;
 -(void) actionQRCodeSwipe;
+-(void) actionLiveData;
 -(void) actionMyWork;
 @end

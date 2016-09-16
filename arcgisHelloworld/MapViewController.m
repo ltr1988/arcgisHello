@@ -143,7 +143,7 @@
     btn3.backgroundColor = [UIColor whiteColor];
     [btn3 setImage:[UIImage imageNamed:@"icon_qrcode"] forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn3 addTarget:self action:@selector(actionQRCodeSwipe) forControlEvents:UIControlEventTouchUpInside];
+    [btn3 addTarget:self action:@selector(actionLiveData) forControlEvents:UIControlEventTouchUpInside];
     [btn3 setTitle:@"扫一扫" forState:UIControlStateNormal];
     btn3.titleLabel.font = UI_FONT(14);
     
