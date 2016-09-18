@@ -11,11 +11,22 @@
 #import "TitleDetailItem.h"
 #import "UIColor+ThemeColor.h"
 
+#import "LiveDataYuqingViewController.h"
+
 @interface LiveDataMainViewController()
 @property (nonatomic,strong) UITableView *liveDataTableView;
 
 @property (nonatomic,strong) NSArray *modelList;
 @end
+
+
+NSString
+*const sYUQING = @"实时雨情",
+*const sSHUIWEI = @"实时水位",
+*const sSHUIKU= @"水库水情",
+*const sLIULIANG = @"实时流量",
+*const sSHUIZHI = @"水质数据",
+*const sGONGCHENG = @"工程安全";
 
 @implementation LiveDataMainViewController
 
@@ -29,12 +40,13 @@
 
 -(void) setupModel
 {
-    TitleDetailItem *item1 = [TitleDetailItem itemWithTitle:@"实时数据1" detail:@"2015-01-22 11:22:09"];
-    TitleDetailItem *item2 = [TitleDetailItem itemWithTitle:@"实时数据2" detail:@"2015-01-22 12:22:09"];
-    TitleDetailItem *item3 = [TitleDetailItem itemWithTitle:@"实时数据3" detail:@"2015-01-22 13:22:09"];
-    TitleDetailItem *item4 = [TitleDetailItem itemWithTitle:@"实时数据4" detail:@"2015-01-22 14:22:09"];
-    
-    _modelList = @[item1,item2,item3,item4];
+    TitleDetailItem *item1 = [TitleDetailItem itemWithTitle:sYUQING detail:@"2015-01-22 11:22:09"];
+    TitleDetailItem *item2 = [TitleDetailItem itemWithTitle:sSHUIWEI detail:@"2015-01-22 12:22:09"];
+    TitleDetailItem *item3 = [TitleDetailItem itemWithTitle:sSHUIKU detail:@"2015-01-22 13:22:09"];
+    TitleDetailItem *item4 = [TitleDetailItem itemWithTitle:sLIULIANG detail:@"2015-01-22 14:22:09"];
+    TitleDetailItem *item5 = [TitleDetailItem itemWithTitle:sSHUIZHI detail:@"2015-01-22 14:22:09"];
+    TitleDetailItem *item6 = [TitleDetailItem itemWithTitle:sGONGCHENG detail:@"2015-01-22 14:22:09"];
+    _modelList = @[item1,item2,item3,item4,item5,item6];
 }
 
 -(void) setupSubviews
@@ -87,9 +99,31 @@
     
     NSInteger row = indexPath.row;
     TitleDetailItem *item = _modelList[row];
-    //todo push to new vc
     
-    //[self.navigationController pushViewController:vc animated:YES];
+    
+    UIViewController *vc = nil;
+    if ([item.title isEqualToString: sYUQING]) {
+        vc = [[LiveDataYuqingViewController alloc] init];
+    }else if ([item.title isEqualToString: sSHUIWEI])
+    {
+        
+    }else if ([item.title isEqualToString: sSHUIKU])
+    {
+        
+    }else if ([item.title isEqualToString: sLIULIANG])
+    {
+        
+    }else if ([item.title isEqualToString: sSHUIZHI])
+    {
+        
+    }else if ([item.title isEqualToString: sGONGCHENG])
+    {
+        
+    }
+    //todo push to new vc
+    if (vc) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

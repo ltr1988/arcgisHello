@@ -41,7 +41,7 @@
     _lbSecondColumn.font = UI_FONT(14);
     _lbSecondColumn.textColor = [UIColor blackColor];
     _lbSecondColumn.backgroundColor = [UIColor clearColor];
-    _lbSecondColumn.textAlignment = NSTextAlignmentLeft;
+    _lbSecondColumn.textAlignment = NSTextAlignmentRight;
     [weakSelf addSubview:_lbSecondColumn];
     
     _lbThirdColumn = [UILabel new];
@@ -63,14 +63,13 @@
         make.top.offset(0);
         make.bottom.offset(0);
         make.right.mas_equalTo(_lbThirdColumn.mas_left).offset(-5);
-        make.width.mas_equalTo(50);
     }];
     
     [_lbThirdColumn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(0);
         make.bottom.offset(0);
-        make.right.offset(16);
-        make.width.mas_equalTo(50);
+        make.right.offset(-16);
+        make.width.mas_equalTo(100);
     }];
 }
 
@@ -94,5 +93,7 @@
     if ([data respondsToSelector:@selector(thirdColumnColor)]) {
         _lbThirdColumn.textColor = [data thirdColumnColor];
     }
+    
+    [_lbSecondColumn sizeToFit];
 }
 @end

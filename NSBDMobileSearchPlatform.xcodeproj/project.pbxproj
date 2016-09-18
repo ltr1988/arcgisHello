@@ -225,6 +225,10 @@
 		B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */; };
 		B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */; };
 		B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */; };
+		B2F1D89E1D8E2C9000A6EDCA /* ThreeColumnItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D89D1D8E2C9000A6EDCA /* ThreeColumnItem.m */; };
+		B2F1D8A11D8E68E400A6EDCA /* ThreeColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A01D8E68E400A6EDCA /* ThreeColumnCell.m */; };
+		B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */; };
+		B2F1D8A71D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A61D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -628,6 +632,14 @@
 		B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataMainViewController.m; path = functions/NSBDBusiness/LiveDataMainViewController.m; sourceTree = "<group>"; };
 		B2F1D8981D8BF03F00A6EDCA /* ThreeColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnView.h; path = functions/NSBDBusiness/Views/ThreeColumnView.h; sourceTree = "<group>"; };
 		B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnView.m; path = functions/NSBDBusiness/Views/ThreeColumnView.m; sourceTree = "<group>"; };
+		B2F1D89C1D8E2C9000A6EDCA /* ThreeColumnItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnItem.h; path = functions/NSBDBusiness/Model/ThreeColumnItem.h; sourceTree = "<group>"; };
+		B2F1D89D1D8E2C9000A6EDCA /* ThreeColumnItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnItem.m; path = functions/NSBDBusiness/Model/ThreeColumnItem.m; sourceTree = "<group>"; };
+		B2F1D89F1D8E68E400A6EDCA /* ThreeColumnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeColumnCell.h; path = functions/NSBDBusiness/Views/ThreeColumnCell.h; sourceTree = "<group>"; };
+		B2F1D8A01D8E68E400A6EDCA /* ThreeColumnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeColumnCell.m; path = functions/NSBDBusiness/Views/ThreeColumnCell.m; sourceTree = "<group>"; };
+		B2F1D8A21D8E7ECC00A6EDCA /* LiveDataYuqingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataYuqingViewController.h; path = functions/NSBDBusiness/LiveDataYuqingViewController.h; sourceTree = "<group>"; };
+		B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataYuqingViewController.m; path = functions/NSBDBusiness/LiveDataYuqingViewController.m; sourceTree = "<group>"; };
+		B2F1D8A51D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataYuqingHeaderView.h; path = functions/NSBDBusiness/Views/LiveDataYuqingHeaderView.h; sourceTree = "<group>"; };
+		B2F1D8A61D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataYuqingHeaderView.m; path = functions/NSBDBusiness/Views/LiveDataYuqingHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1192,6 +1204,7 @@
 		B286538A1D45FA02002D4139 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B2F1D89B1D8E2C7300A6EDCA /* LiveData */,
 				B2CFC3581D78066A00FA97D3 /* Mywork */,
 				B2A187131D65A480006D8CA7 /* Login */,
 				B2A186E61D62DBA8006D8CA7 /* Search */,
@@ -1459,6 +1472,8 @@
 			children = (
 				B2F1D8941D8BE62800A6EDCA /* LiveDataMainViewController.h */,
 				B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */,
+				B2F1D8A21D8E7ECC00A6EDCA /* LiveDataYuqingViewController.h */,
+				B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1468,6 +1483,19 @@
 			children = (
 				B2F1D8981D8BF03F00A6EDCA /* ThreeColumnView.h */,
 				B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */,
+				B2F1D89F1D8E68E400A6EDCA /* ThreeColumnCell.h */,
+				B2F1D8A01D8E68E400A6EDCA /* ThreeColumnCell.m */,
+				B2F1D8A51D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.h */,
+				B2F1D8A61D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m */,
+			);
+			name = LiveData;
+			sourceTree = "<group>";
+		};
+		B2F1D89B1D8E2C7300A6EDCA /* LiveData */ = {
+			isa = PBXGroup;
+			children = (
+				B2F1D89C1D8E2C9000A6EDCA /* ThreeColumnItem.h */,
+				B2F1D89D1D8E2C9000A6EDCA /* ThreeColumnItem.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1611,6 +1639,7 @@
 				B2806A0E1D68401D0097F7E4 /* TitleInputItem.m in Sources */,
 				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
 				B205A49B1D5D7ABC007530EB /* QRCodeReaderView.m in Sources */,
+				B2F1D8A11D8E68E400A6EDCA /* ThreeColumnCell.m in Sources */,
 				B2A187301D66AF4B006D8CA7 /* NSObject+MJCoding.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
@@ -1655,9 +1684,11 @@
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
 				B205A4991D5D7ABC007530EB /* QRCodeReaderViewController.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
+				B2F1D89E1D8E2C9000A6EDCA /* ThreeColumnItem.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
+				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1688,6 +1719,7 @@
 				B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */,
 				B28653D31D4863B2002D4139 /* UIButton+AFNetworking.m in Sources */,
 				A414ACC51D3A1D890065AAA7 /* ELCImagePickerController.m in Sources */,
+				B2F1D8A71D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m in Sources */,
 				B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */,
 				B205A5321D61D378007530EB /* MJRefreshConst.m in Sources */,
 				B28653861D45EA03002D4139 /* View+MASAdditions.m in Sources */,

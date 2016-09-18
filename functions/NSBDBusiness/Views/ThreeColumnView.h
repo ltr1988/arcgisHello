@@ -5,9 +5,6 @@
 //  Created by LvTianran on 16/9/16.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
-
-#import <UIKit/UIKit.h>
-
 @protocol ThreeColumnViewDelegate <NSObject>
 
 @optional
@@ -19,6 +16,10 @@
 -(UIColor *) secondColumnColor;
 -(UIColor *) thirdColumnColor;
 @end
+
+#import <UIKit/UIKit.h>
+
+
 
 @interface ThreeColumnView : UIView
 
