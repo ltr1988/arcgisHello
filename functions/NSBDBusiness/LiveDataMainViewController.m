@@ -32,6 +32,7 @@ NSString
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
     [self setupModel];
     [self setupSubviews];
     

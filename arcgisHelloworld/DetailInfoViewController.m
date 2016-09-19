@@ -42,6 +42,7 @@
 
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;

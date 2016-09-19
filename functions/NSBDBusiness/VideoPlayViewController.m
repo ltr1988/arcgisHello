@@ -25,6 +25,7 @@
 }
 -(void) viewDidLoad
 {
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 80, 100, 30)];
     [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];

@@ -48,6 +48,7 @@
 		A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */; };
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
+		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -312,6 +313,8 @@
 		A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = functions/AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		A4A378871D365DC100A7342D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = functions/AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
+		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1474,6 +1477,8 @@
 				B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */,
 				B2F1D8A21D8E7ECC00A6EDCA /* LiveDataYuqingViewController.h */,
 				B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */,
+				A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */,
+				A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1790,6 +1795,7 @@
 				B205A5261D61D378007530EB /* MJRefreshFooter.m in Sources */,
 				B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */,
 				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,
+				A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */,
 				B205A5291D61D378007530EB /* MJRefreshAutoNormalFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

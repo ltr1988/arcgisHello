@@ -1,27 +1,43 @@
 //
-//  LiveDataYuqingViewController.m
+//  LiveDataNormalDataViewController.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/9/18.
+//  Created by fifila on 16/9/19.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "LiveDataYuqingViewController.h"
+#import "LiveDataNormalDataViewController.h"
+#import "Masonry.h"
 #import "CommonDefine.h"
 #import "UIColor+ThemeColor.h"
 #import "ThreeColumnCell.h"
 #import "ThreeColumnItem.h"
 #import "ThreeColumnView.h"
-#import "LiveDataYuqingHeaderView.h"
+#import "MJRefresh.h"
 
-@interface LiveDataYuqingViewController()
+@interface LiveDataNormalDataViewController()
+{
+    UILabel *lbUpdateTime;
+}
 @property (nonatomic,strong) UITableView *liveDataTableView;
 
 @property (nonatomic,strong) NSArray *modelList;
+
+@property (nonatomic,strong) NSString *updateTime;
 @end
 
 
-@implementation LiveDataYuqingViewController
+@implementation LiveDataNormalDataViewController
+
+
+-(instancetype) initWithTitle:(NSString *)title
+{
+    if (self = [super init]) {
+        self.title = title;
+    }
+    return self;
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -56,31 +72,86 @@
 
 -(void) setupSubviews
 {
-    self.title = @"实时数据";
     _liveDataTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _liveDataTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _liveDataTableView.backgroundColor = [UIColor seperatorColor];
     _liveDataTableView.delegate = self;
     _liveDataTableView.dataSource = self;
     _liveDataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _liveDataTableView.tableHeaderView = [self headerView];
-    
+    _liveDataTableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(actionRefreshData)];
+    UIView *header = [self headerView];
+    if (header) {
+        _liveDataTableView.tableHeaderView = header;
+    }
+
     [self.view addSubview:_liveDataTableView];
     
+    [self reloadTableView];
+    
+}
+
+-(void) reloadTableView
+{
+    [self refreshHeader];
     [_liveDataTableView reloadData];
+}
+
+-(void) refreshHeader
+{
+    if (lbUpdateTime) {
+        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+        
+        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        lbUpdateTime.text = [formater stringFromDate:[NSDate date]];
+    }
+}
+
+//下拉刷新
+-(void) actionRefreshData
+{
+    //http request and callback
+    [self reloadTableView];
 }
 
 -(UIView *) headerView
 {
     UIView *header = [UIView new];
-    header.frame = CGRectMake(0, 0, self.view.bounds.size.width, [LiveDataYuqingHeaderView heightForView] + 10);
+    header.frame = CGRectMake(0, 0, self.view.bounds.size.width, 50);
     header.backgroundColor = [UIColor seperatorColor];
+   
+    UILabel *label = [UILabel new];
+    label = [UILabel new];
+    label.font = UI_FONT(16);
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor clearColor];
+    label.textAlignment = NSTextAlignmentLeft;
+    label.text = @"刷新时间";
+    [label sizeToFit];
+    [header addSubview:label];
     
-    LiveDataYuqingHeaderView * view = [[LiveDataYuqingHeaderView alloc] initWithFrame:CGRectMake(0, 10, self.view.bounds.size.width, [LiveDataYuqingHeaderView heightForView])];
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    view.startDate = @"abc";
-    view.endDate = @"def";
-    [header addSubview:view];
+    
+    lbUpdateTime = [UILabel new];
+    lbUpdateTime.font = UI_FONT(16);
+    lbUpdateTime.textColor = [UIColor blackColor];
+    lbUpdateTime.backgroundColor = [UIColor clearColor];
+    lbUpdateTime.textAlignment = NSTextAlignmentRight;
+    lbUpdateTime.text = @"刷新时间";
+    [header addSubview:lbUpdateTime];
+
+
+    [label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(0);
+        make.bottom.offset(0);
+        make.left.offset(16);
+    }];
+    
+    [lbUpdateTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(0);
+        make.bottom.offset(0);
+        make.right.offset(-16);
+        make.left.mas_equalTo(label.mas_right).offset(10);
+    }];
     return header;
 }
 
@@ -144,7 +215,7 @@
     
     
     UIViewController *vc = nil;
-        //todo push to new vc
+    //todo push to new vc
     if (vc) {
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -156,3 +227,4 @@
 }
 
 @end
+

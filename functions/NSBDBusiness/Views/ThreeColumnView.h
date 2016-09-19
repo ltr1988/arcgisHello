@@ -23,6 +23,8 @@
 
 @interface ThreeColumnView : UIView
 
+-(void) setFont:(UIFont *)font;
+-(void) setColumnColor:(UIColor *)color;
 -(void) setData:(id<ThreeColumnViewDelegate>) data;
 
 @end

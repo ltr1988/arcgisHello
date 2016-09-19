@@ -39,14 +39,14 @@
     __weak UIView* weakSelf = self;
     
     _lbStart = [UILabel new];
-    _lbStart.font = UI_FONT(14);
+    _lbStart.font = UI_FONT(12);
     _lbStart.textColor = [UIColor orangeColor];
     _lbStart.backgroundColor = [UIColor clearColor];
     _lbStart.textAlignment = NSTextAlignmentCenter;
     [weakSelf addSubview:_lbStart];
     
     _lbEnd = [UILabel new];
-    _lbEnd.font = UI_FONT(14);
+    _lbEnd.font = UI_FONT(12);
     _lbEnd.textColor = [UIColor orangeColor];
     _lbEnd.backgroundColor = [UIColor clearColor];
     _lbEnd.textAlignment = NSTextAlignmentCenter;
@@ -59,24 +59,24 @@
     _btnStart = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnStart setTitle:@"开始时间" forState:UIControlStateNormal];
     //[_btnStart setImage:[UIImage imageNamed:@""] forState:(UIControlState)]
-    [_btnStart.titleLabel setTextColor:[UIColor grayColor]];
-    [_btnStart.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_btnStart setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [_btnStart.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [_btnStart setBackgroundColor:[UIColor clearColor]];
     [weakSelf addSubview:_btnStart];
     
     _btnEnd = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnEnd setTitle:@"结束时间" forState:UIControlStateNormal];
     //[_btnStart setImage:[UIImage imageNamed:@""] forState:(UIControlState)]
-    [_btnEnd.titleLabel setTextColor:[UIColor grayColor]];
-    [_btnEnd.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [_btnEnd setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [_btnEnd.titleLabel setFont:[UIFont systemFontOfSize:12]];
     [_btnEnd setBackgroundColor:[UIColor clearColor]];
     [weakSelf addSubview:_btnEnd];
     
     [_lbStart mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset(0);
+        make.top.offset(5);
         make.left.offset(0);
         make.width.mas_equalTo(weakSelf.mas_width).multipliedBy(.5);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(20);
     }];
     
     [vLine mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,10 +87,10 @@
     }];
     
     [_lbEnd mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset(0);
+        make.top.offset(5);
         make.left.mas_equalTo(vLine.mas_right);
         make.right.offset(0);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(20);
     }];
     
     [_btnStart mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,7 +127,7 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 1);
-    CGContextSetStrokeColorWithColor(context, [[UIColor seperatorColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[UIColor borderColor] CGColor]);
     
     CGContextMoveToPoint(context, 0, 0);
     CGContextAddLineToPoint(context, CGRectGetWidth(self.frame), 0);
@@ -141,6 +141,6 @@
 
 +(CGFloat) heightForView
 {
-    return 55;
+    return 50;
 }
 @end

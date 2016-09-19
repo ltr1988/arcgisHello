@@ -73,6 +73,24 @@
     }];
 }
 
+-(void) setFont:(UIFont *)font
+{
+    _lbFirstColumn.font = font;
+    
+    _lbSecondColumn.font = font;
+
+    _lbThirdColumn.font = font;
+}
+
+-(void) setColumnColor:(UIColor *)color
+{
+    _lbFirstColumn.textColor = color;
+    
+    _lbSecondColumn.textColor = color;
+    
+    _lbThirdColumn.textColor = color;
+}
+
 -(void) setData:(id<ThreeColumnViewDelegate>) data
 {
     if ([data respondsToSelector:@selector(firstColumnText)]) {
