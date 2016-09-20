@@ -22,14 +22,6 @@
 
 
 @implementation LiveDataYuqingViewController
--(void) viewDidLoad
-{
-    [super viewDidLoad];
-    [self setupModel];
-    [self setupSubviews];
-    
-}
-
 
 -(void) setupModel
 {
@@ -56,18 +48,14 @@
 
 -(void) setupSubviews
 {
+    [super setupSubviews];
     self.title = @"实时数据";
-    _liveDataTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    _liveDataTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    _liveDataTableView.backgroundColor = [UIColor seperatorColor];
-    _liveDataTableView.delegate = self;
-    _liveDataTableView.dataSource = self;
-    _liveDataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _liveDataTableView.tableHeaderView = [self headerView];
     
-    [self.view addSubview:_liveDataTableView];
-    
-    [_liveDataTableView reloadData];
+}
+
+-(void) actionRefreshData
+{
+    [super actionRefreshData];
 }
 
 -(UIView *) headerView

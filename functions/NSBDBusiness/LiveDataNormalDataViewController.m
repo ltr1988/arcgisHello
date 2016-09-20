@@ -41,7 +41,6 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
-    [self setupModel];
     [self setupSubviews];
     
 }
@@ -51,19 +50,16 @@
 {
     ThreeColumnColorItem *item = [[ThreeColumnColorItem alloc] init];
     item.firstColumnText = @"东干渠";
-    item.secondColumnText = @"朝阳";
     item.thirdColumnText = @"0.4";
     item.thirdColumnColor = [UIColor themeLightBlueColor];
     
     ThreeColumnColorItem *item1 = [[ThreeColumnColorItem alloc] init];
     item1.firstColumnText = @"南干渠";
-    item1.secondColumnText = @"大兴";
     item1.thirdColumnText = @"0.7";
     item1.thirdColumnColor = [UIColor themeLightBlueColor];
     
     ThreeColumnColorItem *item2 = [[ThreeColumnColorItem alloc] init];
     item2.firstColumnText = @"大宁";
-    item2.secondColumnText = @"房山";
     item2.thirdColumnText = @"0.5";
     item2.thirdColumnColor = [UIColor themeLightBlueColor];
     
@@ -86,7 +82,7 @@
 
     [self.view addSubview:_liveDataTableView];
     
-    [self reloadTableView];
+    [self actionRefreshData];
     
 }
 
@@ -111,15 +107,24 @@
 -(void) actionRefreshData
 {
     //http request and callback
+    [self setupModel];
+    
     [self reloadTableView];
+    
+    [_liveDataTableView.mj_header endRefreshing];
 }
 
 -(UIView *) headerView
 {
     UIView *header = [UIView new];
-    header.frame = CGRectMake(0, 0, self.view.bounds.size.width, 50);
+    header.frame = CGRectMake(0, 0, self.view.bounds.size.width, 60);
     header.backgroundColor = [UIColor seperatorColor];
    
+    UIView *contentView = [UIView new];
+    contentView.frame = CGRectMake(0, 10, self.view.bounds.size.width, 50);
+    contentView.backgroundColor = [UIColor whiteColor];
+    [header addSubview:contentView];
+    
     UILabel *label = [UILabel new];
     label = [UILabel new];
     label.font = UI_FONT(16);
@@ -128,7 +133,7 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.text = @"刷新时间";
     [label sizeToFit];
-    [header addSubview:label];
+    [contentView addSubview:label];
     
     
     lbUpdateTime = [UILabel new];
@@ -137,7 +142,7 @@
     lbUpdateTime.backgroundColor = [UIColor clearColor];
     lbUpdateTime.textAlignment = NSTextAlignmentRight;
     lbUpdateTime.text = @"刷新时间";
-    [header addSubview:lbUpdateTime];
+    [contentView addSubview:lbUpdateTime];
 
 
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -165,9 +170,8 @@
     
     ThreeColumnColorItem *item = [ThreeColumnColorItem new];
     item.firstColumnText = @"站点";
-    item.secondColumnText = @"行政区";
-    item.thirdColumnText = @"累计雨量(毫米)";
-    
+    item.thirdColumnText = @"实时水位";
+
     [view setData:item];
     
     return view;

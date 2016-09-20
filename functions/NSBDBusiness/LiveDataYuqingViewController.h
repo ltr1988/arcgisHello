@@ -6,8 +6,8 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SupportRotationSelectBaseViewController.h"
+#import "LiveDataNormalDataViewController.h"
 
-@interface LiveDataYuqingViewController : SupportRotationSelectBaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface LiveDataYuqingViewController : LiveDataNormalDataViewController
 
 @end
