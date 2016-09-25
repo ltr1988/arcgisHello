@@ -2,14 +2,15 @@
 //  SearchCategoryItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/8/21.
+//  Created by fifila on 16/9/25.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
 #import "SearchCategoryItem.h"
-#import "MJExtension.h"
-#import "DGQAirItem.h"
+
 #import "NSBDBaseUIItem.h"
+#import "DGQAirItem.h"
+
 
 @implementation SearchCategoryItem
 
@@ -18,26 +19,26 @@
     {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         
-        [dict setObject:@"name" forKey:@"title"];
-        [dict setObject:@"code" forKey:@"code"];
+        [dict setObject:@"facilityCode" forKey:@"facilityCode"];
+        [dict setObject:@"id" forKey:@"itemId"];
+        [dict setObject:@"facilityId" forKey:@"fid"];
+        [dict setObject:@"categoryId" forKey:@"categoryId"];
+        [dict setObject:@"addTime.time" forKey:@"timeStamp"];
+        [dict setObject:@"facilityType" forKey:@"ftype"];
+        [dict setObject:@"facilityName" forKey:@"fname"];
+        [dict setObject:@"addUser" forKey:@"addUser"];
         return dict;
     }
-
+    
 }
 
-+(NSDictionary *) mappingInfo
+@end
+
+@implementation SearchCategoryItem (TitleOnlyCellViewModel)
+
+-(NSString *) title
 {
-    return @{
-                @"0":[DGQAirItem class],
-                @"1":[DGQAirItem class],
-                @"2":[DGQAirItem class],
-             };
+    return (_fname&& _fname.length>0)?_fname:_facilityCode;
 }
 
-
--(id) sheetItem
-{
-    Class cls = [SearchCategoryItem mappingInfo][self.code];
-    return [cls new];
-}
 @end

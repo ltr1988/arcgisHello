@@ -142,9 +142,14 @@
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setSession:nil];
+                
+                [_delegate endSession];
+            }else if (item.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
             btn.enabled = YES;
-            [_delegate endSession];
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             // 请求失败
             [ToastView popToast:@"请稍后再试"];

@@ -8,9 +8,9 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 
-@class SearchCategoryItem;
+@class SearchHomePageItem;
 @interface SearchSecondaryListViewController : SupportRotationSelectBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 
--(instancetype) initWithSearchCategoryItem:(SearchCategoryItem*) item;
+-(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item;
 @end

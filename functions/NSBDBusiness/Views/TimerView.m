@@ -10,37 +10,43 @@
 #import "CommonDefine.h"
 
 @implementation TimerView
+{
+    BOOL _smallStyle;
+}
 
++(instancetype) timerViewWithStartTime:(NSInteger) time frame:(CGRect) frame smallStyle:(BOOL) smallStyle
+{
+    return [[TimerView alloc] initWithStartTime:time frame:frame smallStyle:smallStyle];
+}
 
--(instancetype) initWithStartTime:(NSInteger) time frame:(CGRect) frame
+-(instancetype) initWithStartTime:(NSInteger) time frame:(CGRect) frame smallStyle:(BOOL) smallStyle
 {
     if (self = [super initWithFrame:frame]) {
         showTime = time;
+        _smallStyle = smallStyle;
         [self setupSubviews];
     }
     return self;
+}
+
+-(instancetype) initWithStartTime:(NSInteger) time frame:(CGRect) frame
+{
+    return [self initWithStartTime:time frame:frame smallStyle:NO];
 }
 
 -(instancetype) initWithFrame:(CGRect) frame
 {
-    if (self = [super initWithFrame:frame]) {
-        showTime = 0;
-        [self setupSubviews];
-    }
-    return self;
+    return [self initWithStartTime:0 frame:frame];
 }
 
 -(instancetype) init
 {
-    if (self = [super init]) {
-        showTime = 0;
-        [self setupSubviews];
-    }
-    return self;
+    return [self initWithFrame:CGRectZero];
 }
 
 -(void) setupSubviews
 {
+    
     self.backgroundColor = [UIColor orangeColor];
     
     _timeLabel = [[UILabel alloc] initWithFrame:self.bounds];;
@@ -49,6 +55,12 @@
     _timeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     _timeLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_timeLabel];
+    
+    if (_smallStyle) {
+        self.backgroundColor = [UIColor clearColor];
+        _timeLabel.font =UI_FONT(14);
+        _timeLabel.textColor = [UIColor orangeColor];
+    }
     
 }
 

@@ -54,6 +54,8 @@
 		A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC821D9666810016387C /* NSString+UUID.m */; };
 		A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */; };
 		A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */; };
+		A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */; };
+		A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -73,7 +75,7 @@
 		A4E68C1E1D693F6300DD603B /* icon_searchreport@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C1A1D693F6300DD603B /* icon_searchreport@3x.png */; };
 		A4E68C211D69403100DD603B /* icon_mywork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C1F1D69403100DD603B /* icon_mywork@3x.png */; };
 		A4E68C221D69403100DD603B /* icon_qrcode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C201D69403100DD603B /* icon_qrcode@3x.png */; };
-		A4E68C2A1D6994BE00DD603B /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C291D6994BE00DD603B /* SearchCategoryItem.m */; };
+		A4E68C2A1D6994BE00DD603B /* SearchHomePageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C291D6994BE00DD603B /* SearchHomePageItem.m */; };
 		A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */; };
 		A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7651D46495900E3C94C /* DatePickViewController.m */; };
 		A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */; };
@@ -330,6 +332,10 @@
 		A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSecondaryListViewController.m; path = functions/NSBDBusiness/SearchSecondaryListViewController.m; sourceTree = "<group>"; };
 		A4CFBC871D9749660016387C /* AFHTTPSessionManager+NSBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+NSBD.h"; path = "docs/AFHTTPSessionManager+NSBD.h"; sourceTree = "<group>"; };
 		A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "docs/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
+		A4CFBC8A1D97859E0016387C /* SearchCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryModel.h; path = functions/NSBDBusiness/Model/SearchCategoryModel.h; sourceTree = "<group>"; };
+		A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryModel.m; path = functions/NSBDBusiness/Model/SearchCategoryModel.m; sourceTree = "<group>"; };
+		A4CFBC8D1D978E5D0016387C /* SearchCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryItem.h; path = functions/NSBDBusiness/Model/SearchCategoryItem.h; sourceTree = "<group>"; };
+		A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryItem.m; path = functions/NSBDBusiness/Model/SearchCategoryItem.m; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -353,8 +359,8 @@
 		A4E68C1A1D693F6300DD603B /* icon_searchreport@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_searchreport@3x.png"; path = "images/icon_searchreport@3x.png"; sourceTree = "<group>"; };
 		A4E68C1F1D69403100DD603B /* icon_mywork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_mywork@3x.png"; path = "images/icon_mywork@3x.png"; sourceTree = "<group>"; };
 		A4E68C201D69403100DD603B /* icon_qrcode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_qrcode@3x.png"; path = "images/icon_qrcode@3x.png"; sourceTree = "<group>"; };
-		A4E68C281D6994BE00DD603B /* SearchCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryItem.h; path = functions/NSBDBusiness/Model/SearchCategoryItem.h; sourceTree = "<group>"; };
-		A4E68C291D6994BE00DD603B /* SearchCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryItem.m; path = functions/NSBDBusiness/Model/SearchCategoryItem.m; sourceTree = "<group>"; };
+		A4E68C281D6994BE00DD603B /* SearchHomePageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHomePageItem.h; path = functions/NSBDBusiness/Model/SearchHomePageItem.h; sourceTree = "<group>"; };
+		A4E68C291D6994BE00DD603B /* SearchHomePageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHomePageItem.m; path = functions/NSBDBusiness/Model/SearchHomePageItem.m; sourceTree = "<group>"; };
 		A4E68C2B1D6F408000DD603B /* CenterTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterTitleCell.h; path = functions/NSBDBusiness/Views/CenterTitleCell.h; sourceTree = "<group>"; };
 		A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterTitleCell.m; path = functions/NSBDBusiness/Views/CenterTitleCell.m; sourceTree = "<group>"; };
 		A4E9E7641D46495900E3C94C /* DatePickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickViewController.h; path = functions/NSBDBusiness/DatePickViewController.h; sourceTree = "<group>"; };
@@ -1389,8 +1395,12 @@
 				B205A4A61D61C4FF007530EB /* SearchHomePageModel.m */,
 				B2A186F91D643CF8006D8CA7 /* SearchTaskStatusModel.h */,
 				B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusModel.m */,
-				A4E68C281D6994BE00DD603B /* SearchCategoryItem.h */,
-				A4E68C291D6994BE00DD603B /* SearchCategoryItem.m */,
+				A4CFBC8A1D97859E0016387C /* SearchCategoryModel.h */,
+				A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */,
+				A4E68C281D6994BE00DD603B /* SearchHomePageItem.h */,
+				A4E68C291D6994BE00DD603B /* SearchHomePageItem.m */,
+				A4CFBC8D1D978E5D0016387C /* SearchCategoryItem.h */,
+				A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1719,6 +1729,7 @@
 				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
+				A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */,
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
@@ -1739,6 +1750,7 @@
 				B205A52C1D61D378007530EB /* MJRefreshBackNormalFooter.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
 				B28653DA1D488320002D4139 /* CheckableImageView.m in Sources */,
+				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
@@ -1770,7 +1782,7 @@
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
 				B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */,
-				A4E68C2A1D6994BE00DD603B /* SearchCategoryItem.m in Sources */,
+				A4E68C2A1D6994BE00DD603B /* SearchHomePageItem.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
 				B28653D01D4863B2002D4139 /* AFImageDownloader.m in Sources */,

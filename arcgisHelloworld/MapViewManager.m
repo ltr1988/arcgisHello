@@ -67,11 +67,10 @@ static NSString *ip;
                                                                                         [NSString stringWithFormat:WMTSRESTURL,[MapViewManager IP]]]];
     
     
-    
     AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
                                                                [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];
     
-    
+
     AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
     
     //Add it to the map view
@@ -90,5 +89,7 @@ static NSString *ip;
     [MapViewManager resetLayer:mapView];
     [MapViewManager resetLayer:routeMapView];
 }
+
+
 
 @end

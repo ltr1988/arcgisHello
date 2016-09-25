@@ -7,7 +7,7 @@
 //
 
 #import "SearchSecondaryListViewController.h"
-#import "SearchCategoryItem.h"
+#import "SearchHomePageItem.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "QRSeparatorCell.h"
@@ -17,13 +17,21 @@
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
 #import "NSBDBaseUIItem.h"
-
+#import "TimerView.h"
+#import "MJRefresh.h"
+#import "SearchCategoryModel.h"
+#import "SearchCategoryItem.h"
 
 
 @interface SearchSecondaryListViewController()
-@property (nonatomic,strong) NSArray *dataList;
-@property (nonatomic,strong) SearchCategoryItem *item;
+@property (nonatomic,strong) SearchCategoryModel *model;
+@property (nonatomic,strong) SearchHomePageItem *item;
+
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) TimerView *timerView;
+
+
+
 @property (nonatomic,readonly) NSDictionary *codeDictionary;
 @property (nonatomic,readonly) NSDictionary *titleDictionary;
 @end
@@ -32,7 +40,7 @@
 @synthesize codeDictionary = _codeDictionary;
 @synthesize titleDictionary = _titleDictionary;
 
--(instancetype) initWithSearchCategoryItem:(SearchCategoryItem*) item
+-(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item
 {
     if (self = [super init]) {
         _item = item;
@@ -85,7 +93,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     
-    [self requestData];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void) requestData
@@ -98,9 +106,20 @@
     @weakify(self);
     [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:[SearchSessionManager sharedManager].session.sessionId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         @strongify(self);
+        self.model = [SearchCategoryModel objectWithKeyValues:dict];
+        if (self.model.success) {
+            self.model.uiItem = [_item sheetItem];
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        }else if (self.model.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-        @strongify(self);
+        [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -110,12 +129,16 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self.view addSubview:_tableView];
     
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    _tableView.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
+    
+    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 50, 30) smallStyle:YES];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,30 +148,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    if (!_dataList) {
+    if (!_model) {
         return 0;
     }
-    return _dataList.count;
+    return _model.datalist.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (!_dataList) {
+    if (!_model) {
         return [UITableViewCell new];
     }
-//    NSInteger row = indexPath.row;
-//    SearchSheetGroupItem *group = self.uiItem.infolist[section];
-//    if (row < group.items.count) {
-//        
-//        SearchSheetInfoItem *item = group.items[row];
-//        
-//        BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:item.key];
-//        if (!cell) {
-//            cell = [SearchSheetCellFactory cellForSheetStyle:item.uiStyle reuseIdentifier:item.key];
-//        }
-//        
-//        cell.data = item.data;
-//    }
+    NSInteger row = indexPath.row;
+    if (row < _model.datalist.count) {
+        
+        SearchCategoryItem *item = _model.datalist[row];
+        
+        BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"BaseTitleCell"];
+        if (!cell) {
+            cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BaseTitleCell"];
+        }
+        
+        cell.data = item;
+    }
 
     
     

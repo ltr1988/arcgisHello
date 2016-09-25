@@ -19,7 +19,7 @@
 #import "MapViewManager.h"
 #import "WebViewController.h"
 
-@interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate>
+@interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
     
     UIAlertView *alart;
@@ -106,8 +106,12 @@
     self.mapView.touchDelegate = self;
     self.mapView.callout.delegate = self;
     self.mapView.layerDelegate = self;
+    
+    [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
+    [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     self.mapView.bottomView = [self bottomView];
 }
+
 
 -(UIView *) bottomView
 {
@@ -202,6 +206,25 @@
     [alart show];
 }
 
+
+#pragma mark - AGSLayerDelegate methods
+
+- (void)layerDidLoad:(AGSLayer *)layer
+{
+    
+}
+
+- (void)layer:(AGSLayer *)layer didFailToLoadWithError:(NSError *)error
+{
+    if ([layer respondsToSelector:@selector(resubmit)]) {
+        [layer performSelector:@selector(resubmit)];
+    }else
+    {
+        [MapViewManager resetLayer:self.mapView];
+        [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
+        [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
+    }
+}
 #pragma mark - AGSMapViewTouchDelegate methods
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{

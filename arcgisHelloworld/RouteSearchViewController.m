@@ -18,8 +18,11 @@
 #import "RouteSearchResultCell.h"
 #import "SVProgressHUD.h"
 #import "CenterTitleCell.h"
+#import "AuthorizeManager.h"
 
 #define MAXIMUM_HISTORYS 10
+
+#define USER_SEARCH_HISTORY [NSString stringWithFormat:@"search_history_%@",[[AuthorizeManager sharedInstance] userName]]
 
 @interface RouteSearchViewController()<UITableViewDelegate, UITableViewDataSource,AGSQueryTaskDelegate>
 {
@@ -97,7 +100,7 @@
     _resultList = [NSArray array];
     _historyList = [NSMutableArray array];
     
-    NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:@"search_history"];
+    NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:USER_SEARCH_HISTORY];
     
     for(id aHistory in list )
     {
@@ -254,7 +257,7 @@
         [tempArray addObject:data];
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:tempArray forKey:@"search_history"];
+    [[NSUserDefaults standardUserDefaults] setObject:tempArray forKey:USER_SEARCH_HISTORY];
 }
 
 -(void) searchWithText:(NSString *)text
@@ -326,7 +329,7 @@
 - (void)cleanHistory
 {
     [_historyList removeAllObjects];
-    [[NSUserDefaults standardUserDefaults] setObject:_historyList forKey:@"search_history"];
+    [[NSUserDefaults standardUserDefaults] setObject:_historyList forKey:USER_SEARCH_HISTORY];
     [self.table reloadData];
 }
 

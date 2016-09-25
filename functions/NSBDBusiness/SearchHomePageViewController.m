@@ -10,7 +10,7 @@
 #import "Masonry.h"
 #import "CommonDefine.h"
 #import "SearchHomePageModel.h"
-#import "SearchCategoryItem.h"
+#import "SearchHomePageItem.h"
 #import "UIColor+ThemeColor.h"
 #import "NSBDBaseUIItem.h"
 #import "TimerView.h"
@@ -42,7 +42,7 @@
     [super viewDidLoad];
     [self setupMembers];
     [self setupSubviews];
-    [self requestData];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(SearchSessionItem *) sessionItem
@@ -93,16 +93,31 @@
     }
     
     [[SearchSessionManager sharedManager] requestChangeSearchSessionState:self.sessionItem.pauseState?0:1 successCallback:^(NSURLSessionDataTask *task, id dict) {
+        
+        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
     }];
     
     @weakify(self);
     [[SearchSessionManager sharedManager] requestTaskConfigInSearchSessionSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         @strongify(self);
-        _model = [SearchHomePageModel objectWithKeyValues:dict];
-        if (_model.success) {
+        self.model = [SearchHomePageModel objectWithKeyValues:dict];
+        if (self.model.success) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView reloadData];
+        }else if (self.model.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         @strongify(self);
@@ -225,7 +240,17 @@
     @weakify(self);
     [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         @strongify(self);
-        [self.navigationController popViewControllerAnimated:YES];
+        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
     }];
 }
@@ -269,7 +294,7 @@
     }
     if (row<_model.datalist.count) {
         
-        SearchCategoryItem *item = _model.datalist[row];
+        SearchHomePageItem *item = _model.datalist[row];
         cell.textLabel.text = item.title;
     }
     return cell;
@@ -280,8 +305,8 @@
     NSInteger row = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (row < _model.datalist.count) {
-        SearchCategoryItem *item = _model.datalist[row];
-        SearchSecondaryListViewController *vc = [[SearchSecondaryListViewController alloc] initWithSearchCategoryItem:item];
+        SearchHomePageItem *item = _model.datalist[row];
+        SearchSecondaryListViewController *vc = [[SearchSecondaryListViewController alloc] initWithSearchHomeItem:item];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

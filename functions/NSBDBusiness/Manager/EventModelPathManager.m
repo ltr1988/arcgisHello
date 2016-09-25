@@ -9,12 +9,16 @@
 #import "EventModelPathManager.h"
 #import "EventReportModel.h"
 
+#import "AuthorizeManager.h"
+
+#define EVENT_MODELS    [NSString stringWithFormat:@"event_models_%@",[[AuthorizeManager sharedInstance] userName]]
+#define LASTEST_EVENT   [NSString stringWithFormat:@"lastest_event_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation EventModelPathManager
 
 +(void) addEventModelWithPath:(NSString *)path
 {
     NSMutableArray *list =
-    [[[NSUserDefaults standardUserDefaults] arrayForKey:@"eventModels"] mutableCopy];
+    [[[NSUserDefaults standardUserDefaults] arrayForKey:EVENT_MODELS] mutableCopy];
     if (!list)
         list = [NSMutableArray array];
     else{
@@ -24,20 +28,20 @@
         }
     }
     [list addObject:path];
-    [[NSUserDefaults standardUserDefaults] setObject:list forKey:@"eventModels"];
-    [[NSUserDefaults standardUserDefaults] setObject:path forKey:@"lastestEvent"];
+    [[NSUserDefaults standardUserDefaults] setObject:list forKey:EVENT_MODELS];
+    [[NSUserDefaults standardUserDefaults] setObject:path forKey:LASTEST_EVENT];
 
 }
 
 +(NSString *) lastestEventPath{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"lastestEvent"];
+    return [[NSUserDefaults standardUserDefaults] objectForKey:LASTEST_EVENT];
 }
 
 +(NSArray *) getEventModels
 {
     NSMutableArray *list = [NSMutableArray array];
     
-    NSArray * array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"eventModels"];
+    NSArray * array = [[NSUserDefaults standardUserDefaults] arrayForKey:EVENT_MODELS];
     
     if (nil == array) {
         return [NSArray array];

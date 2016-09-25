@@ -12,8 +12,9 @@
 #import "HttpHost.h"
 #import "SearchSessionItem.h"
 #import "AuthorizeManager.h"
+#import "AFHTTPSessionManager+NSBD.h"
 
-
+#define CURRENT_SESSION [NSString stringWithFormat:@"current_session_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation SearchSessionManager
 +(instancetype) sharedManager
 {
@@ -29,7 +30,7 @@
 {
     self = [super init];
     if (self) {
-        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"current session"];
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:CURRENT_SESSION];
         self.session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
     return self;
@@ -41,17 +42,22 @@
         _session = [SearchSessionItem new];
     else
         _session = [session copy];
-    if (_session && _session.sessionId && _session.sessionId.length>0) {
-        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:_session];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"current session"];
-    }
+    [self localizeSession];
 }
 
+-(void) localizeSession
+{
+    if (_session && _session.sessionId && _session.sessionId.length>0) {
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:_session];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:CURRENT_SESSION];
+    }
+}
 -(void) setNewSessionWithId:(NSString *)sessionId
 {
     _session = [SearchSessionItem new];
     _session.sessionId = sessionId;
     _session.sessionStartTime = [[NSDate date] timeIntervalSince1970];
+    [self localizeSession];
 }
 
 -(BOOL) hasSession
@@ -165,12 +171,9 @@
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"taskfacility" method:@"doInDto" req:info];
     
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:dict]
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
                      parameters:nil
-                       progress:nil
-                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
-                            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                            NSDictionary *dict = [NSDictionary dictWithJson:str];
+                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
                             // 请求成功
                             if (success) {
                                 dispatch_main_async_safe(^{

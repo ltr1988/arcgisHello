@@ -1,18 +1,15 @@
 //
-//  SearchHomePageModel.m
+//  SearchCategoryModel.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/8/15.
+//  Created by fifila on 16/9/25.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SearchHomePageModel.h"
-#import "SearchHomePageItem.h"
-#import "MJExtension.h"
+#import "SearchCategoryModel.h"
+#import "SearchCategoryItem.h"
 
-@implementation SearchHomePageModel
-
-
+@implementation SearchCategoryModel
 + (NSDictionary *)replacedKeyFromPropertyName
 
 {
@@ -23,8 +20,7 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[SearchHomePageItem class] forKey:@"datalist"];
+    [dict setObject:[SearchCategoryItem class] forKey:@"datalist"];
     return dict;
 }
-
 @end

@@ -272,7 +272,12 @@
                 [[SearchSessionManager sharedManager] setNewSessionWithId:sessionId];
                 SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
                 [self popSelfAndPush:vc];
+            }else if (item.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }
+
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             // 请求失败
