@@ -7,9 +7,8 @@
 //
 
 #import "HttpBaseModel.h"
-#import "LoginItem.h"
 
 @interface LoginModel : HttpBaseModel
 
-@property(nonatomic,strong) LoginItem *loginInfo;
+@property(nonatomic,strong) NSString *token;
 @end

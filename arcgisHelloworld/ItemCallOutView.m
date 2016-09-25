@@ -62,13 +62,13 @@
     _infoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _webSiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [_infoButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [_infoButton setImage:[UIImage imageNamed:@"icon_jbxx"] forState:UIControlStateNormal];
     _infoButton.backgroundColor = [UIColor clearColor];
     _infoButton.titleLabel.font = UI_FONT(14);
     [_infoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_infoButton setTitle:@"基本信息" forState:UIControlStateNormal];
     
-    [_webSiteButton setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [_webSiteButton setImage:[UIImage imageNamed:@"icon_swxx"] forState:UIControlStateNormal];
     [_webSiteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _webSiteButton.titleLabel.font = UI_FONT(14);
     _webSiteButton.backgroundColor = [UIColor clearColor];

@@ -9,6 +9,7 @@
 #ifndef CommonDefine_h
 #define CommonDefine_h
 
+#ifdef NoServer
 #define WMSURL @"http://%@:6080/arcgis/services/nsbd_gongcheng_test/MapServer/WMSServer"
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_test/MapServer/"
 #define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/test_BJDLG/MapServer"
@@ -17,7 +18,21 @@
 #define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
-#define HOSTIP @"192.168.1.106"
+#define HOSTIP @"192.168.0.121"
+
+#else
+
+#define WMSURL @"http://%@:6080/arcgis/services/20131125NSBDgongcheng/MapServer/WMSServer"
+#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/20131125NSBDgongcheng/MapServer/"
+#define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/20131123BJDLG/MapServer"
+#define WMS_FIND_URL @"http://%@:6080/arcgis/services/nsbdgcssall/MapServer/WMSServer"
+
+#define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbdgcssall/MapServer/0"
+#define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbdgcssall/MapServer/0"
+
+#define HOSTIP @"192.168.0.121"
+
+#endif
 
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\

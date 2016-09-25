@@ -32,15 +32,14 @@
         make.left.mas_equalTo(label.mas_right).with.offset(16);
     }];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldEditChanged)
+                                                name:@"UITextFieldTextDidChangeNotification"
+                                              object:nil];
 }
 
 
 -(void) setData:(id)data
 {
-    if (self.data != nil) {
-        [inputTextField removeObserver:self forKeyPath:@"text"];
-    }
     _data = data;
     [self bindData:data];
 }
@@ -51,15 +50,6 @@
     id<TitleTextInputCellViewModel> item = (id<TitleTextInputCellViewModel>)data;
     inputTextField.text = [item detail];
     inputTextField.placeholder = [item placeholder];
-    NSKeyValueObservingOptions static const
-    options =
-    NSKeyValueObservingOptionInitial |
-    NSKeyValueObservingOptionOld |
-    NSKeyValueObservingOptionNew;
-    
-    [inputTextField addObserver:self
-           forKeyPath:@"text"
-              options:options context:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -71,18 +61,16 @@
     return YES;
 }
 
--(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+-(void) textFieldEditChanged
 {
-    if ([keyPath isEqualToString:@"text"]) {
-        if (_data) {
-            [_data setValue:change[NSKeyValueChangeNewKey] forKey:@"_detail"];
-        }
+    if (_data) {
+        [_data setValue:inputTextField.text forKey:@"_detail"];
     }
 }
 
 -(void) dealloc
 {
-    [inputTextField removeObserver:self forKeyPath:@"text"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void) setReadOnly:(BOOL)readOnly

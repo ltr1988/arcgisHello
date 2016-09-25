@@ -17,8 +17,6 @@
                                  [super replacedKeyFromPropertyName]];
     
     [dict setObject:@"taskid" forKey:@"tid"];
-    [dict setObject:@"name" forKey:@"name"];
-    [dict setObject:@"type" forKey:@"type"];
     return dict;
 }
 

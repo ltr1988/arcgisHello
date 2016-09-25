@@ -7,8 +7,8 @@
 //
 
 #import "SupportRotationSelectBaseViewController.h"
-#import "NSBDBaseUIItem.h"
 
+@class NSBDBaseUIItem;
 @interface SearchDetailSheetViewController : SupportRotationSelectBaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item;

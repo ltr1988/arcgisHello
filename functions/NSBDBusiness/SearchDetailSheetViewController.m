@@ -13,27 +13,56 @@
 #import "SearchSheetCellFactory.h"
 #import "SearchSheetGroupItem.h"
 #import "SearchSheetInfoItem.h"
+#import "SearchSessionManager.h"
+#import "NSBDBaseUIItem.h"
+
 
 @interface SearchDetailSheetViewController()
 {
     BOOL readOnly;
+    
 }
 
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,readonly) NSDictionary *codeDictionary;
 @end
 
 @implementation SearchDetailSheetViewController
-
+@synthesize codeDictionary = _codeDictionary;
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item
 {
     
-    return [[SearchDetailSheetViewController alloc] initWithReadOnlySheet];
+    SearchDetailSheetViewController *vc =[[SearchDetailSheetViewController alloc] initWithReadOnlySheet];
+    vc.uiItem = item;
+    return vc;
 }
 
 +(instancetype) sheetEditableWithUIItem:(NSBDBaseUIItem *)item
 {
-    return [[SearchDetailSheetViewController alloc] init];
+    SearchDetailSheetViewController *vc =[[SearchDetailSheetViewController alloc] init];
+    vc.uiItem = item;
+    return vc;
+}
+
+-(NSDictionary *) codeDictionary
+{
+    if (!_codeDictionary) {
+        _codeDictionary = @{@"NGQPKJUP":@"南干渠排空井上段",
+                            @"NGQPKJDOWN":@"南干渠排空井下段",
+                            @"NGQPQJUP":@"南干渠排气阀井上段",
+                            @"NGQPQJDOWN":@"南干渠排气阀井下段",
+                            @"NGQGX":@"南干渠管线",
+                            @"DGQPQJ":@"东干渠排气阀井",
+                            @"DGQFSK":@"东干渠分水口",
+                            @"DGQPKJ":@"东干渠排空井",
+                            @"DGQGX":@"东干渠管线",
+                            @"DNPKJ":@"dnquerywell",
+                            @"DNPQJ":@"dnqueryair",
+                            @"DNGX":@"dnqueryline"};
+    }
+    return _codeDictionary;
+
 }
 
 -(instancetype) initWithReadOnlySheet
@@ -50,16 +79,22 @@
     [super viewDidLoad];
     [self setupSubviews];
     
-    if (readOnly) {
-        [self requestData];
-    }
-    
+    [self requestData];
 }
 
 -(void) requestData
 {
-    //mock
-    
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
+//    @weakify(self);
+//    [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:<#(NSString *)#> code:<#(NSString *)#> action:self.codeDictionary[self.uiItem.] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+//        @strongify(self);
+//    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+//        @strongify(self);
+//    }
 }
 
 -(void) setupSubviews

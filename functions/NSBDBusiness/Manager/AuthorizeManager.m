@@ -8,6 +8,8 @@
 
 #import "AuthorizeManager.h"
 #import "LoginModel.h"
+#import "NSDictionary+JSON.h"
+#import "NSString+MD5Addition.h"
 
 @implementation AuthorizeManager
 +(instancetype) sharedInstance
@@ -25,50 +27,72 @@
     self = [super init];
     if (self) {
         _userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"current user"];
+        _token = @"100";
     }
     return  self;
 }
 
+-(NSMutableDictionary *) loginParamWithUser:(NSString *)user password:(NSString *)psw
+{
+    
+    
+    NSDictionary *info = @{@"userName":user,
+                           @"userPwd":[[psw stringFromMD5] stringFromMD5],
+                           @"model":[UIDevice currentDevice].model,
+                           @"serialnumber":[UIDevice currentDevice].identifierForVendor.UUIDString,
+                           @"devicename":[UIDevice currentDevice].name};
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"login" method:@"doInDto" req:info];
+    return dict;
+}
+
 -(void) requestLoginWithUser:(NSString *)user password:(NSString *)psw callback:(InfoCallback) callback
 {
-    //to be deleted=======
+#ifdef NoServer
     if (callback) {
         callback(@{@"success":@(YES),
-                   @"department":@"daning"});
+                   @"token":@"daning"});
     }
     return;
-    //to be deleted=======
+#endif
     
+    @weakify(self)
     // 将请求参数放在请求的字典里
-    NSDictionary *param = [HttpHost loginParamWithUser:user password:psw];
+    NSDictionary *param = [self loginParamWithUser:user password:psw];
     // 创建请求类
   
-    AFHTTPSessionManager *manager = [HttpManager jsonManager];
-    [manager GET:[HttpHost hostURL]
-      parameters:param
+    AFHTTPSessionManager *manager = [HttpManager loginManager];
+    [manager POST:[HttpHost hostAURLWithParam:param]
+      parameters:nil
         progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
+            @strongify(self)
              // 请求成功
+             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+             NSDictionary *dict = [NSDictionary dictWithJson:str];
              LoginModel *item = [LoginModel objectWithKeyValues:dict];
              if (item.success)
              {
                  
-                 if (item.loginInfo) {
+                 if (item.token) {
+                     [AuthorizeManager sharedInstance].userName = user;
+                     [AuthorizeManager sharedInstance].token = item.token;
+                     
+                     
                      if (callback) {
-                         callback(@{@"success":@(item.success),
-                                    @"department":item.loginInfo.department});
+                         callback(@{@"success":@(item.success)});
                      }
                  }else
                  {
                      if (callback) {
-                         callback(@{@"success":@(item.success)});
+                         callback(@{@"success":@(NO)});
                      }
                  }
              }
              else
              {
                  if (callback) {
-                     callback(@{@"success":@(item.success)});
+                     callback(@{@"success":@(NO)});
                  }
              }
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

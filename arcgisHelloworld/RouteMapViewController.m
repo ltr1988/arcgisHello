@@ -11,6 +11,7 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "LocationManager.h"
+#import "AFNetworkReachabilityManager.h"
 
 @interface RouteMapViewController()<AGSMapViewTouchDelegate>
 {
@@ -127,7 +128,11 @@
     if (point)
     {
         CLLocation *location = [[CLLocation alloc]initWithLatitude:point.y longitude:point.x];
-        
+        if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+        {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:@{@"location":location}];
+            return;
+        }
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:location
                        completionHandler:^(NSArray *placemarks, NSError *error){

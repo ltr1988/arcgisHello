@@ -28,6 +28,8 @@
 #import "ToastView.h"
 #import "UIColor+ThemeColor.h"
 
+#import "NSString+UUID.h"
+
 #import "SearchTaskStatusModel.h"
 
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
@@ -234,7 +236,7 @@
 #pragma mark actions
 -(void) actionNewSession:(id) sender
 {
-    
+#ifdef NoServer
     //-----------------
     //to be deleted
     [[SearchSessionManager sharedManager] setNewSessionWithId:@"test"];
@@ -244,6 +246,7 @@
     return;
     //-----------------
     
+#endif
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
         
@@ -252,15 +255,21 @@
     }
     
     __weak UIButton *btn = (UIButton *)sender;
+    NSString *sessionId = [NSString stringWithUUID];
     if (_model.searcher.detail && _model.searcher.detail.length>0 &&
         _model.searchAdmin.detail && _model.searchAdmin.detail.length>0) {
         btn.enabled = NO;
-        [[SearchSessionManager sharedManager] requestNewSearchSessionWithSearchStartModel:_model successCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+        [SVProgressHUD showWithStatus:@"处理中..."];
+        
+        [[SearchSessionManager sharedManager] requestNewSearchSessionWithSearchStartModel:_model sessionID:sessionId  successCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
             
-            SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
             if (item.success)
             {
-                [[SearchSessionManager sharedManager] setNewSessionWithId:item.tid];
+                [[SearchSessionManager sharedManager] setNewSessionWithId:sessionId];
                 SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
                 [self popSelfAndPush:vc];
             }

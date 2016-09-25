@@ -18,7 +18,17 @@
 
 -(BOOL) hasSession;
 -(void) setNewSessionWithId:(NSString *)sessionId;
--(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model sessionID:(NSString *)sessionId successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 -(void) requestEndSearchSessionWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//查询
+//state :0暂停 1执行中 2完成 3审核完成 4审核失败
+-(void) requestChangeSearchSessionState:(NSInteger)state successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//taskconfig
+-(void) requestTaskConfigInSearchSessionSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//巡查query
+-(void) requestQueryListSearchSessionWithTaskId:(NSString *) taskid code:(NSString *) code action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

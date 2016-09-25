@@ -29,7 +29,7 @@
         [outputString appendFormat:@"%02x",outputBuffer[count]];
     }
     
-    return outputString;
+    return [outputString uppercaseString];
 }
 
 @end

@@ -57,22 +57,30 @@
 //        return;
 //    }
     
-    _loginBtn.enabled = NO;
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+    }
+    
+    _loginBtn.enabled = YES;
     
     AuthorizeManager *manager =[AuthorizeManager sharedInstance];
     
     NSString *psw = [_passwordField.text copy];
     
     _passwordField.text = @"";
+    [SVProgressHUD showWithStatus:@"登录中..."];
     [manager requestLoginWithUser:_userNameField.text password:psw callback:^(NSDictionary *dict) {
         BOOL success= [dict[@"success"] boolValue];
-        manager.userName = _userNameField.text;
+
         dispatch_main_async_safe(^{
+            if ([SVProgressHUD isVisible])
+            {
+                [SVProgressHUD dismiss];
+            }
             if (success) {
                 _loginBtn.enabled = YES;
-                manager.department = [dict[@"success"] integerValue];
-                
-                
+
                 MapViewController *controller = [MapViewController new];
                 [self.navigationController pushViewController:controller animated:YES];
             }else

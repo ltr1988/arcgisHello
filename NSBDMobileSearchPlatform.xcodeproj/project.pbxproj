@@ -49,6 +49,11 @@
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
+		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
+		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
+		A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC821D9666810016387C /* NSString+UUID.m */; };
+		A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */; };
+		A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -195,7 +200,6 @@
 		B2A187071D646984006D8CA7 /* TokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187061D646984006D8CA7 /* TokenManager.m */; };
 		B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */; };
 		B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */; };
-		B2A187161D65A49A006D8CA7 /* LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187151D65A49A006D8CA7 /* LoginItem.m */; };
 		B2A187191D66AEC7006D8CA7 /* QRModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */; };
 		B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1871C1D66AF4B006D8CA7 /* MJConst.m */; };
 		B2A1872D1D66AF4B006D8CA7 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1871F1D66AF4B006D8CA7 /* MJFoundation.m */; };
@@ -315,6 +319,17 @@
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
+		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
+		A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+HttpParam.m"; path = "functions/Util/NSDictionary+HttpParam.m"; sourceTree = "<group>"; };
+		A4CFBC7D1D9646D40016387C /* TRStrongWeak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TRStrongWeak.h; path = functions/Util/TRStrongWeak.h; sourceTree = "<group>"; };
+		A4CFBC7E1D964E630016387C /* UIView+ActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ActivityIndicator.h"; path = "functions/Util/UIView+ActivityIndicator.h"; sourceTree = "<group>"; };
+		A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ActivityIndicator.m"; path = "functions/Util/UIView+ActivityIndicator.m"; sourceTree = "<group>"; };
+		A4CFBC811D9666810016387C /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UUID.h"; path = "functions/Util/NSString+UUID.h"; sourceTree = "<group>"; };
+		A4CFBC821D9666810016387C /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "functions/Util/NSString+UUID.m"; sourceTree = "<group>"; };
+		A4CFBC841D96B6C00016387C /* SearchSecondaryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSecondaryListViewController.h; path = functions/NSBDBusiness/SearchSecondaryListViewController.h; sourceTree = "<group>"; };
+		A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSecondaryListViewController.m; path = functions/NSBDBusiness/SearchSecondaryListViewController.m; sourceTree = "<group>"; };
+		A4CFBC871D9749660016387C /* AFHTTPSessionManager+NSBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+NSBD.h"; path = "docs/AFHTTPSessionManager+NSBD.h"; sourceTree = "<group>"; };
+		A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "docs/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -577,8 +592,6 @@
 		B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Conversion.m"; path = "functions/Util/NSData+Conversion.m"; sourceTree = "<group>"; };
 		B2A187101D659B6E006D8CA7 /* AuthorizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeManager.h; sourceTree = "<group>"; };
 		B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
-		B2A187141D65A49A006D8CA7 /* LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginItem.h; path = functions/NSBDBusiness/Model/LoginItem.h; sourceTree = "<group>"; };
-		B2A187151D65A49A006D8CA7 /* LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginItem.m; path = functions/NSBDBusiness/Model/LoginItem.m; sourceTree = "<group>"; };
 		B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRModelsManager.m; path = functions/Util/QRModelsManager.m; sourceTree = "<group>"; };
 		B2A187181D66AEC7006D8CA7 /* QRModelsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRModelsManager.h; path = functions/Util/QRModelsManager.h; sourceTree = "<group>"; };
 		B2A1871B1D66AF4B006D8CA7 /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
@@ -682,6 +695,13 @@
 				B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */,
 				A4F2FC1E1D85384800B0532B /* UIView+ViewController.h */,
 				A4F2FC1F1D85384800B0532B /* UIView+ViewController.m */,
+				A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */,
+				A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */,
+				A4CFBC7D1D9646D40016387C /* TRStrongWeak.h */,
+				A4CFBC7E1D964E630016387C /* UIView+ActivityIndicator.h */,
+				A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */,
+				A4CFBC811D9666810016387C /* NSString+UUID.h */,
+				A4CFBC821D9666810016387C /* NSString+UUID.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1280,6 +1300,8 @@
 				B205A49D1D5DB874007530EB /* SearchStartViewController.m */,
 				B205A4A21D61A316007530EB /* SearchHomePageViewController.h */,
 				B205A4A31D61A316007530EB /* SearchHomePageViewController.m */,
+				A4CFBC841D96B6C00016387C /* SearchSecondaryListViewController.h */,
+				A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */,
 				B28069BC1D68081D0097F7E4 /* SearchDetailSheetViewController.h */,
 				B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */,
 			);
@@ -1380,6 +1402,8 @@
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
 				B2A186EA1D631763006D8CA7 /* HttpHost.h */,
 				B2A186EB1D631763006D8CA7 /* HttpHost.m */,
+				A4CFBC871D9749660016387C /* AFHTTPSessionManager+NSBD.h */,
+				A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */,
 			);
 			name = Http;
 			sourceTree = "<group>";
@@ -1407,8 +1431,6 @@
 		B2A187131D65A480006D8CA7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				B2A187141D65A49A006D8CA7 /* LoginItem.h */,
-				B2A187151D65A49A006D8CA7 /* LoginItem.m */,
 				B2A187341D6708D2006D8CA7 /* LoginModel.h */,
 				B2A187351D6708D2006D8CA7 /* LoginModel.m */,
 			);
@@ -1693,6 +1715,7 @@
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
+				A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */,
 				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
@@ -1706,6 +1729,7 @@
 				B28653D41D4863B2002D4139 /* UIImageView+AFNetworking.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				B205A52F1D61D378007530EB /* MJRefreshNormalHeader.m in Sources */,
+				A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */,
 				B205A52A1D61D378007530EB /* MJRefreshAutoStateFooter.m in Sources */,
 				B2B468FD1D6BF55D00AB84AF /* RouteSearchResultItem.m in Sources */,
 				B2A1872E1D66AF4B006D8CA7 /* MJProperty.m in Sources */,
@@ -1739,8 +1763,8 @@
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				A4F2FC1D1D851B6900B0532B /* ImageContentViewController.m in Sources */,
+				A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
-				B2A187161D65A49A006D8CA7 /* LoginItem.m in Sources */,
 				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
@@ -1766,9 +1790,11 @@
 				A4F2FC111D8458FB00B0532B /* MyUploadEventViewController.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				B205A4A41D61A316007530EB /* SearchHomePageViewController.m in Sources */,
+				A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
+				A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,

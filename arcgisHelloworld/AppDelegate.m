@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[TokenManager sharedManager] registerForRemoteNotifications];
+    //[[TokenManager sharedManager] registerForRemoteNotifications];
     [self setupArcgis];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [MapViewManager sharedMapView];

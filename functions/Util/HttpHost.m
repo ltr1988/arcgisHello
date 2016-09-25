@@ -7,9 +7,10 @@
 //
 
 #import "HttpHost.h"
-#import "TokenManager.h"
-#import "NSString+MD5Addition.h"
+#import "AuthorizeManager.h"
 #import "NSDictionary+JSON.h"
+#import "NSDictionary+HttpParam.h"
+
 
 @implementation HttpHost
 +(NSString *) hostURL
@@ -19,11 +20,18 @@
     return @"not set";
 }
 
-+(NSString *) hostLoginURL
++(NSString *) hostAURL
 {
-    return [HttpHost testURL];
-    NSAssert(NO, @"not enabled url");
-    return @"not set";
+//    return @"http://192.168.1.200:8080/nsbd/Service/dataSync.do";
+    return @"http://192.168.0.121:8080/nsbd/Service/dataSync.do";
+}
+
++(NSString *) hostAURLWithParam:(NSDictionary *)dict
+{
+    if (dict && dict.count>0) {
+        return [NSString stringWithFormat:@"%@%@",[self hostAURL],[dict httpParamString]];
+    }
+    return [self hostAURL];
 }
 
 +(NSString *) hostLogin3DURL
@@ -40,11 +48,15 @@
     return @"not set";
 }
 
-+(NSMutableDictionary *) param
++(NSMutableDictionary *) paramWithAction:(NSString *)action method:(NSString *)method req:(NSDictionary *) req
 {
     NSMutableDictionary *dict = [@{@"Version":@"1.0",
-                                   @"AppKey":[TokenManager sharedManager].deviceToken,
+                                   @"AppKey":[AuthorizeManager sharedInstance].token,
+                                   @"Action":action,
+                                   @"Method":method,
                                    } mutableCopy];
+    dict[@"Signature"] = [HttpHost SignatureWithInfo:dict];
+    dict[@"Req"] = [req.json stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     return dict;
 }
 
@@ -53,22 +65,7 @@
     return @"";
 }
 
-+(NSMutableDictionary *) loginParamWithUser:(NSString *)user password:(NSString *)psw
-{
-    NSMutableDictionary *dict = [HttpHost param];
-    dict[@"Action"] = @"Login";
-    dict[@"Method"] = @"login";
-    dict[@"Signature"] = [HttpHost SignatureWithInfo:dict];
-    
-    NSDictionary *info = @{@"userName":user,
-                           @"userPwd":[psw stringFromMD5],
-                           @"model":[UIDevice currentDevice].model,
-                           @"serialnumber":[UIDevice currentDevice].identifierForVendor,
-                           @"devicename":[UIDevice currentDevice].name};
-    
-    dict[@"Req"] = info.json;
-    return dict;
-}
+
 
 +(NSString *) weatherURL
 {

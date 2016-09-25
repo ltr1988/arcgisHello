@@ -18,4 +18,39 @@
     }
     return jsonStr;
 }
+
+//
+//-(NSString *) json
+//{
+//    NSMutableString *jsonStr = [NSMutableString stringWithString: @"{"];
+//    for (NSString *key in self.allKeys) {
+//        [jsonStr appendString:[NSString stringWithFormat:@"%@:\"%@\",",key, self[key]]];
+//    }
+//    if ([jsonStr characterAtIndex:jsonStr.length-1] == ',') {
+//        [jsonStr replaceCharactersInRange:NSMakeRange(jsonStr.length-1, 1) withString:@"}"];
+//    }
+//    return [jsonStr copy];
+//}
+
+
++(instancetype) dictWithJson:(NSString *) json
+{
+    if (json == nil) {
+        return nil;
+    }
+    NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData  options:NSJSONReadingMutableContainers error:&error];
+    return dict;
+}
+
++(instancetype) dictWithJsonData:(NSData *) json
+{
+    if (json == nil) {
+        return nil;
+    }
+    NSError *error;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:json  options:NSJSONReadingMutableContainers error:&error];
+    return dict;
+}
 @end

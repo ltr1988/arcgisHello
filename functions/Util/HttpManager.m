@@ -10,7 +10,13 @@
 
 @implementation HttpManager
 #pragma mark - 创建请求者
-+(AFHTTPSessionManager *)manager
+
++(AFHTTPSessionManager *)loginManager
+{
+    return [HttpManager managerWithType:HttpTaskType_Quick];
+}
+
++(AFHTTPSessionManager *)NSBDManager
 {
     return [HttpManager managerWithType:HttpTaskType_Foreground];
 }
@@ -25,6 +31,12 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 超时时间
     switch (type) {
+            
+        case HttpTaskType_Quick: {
+            
+            manager.requestSerializer.timeoutInterval = kLoginTimeout;
+            break;
+        }
         case HttpTaskType_Foreground: {
             
             manager.requestSerializer.timeoutInterval = kForegroundTimeout;
@@ -53,9 +65,7 @@
         }
     }
     
-    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
     manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
-    //    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
     
     // 声明获取到的数据格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];

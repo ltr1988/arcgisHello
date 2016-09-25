@@ -25,5 +25,5 @@ typedef NS_ENUM(NSInteger,NSBD_Department)
 -(void) requestLoginWithUser:(NSString *)user password:(NSString *)psw callback:(InfoCallback) callback;
 
 @property (nonatomic,strong) NSString *userName; //set method will save name into disk too
-@property (nonatomic,assign) NSBD_Department department;
+@property (nonatomic,strong) NSString *token;
 @end

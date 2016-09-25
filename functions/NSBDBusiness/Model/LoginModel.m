@@ -14,7 +14,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:
                                  [super replacedKeyFromPropertyName]];
     
-    [dict setObject:@"data" forKey:@"loginInfo"];
+    [dict setObject:@"data.token" forKey:@"token"];
     return dict;
 }
 @end

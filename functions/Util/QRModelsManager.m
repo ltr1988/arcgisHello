@@ -11,6 +11,7 @@
 #import "SearchHomePageModel.h"
 #import "SearchTaskStatusModel.h"
 #import "SearchCategoryItem.h"
+#import "LoginModel.h"
 
 @implementation QRModelsManager
 
@@ -41,6 +42,7 @@
       [SearchHomePageModel class],
       [SearchTaskStatusModel class],
       [SearchCategoryItem class],
+      [LoginModel class],
       ];
     
     

@@ -10,13 +10,14 @@
 #import "Masonry.h"
 #import "CommonDefine.h"
 #import "SearchHomePageModel.h"
-#import "SearchDetailSheetViewController.h"
 #import "SearchCategoryItem.h"
 #import "UIColor+ThemeColor.h"
 #import "NSBDBaseUIItem.h"
 #import "TimerView.h"
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
+#import "MJRefresh.h"
+#import "SearchSecondaryListViewController.h"
 
 @interface SearchHomePageViewController()
 {
@@ -62,11 +63,9 @@
 
 -(void) viewDidDisappear:(BOOL)animated
 {
-    
     if (!self.sessionItem.pauseState) {
         [_timerView pauseTiming];
     }
-    
 }
 
 -(void) setupMembers
@@ -78,15 +77,37 @@
 -(void) requestData
 {
     //mock
-   
+#ifdef NoServer
     id mock = @[
                 @{@"code":@"0",@"title":@"管线"},
                 @{@"code":@"1",@"title":@"东干渠分水口"},
                 @{@"code":@"2",@"title":@"东干渠排气阀井"}
                 ];
-     NSDictionary *dict =@{@"status":@"100",@"data":mock};
-    
+    NSDictionary *dict =@{@"status":@"100",@"data":mock};
     _model = [SearchHomePageModel objectWithKeyValues:dict];
+#endif
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
+    
+    [[SearchSessionManager sharedManager] requestChangeSearchSessionState:self.sessionItem.pauseState?0:1 successCallback:^(NSURLSessionDataTask *task, id dict) {
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+    
+    @weakify(self);
+    [[SearchSessionManager sharedManager] requestTaskConfigInSearchSessionSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        @strongify(self);
+        _model = [SearchHomePageModel objectWithKeyValues:dict];
+        if (_model.success) {
+            [self.tableView.mj_header endRefreshing];
+            [self.tableView reloadData];
+        }
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        @strongify(self);
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 -(void) setupSubviews
@@ -98,8 +119,9 @@
     _tableView.backgroundColor = [UIColor backGroundGrayColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     _tableView.tableFooterView = [self footerView];
+    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self.view addSubview:_tableView];
-    
+
     __weak UIView * weakView = self.view;
     
     CGFloat height = 40;
@@ -195,6 +217,17 @@
 
 -(void) actionEndSesson:(id) sender
 {
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
+    @weakify(self);
+    [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        @strongify(self);
+        [self.navigationController popViewControllerAnimated:YES];
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -203,7 +236,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+    if (!_model) {
+        return 0;
+    }
     return _model.datalist.count;
 }
 
@@ -246,8 +281,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (row < _model.datalist.count) {
         SearchCategoryItem *item = _model.datalist[row];
-        NSBDBaseUIItem *sheetItem = [item sheetItem];
-        SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:sheetItem];
+        SearchSecondaryListViewController *vc = [[SearchSecondaryListViewController alloc] initWithSearchCategoryItem:item];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

@@ -10,4 +10,6 @@
 
 @interface NSDictionary (JSON)
 -(NSString *) json;
++(instancetype) dictWithJson:(NSString *)json;
++(instancetype) dictWithJsonData:(NSData *) json;
 @end

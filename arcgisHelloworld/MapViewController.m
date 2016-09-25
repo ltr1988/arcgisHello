@@ -170,21 +170,6 @@
     return bottomView;
 }
 
--(void) addSymbol
-{
-    UIImageView *view = [self.mapView viewWithTag:999];
-    if (view) {
-        return;
-    }
-    
-    UIImage *image = [UIImage imageNamed:@"RedPushpin"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.tag = 999;
-    [imageView setCenter:self.mapView.center];
-    [self.view addSubview:imageView];
-}
-
-
 
 - (void)viewDidUnload {
     //Stop the GPS, undo the map rotation (if any)

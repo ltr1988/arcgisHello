@@ -16,7 +16,6 @@
 + (NSDictionary *)replacedKeyFromPropertyName
 
 {
-    
     return @{@"datalist" :@"data"};
     
 }

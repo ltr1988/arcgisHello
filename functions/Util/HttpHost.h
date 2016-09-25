@@ -9,7 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface HttpHost : NSObject
+
++(NSMutableDictionary *) paramWithAction:(NSString *)action method:(NSString *)method req:(NSDictionary *) req;
+
 +(NSString *) weatherURL;
 +(NSString *) hostURL;
-+(NSMutableDictionary *) loginParamWithUser:(NSString *)user password:(NSString *)psw;
+
+//host A
++(NSString *) hostAURL;
++(NSString *) hostAURLWithParam:(NSDictionary *)dict;
+
 @end

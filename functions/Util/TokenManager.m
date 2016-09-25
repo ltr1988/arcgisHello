@@ -16,7 +16,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [TokenManager new];
-        manager.deviceToken = @"notoken";
+        manager.deviceToken = @"100";
     });
     return manager;
 }

@@ -37,7 +37,7 @@
     // 将请求参数放在请求的字典里
     NSDictionary *param = @{@"ak":lbsyun_ak, @"output":@"json",@"location":@"北京"};
     // 创建请求类
-    AFHTTPSessionManager *manager = [HttpManager jsonManager];
+    AFHTTPSessionManager *manager = [HttpManager jsonManagerWithType:HttpTaskType_Quick];
     [manager GET:[HttpHost weatherURL]
       parameters:param
         progress:nil

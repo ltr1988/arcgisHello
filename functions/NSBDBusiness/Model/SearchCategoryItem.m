@@ -18,7 +18,7 @@
     {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         
-        [dict setObject:@"title" forKey:@"title"];
+        [dict setObject:@"name" forKey:@"title"];
         [dict setObject:@"code" forKey:@"code"];
         return dict;
     }
