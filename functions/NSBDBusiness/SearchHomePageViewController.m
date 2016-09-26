@@ -79,12 +79,15 @@
     //mock
 #ifdef NoServer
     id mock = @[
-                @{@"code":@"0",@"title":@"管线"},
-                @{@"code":@"1",@"title":@"东干渠分水口"},
-                @{@"code":@"2",@"title":@"东干渠排气阀井"}
+                @{@"code":@"DGQPQJ",@"name":@"东干渠排气阀井"},
+                @{@"code":@"DGQFSK",@"name":@"东干渠分水口"},
+                @{@"code":@"DGQPKJ",@"name":@"东干渠排空井"},
+                @{@"code":@"DGQGX",@"name":@"东干渠管线"},
                 ];
     NSDictionary *dict =@{@"status":@"100",@"data":mock};
     _model = [SearchHomePageModel objectWithKeyValues:dict];
+    [self.tableView reloadData];
+    [self.tableView.mj_header endRefreshing];
 #endif
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {

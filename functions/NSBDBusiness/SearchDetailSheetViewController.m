@@ -99,7 +99,6 @@
 
 -(void) setupSubviews
 {
-    self.title = @"巡查对象";
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -107,7 +106,7 @@
     
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    _tableView.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     if (!readOnly) {
         _tableView.tableFooterView = [self footerView];
@@ -170,7 +169,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30;
+    if (!self.uiItem || section >= [self.uiItem defaultUIStyleMapping].count) {
+        return 0;
+    }
+    NSDictionary *dict = [self.uiItem defaultUIStyleMapping][section];
+    NSString *title = dict[@"group"];
+    
+    if (title) {
+        return 30;
+    }
+    return 8;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

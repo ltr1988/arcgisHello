@@ -11,6 +11,11 @@
 @implementation DGQAirItem
 
 
+-(NSDictionary *)requestInfo
+{
+    return @{};
+}
+
 -(NSArray *)defaultUIStyleMapping
 {
     return @[@{
@@ -46,8 +51,6 @@
 {
     self = [super init];
     if (self) {
-        
-        
         
         self.taskid = @"";
         self.wellnum = @"";

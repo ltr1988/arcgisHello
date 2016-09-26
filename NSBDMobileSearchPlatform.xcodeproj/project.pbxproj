@@ -950,6 +950,34 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		A4CFBC901D9974A50016387C /* DaNing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DaNing;
+			sourceTree = "<group>";
+		};
+		A4CFBC911D9974BA0016387C /* DongGanQu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DongGanQu;
+			sourceTree = "<group>";
+		};
+		A4CFBC921D9974C60016387C /* TuanChengHu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TuanChengHu;
+			sourceTree = "<group>";
+		};
+		A4CFBC931D9975190016387C /* NanGanQu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NanGanQu;
+			sourceTree = "<group>";
+		};
 		A4DD867A1D0976B00096B548 = {
 			isa = PBXGroup;
 			children = (
@@ -1300,6 +1328,10 @@
 		B2A186E01D62DB16006D8CA7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				A4CFBC931D9975190016387C /* NanGanQu */,
+				A4CFBC921D9974C60016387C /* TuanChengHu */,
+				A4CFBC911D9974BA0016387C /* DongGanQu */,
+				A4CFBC901D9974A50016387C /* DaNing */,
 				B205A48E1D5C51FC007530EB /* SearchChoiceController.h */,
 				B205A48F1D5C51FC007530EB /* SearchChoiceController.m */,
 				B205A49C1D5DB874007530EB /* SearchStartViewController.h */,

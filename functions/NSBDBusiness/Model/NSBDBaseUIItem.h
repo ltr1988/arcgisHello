@@ -15,13 +15,17 @@ typedef NS_ENUM(NSUInteger, SheetUIStyle)
     SheetUIStyle_ShortText, //TitleDetailCell
     SheetUIStyle_Text,     //vc
     SheetUIStyle_Switch, // CheckableTitleCell    SheetUIStyle_ImageAndVideo, //EventMediaPickerView
-
 };
 
 
 @interface NSBDBaseUIItem : NSObject
-@property (strong,nonatomic) NSArray *infolist;
+@property (strong,nonatomic) NSString *itemId;//uuid for request
+@property (strong,nonatomic) NSString *taskid;
+
+@property (strong,nonatomic) NSArray *infolist; //list of SearchSheetGroupItem 
 -(NSArray *)defaultUIStyleMapping; //UI布局
 -(NSDictionary *)defaultUITextMapping; //UI布局
+
+-(NSDictionary *)requestInfo; //协议输出
 +(instancetype) defaultItem;
 @end

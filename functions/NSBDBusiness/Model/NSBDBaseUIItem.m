@@ -9,7 +9,17 @@
 #import "NSBDBaseUIItem.h"
 #import "SearchSheetGroupItem.h"
 #import "SearchSheetInfoItem.h"
+#import "SearchSessionManager.h"
+#import "SearchSessionItem.h"
+#import "NSString+UUID.h"
+
 @implementation NSBDBaseUIItem
+
+
+-(NSDictionary *)requestInfo
+{
+    return nil;
+}
 
 -(NSArray *)defaultUIStyleMapping
 {
@@ -44,8 +54,9 @@
             }
             [array addObject:group];
         }
-        self.infolist = [array copy];
-        
+        _infolist = [array copy];
+        _itemId = [NSString stringWithUUID];
+        _taskid = [SearchSessionManager sharedManager].session.sessionId;
     }
     return self;
 }

@@ -10,7 +10,7 @@
 #import "SearchSheetInfoItem.h"
 
 @interface SearchSheetGroupItem : NSObject
-@property (nonatomic,strong) NSArray *items;
+@property (nonatomic,strong) NSArray *items; //list of SearchSheetInfoItem
 @property (nonatomic,copy) NSString *groupName;
 
 

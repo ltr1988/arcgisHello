@@ -26,4 +26,5 @@
 @end
 
 @interface SearchCategoryItem (TitleOnlyCellViewModel)<TitleOnlyCellViewModel>
+-(NSString *) title;
 @end

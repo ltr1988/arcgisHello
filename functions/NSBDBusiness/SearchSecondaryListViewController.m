@@ -22,6 +22,8 @@
 #import "SearchCategoryModel.h"
 #import "SearchCategoryItem.h"
 
+#import "SearchDetailSheetViewController.h"
+
 
 @interface SearchSecondaryListViewController()
 @property (nonatomic,strong) SearchCategoryModel *model;
@@ -98,6 +100,24 @@
 
 -(void) requestData
 {
+#ifdef NoServer
+    //mock
+    id mock = @[
+                @{@"facilityCode":@"f1"},
+                @{@"facilityCode":@"f2"},
+                @{@"facilityCode":@"f3"}
+                ];
+    NSDictionary *dict =@{@"status":@"100",@"data":mock};
+
+    self.model = [SearchCategoryModel objectWithKeyValues:dict];
+    if (self.model.success) {
+        self.model.uiItem = [_item sheetItem];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    }
+    return;
+#endif
+    
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
         [ToastView popToast:@"暂无网络，稍后再试"];
@@ -137,13 +157,15 @@
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 0)];
+    
     _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 50, 30) smallStyle:YES];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -170,16 +192,18 @@
         }
         
         cell.data = item;
+        return cell;
     }
-
-    
-    
     return [UITableViewCell new];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.uiItem];
+    
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
