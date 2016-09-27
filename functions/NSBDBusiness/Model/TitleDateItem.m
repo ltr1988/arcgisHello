@@ -42,5 +42,10 @@
     
     return self;
 }
+
+-(NSString *)value
+{
+    return [self detail];
+}
 @end
 

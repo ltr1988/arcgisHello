@@ -15,4 +15,5 @@
 +(instancetype) sheetEditableWithUIItem:(NSBDBaseUIItem *)item;
 
 @property (nonatomic,strong) NSString *code;
+@property (nonatomic,strong) NSString *fcode;
 @end

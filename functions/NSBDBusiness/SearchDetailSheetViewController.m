@@ -17,6 +17,8 @@
 #import "SearchSessionItem.h"
 #import "NSBDBaseUIItem.h"
 #import "TimerView.h"
+#import "SearchSheetItemManager.h"
+#import "TextPickerViewController.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -27,13 +29,11 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) TimerView *timerView;
 
-@property (nonatomic,readonly) NSDictionary *codeCommitDictionary;
 
 @property (nonatomic,strong) NSBDBaseUIItem *uiItem;//model
 @end
 
 @implementation SearchDetailSheetViewController
-@synthesize codeCommitDictionary = _codeCommitDictionary;
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item
 {
@@ -50,28 +50,6 @@
     return vc;
 }
 
--(NSDictionary *) codeCommitDictionary
-{
-    if (!_codeCommitDictionary) {
-        _codeCommitDictionary = @{@"NGQPKJUP":@"南干渠排空井上段",
-                            @"NGQPKJDOWN":@"南干渠排空井下段",
-                            @"NGQPQJUP":@"南干渠排气阀井上段",
-                            @"NGQPQJDOWN":@"南干渠排气阀井下段",
-                            @"NGQGX":@"南干渠管线",
-                            @"DGQPQJ":@"东干渠排气阀井",
-                            @"DGQFSK":@"东干渠分水口",
-                            @"DGQPKJ":@"dgqqueryair",
-                            @"DGQGX":@"东干渠管线",
-                            @"DNPKJ":@"dnquerywell",
-                            @"DNPQJ":@"dnqueryair",
-                            @"DNGX":@"dnqueryline"};
-    }
-    return _codeCommitDictionary;
-
-}
-
-
-
 -(instancetype) initWithReadOnlySheet
 {
     self = [super init];
@@ -85,23 +63,19 @@
 {
     [super viewDidLoad];
     [self setupSubviews];
-    
     [self requestData];
 }
 
 -(void) requestData
 {
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
+    if (readOnly) {
+        NSBDBaseUIItem *uiItem =
+        [SearchSheetItemManager getSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
+        if (uiItem) {
+            self.uiItem = uiItem;
+        }
+        [_tableView reloadData];
     }
-//    @weakify(self);
-//    [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:<#(NSString *)#> code:<#(NSString *)#> action:self.codeDictionary[self.uiItem.] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-//        @strongify(self);
-//    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-//        @strongify(self);
-//    }
 }
 
 -(void) setupSubviews
@@ -165,16 +139,14 @@
     return footer;
 }
 
-
-
 -(void) actionCommit:(id) sender
 {
-    
+    [SearchSheetItemManager removeSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
 }
 
 -(void) actionSave:(id) sender
 {
-    
+    [SearchSheetItemManager addSearchSheetItem:self.uiItem withCode:self.code fcode:self.fcode];
 }
 
 
@@ -266,6 +238,10 @@
             
             SearchSheetInfoItem *item = group.items[row];
             //do something~
+            if (item.uiStyle == SheetUIStyle_Text) {
+                TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:item.data readOnly:readOnly];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
     }
 }

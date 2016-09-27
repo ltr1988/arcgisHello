@@ -56,6 +56,7 @@
 		A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */; };
 		A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */; };
 		A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */; };
+		A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -337,6 +338,8 @@
 		A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryModel.m; path = functions/NSBDBusiness/Model/SearchCategoryModel.m; sourceTree = "<group>"; };
 		A4CFBC8D1D978E5D0016387C /* SearchCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryItem.h; path = functions/NSBDBusiness/Model/SearchCategoryItem.h; sourceTree = "<group>"; };
 		A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryItem.m; path = functions/NSBDBusiness/Model/SearchCategoryItem.m; sourceTree = "<group>"; };
+		A4CFBC941D9AB8F50016387C /* SearchSheetItemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSheetItemManager.h; sourceTree = "<group>"; };
+		A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSheetItemManager.m; sourceTree = "<group>"; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1468,6 +1471,8 @@
 				B2806A001D6830020097F7E4 /* SearchSheetCellFactory.m */,
 				A4F2FC211D853EEE00B0532B /* EventModelPathManager.h */,
 				A4F2FC221D853EEE00B0532B /* EventModelPathManager.m */,
+				A4CFBC941D9AB8F50016387C /* SearchSheetItemManager.h */,
+				A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -1756,6 +1761,7 @@
 				A4F2FC261D855D2300B0532B /* UITableView+EmptyView.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
 				B205A4991D5D7ABC007530EB /* QRCodeReaderViewController.m in Sources */,
+				A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
 				B2F1D89E1D8E2C9000A6EDCA /* ThreeColumnItem.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,

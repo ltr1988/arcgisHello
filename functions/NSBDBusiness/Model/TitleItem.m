@@ -30,4 +30,9 @@
     
     return self;
 }
+
+-(NSString *)value
+{
+    return _title;
+}
 @end

@@ -37,4 +37,20 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.groupName forKey:@"groupName"];
+    [aCoder encodeObject:self.items forKey:@"items"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.groupName = [aDecoder decodeObjectForKey:@"groupName"];
+        self.items = [aDecoder decodeObjectForKey:@"items"];
+    }
+    
+    return self;
+}
 @end

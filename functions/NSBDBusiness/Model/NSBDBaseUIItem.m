@@ -31,6 +31,10 @@
     return nil;
 }
 
+-(NSString *) actionKey
+{
+    return nil;
+}
 
 +(instancetype) defaultItem
 {
@@ -65,6 +69,7 @@
 {
     [aCoder encodeObject:self.itemId forKey:@"itemId"];
     [aCoder encodeObject:self.taskid forKey:@"taskid"];
+    [aCoder encodeObject:self.infolist forKey:@"infolist"];
     
 }
 
@@ -73,6 +78,7 @@
     if (self) {
         self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
         self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
+        self.infolist = [aDecoder decodeObjectForKey:@"infolist"];
     }
     
     return self;

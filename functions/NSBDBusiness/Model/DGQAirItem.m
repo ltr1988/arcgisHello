@@ -7,13 +7,28 @@
 //
 
 #import "DGQAirItem.h"
+#import "SearchSheetGroupItem.h"
+#import "SearchSheetInfoItem.h"
 
 @implementation DGQAirItem
 
 
 -(NSDictionary *)requestInfo
 {
-    return @{};
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    for (SearchSheetGroupItem *group in self.infolist) {
+        for (SearchSheetInfoItem *item in group.items) {
+            info[item.key] = [item.data value];
+        }
+    }
+    info[@"taskid"] = self.taskid;
+    info[@"id"] = self.itemId;
+    
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
+    
+    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    info[@"exedate"] = [formater stringFromDate:[NSDate date]];
+    return info;
 }
 
 -(NSArray *)defaultUIStyleMapping
@@ -53,26 +68,16 @@
 {
     self = [super init];
     if (self) {
-        
-        self.taskid = @"";
         self.wellnum = @"";
         self.wellname = @"";
-        self.over_ground = NO;
-        self.over_crawl = NO;
-        self.over_blowhole = NO;
-        self.over_welllid = NO;
-        self.over_health = NO;
-        self.under_ladder = NO;
-        self.under_guardrail = NO;
-        self.under_wall = NO;
-        self.unde_health = NO;
-        self.unde_airgate = NO;
-        self.unde_sluicegate = NO;
-        self.unde_ballgate = NO;
-        self.under_bottom = NO;
-        self.remark = @"";
+        self.exedate = @"";
     }
     return self;
+}
+
+-(NSString *) actionKey
+{
+    return @"dgqair";
 }
 
 -(NSDictionary *)defaultUITextMapping
@@ -96,5 +101,26 @@
              @"remark":@"备注",
              };
     
+}
+
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeObject:self.wellnum forKey:@"wellnum"];
+    [aCoder encodeObject:self.wellname forKey:@"wellname"];
+    [aCoder encodeObject:self.exedate forKey:@"exedate"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.exedate = [aDecoder decodeObjectForKey:@"exedate"];
+        self.wellname = [aDecoder decodeObjectForKey:@"wellname"];
+        self.wellnum = [aDecoder decodeObjectForKey:@"wellnum"];
+    }
+    
+    return self;
 }
 @end

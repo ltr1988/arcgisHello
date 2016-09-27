@@ -12,4 +12,5 @@
 @interface TitleItem : NSObject<TitleOnlyCellViewModel,NSCoding>
 @property (nonatomic,strong) NSString *title;
 +(instancetype) itemWithTitle:(NSString *)title;
+-(NSString *) value;
 @end

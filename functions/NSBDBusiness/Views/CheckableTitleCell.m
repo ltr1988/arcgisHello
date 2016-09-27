@@ -18,6 +18,7 @@
     __weak UIView *weakView = self.contentView;
     
     switchView = [[UISwitch alloc] init];
+    [switchView addTarget:self action:@selector(actionSwitch:) forControlEvents:UIControlEventValueChanged];
     [weakView addSubview:switchView];
     
     [switchView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -27,11 +28,16 @@
     
 }
 
+-(void) actionSwitch:(id)sender
+{
+    if ([_data respondsToSelector:@selector(setChecked:)]) {
+        [_data setChecked:[switchView isOn]];
+    }
+    
+}
+
 -(void) setData:(id)data
 {
-    if (self.data != nil) {
-        [switchView removeObserver:self forKeyPath:@"on"];
-    }
     _data = data;
     [self bindData:data];
 }
@@ -42,29 +48,6 @@
     id<CheckableTitleCellViewModel> item = (id<CheckableTitleCellViewModel>)data;
     
     switchView.on = [item checked];
-    NSKeyValueObservingOptions static const
-    options =
-    NSKeyValueObservingOptionInitial |
-    NSKeyValueObservingOptionOld |
-    NSKeyValueObservingOptionNew;
-    
-    [switchView addObserver:self
-                     forKeyPath:@"on"
-                        options:options context:nil];
-}
-
--(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:@"on"]) {
-        if (_data) {
-            [_data setValue:change[NSKeyValueChangeNewKey] forKey:@"_checked"];
-        }
-    }
-}
-
--(void) dealloc
-{
-    [switchView removeObserver:self forKeyPath:@"on"];
 }
 
 -(void) setReadOnly:(BOOL)readOnly

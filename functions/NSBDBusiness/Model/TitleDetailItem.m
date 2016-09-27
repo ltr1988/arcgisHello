@@ -35,7 +35,10 @@
     return self;
 }
 
-
+-(NSString *)value
+{
+    return _detail;
+}
 
 @end
 

@@ -19,6 +19,7 @@
     if (self) {
         _uiStyle = style;
         _key = [key copy];
+        _data = [self dataWithStyle:style];
     }
     return self;
 }
@@ -73,7 +74,7 @@
             break;
         }
         case SheetUIStyle_Text: {
-            return [TitleDetailItem itemWithTitle:@"" detail:@""];
+            return [TitleDetailTextItem itemWithTitle:@"" detail:@""];
             break;
         }
         case SheetUIStyle_Switch: {

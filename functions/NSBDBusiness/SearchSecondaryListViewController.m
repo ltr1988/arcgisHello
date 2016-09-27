@@ -221,9 +221,11 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SearchCategoryItem *item = _model.datalist[indexPath.row];
     
     SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.uiItem];
     vc.code = _item.code;
+    vc.fcode = item.facilityCode;
     [self.navigationController pushViewController:vc animated:YES];
 
 }

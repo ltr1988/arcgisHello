@@ -16,4 +16,9 @@
     item.checked = checked;
     return item;
 }
+
+-(NSString *)value
+{
+    return _checked?@"1":@"0";
+}
 @end

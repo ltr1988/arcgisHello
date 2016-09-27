@@ -39,4 +39,10 @@
     
     return self;
 }
+
+
+-(NSString *)value
+{
+    return _text;
+}
 @end

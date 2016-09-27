@@ -12,6 +12,7 @@
 @protocol CheckableTitleCellViewModel <TitleOnlyCellViewModel>
 
 -(BOOL) checked;
+-(void) setChecked:(BOOL)isOn;
 @end
 
 

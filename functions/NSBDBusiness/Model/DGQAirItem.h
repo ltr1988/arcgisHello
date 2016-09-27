@@ -12,22 +12,6 @@
 
 @property (strong,nonatomic) NSString *wellnum;
 @property (strong,nonatomic) NSString *wellname;
-@property (assign,nonatomic) BOOL over_ground;
-@property (assign,nonatomic) BOOL over_crawl;
-@property (assign,nonatomic) BOOL over_blowhole;
-@property (assign,nonatomic) BOOL over_welllid;
-@property (assign,nonatomic) BOOL over_health;
-@property (assign,nonatomic) BOOL under_ladder;
-@property (assign,nonatomic) BOOL under_guardrail;
-@property (assign,nonatomic) BOOL under_wall;
-@property (assign,nonatomic) BOOL unde_health;
-@property (assign,nonatomic) BOOL unde_airgate;
-@property (assign,nonatomic) BOOL unde_sluicegate;
-
-
-@property (assign,nonatomic) BOOL unde_ballgate;
-@property (assign,nonatomic) BOOL under_bottom;
-@property (strong,nonatomic) NSString *remark;
 @property (strong,nonatomic) NSString *exedate;
 
 
