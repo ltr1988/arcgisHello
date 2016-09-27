@@ -106,7 +106,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "496594166.934218"
+                  timestampString = "496625046.030775"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "419"
@@ -121,7 +121,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "496594166.934357"
+                  timestampString = "496625046.030968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "419"
@@ -336,6 +336,22 @@
             startingLineNumber = "203"
             endingLineNumber = "203"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/Util/WeatherManager.m"
+            timestampString = "496624915.613829"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-requestData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

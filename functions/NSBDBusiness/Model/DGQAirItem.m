@@ -69,7 +69,6 @@
         self.unde_ballgate = NO;
         self.under_bottom = NO;
         self.remark = @"";
-        self.stage = 0;
     }
     return self;
 }

@@ -133,6 +133,16 @@
 
 - (void)actionEndSession:(id) sender
 {
+#ifdef NoServer
+    if (_delegate)
+    {
+        [[SearchSessionManager sharedManager] setSession:nil];
+        
+        [_delegate endSession];
+    }
+    return;
+#endif
+    
     if (_delegate) {
         __weak UIButton *btn = sender;
         btn.enabled = NO;
