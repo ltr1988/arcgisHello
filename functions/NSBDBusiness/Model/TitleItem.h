@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseTitleCell.h"
 
-@interface TitleItem : NSObject<TitleOnlyCellViewModel>
+@interface TitleItem : NSObject<TitleOnlyCellViewModel,NSCoding>
 @property (nonatomic,strong) NSString *title;
 +(instancetype) itemWithTitle:(NSString *)title;
 @end

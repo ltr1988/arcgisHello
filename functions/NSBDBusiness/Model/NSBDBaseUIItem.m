@@ -60,4 +60,21 @@
     }
     return self;
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.itemId forKey:@"itemId"];
+    [aCoder encodeObject:self.taskid forKey:@"taskid"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
+        self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
+    }
+    
+    return self;
+}
 @end

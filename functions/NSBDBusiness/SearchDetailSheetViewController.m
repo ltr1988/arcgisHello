@@ -14,8 +14,9 @@
 #import "SearchSheetGroupItem.h"
 #import "SearchSheetInfoItem.h"
 #import "SearchSessionManager.h"
+#import "SearchSessionItem.h"
 #import "NSBDBaseUIItem.h"
-
+#import "TimerView.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -24,11 +25,15 @@
 }
 
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,readonly) NSDictionary *codeDictionary;
+@property (nonatomic,strong) TimerView *timerView;
+
+@property (nonatomic,readonly) NSDictionary *codeCommitDictionary;
+
+@property (nonatomic,strong) NSBDBaseUIItem *uiItem;//model
 @end
 
 @implementation SearchDetailSheetViewController
-@synthesize codeDictionary = _codeDictionary;
+@synthesize codeCommitDictionary = _codeCommitDictionary;
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item
 {
@@ -45,25 +50,27 @@
     return vc;
 }
 
--(NSDictionary *) codeDictionary
+-(NSDictionary *) codeCommitDictionary
 {
-    if (!_codeDictionary) {
-        _codeDictionary = @{@"NGQPKJUP":@"南干渠排空井上段",
+    if (!_codeCommitDictionary) {
+        _codeCommitDictionary = @{@"NGQPKJUP":@"南干渠排空井上段",
                             @"NGQPKJDOWN":@"南干渠排空井下段",
                             @"NGQPQJUP":@"南干渠排气阀井上段",
                             @"NGQPQJDOWN":@"南干渠排气阀井下段",
                             @"NGQGX":@"南干渠管线",
                             @"DGQPQJ":@"东干渠排气阀井",
                             @"DGQFSK":@"东干渠分水口",
-                            @"DGQPKJ":@"东干渠排空井",
+                            @"DGQPKJ":@"dgqqueryair",
                             @"DGQGX":@"东干渠管线",
                             @"DNPKJ":@"dnquerywell",
                             @"DNPQJ":@"dnqueryair",
                             @"DNGX":@"dnqueryline"};
     }
-    return _codeDictionary;
+    return _codeCommitDictionary;
 
 }
+
+
 
 -(instancetype) initWithReadOnlySheet
 {
@@ -111,42 +118,44 @@
     if (!readOnly) {
         _tableView.tableFooterView = [self footerView];
     }
+    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
 }
 
 -(UIView*) footerView
 {
     UIView *footer = [UIView new];
     footer.frame = CGRectMake(0, 0, kScreenWidth, 16*3+40*2);
-    UIButton *btnPause = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *btnEndSession = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnCommit = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *btnSaveLocal = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    btnPause.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
-    [btnPause setTitle:@"暂停" forState:UIControlStateNormal];
-    [btnPause setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnPause.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    btnCommit.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
+    [btnCommit setTitle:@"提交" forState:UIControlStateNormal];
+    [btnCommit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnCommit.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    btnEndSession.backgroundColor = [UIColor blueColor];
-    [btnEndSession setTitle:@"结束" forState:UIControlStateNormal];
-    [btnEndSession setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnEndSession.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    btnSaveLocal.backgroundColor = [UIColor blueColor];
+    [btnSaveLocal setTitle:@"保存本地" forState:UIControlStateNormal];
+    [btnSaveLocal setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnSaveLocal.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
-    [btnPause addTarget:self action:@selector(actionPause:) forControlEvents:UIControlEventTouchUpInside];
-    [btnEndSession addTarget:self action:@selector(actionEndSesson:) forControlEvents:UIControlEventTouchUpInside];
+    [btnCommit addTarget:self action:@selector(actionCommit:) forControlEvents:UIControlEventTouchUpInside];
+    [btnSaveLocal addTarget:self action:@selector(actionSave:) forControlEvents:UIControlEventTouchUpInside];
     
-    [footer addSubview:btnPause];
-    [footer addSubview:btnEndSession];
+    [footer addSubview:btnCommit];
+    [footer addSubview:btnSaveLocal];
     
     CGFloat margin = 50;
     __weak UIView* weakView = footer;
-    [btnPause mas_makeConstraints:^(MASConstraintMaker *make) {
+    [btnCommit mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top).offset(16);
         make.height.mas_equalTo(40);
         make.left.mas_equalTo(weakView.mas_left).offset(margin);
         make.right.mas_equalTo(weakView.mas_right).offset(0-margin);
     }];
     
-    [btnEndSession mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(btnPause.mas_bottom).offset(16);
+    [btnSaveLocal mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(btnCommit.mas_bottom).offset(16);
         make.height.mas_equalTo(40);
         
         make.left.mas_equalTo(weakView.mas_left).offset(margin);
@@ -158,14 +167,17 @@
 
 
 
--(void) actionPause:(id) sender
+-(void) actionCommit:(id) sender
 {
     
 }
 
--(void) actionEndSesson:(id) sender
+-(void) actionSave:(id) sender
 {
+    
 }
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -192,7 +204,7 @@
     
     QRSeparatorView *view = [[QRSeparatorView alloc] init];
     if (title) {
-        UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+        UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(8, 0, kScreenWidth-16, 30)];
         label.text = title;
         label.font = [UIFont systemFontOfSize:14];
         label.textColor = [UIColor blackColor];
@@ -203,16 +215,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (!self.uiItem || section >= [self.uiItem defaultUIStyleMapping].count) {
+    
+    if (section >= self.uiItem.infolist.count)
+    {
         return 0;
     }
-
-    NSDictionary *dict = [self.uiItem defaultUIStyleMapping][section];
-    return dict.count;
+    
+    SearchSheetGroupItem *group = self.uiItem.infolist[section];
+    return group.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -232,6 +246,7 @@
             }
             
             cell.data = item.data;
+            return cell;
         }
     }
     

@@ -15,4 +15,19 @@
     item.title = title;
     return item;
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"_title"];
+    
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.title = [aDecoder decodeObjectForKey:@"_title"];
+    }
+    
+    return self;
+}
 @end

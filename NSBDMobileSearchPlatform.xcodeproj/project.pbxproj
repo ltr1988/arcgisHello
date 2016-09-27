@@ -212,6 +212,7 @@
 		B2A187321D66AF4B006D8CA7 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187291D66AF4B006D8CA7 /* NSObject+MJProperty.m */; };
 		B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1872B1D66AF4B006D8CA7 /* NSString+MJExtension.m */; };
 		B2A187361D6708D2006D8CA7 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187351D6708D2006D8CA7 /* LoginModel.m */; };
+		B2B307651D9A9702003B821A /* todolist.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B2B307641D9A9702003B821A /* todolist.rtf */; };
 		B2B468EA1D6AA0E800AB84AF /* RouteSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */; };
 		B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */; };
 		B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468F11D6AF79900AB84AF /* MapKit.framework */; };
@@ -619,6 +620,7 @@
 		B2A1872B1D66AF4B006D8CA7 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		B2A187341D6708D2006D8CA7 /* LoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginModel.h; path = functions/NSBDBusiness/Model/LoginModel.h; sourceTree = "<group>"; };
 		B2A187351D6708D2006D8CA7 /* LoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginModel.m; path = functions/NSBDBusiness/Model/LoginModel.m; sourceTree = "<group>"; };
+		B2B307641D9A9702003B821A /* todolist.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = todolist.rtf; sourceTree = "<group>"; };
 		B2B468E81D6AA0E800AB84AF /* RouteSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSearchViewController.h; sourceTree = "<group>"; };
 		B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSearchViewController.m; sourceTree = "<group>"; };
 		B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -1028,6 +1030,7 @@
 				A4958F9C1D0EEC29001FCE6F /* images */,
 				A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */,
 				A4DD86871D0976B00096B548 /* main.m */,
+				B2B307641D9A9702003B821A /* todolist.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1634,6 +1637,7 @@
 			files = (
 				B28069F41D682AC90097F7E4 /* icon_search.png in Resources */,
 				A4E68BC71D693E4800DD603B /* icon_location@2x.png in Resources */,
+				B2B307651D9A9702003B821A /* todolist.rtf in Resources */,
 				A414ACAD1D3A1D6C0065AAA7 /* Overlay.png in Resources */,
 				A4E68C1E1D693F6300DD603B /* icon_searchreport@3x.png in Resources */,
 				B28069EF1D682AC90097F7E4 /* icon_jbxx.png in Resources */,

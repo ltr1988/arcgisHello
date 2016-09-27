@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, SheetUIStyle)
 };
 
 
-@interface NSBDBaseUIItem : NSObject
+@interface NSBDBaseUIItem : NSObject<NSCoding>
 @property (strong,nonatomic) NSString *itemId;//uuid for request
 @property (strong,nonatomic) NSString *taskid;
 

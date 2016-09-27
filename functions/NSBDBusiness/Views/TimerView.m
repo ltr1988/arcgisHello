@@ -59,7 +59,6 @@
     if (_smallStyle) {
         self.backgroundColor = [UIColor clearColor];
         _timeLabel.font =UI_FONT(14);
-        _timeLabel.textColor = [UIColor orangeColor];
     }
     
 }

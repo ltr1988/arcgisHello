@@ -17,7 +17,8 @@
 {
     self = [super init];
     if (self) {
-        self.uiStyle = style;
+        _uiStyle = style;
+        _key = [key copy];
     }
     return self;
 }
@@ -83,5 +84,21 @@
     return [TitleItem itemWithTitle:@""];
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.data forKey:@"TitleItem"];
+    [aCoder encodeObject:self.key forKey:@"key"];
+    [aCoder encodeInt:self.uiStyle forKey:@"uiStyle"];
+}
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    if (self) {
+        self.data = [aDecoder decodeObjectForKey:@"TitleItem"];
+        self.key = [aDecoder decodeObjectForKey:@"key"];
+        self.uiStyle = [aDecoder decodeIntegerForKey:@"uiStyle"];
+    }
+    
+    return self;
+}
 @end

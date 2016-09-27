@@ -52,10 +52,16 @@
 - (IBAction)actionLogin:(id)sender {
     
     //to be reset in normal condition
-//    if (!(_userNameField.text.length && _passwordField.text.length)) {
-//        [self shakeView:_loginBtn];
-//        return;
-//    }
+#ifdef NoServer
+    _userNameField.text = @"abc";
+#else
+    if (!(_userNameField.text.length && _passwordField.text.length)) {
+        [self shakeView:_loginBtn];
+        return;
+    }
+#endif
+    
+    
     
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
