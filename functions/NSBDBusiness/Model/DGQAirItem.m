@@ -18,30 +18,32 @@
 
 -(NSArray *)defaultUIStyleMapping
 {
-    return @[@{
-                 @"group":@"",
-                 @"wellnum":@(SheetUIStyle_ShortText),
-                 @"wellname":@(SheetUIStyle_ShortText),
-                 },
+    return @[
              @{
-                 @"group":@"a",
+                 @"group":@"干井",
                  @"over_ground":@(SheetUIStyle_Switch),
                  @"over_crawl":@(SheetUIStyle_Switch),
                  @"over_blowhole":@(SheetUIStyle_Switch),
+                 },
+             @{
+                 @"group":@"湿井",
                  @"over_welllid":@(SheetUIStyle_Switch),
                  @"over_health":@(SheetUIStyle_Switch),
                  @"under_ladder":@(SheetUIStyle_Switch),
+                 },
+             @{
+                 @"group":@"出水阀井",
                  @"under_guardrail":@(SheetUIStyle_Switch),
                  @"under_wall":@(SheetUIStyle_Switch),
                  @"unde_health":@(SheetUIStyle_Switch),
                  @"unde_airgate":@(SheetUIStyle_Switch),
                  @"unde_sluicegate":@(SheetUIStyle_Switch),
                  @"unde_ballgate":@(SheetUIStyle_Switch),
-                 @"under_bottom":@(SheetUIStyle_Switch),},
+                 @"under_bottom":@(SheetUIStyle_Switch),
+                 },
              @{
                  @"group":@"",
                  @"remark":@(SheetUIStyle_Text),
-                 @"stage":@(SheetUIStyle_ShortText),
                  },
              ];
 
@@ -69,7 +71,6 @@
         self.unde_ballgate = NO;
         self.under_bottom = NO;
         self.remark = @"";
-        self.stage = 0;
     }
     return self;
 }
@@ -79,7 +80,6 @@
     return @{
              @"taskid":@"任务外键",
              @"wellnum":@"井号",
-             @"wellname":@"井名称",
              @"over_ground":@"地上_地面",
              @"over_crawl":@"地上_围栏",
              @"over_blowhole":@"地上_气孔",
@@ -94,9 +94,7 @@
              @"unde_ballgate":@"地下_球阀",
              @"under_bottom":@"地下_井底",
              @"remark":@"备注",
-             @"stage":@"所属段" ,
              };
     
 }
-
 @end

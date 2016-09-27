@@ -8,7 +8,7 @@
 
 #import "NSBDBaseUIItem.h"
 
-@interface DGQAirItem : NSBDBaseUIItem
+@interface DGQAirItem : NSBDBaseUIItem<NSCoding>
 
 @property (strong,nonatomic) NSString *wellnum;
 @property (strong,nonatomic) NSString *wellname;

@@ -9,7 +9,7 @@
 #import "NSBDBaseUIItem.h"
 #import "TitleItem.h"
 
-@interface SearchSheetInfoItem : NSObject
+@interface SearchSheetInfoItem : NSObject<NSCoding>
 
 @property (nonatomic,strong) TitleItem *data;
 @property (nonatomic,copy) NSString *key;       //@"taskid",

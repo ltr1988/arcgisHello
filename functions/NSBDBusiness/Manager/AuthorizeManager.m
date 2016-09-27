@@ -50,8 +50,10 @@
 {
 #ifdef NoServer
     if (callback) {
+        [AuthorizeManager sharedInstance].userName = user;
+        [AuthorizeManager sharedInstance].token = @"100";
         callback(@{@"success":@(YES),
-                   @"token":@"daning"});
+                   @"token":@"100"});
     }
     return;
 #endif

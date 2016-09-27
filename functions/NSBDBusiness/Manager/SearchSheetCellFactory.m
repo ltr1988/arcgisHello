@@ -18,7 +18,7 @@
     switch (style) {
         case SheetUIStyle_ShortText: {
             cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
         case SheetUIStyle_Text: {
@@ -28,11 +28,13 @@
         }
         case SheetUIStyle_Switch: {
             cell = [[CheckableTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
         default:
         {
             cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
     

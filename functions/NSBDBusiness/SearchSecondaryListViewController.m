@@ -159,9 +159,30 @@
     
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 0)];
     
-    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 50, 30) smallStyle:YES];
+    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
 }
+
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_timerView setShowTime:[[SearchSessionManager sharedManager].session totalTime]];
+    
+    if (![SearchSessionManager sharedManager].session.pauseState) {
+        
+        [_timerView continueTiming];
+    }
+    
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    if (![SearchSessionManager sharedManager].session.pauseState) {
+        [_timerView pauseTiming];
+    }
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -202,7 +223,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.uiItem];
-    
+    vc.code = _item.code;
+    [self.navigationController pushViewController:vc animated:YES];
 
 }
 

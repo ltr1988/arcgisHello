@@ -21,7 +21,7 @@
     [weakView addSubview:switchView];
     
     [switchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(weakView.mas_centerX);
+        make.centerY.mas_equalTo(weakView.mas_centerY);
         make.right.mas_equalTo(weakView.mas_right).with.offset(-16);
     }];
     

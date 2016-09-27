@@ -14,5 +14,5 @@
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item;
 +(instancetype) sheetEditableWithUIItem:(NSBDBaseUIItem *)item;
 
-@property (nonatomic,strong) NSBDBaseUIItem *uiItem;
+@property (nonatomic,strong) NSString *code;
 @end

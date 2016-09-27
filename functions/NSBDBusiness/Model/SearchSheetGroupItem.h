@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SearchSheetInfoItem.h"
 
-@interface SearchSheetGroupItem : NSObject
+@interface SearchSheetGroupItem : NSObject<NSCoding>
 @property (nonatomic,strong) NSArray *items; //list of SearchSheetInfoItem
 @property (nonatomic,copy) NSString *groupName;
 

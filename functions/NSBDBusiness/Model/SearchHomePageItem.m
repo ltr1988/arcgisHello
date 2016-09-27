@@ -28,7 +28,7 @@
 +(NSDictionary *) mappingInfo
 {
     return @{
-                @"0":[DGQAirItem class],
+                @"DGQPQJ":[DGQAirItem class],
                 @"1":[DGQAirItem class],
                 @"2":[DGQAirItem class],
              };
