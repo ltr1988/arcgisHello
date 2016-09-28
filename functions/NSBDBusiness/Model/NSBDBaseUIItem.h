@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, SheetUIStyle)
 @property (strong,nonatomic) NSString *itemId;//uuid for request
 @property (strong,nonatomic) NSString *taskid;
 
+
 @property (strong,nonatomic) NSArray *infolist; //list of SearchSheetGroupItem
 
 

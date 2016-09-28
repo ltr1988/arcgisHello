@@ -9,6 +9,7 @@
 #import "SearchHomePageItem.h"
 #import "MJExtension.h"
 #import "DGQAirItem.h"
+#import "DGQWellItem.h"
 #import "NSBDBaseUIItem.h"
 
 @implementation SearchHomePageItem
@@ -29,7 +30,7 @@
 {
     return @{
                 @"DGQPQJ":[DGQAirItem class],
-                @"1":[DGQAirItem class],
+                @"DGQPKJ":[DGQWellItem class],
                 @"2":[DGQAirItem class],
              };
 }

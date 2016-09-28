@@ -17,4 +17,5 @@
 //总时间 ＝ sessionTime ＋ （now － sessionStartTime）
 -(NSInteger) totalTime;
 -(void) resetTime:(BOOL)willPause;
+-(NSString *) stringStartTime;
 @end
