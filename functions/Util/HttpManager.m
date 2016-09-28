@@ -30,6 +30,9 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 超时时间
+    
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     switch (type) {
             
         case HttpTaskType_Quick: {
@@ -65,7 +68,7 @@
         }
     }
     
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     // 声明获取到的数据格式
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -76,6 +79,12 @@
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 超时时间
+    
+    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
+    
+    [manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
     switch (type) {
         case HttpTaskType_Foreground: {
             
@@ -105,9 +114,9 @@
         }
     }
     
-    // 声明上传的是json格式的参数，需要你和后台约定好，不然会出现后台无法获取到你上传的参数问题
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 上传普通格式
-    //    manager.requestSerializer = [AFJSONRequestSerializer serializer]; // 上传JSON格式
+    
+    [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+    
     
     // 声明获取到的数据格式
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
