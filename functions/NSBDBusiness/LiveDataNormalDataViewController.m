@@ -20,15 +20,12 @@
     UILabel *lbUpdateTime;
 }
 @property (nonatomic,strong) UITableView *liveDataTableView;
-
-@property (nonatomic,strong) NSArray *modelList;
-
 @property (nonatomic,strong) NSString *updateTime;
 @end
 
 
 @implementation LiveDataNormalDataViewController
-
+@synthesize modelList = _modelList;
 
 -(instancetype) initWithTitle:(NSString *)title
 {
@@ -45,36 +42,30 @@
     
 }
 
-
 -(void) setupModel
 {
-    ThreeColumnColorItem *item = [[ThreeColumnColorItem alloc] init];
-    item.firstColumnText = @"东干渠";
-    item.thirdColumnText = @"0.4";
-    item.thirdColumnColor = [UIColor themeLightBlueColor];
-    
-    ThreeColumnColorItem *item1 = [[ThreeColumnColorItem alloc] init];
-    item1.firstColumnText = @"南干渠";
-    item1.thirdColumnText = @"0.7";
-    item1.thirdColumnColor = [UIColor themeLightBlueColor];
-    
-    ThreeColumnColorItem *item2 = [[ThreeColumnColorItem alloc] init];
-    item2.firstColumnText = @"大宁";
-    item2.thirdColumnText = @"0.5";
-    item2.thirdColumnColor = [UIColor themeLightBlueColor];
-    
-    _modelList = @[item,item1,item2];
+
 }
 
 -(void) setupSubviews
 {
+    UIButton *btnLocation = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    
+    btnLocation.backgroundColor = [UIColor clearColor];
+    [btnLocation setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
+    [btnLocation addTarget:self action:@selector(actionLocate:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnLocation];
+    
     _liveDataTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _liveDataTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _liveDataTableView.backgroundColor = [UIColor seperatorColor];
     _liveDataTableView.delegate = self;
     _liveDataTableView.dataSource = self;
     _liveDataTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _liveDataTableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(actionRefreshData)];
+    
+    _liveDataTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(actionRefreshData)];
     UIView *header = [self headerView];
     if (header) {
         _liveDataTableView.tableHeaderView = header;
@@ -102,6 +93,13 @@
         lbUpdateTime.text = [formater stringFromDate:[NSDate date]];
     }
 }
+
+
+-(void) actionLocate:(id) sender
+{
+    //do something?
+}
+
 
 //下拉刷新
 -(void) actionRefreshData

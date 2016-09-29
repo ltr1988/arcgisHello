@@ -12,7 +12,7 @@
 #import "UIColor+ThemeColor.h"
 
 #import "LiveDataYuqingViewController.h"
-#import "LiveDataNormalDataViewController.h"
+#import "LiveDataShuiweiViewController.h"
 
 @interface LiveDataMainViewController()
 @property (nonatomic,strong) UITableView *liveDataTableView;
@@ -108,7 +108,7 @@ NSString
         vc = [[LiveDataYuqingViewController alloc] init];
     }else if ([item.title isEqualToString: sSHUIWEI])
     {
-        vc = [[LiveDataNormalDataViewController alloc] initWithTitle:@"实时水位"];
+        vc = [[LiveDataShuiweiViewController alloc] initWithTitle:@"实时水位"];
     }else if ([item.title isEqualToString: sSHUIKU])
     {
         

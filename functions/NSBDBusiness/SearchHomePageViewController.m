@@ -137,7 +137,7 @@
     _tableView.backgroundColor = [UIColor backGroundGrayColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     _tableView.tableFooterView = [self footerView];
-    _tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self.view addSubview:_tableView];
 
     __weak UIView * weakView = self.view;

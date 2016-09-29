@@ -53,7 +53,6 @@
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
 		A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC821D9666810016387C /* NSString+UUID.m */; };
 		A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */; };
-		A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */; };
 		A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */; };
 		A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */; };
 		A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */; };
@@ -129,6 +128,8 @@
 		B205A5351D61D378007530EB /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5201D61D378007530EB /* UIScrollView+MJRefresh.m */; };
 		B205A5361D61D378007530EB /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5221D61D378007530EB /* UIView+MJExtension.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
+		B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */; };
+		B272B0B01D9D118600CEB12D /* LiveDataShuiweiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -333,8 +334,6 @@
 		A4CFBC821D9666810016387C /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UUID.m"; path = "functions/Util/NSString+UUID.m"; sourceTree = "<group>"; };
 		A4CFBC841D96B6C00016387C /* SearchSecondaryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSecondaryListViewController.h; path = functions/NSBDBusiness/SearchSecondaryListViewController.h; sourceTree = "<group>"; };
 		A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSecondaryListViewController.m; path = functions/NSBDBusiness/SearchSecondaryListViewController.m; sourceTree = "<group>"; };
-		A4CFBC871D9749660016387C /* AFHTTPSessionManager+NSBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+NSBD.h"; path = "docs/AFHTTPSessionManager+NSBD.h"; sourceTree = "<group>"; };
-		A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "docs/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
 		A4CFBC8A1D97859E0016387C /* SearchCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryModel.h; path = functions/NSBDBusiness/Model/SearchCategoryModel.h; sourceTree = "<group>"; };
 		A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCategoryModel.m; path = functions/NSBDBusiness/Model/SearchCategoryModel.m; sourceTree = "<group>"; };
 		A4CFBC8D1D978E5D0016387C /* SearchCategoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCategoryItem.h; path = functions/NSBDBusiness/Model/SearchCategoryItem.h; sourceTree = "<group>"; };
@@ -471,6 +470,10 @@
 		B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStartEndPickerController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStartEndPickerController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B272B0AB1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+NSBD.h"; path = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.h"; sourceTree = "<group>"; };
+		B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
+		B272B0AE1D9D118600CEB12D /* LiveDataShuiweiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuiweiViewController.h; path = functions/NSBDBusiness/LiveDataShuiweiViewController.h; sourceTree = "<group>"; };
+		B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuiweiViewController.m; path = functions/NSBDBusiness/LiveDataShuiweiViewController.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -1463,8 +1466,8 @@
 				A414AC811D39D17B0065AAA7 /* HttpManager.m */,
 				B2A186EA1D631763006D8CA7 /* HttpHost.h */,
 				B2A186EB1D631763006D8CA7 /* HttpHost.m */,
-				A4CFBC871D9749660016387C /* AFHTTPSessionManager+NSBD.h */,
-				A4CFBC881D9749660016387C /* AFHTTPSessionManager+NSBD.m */,
+				B272B0AB1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.h */,
+				B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */,
 			);
 			name = Http;
 			sourceTree = "<group>";
@@ -1564,6 +1567,8 @@
 				B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */,
 				A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */,
 				A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */,
+				B272B0AE1D9D118600CEB12D /* LiveDataShuiweiViewController.h */,
+				B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1753,6 +1758,7 @@
 				B2806A051D6839B40097F7E4 /* SearchSheetGroupItem.m in Sources */,
 				B2806A011D6830020097F7E4 /* SearchSheetCellFactory.m in Sources */,
 				B28653D51D4863B2002D4139 /* UIProgressView+AFNetworking.m in Sources */,
+				B272B0B01D9D118600CEB12D /* LiveDataShuiweiViewController.m in Sources */,
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				B205A5231D61D378007530EB /* MJRefreshAutoFooter.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
@@ -1830,7 +1836,6 @@
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				A4F2FC1D1D851B6900B0532B /* ImageContentViewController.m in Sources */,
-				A4CFBC891D9749660016387C /* AFHTTPSessionManager+NSBD.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
 				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
@@ -1843,6 +1848,7 @@
 				B28653D01D4863B2002D4139 /* AFImageDownloader.m in Sources */,
 				B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,

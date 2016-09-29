@@ -8,16 +8,26 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 
+
+// 3列数据
+// 刷新时间
 @interface LiveDataNormalDataViewController : SupportRotationSelectBaseViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    NSArray *_modelList;
+}
+@property (nonatomic,strong) NSArray *modelList;
+
 
 -(instancetype) initWithTitle:(NSString *)title;
 
 
 -(UIView *) headerView;
+-(void) refreshHeader;   //refresh header content
+
 -(void) setupSubviews;
--(void) reloadTableView;
--(void) refreshHeader;
--(void) actionRefreshData;
+-(void) reloadTableView; //reload data in tableview
+
+-(void) actionRefreshData; //request data
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;
 
