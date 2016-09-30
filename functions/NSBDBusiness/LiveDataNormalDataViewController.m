@@ -14,6 +14,7 @@
 #import "ThreeColumnItem.h"
 #import "ThreeColumnView.h"
 #import "MJRefresh.h"
+#import "TitleDetailItem.h"
 
 @interface LiveDataNormalDataViewController()
 {
@@ -21,16 +22,19 @@
 }
 @property (nonatomic,strong) UITableView *liveDataTableView;
 @property (nonatomic,strong) NSString *updateTime;
+
+
 @end
 
 
 @implementation LiveDataNormalDataViewController
 @synthesize modelList = _modelList;
 
--(instancetype) initWithTitle:(NSString *)title
+-(instancetype) initWithTitleDetailItem:(TitleDetailItem *)item
 {
     if (self = [super init]) {
-        self.title = title;
+        self.title = item.title;
+        self.model = item;
     }
     return self;
 }
@@ -49,14 +53,7 @@
 
 -(void) setupSubviews
 {
-    UIButton *btnLocation = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    
-    btnLocation.backgroundColor = [UIColor clearColor];
-    [btnLocation setImage:[UIImage imageNamed:@"RedPushpin"] forState:UIControlStateNormal];
-    [btnLocation addTarget:self action:@selector(actionLocate:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnLocation];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_map_search"] style:UIBarButtonItemStylePlain target:self action:@selector(actionLocate:)];
     
     _liveDataTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _liveDataTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -85,19 +82,20 @@
 
 -(void) refreshHeader
 {
-    if (lbUpdateTime) {
-        NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-        
-        [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        
-        lbUpdateTime.text = [formater stringFromDate:[NSDate date]];
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    
+    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *now = [NSDate date];
+    self.model.detail = [formater stringFromDate:now];
+    if (lbUpdateTime) {        
+        lbUpdateTime.text = [formater stringFromDate:now];
     }
 }
 
 
 -(void) actionLocate:(id) sender
 {
-    //do something?
+    //do something? to mapview?
 }
 
 
@@ -135,8 +133,8 @@
     
     
     lbUpdateTime = [UILabel new];
-    lbUpdateTime.font = UI_FONT(16);
-    lbUpdateTime.textColor = [UIColor blackColor];
+    lbUpdateTime.font = UI_FONT(14);
+    lbUpdateTime.textColor = [UIColor orangeColor];
     lbUpdateTime.backgroundColor = [UIColor clearColor];
     lbUpdateTime.textAlignment = NSTextAlignmentRight;
     lbUpdateTime.text = @"刷新时间";

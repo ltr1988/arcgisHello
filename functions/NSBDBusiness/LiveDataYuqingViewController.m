@@ -46,17 +46,6 @@
     _modelList = @[item,item1,item2];
 }
 
--(void) setupSubviews
-{
-    [super setupSubviews];
-    self.title = @"实时数据";
-    
-}
-
--(void) actionRefreshData
-{
-    [super actionRefreshData];
-}
 
 -(UIView *) headerView
 {
@@ -75,8 +64,7 @@
 #pragma mark --tableview delegate
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    
-    ThreeColumnView *view = [[ThreeColumnView alloc] initWithFrame:CGRectMake(0, 0, _liveDataTableView.bounds.size.width, 50)];
+    ThreeColumnView *view = [[ThreeColumnView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 50)];
     [view setColumnColor:[UIColor grayColor]];
     [view setFont:UI_FONT(12)];
     
@@ -88,39 +76,6 @@
     [view setData:item];
     
     return view;
-}
-
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 30;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 40;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return _modelList.count;
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSInteger row = indexPath.row;
-    ThreeColumnCell *cell = [self.liveDataTableView dequeueReusableCellWithIdentifier:@"ThreeColumnCell"];
-    if (!cell) {
-        cell = [[ThreeColumnCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:@"ThreeColumnCell"];
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-    }
-    if (row < _modelList.count) {
-        cell.data = _modelList[row];
-    }
-    return cell;
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,9 +93,5 @@
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
 
 @end

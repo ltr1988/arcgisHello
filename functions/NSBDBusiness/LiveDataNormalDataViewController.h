@@ -8,6 +8,7 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 
+@class TitleDetailItem;
 
 // 3列数据
 // 刷新时间
@@ -16,9 +17,9 @@
     NSArray *_modelList;
 }
 @property (nonatomic,strong) NSArray *modelList;
+@property (nonatomic,weak) TitleDetailItem *model; //super model
 
-
--(instancetype) initWithTitle:(NSString *)title;
+-(instancetype) initWithTitleDetailItem:(TitleDetailItem *)item;
 
 
 -(UIView *) headerView;

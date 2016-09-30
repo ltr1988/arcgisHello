@@ -8,6 +8,7 @@
 
 #import "LiveDataNormalDataViewController.h"
 
+//水情
 @interface LiveDataYuqingViewController : LiveDataNormalDataViewController
 
 @end

@@ -13,6 +13,7 @@
 
 #import "LiveDataYuqingViewController.h"
 #import "LiveDataShuiweiViewController.h"
+#import "LiveDataShuikuViewController.h"
 
 @interface LiveDataMainViewController()
 @property (nonatomic,strong) UITableView *liveDataTableView;
@@ -67,6 +68,11 @@ NSString
 }
 
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [_liveDataTableView reloadData];
+}
+
 #pragma mark --tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,13 +111,13 @@ NSString
     
     UIViewController *vc = nil;
     if ([item.title isEqualToString: sYUQING]) {
-        vc = [[LiveDataYuqingViewController alloc] init];
+        vc = [[LiveDataYuqingViewController alloc] initWithTitleDetailItem:item];
     }else if ([item.title isEqualToString: sSHUIWEI])
     {
-        vc = [[LiveDataShuiweiViewController alloc] initWithTitle:@"实时水位"];
+        vc = [[LiveDataShuiweiViewController alloc] initWithTitleDetailItem:item];
     }else if ([item.title isEqualToString: sSHUIKU])
     {
-        
+        vc = [[LiveDataShuikuViewController alloc] initWithTitleDetailItem:item];
     }else if ([item.title isEqualToString: sLIULIANG])
     {
         

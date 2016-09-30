@@ -1,44 +1,41 @@
 //
-//  LiveDataShuiweiViewController.m
+//  LiveDataShuikuViewController.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/9/29.
+//  Created by LvTianran on 16/9/30.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "LiveDataShuiweiViewController.h"
+#import "LiveDataShuikuViewController.h"
 #import "ThreeColumnCell.h"
 #import "ThreeColumnItem.h"
 #import "ThreeColumnView.h"
 #import "UIColor+ThemeColor.h"
 #import "CommonDefine.h"
 
-@interface LiveDataShuiweiViewController ()
+@interface LiveDataShuikuViewController ()
 
 @end
 
-@implementation LiveDataShuiweiViewController
+@implementation LiveDataShuikuViewController
 
 
 -(void) setupModel
 {
 #ifdef NoServer
     ThreeColumnColorItem *item = [[ThreeColumnColorItem alloc] init];
-    item.firstColumnText = @"屯佃泵站";
-    item.secondColumnText = @"昌平";
-    item.thirdColumnText = @"55.4";
+    item.firstColumnText = @"官厅";
+    item.thirdColumnText = @"0.4";
     item.thirdColumnColor = [UIColor themeLightBlueColor];
     
     ThreeColumnColorItem *item1 = [[ThreeColumnColorItem alloc] init];
-    item1.firstColumnText = @"屯佃泵站";
-    item1.secondColumnText = @"昌平";
-    item1.thirdColumnText = @"55.5";
+    item1.firstColumnText = @"密云";
+    item1.thirdColumnText = @"0.7";
     item1.thirdColumnColor = [UIColor themeLightBlueColor];
     
     ThreeColumnColorItem *item2 = [[ThreeColumnColorItem alloc] init];
-    item2.firstColumnText = @"李史山泵站";
-    item2.secondColumnText = @"怀柔";
-    item2.thirdColumnText = @"55.6";
+    item2.firstColumnText = @"怀柔";
+    item2.thirdColumnText = @"0.5";
     item2.thirdColumnColor = [UIColor themeLightBlueColor];
     
     _modelList = @[item,item1,item2];
@@ -55,11 +52,18 @@
     
     ThreeColumnColorItem *item = [ThreeColumnColorItem new];
     item.firstColumnText = @"站点";
-    item.secondColumnText = @"行政区";
-    item.thirdColumnText = @"累计雨量(毫米)";
+    item.thirdColumnText = @"实时水位";
     
     [view setData:item];
     
     return view;
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    return cell;
 }
 @end

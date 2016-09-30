@@ -130,6 +130,8 @@
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
 		B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */; };
 		B272B0B01D9D118600CEB12D /* LiveDataShuiweiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */; };
+		B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */; };
+		B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -474,6 +476,10 @@
 		B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
 		B272B0AE1D9D118600CEB12D /* LiveDataShuiweiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuiweiViewController.h; path = functions/NSBDBusiness/LiveDataShuiweiViewController.h; sourceTree = "<group>"; };
 		B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuiweiViewController.m; path = functions/NSBDBusiness/LiveDataShuiweiViewController.m; sourceTree = "<group>"; };
+		B272B0B11D9E068800CEB12D /* LiveDataShuikuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuikuViewController.h; path = functions/NSBDBusiness/LiveDataShuikuViewController.h; sourceTree = "<group>"; };
+		B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuikuViewController.m; path = functions/NSBDBusiness/LiveDataShuikuViewController.m; sourceTree = "<group>"; };
+		B272B0B91D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataDetailShuikuInfoViewController.h; path = functions/NSBDBusiness/LiveDataDetailShuikuInfoViewController.h; sourceTree = "<group>"; };
+		B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataDetailShuikuInfoViewController.m; path = functions/NSBDBusiness/LiveDataDetailShuikuInfoViewController.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -1563,12 +1569,16 @@
 			children = (
 				B2F1D8941D8BE62800A6EDCA /* LiveDataMainViewController.h */,
 				B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */,
-				B2F1D8A21D8E7ECC00A6EDCA /* LiveDataYuqingViewController.h */,
-				B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */,
 				A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */,
 				A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */,
+				B2F1D8A21D8E7ECC00A6EDCA /* LiveDataYuqingViewController.h */,
+				B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */,
 				B272B0AE1D9D118600CEB12D /* LiveDataShuiweiViewController.h */,
 				B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */,
+				B272B0B11D9E068800CEB12D /* LiveDataShuikuViewController.h */,
+				B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */,
+				B272B0B91D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.h */,
+				B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1731,6 +1741,7 @@
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
 				A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */,
+				B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */,
 				B205A5361D61D378007530EB /* UIView+MJExtension.m in Sources */,
 				B2806A0E1D68401D0097F7E4 /* TitleInputItem.m in Sources */,
 				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
@@ -1786,6 +1797,7 @@
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
+				B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */,
 				A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */,
 				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
 				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,

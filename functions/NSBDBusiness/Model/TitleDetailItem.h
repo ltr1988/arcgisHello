@@ -11,7 +11,7 @@
 #import "TitleTextInputCell.h"
 
 @interface TitleDetailItem : TitleItem<TitleDetailCellViewModel,NSCoding>
-@property (nonatomic,strong) NSString *detail;
+@property (nonatomic,copy) NSString *detail;
 +(instancetype) itemWithTitle:(NSString *)title detail:(NSString *)detail;
 @end
 
