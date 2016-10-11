@@ -24,7 +24,7 @@
 
 @implementation LoginViewController
 - (IBAction)actionForget:(id)sender {
-    UIAlertView *alart = [[UIAlertView alloc] initWithTitle:nil message:@"请拨打110重置密码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alart = [[UIAlertView alloc] initWithTitle:nil message:@"请拨打xxx重置密码" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 
     
     [alart show];

@@ -27,6 +27,9 @@
 		A414ACC51D3A1D890065AAA7 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBC1D3A1D890065AAA7 /* ELCImagePickerController.m */; };
 		A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBF1D3A1D890065AAA7 /* ELCOverlayImageView.m */; };
 		A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACC81D3B20970065AAA7 /* WebViewController.m */; };
+		A41D4E9E1D9F387100F75C99 /* LiveDataLiuliangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */; };
+		A41D4EA11D9F3AB200F75C99 /* LiveDataGongchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */; };
+		A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -41,6 +44,10 @@
 		A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A485993D1D3B51610050AC88 /* LoginViewController.m */; };
 		A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
 		A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599441D3CEC770050AC88 /* CenterSwitchView.m */; };
+		A4924F9C1DAC99000025041E /* DGQWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9B1DAC99000025041E /* DGQWaterItem.m */; };
+		A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9E1DACB60D0025041E /* DGQLine.m */; };
+		A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */; };
+		A4924FA51DACF5C00025041E /* EventHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA41DACF5C00025041E /* EventHttpManager.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
 		A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
@@ -281,6 +288,12 @@
 		A414ACBF1D3A1D890065AAA7 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ELCOverlayImageView.m; path = functions/ELCImagePicker/ELCOverlayImageView.m; sourceTree = "<group>"; };
 		A414ACC71D3B20970065AAA7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = functions/NSBDBusiness/WebViewController.h; sourceTree = "<group>"; };
 		A414ACC81D3B20970065AAA7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = functions/NSBDBusiness/WebViewController.m; sourceTree = "<group>"; };
+		A41D4E9C1D9F387100F75C99 /* LiveDataLiuliangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataLiuliangViewController.h; path = functions/NSBDBusiness/LiveDataLiuliangViewController.h; sourceTree = "<group>"; };
+		A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataLiuliangViewController.m; path = functions/NSBDBusiness/LiveDataLiuliangViewController.m; sourceTree = "<group>"; };
+		A41D4E9F1D9F3AB200F75C99 /* LiveDataGongchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataGongchenViewController.h; path = functions/NSBDBusiness/LiveDataGongchenViewController.h; sourceTree = "<group>"; };
+		A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataGongchenViewController.m; path = functions/NSBDBusiness/LiveDataGongchenViewController.m; sourceTree = "<group>"; };
+		A41D4EA21D9F3B4400F75C99 /* LiveDataShuizhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuizhiViewController.h; path = functions/NSBDBusiness/LiveDataShuizhiViewController.h; sourceTree = "<group>"; };
+		A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuizhiViewController.m; path = functions/NSBDBusiness/LiveDataShuizhiViewController.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -310,6 +323,14 @@
 		A48599401D3BB52B0050AC88 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
 		A48599431D3CEC770050AC88 /* CenterSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterSwitchView.h; path = functions/Util/View/CenterSwitchView.h; sourceTree = "<group>"; };
 		A48599441D3CEC770050AC88 /* CenterSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterSwitchView.m; path = functions/Util/View/CenterSwitchView.m; sourceTree = "<group>"; };
+		A4924F9A1DAC99000025041E /* DGQWaterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQWaterItem.h; path = functions/NSBDBusiness/Model/DGQWaterItem.h; sourceTree = "<group>"; };
+		A4924F9B1DAC99000025041E /* DGQWaterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQWaterItem.m; path = functions/NSBDBusiness/Model/DGQWaterItem.m; sourceTree = "<group>"; };
+		A4924F9D1DACB60D0025041E /* DGQLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQLine.h; path = functions/NSBDBusiness/Model/DGQLine.h; sourceTree = "<group>"; };
+		A4924F9E1DACB60D0025041E /* DGQLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQLine.m; path = functions/NSBDBusiness/Model/DGQLine.m; sourceTree = "<group>"; };
+		A4924FA01DACC8DF0025041E /* MapViewController+InfoMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapViewController+InfoMapping.h"; sourceTree = "<group>"; };
+		A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MapViewController+InfoMapping.m"; sourceTree = "<group>"; };
+		A4924FA31DACF5C00025041E /* EventHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventHttpManager.h; sourceTree = "<group>"; };
+		A4924FA41DACF5C00025041E /* EventHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHttpManager.m; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
 		A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = functions/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -1002,6 +1023,10 @@
 				B28069B11D670F930097F7E4 /* DGQAirItem.m */,
 				A4CFBC981D9C12EF0016387C /* DGQWellItem.h */,
 				A4CFBC991D9C12EF0016387C /* DGQWellItem.m */,
+				A4924F9A1DAC99000025041E /* DGQWaterItem.h */,
+				A4924F9B1DAC99000025041E /* DGQWaterItem.m */,
+				A4924F9D1DACB60D0025041E /* DGQLine.h */,
+				A4924F9E1DACB60D0025041E /* DGQLine.m */,
 			);
 			name = DGQ;
 			sourceTree = "<group>";
@@ -1441,6 +1466,8 @@
 				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
 				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
 				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
+				A4924FA01DACC8DF0025041E /* MapViewController+InfoMapping.h */,
+				A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1495,6 +1522,8 @@
 				A4F2FC221D853EEE00B0532B /* EventModelPathManager.m */,
 				A4CFBC941D9AB8F50016387C /* SearchSheetItemManager.h */,
 				A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */,
+				A4924FA31DACF5C00025041E /* EventHttpManager.h */,
+				A4924FA41DACF5C00025041E /* EventHttpManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -1579,6 +1608,12 @@
 				B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */,
 				B272B0B91D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.h */,
 				B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */,
+				A41D4E9C1D9F387100F75C99 /* LiveDataLiuliangViewController.h */,
+				A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */,
+				A41D4E9F1D9F3AB200F75C99 /* LiveDataGongchenViewController.h */,
+				A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */,
+				A41D4EA21D9F3B4400F75C99 /* LiveDataShuizhiViewController.h */,
+				A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */,
 			);
 			name = LiveData;
 			sourceTree = "<group>";
@@ -1732,6 +1767,7 @@
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
+				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
@@ -1764,6 +1800,7 @@
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				B28653801D45EA03002D4139 /* MASConstraintMaker.m in Sources */,
 				A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */,
+				A4924FA51DACF5C00025041E /* EventHttpManager.m in Sources */,
 				B2B469D71D6FDDF600AB84AF /* TimerView.m in Sources */,
 				B2CFC3541D76ABAE00FA97D3 /* MyWorkViewController.m in Sources */,
 				B2806A051D6839B40097F7E4 /* SearchSheetGroupItem.m in Sources */,
@@ -1778,6 +1815,7 @@
 				B2A187191D66AEC7006D8CA7 /* QRModelsManager.m in Sources */,
 				B2806A0B1D683F950097F7E4 /* TitleDateItem.m in Sources */,
 				B205A5351D61D378007530EB /* UIScrollView+MJRefresh.m in Sources */,
+				A41D4E9E1D9F387100F75C99 /* LiveDataLiuliangViewController.m in Sources */,
 				B2A187311D66AF4B006D8CA7 /* NSObject+MJKeyValue.m in Sources */,
 				B205A4A71D61C4FF007530EB /* SearchHomePageModel.m in Sources */,
 				B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */,
@@ -1794,6 +1832,7 @@
 				A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
 				B2F1D89E1D8E2C9000A6EDCA /* ThreeColumnItem.m in Sources */,
+				A41D4EA11D9F3AB200F75C99 /* LiveDataGongchenViewController.m in Sources */,
 				A414ACC31D3A1D890065AAA7 /* ELCAssetTablePicker.m in Sources */,
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
@@ -1819,6 +1858,7 @@
 				B2A1872E1D66AF4B006D8CA7 /* MJProperty.m in Sources */,
 				B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */,
 				B2B469001D6C3B4000AB84AF /* RouteSearchResultCell.m in Sources */,
+				A4924F9C1DAC99000025041E /* DGQWaterItem.m in Sources */,
 				B2B468EA1D6AA0E800AB84AF /* RouteSearchViewController.m in Sources */,
 				B205A52C1D61D378007530EB /* MJRefreshBackNormalFooter.m in Sources */,
 				A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */,
@@ -1865,6 +1905,7 @@
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,
 				B28653EF1D49FF54002D4139 /* UIColor+ThemeColor.m in Sources */,
+				A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */,
 				A4F2FC1A1D846A3200B0532B /* MyLocalEventCell.m in Sources */,
 				A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */,
 				B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */,
@@ -1900,6 +1941,7 @@
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
+				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,
 				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
@@ -2018,7 +2060,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ltr_1988@163.com (7WFH5P89D9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
@@ -2043,7 +2085,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ltr_1988@163.com (7WFH5P89D9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";

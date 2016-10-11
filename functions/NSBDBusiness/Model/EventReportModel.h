@@ -27,7 +27,9 @@
 @property (nonatomic,strong) TitleDetailTextItem *eventStatus;
 @property (nonatomic,strong) TitleDetailTextItem *eventPreprocess;
 
-@property (nonatomic,strong) NSMutableArray  *eventPic;
+@property (nonatomic,strong) NSMutableArray  *eventPic; //uiimages
 @property (nonatomic,strong) NSURL *eventVideo;
 @property (nonatomic,assign) NSInteger reviewState; //0 未审核 1 通过 2 未通过
+
+@property (nonatomic,strong) NSString *uuid;
 @end

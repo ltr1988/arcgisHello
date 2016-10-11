@@ -15,6 +15,10 @@
 #import "LiveDataShuiweiViewController.h"
 #import "LiveDataShuikuViewController.h"
 
+#import "LiveDataShuizhiViewController.h"
+#import "LiveDataGongchenViewController.h"
+#import "LiveDataLiuliangViewController.h"
+
 @interface LiveDataMainViewController()
 @property (nonatomic,strong) UITableView *liveDataTableView;
 
@@ -120,15 +124,15 @@ NSString
         vc = [[LiveDataShuikuViewController alloc] initWithTitleDetailItem:item];
     }else if ([item.title isEqualToString: sLIULIANG])
     {
-        
+        vc = [[LiveDataLiuliangViewController alloc] initWithTitleDetailItem:item];
     }else if ([item.title isEqualToString: sSHUIZHI])
     {
+        vc = [[LiveDataShuizhiViewController alloc] initWithTitleDetailItem:item];
         
     }else if ([item.title isEqualToString: sGONGCHENG])
     {
-        
+        vc = [[LiveDataGongchenViewController alloc] initWithTitleDetailItem:item];
     }
-    //todo push to new vc
     if (vc) {
         [self.navigationController pushViewController:vc animated:YES];
     }

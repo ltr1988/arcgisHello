@@ -12,8 +12,15 @@
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
 #import "NSString+UUID.h"
+#import "BaseTitleCell.h"
 
 @implementation NSBDBaseUIItem
+
+
+-(BOOL) isLine
+{
+    return NO;
+}
 
 
 -(NSDictionary *)requestInfo
@@ -76,7 +83,7 @@
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super init];
     if (self) {
-        self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
+        self.itemId = [aDecoder decodeObjectForKey:@"itemId"];
         self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
         self.infolist = [aDecoder decodeObjectForKey:@"infolist"];
     }

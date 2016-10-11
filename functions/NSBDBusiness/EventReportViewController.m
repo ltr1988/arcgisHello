@@ -34,9 +34,13 @@
 #import "EventModelPathManager.h"
 #import "TextPickerViewController.h"
 
+#import "EventHttpManager.h"
+#import "HttpBaseModel.h"
+
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
-
+    UIButton *btnUpload;
+    UIButton *btnSaveLocal;
     EventLocationPickerView *lPicker;
 }
 @property (nonatomic,strong)     UITableView *eventTableView;
@@ -167,8 +171,8 @@
 {
     UIView *footer = [UIView new];
     footer.frame = CGRectMake(0, 0, kScreenWidth, 16*3+40*2);
-    UIButton *btnUpload = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *btnSaveLocal = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnUpload = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnSaveLocal = [UIButton buttonWithType:UIButtonTypeCustom];
     
     btnUpload.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
     [btnUpload setTitle:@"完成并上报" forState:UIControlStateNormal];
@@ -211,13 +215,52 @@
 {
     NSLog(@"upload");
     
+    [[EventHttpManager sharedManager] requestNewEvent:self.model successCallback:^(NSURLSessionDataTask *task, id dict) {
+        //todo
+        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            [self deleteCache];
+            if (self.model.eventPic.count>0 || self.model.eventVideo != nil) {
+                
+                if (self.model.eventPic.count>0) {
+                    for (UIImage *image in self.model.eventPic) {
+                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.model.uuid successCallback:nil failCallback:nil];
+                    }
+                }
+                
+                if (self.model.eventVideo)
+                {
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.model.eventVideo fkid:self.model.uuid successCallback:nil failCallback:nil];
+
+                }
+            }
+            [ToastView popToast:@"上报成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+            
+
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+       
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        //todo
+    }];
+    return;
+}
+
+-(void) deleteCache
+{
     NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
         NSLog(@"delete local save");
     }
 }
-
 -(void) actionSaveLocal:(id) sender
 {
     UIButton *btn = sender;
@@ -429,7 +472,7 @@
         }
         case 1: //eventType
         {
-            NSArray *choices = @[@"t1",@"t2"];
+            NSArray *choices = @[@"水质污染",@"工程安全",@"应急调度",@"防汛抢险"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
                 NSString *choice = dict[@"choice"];
                 weakSelf.model.eventType.detail = choice;
@@ -441,7 +484,7 @@
         }
         case 2: //eventXingzhi
         {
-            NSArray *choices = @[@"x1",@"x2"];
+            NSArray *choices = @[@"水质污染",@"工程损害",@"机电故障"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
                 NSString *choice = dict[@"choice"];
                 weakSelf.model.eventXingzhi.detail = choice;
@@ -452,7 +495,7 @@
         }
         case 3: //level
         {
-            NSArray *choices = @[@"l1",@"l2"];
+            NSArray *choices = @[@"一级响应",@"二级响应",@"三级响应"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
                 NSString *choice = dict[@"choice"];
                 weakSelf.model.level.detail = choice;
@@ -463,7 +506,7 @@
         }
         case 4: //reason
         {
-            NSArray *choices = @[@"r1",@"r2"];
+            NSArray *choices = @[@"人为",@"原因二",@"原因三"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
                 NSString *choice = dict[@"choice"];
                 weakSelf.model.reason.detail = choice;

@@ -19,6 +19,8 @@
 #import "TimerView.h"
 #import "SearchSheetItemManager.h"
 #import "TextPickerViewController.h"
+#import "HttpBaseModel.h"
+#import "DatePickViewController.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -50,6 +52,15 @@
     return vc;
 }
 
+-(instancetype) init
+{
+    self = [super init];
+    if (self) {
+        readOnly = NO;
+    }
+    return self;
+}
+
 -(instancetype) initWithReadOnlySheet
 {
     self = [super init];
@@ -63,19 +74,46 @@
 {
     [super viewDidLoad];
     [self setupSubviews];
+    [self setupObservers];
     [self requestData];
+}
+
+-(void) setFcode:(NSString *)fcode
+{
+    _fcode = fcode;
+    if ([self.uiItem respondsToSelector:@selector(setWellnum:)]) {
+        [self.uiItem performSelector:@selector(setWellnum:) withObject:fcode];
+    }
+}
+
+-(void) setFname:(NSString *)fname
+{
+    _fname = fname;
+    if ([self.uiItem respondsToSelector:@selector(setWellname:)]) {
+        [self.uiItem performSelector:@selector(setWellname:) withObject:fname];
+    }
+}
+
+-(void) setupObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textPicked:) name:@"TextPickerNotification" object:nil];
+}
+
+-(void) textPicked:(NSNotification *)noti
+{
+    [_tableView reloadData];
 }
 
 -(void) requestData
 {
-    if (readOnly) {
+    if (![self.uiItem isLine]){
         NSBDBaseUIItem *uiItem =
         [SearchSheetItemManager getSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
         if (uiItem) {
             self.uiItem = uiItem;
         }
-        [_tableView reloadData];
     }
+    [_tableView reloadData];
 }
 
 -(void) setupSubviews
@@ -141,14 +179,38 @@
 
 -(void) actionCommit:(id) sender
 {
-    [SearchSheetItemManager removeSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
+    [[SearchSessionManager sharedManager] requestUploadSheetWithItem:self.uiItem SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            [ToastView popToast:@"提交成功"];
+            if (![self.uiItem isLine])
+                [SearchSheetItemManager removeSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
+            else{
+                [SearchSheetItemManager removeSearchLineItemWithWithUUID:self.uiItem.itemId code:self.code taskid:self.uiItem.taskid];
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        [ToastView popToast:@"提交失败，请稍候再试"];
+    }];
+    
+    
 }
 
 -(void) actionSave:(id) sender
 {
-    [SearchSheetItemManager addSearchSheetItem:self.uiItem withCode:self.code fcode:self.fcode];
+    if (![self.uiItem isLine])
+        [SearchSheetItemManager addSearchSheetItem:self.uiItem withCode:self.code fcode:self.fcode];
+    else{
+        [SearchSheetItemManager addSearchLineItem:self.uiItem withCode:self.code];
+    }
+    [ToastView popToast:@"保存本地成功"];
 }
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -159,7 +221,7 @@
     NSDictionary *dict = [self.uiItem defaultUIStyleMapping][section];
     NSString *title = dict[@"group"];
     
-    if (title) {
+    if (title && title.length>0) {
         return 30;
     }
     return 8;
@@ -240,6 +302,10 @@
             //do something~
             if (item.uiStyle == SheetUIStyle_Text) {
                 TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:item.data readOnly:readOnly];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if (item.uiStyle == SheetUIStyle_Date)
+            {
+                DatePickViewController *vc = [[DatePickViewController alloc] initWithData:item.data readOnly:readOnly];
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }

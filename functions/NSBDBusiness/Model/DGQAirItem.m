@@ -11,6 +11,8 @@
 #import "SearchSheetInfoItem.h"
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
+#import "TitleDetailItem.h"
+#import "AuthorizeManager.h"
 
 @implementation DGQAirItem
 
@@ -19,7 +21,7 @@
     self = [super init];
     if (self) {
         self.wellnum = @"";
-        self.exedate = @"";
+        self.wellname = @"";
     }
     return self;
 }
@@ -28,20 +30,32 @@
 {
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:self.wellnum forKey:@"wellnum"];
-    [aCoder encodeObject:self.exedate forKey:@"exedate"];
+    [aCoder encodeObject:self.wellname forKey:@"wellname"];
     
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.exedate = [aDecoder decodeObjectForKey:@"exedate"];
+        self.wellname = [aDecoder decodeObjectForKey:@"wellname"];
         self.wellnum = [aDecoder decodeObjectForKey:@"wellnum"];
     }
     
     return self;
 }
 
+-(void) setWellnum:(NSString *)wellnum
+{
+    _wellnum = wellnum;
+    for (SearchSheetGroupItem *group in self.infolist) {
+        for (SearchSheetInfoItem *item in group.items) {
+            if ([item.key isEqualToString:@"wellnum"]) {
+                TitleDetailItem *detailItem = (TitleDetailItem *)item.data;
+                detailItem.detail = wellnum;
+            }
+        }
+    }
+}
 
 #pragma mark protocal
 -(NSDictionary *)requestInfo
@@ -49,18 +63,21 @@
     NSMutableDictionary *info = [NSMutableDictionary dictionary];
     for (SearchSheetGroupItem *group in self.infolist) {
         for (SearchSheetInfoItem *item in group.items) {
-            info[item.key] = [item.data value];
+            if (item.uiStyle == SheetUIStyle_Switch) {
+                info[item.key] = @([[item.data value] integerValue]);
+            }else
+            {
+                info[item.key] = [item.data value];
+            }
         }
     }
     info[@"taskid"] = self.taskid;
     info[@"id"] = self.itemId;
-    info[@"type"] = @"东干渠排气井";
-    info[@"starttime"] = [[[SearchSessionManager sharedManager] session] stringStartTime];
-    
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
-    info[@"exedate"] = [formater stringFromDate:[NSDate date]];
+    info[@"wellname"] = self.wellname;
+    info[@"operate"] = @"insert";
+    info[@"userName"] = [AuthorizeManager sharedInstance].userName;
+    //info[@"type"] = @"东干渠排气井";
+
     return info;
 }
 
@@ -73,6 +90,10 @@
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
+             @{
+                 @"group":@"",
+                 @"wellnum":@(SheetUIStyle_ReadonlyText),
+                 },
              @{
                  @"group":@"地上部分",
                  @"over_ground":@(SheetUIStyle_Switch),

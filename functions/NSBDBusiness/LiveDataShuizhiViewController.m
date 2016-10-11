@@ -1,25 +1,23 @@
 //
-//  LiveDataShuikuViewController.m
+//  LiveDataShuizhiViewController.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/9/30.
+//  Created by fifila on 16/10/1.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "LiveDataShuikuViewController.h"
+#import "LiveDataShuizhiViewController.h"
 #import "ThreeColumnCell.h"
 #import "ThreeColumnItem.h"
 #import "ThreeColumnView.h"
 #import "UIColor+ThemeColor.h"
 #import "CommonDefine.h"
-#import "LiveDataDetailShuikuInfoViewController.h"
 
-@interface LiveDataShuikuViewController ()
+@interface LiveDataShuizhiViewController ()
 
 @end
 
-@implementation LiveDataShuikuViewController
-
+@implementation LiveDataShuizhiViewController
 
 -(void) setupModel
 {
@@ -75,7 +73,7 @@
     
     ThreeColumnColorItem *item = _modelList[indexPath.row];
     
-    LiveDataDetailShuikuInfoViewController *vc = [[LiveDataDetailShuikuInfoViewController alloc] initWithTitle:item.firstColumnText];
-    [self.navigationController pushViewController:vc animated:YES];
+    //    LiveDataDetailShuikuInfoViewController *vc = [[LiveDataDetailShuikuInfoViewController alloc] initWithTitle:item.firstColumnText];
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

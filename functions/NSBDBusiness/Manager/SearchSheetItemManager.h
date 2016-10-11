@@ -13,4 +13,10 @@
 +(void) addSearchSheetItem:(NSBDBaseUIItem *)item withCode:(NSString *)code fcode:(NSString *)fcode;
 +(NSBDBaseUIItem *) getSearchSheetItemWithCode:(NSString *)code fcode:(NSString *)fcode taskid:(NSString *)taskid;
 +(void) removeSearchSheetItemWithCode:(NSString *)code fcode:(NSString *)fcode taskid:(NSString *)taskid;
+
+
++(void) addSearchLineItem:(NSBDBaseUIItem *)item withCode:(NSString *)code;
++(NSMutableArray *) getSearchLineListWithCode:(NSString *)code taskid:(NSString *)taskid;
++(NSBDBaseUIItem *) getSearchLineItemWithUUID:(NSString *)uuid code:(NSString *)code taskid:(NSString *)taskid;
++(void) removeSearchLineItemWithWithUUID:(NSString *)uuid code:(NSString *)code taskid:(NSString *)taskid;
 @end

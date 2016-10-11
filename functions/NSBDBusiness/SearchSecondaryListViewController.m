@@ -19,13 +19,18 @@
 #import "NSBDBaseUIItem.h"
 #import "TimerView.h"
 #import "MJRefresh.h"
+#import "UIColor+ThemeColor.h"
 #import "SearchCategoryModel.h"
 #import "SearchCategoryItem.h"
+#import "SearchSheetItemManager.h"
 
 #import "SearchDetailSheetViewController.h"
 
 
 @interface SearchSecondaryListViewController()
+{
+    UIView *headerView;
+}
 @property (nonatomic,strong) SearchCategoryModel *model;
 @property (nonatomic,strong) SearchHomePageItem *item;
 
@@ -34,11 +39,14 @@
 
 
 
+@property (nonatomic,readonly) NSArray *lineCodeArray;
 @property (nonatomic,readonly) NSDictionary *codeDictionary;
 @property (nonatomic,readonly) NSDictionary *titleDictionary;
 @end
 
 @implementation SearchSecondaryListViewController
+
+@synthesize lineCodeArray = _lineCodeArray;
 @synthesize codeDictionary = _codeDictionary;
 @synthesize titleDictionary = _titleDictionary;
 
@@ -90,6 +98,31 @@
     
 }
 
+-(NSArray *) lineCodeArray
+{
+    if (!_lineCodeArray) {
+        _lineCodeArray = @[@"NGQGX",
+                           @"DGQGX",
+                           @"DNGX",];
+    }
+    return _lineCodeArray;
+    
+}
+
+
+-(BOOL) isLine //是否是管线
+{
+    if (_item) {
+        for (NSString *code in self.lineCodeArray) {
+            if ([code isEqualToString:_item.code]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+        
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -117,6 +150,16 @@
     }
     return;
 #endif
+    
+    if ([self isLine])
+    {
+        self.model = [SearchCategoryModel new];
+        self.model.uiItem = [_item sheetItem];
+        self.model.datalist = [SearchSheetItemManager getSearchLineListWithCode:_item.code taskid:self.model.uiItem.taskid];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+        return;
+    }
     
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
@@ -157,6 +200,10 @@
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
+    if ([self isLine]) {
+        _tableView.tableHeaderView = [self headerView];
+    }
+    
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 0)];
     
     _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
@@ -173,7 +220,7 @@
         
         [_timerView continueTiming];
     }
-    
+    [_tableView.mj_header beginRefreshing];
 }
 
 -(void) viewDidDisappear:(BOOL)animated
@@ -183,6 +230,29 @@
     }
 }
 
+-(UIView *)headerView
+{
+    if (!headerView) {
+        headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 55)];
+        UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        addBtn.backgroundColor = [UIColor themeBlueColor];
+        [addBtn setTitle:@"填报新信息" forState:UIControlStateNormal];
+        [addBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [addBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [headerView addSubview:addBtn];
+        
+        [addBtn addTarget:self action:@selector(actionNewLine) forControlEvents:UIControlEventTouchUpInside];
+        
+        __weak UIView *weakView = headerView;
+        [addBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(10);
+            make.bottom.offset(-5);
+            make.width.mas_equalTo(200);
+            make.centerX.mas_equalTo(weakView.mas_centerX);
+        }];
+    }
+    return headerView;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -204,16 +274,26 @@
     }
     NSInteger row = indexPath.row;
     if (row < _model.datalist.count) {
-        
-        SearchCategoryItem *item = _model.datalist[row];
-        
-        BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"BaseTitleCell"];
-        if (!cell) {
-            cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BaseTitleCell"];
+        if ([self isLine]) {
+            BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"BaseTitleCell"];
+            if (!cell) {
+                cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BaseTitleCell"];
+            }
+            
+            cell.data = _model.datalist[row];
+            return cell;
+        }else
+        {
+            SearchCategoryItem *item = _model.datalist[row];
+            
+            BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"BaseTitleCell"];
+            if (!cell) {
+                cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BaseTitleCell"];
+            }
+            
+            cell.data = item;
+            return cell;
         }
-        
-        cell.data = item;
-        return cell;
     }
     return [UITableViewCell new];
 }
@@ -221,11 +301,24 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SearchCategoryItem *item = _model.datalist[indexPath.row];
     
-    SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.uiItem];
-    vc.code = _item.code;
-    vc.fcode = item.facilityCode;
+    SearchDetailSheetViewController *vc;
+    if ([self isLine])
+    {
+        vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.datalist[indexPath.row]];
+        vc.title = _item.title;
+        vc.code = _item.code;
+    }
+    else
+    {
+        
+        SearchCategoryItem *item = _model.datalist[indexPath.row];
+        vc = [SearchDetailSheetViewController sheetEditableWithUIItem:[_item sheetItem]];
+        vc.code = _item.code;
+        vc.title = _item.title;
+        vc.fcode = item.facilityCode;
+        vc.fname = item.fname;
+    }
     [self.navigationController pushViewController:vc animated:YES];
 
 }
@@ -235,5 +328,11 @@
     return 1;
 }
 
-
+-(void) actionNewLine
+{
+    SearchDetailSheetViewController *vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.uiItem];
+    vc.code = _item.code;
+    vc.title = _item.title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

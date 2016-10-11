@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LiveDataDetailShuikuInfoViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-
+-(instancetype) initWithTitle:(NSString *)title;
 @end

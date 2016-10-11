@@ -46,6 +46,9 @@
 
 -(void) removeImageAtIndex:(NSInteger) index
 {
+    if (index>= picArray.count) {
+        return;
+    }
     NSDictionary *userInfo = @{@"itemType":@"image",@"index":@(index)};
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemRemovedNotification object:nil userInfo:userInfo];
     [picArray removeObjectAtIndex:index];
@@ -54,6 +57,9 @@
 
 -(void) removeVideoAtIndex:(NSInteger) index
 {
+    if (index>= videoArray.count) {
+        return;
+    }
     NSDictionary *userInfo = @{@"itemType":@"video",@"index":@(index)};
     [[NSNotificationCenter defaultCenter] postNotificationName:ItemRemovedNotification object:nil userInfo:userInfo];
     [videoArray removeAllObjects];

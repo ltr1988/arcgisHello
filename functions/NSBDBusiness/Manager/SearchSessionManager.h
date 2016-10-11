@@ -11,6 +11,7 @@
 
 @class SearchStartModel;
 @class SearchSessionItem;
+@class NSBDBaseUIItem;
 @interface SearchSessionManager : NSObject
 @property (nonatomic,strong) SearchSessionItem *session;
 
@@ -31,4 +32,7 @@
 
 //巡查query
 -(void) requestQueryListSearchSessionWithTaskId:(NSString *) taskid code:(NSString *) code action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//提交表单
+-(void) requestUploadSheetWithItem:(NSBDBaseUIItem *) item SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

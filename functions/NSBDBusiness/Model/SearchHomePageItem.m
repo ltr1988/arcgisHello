@@ -10,7 +10,9 @@
 #import "MJExtension.h"
 #import "DGQAirItem.h"
 #import "DGQWellItem.h"
+#import "DGQWaterItem.h"
 #import "NSBDBaseUIItem.h"
+#import "DGQLine.h"
 
 @implementation SearchHomePageItem
 
@@ -31,7 +33,18 @@
     return @{
                 @"DGQPQJ":[DGQAirItem class],
                 @"DGQPKJ":[DGQWellItem class],
-                @"2":[DGQAirItem class],
+                @"DGQFSK":[DGQWaterItem class],
+                @"DGQGX":[DGQLine class],
+                
+                @"DNPKJ":[DGQWellItem class],
+                @"DNPQJ":[DGQWellItem class],
+                @"DNGX":[DGQWellItem class],
+                
+                @"NGQGX":[DGQWellItem class],
+                @"NGQPQJDOWN":[DGQWellItem class],
+                @"NGQPQJUP":[DGQWellItem class],
+                @"NGQPKJDOWN":[DGQWellItem class],
+                @"NGQPKJUP":[DGQWellItem class],
              };
 }
 

@@ -18,6 +18,7 @@
 #import "UIButton+UIButtonSetEdgeInsets.h"
 #import "MapViewManager.h"
 #import "WebViewController.h"
+#import "MapViewController+InfoMapping.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -148,7 +149,7 @@
     [btn3 setImage:[UIImage imageNamed:@"icon_qrcode"] forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn3 addTarget:self action:@selector(actionLiveData) forControlEvents:UIControlEventTouchUpInside];
-    [btn3 setTitle:@"扫一扫" forState:UIControlStateNormal];
+    [btn3 setTitle:@"实时数据" forState:UIControlStateNormal];
     btn3.titleLabel.font = UI_FONT(14);
     
     x = CGRectGetMaxX(btn3.frame);
@@ -287,7 +288,10 @@
                 name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"Name"];
             if (!name)
                 continue;
-            
+            else
+            {
+                name = [self stringFromInfoKey:name];
+            }
             ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
             self.mapView.infoView = calloutView;
             

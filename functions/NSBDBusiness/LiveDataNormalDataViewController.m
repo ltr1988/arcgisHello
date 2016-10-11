@@ -210,15 +210,15 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSInteger row = indexPath.row;
-    ThreeColumnItem *item = _modelList[row];
-    
-    
-    UIViewController *vc = nil;
-    //todo push to new vc
-    if (vc) {
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+//    NSInteger row = indexPath.row;
+//    ThreeColumnItem *item = _modelList[row];
+//    
+//    
+//    UIViewController *vc = nil;
+//    //todo push to new vc
+//    if (vc) {
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

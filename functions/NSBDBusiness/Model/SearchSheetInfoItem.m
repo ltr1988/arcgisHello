@@ -10,6 +10,8 @@
 #import "TitleInputItem.h"
 #import "CheckableTitleItem.h"
 #import "TitleDetailTextItem.h"
+#import "TitleDateItem.h"
+#import "TitleDetailItem.h"
 
 @implementation SearchSheetInfoItem
 
@@ -33,26 +35,39 @@
 
 -(void) setData:(TitleItem *)data
 {
+    _data = data;
     if ([data isKindOfClass:[TitleInputItem class]]) {
         _uiStyle = SheetUIStyle_ShortText;
-    }else
-    if ([data isKindOfClass:[TitleDetailTextItem class]]) {
+    }else if ([data isKindOfClass:[TitleDetailTextItem class]]) {
         _uiStyle = SheetUIStyle_Text;
-    }else
-        if ([data isKindOfClass:[CheckableTitleItem class]]) {
-            _uiStyle = SheetUIStyle_Switch;
-        }
+    }else if ([data isKindOfClass:[TitleDateItem class]]) {
+        _uiStyle = SheetUIStyle_Date;
+    }else if ([data isKindOfClass:[TitleDetailItem class]]) {
+        _uiStyle = SheetUIStyle_ReadonlyText;
+    }else if ([data isKindOfClass:[CheckableTitleItem class]]) {
+        _uiStyle = SheetUIStyle_Switch;
+    }
 }
 
 -(void) setTitle:(NSString *)title
 {
     switch (_uiStyle) {
+        case SheetUIStyle_ReadonlyText: {
+            _data = [TitleDetailItem itemWithTitle:title detail:@""];
+            break;
+        }
         case SheetUIStyle_ShortText: {
             _data = [TitleInputItem itemWithTitle:title placeholder:[NSString stringWithFormat:@"请填写%@",title]];
             break;
         }
         case SheetUIStyle_Text: {
             _data = [TitleDetailTextItem itemWithTitle:title detail:@"未填写" text:@""];
+            break;
+        }case SheetUIStyle_Date: {
+            NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+            
+            [formater setDateFormat:@"yyyy-MM-dd"];
+            _data = [TitleDetailItem itemWithTitle:title detail:[formater stringFromDate:[NSDate date]]];
             break;
         }
         case SheetUIStyle_Switch: {
@@ -69,6 +84,10 @@
 -(TitleItem *) dataWithStyle:(SheetUIStyle)uiStyle
 {
     switch (uiStyle) {
+        case SheetUIStyle_ReadonlyText: {
+            return [TitleDetailItem itemWithTitle:@"" detail:@""];
+            break;
+        }
         case SheetUIStyle_ShortText: {
             return [TitleInputItem itemWithTitle:@"" placeholder:@""];
             break;
@@ -79,6 +98,10 @@
         }
         case SheetUIStyle_Switch: {
             return [CheckableTitleItem itemWithTitle:@""];
+            break;
+        }
+        case SheetUIStyle_Date:{
+            return [TitleDetailItem itemWithTitle:@"" detail:@""];
             break;
         }
     }

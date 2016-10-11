@@ -84,7 +84,7 @@
     __weak UIView *weakView = self.view;
     [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top).offset(8);
-        make.bottom.mas_equalTo(weakView.mas_centerX);
+        make.bottom.mas_equalTo(weakView.mas_centerY);
         make.right.mas_equalTo(weakView.mas_right).offset(-8);
         make.left.mas_equalTo(weakView.mas_left).offset(8);
     }];

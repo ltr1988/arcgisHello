@@ -10,6 +10,7 @@
 #import "LoginModel.h"
 #import "NSDictionary+JSON.h"
 #import "NSString+MD5Addition.h"
+#import "AFHTTPSessionManager+NSBD.h"
 
 @implementation AuthorizeManager
 +(instancetype) sharedInstance
@@ -64,46 +65,44 @@
     // 创建请求类
   
     AFHTTPSessionManager *manager = [HttpManager loginManager];
-    [manager POST:[HttpHost hostAURLWithParam:param]
-      parameters:nil
-        progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
-            @strongify(self)
-             // 请求成功
-             NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-             NSDictionary *dict = [NSDictionary dictWithJson:str];
-             LoginModel *item = [LoginModel objectWithKeyValues:dict];
-             if (item.success)
-             {
-                 
-                 if (item.token) {
-                     [AuthorizeManager sharedInstance].userName = user;
-                     [AuthorizeManager sharedInstance].token = item.token;
-                     
-                     
-                     if (callback) {
-                         callback(@{@"success":@(item.success)});
-                     }
-                 }else
-                 {
-                     if (callback) {
-                         callback(@{@"success":@(NO)});
-                     }
-                 }
-             }
-             else
-             {
-                 if (callback) {
-                     callback(@{@"success":@(NO)});
-                 }
-             }
-         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             // 请求失败
-             if (callback) {
-                 callback(@{@"success":@(NO)});
-             }
-         }];
+    
+    [manager NSBDPOST:[HttpHost hostAURLWithParam:param]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    LoginModel *item = [LoginModel objectWithKeyValues:dict];
+                                    if (item.success)
+                                    {
+                                        
+                                        if (item.token) {
+                                            [AuthorizeManager sharedInstance].userName = user;
+                                            [AuthorizeManager sharedInstance].token = item.token;
+                                            
+                                            
+                                            if (callback) {
+                                                callback(@{@"success":@(YES)});
+                                            }
+                                        }else
+                                        {
+                                            if (callback) {
+                                                callback(@{@"success":@(NO)});
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (callback) {
+                                            callback(@{@"success":@(NO)});
+                                        }
+                                    }
 
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (callback) {
+                                        callback(@{@"success":@(NO)});
+                                    }
+                                }];
 }
 
 -(void) setUserName:(NSString *)userName

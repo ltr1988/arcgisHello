@@ -9,13 +9,16 @@
 #import "DatePickViewController.h"
 #import "Masonry.h"
 #import "CommonDefine.h"
+#import "TitleDateItem.h"
 
 @interface  DatePickViewController()
 {
     NSDate *date;
+    BOOL readonly;
 }
-
+@property (nonatomic,weak) TitleDateItem *data;
 @end
+
 @implementation DatePickViewController
 
 -(instancetype) init
@@ -27,6 +30,21 @@
     return self;
 }
 
+-(instancetype) initWithData:(TitleDateItem *)data
+{
+    return [self initWithData:data readOnly:NO];
+}
+
+-(instancetype) initWithData:(TitleDateItem *)data readOnly:(BOOL) readOnly
+{
+    self = [super init];
+    if (self) {
+        self.data = data;
+        readonly = readOnly;
+    }
+    
+    return self;
+}
 -(instancetype) initWithDate:(NSDate *)initDate
 {
     self = [super init];
@@ -41,8 +59,13 @@
 
 -(void)saveDate
 {
-    NSDictionary *userInfo = @{@"date":date};
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"DatePickerNotification" object:nil userInfo:userInfo];
+    if (self.data) {
+        self.data.date = date;
+    }else
+    {
+        NSDictionary *userInfo = @{@"date":date};
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"DatePickerNotification" object:nil userInfo:userInfo];
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

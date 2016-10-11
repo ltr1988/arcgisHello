@@ -11,6 +11,8 @@
 #import "SearchSheetInfoItem.h"
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
+#import "AuthorizeManager.h"
+#import "TitleDetailItem.h"
 
 @implementation DGQWellItem
 
@@ -21,7 +23,6 @@
     if (self) {
         self.wellnum = @"";
         self.wellname = @"";
-        self.exedate = @"";
     }
     return self;
 }
@@ -31,19 +32,29 @@
     [super encodeWithCoder:aCoder];
     [aCoder encodeObject:self.wellnum forKey:@"wellnum"];
     [aCoder encodeObject:self.wellname forKey:@"wellname"];
-    [aCoder encodeObject:self.exedate forKey:@"exedate"];
     
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.exedate = [aDecoder decodeObjectForKey:@"exedate"];
         self.wellname = [aDecoder decodeObjectForKey:@"wellname"];
         self.wellnum = [aDecoder decodeObjectForKey:@"wellnum"];
     }
     
     return self;
+}
+-(void) setWellnum:(NSString *)wellnum
+{
+    _wellnum = wellnum;
+    for (SearchSheetGroupItem *group in self.infolist) {
+        for (SearchSheetInfoItem *item in group.items) {
+            if ([item.key isEqualToString:@"wellnum"]) {
+                TitleDetailItem *detailItem = (TitleDetailItem *)item.data;
+                detailItem.detail = wellnum;
+            }
+        }
+    }
 }
 
 #pragma mark protocal
@@ -57,13 +68,10 @@
     }
     info[@"taskid"] = self.taskid;
     info[@"id"] = self.itemId;
-    info[@"type"] = @"东干渠排空井";
-    info[@"starttime"] = [[[SearchSessionManager sharedManager] session] stringStartTime];
-    
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
-    info[@"exedate"] = [formater stringFromDate:[NSDate date]];
+    info[@"wellname"] = self.wellname;
+    info[@"operate"] = @"insert";
+    info[@"userName"] = [AuthorizeManager sharedInstance].userName;
+
     return info;
 }
 
@@ -75,11 +83,16 @@
 }
 
 #pragma mark UILayout
+
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
              @{
-                 @"group":@"地上部分",
+                 @"group":@"",
+                 @"wellnum":@(SheetUIStyle_ReadonlyText),
+                 },
+             @{
+                 @"group":@"干井",
                  @"dry_creepwell":@(SheetUIStyle_Switch),
                  @"dry_crawl":@(SheetUIStyle_Switch),
                  @"dry_wall":@(SheetUIStyle_Switch),
@@ -91,16 +104,17 @@
                  @"dry_sluice":@(SheetUIStyle_Switch),
                  },
              @{
-                 @"group":@"地下部分",
+                 @"group":@"湿井",
                  @"wet_creepwell":@(SheetUIStyle_Switch),
                  @"wet_crawl":@(SheetUIStyle_Switch),
                  @"wet_wall":@(SheetUIStyle_Switch),
                  @"wet_bottom":@(SheetUIStyle_Switch),
                  @"wet_health":@(SheetUIStyle_Switch),
+                 @"wet_drain":@(SheetUIStyle_Switch),
                  },
              
              @{
-                 @"group":@"地下部分",
+                 @"group":@"出水阀井",
                  @"water_creepwell":@(SheetUIStyle_Switch),
                  @"water_crawl":@(SheetUIStyle_Switch),
                  @"water_wall":@(SheetUIStyle_Switch),
@@ -139,6 +153,7 @@
              @"wet_wall":@"井壁",
              @"wet_bottom":@"井底",
              @"wet_health":@"卫生",
+             @"wet_drain":@"潜水排污泵",
              
              @"water_creepwell":@"爬井",
              @"water_crawl":@"围栏",

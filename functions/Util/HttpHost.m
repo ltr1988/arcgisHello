@@ -10,7 +10,7 @@
 #import "AuthorizeManager.h"
 #import "NSDictionary+JSON.h"
 #import "NSDictionary+HttpParam.h"
-
+#import "CommonDefine.h"
 
 @implementation HttpHost
 +(NSString *) hostURL
@@ -22,8 +22,7 @@
 
 +(NSString *) hostAURL
 {
-//    return @"http://192.168.1.200:8080/nsbd/Service/dataSync.do";
-    return @"http://192.168.0.121:8080/nsbd/Service/dataSync.do";
+    return [NSString stringWithFormat:@"http://%@:8080/nsbd/Service/dataSync.do",HOSTIP];
 }
 
 +(NSString *) hostAURLWithParam:(NSDictionary *)dict

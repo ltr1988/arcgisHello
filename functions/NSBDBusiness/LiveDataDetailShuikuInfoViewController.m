@@ -19,6 +19,14 @@
 
 @implementation LiveDataDetailShuikuInfoViewController
 
+-(instancetype) initWithTitle:(NSString *)title
+{
+    if (self = [super init]) {
+        self.title = title;
+    }
+    return self;
+}
+
 -(void) viewDidLoad
 {
     [super viewDidLoad];
@@ -44,7 +52,6 @@
 
 -(void) setupSubviews
 {
-    self.title = @"实时数据";
     _detailTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _detailTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _detailTableView.backgroundColor = [UIColor seperatorColor];

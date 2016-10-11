@@ -16,6 +16,7 @@
                            failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSUTF8StringEncoding
         NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSDictionary *dict = [NSDictionary dictWithJson:str];
         if (success) {

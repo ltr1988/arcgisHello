@@ -13,6 +13,7 @@
 #import "SearchSessionItem.h"
 #import "AuthorizeManager.h"
 #import "AFHTTPSessionManager+NSBD.h"
+#import "NSBDBaseUIItem.h"
 
 #define CURRENT_SESSION [NSString stringWithFormat:@"current_session_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation SearchSessionManager
@@ -79,7 +80,7 @@
                            @"weather":model.weather.detail,
                            @"auditor":model.searchAdmin.detail,
                            @"status":@"1",
-                           @"source":@"iOS",
+                           @"source":@"IOS",
                            @"id":sessionID,
                            @"userName":[AuthorizeManager sharedInstance].userName};
     
@@ -100,27 +101,25 @@
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"taskstart" method:@"doInDto" req:info];
     
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:dict]
-                    parameters:nil
-                      progress:nil
-                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
-                           NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                           NSDictionary *dict = [NSDictionary dictWithJson:str];
-                           // 请求成功
-                           if (success) {
-                               dispatch_main_async_safe(^{
-                                   success(task,dict);
-                               });
-                           }
-                           
-                       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                           // 请求失败
-                           if (fail) {
-                               dispatch_main_async_safe(^{
-                                   fail(task,error);
-                               });
-                           }
-                       }];
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
 
 }
 
@@ -129,28 +128,25 @@
 -(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model sessionID:(NSString *)sessionId successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary *param = [self paramWithModel:model sessionID:sessionId];
-
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:param]
-                    parameters:nil
-                      progress:nil
-                       success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
-                           // 请求成功
-                           NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                           NSDictionary *dict = [NSDictionary dictWithJson:str];
-                           if (success) {
-                               dispatch_main_async_safe(^{
-                                   success(task,dict);
-                               });
-                           }
-                       } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                           // 请求失败
-                           if (fail) {
-                               dispatch_main_async_safe(^{
-                                   fail(task,error);
-                               });
-                           }
-                       }];
-
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:param]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
 }
 
 -(void) requestEndSearchSessionWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
@@ -201,26 +197,51 @@
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"taskconfig" method:@"doInDto" req:info];
     
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:dict]
-                     parameters:nil
-                       progress:nil
-                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
-                            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                            NSDictionary *dict = [NSDictionary dictWithJson:str];
-                            // 请求成功
-                            if (success) {
-                                dispatch_main_async_safe(^{
-                                    success(task,dict);
-                                });
-                            }
-                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                            // 请求失败
-                            if (fail) {
-                                dispatch_main_async_safe(^{
-                                    fail(task,error);
-                                });
-                            }
-                        }];
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+
+}
+
+-(void) requestUploadSheetWithItem:(NSBDBaseUIItem *) item SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary *info = item.requestInfo;
     
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:item.actionKey method:@"doInDto" req:info];
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
 }
 @end

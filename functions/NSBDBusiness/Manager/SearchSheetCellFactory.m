@@ -16,11 +16,17 @@
 {
     BaseTitleCell *cell = [[BaseTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     switch (style) {
+        case SheetUIStyle_ReadonlyText:{
+            cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            break;
+        }
         case SheetUIStyle_ShortText: {
             cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
+        case SheetUIStyle_Date:
         case SheetUIStyle_Text: {
             cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

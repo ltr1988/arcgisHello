@@ -8,7 +8,11 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 #import "UIViewController+BackButtonHandler.h"
+@class TitleDateItem;
 
 @interface DatePickViewController : SupportRotationSelectBaseViewController
 -(instancetype) initWithDate:(NSDate *)initDate;
+
+-(instancetype) initWithData:(TitleDateItem *)data;
+-(instancetype) initWithData:(TitleDateItem *)data readOnly:(BOOL) readOnly;
 @end

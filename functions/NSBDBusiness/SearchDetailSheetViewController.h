@@ -16,4 +16,5 @@
 
 @property (nonatomic,strong) NSString *code;
 @property (nonatomic,strong) NSString *fcode;
+@property (nonatomic,strong) NSString *fname;
 @end

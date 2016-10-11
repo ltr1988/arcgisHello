@@ -13,12 +13,21 @@
 #import "TitleDateItem.h"
 #import "TitleItem.h"
 #import "TitleDetailTextItem.h"
+#import "NSString+UUID.h"
 
 @interface EventReportModel()<EventDetailViewDelegate>
 
 @end
 
 @implementation EventReportModel
+
+-(instancetype) init
+{
+    if (self = [super init]) {
+        _uuid = [NSString stringWithUUID];
+    }
+    return self;
+}
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:_eventName forKey:@"_eventName"];
@@ -38,12 +47,13 @@
     
     [aCoder encodeObject:_eventPic forKey:@"_eventPic"];
     [aCoder encodeObject:_eventVideo forKey:@"_eventVideo"];
+    [aCoder encodeObject:_uuid forKey:@"uuid"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super init];
     if (self) {
-        
+        _uuid = [aDecoder decodeObjectForKey:@"uuid"];
         _eventName = [aDecoder decodeObjectForKey:@"_eventName"];
         _eventType = [aDecoder decodeObjectForKey:@"_eventType"];
         _eventXingzhi = [aDecoder decodeObjectForKey:@"_eventXingzhi"];
