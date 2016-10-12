@@ -30,6 +30,7 @@
 @interface SearchSecondaryListViewController()
 {
     UIView *headerView;
+    BOOL readOnly;
 }
 @property (nonatomic,strong) SearchCategoryModel *model;
 @property (nonatomic,strong) SearchHomePageItem *item;
@@ -52,8 +53,17 @@
 
 -(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item
 {
+    return [self initWithSearchHomeItem:item readonly:NO];
+}
+-(instancetype) initReadonlyWithSearchHomeItem:(SearchHomePageItem*) item
+{
+    return [self initWithSearchHomeItem:item readonly:YES];
+}
+-(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item readonly:(BOOL) readonly
+{
     if (self = [super init]) {
         _item = item;
+        readOnly = readonly;
     }
     return self;
 }
@@ -133,24 +143,6 @@
 
 -(void) requestData
 {
-#ifdef NoServer
-    //mock
-    id mock = @[
-                @{@"facilityCode":@"f1"},
-                @{@"facilityCode":@"f2"},
-                @{@"facilityCode":@"f3"}
-                ];
-    NSDictionary *dict =@{@"status":@"100",@"data":mock};
-
-    self.model = [SearchCategoryModel objectWithKeyValues:dict];
-    if (self.model.success) {
-        self.model.uiItem = [_item sheetItem];
-        [self.tableView.mj_header endRefreshing];
-        [self.tableView reloadData];
-    }
-    return;
-#endif
-    
     if ([self isLine])
     {
         self.model = [SearchCategoryModel new];
@@ -161,6 +153,23 @@
         return;
     }
     
+#ifdef NoServer
+    //mock
+    id mock = @[
+                @{@"facilityCode":@"f1"},
+                @{@"facilityCode":@"f2"},
+                @{@"facilityCode":@"f3"}
+                ];
+    NSDictionary *dict =@{@"status":@"100",@"data":mock};
+    
+    self.model = [SearchCategoryModel objectWithKeyValues:dict];
+    if (self.model.success) {
+        self.model.uiItem = [_item sheetItem];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    }
+    return;
+#endif
     if (![[AFNetworkReachabilityManager sharedManager] isReachable])
     {
         [ToastView popToast:@"暂无网络，稍后再试"];

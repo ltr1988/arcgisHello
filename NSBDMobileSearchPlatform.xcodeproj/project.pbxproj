@@ -135,6 +135,12 @@
 		B205A5351D61D378007530EB /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5201D61D378007530EB /* UIScrollView+MJRefresh.m */; };
 		B205A5361D61D378007530EB /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5221D61D378007530EB /* UIView+MJExtension.m */; };
 		B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
+		B25712AD1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */; };
+		B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */; };
+		B25712B31DADCECB00F3D7F6 /* NSString+LVPath.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */; };
+		B25712B61DADE49D00F3D7F6 /* SearchHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */; };
+		B25712BA1DADE52D00F3D7F6 /* SearchHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */; };
+		B25712BD1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */; };
 		B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */; };
 		B272B0B01D9D118600CEB12D /* LiveDataShuiweiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */; };
 		B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */; };
@@ -493,6 +499,18 @@
 		B21163E61D0FB03A003F90A6 /* RouteStartEndPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStartEndPickerController.h; sourceTree = "<group>"; };
 		B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStartEndPickerController.m; sourceTree = "<group>"; };
 		B21163E91D0FB043003F90A6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		B25712AB1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryHomeViewController.h; path = functions/NSBDBusiness/SearchHistoryHomeViewController.h; sourceTree = "<group>"; };
+		B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryHomeViewController.m; path = functions/NSBDBusiness/SearchHistoryHomeViewController.m; sourceTree = "<group>"; };
+		B25712AE1DADCAB200F3D7F6 /* SearchHistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryManager.h; sourceTree = "<group>"; };
+		B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryManager.m; sourceTree = "<group>"; };
+		B25712B11DADCECB00F3D7F6 /* NSString+LVPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+LVPath.h"; path = "functions/Util/NSString+LVPath.h"; sourceTree = "<group>"; };
+		B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+LVPath.m"; path = "functions/Util/NSString+LVPath.m"; sourceTree = "<group>"; };
+		B25712B41DADE49D00F3D7F6 /* SearchHistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryModel.h; path = functions/NSBDBusiness/Model/SearchHistoryModel.h; sourceTree = "<group>"; };
+		B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryModel.m; path = functions/NSBDBusiness/Model/SearchHistoryModel.m; sourceTree = "<group>"; };
+		B25712B81DADE52D00F3D7F6 /* SearchHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryItem.h; path = functions/NSBDBusiness/Model/SearchHistoryItem.h; sourceTree = "<group>"; };
+		B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryItem.m; path = functions/NSBDBusiness/Model/SearchHistoryItem.m; sourceTree = "<group>"; };
+		B25712BB1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryHomeTableViewCell.h; path = functions/NSBDBusiness/Views/SearchHistoryHomeTableViewCell.h; sourceTree = "<group>"; };
+		B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryHomeTableViewCell.m; path = functions/NSBDBusiness/Views/SearchHistoryHomeTableViewCell.m; sourceTree = "<group>"; };
 		B272B0AB1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AFHTTPSessionManager+NSBD.h"; path = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.h"; sourceTree = "<group>"; };
 		B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "AFHTTPSessionManager+NSBD.m"; path = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.m"; sourceTree = "<group>"; };
 		B272B0AE1D9D118600CEB12D /* LiveDataShuiweiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuiweiViewController.h; path = functions/NSBDBusiness/LiveDataShuiweiViewController.h; sourceTree = "<group>"; };
@@ -746,6 +764,8 @@
 				A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */,
 				A4CFBC811D9666810016387C /* NSString+UUID.h */,
 				A4CFBC821D9666810016387C /* NSString+UUID.m */,
+				B25712B11DADCECB00F3D7F6 /* NSString+LVPath.h */,
+				B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1133,6 +1153,8 @@
 				A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */,
 				A4F2FC121D845E0500B0532B /* MyUploadedEventCell.h */,
 				A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */,
+				B25712BB1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.h */,
+				B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1267,6 +1289,17 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		B25712B71DADE50D00F3D7F6 /* SearchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				B25712B41DADE49D00F3D7F6 /* SearchHistoryModel.h */,
+				B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */,
+				B25712B81DADE52D00F3D7F6 /* SearchHistoryItem.h */,
+				B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */,
+			);
+			name = SearchHistory;
+			sourceTree = "<group>";
+		};
 		B28069AF1D670F490097F7E4 /* SearchSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -1395,6 +1428,8 @@
 				A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */,
 				B28069BC1D68081D0097F7E4 /* SearchDetailSheetViewController.h */,
 				B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */,
+				B25712AB1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.h */,
+				B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1475,6 +1510,7 @@
 		B2A186E61D62DBA8006D8CA7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				B25712B71DADE50D00F3D7F6 /* SearchHistory */,
 				B28069AF1D670F490097F7E4 /* SearchSheet */,
 				B205A49F1D5DBF58007530EB /* SearchStartModel.h */,
 				B205A4A01D5DBF58007530EB /* SearchStartModel.m */,
@@ -1524,6 +1560,8 @@
 				A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */,
 				A4924FA31DACF5C00025041E /* EventHttpManager.h */,
 				A4924FA41DACF5C00025041E /* EventHttpManager.m */,
+				B25712AE1DADCAB200F3D7F6 /* SearchHistoryManager.h */,
+				B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -1772,6 +1810,7 @@
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
+				B25712B31DADCECB00F3D7F6 /* NSString+LVPath.m in Sources */,
 				B2A1872D1D66AF4B006D8CA7 /* MJFoundation.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
@@ -1820,6 +1859,7 @@
 				B205A4A71D61C4FF007530EB /* SearchHomePageModel.m in Sources */,
 				B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
+				B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */,
 				B2A186F21D632AEB006D8CA7 /* SearchSessionManager.m in Sources */,
 				B2A1872F1D66AF4B006D8CA7 /* MJType.m in Sources */,
 				B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */,
@@ -1829,6 +1869,7 @@
 				A4F2FC261D855D2300B0532B /* UITableView+EmptyView.m in Sources */,
 				B28653831D45EA03002D4139 /* MASViewConstraint.m in Sources */,
 				B205A4991D5D7ABC007530EB /* QRCodeReaderViewController.m in Sources */,
+				B25712B61DADE49D00F3D7F6 /* SearchHistoryModel.m in Sources */,
 				A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
 				B2F1D89E1D8E2C9000A6EDCA /* ThreeColumnItem.m in Sources */,
@@ -1894,6 +1935,7 @@
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
 				B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */,
+				B25712BA1DADE52D00F3D7F6 /* SearchHistoryItem.m in Sources */,
 				A4E68C2A1D6994BE00DD603B /* SearchHomePageItem.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
 				A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */,
@@ -1903,6 +1945,7 @@
 				B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
+				B25712BD1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,
 				B28653EF1D49FF54002D4139 /* UIColor+ThemeColor.m in Sources */,
 				A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */,
@@ -1928,6 +1971,7 @@
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
+				B25712AD1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m in Sources */,
 				A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */,
 				A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */,
 				B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */,

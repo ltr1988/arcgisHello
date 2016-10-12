@@ -15,13 +15,14 @@
 
 @implementation SearchSheetInfoItem
 
--(instancetype) initWithKey:(NSString *) key style:(SheetUIStyle) style
+-(instancetype) initWithKey:(NSString *) key style:(NSArray *)styleArray //array[0] for style, array[1] for order
 {
     self = [super init];
     if (self) {
-        _uiStyle = style;
+        _uiStyle = [styleArray[0] integerValue];
+        _order = [styleArray[1] integerValue];
         _key = [key copy];
-        _data = [self dataWithStyle:style];
+        _data = [self dataWithStyle:_uiStyle];
     }
     return self;
 }
@@ -112,7 +113,8 @@
 {
     [aCoder encodeObject:self.data forKey:@"TitleItem"];
     [aCoder encodeObject:self.key forKey:@"key"];
-    [aCoder encodeInt:self.uiStyle forKey:@"uiStyle"];
+    [aCoder encodeInteger:self.uiStyle forKey:@"uiStyle"];
+    [aCoder encodeInteger:self.order forKey:@"order"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -121,6 +123,7 @@
         self.data = [aDecoder decodeObjectForKey:@"TitleItem"];
         self.key = [aDecoder decodeObjectForKey:@"key"];
         self.uiStyle = [aDecoder decodeIntegerForKey:@"uiStyle"];
+        self.order = [aDecoder decodeIntegerForKey:@"order"];
     }
     
     return self;

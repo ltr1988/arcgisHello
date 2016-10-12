@@ -14,6 +14,8 @@
 #import "SearchHomePageItem.h"
 #import "LoginModel.h"
 #import "SearchCategoryModel.h"
+#import "SearchHistoryItem.h"
+#import "SearchHistoryModel.h"
 
 @implementation QRModelsManager
 
@@ -47,6 +49,8 @@
       [SearchHomePageItem class],
       [LoginModel class],
       [SearchCategoryModel class],
+      [SearchHistoryModel class],
+      [SearchHistoryItem class],
       ];
     
     

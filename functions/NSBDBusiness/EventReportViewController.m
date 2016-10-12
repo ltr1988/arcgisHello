@@ -78,14 +78,9 @@
         return;
     }
     
-    NSString *path = [EventModelPathManager lastestEventPath];
-    if (path && [[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSData * data= [NSData dataWithContentsOfFile:path];
-        self.model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        
-    }else
-    {
-        self.model = [EventReportModel new];
+    self.model = [EventModelPathManager lastestEventModel];
+    if (!self.model) {
+        self.model = [[EventReportModel alloc] init];
         self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
         self.model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
         self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
@@ -101,6 +96,7 @@
         self.model.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
         self.model.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
         self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
+        
     }
 }
 -(void) addObservers
@@ -265,13 +261,7 @@
 {
     UIButton *btn = sender;
     btn.enabled = NO;
-    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:self.model];
-    NSString *path = [NSString stringWithFormat:@"%@/event%@.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],self.model.eventName.detail?:@""];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-    }
-    [data writeToFile:path atomically:YES];
-    [EventModelPathManager addEventModelWithPath:path];
+    [EventModelPathManager addEventMode:self.model];
     
     [ToastView popToast:@"保存成功"];
     btn.enabled = YES;

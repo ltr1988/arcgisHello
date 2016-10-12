@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class EventReportModel;
 @interface EventModelPathManager : NSObject
 
-+(void) addEventModelWithPath:(NSString *)path;
++(void) addEventMode:(EventReportModel *)model;
++(void) removeEventMode:(EventReportModel *)model;
 +(NSArray *) getEventModels;
-+(NSString *) lastestEventPath;
++(EventReportModel *) lastestEventModel;
 @end

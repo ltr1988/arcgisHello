@@ -66,24 +66,24 @@
     return @[
              @{
                  @"group":@"巡查范围",
-                 @"stakestart":@(SheetUIStyle_ShortText),
-                 @"stakeend":@(SheetUIStyle_ShortText),
-                 @"exedate":@(SheetUIStyle_Date),
-                 @"weather":@(SheetUIStyle_ShortText),
+                 @"stakestart":@[@(SheetUIStyle_ShortText),@(1)],
+                 @"stakeend":@[@(SheetUIStyle_ShortText),@(2)],
+                 @"exedate":@[@(SheetUIStyle_Date),@(3)],
+                 @"weather":@[@(SheetUIStyle_ShortText),@(4)],
                  },
              @{
                  @"group":@"巡查内容",
-                 @"issurvey":@(SheetUIStyle_Switch),
-                 @"isbuild":@(SheetUIStyle_Switch),
-                 @"ishavewater":@(SheetUIStyle_Switch),
-                 @"isdamage":@(SheetUIStyle_Switch),
-                 @"istrap":@(SheetUIStyle_Switch),
-                 @"ischange":@(SheetUIStyle_Switch),
+                 @"issurvey":@[@(SheetUIStyle_Switch),@(5)],
+                 @"isbuild":@[@(SheetUIStyle_Switch),@(6)],
+                 @"ishavewater":@[@(SheetUIStyle_Switch),@(7)],
+                 @"isdamage":@[@(SheetUIStyle_Switch),@(8)],
+                 @"istrap":@[@(SheetUIStyle_Switch),@(9)],
+                 @"ischange":@[@(SheetUIStyle_Switch),@(10)],
                  },
              @{
                  @"group":@"",
-                 @"problem":@(SheetUIStyle_Text),
-                 @"dealmethod":@(SheetUIStyle_Text),
+                 @"problem":@[@(SheetUIStyle_Text),@(11)],
+                 @"dealmethod":@[@(SheetUIStyle_Text),@(12)],
                  },
              ];
 }
