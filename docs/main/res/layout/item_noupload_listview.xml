@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:background="#0000"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.7"
+            android:background="#0000"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_min">
+
+            <TextView
+                android:id="@+id/titletype"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/shijianmc1"
+                android:textSize="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/Nouptitle_TV"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/app_name"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/activity_horizontal_margin" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:background="#0000"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_min">
+
+            <TextView
+                style="@style/common_tianchong_xiang"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginTop="1dp"
+                android:text="@string/shifasj1"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/Nouptime_TV"
+                style="@style/common_tianchong_xiang"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="1dp"
+                android:text="@string/app_name" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:background="#0000"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical|right">
+
+        <Button
+            android:id="@+id/reUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@drawable/yuanjiaoblue"
+            android:text="@string/shangbao"
+            android:textColor="@color/White" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginRight="@dimen/bottom_button_margin"
+            android:background="#0000"
+            android:src="@drawable/select_more" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/login_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@mipmap/logo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@mipmap/title" />
+
+    <LinearLayout
+        android:id="@+id/login1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_max"
+        android:layout_marginRight="@dimen/margin_max"
+        android:background="@color/White"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@color/qianhui"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingBottom="@dimen/bottom_button_margin"
+            android:paddingLeft="@dimen/text_title"
+            android:paddingRight="@dimen/text_title"
+            android:paddingTop="@dimen/bottom_button_margin"
+            android:text="@string/denglu"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/bottom_button_margin"
+            android:paddingTop="@dimen/bottom_button_margin">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="6"
+                android:background="@null"
+                android:src="@mipmap/icon_user" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginRight="@dimen/margin_min"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/qingshuruyonghu"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_erji" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="@dimen/margin_min"
+            android:layout_marginRight="@dimen/margin_min"
+            android:background="@color/darkpartingline"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/bottom_button_margin"
+            android:paddingTop="@dimen/bottom_button_margin">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="6"
+                android:background="@null"
+                android:src="@mipmap/icon_passpord" />
+
+            <EditText
+                android:id="@+id/userpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginRight="@dimen/margin_min"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/qingshurumima"
+                android:inputType="textPassword"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_erji" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/margin_min"
+            android:layout_marginRight="@dimen/margin_min"
+            android:background="@color/darkpartingline"></View>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="@dimen/margin_min"
+            android:layout_marginRight="@dimen/margin_min"
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:drawableRight="@mipmap/icon_more1"
+            android:gravity="center_horizontal"
+            android:paddingBottom="@dimen/bottom_button_margin"
+            android:paddingRight="@dimen/margin_min"
+            android:paddingTop="@dimen/bottom_button_margin"
+            android:text="进入"
+            android:textColor="@color/White"
+            android:textSize="@dimen/text_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/bottom_button_margin"
+            android:paddingTop="@dimen/bottom_button_margin">
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/wangji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="忘记密码?"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_erji" />
+
+            <Button
+
+                android:id="@+id/zhuce"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginRight="@dimen/margin_min"
+                android:layout_weight="1"
+                android:background="@null"
+                android:text="新用户注册>>"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_erji" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_dialog_guanxian"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:background="@color/White"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView_guanxian_dialog_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/White"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/close" />
+
+        <TextView
+            android:id="@+id/textView_dialog_guanxian_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="left"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@null"
+            android:gravity="left"
+            android:text="@string/tishi"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_yiji" />
+
+        <LinearLayout
+            android:id="@+id/lin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editText_dialog_guanxian_neirong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:hint="请输入"
+                android:textSize="@dimen/text_erji" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_guanxian_dialog_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:background="@color/blue"
+            android:text="@string/queding"
+            android:textColor="@color/White"
+            android:textSize="@dimen/text_yiji" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xuncha_item"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/White"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_xuncha_neirong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:text="@string/xunchaduixiangfenshuikou"
+            android:textSize="@dimen/text_yiji" />
+
+        <TextView
+            android:id="@+id/textView_xuncha_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0"
+            android:background="@color/White"
+            android:text="@string/xunchaduixiangyzfenshuikou"
+            android:textSize="@dimen/text_yiji" />
+
+        <ImageView
+            android:id="@+id/imageView_xuncha_into"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_weight="0"
+            android:background="@mipmap/icon_more" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/partingline" />
+
+</LinearLayout>
+

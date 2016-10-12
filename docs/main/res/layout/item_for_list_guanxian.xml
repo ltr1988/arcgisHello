@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="@color/White"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="@color/White"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/m_text"
+                    android:background="@color/White"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/activity_horizontal_margin">
+
+                    <TextView
+                        android:id="@+id/textView_kaishizhuanghao"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/m_text"
+                        android:layout_marginLeft="@dimen/m_text"
+                        android:layout_marginTop="@dimen/m_text"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:text="@string/kaishizhuanghao"
+                        android:textSize="@dimen/text_neirong" />
+
+                    <TextView
+                        android:id="@+id/textView_list_guanxian_kaishizhuanghao"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/m_text"
+                        android:layout_marginRight="@dimen/m_text"
+                        android:layout_weight="5"
+                        android:background="@color/White"
+                        android:gravity="center|left"
+                        android:hint="@string/tianxiezhuanghao1"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="@dimen/text_erji" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textview_list_guanxian_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:text="sdasdasdasdas"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/text_erji" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:background="#0000"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical|right">
+
+        <Button
+            android:id="@+id/listguanxian_reUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@drawable/yuanjiaoblue"
+            android:text="@string/shangbao"
+            android:textColor="@color/White" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginRight="@dimen/bottom_button_margin"
+            android:background="#0000"
+            android:src="@drawable/select_more" />
+    </LinearLayout>
+</LinearLayout>
+

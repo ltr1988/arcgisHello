@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/blue" />
+    <stroke
+        android:width="1dip"
+        android:color="@color/blue" />
+    <corners
+        android:bottomRightRadius="5dp"
+        android:topRightRadius="5dp" />
+    <padding
+        android:bottom="@dimen/basic_button_margin"
+        android:left="@dimen/basic_button_margin"
+        android:right="@dimen/basic_button_marginp"
+        android:top="@dimen/basic_button_margin" />
+</shape>

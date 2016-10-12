@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/scrollview_xuncha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:fadingEdge="vertical"
+        android:padding="5dp"
+        android:scrollbars="vertical">
+        <com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView
+            android:id="@+id/listView_xuncha"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/text_min"
+            android:layout_marginRight="@dimen/text_min"
+            android:layout_height="match_parent"
+            android:background="@color/White">
+        </com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

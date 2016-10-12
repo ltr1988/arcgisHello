@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <com.esri.android.map.MapView
+        android:id="@+id/map"
+        mapoptions.ZoomLevel="13"
+        mapoptions.center="39.767971655227115, 116.21968952721559"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <include
+
+        layout="@layout/common_sousuokuang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_min" />
+
+    <include
+        layout="@layout/zujian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom" />
+    <LinearLayout
+        android:id="@+id/switch_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/White"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/text_min">
+
+        <LinearLayout
+            android:id="@+id/xuncha_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_xctb" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/xunchatb"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shijiansb_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_tfsb" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/shijiansb"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/saoyis_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_sys" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/saoyis"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wode_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/icon_wd" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center"
+                android:text="@string/wode"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

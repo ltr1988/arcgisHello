@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/bottomshowre"
+    android:visibility="gone"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/White"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_min">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="@dimen/margin_min"
+                android:src="@mipmap/icon_location" />
+
+            <TextView
+                android:id="@+id/bottomshow_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="@dimen/margin_min"
+                android:text="亦庄"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/text_yiji" />
+
+            <TextView
+                android:id="@+id/bottomshow_danwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="@dimen/margin_min"
+                android:text="亦庄所"
+                android:textColor="@color/darkgrey"
+                android:textSize="@dimen/text_erji" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_min"
+            android:background="@color/White"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bottomshow_jiben"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textSize="@dimen/text_yiji"
+                android:textColor="@drawable/bottomshow_ziticolor"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:drawableLeft="@drawable/bottomshow_jbxx_state"
+                android:text="基本信息" />
+
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/gray"
+                 />
+
+            <Button
+                android:id="@+id/bottomshow_sanwei"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textSize="@dimen/text_yiji"
+                android:textColor="@drawable/bottomshow_ziticolor"
+                android:drawableLeft="@drawable/bottomshow_swmx_state"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="三维模型" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

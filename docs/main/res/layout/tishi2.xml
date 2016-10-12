@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="提示"
+        android:background="@color/White"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/text_title" />
+
+    <TextView
+        android:id="@+id/tishi_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:background="@color/White"
+        android:text="案件空间对象必须3个点以上,是否继续取点"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/text_yiji" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/White"
+        android:padding="5dp" >
+
+        <TextView
+            android:id="@+id/tishi_shi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="是"
+            android:background="@color/White"
+            android:textColor="#0000ff"
+            android:textSize="@dimen/text_erji" />
+
+        <TextView
+            android:id="@+id/tishi_fou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:background="@color/White"
+            android:text="否"
+            android:textColor="#0000ff"
+            android:textSize="@dimen/text_erji" />
+    </LinearLayout>
+
+</LinearLayout>

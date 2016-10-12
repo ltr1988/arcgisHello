@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/White"
+    android:gravity="center_vertical">
+    <ImageView
+        android:background="#0000"
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/icon_map_searchpoint" />
+
+    <TextView
+        android:background="#0000"
+        android:id="@+id/locate_TV"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/wodeweizhi"
+        android:textColor="@color/textColorBlack"/>
+    <ImageView
+        android:background="#0000"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_height="match_parent"
+        android:src="@mipmap/icon_map_searchgo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cancel_press"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

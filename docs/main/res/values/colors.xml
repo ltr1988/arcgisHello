@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="White">#FFFFFF</color>
+    <!--浅灰色-->
+    <color name="qianhui">#E3E3E3</color>
+    <!--//灰色字体-->
+    <color name="gray">#999999</color>
+    <!--//蓝色字体-->
+    <color name="blue">#3285ff</color>
+    <!--橙色按钮-->
+    <color name="orange">#ff6633</color>
+    <!--深灰色-->
+    <color name="darkgrey">#666666</color>
+    <!--深黑色-->
+    <color name="textColorBlack">#333333</color>
+    <!--背景色-->
+    <color name="backround">#EEEEEE</color>
+    <!--分割线-->
+    <color name="partingline">#E5E5E5</color>
+    <!--分割线深-->
+    <color name="darkpartingline">#cccccc</color>
+    <color name="red">#ff6666</color>
+    <color name="grayjiange">#11000000</color>
+    <!--蒋勇豪添加-->
+    <color name="albumback">#E1E0DE</color>
+    <color name="none_color">#00000000</color>
+    <color name="plugin_camera_black">#000000</color>
+    <color name="toumingyanse">#338b8b8b</color>
+    <!---->
+    <color name="toumingwhite">#88FFFFFF</color>
+    <color name="main_title_background">#FF35BFFE</color>
+    <color name="common_bt_press">#AA35BFFE</color>
+    <color name="common_bottom_bt">#FF35BFFE</color>
+    <color name="title_bt_press">#AA0099cc</color>
+    <color name="cancel_shape_color">#FF999999</color>
+    <color name="cancel_press">#AA999999</color>
+</resources>

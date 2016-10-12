@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/bianju"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/doubleriqi"
+                    android:textSize="@dimen/text_yiji" />
+
+                <TextView
+                    android:id="@+id/textView_double_riqi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/doublejinghao"
+                    android:textSize="@dimen/text_yiji" />
+
+                <EditText
+                    android:id="@+id/editText_double_jinghao"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:focusable="false"
+                    android:hint="@string/doublejinghaohint"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView
+                android:id="@+id/listview_double_shebei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/doublehuanjingsheshi"
+                    android:textSize="@dimen/text_yiji" />
+
+                <EditText
+                    android:id="@+id/editText_double_huanjingsheshi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:hint="@string/doublehuanjingsheshihint"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/doubletianqiqingkuang"
+                    android:textSize="@dimen/text_yiji" />
+
+                <TextView
+                    android:id="@+id/editText_double_tianqiqingkuang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="5"
+                    android:background="@color/White"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="@string/doublefatiwendu"
+                    android:textSize="@dimen/text_yiji" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/doublezuoxian"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/zuoxianET_fating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:hint="@string/doublehintyouxian"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/doubleyouxian"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/youxianET_fating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:hint="@string/doublehintyouxian"
+                        android:inputType="numberDecimal"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:text="@string/doublejingneiwendu"
+                    android:textSize="@dimen/text_yiji" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/doublezuoxian"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/zuoxianET_jingnei"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:hint="@string/doublehintyouxian"
+                        android:inputType="numberDecimal"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/doubleyouxian"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/youxianET_jingnei"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:hint="@string/doublehintyouxian"
+                        android:inputType="numberDecimal"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/doublebeizhu"
+                    android:textSize="@dimen/text_yiji" />
+
+                <EditText
+                    android:id="@+id/editText_double_beizhu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:hint="@string/doublebeizhuhint"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/common_bcsc"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="7" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

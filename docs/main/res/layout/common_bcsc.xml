@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/common_text_jiange"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/White" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/White"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linear_photo_up"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/text_title"
+                android:background="@mipmap/icon_photo" />
+
+            <TextView
+                android:id="@+id/upload_img_btn"
+                style="@style/common_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/text_min"
+                android:background="@null"
+                android:clickable="true"
+                android:text="@string/zhaopiansc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_movie_up"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_title"
+                android:background="@mipmap/icon_movie" />
+
+            <TextView
+                android:id="@+id/upload_movie_btn"
+                style="@style/common_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_min"
+                android:background="@null"
+                android:clickable="true"
+                android:text="@string/shipinsc" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.jiangyonghao.recycleview.nanshuibeidiao.view.GridViewForScrollView
+        android:id="@+id/bcsb_GV_com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/White"
+        android:gravity="center"
+        android:numColumns="4">
+
+    </com.jiangyonghao.recycleview.nanshuibeidiao.view.GridViewForScrollView>
+
+    <include
+        layout="@layout/common_bottom_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White" />
+</LinearLayout>

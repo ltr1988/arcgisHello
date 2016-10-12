@@ -1,0 +1,48 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bottom">25dp</dimen>
+    <dimen name="text_title">20dp</dimen>
+    <dimen name="margin_max">50dp</dimen>
+    <dimen name="text_yiji">18dp</dimen>
+    <dimen name="text_neirong">16dp</dimen>
+    <dimen name="text_erji">15dp</dimen>
+    <dimen name="text_min">10dp</dimen>
+    <dimen name="ui_10_dip">10dip</dimen>
+    <dimen name="common_title_height">50dp</dimen>
+    <dimen name="common_view_margin_small">10dp</dimen>
+    <dimen name="common_view_margin_xmid">20dp</dimen>
+    <dimen name="common_text_size_mid">20sp</dimen>
+    <!--赵元晴添加 -->
+    <dimen name="xuncha_zhushi">15dp</dimen><!--顶部注释如：巡查范围、巡查内容 -->
+    <dimen name="xuncha_item">50dp</dimen><!--单行布局高度设置 -->
+    <dimen name="m_text">2dp</dimen><!--单行布局边框 -->
+    <dimen name="list_guanxian_button_margin">100dp</dimen><!--管线列表按钮边距 -->
+    <dimen name="list_guanxian_top_margin">200dp</dimen><!--我的工作列表按钮边距 -->
+    <dimen name="basic_button_margin">5dp</dimen><!--基本信息margin按钮边距 -->
+    <dimen name="basic_button_marginp">15dp</dimen><!--基本信息远离按钮边距 -->
+    <dimen name="item_fragment_margin">15dp</dimen><!--设施信息边距 -->
+    <dimen name="item_fragment_basic_ping">50dp</dimen><!--设施信息当行宽度 -->
+    <dimen name="search_ic_margin">10dp</dimen><!--search搜索图标左右边距 -->
+    <dimen name="search_ic_wh">20dp</dimen><!--search搜索图标宽高 -->
+    <dimen name="south_margin_yiji">15dp</dimen><!--south_gqguan一级标题间距 -->
+    <dimen name="south_margin_erji">10dp</dimen><!--south_gqguan二级标题间距 -->
+    <dimen name="south_margin_sanji">7dp</dimen><!--south_gqguan三级标题间距 -->
+    <dimen name="south_margin_tv_ed">7dp</dimen><!--south_gqguan textview和edittext间距 -->
+    <dimen name="shijianweishangbaotop">40dp</dimen><!--未上报顶端间距-->
+    <!---->
+    <!--liuyoung-->
+    <dimen name="text_jiange">2dp</dimen>
+    <dimen name="margin_min">5dp</dimen>
+    <dimen name="bottom_button_margin">15dp</dimen><!--底部按钮的间距-->
+    <dimen name="nouptime">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="btn_margin">30dp</dimen>
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <!---->
+</resources>

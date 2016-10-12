@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/siwsb_total"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_ic_wh"
+        android:background="@color/toumingyanse"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="@drawable/zhengyuan"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/count_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="共三件"
+            android:textSize="@dimen/text_erji"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview_fragment_shijian_shangbao"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White" />
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/darkgrey"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/White">
+
+        <ImageView
+            android:id="@+id/common_sousuokuang_sousuo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="@dimen/margin_min"
+            android:src="@mipmap/icon_map_searchistory1" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/common_sousuokuang_shuru"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/White"
+        android:hint="查找"
+        android:textColor="@color/textColorBlack"
+        android:textSize="@dimen/text_erji" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/White">
+    <ImageView
+        android:id="@+id/common_sousuokuang_line"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:src="@mipmap/line" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/White">
+    <ImageView
+        android:id="@+id/common_sousuokuang_xinxi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:padding="@dimen/m_text"
+        android:src="@mipmap/icon_login" />
+        </LinearLayout>
+</LinearLayout>

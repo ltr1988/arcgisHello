@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView_xunchafanwei"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/bottom_button_margin"
+        android:layout_marginLeft="@dimen/bottom_button_margin"
+        android:layout_marginTop="@dimen/bottom_button_margin"
+        android:text="@string/xunchaneirong"
+        android:textSize="@dimen/text_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong1"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/xunchaneirong1"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong1"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong2"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/xunchaneirong2"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong2"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong3"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/xunchaneirong3"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong3"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong6"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/xunchaneirong6"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong6"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong4"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/xunchaneirong4"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong4"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_xunchaneirong5"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/xunchaneirong5"
+                android:textSize="@dimen/text_yiji" />
+
+            <Switch
+                android:id="@+id/switch_neirong5"
+                style="@style/common_tianchong_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:checked="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/bottom_button_margin"
+        android:background="@color/White"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_wentimiaoshi"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_wentimiaoshu"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/wentimiaoshu"
+                android:textSize="@dimen/text_yiji" />
+
+            <TextView
+                android:id="@+id/textView_weitianxie"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:text="@string/weitianxie"
+                android:textSize="@dimen/text_yiji" />
+
+            <ImageView
+                android:id="@+id/imageView_direction_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/icon_more" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/bottom_button_margin"
+            android:layout_marginTop="@dimen/bottom_button_margin"
+            android:id="@+id/linearLayout_chulifangfa"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_chulifangfa"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@string/chulifangfa"
+                android:textSize="@dimen/text_yiji" />
+
+            <TextView
+                android:id="@+id/textView_weitianxie2"
+                style="@style/common_tianchong_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/bottom_button_margin"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="@dimen/bottom_button_margin"
+                android:layout_marginTop="@dimen/bottom_button_margin"
+                android:layout_weight="1"
+                android:gravity="center|right"
+                android:text="@string/weitianxie"
+                android:textSize="@dimen/text_yiji" />
+
+            <ImageView
+                android:id="@+id/imageView_direction_right2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@mipmap/icon_more" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+南干渠排空井（上段） NGQPKJUP
+南干渠排空井（下段） NGQPKJDOWN
+
+南干渠排气井（上段） NGQPQJUP
+南干渠排气井（下段） NGQPQJDOWN
+
+南干渠管线	     NGQGX
+
+东干渠排气井	     DGQPQJ
+东干渠分水口         DGQFSK
+东干渠排空井	     DGQPKJ
+东干渠管线	     DGQGX
+
+大宁排空井  	     DNPKJ
+大宁排气井	     DNPQJ
+大宁管线	     DNGX
+
+
+
+
+
+
+
+
+
+
+
+

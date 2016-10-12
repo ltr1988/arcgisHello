@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/common_view_margin_small"
+    android:paddingTop="@dimen/common_view_margin_small">
+
+    <TextView
+        android:id="@+id/item_fra_realtime_name"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_weight="1"
+        android:background="@color/White"
+        android:text="sdada" />
+
+    <TextView
+        android:id="@+id/item_fra_realtime_add"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/White"
+        android:text="ghgfbdsb" />
+
+    <TextView
+        android:id="@+id/item_fra_realtime_total"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="@color/White"
+        android:text="12321 ef "
+        android:textColor="@color/blue" />
+
+    <ImageView
+        android:id="@+id/item_fra_realtime_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/bottom_button_margin"
+        android:layout_marginRight="@dimen/bottom_button_margin"
+        android:background="#0000"
+        android:src="@drawable/select_more" />
+</LinearLayout>

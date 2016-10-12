@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/toumingyanse" >
+
+    <LinearLayout
+        android:id="@+id/ll_popup"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/blue" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="您最多上传5张照片"
+            android:textColor="@color/darkgrey"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/m_text"
+            android:textSize="@dimen/text_erji"
+            android:background="@color/White" />
+        <TextView
+            android:layout_width="match_parent"
+            android:background="@color/darkgrey"
+            android:layout_height="0.5dp" />
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/White"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/item_popupwindows_camera"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@null"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_yiji"
+                android:text="拍照" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/darkgrey" />
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/White"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/item_popupwindows_Photo"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@null"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_yiji"
+                android:text="从相册中选取" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/darkgrey" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/White"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/item_popupwindows_video"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@null"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_yiji"
+                android:text="录制小视频" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/darkgrey" />
+        <Button
+            android:id="@+id/item_popupwindows_cancel"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/text_yiji"
+            android:layout_height="55dp"
+            android:background="@color/White"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_yiji"
+            android:text="取消" />
+    </LinearLayout>
+
+</RelativeLayout>

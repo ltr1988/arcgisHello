@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/img_GV"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="@dimen/nouptime"
+        android:background="@color/White"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="@dimen/text_yiji"
+        android:layout_height="@dimen/text_yiji"
+        android:layout_alignBottom="@id/img_GV"
+        android:layout_alignRight="@id/img_GV"
+        android:background="@mipmap/icon_delete" />
+
+    <ImageView
+        android:id="@+id/start_icon"
+        android:layout_width="@dimen/text_yiji"
+        android:layout_height="@dimen/text_yiji"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/icon_start"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/gvtitle_TV"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/south_margin_erji"
+        android:layout_marginTop="@dimen/bottom"
+        android:clickable="true"
+        android:background="#0000"
+        android:visibility="gone"/>
+</RelativeLayout>

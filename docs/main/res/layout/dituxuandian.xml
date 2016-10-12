@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/White"
+    android:id="@+id/dituxuandianlin"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/common_sousuokuang_sousuo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:padding="@dimen/margin_min"
+        android:src="@mipmap/icon_goback" />
+    <TextView
+        android:id="@+id/ditutitle"
+        android:text="地图选点"
+        android:textSize="@dimen/text_yiji"
+        android:textColor="@color/textColorBlack"
+        android:background="@null"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

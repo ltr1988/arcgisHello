@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:text="@string/evolvebackfankuishijian"
+            android:textSize="@dimen/text_yiji"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_evolveback_fankuishijian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:text="2016-08-20 15:15:24"
+            android:textSize="@dimen/text_yiji"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/partingline" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:text="@string/evolvebackjinzhanmiaoshu"
+            android:textSize="@dimen/text_yiji"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview_evolveback_jinzhanmiaoshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/south_margin_tv_ed"
+            android:background="@color/White"
+            android:text="未填写"
+            android:textSize="@dimen/text_yiji"
+            android:textStyle="italic" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@mipmap/icon_more" />
+    </LinearLayout>
+
+    <include
+        layout="@layout/common_bcsc"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_weight="7" />
+</LinearLayout>

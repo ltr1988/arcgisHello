@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rela"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#0000">
+
+    <ImageButton
+        android:id="@+id/return_com"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/margin_min"
+        android:background="@mipmap/icon_goback" />
+
+    <TextView
+        android:id="@+id/title_back"
+        style="@style/common_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/title_com"
+        android:layout_alignBottom="@+id/title_com"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/return_com"
+        android:text="@string/app_back"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/title_com"
+        style="@style/common_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#0000"
+        android:text="@string/app_name" />
+
+    <LinearLayout
+        android:id="@+id/title_tow_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/title_button_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/icon_clock_small" />
+
+        <ImageView
+            android:id="@+id/title_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/bottom"
+            android:src="@mipmap/icon_clock_small" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/xianshi_chor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@null"
+        android:gravity="center_horizontal|center_vertical"
+        android:visibility="invisible">
+
+        <Chronometer
+            android:id="@+id/chor_com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@null"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingBottom="@dimen/margin_min"
+            android:paddingTop="@dimen/margin_min"
+            android:text="@string/xunchaduixiangyijingxing"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/text_yiji" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/search_roadTV"
+        style="@style/common_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:background="#0000"
+        android:clickable="true"
+        android:text="@string/sousuo"
+        android:textColor="@color/toumingwhite"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/title_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/return_com"
+        android:background="@color/darkgrey"
+        android:orientation="horizontal" />
+    <TextView
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:padding="@dimen/margin_min"
+        android:text="查询"
+        android:visibility="gone"
+        android:background="@drawable/yuanjiaoblue"
+        android:textColor="@color/White"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/text_yiji"
+        android:layout_marginRight="@dimen/margin_min"
+        android:layout_alignTop="@+id/title_tow_button"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

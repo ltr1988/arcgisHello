@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiangyonghao.recycleview.nanshuibeidiao.activity.ShijiansbDetailActivity">
+    <include
+        android:id="@+id/title"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+    <TextView
+        android:id="@+id/sjDetail_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_yiji"
+        android:layout_below="@+id/title"
+        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/nouptime"
+        android:layout_marginBottom="@dimen/nouptime"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+    <ListView
+        android:background="@color/White"
+        android:id="@+id/sjDetail_LV"
+        android:layout_below="@+id/sjDetail_TV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="1dp">
+
+    </ListView>
+</RelativeLayout>

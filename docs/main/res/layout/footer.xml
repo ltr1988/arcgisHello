@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White">
+
+    <TextView
+        android:id="@+id/clear_jiluTV"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="#0000"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/qingkongjilu"
+        android:textSize="@dimen/text_yiji" />
+
+</RelativeLayout>

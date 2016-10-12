@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColorBlack">
+    <com.esri.android.map.MapView
+        android:id="@+id/mapinfo"
+        mapoptions.ZoomLevel="12"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+    <include
+        layout="@layout/common_sousuokuang1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_margin="@dimen/text_min"></include>
+    <include
+        layout="@layout/dituxuandian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_margin="@dimen/text_min"></include>
+    <include
+        layout="@layout/zujian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom" />
+    <include
+        layout="@layout/bottomshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/basic_button_margin" />
+
+    <LinearLayout
+        android:id="@+id/show_info_go"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="90dp"
+        android:layout_marginRight="20dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="@drawable/yuanjiaoblueline"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/daozhequ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableTop="@mipmap/icon_gogo"
+            android:text="到这去"
+            android:textColor="@color/White"
+            android:textSize="@dimen/text_erji" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/bianju"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:id="@+id/scrollview_guanxian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/White"
+        android:fadingEdge="vertical"
+        android:padding="5dp"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textview_south_gq_paiqifa_jh"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:paddingBottom="@dimen/margin_min"
+                        android:paddingTop="@dimen/margin_min"
+                        android:text="@string/south_gq_jh" />
+
+                    <EditText
+                        android:id="@+id/edittext_south_gq_paiqifa_jh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@color/White"
+                        android:focusable="false"
+                        android:hint="@string/qingshuru" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_sj" />
+
+                    <EditText
+                        android:id="@+id/edittext_south_gq_paiqifa_shijian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:background="@color/White"
+                        android:clickable="true"
+                        android:focusable="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_jcl" />
+
+                    <Switch
+                        android:id="@+id/switch_south_gq_paiqifa_jinchanglu"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_wl" />
+
+                    <Switch
+                        android:id="@+id/switch_south_gq_paiqifa_weilan"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_hwsbj" />
+
+                    <Switch
+                        android:id="@+id/switch_south_gq_paiqifa_huwaishebeijian"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_shoujing" />
+
+                    <Switch
+                        android:id="@+id/switch_south_gq_paiqifa_shoujing"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/south_gq_tqk" />
+
+                    <Switch
+                        android:id="@+id/switch_south_gq_paiqifa_tongqikong"
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:checked="false" />
+                </LinearLayout>
+
+                <include
+                    android:id="@+id/include_shangduan"
+                    layout="@layout/common_qf_shangduan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="4" />
+
+                <include
+                    android:id="@+id/include_xiaduan"
+                    layout="@layout/common_qf_xiaduan"
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="4" />
+
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/common_bcsc"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_weight="7" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jiangyonghao.recycleview.nanshuibeidiao">
+
+    <!-- 权限设置开始 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 一般拍照和摄像的时候需要写到sd卡上，所以还有一向权限声明如下 -->
+    <!-- 真做摄像功能时，需要音频录制和视频录制功能，所以又需要下面两项权限声明 -->
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <application
+        android:name=".apption.Apption"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 设置key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="4df5516ba488ff3678e736f1d58f3f82" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activity.Baseactivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AnimationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ShijiansbActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.StartXunchatbActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SaoyisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GuanXianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.XunChaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ListGuanXianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChooseshijsbActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlbumActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ImageFile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.GalleryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShowAllPhoto"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CaremActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BasicInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BasicDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LuxianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShijiansbDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShowPhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShowInfoMapActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".activity.SearchInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DaNingDoublePaiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SouthGQGuanXianActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DongGanQupaiqiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DongGanQupaikongActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DongGanQufenshuiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SouthGQPaiKJActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SouthGQPaiQFActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WaitToDoInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.XunChaNetlistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RealTimeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HistoryXunChaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RealReservoirInfoActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

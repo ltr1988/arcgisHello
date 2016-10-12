@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    tools:context="com.jiangyonghao.recycleview.nanshuibeidiao.activity.DongGanQufenshuiActivity">
+
+    <include
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/timeTV_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/biaodan_yiji"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="@string/shijian" />
+
+                <TextView
+                    android:id="@+id/DshijianTV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:text="@string/app_name" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/biaodan_yiji"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:text="@string/fenshuikouhao" />
+
+                <EditText
+                    android:id="@+id/fenshuikouhaoTV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:focusable="false" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/biaodan_erji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/ganxianjianxj" />
+
+            <com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView
+                android:id="@+id/ganxianjianxiuLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView>
+
+            <TextView
+                style="@style/biaodan_erji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/zhiguanjianxj" />
+
+            <com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView
+                android:id="@+id/zhiguanjianxiuLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView>
+
+            <TextView
+                style="@style/biaodan_erji"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/zhiguanceliuj" />
+
+            <com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView
+                android:id="@+id/zhiguanceliuLV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.jiangyonghao.recycleview.nanshuibeidiao.view.ListViewForScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/biaodan_yiji"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/beizhu" />
+
+                <EditText
+                    android:id="@+id/DbeizhuET"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:hint="@string/qingshuru" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/common_bcsc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

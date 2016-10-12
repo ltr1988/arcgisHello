@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiangyonghao.recycleview.nanshuibeidiao.activity.ShijiansbActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/mokuaiyi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:focusableInTouchMode="true"
+                    android:focusable="true"
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shijianmc"
+                        android:textColor="@color/textColorBlack" />
+
+                    <EditText
+                        android:id="@+id/ShijianmcET"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/qingshurushijianmc"
+                        android:textColor="@color/textColorBlack" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shijianlx"
+                        android:textColor="@color/textColorBlack" />
+
+                    <TextView
+                        android:id="@+id/ShijianlxTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/qingxuanze"
+                        android:textColor="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shijianxz"
+                        android:textColor="@color/textColorBlack" />
+
+                    <TextView
+                        android:id="@+id/ShijianxzTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/qingxuanze"
+                        android:textColor="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/dengjicp"
+                        android:textColor="@color/textColorBlack" />
+
+                    <TextView
+                        android:id="@+id/DengjicpTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/qingxuanze"
+                        android:textColor="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/chubuyy"
+                        android:textColor="@color/textColorBlack" />
+
+                    <TextView
+                        android:id="@+id/ChubuyyTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/qingxuanze"
+                        android:textColor="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mokuaier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mokuaiyi"
+                android:layout_marginTop="10dp"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/shifasj" />
+
+                    <TextView
+                        android:id="@+id/ShifasjTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="2016-07-22" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/didian" />
+
+                    <EditText
+                        android:id="@+id/DidianET"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/qingshuruddmc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ZuobiaoTV"
+                            style="@style/common_tianchong_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:singleLine="true"
+                            android:text="@string/weizhi" />
+
+                        <TextView
+                            android:id="@+id/WeizhiTV"
+                            style="@style/common_tianchong_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:drawableLeft="@mipmap/icon_map_searchpoint"
+                            android:singleLine="true"
+                            android:text="@string/wodewz"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/basic_button_marginp" />
+                    </LinearLayout>
+                    <!--<RelativeLayout-->
+                    <!--android:id="@+id/DituxdIBTN"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:background="@color/White"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_marginRight="@dimen/activity_horizontal_margin"-->
+                    <!--android:orientation="horizontal">-->
+                    <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:text="@string/dituxuandian"-->
+                    <!--android:gravity="center"-->
+                    <!--android:background="@color/White"-->
+                    <!--android:layout_marginLeft="7dp"-->
+                    <!--android:textSize="@dimen/text_erji" />-->
+                    <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:background="@null"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@drawable/select_more"-->
+                    <!--/>-->
+
+                    <!--</RelativeLayout>-->
+                    <ImageButton
+                        android:id="@+id/DituxdIBTN"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.3"
+                        android:src="@mipmap/icon_dtxd"
+
+                        android:background="@null"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/mokuaisan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mokuaier"
+                android:layout_marginTop="10dp"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/qingbaobumen" />
+
+                    <EditText
+                        android:id="@+id/QingbaobmET"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/qingshuruqbbm" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/qingbaory" />
+
+                    <EditText
+                        android:id="@+id/QingbaoryET"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:hint="@string/qingshuruqbry" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/shijianqk" />
+
+                    <TextView
+                        android:id="@+id/ShijianqkTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/weitianxie" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+                <LinearLayout
+                    android:padding="@dimen/margin_min"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/xianqichuliqk" />
+
+                    <TextView
+                        android:id="@+id/XianqichuliTV"
+                        style="@style/common_tianchong_xiang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:drawableEnd="@drawable/select_more"
+                        android:text="@string/weitianxie" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#22000000"></LinearLayout>
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/common_bcsc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/mokuaisan" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

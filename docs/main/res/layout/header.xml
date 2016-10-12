@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/White">
+
+        <ImageView
+            android:id="@+id/icon_weizhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:background="#0000"
+            android:src="@mipmap/icon_map_searchpoint" />
+
+        <TextView
+            android:id="@+id/wodewzTV"
+            android:textColor="@color/textColorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/icon_weizhi"
+            android:background="#0000"
+            android:paddingLeft="@dimen/text_min"
+            android:text="@string/wodeweizhi" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="#0000"
+            android:src="@mipmap/icon_map_searchgo" />
+
+        <TextView
+            android:id="@+id/linetv"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/icon_weizhi"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/darkpartingline" />
+    </RelativeLayout>

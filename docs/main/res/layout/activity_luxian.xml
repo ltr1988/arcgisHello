@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    tools:context="com.jiangyonghao.recycleview.nanshuibeidiao.activity.LuxianActivity">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:background="@color/blue"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/exchange_iv"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="#0000"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:src="@mipmap/icon_change" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="#0000"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:background="#0000"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#0000"
+                    android:src="@mipmap/icon_mypoint"
+                    android:layout_marginRight="@dimen/search_ic_margin"/>
+
+                <EditText
+                    android:textCursorDrawable="@color/White"
+                    android:id="@+id/wodewzET"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#0000"
+                    android:text="@string/wodeweizhi"
+                    android:textColor="@color/White"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_yiji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:background="@color/toumingwhite"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:background="#0000"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="#0000"
+                    android:src="@mipmap/icon_destination"
+                    android:layout_marginRight="@dimen/search_ic_margin"/>
+
+                <EditText
+                    android:textCursorDrawable="@color/White"
+                    android:id="@+id/zhongdianET"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="#0000"
+                    android:singleLine="true"
+                    android:hint="@string/shuruzhongdian"
+                    android:textColorHint="@color/toumingwhite"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/text_yiji" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/luxianjg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_fragment_margin"
+        android:layout_below="@+id/top"
+        android:background="#0000"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/luxianjg1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_fragment_margin"
+        android:layout_below="@+id/luxianjg"
+        android:background="@color/darkpartingline"
+        android:orientation="horizontal"></LinearLayout>
+
+
+    <include
+        layout="@layout/common_luxian_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/luxianjg1" />
+
+</RelativeLayout>

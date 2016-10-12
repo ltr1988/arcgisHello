@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textview_item_basic_history_evolve_title"
+        style="@style/common_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_min"
+        android:background="@color/White"
+        android:text="sdadasd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_fragment_basic_ping"
+        android:background="@color/White"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView_item_basic_history_evolve_who"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_min"
+            android:layout_marginBottom="@dimen/m_text"
+            android:layout_marginLeft="@dimen/m_text"
+            android:layout_marginTop="@dimen/m_text"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center_vertical"
+            android:text="1"
+            android:textSize="@dimen/text_neirong" />
+
+        <TextView
+            android:id="@+id/textView_item_basic_history_evolve_where"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_min"
+            android:layout_marginBottom="@dimen/m_text"
+            android:layout_marginLeft="@dimen/m_text"
+            android:layout_marginTop="@dimen/m_text"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:gravity="center_vertical"
+            android:text="1"
+            android:textSize="@dimen/text_neirong" />
+
+        <TextView
+            android:id="@+id/textView_item_basic_history_evolve_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_min"
+            android:layout_marginLeft="@dimen/m_text"
+            android:layout_marginRight="@dimen/item_fragment_margin"
+            android:layout_weight="5"
+            android:background="@color/White"
+            android:gravity="center|right"
+            android:text="2"
+            android:textSize="@dimen/text_neirong" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@color/White"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_min">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_min"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@mipmap/icon_clock_small" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_min"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@mipmap/icon_clock_small" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="@dimen/margin_min"
+            android:background="@mipmap/icon_clock_small" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/partingline" />
+</LinearLayout>
+

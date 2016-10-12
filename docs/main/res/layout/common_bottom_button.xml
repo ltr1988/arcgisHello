@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/upload_btn_com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/bottom_button_margin"
+        android:background="@drawable/yuanjiaoblue"
+        android:gravity="center"
+        android:text="@string/wancsb"
+        android:textColor="@color/White"
+        android:textSize="@dimen/text_yiji" />
+
+    <Button
+        android:id="@+id/save_btn_com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/bottom_button_margin"
+        android:layout_marginBottom="@dimen/bottom_button_margin"
+        android:background="@drawable/yuanjiaoheise"
+        android:text="@string/baocbd"
+        android:textColor="@color/White"
+        android:textSize="@dimen/text_yiji" />
+</LinearLayout>

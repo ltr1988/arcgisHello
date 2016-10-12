@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title"></include>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/xuncharen"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_yiji" />
+
+        <EditText
+            android:id="@+id/xuncharenxingming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="@string/xuncharenxingming"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_neirong" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/xunchaguanliyuan"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_yiji" />
+
+        <EditText
+            android:id="@+id/xunchaguanlixingming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="@string/xunchaguanliyuanxingming"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_neirong" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/shijian"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_yiji" />
+
+        <TextView
+            android:id="@+id/shijianTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right"
+            android:clickable="true"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_neirong" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/tianqi"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_yiji" />
+
+        <TextView
+            android:id="@+id/tianqi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="right"
+            android:hint="@string/tianqiqingkuang"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textColor="@color/textColorBlack"
+            android:textSize="@dimen/text_neirong" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/xinyiqi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/yuanjiaoblue" >
+
+        <TextView
+            android:id="@+id/shangyici"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/xinyiqi"
+            android:background="@null"
+            android:textColor="@color/White"
+            android:textSize="@dimen/text_yiji" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/likai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:background="@drawable/yuanjiaoheise"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/activity_vertical_margin"
+            android:text="@string/likai"
+            android:background="@null"
+            android:textColor="@color/White"
+            android:textSize="@dimen/text_yiji" />
+    </LinearLayout>
+</LinearLayout>

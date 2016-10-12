@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_title" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="位置"
+                    android:textSize="@dimen/text_yiji" />
+
+                <EditText
+                    android:id="@+id/shuruweizhi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="2"
+                    android:background="@color/White"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:hint="@string/qingshuru"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/data"
+                    android:textSize="@dimen/text_yiji" />
+
+                <TextView
+                    android:id="@+id/textView_south_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_weight="2"
+                    android:background="@color/White"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_yiji"
+                    android:background="@color/White"
+                    android:text="@string/southzhuangpai"
+                    android:textSize="@dimen/text_yiji" />
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_erji"
+                    android:background="@color/White"
+                    android:text="@string/southhenduozhuang"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_neirong" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southdiushi"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southdiushi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southzijibuqing"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southzijibuqing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southqingxie"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southqingxie"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/White"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_yiji"
+                    android:background="@color/White"
+                    android:text="@string/southguanxianbaohu"
+                    android:textSize="@dimen/text_yiji" />
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_erji"
+                    android:background="@color/White"
+                    android:text="@string/southloushuiqingkuang"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_erji" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southdimian"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southdimian"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southguanxianweizhi"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southguanxianweizhi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southguanxiantongguo"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southguanxiantongguo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southguanxianfujin"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southguanxianfujin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_erji"
+                    android:background="@color/White"
+                    android:text="@string/southweizhang"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_erji" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southzhongzhi"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southzhongzhi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southkaigou"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southkaigou"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southquanzhan"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southquanzhan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southduifang"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southduifang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southbaopo"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southbaopo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southqingdaolaji"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southqingdaolaji"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southpaifangwushui"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southpaifangwushui"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/southpaishuigou"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southpaishuigou"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:background="@color/White"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/common_tianchong_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/White"
+                        android:text="@string/southqitakeneng"
+                        android:textSize="@dimen/text_erji" />
+
+                    <EditText
+                        android:id="@+id/edittext_southqitakeneng"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                        android:layout_weight="2"
+                        android:background="@color/White"
+                        android:hint="@string/qingshuru"
+                        android:textSize="@dimen/text_erji" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/south_margin_yiji"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/common_tianchong_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/south_margin_sanji"
+                    android:layout_weight="1"
+                    android:background="@color/White"
+                    android:gravity="center_vertical"
+                    android:text="@string/southqingkuangshuoming"
+                    android:textSize="@dimen/text_yiji" />
+
+                <EditText
+                    android:id="@+id/edittext_gqguanxian_qingkuangshuoming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/margin_min"
+                    android:layout_marginLeft="@dimen/south_margin_tv_ed"
+                    android:layout_weight="2"
+                    android:background="@color/White"
+                    android:hint="@string/qingshuru"
+                    android:textSize="@dimen/text_erji" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/common_bcsc"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="7" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
