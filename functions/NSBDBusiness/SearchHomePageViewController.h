@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong) SearchHomePageModel *model;
 @property (nonatomic,copy) NSString *taskid;
+
+-(instancetype) initWithTaskId:(NSString *) taskid;
 @end

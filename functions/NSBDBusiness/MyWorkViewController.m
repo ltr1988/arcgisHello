@@ -12,6 +12,7 @@
 #import "UIColor+ThemeColor.h"
 #import "MyEventViewController.h"
 #import "MyUploadEventViewController.h"
+#import "SearchHistoryHomeViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -35,7 +36,7 @@
 -(void) setupSubviews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    self.title = @"突发事件上报";
+    self.title = @"我的工作";
     
     self.myworkTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.myworkTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -139,7 +140,8 @@
             break;
         case 3:
         {
-            
+            SearchHistoryHomeViewController *vc = [[SearchHistoryHomeViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

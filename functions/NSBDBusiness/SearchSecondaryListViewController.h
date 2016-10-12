@@ -13,4 +13,5 @@
 
 
 -(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item;
+-(instancetype) initReadonlyWithSearchHomeItem:(SearchHomePageItem*) item;
 @end

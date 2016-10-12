@@ -8,56 +8,58 @@
 
 #import "EventModelPathManager.h"
 #import "EventReportModel.h"
-
+#import "NSString+LVPath.h"
 #import "AuthorizeManager.h"
 
 #define EVENT_MODELS    [NSString stringWithFormat:@"event_models_%@",[[AuthorizeManager sharedInstance] userName]]
-#define LASTEST_EVENT   [NSString stringWithFormat:@"lastest_event_%@",[[AuthorizeManager sharedInstance] userName]]
+
 @implementation EventModelPathManager
 
-+(void) addEventModelWithPath:(NSString *)path
++(void) addEventMode:(EventReportModel *)model
 {
-    NSMutableArray *list =
-    [[[NSUserDefaults standardUserDefaults] arrayForKey:EVENT_MODELS] mutableCopy];
-    if (!list)
-        list = [NSMutableArray array];
-    else{
-        NSSet *set = [NSSet setWithArray:list];
-        if ([set containsObject:path]) {
-            return;
-        }
+    
+    NSString *path = [[NSString documentsPath] stringByAppendingPathComponent:EVENT_MODELS];
+    NSMutableArray *list = [NSMutableArray array];
+    NSArray *array = [self getEventModels];
+    if (array && array.count>0) {
+        [list addObjectsFromArray:array];
     }
-    [list addObject:path];
-    [[NSUserDefaults standardUserDefaults] setObject:list forKey:EVENT_MODELS];
-    [[NSUserDefaults standardUserDefaults] setObject:path forKey:LASTEST_EVENT];
-
+    [list addObject:model];
+    [NSKeyedArchiver archiveRootObject:list toFile:path];
 }
 
-+(NSString *) lastestEventPath{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:LASTEST_EVENT];
++(void) removeEventMode:(EventReportModel *)model
+{
+    NSString *path = [[NSString documentsPath] stringByAppendingPathComponent:EVENT_MODELS];
+    NSMutableArray *list = [NSMutableArray array];
+    NSArray *array = [self getEventModels];
+
+    for (EventReportModel* eModel in array) {
+        if ([eModel.uuid isEqualToString:model.uuid]) {
+            continue;
+        }
+        [list addObject:eModel];
+    }
+    [NSKeyedArchiver archiveRootObject:list toFile:path];
+}
+
++(EventReportModel *) lastestEventModel
+{
+    NSArray *array = [self getEventModels];
+    if (array && array.count>0) {
+        return array.lastObject;
+    }
+    return nil;
 }
 
 +(NSArray *) getEventModels
 {
-    NSMutableArray *list = [NSMutableArray array];
+    NSArray *array = nil;
+    NSString *path = [[NSString documentsPath] stringByAppendingPathComponent:EVENT_MODELS];
     
-    NSArray * array = [[NSUserDefaults standardUserDefaults] arrayForKey:EVENT_MODELS];
-    
-    if (nil == array) {
-        return [NSArray array];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        array = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     }
-    
-    for (NSString *aPath in array) {
-        if ([[NSFileManager defaultManager] fileExistsAtPath:aPath])
-        {
-            EventReportModel *model = [NSKeyedUnarchiver unarchiveObjectWithFile:aPath];
-            
-            if (model) {
-                [list addObject:model];
-            }
-        }
-    }
-    
-    return list;
+    return array;
 }
 @end

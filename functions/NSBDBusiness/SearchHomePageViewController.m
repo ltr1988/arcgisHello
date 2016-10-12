@@ -24,16 +24,26 @@
 }
 
 @property (nonatomic,strong) SearchSessionItem* sessionItem;
+@property (nonatomic,assign) BOOL readOnly;
 @property (nonatomic,strong) TimerView *timerView;
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
 @implementation SearchHomePageViewController
 
-
+#pragma mark -- init methods
 -(instancetype) init
 {
     self = [super init];
+    _readOnly = NO;
+    return self;
+}
+
+-(instancetype) initWithTaskId:(NSString *) taskid
+{
+    self = [self init];
+    _readOnly = YES;
+    self.taskid = taskid;
     return self;
 }
 
@@ -45,87 +55,13 @@
     [self.tableView.mj_header beginRefreshing];
 }
 
--(SearchSessionItem *) sessionItem
-{
-    return [SearchSessionManager sharedManager].session;
-}
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [_timerView setShowTime:[self.sessionItem totalTime]];
-    
-    if (!self.sessionItem.pauseState) {
-        
-        [_timerView continueTiming];
-    }
-    
-}
-
--(void) viewDidDisappear:(BOOL)animated
-{
-    if (!self.sessionItem.pauseState) {
-        [_timerView pauseTiming];
-    }
-}
 
 -(void) setupMembers
 {
-    self.sessionItem = [SearchSessionManager sharedManager].session;
-    self.taskid = self.sessionItem.sessionId;
-}
-
--(void) requestData
-{
-    //mock
-#ifdef NoServer
-    id mock = @[
-                @{@"code":@"DGQPQJ",@"name":@"东干渠排气阀井"},
-                @{@"code":@"DGQFSK",@"name":@"东干渠分水口"},
-                @{@"code":@"DGQPKJ",@"name":@"东干渠排空井"},
-                @{@"code":@"DGQGX",@"name":@"东干渠管线"},
-                ];
-    NSDictionary *dict =@{@"status":@"100",@"data":mock};
-    _model = [SearchHomePageModel objectWithKeyValues:dict];
-    [self.tableView reloadData];
-    [self.tableView.mj_header endRefreshing];
-#endif
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
+    if (!_readOnly){
+        self.sessionItem = [SearchSessionManager sharedManager].session;
+        self.taskid = self.sessionItem.sessionId;
     }
-    
-    [[SearchSessionManager sharedManager] requestChangeSearchSessionState:self.sessionItem.pauseState?0:1 successCallback:^(NSURLSessionDataTask *task, id dict) {
-        
-        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
-        if (item.success)
-        {
-            
-        }else if (item.status == HttpResultInvalidUser)
-        {
-            [ToastView popToast:@"您的帐号在其他地方登录"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-
-    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-    }];
-    
-    @weakify(self);
-    [[SearchSessionManager sharedManager] requestTaskConfigInSearchSessionSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        @strongify(self);
-        self.model = [SearchHomePageModel objectWithKeyValues:dict];
-        if (self.model.success) {
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView reloadData];
-        }else if (self.model.status == HttpResultInvalidUser)
-        {
-            [ToastView popToast:@"您的帐号在其他地方登录"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-        @strongify(self);
-        [self.tableView.mj_header endRefreshing];
-    }];
 }
 
 -(void) setupSubviews
@@ -139,33 +75,50 @@
     _tableView.tableFooterView = [self footerView];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self.view addSubview:_tableView];
-
+    
     __weak UIView * weakView = self.view;
     
-    CGFloat height = 40;
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_top);
-        make.bottom.mas_equalTo(weakView.mas_bottom).offset(-height);
-        make.left.mas_equalTo(weakView.mas_left);
-        make.right.mas_equalTo(weakView.mas_right);
-    }];
-    
-    __weak UIView * weakTableView = self.tableView;
-    _timerView = [[TimerView alloc] initWithStartTime:[self.sessionItem totalTime] frame:CGRectMake(0, 0, 0, 0)];
-    _timerView.pause = self.sessionItem.pauseState;
-    [self.view addSubview:_timerView];
-    [_timerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakTableView.mas_bottom);
-        make.bottom.mas_equalTo(weakView.mas_bottom);
-        make.left.mas_equalTo(weakView.mas_left);
-        make.right.mas_equalTo(weakView.mas_right);
-    }];
-    
-    
+    if (!_readOnly)
+    {
+        CGFloat height = 40;
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakView.mas_top);
+            make.bottom.mas_equalTo(weakView.mas_bottom).offset(-height);
+            make.left.mas_equalTo(weakView.mas_left);
+            make.right.mas_equalTo(weakView.mas_right);
+        }];
+        
+        __weak UIView * weakTableView = self.tableView;
+        _timerView = [[TimerView alloc] initWithStartTime:[self.sessionItem totalTime] frame:CGRectMake(0, 0, 0, 0)];
+        _timerView.pause = self.sessionItem.pauseState;
+        [self.view addSubview:_timerView];
+        [_timerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakTableView.mas_bottom);
+            make.bottom.mas_equalTo(weakView.mas_bottom);
+            make.left.mas_equalTo(weakView.mas_left);
+            make.right.mas_equalTo(weakView.mas_right);
+        }];
+        
+    }else
+    {
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(weakView.mas_top);
+            make.bottom.mas_equalTo(weakView.mas_bottom);
+            make.left.mas_equalTo(weakView.mas_left);
+            make.right.mas_equalTo(weakView.mas_right);
+        }];
+    }
 }
 
 -(UIView*) footerView
 {
+    if (_readOnly) {
+        
+        UIView *footer = [UIView new];
+        footer.frame = CGRectMake(0, 0, kScreenWidth, 1);
+        footer.backgroundColor = [UIColor backGroundGrayColor];
+        return footer;
+    }
     UIView *footer = [UIView new];
     footer.frame = CGRectMake(0, 0, kScreenWidth, 16*3+40*2);
     footer.backgroundColor = [UIColor backGroundGrayColor];
@@ -214,49 +167,26 @@
 
 
 
--(void) actionPause:(id) sender
+-(void) viewWillAppear:(BOOL)animated
 {
-    UIButton *button = sender;
-    BOOL willPause = !self.sessionItem.pauseState;
-    [self.sessionItem resetTime: willPause];
-    [[SearchSessionManager sharedManager] setSession:self.sessionItem];
+    [super viewWillAppear:animated];
+    [_timerView setShowTime:[self.sessionItem totalTime]];
     
-    if (willPause) {
-        [_timerView pauseTiming];
-        [button setTitle:@"继续" forState:UIControlStateNormal];
-    }else
-    {
-        [_timerView setShowTime:[self.sessionItem totalTime]];
+    if (!self.sessionItem.pauseState) {
+        
         [_timerView continueTiming];
-        [button setTitle:@"暂停" forState:UIControlStateNormal];
     }
     
 }
 
--(void) actionEndSesson:(id) sender
+-(void) viewDidDisappear:(BOOL)animated
 {
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
+    if (!self.sessionItem.pauseState) {
+        [_timerView pauseTiming];
     }
-    @weakify(self);
-    [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        @strongify(self);
-        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
-        if (item.success)
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }else if (item.status == HttpResultInvalidUser)
-        {
-            [ToastView popToast:@"您的帐号在其他地方登录"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-
-    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-    }];
 }
+#pragma mark -- tableview delegate/datasource
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -272,11 +202,15 @@
 
 -(CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (_readOnly)
+        return 0;
     return 30;
 }
 
 -(UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    if (_readOnly)
+        return nil;
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, kScreenWidth, 30)];
     label.text = @"请填写巡查表单中的信息";
@@ -319,4 +253,114 @@
     return 1;
 }
 
+
+#pragma mark -- footer action
+-(void) actionPause:(id) sender
+{
+    UIButton *button = sender;
+    BOOL willPause = !self.sessionItem.pauseState;
+    [self.sessionItem resetTime: willPause];
+    [[SearchSessionManager sharedManager] setSession:self.sessionItem];
+    
+    if (willPause) {
+        [_timerView pauseTiming];
+        [button setTitle:@"继续" forState:UIControlStateNormal];
+    }else
+    {
+        [_timerView setShowTime:[self.sessionItem totalTime]];
+        [_timerView continueTiming];
+        [button setTitle:@"暂停" forState:UIControlStateNormal];
+    }
+    
+}
+
+-(void) actionEndSesson:(id) sender
+{
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
+    @weakify(self);
+    [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        @strongify(self);
+        HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+}
+
+#pragma mark --http request
+-(void) requestData
+{
+    //mock
+#ifdef NoServer
+    id mock = @[
+                @{@"code":@"DGQPQJ",@"name":@"东干渠排气阀井"},
+                @{@"code":@"DGQFSK",@"name":@"东干渠分水口"},
+                @{@"code":@"DGQPKJ",@"name":@"东干渠排空井"},
+                @{@"code":@"DGQGX",@"name":@"东干渠管线"},
+                ];
+    NSDictionary *dict =@{@"status":@"100",@"data":mock};
+    _model = [SearchHomePageModel objectWithKeyValues:dict];
+    [self.tableView reloadData];
+    [self.tableView.mj_header endRefreshing];
+#endif
+    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    {
+        [ToastView popToast:@"暂无网络，稍后再试"];
+        return;
+    }
+    
+    if (!_readOnly)
+    {
+        [[SearchSessionManager sharedManager] requestChangeSearchSessionState:self.sessionItem.pauseState?0:1 successCallback:^(NSURLSessionDataTask *task, id dict) {
+            
+            HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+            if (item.success)
+            {
+                
+            }else if (item.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        }];
+        
+        @weakify(self);
+        [[SearchSessionManager sharedManager] requestTaskConfigInSearchSessionSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            @strongify(self);
+            self.model = [SearchHomePageModel objectWithKeyValues:dict];
+            if (self.model.success) {
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView reloadData];
+            }else if (self.model.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            @strongify(self);
+            [self.tableView.mj_header endRefreshing];
+        }];
+    }
+}
+
+#pragma mark -- private 
+
+-(SearchSessionItem *) sessionItem
+{
+    return [SearchSessionManager sharedManager].session;
+}
 @end

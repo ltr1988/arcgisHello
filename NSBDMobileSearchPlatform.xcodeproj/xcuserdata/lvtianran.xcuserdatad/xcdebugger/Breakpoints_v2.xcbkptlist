@@ -106,7 +106,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381074"
+                  timestampString = "497952516.773998"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -121,7 +121,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381184"
+                  timestampString = "497952516.775269"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -136,7 +136,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381259"
+                  timestampString = "497952516.776456"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -151,7 +151,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381335"
+                  timestampString = "497952516.777608"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -166,7 +166,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381409"
+                  timestampString = "497952516.778841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -181,7 +181,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381483"
+                  timestampString = "497952516.780072"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -196,7 +196,7 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lvtianran/Documents/Git/arcgisHello/arcgisHello/arcgisHelloworld/LocationManager.m"
-                  timestampString = "496911159.381581"
+                  timestampString = "497952516.78149"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "61"
@@ -229,13 +229,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/MyWorkViewController.m"
-            timestampString = "494408523.023451"
+            timestampString = "497947856.41229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/SearchSecondaryListViewController.m"
+            timestampString = "497950483.176111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

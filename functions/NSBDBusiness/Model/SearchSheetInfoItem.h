@@ -14,7 +14,7 @@
 @property (nonatomic,strong) TitleItem *data;
 @property (nonatomic,copy) NSString *key;       //@"taskid",
 @property (nonatomic,assign) SheetUIStyle uiStyle;
-
+@property (nonatomic,assign) NSInteger order;
 -(void) setTitle:(NSString *)title;
--(instancetype) initWithKey:(NSString *)key style:(SheetUIStyle) style;
+-(instancetype) initWithKey:(NSString *) key style:(NSArray *)styleArray;
 @end
