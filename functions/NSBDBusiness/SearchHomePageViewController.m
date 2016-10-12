@@ -243,7 +243,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (row < _model.datalist.count) {
         SearchHomePageItem *item = _model.datalist[row];
-        SearchSecondaryListViewController *vc = [[SearchSecondaryListViewController alloc] initWithSearchHomeItem:item];
+        SearchSecondaryListViewController *vc = nil;
+        if (_readOnly) {
+            vc = [[SearchSecondaryListViewController alloc] initReadonlyWithSearchHomeItem:item];
+
+        }else{
+            vc = [[SearchSecondaryListViewController alloc] initWithSearchHomeItem:item];
+        }
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

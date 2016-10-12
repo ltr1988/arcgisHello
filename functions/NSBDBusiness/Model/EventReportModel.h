@@ -12,6 +12,7 @@
 @class TitleDateItem;
 @class TitleItem;
 @class TitleDetailTextItem;
+@class CommitedEventHistoryItem;
 
 @interface EventReportModel : NSObject<NSCoding>
 @property (nonatomic,strong) TitleDetailItem *eventName;
@@ -32,4 +33,6 @@
 @property (nonatomic,assign) NSInteger reviewState; //0 未审核 1 通过 2 未通过
 
 @property (nonatomic,strong) NSString *uuid;
+
+-(instancetype) initWithMyEventHistoryItem:(CommitedEventHistoryItem *)item;
 @end

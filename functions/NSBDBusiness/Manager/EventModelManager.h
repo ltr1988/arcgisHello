@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class EventReportModel;
-@interface EventModelPathManager : NSObject
+@interface EventModelManager : NSObject
 
-+(void) addEventMode:(EventReportModel *)model;
-+(void) removeEventMode:(EventReportModel *)model;
++(void) addCacheForEventModel:(EventReportModel *)model;
++(void) removeCacheForEventModel:(EventReportModel *)model;
 +(NSArray *) getEventModels;
 +(EventReportModel *) lastestEventModel;
 @end

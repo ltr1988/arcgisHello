@@ -12,5 +12,5 @@
 @property (nonatomic,strong) UITableView *localEventTableView;
 @property (nonatomic,strong) UITableView *uploadedEventTableView;
 @property (nonatomic,strong) NSArray *localEventModel;
-@property (nonatomic,strong) NSArray *uploadedEventModel;
+@property (nonatomic,strong) NSMutableArray *uploadedEventModel;
 @end

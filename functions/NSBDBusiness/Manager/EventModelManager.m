@@ -6,16 +6,16 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "EventModelPathManager.h"
+#import "EventModelManager.h"
 #import "EventReportModel.h"
 #import "NSString+LVPath.h"
 #import "AuthorizeManager.h"
 
 #define EVENT_MODELS    [NSString stringWithFormat:@"event_models_%@",[[AuthorizeManager sharedInstance] userName]]
 
-@implementation EventModelPathManager
+@implementation EventModelManager
 
-+(void) addEventMode:(EventReportModel *)model
++(void) addCacheForEventModel:(EventReportModel *)model
 {
     
     NSString *path = [[NSString documentsPath] stringByAppendingPathComponent:EVENT_MODELS];
@@ -28,7 +28,7 @@
     [NSKeyedArchiver archiveRootObject:list toFile:path];
 }
 
-+(void) removeEventMode:(EventReportModel *)model
++(void) removeCacheForEventModel:(EventReportModel *)model
 {
     NSString *path = [[NSString documentsPath] stringByAppendingPathComponent:EVENT_MODELS];
     NSMutableArray *list = [NSMutableArray array];

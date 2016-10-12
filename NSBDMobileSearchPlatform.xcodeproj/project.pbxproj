@@ -55,6 +55,8 @@
 		A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */; };
 		A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
+		A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */; };
+		A4A4AF921DAE852D009D0004 /* CommitedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
@@ -101,7 +103,7 @@
 		A4F2FC1A1D846A3200B0532B /* MyLocalEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */; };
 		A4F2FC1D1D851B6900B0532B /* ImageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC1C1D851B6900B0532B /* ImageContentViewController.m */; };
 		A4F2FC201D85384800B0532B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC1F1D85384800B0532B /* UIView+ViewController.m */; };
-		A4F2FC231D853EEE00B0532B /* EventModelPathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC221D853EEE00B0532B /* EventModelPathManager.m */; };
+		A4F2FC231D853EEE00B0532B /* EventModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC221D853EEE00B0532B /* EventModelManager.m */; };
 		A4F2FC261D855D2300B0532B /* UITableView+EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC251D855D2300B0532B /* UITableView+EmptyView.m */; };
 		A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC6E6E1D60552E008486E0 /* WeatherManager.m */; };
 		B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
@@ -352,6 +354,10 @@
 		A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = functions/AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		A4A378871D365DC100A7342D /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = functions/AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
 		A4A378881D365DC100A7342D /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = functions/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		A4A4AF8D1DAE7BB3009D0004 /* CommitedEventHistoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitedEventHistoryModel.h; path = functions/NSBDBusiness/Model/CommitedEventHistoryModel.h; sourceTree = "<group>"; };
+		A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryModel.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryModel.m; sourceTree = "<group>"; };
+		A4A4AF901DAE852D009D0004 /* CommitedEventHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitedEventHistoryItem.h; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.h; sourceTree = "<group>"; };
+		A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryItem.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
@@ -430,8 +436,8 @@
 		A4F2FC1C1D851B6900B0532B /* ImageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageContentViewController.m; path = functions/NSBDBusiness/ImageContentViewController.m; sourceTree = "<group>"; };
 		A4F2FC1E1D85384800B0532B /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+ViewController.h"; path = "functions/Util/UIView+ViewController.h"; sourceTree = "<group>"; };
 		A4F2FC1F1D85384800B0532B /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+ViewController.m"; path = "functions/Util/UIView+ViewController.m"; sourceTree = "<group>"; };
-		A4F2FC211D853EEE00B0532B /* EventModelPathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModelPathManager.h; sourceTree = "<group>"; };
-		A4F2FC221D853EEE00B0532B /* EventModelPathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModelPathManager.m; sourceTree = "<group>"; };
+		A4F2FC211D853EEE00B0532B /* EventModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModelManager.h; sourceTree = "<group>"; };
+		A4F2FC221D853EEE00B0532B /* EventModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModelManager.m; sourceTree = "<group>"; };
 		A4F2FC241D855D2300B0532B /* UITableView+EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+EmptyView.h"; path = "functions/Util/View/UITableView+EmptyView.h"; sourceTree = "<group>"; };
 		A4F2FC251D855D2300B0532B /* UITableView+EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+EmptyView.m"; path = "functions/Util/View/UITableView+EmptyView.m"; sourceTree = "<group>"; };
 		A4FC6E6D1D60552E008486E0 /* WeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherManager.h; path = ../../Util/WeatherManager.h; sourceTree = "<group>"; };
@@ -739,8 +745,8 @@
 			isa = PBXGroup;
 			children = (
 				A48599421D3CEC680050AC88 /* Views */,
-				B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */,
 				B2A187181D66AEC7006D8CA7 /* QRModelsManager.h */,
+				B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */,
 				B2A187081D646AF0006D8CA7 /* NSData+Conversion.h */,
 				B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */,
 				B2A186F61D6406F2006D8CA7 /* NSString+MD5Addition.h */,
@@ -1554,8 +1560,8 @@
 				B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */,
 				B28069FF1D6830020097F7E4 /* SearchSheetCellFactory.h */,
 				B2806A001D6830020097F7E4 /* SearchSheetCellFactory.m */,
-				A4F2FC211D853EEE00B0532B /* EventModelPathManager.h */,
-				A4F2FC221D853EEE00B0532B /* EventModelPathManager.m */,
+				A4F2FC211D853EEE00B0532B /* EventModelManager.h */,
+				A4F2FC221D853EEE00B0532B /* EventModelManager.m */,
 				A4CFBC941D9AB8F50016387C /* SearchSheetItemManager.h */,
 				A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */,
 				A4924FA31DACF5C00025041E /* EventHttpManager.h */,
@@ -1627,6 +1633,10 @@
 				A4F2FC011D7F05E500B0532B /* FeedbackModel.m */,
 				A4F2FC0C1D806D4900B0532B /* MyEventHistoryItem.h */,
 				A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */,
+				A4A4AF8D1DAE7BB3009D0004 /* CommitedEventHistoryModel.h */,
+				A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */,
+				A4A4AF901DAE852D009D0004 /* CommitedEventHistoryItem.h */,
+				A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1886,13 +1896,14 @@
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
-				A4F2FC231D853EEE00B0532B /* EventModelPathManager.m in Sources */,
+				A4F2FC231D853EEE00B0532B /* EventModelManager.m in Sources */,
 				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				B28653D11D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				B2A186FE1D644042006D8CA7 /* HttpBaseModel.m in Sources */,
 				B28653D41D4863B2002D4139 /* UIImageView+AFNetworking.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				B205A52F1D61D378007530EB /* MJRefreshNormalHeader.m in Sources */,
+				A4A4AF921DAE852D009D0004 /* CommitedEventHistoryItem.m in Sources */,
 				A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */,
 				B205A52A1D61D378007530EB /* MJRefreshAutoStateFooter.m in Sources */,
 				B2B468FD1D6BF55D00AB84AF /* RouteSearchResultItem.m in Sources */,
@@ -1983,6 +1994,7 @@
 				B28653A21D46FB73002D4139 /* EventMediaPickerView.m in Sources */,
 				A4F2FC0E1D806D4900B0532B /* MyEventHistoryItem.m in Sources */,
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
+				A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,

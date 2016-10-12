@@ -314,7 +314,10 @@
     SearchDetailSheetViewController *vc;
     if ([self isLine])
     {
-        vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.datalist[indexPath.row]];
+        if (readOnly)
+            vc = [SearchDetailSheetViewController sheetReadOnlyWithUIItem:self.model.datalist[indexPath.row]];
+        else
+            vc = [SearchDetailSheetViewController sheetEditableWithUIItem:self.model.datalist[indexPath.row]];
         vc.title = _item.title;
         vc.code = _item.code;
     }
@@ -322,7 +325,10 @@
     {
         
         SearchCategoryItem *item = _model.datalist[indexPath.row];
-        vc = [SearchDetailSheetViewController sheetEditableWithUIItem:[_item sheetItem]];
+        if (readOnly)
+            vc = [SearchDetailSheetViewController sheetReadOnlyWithUIItem:[_item sheetItem]];
+        else
+            vc = [SearchDetailSheetViewController sheetEditableWithUIItem:[_item sheetItem]];
         vc.code = _item.code;
         vc.title = _item.title;
         vc.fcode = item.facilityCode;

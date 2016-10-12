@@ -31,7 +31,7 @@
 #import "CommonDefine.h"
 #import "Masonry.h"
 
-#import "EventModelPathManager.h"
+#import "EventModelManager.h"
 #import "TextPickerViewController.h"
 
 #import "EventHttpManager.h"
@@ -52,9 +52,11 @@
 {
     if (self = [super init]) {
         _model = model;
+        _readonly = NO;
     }
     return self;
 }
+
 
 -(void) viewWillDisappear:(BOOL)animated
 {
@@ -78,7 +80,7 @@
         return;
     }
     
-    self.model = [EventModelPathManager lastestEventModel];
+    self.model = [EventModelManager lastestEventModel];
     if (!self.model) {
         self.model = [[EventReportModel alloc] init];
         self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
@@ -251,17 +253,13 @@
 
 -(void) deleteCache
 {
-    NSString *path = [NSString stringWithFormat:@"%@/event.data",[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-        NSLog(@"delete local save");
-    }
+    [EventModelManager removeCacheForEventModel:self.model];
 }
 -(void) actionSaveLocal:(id) sender
 {
     UIButton *btn = sender;
     btn.enabled = NO;
-    [EventModelPathManager addEventMode:self.model];
+    [EventModelManager addCacheForEventModel:self.model];
     
     [ToastView popToast:@"保存成功"];
     btn.enabled = YES;

@@ -8,6 +8,7 @@
 
 #import "MyUploadEventViewController.h"
 #import "Masonry.h"
+#import "MJExtension.h"
 #import "CommonDefine.h"
 #import "UIColor+ThemeColor.h"
 #import "CenterSwitchView.h"
@@ -15,17 +16,23 @@
 #import "MyLocalEventCell.h"
 #import "MyUploadedEventCell.h"
 #import "EventReportModel.h"
-#import "EventModelPathManager.h"
 #import "UITableView+EmptyView.h"
 #import "EventReportViewController.h"
 #import "TitleDateItem.h"
 #import "TitleInputItem.h"
 #import "TitleDetailTextItem.h"
-
+#import "EventModelManager.h"
+#import "EventHttpManager.h"
+#import "CommitedEventHistoryItem.h"
+#import "CommitedEventHistoryModel.h"
+#import "MJRefresh.h"
 
 @interface MyUploadEventViewController()<CenterSwitchActionDelegate>
 {
     NSInteger selectedIndex;
+    
+    BOOL hasMore;
+    NSInteger requestPage;
 }
 @end
 
@@ -40,6 +47,11 @@
 
 -(void) setupModel
 {
+    requestPage = 0;
+    hasMore =YES;
+    _localEventModel = [EventModelManager getEventModels];
+    
+#ifdef NoServer
     EventReportModel *eventModel = [EventReportModel new];
     eventModel.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
     eventModel.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
@@ -58,9 +70,11 @@
     eventModel.eventPic = [NSMutableArray arrayWithCapacity:6];
     eventModel.eventName.detail = @"test";
     
-    _localEventModel = [EventModelPathManager getEventModels];
 
-    _uploadedEventModel = @[eventModel];
+    _uploadedEventModel = [@[eventModel] mutableCopy];
+    return;
+#endif
+    [self requestData];
 }
 
 -(void) setupSubviews
@@ -89,10 +103,73 @@
     self.uploadedEventTableView.delegate = self;
     self.uploadedEventTableView.dataSource = self;
     self.uploadedEventTableView.backgroundColor = [UIColor seperatorColor];
+    self.uploadedEventTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.uploadedEventTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     self.uploadedEventTableView.hidden = (selectedIndex==0);
     
     [self.view addSubview:self.uploadedEventTableView];
     [self.uploadedEventTableView reloadData];
+}
+
+
+#pragma mark --http request
+-(void) requestData
+{
+    requestPage =0;
+    [[EventHttpManager sharedManager] requestHistoryEventWithPage:requestPage SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        
+        CommitedEventHistoryModel *model = [CommitedEventHistoryModel objectWithKeyValues:dict];
+        if (model.success)
+        {
+            requestPage++;
+            [_uploadedEventModel removeAllObjects];
+            [_uploadedEventModel addObjectsFromArray:model.datalist];
+            hasMore = model.datalist.count > 0;
+            [_uploadedEventTableView.mj_header endRefreshing];
+        }else if (model.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        [ToastView popToast:@"加载失败，请稍后再试"];
+        [_uploadedEventTableView.mj_footer endRefreshing];
+    }];
+}
+
+-(void) requestMoreData
+{
+    if (!hasMore) {
+        [_uploadedEventTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+    [[EventHttpManager sharedManager] requestHistoryEventWithPage:requestPage SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        
+        CommitedEventHistoryModel *model = [CommitedEventHistoryModel objectWithKeyValues:dict];
+        if (model.success)
+        {
+            requestPage++;
+            [_uploadedEventModel addObjectsFromArray:model.datalist];
+            hasMore = model.datalist.count > 0;
+            if (hasMore) {
+                [_uploadedEventTableView.mj_footer endRefreshing];
+            }else
+            {
+                [_uploadedEventTableView.mj_footer endRefreshingWithNoMoreData];
+            }
+        }else if (model.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        [ToastView popToast:@"加载失败，请稍后再试"];
+        [_uploadedEventTableView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark --centerSwitch delegate
@@ -101,7 +178,7 @@
     selectedIndex = index;
     self.uploadedEventTableView.hidden = (selectedIndex==0);
     self.localEventTableView.hidden = (selectedIndex!=0);
-    NSLog([NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
+    NSLog(@"%@", [NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
 }
 
 #pragma mark --tableview delegate
@@ -231,6 +308,7 @@
         NSInteger row = indexPath.row/2;
         if (row <self.localEventModel.count) {
             EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:_localEventModel[row]];
+            vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }else if(tableView == self.uploadedEventTableView)
@@ -240,7 +318,8 @@
         }
         NSInteger row = indexPath.row/2;
         if (row <self.uploadedEventModel.count) {
-            EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:_uploadedEventModel[row]];
+            EventReportModel *model = [[EventReportModel alloc] initWithMyEventHistoryItem:_uploadedEventModel[row]];
+            EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:model];
             vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }

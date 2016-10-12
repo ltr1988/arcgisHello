@@ -280,6 +280,7 @@
             }
             
             cell.data = item.data;
+            cell.readOnly = readOnly;
             return cell;
         }
     }

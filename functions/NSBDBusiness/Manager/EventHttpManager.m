@@ -71,6 +71,7 @@
     }];
 }
 
+//to be tested
 -(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
@@ -110,7 +111,6 @@
           }];
 }
 
-
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];
@@ -135,6 +135,44 @@
     
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"add" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+//to be tested
+-(void) requestHistoryEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            @"data":@{
+                                    @"userName": [AuthorizeManager sharedInstance].userName,
+                                    @"status":@"",
+                                    @"userScope":@"0",  //3 for 我的事件列表 ， 0 for 已完成事件
+                                    },
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"queryList" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]

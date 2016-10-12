@@ -11,8 +11,10 @@
 #import "CheckableTitleItem.h"
 #import "TitleDetailItem.h"
 #import "TitleDateItem.h"
+#import "TitleInputItem.h"
 #import "TitleItem.h"
 #import "TitleDetailTextItem.h"
+#import "CommitedEventHistoryItem.h"
 #import "NSString+UUID.h"
 
 @interface EventReportModel()<EventDetailViewDelegate>
@@ -48,6 +50,41 @@
     [aCoder encodeObject:_eventPic forKey:@"_eventPic"];
     [aCoder encodeObject:_eventVideo forKey:@"_eventVideo"];
     [aCoder encodeObject:_uuid forKey:@"uuid"];
+}
+
+
+
+-(instancetype) initWithMyEventHistoryItem:(CommitedEventHistoryItem *)item
+{
+    self = [super init];
+    if (self)
+    {
+        self.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
+        self.eventName.detail = item.title;
+        self.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
+        self.eventType.detail = item.category;
+        
+        self.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
+        self.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:item.responseLevel];
+        self.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
+        
+        
+        self.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
+        self.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
+        self.place.detail = item.occurLocation;
+        
+        self.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
+        self.department.detail = item.alarmPersonContacts;
+        
+        self.location = CGPointMake([item.spacePosition_x floatValue], [item.spacePosition_y floatValue]);
+        
+        self.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+        self.reporter.detail = item.alarmPerson;
+        
+        self.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
+        self.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
+    }
+    return self;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{

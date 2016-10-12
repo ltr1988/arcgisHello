@@ -121,6 +121,8 @@
         }
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"获取失败，请稍后再试"];
+        
+        [_tableView.mj_footer endRefreshing];
     }];
     
 }

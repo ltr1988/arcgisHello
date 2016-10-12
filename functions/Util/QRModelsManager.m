@@ -16,6 +16,8 @@
 #import "SearchCategoryModel.h"
 #import "SearchHistoryItem.h"
 #import "SearchHistoryModel.h"
+#import "CommitedEventHistoryItem.h"
+#import "CommitedEventHistoryModel.h"
 
 @implementation QRModelsManager
 
@@ -51,6 +53,8 @@
       [SearchCategoryModel class],
       [SearchHistoryModel class],
       [SearchHistoryItem class],
+      [CommitedEventHistoryItem class],
+      [CommitedEventHistoryModel class],
       ];
     
     
