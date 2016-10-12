@@ -2075,7 +2075,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fifila.NSBDMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.zxp.NSBDMobile;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 			};
@@ -2100,7 +2100,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fifila.NSBDMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.zxp.NSBDMobile;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 			};
