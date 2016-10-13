@@ -50,7 +50,7 @@
 #define IS_iPhoneLongScreen     ([[UIScreen mainScreen] bounds].size.height >= 568.0)
 
 #define SystemVersion           [[[UIDevice currentDevice] systemVersion] floatValue]
-#define APP_SETTING_URL (IS_IOS_8? UIApplicationOpenSettingsURLString:@"prefs:root=privacy&&path=cn.com.zxp.NSBDMobile")
+#define APP_SETTING_URL (IS_IOS_8? UIApplicationOpenSettingsURLString:@"prefs:root=privacy&&path=com.tencent.qqreaderiphone.dailybuild")
 
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\

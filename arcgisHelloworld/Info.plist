@@ -6,6 +6,17 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>南水北调移动巡查系统</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>MKDirectionsRequest</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.apple.maps.directionsrequest</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,7 +35,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>cn.com.fifila.arcgisHelloworld</string>
+			<string>com.tencent.qqreaderiphone.dailybuild</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fifila</string>
@@ -40,6 +51,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array>
+		<string>MKDirectionsModeOther</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -50,7 +65,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>系统需要访问您的位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>系统需要访问您的位置</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>系统需要访问您的相册</string>
 	<key>UIBackgroundModes</key>

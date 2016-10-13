@@ -13,6 +13,8 @@
 
 @interface LoginViewController()<UITextFieldDelegate>
 {
+    
+    CLLocationManager *manager;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
@@ -102,9 +104,13 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
-    [super viewDidLoad];
     [self setupSubviews];
 
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    {
+        manager = [[CLLocationManager alloc] init];
+        [manager requestAlwaysAuthorization];
+    }
 }
 
 -(BOOL)hideNavBar

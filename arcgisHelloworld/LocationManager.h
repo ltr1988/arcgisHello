@@ -11,6 +11,9 @@
 
 @interface LocationManager : NSObject<CLLocationManagerDelegate>
 
++(void) checkAuthority;
+
+
 -(instancetype) initWthCallback:(InfoCallback) callback;
 -(void) startLocating;
 -(void) stopLocating;

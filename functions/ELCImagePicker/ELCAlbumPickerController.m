@@ -8,6 +8,8 @@
 #import "ELCAlbumPickerController.h"
 #import "ELCImagePickerController.h"
 #import "ELCAssetTablePicker.h"
+#import "QRSystemAlertController.h"
+#import "CommonDefine.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
 @interface ELCAlbumPickerController ()
@@ -70,8 +72,13 @@
             void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
               
                 if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
-                    NSString *errorMessage = NSLocalizedString(@"This app does not have access to your photos or videos. You can enable access in Privacy Settings.", nil);
-                    [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Access Denied", nil) message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles:nil] show];
+                    [QRSystemAlertController showAlertWithTitle:@"“南水北调移动巡查系统”想访问您的照片" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
+                     {
+                         if (buttonIndex == 1) {
+                             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_SETTING_URL]];
+                         }
+                     }];
+
                   
                 } else {
                     NSString *errorMessage = [NSString stringWithFormat:@"Album Error: %@ - %@", [error localizedDescription], [error localizedRecoverySuggestion]];

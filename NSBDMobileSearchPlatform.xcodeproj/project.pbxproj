@@ -1733,7 +1733,8 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YEPQ327WH5;
+						DevelopmentTeam = JJDA4SZYT3;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2133,6 +2134,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JJDA4SZYT3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2146,9 +2148,10 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.zxp.NSBDMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -2158,6 +2161,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JJDA4SZYT3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2171,9 +2175,10 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.com.zxp.NSBDMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

@@ -33,9 +33,6 @@
 
 -(void) setupLocationAuthorize
 {
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
-    {
-        [[[CLLocationManager alloc] init] requestAlwaysAuthorization];
-    }
+    
 }
 @end
