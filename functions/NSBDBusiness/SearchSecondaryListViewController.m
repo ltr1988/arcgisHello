@@ -23,7 +23,7 @@
 #import "SearchCategoryModel.h"
 #import "SearchCategoryItem.h"
 #import "SearchSheetItemManager.h"
-
+#import "UITableView+EmptyView.h"
 #import "SearchDetailSheetViewController.h"
 
 
@@ -209,33 +209,42 @@
     _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     
-    if ([self isLine]) {
+    if ([self isLine] && !readOnly) {
         _tableView.tableHeaderView = [self headerView];
     }
     
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 0)];
     
-    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
+    if (!readOnly)
+    {
+        _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
+    }
 }
 
 
 -(void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_timerView setShowTime:[[SearchSessionManager sharedManager].session totalTime]];
-    
-    if (![SearchSessionManager sharedManager].session.pauseState) {
+    if (!readOnly)
+    {
+        [_timerView setShowTime:[[SearchSessionManager sharedManager].session totalTime]];
         
-        [_timerView continueTiming];
+        if (![SearchSessionManager sharedManager].session.pauseState) {
+            
+            [_timerView continueTiming];
+        }
     }
     [_tableView.mj_header beginRefreshing];
 }
 
 -(void) viewDidDisappear:(BOOL)animated
 {
-    if (![SearchSessionManager sharedManager].session.pauseState) {
-        [_timerView pauseTiming];
+    if (!readOnly)
+    {
+        if (![SearchSessionManager sharedManager].session.pauseState) {
+            [_timerView pauseTiming];
+        }
     }
 }
 
@@ -270,9 +279,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    if (!_model) {
+    
+
+    if (!_model || _model.datalist.count==0) {
+        if (!([self isLine] && !readOnly)) {
+            [tableView setEmptyView];
+        }
         return 0;
     }
+    [tableView removeEmptyView];
     return _model.datalist.count;
 }
 

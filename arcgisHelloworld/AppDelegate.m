@@ -11,7 +11,6 @@
 #import "MapViewManager.h"
 #import "TokenManager.h"
 #import "NSData+Conversion.h"
-#import "AFNetworking.h"
 #import "SearchSessionItem.h"
 #import "SearchSessionManager.h"
 
@@ -27,7 +26,8 @@
     
     //[[TokenManager sharedManager] registerForRemoteNotifications];
     [self setupArcgis];
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [self setupReachability];
+    [self setupLocationAuthorize];
     [MapViewManager sharedMapView];
     [NSThread sleepForTimeInterval:1.5];
     return YES;

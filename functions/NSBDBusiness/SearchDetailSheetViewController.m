@@ -129,9 +129,33 @@
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
     if (!readOnly) {
         _tableView.tableFooterView = [self footerView];
+        _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
     }
-    _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (!readOnly)
+    {
+        [_timerView setShowTime:[[SearchSessionManager sharedManager].session totalTime]];
+        
+        if (![SearchSessionManager sharedManager].session.pauseState) {
+            
+            [_timerView continueTiming];
+        }
+    }
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    if (!readOnly)
+    {
+        if (![SearchSessionManager sharedManager].session.pauseState) {
+            [_timerView pauseTiming];
+        }
+    }
 }
 
 -(UIView*) footerView

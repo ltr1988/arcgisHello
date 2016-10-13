@@ -128,7 +128,7 @@
     if (point)
     {
         CLLocation *location = [[CLLocation alloc]initWithLatitude:point.y longitude:point.x];
-        if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+        if (![AFNetworkReachabilityManager sharedManager].reachable)
         {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:@{@"location":location}];
             return;

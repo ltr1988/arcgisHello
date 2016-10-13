@@ -147,6 +147,7 @@
 		B272B0B01D9D118600CEB12D /* LiveDataShuiweiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */; };
 		B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */; };
 		B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */; };
+		B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D591DAF95B100C0166F /* QRSystemAlertController.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -525,6 +526,8 @@
 		B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuikuViewController.m; path = functions/NSBDBusiness/LiveDataShuikuViewController.m; sourceTree = "<group>"; };
 		B272B0B91D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataDetailShuikuInfoViewController.h; path = functions/NSBDBusiness/LiveDataDetailShuikuInfoViewController.h; sourceTree = "<group>"; };
 		B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataDetailShuikuInfoViewController.m; path = functions/NSBDBusiness/LiveDataDetailShuikuInfoViewController.m; sourceTree = "<group>"; };
+		B2748D581DAF95B100C0166F /* QRSystemAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRSystemAlertController.h; sourceTree = "<group>"; };
+		B2748D591DAF95B100C0166F /* QRSystemAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRSystemAlertController.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -744,6 +747,7 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				B2748D571DAF95B100C0166F /* SystemAlertController */,
 				A48599421D3CEC680050AC88 /* Views */,
 				B2A187181D66AEC7006D8CA7 /* QRModelsManager.h */,
 				B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */,
@@ -1304,6 +1308,16 @@
 				B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */,
 			);
 			name = SearchHistory;
+			sourceTree = "<group>";
+		};
+		B2748D571DAF95B100C0166F /* SystemAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				B2748D581DAF95B100C0166F /* QRSystemAlertController.h */,
+				B2748D591DAF95B100C0166F /* QRSystemAlertController.m */,
+			);
+			name = SystemAlertController;
+			path = functions/Util/SystemAlertController;
 			sourceTree = "<group>";
 		};
 		B28069AF1D670F490097F7E4 /* SearchSheet */ = {
@@ -1896,6 +1910,7 @@
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */,
 				A4F2FC231D853EEE00B0532B /* EventModelManager.m in Sources */,
 				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				B28653D11D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m in Sources */,

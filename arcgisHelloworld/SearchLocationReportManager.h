@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+
+//定时上报位置
 @interface SearchLocationReportManager : NSObject<CLLocationManagerDelegate>
 
 @end

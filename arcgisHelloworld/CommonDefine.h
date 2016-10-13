@@ -35,6 +35,23 @@
 
 #endif
 
+
+#define AppMainWindow [(AppDelegate *)[UIApplication sharedApplication].delegate window]
+
+#define IS_IPHONE_DEVICE    (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPAD_DEVICE      (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+#define IS_IOS_7            ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f)
+#define IS_IOS_8            ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0f)
+#define IS_IOS_9            ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0f)
+#define IS_IOS_10            ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0f)
+
+#define IS_RetinaScreen           ([UIScreen mainScreen].scale==2.0f)
+#define IS_iPhoneLongScreen     ([[UIScreen mainScreen] bounds].size.height >= 568.0)
+
+#define SystemVersion           [[[UIDevice currentDevice] systemVersion] floatValue]
+#define APP_SETTING_URL (IS_IOS_8? UIApplicationOpenSettingsURLString:@"prefs:root=privacy&&path=cn.com.zxp.NSBDMobile")
+
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\
 block();\

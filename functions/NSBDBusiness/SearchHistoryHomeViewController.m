@@ -56,7 +56,7 @@
     [self.tableView.mj_header endRefreshing];
     return;
 #endif
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    if (![AFNetworkReachabilityManager sharedManager].reachable)
     {
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;
@@ -92,7 +92,7 @@
         [_tableView.mj_footer endRefreshingWithNoMoreData];
         return;
     }
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    if (![AFNetworkReachabilityManager sharedManager].reachable)
     {
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;

@@ -8,6 +8,7 @@
 
 #import "LocationManager.h"
 #import "CommonDefine.h"
+#import "QRSystemAlertController.h"
 
 @interface LocationManager()
 {
@@ -23,7 +24,6 @@
     locationManager = [[CLLocationManager alloc] init];
     // 设置定位精度，十米，百米，最好
     
-    [locationManager requestAlwaysAuthorization];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     locationManager.delegate = self;
 }
@@ -50,6 +50,20 @@
 -(void) stopLocating
 {
     [locationManager stopUpdatingLocation];
+}
+
++(void) checkAuthority
+{
+    if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied)
+    {
+        [QRSystemAlertController showAlertWithTitle:@"“南水北调移动巡查系统”想访问您的照片" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
+         {
+             if (buttonIndex == 1) {
+                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_SETTING_URL]];
+             }
+         }];
+
+    }
 }
 
 -(void) startLocating

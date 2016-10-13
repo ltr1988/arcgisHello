@@ -10,4 +10,6 @@
 
 @interface AppDelegate (LaunchInits)
 -(void) setupArcgis;
+-(void) setupReachability;
+-(void) setupLocationAuthorize;
 @end

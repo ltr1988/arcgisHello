@@ -9,6 +9,9 @@
 #import "AppDelegate+LaunchInits.h"
 #import "CommonDefine.h"
 
+#import "AFNetworkActivityIndicatorManager.h"
+#import "AFNetworking.h"
+
 @implementation AppDelegate (LaunchInits)
 
 -(void) setupArcgis
@@ -19,6 +22,20 @@
     if(error){
         // We had a problem using our client ID
         NSLog(@"Error using client ID : %@",[error localizedDescription]);
+    }
+}
+
+-(void) setupReachability
+{
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+-(void) setupLocationAuthorize
+{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+    {
+        [[[CLLocationManager alloc] init] requestAlwaysAuthorization];
     }
 }
 @end

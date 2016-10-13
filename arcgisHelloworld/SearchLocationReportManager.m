@@ -37,7 +37,6 @@
     locationManager = [[CLLocationManager alloc] init];
     // 设置定位精度，十米，百米，最好
     
-    [locationManager requestAlwaysAuthorization];
     [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
     locationManager.delegate = self;
 }

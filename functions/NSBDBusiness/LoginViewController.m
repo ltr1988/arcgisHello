@@ -63,7 +63,7 @@
     
     
     
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
+    if (![AFNetworkReachabilityManager sharedManager].reachable)
     {
         [ToastView popToast:@"暂无网络，稍后再试"];
     }
