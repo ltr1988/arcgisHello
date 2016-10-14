@@ -10,6 +10,7 @@
 #import "MapViewController.h"
 #import "AuthorizeManager.h"
 #import "ToastView.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface LoginViewController()<UITextFieldDelegate>
 {
@@ -106,6 +107,9 @@
     [super viewDidLoad];
     [self setupSubviews];
 
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
     {
         manager = [[CLLocationManager alloc] init];

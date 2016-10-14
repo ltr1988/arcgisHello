@@ -120,7 +120,7 @@
     lbPlace.text = data.place;
     [picContentView setPics:data.images];
     if (data.video && data.video.length>0) {
-        [picContentView setVideo:[NSURL URLWithString:data.video]];
+        [picContentView setVideo:[NSURL fileURLWithPath:data.video]];
     }
 }
 

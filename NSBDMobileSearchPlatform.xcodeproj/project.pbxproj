@@ -148,6 +148,8 @@
 		B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */; };
 		B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */; };
 		B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D591DAF95B100C0166F /* QRSystemAlertController.m */; };
+		B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */; };
+		B2748D621DB0D78E00C0166F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2748D641DB0D78E00C0166F /* Localizable.strings */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -528,6 +530,9 @@
 		B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataDetailShuikuInfoViewController.m; path = functions/NSBDBusiness/LiveDataDetailShuikuInfoViewController.m; sourceTree = "<group>"; };
 		B2748D581DAF95B100C0166F /* QRSystemAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRSystemAlertController.h; sourceTree = "<group>"; };
 		B2748D591DAF95B100C0166F /* QRSystemAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRSystemAlertController.m; sourceTree = "<group>"; };
+		B2748D5B1DB07FB900C0166F /* MediaPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerManager.h; sourceTree = "<group>"; };
+		B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerManager.m; sourceTree = "<group>"; };
+		B2748D631DB0D78E00C0166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -1112,6 +1117,7 @@
 				A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */,
 				A4DD86871D0976B00096B548 /* main.m */,
 				B2B307641D9A9702003B821A /* todolist.rtf */,
+				B2748D641DB0D78E00C0166F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1582,6 +1588,8 @@
 				A4924FA41DACF5C00025041E /* EventHttpManager.m */,
 				B25712AE1DADCAB200F3D7F6 /* SearchHistoryManager.h */,
 				B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */,
+				B2748D5B1DB07FB900C0166F /* MediaPickerManager.h */,
+				B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -1733,7 +1741,7 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JJDA4SZYT3;
+						DevelopmentTeam = YEPQ327WH5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1775,6 +1783,7 @@
 				A4E68B711D68A0C800DD603B /* icon_user@2x.png in Resources */,
 				A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */,
 				B28069FB1D682AC90097F7E4 /* login_bg.png in Resources */,
+				B2748D621DB0D78E00C0166F /* Localizable.strings in Resources */,
 				B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */,
 				B28069F01D682AC90097F7E4 /* icon_swxx.png in Resources */,
 				A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */,
@@ -1828,6 +1837,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
+				B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
@@ -2045,6 +2055,14 @@
 			name = Launch.storyboard;
 			sourceTree = "<group>";
 		};
+		B2748D641DB0D78E00C0166F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2748D631DB0D78E00C0166F /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2134,7 +2152,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2148,7 +2166,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2161,7 +2179,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2175,7 +2193,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

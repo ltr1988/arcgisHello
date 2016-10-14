@@ -139,8 +139,10 @@
 {
     CheckableImageView *view = (CheckableImageView *)sender;
     if (view.isVideo) {
-        VideoPlayViewController *vc = [[VideoPlayViewController alloc] initWithURL:view.contentURL];
-        [[self viewController].navigationController pushViewController:vc animated:YES];
+        UIViewController *vc = [self viewController];
+        if ([vc respondsToSelector:@selector(play:)]) {
+            [vc performSelector:@selector(play:) withObject:view.contentURL];
+        }
     }else
     {
         ImageContentViewController *vc = [ImageContentViewController new];

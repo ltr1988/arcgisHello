@@ -287,9 +287,9 @@
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;
     }
-    @weakify(self);
+    @weakify(self)
     [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        @strongify(self);
+        @strongify(self)
         HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
         if (item.success)
         {
@@ -344,9 +344,9 @@
         } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         }];
         
-        @weakify(self);
+        @weakify(self)
         [[SearchSessionManager sharedManager] requestTaskConfigInSearchSessionSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-            @strongify(self);
+            @strongify(self)
             self.model = [SearchHomePageModel objectWithKeyValues:dict];
             if (self.model.success) {
                 [self.tableView.mj_header endRefreshing];

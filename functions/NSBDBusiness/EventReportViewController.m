@@ -42,6 +42,7 @@
     UIButton *btnUpload;
     UIButton *btnSaveLocal;
     EventLocationPickerView *lPicker;
+    
 }
 @property (nonatomic,strong)     UITableView *eventTableView;
 @end
@@ -53,6 +54,7 @@
     if (self = [super init]) {
         _model = model;
         _readonly = NO;
+        
     }
     return self;
 }
@@ -70,6 +72,7 @@
     
     [self setupModel];
     [self setupSubViews];
+    [self setupPickerManager];
     [self addObservers];
     
 }
@@ -144,7 +147,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
     
     __weak __typeof(self) weakself = self;
-    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) readOnly:_readonly picCallback:^{
+    _mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) readOnly:_readonly picCallback:^{
         [weakself openPicMenu];
     } videoCallback:^{
         [weakself openVideoMenu];
@@ -158,9 +161,9 @@
     }];
     
     
-    [mPicker setImages:self.model.eventPic];
-    [mPicker setVideo:self.model.eventVideo];
-    [mPicker relayout];
+    [_mPicker setImages:self.model.eventPic];
+    [_mPicker setVideo:self.model.eventVideo];
+    [_mPicker relayout];
     
     [self.eventTableView reloadData];
 }
@@ -275,7 +278,7 @@
         return lPicker.frame.size.height;
     }
     if (row == 15) { //image picker
-        return mPicker.frame.size.height;
+        return _mPicker.frame.size.height;
     }
     return 55;
 }
@@ -424,9 +427,9 @@
         }
         case 15:
         {
-            [mPicker removeFromSuperview];
+            [_mPicker removeFromSuperview];
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
-            [cell.contentView addSubview: mPicker];
+            [cell.contentView addSubview: _mPicker];
             return cell;
         }
         

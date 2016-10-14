@@ -56,12 +56,16 @@
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [responseView addGestureRecognizer:tap];
+    [_centerView addGestureRecognizer:tap];
     [self addGestureRecognizer:tap];
     
     _centerView.alpha = 1;
     _centerView.hidden = YES;
     _centerView.layer.cornerRadius = 12;
     _centerView.layer.masksToBounds = YES;
+    
+    _checkView.multipleTouchEnabled = YES;
+    _checkView.userInteractionEnabled = YES;
     
     [self addSubview:responseView];
     [self addSubview:_checkView];
@@ -98,6 +102,7 @@
     if (_centerView) {
         _centerView.hidden = !isVideo;
     }
+    _isVideo = isVideo;
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tap{

@@ -35,6 +35,8 @@
     [super viewDidLoad];
     [self setupModel];
     [self setupSubviews];
+    
+    [self setupPickerManager];
 }
 
 -(void) setupModel
@@ -100,7 +102,7 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
     
     __weak __typeof(self) weakself = self;
-    mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)
+    _mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)
                                                  readOnly:NO
                                               picCallback:^{
                                                   [weakself openPicMenu];
@@ -111,9 +113,9 @@
                                               }];
     
     
-    [mPicker setImages:self.feedbackModel.images];
-    [mPicker setVideo:self.feedbackModel.video];
-    [mPicker relayout];
+    [_mPicker setImages:self.feedbackModel.images];
+    [_mPicker setVideo:self.feedbackModel.video];
+    [_mPicker relayout];
 
     
     
@@ -172,7 +174,7 @@
     selectedIndex = index;
     self.historyTableView.hidden = (selectedIndex==0);
     self.feedbackTableView.hidden = (selectedIndex!=0);
-    NSLog([NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
+    NSLog(@"%@", [NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
 }
 
 #pragma mark --tableview delegate
@@ -185,7 +187,7 @@
             return 8;
         }
         if (row == 3) { //image picker
-            return mPicker.frame.size.height;
+            return _mPicker.frame.size.height;
         }
         return 55;
     }else if(tableView == self.historyTableView)
@@ -250,9 +252,9 @@
             }
             case 3:
             {
-                [mPicker removeFromSuperview];
+                [_mPicker removeFromSuperview];
                 UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
-                [cell.contentView addSubview: mPicker];
+                [cell.contentView addSubview: _mPicker];
                 return cell;
             }
         }

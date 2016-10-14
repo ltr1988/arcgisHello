@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  NSBDMobileSearchPlatform
+
+  Created by LvTianran on 16/10/14.
+  Copyright © 2016年 fifila. All rights reserved.
+*/
+"Loading..." = "加载中";
+"Error" = "错误";
+"Ok" = "确定";
+"Okay" = "确定";
+"Select an Album" = "选择相册";
+"Pick Photo" = "选择相片";
+"Pick Photos" = "选择相片";
+"Only %d photos please!" = "只能选择%d张相片!";
+"You can only send %d photos at a time." = "一次只能选择%d张相片.";

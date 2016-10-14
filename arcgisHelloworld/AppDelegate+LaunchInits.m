@@ -9,9 +9,6 @@
 #import "AppDelegate+LaunchInits.h"
 #import "CommonDefine.h"
 
-#import "AFNetworkActivityIndicatorManager.h"
-#import "AFNetworking.h"
-
 @implementation AppDelegate (LaunchInits)
 
 -(void) setupArcgis
@@ -27,8 +24,7 @@
 
 -(void) setupReachability
 {
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
 }
 
 -(void) setupLocationAuthorize

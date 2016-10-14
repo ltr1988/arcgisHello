@@ -7,17 +7,22 @@
 //
 
 #import "SupportRotationSelectBaseViewController.h"
+#import "MediaPickerManager.h"
 
 @class EventMediaPickerView;
 @class FeedbackModel;
 
-@interface MyEventDetailViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
+@interface MyEventDetailViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     //下拉菜单
     UIActionSheet *myActionSheetPic;
     UIActionSheet *myActionSheetVideo;
-    EventMediaPickerView *mPicker;
+
+    MediaPickerManager *mPickerManager;
 }
+
+
+@property (nonatomic,strong) EventMediaPickerView *mPicker;
 @property (nonatomic,strong) UITableView *feedbackTableView;
 @property (nonatomic,strong) UITableView *historyTableView;
 @property (nonatomic,strong) FeedbackModel *feedbackModel;

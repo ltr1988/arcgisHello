@@ -7,11 +7,12 @@
 //
 
 #import "EventReportViewController.h"
-#import "ELCImagePickerController.h"
 #import "EventMediaPickerView.h"
 
-@interface EventReportViewController (pickMedia) <ELCImagePickerControllerDelegate>
+@interface EventReportViewController (pickMedia)
 -(void)openPicMenu;
 -(void)openVideoMenu;
+-(void)setupPickerManager;
 -(void)mediaRemove:(NSNotification *)noti;
+-(void)play:(NSURL *)videoUrl;
 @end

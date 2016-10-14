@@ -45,7 +45,6 @@ static NSInteger const otherIndex = 1;
     // 如果当前keywindow不是delegatewindow,说明当前有POP形式的VC by YanTao
     if ([self getAppKeyWindow] == [[self getAppDelegate] window])
     {
-        
         return [[[[self getAppDelegate] window] rootViewController].navigationController topViewController];
     }
     else

@@ -42,7 +42,7 @@
 }
 
 
--(void) play
+-(void) play:(NSURL *)videoUrl
 {
     if (videoUrl) {
         [self presentMoviePlayerViewControllerAnimated:_mvPlayer];

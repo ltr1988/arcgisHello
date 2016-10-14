@@ -175,9 +175,9 @@
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;
     }
-    @weakify(self);
+    @weakify(self)
     [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:[SearchSessionManager sharedManager].session.sessionId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        @strongify(self);
+        @strongify(self)
         self.model = [SearchCategoryModel objectWithKeyValues:dict];
         if (self.model.success) {
             self.model.uiItem = [_item sheetItem];

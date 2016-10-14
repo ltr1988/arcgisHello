@@ -12,16 +12,20 @@
 #import "DatePickViewController.h"
 
 #import "EventReportModel.h"
+#import "MediaPickerManager.h"
 
-@interface EventReportViewController : SupportRotationSelectBaseViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
+@interface EventReportViewController : SupportRotationSelectBaseViewController
 {
     //下拉菜单
     UIActionSheet *myActionSheetPic;
     UIActionSheet *myActionSheetVideo;
     
-    EventMediaPickerView *mPicker;
-
+    MediaPickerManager *mPickerManager;
+    MPMoviePlayerViewController *_mvPlayer;
 }
+
+@property (nonatomic,strong) EventMediaPickerView *mPicker;
+
 @property (nonatomic,strong) EventReportModel *model;
 @property (nonatomic,assign) BOOL readonly;
 

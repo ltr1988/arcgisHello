@@ -27,7 +27,7 @@
 -(void) setupModel
 {
     MyEventItem *item = [MyEventItem new];
-    item.title = @"代办应急事件1";
+    item.title = @"待办应急事件1";
     item.date= @"2016.8.31 22:10:10";
     item.xingzhi = @"严重";
     item.level = @"一级";
@@ -35,7 +35,7 @@
     item.finder = @"小明";
     
     MyEventItem *item1 = [MyEventItem new];
-    item1.title = @"代办应急事件2";
+    item1.title = @"待办应急事件2";
     item1.date= @"2016.8.22 06:10:10";
     item1.xingzhi = @"严重";
     item1.level = @"一级";
@@ -48,7 +48,7 @@
 -(void) setupSubviews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    self.title = @"代办应急事件";
+    self.title = @"待办应急事件";
     
     self.myEventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.myEventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
