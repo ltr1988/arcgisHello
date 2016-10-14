@@ -7,9 +7,17 @@
 //
 
 #import "SupportRotationSelectBaseViewController.h"
+#import "MediaPickerManager.h"
+@class EventMediaPickerView;
 
 @class NSBDBaseUIItem;
 @interface SearchDetailSheetViewController : SupportRotationSelectBaseViewController<UITableViewDelegate,UITableViewDataSource>
+{
+    MediaPickerManager *mPickerManager;
+}
+
+
+@property (nonatomic,strong) EventMediaPickerView *mPicker;
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item;
 +(instancetype) sheetEditableWithUIItem:(NSBDBaseUIItem *)item;

@@ -21,6 +21,7 @@
 #import "TextPickerViewController.h"
 #import "HttpBaseModel.h"
 #import "DatePickViewController.h"
+#import "EventMediaPickerView.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -132,6 +133,21 @@
         _timerView = [TimerView timerViewWithStartTime:[[SearchSessionManager sharedManager].session totalTime] frame:CGRectMake(0, 0, 80, 30) smallStyle:YES];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:_timerView];
     }
+    
+    __weak __typeof(self) weakself = self;
+    _mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70)
+                                                  readOnly:readOnly
+                                               picCallback:^{
+                                                   [weakself openPicMenu];
+                                               } videoCallback:^{
+                                                   [weakself openVideoMenu];
+                                               } relayoutCallback:^{
+                                                   [self.feedbackTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+                                               }];
+    
+    [_mPicker setImages:self.feedbackModel.images];
+    [_mPicker setVideo:self.feedbackModel.video];
+    [_mPicker relayout];
 }
 
 -(void) viewWillAppear:(BOOL)animated

@@ -150,6 +150,8 @@
 		B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D591DAF95B100C0166F /* QRSystemAlertController.m */; };
 		B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */; };
 		B2748D621DB0D78E00C0166F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2748D641DB0D78E00C0166F /* Localizable.strings */; };
+		B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */; };
+		B2748D6B1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -533,6 +535,10 @@
 		B2748D5B1DB07FB900C0166F /* MediaPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaPickerManager.h; sourceTree = "<group>"; };
 		B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaPickerManager.m; sourceTree = "<group>"; };
 		B2748D631DB0D78E00C0166F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B2748D661DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SupportRotationSelectBaseViewController+VideoPlay.h"; path = "functions/NSBDBusiness/SupportRotationSelectBaseViewController+VideoPlay.h"; sourceTree = "<group>"; };
+		B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SupportRotationSelectBaseViewController+VideoPlay.m"; path = "functions/NSBDBusiness/SupportRotationSelectBaseViewController+VideoPlay.m"; sourceTree = "<group>"; };
+		B2748D691DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SearchDetailSheetViewController+pickMedia.h"; path = "functions/NSBDBusiness/SearchDetailSheetViewController+pickMedia.h"; sourceTree = "<group>"; };
+		B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SearchDetailSheetViewController+pickMedia.m"; path = "functions/NSBDBusiness/SearchDetailSheetViewController+pickMedia.m"; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -1456,6 +1462,8 @@
 				B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */,
 				B25712AB1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.h */,
 				B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */,
+				B2748D691DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.h */,
+				B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1492,6 +1500,8 @@
 				B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */,
 				A4F2FC1B1D851B6900B0532B /* ImageContentViewController.h */,
 				A4F2FC1C1D851B6900B0532B /* ImageContentViewController.m */,
+				B2748D661DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.h */,
+				B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1871,6 +1881,7 @@
 				B286537F1D45EA03002D4139 /* MASConstraint.m in Sources */,
 				B28653821D45EA03002D4139 /* MASViewAttribute.m in Sources */,
 				A414ACC11D3A1D890065AAA7 /* ELCAsset.m in Sources */,
+				B2748D6B1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m in Sources */,
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
 				B28653801D45EA03002D4139 /* MASConstraintMaker.m in Sources */,
 				A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */,
@@ -2001,6 +2012,7 @@
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */,
+				B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,

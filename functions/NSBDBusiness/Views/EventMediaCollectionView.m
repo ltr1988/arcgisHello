@@ -13,6 +13,8 @@
 #import "UIView+ViewController.h"
 #import "VideoPlayViewController.h"
 
+#import "SupportRotationSelectBaseViewController+VideoPlay.h"
+
 @implementation EventMediaCollectionView
 
 -(instancetype) initWithFrame:(CGRect)frame
@@ -139,10 +141,8 @@
 {
     CheckableImageView *view = (CheckableImageView *)sender;
     if (view.isVideo) {
-        UIViewController *vc = [self viewController];
-        if ([vc respondsToSelector:@selector(play:)]) {
-            [vc performSelector:@selector(play:) withObject:view.contentURL];
-        }
+        SupportRotationSelectBaseViewController *vc = (SupportRotationSelectBaseViewController *)[self viewController];
+        [vc play:view.contentURL];
     }else
     {
         ImageContentViewController *vc = [ImageContentViewController new];

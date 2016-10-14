@@ -112,7 +112,7 @@
                                                   [self.feedbackTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
                                               }];
     
-    
+
     [_mPicker setImages:self.feedbackModel.images];
     [_mPicker setVideo:self.feedbackModel.video];
     [_mPicker relayout];

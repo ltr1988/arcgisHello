@@ -16,10 +16,6 @@
 
 @interface EventReportViewController : SupportRotationSelectBaseViewController
 {
-    //下拉菜单
-    UIActionSheet *myActionSheetPic;
-    UIActionSheet *myActionSheetVideo;
-    
     MediaPickerManager *mPickerManager;
     MPMoviePlayerViewController *_mvPlayer;
 }

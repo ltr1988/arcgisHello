@@ -42,6 +42,29 @@
     
 }
 
+-(void)openMenuInView:(UIView *)view
+{
+    UIActionSheet *myActionSheet;
+    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
+        
+        myActionSheet = [[UIActionSheet alloc]
+                         initWithTitle:nil
+                         delegate:self
+                         cancelButtonTitle:@"取消"
+                         destructiveButtonTitle:nil
+                         otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
+    }else
+    {
+        myActionSheet = [[UIActionSheet alloc]
+                         initWithTitle:nil
+                         delegate:self
+                         cancelButtonTitle:@"取消"
+                         destructiveButtonTitle:nil
+                         otherButtonTitles: @"从手机相册获取",nil];
+    }
+    
+    [myActionSheet showInView:view];
+}
 
 //开始拍照
 -(void)takePhoto:(BOOL) isImage

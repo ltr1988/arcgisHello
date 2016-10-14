@@ -160,7 +160,6 @@
         [weakself.navigationController pushViewController:vc animated:YES];
     }];
     
-    
     [_mPicker setImages:self.model.eventPic];
     [_mPicker setVideo:self.model.eventVideo];
     [_mPicker relayout];

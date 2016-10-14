@@ -90,16 +90,16 @@
     btnNavi.layer.cornerRadius = 20;
     [self.view addSubview:btnNavi];
     
-    UIButton *btnTest = [[UIButton alloc] initWithFrame:CGRectMake(20, 140, 40, 40)];
-    btnTest.backgroundColor = [UIColor redColor];
-    [btnTest setTitle:@"配置" forState:UIControlStateNormal];
-    [btnTest addTarget:self action:@selector(actionConfig) forControlEvents:UIControlEventTouchUpInside];
-    btnTest.layer.cornerRadius = 20;
-    [self.view addSubview:btnTest];
-    
-    alart = [[UIAlertView alloc] initWithTitle:@"配置" message:@"设置服务器地址" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    alart.alertViewStyle = UIAlertViewStylePlainTextInput;
-    alart.delegate = self;
+//    UIButton *btnTest = [[UIButton alloc] initWithFrame:CGRectMake(20, 140, 40, 40)];
+//    btnTest.backgroundColor = [UIColor redColor];
+//    [btnTest setTitle:@"配置" forState:UIControlStateNormal];
+//    [btnTest addTarget:self action:@selector(actionConfig) forControlEvents:UIControlEventTouchUpInside];
+//    btnTest.layer.cornerRadius = 20;
+//    [self.view addSubview:btnTest];
+//    
+//    alart = [[UIAlertView alloc] initWithTitle:@"配置" message:@"设置服务器地址" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//    alart.alertViewStyle = UIAlertViewStylePlainTextInput;
+//    alart.delegate = self;
     
     self.mapView = [MapViewManager sharedMapView];
     self.mapView.frame = self.view.bounds;

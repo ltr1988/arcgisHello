@@ -20,5 +20,7 @@ typedef void (^VideoPickBlock)(NSURL *videoURL);
 @property (nonatomic,copy) VideoPickBlock videoPickBlock;
 
 -(instancetype) initWithViewController:(UIViewController *)vc ImagePickBlock:(ImagePickBlock) iblock VideoPickBlock:(VideoPickBlock) vblock;
+-(void)openMenuInView:(UIView *)view;
+
 +(void) movContertToMp4:(NSURL *)sourceUrl completeBlock:(VideoPickBlock) block;
 @end

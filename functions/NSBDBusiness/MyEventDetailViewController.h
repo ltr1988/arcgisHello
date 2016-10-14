@@ -14,10 +14,6 @@
 
 @interface MyEventDetailViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
-    //下拉菜单
-    UIActionSheet *myActionSheetPic;
-    UIActionSheet *myActionSheetVideo;
-
     MediaPickerManager *mPickerManager;
 }
 

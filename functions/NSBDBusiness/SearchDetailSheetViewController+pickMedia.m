@@ -1,15 +1,16 @@
 //
-//  EventReportViewController+pickMedia.m
+//  SearchDetailSheetViewController+pickMedia.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by LvTianran on 16/7/28.
+//  Created by LvTianran on 16/10/14.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "EventReportViewController+pickMedia.h"
+#import "SearchDetailSheetViewController+pickMedia.h"
 
-@implementation EventReportViewController (pickMedia)
+#import "EventMediaPickerView.h"
 
+@implementation SearchDetailSheetViewController (pickMedia)
 -(void) setupPickerManager
 {
     @weakify(self);
@@ -86,6 +87,5 @@
         self.model.eventVideo = nil;
     }
 }
-
 
 @end

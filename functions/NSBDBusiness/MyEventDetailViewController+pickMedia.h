@@ -8,12 +8,10 @@
 
 #import "MyEventDetailViewController.h"
 #import "ELCImagePickerController.h"
-#import "EventMediaPickerView.h"
 
 @interface MyEventDetailViewController (pickMedia)
 -(void)openPicMenu;
 -(void)openVideoMenu;
 -(void)mediaRemove:(NSNotification *)noti;
 -(void)setupPickerManager;
--(void) play:(NSURL *)videoUrl;
 @end
