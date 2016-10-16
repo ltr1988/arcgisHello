@@ -170,9 +170,6 @@
     NSString *place = notification.userInfo[@"place"];
     NSString *myplace = notification.userInfo[@"mylocation"];
     
-    NSString *text;
-    
-    
     AGSPoint * point = [AGSPoint pointWithLocation:location];
     if (point) {
         if (myplace) {
