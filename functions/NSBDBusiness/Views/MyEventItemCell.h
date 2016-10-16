@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MyEventItem;
+
+
+@protocol MyEventItemCellModel <NSObject>
+
+- (NSString *) title;
+- (NSString *) date;
+- (NSString *) place;
+
+- (NSString *) finder;
+- (NSString *) xingzhi;
+- (NSString *) level;
+
+@end
+
 @interface MyEventItemCell : UITableViewCell
 {
     UILabel *lbTitle;
@@ -23,7 +36,7 @@
     UIImageView *placeIcon;
 }
 
--(void) setData:(MyEventItem *) data;
+-(void) setData:(id<MyEventItemCellModel> ) data;
 +(CGFloat) heightForCell;
 
 @end

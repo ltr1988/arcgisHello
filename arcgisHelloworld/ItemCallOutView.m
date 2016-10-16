@@ -48,7 +48,7 @@
     _detailLabel = [UILabel new];
     _detailLabel.font = [UIFont systemFontOfSize:12];
     
-    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"RedPushpin"]];
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_location"]];
     imgView.backgroundColor = [UIColor clearColor];
     
     UIView *lineVertical,*line;
@@ -63,12 +63,14 @@
     _webSiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [_infoButton setImage:[UIImage imageNamed:@"icon_jbxx"] forState:UIControlStateNormal];
+    _infoButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     _infoButton.backgroundColor = [UIColor clearColor];
     _infoButton.titleLabel.font = UI_FONT(14);
     [_infoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_infoButton setTitle:@"基本信息" forState:UIControlStateNormal];
     
     [_webSiteButton setImage:[UIImage imageNamed:@"icon_swxx"] forState:UIControlStateNormal];
+    _webSiteButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [_webSiteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _webSiteButton.titleLabel.font = UI_FONT(14);
     _webSiteButton.backgroundColor = [UIColor clearColor];
@@ -121,22 +123,22 @@
     [lineVertical mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.mas_centerX);
         make.width.mas_equalTo(1);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(8);
+        make.bottom.mas_equalTo(weakSelf.mas_bottom).offset(-8);
         make.top.mas_equalTo(line.mas_bottom).offset(8);
     }];
     
     [_infoButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.mas_left);
         make.right.mas_equalTo(lineVertical.mas_left);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom);
-        make.top.mas_equalTo(line.mas_bottom);
+        make.centerY.mas_equalTo(lineVertical.mas_centerY);
+        make.height.mas_equalTo(30);
     }];
     
     [_webSiteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weakSelf.mas_right);
         make.left.mas_equalTo(lineVertical.mas_right);
-        make.bottom.mas_equalTo(weakSelf.mas_bottom);
-        make.top.mas_equalTo(line.mas_bottom);
+        make.centerY.mas_equalTo(lineVertical.mas_centerY);
+        make.height.mas_equalTo(30);
     }];
 }
 

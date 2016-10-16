@@ -33,6 +33,15 @@
 //巡查query
 -(void) requestQueryListSearchSessionWithTaskId:(NSString *) taskid code:(NSString *) code action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
+//历史巡查query facility
+-(void) requestQueryHistoryListSearchSessionWithTaskId:(NSString *) taskid code:(NSString *) code action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//历史巡查query line
+-(void) requestQueryHistoryLineListSearchSessionWithTaskId:(NSString *) taskid code:(NSString *) code action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//历史巡查query well
+-(void) requestQueryHistoryWellSearchSessionWithTaskId:(NSString *) taskid wellnum:(NSString *) wellnum action:(NSString *) action SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
 //提交表单
 -(void) requestUploadSheetWithItem:(NSBDBaseUIItem *) item SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

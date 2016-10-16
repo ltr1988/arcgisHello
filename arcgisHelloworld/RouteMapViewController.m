@@ -17,10 +17,27 @@
 {
     UIImageView * anchorView;
     LocationManager *manager;
+    NSInteger popNum; //返回跳几次
 }
 
 @end
 @implementation RouteMapViewController
+
+-(instancetype) init
+{
+    return [self initWithPopNumber:1];
+}
+
+
+-(instancetype) initWithPopNumber:(NSInteger) popNumber
+{
+    NSAssert(popNumber>0, @"popNumber can't be less than 1");
+    self = [super init];
+    if (self) {
+        popNum = popNumber;
+    }
+    return self;
+}
 
 -(void) viewDidLoad
 {
@@ -133,9 +150,42 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:@{@"location":location}];
             return;
         }
+        
+        
+        __block BOOL cancel = NO;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (cancel) {
+                return;
+            }
+            cancel = YES;
+            NSDictionary *userInfo = @{@"location":location};
+            
+            dispatch_main_async_safe(^{
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification"
+                                                                    object:self
+                                                                  userInfo:userInfo];
+                
+            });
+            int index = (int)[[self.navigationController viewControllers]indexOfObject:self];
+            
+            if (index < popNum) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }else
+            {
+                [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index - popNum)] animated:YES];
+            }
+        });
+        
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         [geocoder reverseGeocodeLocation:location
                        completionHandler:^(NSArray *placemarks, NSError *error){
+                           
+                           if (cancel) {
+                               return;
+                           }
+                           cancel = YES;
                            
                            CLPlacemark *place = [placemarks firstObject];
                            NSDictionary *userInfo;
@@ -149,7 +199,13 @@
                                [[NSNotificationCenter defaultCenter] postNotificationName:@"pickLocationNotification" object:self userInfo:userInfo];
                            });
                            int index = (int)[[self.navigationController viewControllers]indexOfObject:self];
-                           [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index -2)] animated:YES];
+                           
+                           if (index < popNum) {
+                               [self.navigationController popViewControllerAnimated:YES];
+                           }else
+                           {
+                               [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index - popNum)] animated:YES];
+                           }
                            
                        }];
     }

@@ -19,6 +19,7 @@
 #import "MapViewManager.h"
 #import "WebViewController.h"
 #import "MapViewController+InfoMapping.h"
+#import "MapSearchInfoViewController.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -28,9 +29,7 @@
 }
 @property (nonatomic, strong) AGSIdentifyTask *identifyTask;
 @property (nonatomic, strong) AGSQueryTask *queryTask;
-@property (nonatomic, strong) AGSPoint* mappoint;
 
-@property (nonatomic, strong) NSMutableArray *featureLayers;
 @end
 
 @implementation MapViewController
@@ -46,8 +45,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    self.featureLayers = [NSMutableArray array];
     [self setupSubviews];
     
     //create identify task
@@ -66,40 +63,79 @@
 
 -(void) setupSubviews
 {
-    // [self.view]
-    //[self.view addSubview:[self pickPointView]];
+    CGFloat btnsize = 36;
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, 40, 40)];
-    btn.backgroundColor = [UIColor blueColor];
-    [btn setTitle:@"定位" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(actionNavigation) forControlEvents:UIControlEventTouchUpInside];
-    btn.layer.cornerRadius = 20;
-    [self.view addSubview:btn];
+    CGFloat rightBtnOffsetX = self.view.frame.size.width- btnsize - 20;
+    CGFloat rightBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - 70;//70 for bottom view height
     
-    UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(80, 20, 40, 40)];
-    btnSearch.backgroundColor = [UIColor yellowColor];
-    [btnSearch setTitle:@"搜索" forState:UIControlStateNormal];
-    [btnSearch addTarget:self action:@selector(actionSearch) forControlEvents:UIControlEventTouchUpInside];
-    btnSearch.layer.cornerRadius = 20;
-    [self.view addSubview:btnSearch];
+    CGFloat leftBtnOffsetX = 20;
     
-    UIButton *btnNavi = [[UIButton alloc] initWithFrame:CGRectMake(20, 80, 40, 40)];
-    btnNavi.backgroundColor = [UIColor greenColor];
-    [btnNavi setTitle:@"导航" forState:UIControlStateNormal];
+    CGFloat leftPaddingY = 15;
+    CGFloat leftBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - leftPaddingY - 70;
+    
+    CGRect frame;
+    
+    
+    UIButton *btnMyLocation = [[UIButton alloc] initWithFrame:CGRectMake(leftBtnOffsetX, leftBtnOffsetY, btnsize, btnsize)];
+    btnMyLocation.backgroundColor = [UIColor clearColor];
+    [btnMyLocation setImage:[UIImage imageNamed:@"icon_map_position"] forState:UIControlStateNormal];
+    btnMyLocation.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnMyLocation addTarget:self action:@selector(actionMyLocation) forControlEvents:UIControlEventTouchUpInside];
+    btnMyLocation.clipsToBounds = YES;
+    
+    btnMyLocation.layer.cornerRadius = btnsize/2;
+    [self.view addSubview:btnMyLocation];
+    
+    frame = btnMyLocation.frame;
+    frame.origin.y += btnsize +leftPaddingY;
+    
+    UIButton *btnNavi = [[UIButton alloc] initWithFrame:frame];
+    btnNavi.backgroundColor = [UIColor clearColor];
+    [btnNavi setImage:[UIImage imageNamed:@"icon_map_daohang"] forState:UIControlStateNormal];
+    btnNavi.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    btnNavi.clipsToBounds = YES;
+    //    [btnNavi setTitle:@"导航" forState:UIControlStateNormal];
     [btnNavi addTarget:self action:@selector(actionNavi) forControlEvents:UIControlEventTouchUpInside];
-    btnNavi.layer.cornerRadius = 20;
+    btnNavi.layer.cornerRadius = btnsize/2;
     [self.view addSubview:btnNavi];
     
-//    UIButton *btnTest = [[UIButton alloc] initWithFrame:CGRectMake(20, 140, 40, 40)];
-//    btnTest.backgroundColor = [UIColor redColor];
-//    [btnTest setTitle:@"配置" forState:UIControlStateNormal];
-//    [btnTest addTarget:self action:@selector(actionConfig) forControlEvents:UIControlEventTouchUpInside];
-//    btnTest.layer.cornerRadius = 20;
-//    [self.view addSubview:btnTest];
-//    
-//    alart = [[UIAlertView alloc] initWithTitle:@"配置" message:@"设置服务器地址" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-//    alart.alertViewStyle = UIAlertViewStylePlainTextInput;
-//    alart.delegate = self;
+    
+    UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, btnsize)];
+    btnSearch.backgroundColor = [UIColor whiteColor];
+    btnSearch.layer.cornerRadius = btnsize/2;
+    [btnSearch addTarget:self action:@selector(actionSearch) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnSearch];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, btnsize-10, btnsize)];
+    imageView.image= [UIImage imageNamed:@"icon_search"];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnSearch addSubview:imageView];
+    
+    UILabel *placehoder = [[UILabel alloc] initWithFrame:CGRectMake(10+btnsize, 0, btnSearch.frame.size.width - 10 - btnsize, btnsize)];
+    placehoder.textColor = [UIColor grayColor];
+    placehoder.text = @"搜索";
+    placehoder.font = UI_FONT(14);
+    [btnSearch addSubview:placehoder];
+    
+    
+    UIButton *btnZoomIn = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, rightBtnOffsetY, btnsize, btnsize)];
+    btnZoomIn.backgroundColor = [UIColor clearColor];
+    [btnZoomIn setImage:[UIImage imageNamed:@"btn_fd"] forState:UIControlStateNormal];
+    [btnZoomIn setImage:[UIImage imageNamed:@"btn_fd"] forState:UIControlStateSelected];
+    btnZoomIn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnZoomIn addTarget:self action:@selector(actionPlus) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnZoomIn];
+    
+    frame = btnZoomIn.frame;
+    frame.origin.y += btnsize;
+    UIButton *btnZoomOut = [[UIButton alloc] initWithFrame:frame];
+    btnZoomOut.backgroundColor = [UIColor clearColor];
+    [btnZoomOut setImage:[UIImage imageNamed:@"btn_sx"] forState:UIControlStateNormal];
+    [btnZoomOut setImage:[UIImage imageNamed:@"btn_sx"] forState:UIControlStateSelected];
+    btnZoomOut.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnZoomOut addTarget:self action:@selector(actionMinus) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:btnZoomOut];
     
     self.mapView = [MapViewManager sharedMapView];
     self.mapView.frame = self.view.bounds;
@@ -230,15 +266,19 @@
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{
     
-    [self test];
-    //store for later use
-    self.mappoint = mappoint;
+
+    [self identifyPoint:mappoint];
     
-    //the layer we want is layer ‘5’ (from the map service doc)
-    // identifyParams.layerIds = self.featureLayers;
+    
+}
+
+
+-(void) identifyPoint:(AGSPoint *)mappoint
+{
+    
     AGSIdentifyParameters *identifyParams = [AGSIdentifyParameters new];
     identifyParams.tolerance = 10;
-    identifyParams.geometry = self.mappoint;
+    identifyParams.geometry = mappoint;
     identifyParams.dpi = 96;
     identifyParams.size = self.mapView.bounds.size;
     identifyParams.mapEnvelope = self.mapView.visibleArea.envelope;
@@ -248,24 +288,23 @@
     
     //execute the task
     [self.identifyTask executeWithParameters:identifyParams];
-    
 }
-
-
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-{
-    
-}
-
 
 -(void) findTask:(NSString *)key
 {
-    [self test];
     AGSQuery *query = [AGSQuery query];
     query.text =key;
     query.returnGeometry = YES;
+    query.outFields = @[@"*"];
     query.outSpatialReference = self.mapView.spatialReference;
     [self.queryTask executeWithQuery:query];
+}
+
+
+#pragma mark - AGSQueryTaskDelegate methods
+- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
+{
+
 }
 
 #pragma mark - AGSIdentifyTaskDelegate methods
@@ -288,17 +327,25 @@
                 name = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"Name"];
             if (!name)
                 continue;
-            else
-            {
-                name = [self stringFromInfoKey:name];
-            }
+            
+            
+                            
+            NSString *departName = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"ManE"];
             ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
             self.mapView.infoView = calloutView;
             
+            
+            NSDictionary *infoDict = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes];
+            NSMutableDictionary *convertDict = [NSMutableDictionary dictionary];
+            for (NSString *key in infoDict.allKeys) {
+                NSString *convertKey = [self stringFromInfoKey:key];
+                convertDict[convertKey] = infoDict[key];
+            }
+            
             CallOutItem *item = [[CallOutItem alloc] init];
             item.title = name;
-            item.detail = @"detail Info";
-            item.moreInfo = [[((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes] copy];
+            item.detail = departName?:@"";
+            item.moreInfo = [convertDict copy];
             calloutView.model = (id<ItemCallOutViewModel>)item;
             
             
@@ -335,48 +382,71 @@
     [alert show];
 }
 
--(void) test
-{
-    AGSWMSLayer *layer = (AGSWMSLayer *)[self.mapView mapLayerForName:@"WMS Layer"];
-    if (!layer.loaded || self.featureLayers.count>0) {
-        return;
-    }
-    unsigned int numIvars; //成员变量个数
-    Ivar *vars = class_copyIvarList(NSClassFromString(@"AGSWMSLayer"), &numIvars);
-    //Ivar *vars = class_copyIvarList([UIView class], &numIvars);
-    
-    NSString *key=nil,*layerName=nil;
-    for(int i = 0; i < numIvars; i++) {
-        
-        Ivar thisIvar = vars[i];
-        key = [NSString stringWithUTF8String:ivar_getName(thisIvar)];  //获取成员变量的名字
-        
-        if ([key isEqualToString:@"_layerNames"]) {
-            
-            layerName = (NSString *)object_getIvar(layer, thisIvar);
-            break;
-        }
-    }
-    
-    free(vars);
-    
-    //to be test
-    //layerName =[layer valueForKey:@"_layerNames"];
-    
-    NSArray *layerNames = [layerName componentsSeparatedByString:@","];
-    
-    [self.featureLayers removeAllObjects];
-    for (NSString* name in layerNames) {
-        [self.featureLayers addObject: [NSNumber numberWithInteger:[name integerValue]]];
-    }
-    
-}
-
-
 #pragma mark - actions
 -(void) actionSearch
 {
-    [self findTask:@"兴寿"];
+    MapSearchInfoViewController *vc = [[MapSearchInfoViewController alloc] init];
+    @weakify(self)
+    vc.graphicSelectedCallback = ^(NSDictionary *info)
+    {
+        @strongify(self)
+        AGSGraphic * graphic = info[@"graphics"];
+        AGSGeometry *geometry = graphic.geometry;
+        if (![geometry isKindOfClass:[AGSPoint class]]) {
+            return;
+        }
+        AGSPoint *point = (AGSPoint *)geometry;
+        
+        [self.mapView zoomToScale:500000 withCenterPoint:point animated:YES];
+        
+        NSString *name = [graphic attributeAsStringForKey:@"名称"];
+        if (!name)
+            name = [graphic attributeAsStringForKey:@"NAME"];
+        if (!name)
+            return;
+        
+        
+        
+        NSString *departName = [graphic attributeAsStringForKey:@"MANE"];
+        ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
+        self.mapView.infoView = calloutView;
+        
+        
+        NSDictionary *infoDict = [graphic allAttributes];
+        NSMutableDictionary *convertDict = [NSMutableDictionary dictionary];
+        for (NSString *key in infoDict.allKeys) {
+            NSString *convertKey = [self stringFromInfoKey:key];
+            convertDict[convertKey] = infoDict[key];
+        }
+        
+        CallOutItem *item = [[CallOutItem alloc] init];
+        item.title = name;
+        item.detail = departName?:@"";
+        item.moreInfo = [convertDict copy];
+        calloutView.model = (id<ItemCallOutViewModel>)item;
+        
+        
+        __weak __typeof(self) weakSelf = self;
+        calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
+            DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+            
+            [weakSelf.navigationController pushViewController:detailVC animated:YES];
+        };
+        calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
+            WebViewController *controller = [[WebViewController alloc] init];
+            
+            [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+            
+            [weakSelf.navigationController pushViewController:controller animated:YES];
+        };
+        
+        //show callout
+        [self.mapView showInfoView:YES];
+        return;
+        
+        
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - KVO
@@ -394,7 +464,7 @@
 
 -(void) mapViewDidLoad:(AGSMapView*)mapView {
     
-    [self actionNavigation];
+    [self actionMyLocation];
 }
 
 

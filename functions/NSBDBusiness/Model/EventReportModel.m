@@ -16,12 +16,22 @@
 #import "TitleDetailTextItem.h"
 #import "CommitedEventHistoryItem.h"
 #import "NSString+UUID.h"
+#import "UploadAttachmentModel.h"
 
 @interface EventReportModel()<EventDetailViewDelegate>
 
 @end
 
 @implementation EventReportModel
+
+-(BOOL) isEqual:(id)object
+{
+    if (object && [object isKindOfClass:[self class]]) {
+        EventReportModel *model =(EventReportModel*) object;
+        return [model.uuid isEqual:self.uuid];
+    }
+    return NO;
+}
 
 -(instancetype) init
 {
@@ -30,29 +40,6 @@
     }
     return self;
 }
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:_eventName forKey:@"_eventName"];
-    [aCoder encodeObject:_eventType forKey:@"_eventType"];
-    [aCoder encodeObject:_eventXingzhi forKey:@"_eventXingzhi"];
-    [aCoder encodeObject:_eventDate forKey:@"_eventDate"];
-    [aCoder encodeObject:_level forKey:@"_level"];
-    [aCoder encodeObject:_reason forKey:@"_reason"];
-    [aCoder encodeObject:_place forKey:@"_place"];
-    [aCoder encodeObject:_department forKey:@"_department"];
-    
-    [aCoder encodeObject:_reporter forKey:@"_reporter"];
-    [aCoder encodeDouble:_location.x forKey:@"locationX"];
-    [aCoder encodeDouble:_location.y forKey:@"locationY"];
-    [aCoder encodeObject:_eventStatus forKey:@"_eventStatus"];
-    [aCoder encodeObject:_eventPreprocess forKey:@"_eventPreprocess"];
-    
-    [aCoder encodeObject:_eventPic forKey:@"_eventPic"];
-    [aCoder encodeObject:_eventVideo forKey:@"_eventVideo"];
-    [aCoder encodeObject:_uuid forKey:@"uuid"];
-}
-
-
 
 -(instancetype) initWithMyEventHistoryItem:(CommitedEventHistoryItem *)item
 {
@@ -74,7 +61,7 @@
         self.place.detail = item.occurLocation;
         
         self.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
-        self.department.detail = item.alarmPersonContacts;
+//        self.department.detail = item.alarmPersonContacts;
         
         self.location = CGPointMake([item.spacePosition_x floatValue], [item.spacePosition_y floatValue]);
         
@@ -85,6 +72,27 @@
         self.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
     }
     return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_eventName forKey:@"_eventName"];
+    [aCoder encodeObject:_eventType forKey:@"_eventType"];
+    [aCoder encodeObject:_eventXingzhi forKey:@"_eventXingzhi"];
+    [aCoder encodeObject:_eventDate forKey:@"_eventDate"];
+    [aCoder encodeObject:_level forKey:@"_level"];
+    [aCoder encodeObject:_reason forKey:@"_reason"];
+    [aCoder encodeObject:_place forKey:@"_place"];
+    [aCoder encodeObject:_department forKey:@"_department"];
+    
+    [aCoder encodeObject:_reporter forKey:@"_reporter"];
+    [aCoder encodeDouble:_location.x forKey:@"locationX"];
+    [aCoder encodeDouble:_location.y forKey:@"locationY"];
+    [aCoder encodeObject:_eventStatus forKey:@"_eventStatus"];
+    [aCoder encodeObject:_eventPreprocess forKey:@"_eventPreprocess"];
+    
+    [aCoder encodeObject:_attachmentModel forKey:@"_attachmentModel"];
+    [aCoder encodeObject:_uuid forKey:@"uuid"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -106,8 +114,7 @@
         _eventStatus = [aDecoder decodeObjectForKey:@"_eventStatus"];
         _eventPreprocess = [aDecoder decodeObjectForKey:@"_eventPreprocess"];
         
-        _eventPic = [aDecoder decodeObjectForKey:@"_eventPic"];
-        _eventVideo = [aDecoder decodeObjectForKey:@"_eventVideo"];
+        _attachmentModel = [aDecoder decodeObjectForKey:@"_attachmentModel"];
     }
     
     return self;
@@ -120,7 +127,7 @@
         
         return _eventName.detail;
     }
-    return @"";
+    return @"未填写";
 }
 
 -(NSString *) eventDetailViewDate
@@ -129,7 +136,7 @@
         
         return _eventDate.detail;
     }
-    return @"";
+    return @"未填写";
 }
 
 -(NSString *) eventDetailViewPlace
@@ -138,7 +145,7 @@
         
         return _place.detail;
     }
-    return @"";
+    return @"未填写";
 }
 
 -(NSString *) eventDetailViewFinder
@@ -147,6 +154,6 @@
         
         return _reporter.detail;
     }
-    return @"";
+    return @"未填写";
 }
 @end

@@ -7,13 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A412B8931DB12E53003CAE02 /* UploadAttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */; };
+		A412B8961DB23F7D003CAE02 /* SearchHistoryMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */; };
+		A412B8991DB24017003CAE02 /* SearchHistoryTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */; };
+		A412B89E1DB27860003CAE02 /* btn_fd.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89A1DB2785F003CAE02 /* btn_fd.png */; };
+		A412B89F1DB27860003CAE02 /* btn_sx.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89B1DB2785F003CAE02 /* btn_sx.png */; };
+		A412B8A01DB27860003CAE02 /* icon_map_daohang.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89C1DB27860003CAE02 /* icon_map_daohang.png */; };
+		A412B8A11DB27860003CAE02 /* icon_map_position.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89D1DB27860003CAE02 /* icon_map_position.png */; };
+		A412B8A41DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A31DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m */; };
+		A412B8A71DB35C90003CAE02 /* MapSearchInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A61DB35C90003CAE02 /* MapSearchInfoViewController.m */; };
+		A412B8AA1DB3A723003CAE02 /* MyEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A91DB3A723003CAE02 /* MyEventItem.m */; };
+		A412B8AD1DB3A8F1003CAE02 /* MyEventListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8AC1DB3A8F1003CAE02 /* MyEventListModel.m */; };
+		A412B8B01DB3C3C4003CAE02 /* MyEventDetailProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8AF1DB3C3C4003CAE02 /* MyEventDetailProgressModel.m */; };
+		A412B8B31DB3C774003CAE02 /* AttachmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8B21DB3C774003CAE02 /* AttachmentItem.m */; };
+		A412B8BB1DB3E6B7003CAE02 /* MyDealedEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */; };
+		A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */; };
+		A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */; };
+		A412B8C41DB3EA8E003CAE02 /* MyDealedEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */; };
 		A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
 		A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8B1D3A08150065AAA7 /* RedPushpin.png */; };
 		A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */; };
 		A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */; };
 		A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */; };
 		A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */; };
-		A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */; };
 		A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA51D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib */; };
 		A414ACAB1D3A1D6C0065AAA7 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA61D3A1D6C0065AAA7 /* ELCAssetPicker.xib */; };
 		A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA71D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib */; };
@@ -253,7 +269,6 @@
 		B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1AA1D5091CD00B0B12A /* play@3x.png */; };
 		B2CFC3541D76ABAE00FA97D3 /* MyWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */; };
 		B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */; };
-		B2CFC35B1D78069000FA97D3 /* MyEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35A1D78069000FA97D3 /* MyEventItem.m */; };
 		B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */; };
 		B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */; };
 		B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */; };
@@ -265,6 +280,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A412B8911DB12E53003CAE02 /* UploadAttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadAttachmentModel.h; path = functions/NSBDBusiness/Model/UploadAttachmentModel.h; sourceTree = "<group>"; };
+		A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadAttachmentModel.m; path = functions/NSBDBusiness/Model/UploadAttachmentModel.m; sourceTree = "<group>"; };
+		A412B8941DB23F7D003CAE02 /* SearchHistoryMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryMetaData.h; path = functions/NSBDBusiness/Model/SearchHistoryMetaData.h; sourceTree = "<group>"; };
+		A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryMetaData.m; path = functions/NSBDBusiness/Model/SearchHistoryMetaData.m; sourceTree = "<group>"; };
+		A412B8971DB24017003CAE02 /* SearchHistoryTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryTaskItem.h; path = functions/NSBDBusiness/Model/SearchHistoryTaskItem.h; sourceTree = "<group>"; };
+		A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryTaskItem.m; path = functions/NSBDBusiness/Model/SearchHistoryTaskItem.m; sourceTree = "<group>"; };
+		A412B89A1DB2785F003CAE02 /* btn_fd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_fd.png; path = images/btn_fd.png; sourceTree = "<group>"; };
+		A412B89B1DB2785F003CAE02 /* btn_sx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_sx.png; path = images/btn_sx.png; sourceTree = "<group>"; };
+		A412B89C1DB27860003CAE02 /* icon_map_daohang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_map_daohang.png; path = images/icon_map_daohang.png; sourceTree = "<group>"; };
+		A412B89D1DB27860003CAE02 /* icon_map_position.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_map_position.png; path = images/icon_map_position.png; sourceTree = "<group>"; };
+		A412B8A21DB291BB003CAE02 /* SearchHistoryDetailSheetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryDetailSheetModel.h; path = functions/NSBDBusiness/Model/SearchHistoryDetailSheetModel.h; sourceTree = "<group>"; };
+		A412B8A31DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryDetailSheetModel.m; path = functions/NSBDBusiness/Model/SearchHistoryDetailSheetModel.m; sourceTree = "<group>"; };
+		A412B8A51DB35C90003CAE02 /* MapSearchInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSearchInfoViewController.h; sourceTree = "<group>"; };
+		A412B8A61DB35C90003CAE02 /* MapSearchInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapSearchInfoViewController.m; sourceTree = "<group>"; };
+		A412B8A81DB3A723003CAE02 /* MyEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventItem.h; path = functions/NSBDBusiness/Model/MyEventItem.h; sourceTree = "<group>"; };
+		A412B8A91DB3A723003CAE02 /* MyEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItem.m; path = functions/NSBDBusiness/Model/MyEventItem.m; sourceTree = "<group>"; };
+		A412B8AB1DB3A8F1003CAE02 /* MyEventListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventListModel.h; path = functions/NSBDBusiness/Model/MyEventListModel.h; sourceTree = "<group>"; };
+		A412B8AC1DB3A8F1003CAE02 /* MyEventListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventListModel.m; path = functions/NSBDBusiness/Model/MyEventListModel.m; sourceTree = "<group>"; };
+		A412B8AE1DB3C3C4003CAE02 /* MyEventDetailProgressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventDetailProgressModel.h; path = functions/NSBDBusiness/Model/MyEventDetailProgressModel.h; sourceTree = "<group>"; };
+		A412B8AF1DB3C3C4003CAE02 /* MyEventDetailProgressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventDetailProgressModel.m; path = functions/NSBDBusiness/Model/MyEventDetailProgressModel.m; sourceTree = "<group>"; };
+		A412B8B11DB3C774003CAE02 /* AttachmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentItem.h; path = functions/NSBDBusiness/Model/AttachmentItem.h; sourceTree = "<group>"; };
+		A412B8B21DB3C774003CAE02 /* AttachmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentItem.m; path = functions/NSBDBusiness/Model/AttachmentItem.m; sourceTree = "<group>"; };
+		A412B8B91DB3E6B7003CAE02 /* MyDealedEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventViewController.h; path = functions/NSBDBusiness/MyDealedEventViewController.h; sourceTree = "<group>"; };
+		A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventViewController.m; path = functions/NSBDBusiness/MyDealedEventViewController.m; sourceTree = "<group>"; };
+		A412B8BC1DB3E8A7003CAE02 /* MyDealedEventListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventListModel.h; path = functions/NSBDBusiness/Model/MyDealedEventListModel.h; sourceTree = "<group>"; };
+		A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventListModel.m; path = functions/NSBDBusiness/Model/MyDealedEventListModel.m; sourceTree = "<group>"; };
+		A412B8BF1DB3E95C003CAE02 /* MyDealedEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventItem.h; path = functions/NSBDBusiness/Model/MyDealedEventItem.h; sourceTree = "<group>"; };
+		A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventItem.m; path = functions/NSBDBusiness/Model/MyDealedEventItem.m; sourceTree = "<group>"; };
+		A412B8C21DB3EA8E003CAE02 /* MyDealedEventItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventItemCell.h; path = functions/NSBDBusiness/Views/MyDealedEventItemCell.h; sourceTree = "<group>"; };
+		A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventItemCell.m; path = functions/NSBDBusiness/Views/MyDealedEventItemCell.m; sourceTree = "<group>"; };
 		A414AC801D39D17B0065AAA7 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpManager.h; path = functions/Util/HttpManager.h; sourceTree = "<group>"; };
 		A414AC811D39D17B0065AAA7 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = functions/Util/HttpManager.m; sourceTree = "<group>"; };
 		A414AC8B1D3A08150065AAA7 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedPushpin.png; path = images/RedPushpin.png; sourceTree = "<group>"; };
@@ -275,8 +320,6 @@
 		A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupportRotationSelectBaseViewController.m; path = functions/NSBDBusiness/SupportRotationSelectBaseViewController.m; sourceTree = "<group>"; };
 		A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupportRotationSelectNavigationController.h; path = functions/NSBDBusiness/SupportRotationSelectNavigationController.h; sourceTree = "<group>"; };
 		A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupportRotationSelectNavigationController.m; path = functions/NSBDBusiness/SupportRotationSelectNavigationController.m; sourceTree = "<group>"; };
-		A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoPlayViewController.h; path = functions/NSBDBusiness/VideoPlayViewController.h; sourceTree = "<group>"; };
-		A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoPlayViewController.m; path = functions/NSBDBusiness/VideoPlayViewController.m; sourceTree = "<group>"; };
 		A414ACA51D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAlbumPickerController.xib; sourceTree = "<group>"; };
 		A414ACA61D3A1D6C0065AAA7 /* ELCAssetPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetPicker.xib; sourceTree = "<group>"; };
 		A414ACA71D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
@@ -720,8 +763,6 @@
 		B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyWorkViewController.m; path = functions/NSBDBusiness/MyWorkViewController.m; sourceTree = "<group>"; };
 		B2CFC3551D7805C400FA97D3 /* MyEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventViewController.h; path = functions/NSBDBusiness/MyEventViewController.h; sourceTree = "<group>"; };
 		B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventViewController.m; path = functions/NSBDBusiness/MyEventViewController.m; sourceTree = "<group>"; };
-		B2CFC3591D78069000FA97D3 /* MyEventItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventItem.h; path = functions/NSBDBusiness/Model/MyEventItem.h; sourceTree = "<group>"; };
-		B2CFC35A1D78069000FA97D3 /* MyEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItem.m; path = functions/NSBDBusiness/Model/MyEventItem.m; sourceTree = "<group>"; };
 		B2CFC35C1D7813D500FA97D3 /* MyEventItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventItemCell.h; path = functions/NSBDBusiness/Views/MyEventItemCell.h; sourceTree = "<group>"; };
 		B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyEventItemCell.m; path = functions/NSBDBusiness/Views/MyEventItemCell.m; sourceTree = "<group>"; };
 		B2CFC35F1D7849EF00FA97D3 /* MyEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyEventDetailViewController.h; path = functions/NSBDBusiness/MyEventDetailViewController.h; sourceTree = "<group>"; };
@@ -953,6 +994,10 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A412B89A1DB2785F003CAE02 /* btn_fd.png */,
+				A412B89B1DB2785F003CAE02 /* btn_sx.png */,
+				A412B89C1DB27860003CAE02 /* icon_map_daohang.png */,
+				A412B89D1DB27860003CAE02 /* icon_map_position.png */,
 				A4E68C1F1D69403100DD603B /* icon_mywork@3x.png */,
 				A4E68C201D69403100DD603B /* icon_qrcode@3x.png */,
 				A4E68C171D693F6300DD603B /* icon_eventreport@3x.png */,
@@ -1177,6 +1222,8 @@
 				A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */,
 				B25712BB1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.h */,
 				B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */,
+				A412B8C21DB3EA8E003CAE02 /* MyDealedEventItemCell.h */,
+				A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1318,6 +1365,12 @@
 				B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */,
 				B25712B81DADE52D00F3D7F6 /* SearchHistoryItem.h */,
 				B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */,
+				A412B8941DB23F7D003CAE02 /* SearchHistoryMetaData.h */,
+				A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */,
+				A412B8971DB24017003CAE02 /* SearchHistoryTaskItem.h */,
+				A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */,
+				A412B8A21DB291BB003CAE02 /* SearchHistoryDetailSheetModel.h */,
+				A412B8A31DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m */,
 			);
 			name = SearchHistory;
 			sourceTree = "<group>";
@@ -1401,6 +1454,8 @@
 				B286538C1D45FA30002D4139 /* EventReportModel.m */,
 				B2B469041D6EC4E600AB84AF /* SearchSessionItem.h */,
 				B2B469051D6EC4E600AB84AF /* SearchSessionItem.m */,
+				A412B8911DB12E53003CAE02 /* UploadAttachmentModel.h */,
+				A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1488,8 +1543,6 @@
 				A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */,
 				A414AC9B1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.h */,
 				A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */,
-				A414AC9D1D3A1CD10065AAA7 /* VideoPlayViewController.h */,
-				A414AC9E1D3A1CD10065AAA7 /* VideoPlayViewController.m */,
 				A414ACC71D3B20970065AAA7 /* WebViewController.h */,
 				A414ACC81D3B20970065AAA7 /* WebViewController.m */,
 				A4E9E7641D46495900E3C94C /* DatePickViewController.h */,
@@ -1539,6 +1592,8 @@
 				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
 				A4924FA01DACC8DF0025041E /* MapViewController+InfoMapping.h */,
 				A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */,
+				A412B8A51DB35C90003CAE02 /* MapSearchInfoViewController.h */,
+				A412B8A61DB35C90003CAE02 /* MapSearchInfoViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1652,6 +1707,8 @@
 				A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */,
 				A4F2FC0F1D8458FB00B0532B /* MyUploadEventViewController.h */,
 				A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */,
+				A412B8B91DB3E6B7003CAE02 /* MyDealedEventViewController.h */,
+				A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1659,16 +1716,26 @@
 		B2CFC3581D78066A00FA97D3 /* Mywork */ = {
 			isa = PBXGroup;
 			children = (
-				B2CFC3591D78069000FA97D3 /* MyEventItem.h */,
-				B2CFC35A1D78069000FA97D3 /* MyEventItem.m */,
 				A4F2FC001D7F05E500B0532B /* FeedbackModel.h */,
 				A4F2FC011D7F05E500B0532B /* FeedbackModel.m */,
-				A4F2FC0C1D806D4900B0532B /* MyEventHistoryItem.h */,
-				A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */,
 				A4A4AF8D1DAE7BB3009D0004 /* CommitedEventHistoryModel.h */,
 				A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */,
 				A4A4AF901DAE852D009D0004 /* CommitedEventHistoryItem.h */,
 				A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */,
+				A412B8A81DB3A723003CAE02 /* MyEventItem.h */,
+				A412B8A91DB3A723003CAE02 /* MyEventItem.m */,
+				A412B8AB1DB3A8F1003CAE02 /* MyEventListModel.h */,
+				A412B8AC1DB3A8F1003CAE02 /* MyEventListModel.m */,
+				A4F2FC0C1D806D4900B0532B /* MyEventHistoryItem.h */,
+				A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */,
+				A412B8AE1DB3C3C4003CAE02 /* MyEventDetailProgressModel.h */,
+				A412B8AF1DB3C3C4003CAE02 /* MyEventDetailProgressModel.m */,
+				A412B8B11DB3C774003CAE02 /* AttachmentItem.h */,
+				A412B8B21DB3C774003CAE02 /* AttachmentItem.m */,
+				A412B8BC1DB3E8A7003CAE02 /* MyDealedEventListModel.h */,
+				A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */,
+				A412B8BF1DB3E95C003CAE02 /* MyDealedEventItem.h */,
+				A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1746,7 +1813,7 @@
 		A4DD867B1D0976B00096B548 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = fifila;
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
@@ -1788,14 +1855,17 @@
 				A4E68BC71D693E4800DD603B /* icon_location@2x.png in Resources */,
 				B2B307651D9A9702003B821A /* todolist.rtf in Resources */,
 				A414ACAD1D3A1D6C0065AAA7 /* Overlay.png in Resources */,
+				A412B89E1DB27860003CAE02 /* btn_fd.png in Resources */,
 				A4E68C1E1D693F6300DD603B /* icon_searchreport@3x.png in Resources */,
 				B28069EF1D682AC90097F7E4 /* icon_jbxx.png in Resources */,
 				A4E68B711D68A0C800DD603B /* icon_user@2x.png in Resources */,
 				A414ACAA1D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib in Resources */,
 				B28069FB1D682AC90097F7E4 /* login_bg.png in Resources */,
+				A412B8A11DB27860003CAE02 /* icon_map_position.png in Resources */,
 				B2748D621DB0D78E00C0166F /* Localizable.strings in Resources */,
 				B2C6B1AC1D5091CD00B0B12A /* play@3x.png in Resources */,
 				B28069F01D682AC90097F7E4 /* icon_swxx.png in Resources */,
+				A412B8A01DB27860003CAE02 /* icon_map_daohang.png in Resources */,
 				A414ACAC1D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib in Resources */,
 				B28069E21D682AC90097F7E4 /* icon_stop.png in Resources */,
 				A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */,
@@ -1816,6 +1886,7 @@
 				B28069E01D682AC90097F7E4 /* icon_photo@3x.png in Resources */,
 				A4E68B721D68A0C800DD603B /* logo@2x.png in Resources */,
 				A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */,
+				A412B89F1DB27860003CAE02 /* btn_sx.png in Resources */,
 				A4E68C1B1D693F6300DD603B /* icon_eventreport@3x.png in Resources */,
 				B28069E11D682AC90097F7E4 /* icon_movie@3x.png in Resources */,
 				B28069E81D682AC90097F7E4 /* icon_map_search@3x.png in Resources */,
@@ -1849,12 +1920,14 @@
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
 				B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
+				A412B8961DB23F7D003CAE02 /* SearchHistoryMetaData.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
+				A412B8931DB12E53003CAE02 /* UploadAttachmentModel.m in Sources */,
 				B25712B31DADCECB00F3D7F6 /* NSString+LVPath.m in Sources */,
 				B2A1872D1D66AF4B006D8CA7 /* MJFoundation.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
@@ -1870,6 +1943,7 @@
 				B2A187301D66AF4B006D8CA7 /* NSObject+MJCoding.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
+				A412B8A71DB35C90003CAE02 /* MapSearchInfoViewController.m in Sources */,
 				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
 				B2A186EC1D631763006D8CA7 /* HttpHost.m in Sources */,
 				B205A52D1D61D378007530EB /* MJRefreshBackStateFooter.m in Sources */,
@@ -1879,7 +1953,9 @@
 				B205A5271D61D378007530EB /* MJRefreshHeader.m in Sources */,
 				B205A5341D61D378007530EB /* UIScrollView+MJExtension.m in Sources */,
 				B286537F1D45EA03002D4139 /* MASConstraint.m in Sources */,
+				A412B8AA1DB3A723003CAE02 /* MyEventItem.m in Sources */,
 				B28653821D45EA03002D4139 /* MASViewAttribute.m in Sources */,
+				A412B8AD1DB3A8F1003CAE02 /* MyEventListModel.m in Sources */,
 				A414ACC11D3A1D890065AAA7 /* ELCAsset.m in Sources */,
 				B2748D6B1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m in Sources */,
 				A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */,
@@ -1896,6 +1972,7 @@
 				B205A5231D61D378007530EB /* MJRefreshAutoFooter.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
 				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
+				A412B8B01DB3C3C4003CAE02 /* MyEventDetailProgressModel.m in Sources */,
 				B28653D21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				B2A187191D66AEC7006D8CA7 /* QRModelsManager.m in Sources */,
 				B2806A0B1D683F950097F7E4 /* TitleDateItem.m in Sources */,
@@ -1926,13 +2003,15 @@
 				B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */,
 				A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */,
 				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
-				A414ACA21D3A1CD10065AAA7 /* VideoPlayViewController.m in Sources */,
 				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
 				A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */,
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				A412B8991DB24017003CAE02 /* SearchHistoryTaskItem.m in Sources */,
 				B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */,
+				A412B8B31DB3C774003CAE02 /* AttachmentItem.m in Sources */,
+				A412B8A41DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m in Sources */,
 				A4F2FC231D853EEE00B0532B /* EventModelManager.m in Sources */,
 				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				B28653D11D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -1954,9 +2033,11 @@
 				B28653DA1D488320002D4139 /* CheckableImageView.m in Sources */,
 				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
+				A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */,
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
+				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
 				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
 				B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */,
 				B21163E81D0FB03A003F90A6 /* RouteStartEndPickerController.m in Sources */,
@@ -1992,6 +2073,7 @@
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
 				B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
+				A412B8C41DB3EA8E003CAE02 /* MyDealedEventItemCell.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				B25712BD1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,
@@ -2016,7 +2098,6 @@
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
-				B2CFC35B1D78069000FA97D3 /* MyEventItem.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
@@ -2037,6 +2118,7 @@
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,
 				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,
+				A412B8BB1DB3E6B7003CAE02 /* MyDealedEventViewController.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
@@ -2091,8 +2173,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2134,8 +2218,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

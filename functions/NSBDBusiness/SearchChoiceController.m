@@ -9,7 +9,6 @@
 #import "SearchChoiceController.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
-#import "VideoPlayViewController.h"
 #import "SearchSessionManager.h"
 #import "SearchTaskStatusModel.h"
 #import "ToastView.h"
@@ -158,11 +157,14 @@
             {
                 [ToastView popToast:@"您的帐号在其他地方登录"];
                 [self.navigationController popToRootViewControllerAnimated:YES];
+            }else{
+                
+                [ToastView popToast:@"上报失败，请稍后再试"];
             }
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             // 请求失败
-            [ToastView popToast:@"请稍后再试"];
+            [ToastView popToast:@"上报失败，请稍后再试"];
             btn.enabled = YES;
         }];
         

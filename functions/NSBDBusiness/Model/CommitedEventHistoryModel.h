@@ -12,4 +12,6 @@
 @property (nonatomic,strong) NSArray *datalist;
 @property (nonatomic,strong) NSString *total;
 @property (nonatomic,strong) NSString *pageNo;
+
+-(BOOL) hasMore;
 @end

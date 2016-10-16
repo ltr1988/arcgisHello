@@ -16,5 +16,6 @@
 @property (nonatomic,assign) SheetUIStyle uiStyle;
 @property (nonatomic,assign) NSInteger order;
 -(void) setTitle:(NSString *)title;
+-(void) setDetail:(NSString *)detail;
 -(instancetype) initWithKey:(NSString *) key style:(NSArray *)styleArray;
 @end

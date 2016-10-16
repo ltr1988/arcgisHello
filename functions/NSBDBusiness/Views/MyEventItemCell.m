@@ -198,12 +198,12 @@
 
 -(void) setData:(MyEventItem *) data
 {
-    lbLevelContent.text = data.level;
-    lbXingzhiContent.text = data.xingzhi;
-    lbTitle.text = data.title;
-    lbDate.text = data.date;
-    lbPlace.text = data.place;
-    lbFinder.text = data.finder;
+    lbLevelContent.text = [data level];
+    lbXingzhiContent.text = [data xingzhi];
+    lbTitle.text = [data title];
+    lbDate.text = [data date];
+    lbPlace.text = [data place];
+    lbFinder.text = [data finder];
 }
 
 +(CGFloat) heightForCell

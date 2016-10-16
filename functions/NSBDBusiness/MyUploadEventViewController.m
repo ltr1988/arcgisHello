@@ -25,6 +25,7 @@
 #import "EventHttpManager.h"
 #import "CommitedEventHistoryItem.h"
 #import "CommitedEventHistoryModel.h"
+#import "UploadAttachmentModel.h"
 #import "MJRefresh.h"
 
 @interface MyUploadEventViewController()<CenterSwitchActionDelegate>
@@ -45,12 +46,22 @@
     [self setupSubviews];
 }
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    _localEventModel = [EventModelManager getEventModels];
+    [self.localEventTableView reloadData];
+    
+    [self.uploadedEventTableView reloadData];
+}
+
 -(void) setupModel
 {
-    requestPage = 0;
+    requestPage = 1;
     hasMore =YES;
     _localEventModel = [EventModelManager getEventModels];
-    
+    _uploadedEventModel = [NSMutableArray array];
 #ifdef NoServer
     EventReportModel *eventModel = [EventReportModel new];
     eventModel.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
@@ -67,7 +78,7 @@
     eventModel.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
     eventModel.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
     eventModel.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写" text:@""];
-    eventModel.eventPic = [NSMutableArray arrayWithCapacity:6];
+    eventModel.attachmentModel = [[UploadAttachmentModel alloc] init];
     eventModel.eventName.detail = @"test";
     
 
@@ -95,7 +106,6 @@
     self.localEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.localEventTableView.hidden = (selectedIndex!=0);
     [self.view addSubview:self.localEventTableView];
-    [self.localEventTableView reloadData];
     
     self.uploadedEventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.uploadedEventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -108,14 +118,13 @@
     self.uploadedEventTableView.hidden = (selectedIndex==0);
     
     [self.view addSubview:self.uploadedEventTableView];
-    [self.uploadedEventTableView reloadData];
 }
 
 
 #pragma mark --http request
 -(void) requestData
 {
-    requestPage =0;
+    requestPage =1;
     [[EventHttpManager sharedManager] requestHistoryEventWithPage:requestPage SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         
         CommitedEventHistoryModel *model = [CommitedEventHistoryModel objectWithKeyValues:dict];
@@ -123,15 +132,21 @@
         {
             requestPage++;
             [_uploadedEventModel removeAllObjects];
-            [_uploadedEventModel addObjectsFromArray:model.datalist];
-            hasMore = model.datalist.count > 0;
-            [_uploadedEventTableView.mj_header endRefreshing];
+            for (id data in model.datalist) {
+                EventReportModel *eModelItem = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
+                
+                [_uploadedEventModel addObject:eModelItem];
+            }
+            hasMore = [model hasMore];
+            [_uploadedEventTableView reloadData];
         }else if (model.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
-
+        else
+            [ToastView popToast:@"加载失败，请稍后再试"];
+        [_uploadedEventTableView.mj_header endRefreshing];
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"加载失败，请稍后再试"];
@@ -151,18 +166,26 @@
         if (model.success)
         {
             requestPage++;
-            [_uploadedEventModel addObjectsFromArray:model.datalist];
-            hasMore = model.datalist.count > 0;
+            for (id data in model.datalist) {
+                EventReportModel *eModelItem = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
+                
+                [_uploadedEventModel addObject:eModelItem];
+            }
+            hasMore = [model hasMore];
             if (hasMore) {
                 [_uploadedEventTableView.mj_footer endRefreshing];
             }else
             {
                 [_uploadedEventTableView.mj_footer endRefreshingWithNoMoreData];
             }
+            [_uploadedEventTableView reloadData];
         }else if (model.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
             [self.navigationController popToRootViewControllerAnimated:YES];
+        }else
+        {
+            [ToastView popToast:@"加载失败，请稍后再试"];
         }
         
         
@@ -246,6 +269,7 @@
             if (row<_localEventModel.count) {
                 MyLocalEventCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyLocalEventCell"];
                 if (!cell) {
+                    @weakify(self)
                     cell = [[MyLocalEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyLocalEventCell"];
                     cell.deleteCallback = ^(EventReportModel *model)
                     {
@@ -258,11 +282,45 @@
                     cell.reportCallback = ^(EventReportModel *model)
                     {
                         //report first
-                        @throw [NSException exceptionWithName:@"report first" reason:@"implement report first" userInfo:nil];
-                        NSMutableArray *array = [_localEventModel mutableCopy];
-                        [array removeObject:model];
-                        _localEventModel = [array copy];
-                        [tableView reloadData];
+                        @strongify(self)
+                        [[EventHttpManager sharedManager] requestNewEvent:_localEventModel[row] successCallback:^(NSURLSessionDataTask *task, id dict) {
+                            //todo
+                            EventReportModel *model = self.localEventModel[row];
+                            HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+                            if (item.success)
+                            {
+                                [EventModelManager removeCacheForEventModel:model];
+                                if (model.attachmentModel.images.count>0 || model.attachmentModel.videoURL != nil) {
+                                    
+                                    if (model.attachmentModel.images.count>0) {
+                                        for (UIImage *image in model.attachmentModel.images) {
+                                            [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:model.uuid successCallback:nil failCallback:nil];
+                                        }
+                                    }
+                                    
+                                    if (model.attachmentModel.videoURL)
+                                    {
+                                        [[EventHttpManager sharedManager] requestUploadAttachmentMovie:model.attachmentModel.videoURL fkid:model.uuid successCallback:nil failCallback:nil];
+                                        
+                                    }
+                                }
+                                [ToastView popToast:@"上报成功"];
+                                
+                                [tableView reloadData];
+                                
+                            }else if (item.status == HttpResultInvalidUser)
+                            {
+                                [ToastView popToast:@"您的帐号在其他地方登录"];
+                                [self.navigationController popToRootViewControllerAnimated:YES];
+                            }
+                            
+                            [ToastView popToast:@"上报失败,请稍候再试"];
+                            
+                        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                            //todo
+                            [ToastView popToast:@"上报失败,请稍候再试"];
+                        }];
+
                     };
                 }
                 cell.data = _localEventModel[row];
@@ -308,7 +366,6 @@
         NSInteger row = indexPath.row/2;
         if (row <self.localEventModel.count) {
             EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:_localEventModel[row]];
-            vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }else if(tableView == self.uploadedEventTableView)
@@ -318,7 +375,7 @@
         }
         NSInteger row = indexPath.row/2;
         if (row <self.uploadedEventModel.count) {
-            EventReportModel *model = [[EventReportModel alloc] initWithMyEventHistoryItem:_uploadedEventModel[row]];
+            EventReportModel *model = _uploadedEventModel[row];
             EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:model];
             vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];

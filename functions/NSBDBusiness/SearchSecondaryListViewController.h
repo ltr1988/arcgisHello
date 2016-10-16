@@ -14,4 +14,6 @@
 
 -(instancetype) initWithSearchHomeItem:(SearchHomePageItem*) item;
 -(instancetype) initReadonlyWithSearchHomeItem:(SearchHomePageItem*) item;
+
+@property (nonatomic,copy) NSString *taskId;
 @end

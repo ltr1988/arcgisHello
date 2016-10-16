@@ -13,5 +13,7 @@
 
 @interface RouteMapViewController : SupportRotationSelectBaseViewController
 
+-(instancetype) initWithPopNumber:(NSInteger) popNumber;
+
 @property (nonatomic,weak) InfoAGSMapView* mapView;
 @end

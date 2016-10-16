@@ -13,19 +13,32 @@
 #import "QRSeparatorCell.h"
 #import "MyEventItem.h"
 #import "MyEventItemCell.h"
+#import "MJRefresh.h"
 #import "MyEventDetailViewController.h"
+#import "EventHttpManager.h"
+#import "MyEventListModel.h"
 
 @implementation MyEventViewController
+{
+    NSInteger pageNum;
+    
+    BOOL hasMore;
+}
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     [self setupModel];
     [self setupSubviews];
+    [self.myEventTableView.mj_header beginRefreshing];
 }
 
 -(void) setupModel
 {
+    hasMore = YES;
+    pageNum = 1;
+    _modelList = [NSArray array];
+#ifdef NoServer
     MyEventItem *item = [MyEventItem new];
     item.title = @"待办应急事件1";
     item.date= @"2016.8.31 22:10:10";
@@ -43,6 +56,8 @@
     item1.finder = @"小东";
     
     _modelList = @[item,item1];
+    return;
+#endif
 }
 
 -(void) setupSubviews
@@ -58,13 +73,88 @@
     self.myEventTableView.dataSource = self;
     self.myEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.myEventTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    self.myEventTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    
     [self.view addSubview:self.myEventTableView];
     
     [self.myEventTableView reloadData];
     
 }
 
+-(void) requestData
+{
+    pageNum = 1;
+    @weakify(self)
+    [[EventHttpManager sharedManager] requestMyEventWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        //todo
+        @strongify(self)
+        MyEventListModel *item = [MyEventListModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            pageNum ++;
+            _modelList = [item.datalist copy];
+            hasMore = [item hasMore];
+            [self.myEventTableView reloadData];
+            
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else
+        {
+            [ToastView popToast:@"刷新失败,请稍候再试"];
+        }
+        [self.myEventTableView.mj_header endRefreshing];
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        //todo
+        [self.myEventTableView.mj_header endRefreshing];
+        [ToastView popToast:@"刷新失败,请稍候再试"];
+    }];
+}
 
+-(void) requestMoreData
+{
+    if (!hasMore) {
+        [self.myEventTableView.mj_footer endRefreshingWithNoMoreData];
+        return;
+    }
+    @weakify(self)
+    [[EventHttpManager sharedManager] requestMyEventWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        //todo
+        @strongify(self)
+        MyEventListModel *item = [MyEventListModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            pageNum ++;
+            _modelList = [_modelList arrayByAddingObjectsFromArray:item.datalist];
+            hasMore = [item hasMore];
+            if (hasMore) {
+                [self.myEventTableView.mj_footer endRefreshing];
+            }else
+                [self.myEventTableView.mj_footer endRefreshingWithNoMoreData];
+            
+            [self.myEventTableView reloadData];
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else
+        {
+            [self.myEventTableView.mj_footer endRefreshing];
+            [ToastView popToast:@"刷新失败,请稍候再试"];
+        }
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        //todo
+        [self.myEventTableView.mj_footer endRefreshing];
+        [ToastView popToast:@"刷新失败,请稍候再试"];
+    }];
+
+}
 #pragma mark --tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -123,7 +213,7 @@
     NSInteger row = indexPath.row /2;
     MyEventItem *item = _modelList[row];
     //todo push to new vc
-    MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] init];
+    MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] initWithEventId:item.eid departName:item.departName];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

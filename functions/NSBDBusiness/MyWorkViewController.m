@@ -13,6 +13,7 @@
 #import "MyEventViewController.h"
 #import "MyUploadEventViewController.h"
 #import "SearchHistoryHomeViewController.h"
+#import "MyDealedEventViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -129,7 +130,8 @@
             break;
         case 1:
         {
-            
+            MyDealedEventViewController *vc = [[MyDealedEventViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 2:

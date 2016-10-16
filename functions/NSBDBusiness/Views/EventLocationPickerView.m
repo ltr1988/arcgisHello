@@ -39,9 +39,19 @@
         self.callback = callback;
         [self setupSubViews];
         [self setupMembers];
-        [self actionMyLocation];
+        [self setupObservers];
     }
     return self;
+}
+
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)setupObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(nofifyPickLocation:) name:@"pickLocationNotification" object:nil];
 }
 
 -(void) setupMembers
@@ -144,8 +154,6 @@
     if (!_readOnly) {
         [manager startLocating];
     }
-    
-    
 }
 
 
@@ -154,6 +162,25 @@
     if (!_readOnly) {
         SafelyDoBlock(_callback);
     }
+}
+
+-(void) nofifyPickLocation:(NSNotification *)notification
+{
+    CLLocation *location = notification.userInfo[@"location"];
+    NSString *place = notification.userInfo[@"place"];
+    NSString *myplace = notification.userInfo[@"mylocation"];
+    
+    NSString *text;
+    
+    
+    AGSPoint * point = [AGSPoint pointWithLocation:location];
+    if (point) {
+        if (myplace) {
+            title.text = myplace;
+        }else
+            title.text = place?:[NSString stringWithLocationAGSPoint:point];
+    }
+
 }
 
 -(void) setLocation:(CGPoint) location

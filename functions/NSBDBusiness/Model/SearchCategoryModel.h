@@ -11,5 +11,6 @@
 @class NSBDBaseUIItem;
 @interface SearchCategoryModel : HttpBaseModel
 @property (nonatomic,strong) NSArray *datalist;
+//NSBDBaseUIItem for line
 @property (nonatomic,strong) NSBDBaseUIItem *uiItem;
 @end

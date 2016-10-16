@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 @class MyEventHistoryItem;
 
+@protocol MyEventHistoryCellModel<NSObject>
+-(NSString *)title;
+-(NSString *)date;
+-(NSString *)finder;
+-(NSString *)place;
+-(NSArray *)images;
+-(NSString *)video;
+@end
+
 @interface MyEventHistoryCell : UITableViewCell
--(void) setData:(MyEventHistoryItem *) data;
-+(CGFloat) heightForData:(MyEventHistoryItem *) data;
+-(void) setData:(id<MyEventHistoryCellModel>) data;
++(CGFloat) heightForData:(id<MyEventHistoryCellModel>) data;
 @end

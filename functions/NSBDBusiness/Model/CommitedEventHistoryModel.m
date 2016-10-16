@@ -7,15 +7,17 @@
 //
 
 #import "CommitedEventHistoryModel.h"
-#import "MyEventHistoryItem.h"
+#import "CommitedEventHistoryItem.h"
+
 
 @implementation CommitedEventHistoryModel
 + (NSDictionary *)replacedKeyFromPropertyName
 
 {
-    return @{@"datalist" :@"data",
-             @"total" :@"total",
-             @"pageNo" :@"pageNo",
+    return @{@"datalist" :@"data.rows",
+             @"total" :@"data.total",
+             @"pageNo" :@"data.pageNo",
+             @"pageSize" :@"data.pageSize",
              };
     
 }
@@ -23,7 +25,13 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[MyEventHistoryItem class] forKey:@"datalist"];
+    [dict setObject:[CommitedEventHistoryItem class] forKey:@"datalist"];
     return dict;
+}
+
+
+-(BOOL) hasMore
+{
+    return [_total integerValue] >= 10;
 }
 @end

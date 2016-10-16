@@ -158,7 +158,7 @@
     
 }
 
-//to be tested
+
 -(void) requestHistoryEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary * info = @{
@@ -166,13 +166,159 @@
                             @"pageSize":@(10),
                             @"data":@{
                                     @"userName": [AuthorizeManager sharedInstance].userName,
-                                    @"status":@"",
                                     @"userScope":@"0",  //3 for 我的事件列表 ， 0 for 已完成事件
                                     },
                             };
     
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"queryList" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+
+-(void) requestMyEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            @"data":@{
+                                    @"userName": [AuthorizeManager sharedInstance].userName,
+                                    @"userScope":@"3",  //3 for 我的事件列表 ， 0 for 已完成事件
+                                    },
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"queryList" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+-(void) requestMyEventProgressListWithId:(NSString*) eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"id":eid,
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"getProgressList" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+-(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                   title:(NSString*) title
+                               disposeBy:(NSString*) disposeBy
+                         SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"incidentId":eid,
+                            @"id":[NSString stringWithUUID],
+                            @"operate":@"insert",
+                            @"state":@"1",
+                            @"disposeDescription":title,
+                            @"disposeBy":disposeBy, //处置单位
+                            @"userName":[AuthorizeManager sharedInstance].userName,
+                            @"incidentSource":@"YDSB",
+                            @"source":@"IOS",
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"addProgress" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+
+-(void) requestMyDealedEventListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            @"data":@{
+                                    @"userName": [AuthorizeManager sharedInstance].userName,
+                                    @"status":@"",
+                                    },
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incidentTask" method:@"queryList" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]

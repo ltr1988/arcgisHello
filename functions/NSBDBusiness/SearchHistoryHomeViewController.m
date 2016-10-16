@@ -16,12 +16,14 @@
 #import "SearchHistoryHomeTableViewCell.h"
 #import "UITableView+EmptyView.h"
 #import "SearchHomePageViewController.h"
+#import "SearchHistoryTaskItem.h"
 
 @interface SearchHistoryHomeViewController ()
 {
     BOOL hasMore;
+    NSInteger pageNum;
 }
-@property (nonatomic,strong) SearchHistoryModel *model;
+@property (nonatomic,strong) NSMutableArray *datalist;
 @property (nonatomic,strong) UITableView *tableView;
 @end
 
@@ -37,7 +39,9 @@
 
 -(void) setupMembers
 {
+    pageNum = 1;
     hasMore = YES;
+    _datalist = [NSMutableArray array];
 }
 
 -(void) requestData
@@ -51,7 +55,9 @@
                 @{@"startDate":@"2016-9-17",@"endDate":@"2016-9-17",@"id":@"1",@"name":@"任务4"},
                 ];
     NSDictionary *dict =@{@"status":@"100",@"data":mock};
-    _model = [SearchHistoryModel objectWithKeyValues:dict];
+    SearchHistoryModel *model = [SearchHistoryModel objectWithKeyValues:dict];
+    
+    _datalist = [NSMutableArray arrayWithArray:model.datalist];
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
     return;
@@ -62,18 +68,33 @@
         return;
     }
     
-    [[SearchHistoryManager sharedManager] requestSearchHistoryListSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        _model = [SearchHistoryModel objectWithKeyValues:dict];
-        if (_model.success)
+    pageNum = 1;
+    [[SearchHistoryManager sharedManager] requestSearchHistoryListWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        SearchHistoryModel *aModel = [SearchHistoryModel objectWithKeyValues:dict];
+
+        if (aModel.success)
         {
+            pageNum++;
+            [_datalist removeAllObjects];
+            for (NSArray* array in aModel.datalist) {
+                SearchHistoryTaskItem *item = [[SearchHistoryTaskItem alloc] initWithSearchHistoryMetaArray:array];
+                [_datalist addObject:[item searchHistoryItem]];
+            }
+            
+            hasMore = [aModel hasMore];
             [_tableView reloadData];
-        }else if (_model.status == HttpResultInvalidUser)
+        }else if (aModel.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
             [self.navigationController popToRootViewControllerAnimated:YES];
-        }
+        }else
+            [ToastView popToast:@"获取失败，请稍后再试"];
+        
+        [_tableView.mj_header endRefreshing];
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"获取失败，请稍后再试"];
+        
+        [_tableView.mj_header endRefreshing];
     }];
     
 }
@@ -98,26 +119,34 @@
         return;
     }
     
-    [[SearchHistoryManager sharedManager] requestSearchHistoryListSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        SearchHistoryModel *item = [SearchHistoryModel objectWithKeyValues:dict];
-        if (item.success)
+    [[SearchHistoryManager sharedManager] requestSearchHistoryListWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        SearchHistoryModel *aModel = [SearchHistoryModel objectWithKeyValues:dict];
+        if (aModel.success)
         {
+            pageNum++;
+            for (NSArray* array in aModel.datalist) {
+                SearchHistoryTaskItem *item = [[SearchHistoryTaskItem alloc] initWithSearchHistoryMetaArray:array];
+                [_datalist addObject:[item searchHistoryItem]];
+            }
+            hasMore = [aModel hasMore];
             
-            if (item.datalist && item.datalist.count>0) {
-                NSMutableArray *list = [_model.datalist mutableCopy];
-                [list addObjectsFromArray:item.datalist];
-                _model.datalist = [list copy];
-                [_tableView reloadData];
+            if (hasMore) {
                 [_tableView.mj_footer endRefreshing];
             }else
             {
-                hasMore = NO;
                 [_tableView.mj_footer endRefreshingWithNoMoreData];
             }
-        }else if (_model.status == HttpResultInvalidUser)
+            [_tableView reloadData];
+            
+        }else if (aModel.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
             [self.navigationController popToRootViewControllerAnimated:YES];
+        }else
+        {
+            [ToastView popToast:@"获取失败，请稍后再试"];
+            hasMore = NO;
+            [_tableView.mj_footer endRefreshing];
         }
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"获取失败，请稍后再试"];
@@ -151,7 +180,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
     
-    if (!_model || _model.datalist.count == 0)
+    if (!_datalist || _datalist.count == 0)
     {
         [tableView setEmptyView];
     }else
@@ -159,7 +188,7 @@
         [tableView removeEmptyView];
     }
 
-    return _model.datalist.count;
+    return _datalist.count;
 }
 
 
@@ -171,9 +200,9 @@
         cell = [[SearchHistoryHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchHistoryHomeTableViewCell"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    if (row<_model.datalist.count) {
+    if (row<_datalist.count) {
         
-        SearchHistoryItem *item = _model.datalist[row];
+        SearchHistoryItem *item = _datalist[row];
         cell.data = item;
     }
     return cell;
@@ -183,8 +212,8 @@
 {
     NSInteger row = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (row < _model.datalist.count) {
-        SearchHistoryItem *item = _model.datalist[row];
+    if (row < _datalist.count) {
+        SearchHistoryItem *item = _datalist[row];
         
         SearchHomePageViewController *vc = [[SearchHomePageViewController alloc] initWithTaskId:item.taskid];
         [self.navigationController pushViewController:vc animated:YES];

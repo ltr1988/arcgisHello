@@ -60,7 +60,7 @@
 
 - (void)centerSwitchToIndex:(NSUInteger)index
 {
-    NSLog([NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
+    NSLog(@"%@", [NSString stringWithFormat:@"change to index:%lu",(unsigned long)index]);
 }
 
 -(void)requestDataList
@@ -86,7 +86,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reusableIdentifier];
     }
     cell.textLabel.text = [detailData.allKeys objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = detailData[cell.textLabel.text];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", detailData[cell.textLabel.text]];
     //enable reordering on each cell
     [cell setShowsReorderControl:YES];
     return cell;

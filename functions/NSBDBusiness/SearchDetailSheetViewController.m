@@ -7,6 +7,7 @@
 //
 
 #import "SearchDetailSheetViewController.h"
+#import "SearchDetailSheetViewController+pickMedia.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "QRSeparatorCell.h"
@@ -22,18 +23,18 @@
 #import "HttpBaseModel.h"
 #import "DatePickViewController.h"
 #import "EventMediaPickerView.h"
+#import "UploadAttachmentModel.h"
+#import "SearchHistoryDetailSheetModel.h"
+#import "UITableView+EmptyView.h"
 
 @interface SearchDetailSheetViewController()
 {
     BOOL readOnly;
-    
 }
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) TimerView *timerView;
 
-
-@property (nonatomic,strong) NSBDBaseUIItem *uiItem;//model
 @end
 
 @implementation SearchDetailSheetViewController
@@ -107,14 +108,56 @@
 
 -(void) requestData
 {
-    if (![self.uiItem isLine]){
-        NSBDBaseUIItem *uiItem =
-        [SearchSheetItemManager getSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
-        if (uiItem) {
-            self.uiItem = uiItem;
+    if (!readOnly)
+    {
+        if (![self.uiItem isLine]){
+            NSBDBaseUIItem *uiItem =
+            [SearchSheetItemManager getSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
+            if (uiItem) {
+                self.uiItem = uiItem;
+            }
         }
+        [_tableView reloadData];
+    }else
+    {
+        @weakify(self)
+        
+        if (![self.uiItem isLine]) {
+            [[SearchSessionManager sharedManager] requestQueryHistoryWellSearchSessionWithTaskId:self.taskId wellnum:self.fcode action:self.queryCode SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                @strongify(self)
+                
+                //todo fill uiitem value
+                SearchHistoryDetailSheetModel *model = [SearchHistoryDetailSheetModel objectWithKeyValues:dict];
+                NSLog(@"%@",model);
+                if (model.success) {
+                    if (model.datalist.count>0) {
+                        [self.uiItem setInfoArray:model.datalist[0]];
+                        [self.tableView reloadData];
+                    }else
+                    {
+                        [self.tableView setEmptyView];
+                    }
+                }
+                else if (model.status == HttpResultInvalidUser)
+                {
+                    [ToastView popToast:@"您的帐号在其他地方登录"];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+                else{
+                    [self.tableView setEmptyView];
+                }
+            } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                @strongify(self)
+                [self.tableView setEmptyView];
+            }];
+            
+        }
+        else //is line
+        {
+            [self.tableView reloadData];
+        }
+        
     }
-    [_tableView reloadData];
 }
 
 -(void) setupSubviews
@@ -142,11 +185,11 @@
                                                } videoCallback:^{
                                                    [weakself openVideoMenu];
                                                } relayoutCallback:^{
-                                                   [self.feedbackTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+                                                   [weakself.tableView reloadData];
                                                }];
     
-    [_mPicker setImages:self.feedbackModel.images];
-    [_mPicker setVideo:self.feedbackModel.video];
+    [_mPicker setImages:self.uiItem.attachModel.images];
+    [_mPicker setVideo:self.uiItem.attachModel.videoURL];
     [_mPicker relayout];
 }
 
@@ -234,7 +277,8 @@
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
             [self.navigationController popToRootViewControllerAnimated:YES];
-        }
+        }else
+            [ToastView popToast:@"提交失败，请稍候再试"];
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"提交失败，请稍候再试"];
     }];
@@ -294,9 +338,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if (section >= self.uiItem.infolist.count)
+    if (section > self.uiItem.infolist.count)
     {
         return 0;
+    }
+    if (section == self.uiItem.infolist.count) //meida picker
+    {
+        return 1;
     }
     
     SearchSheetGroupItem *group = self.uiItem.infolist[section];
@@ -324,7 +372,15 @@
             return cell;
         }
     }
-    
+    if (section == self.uiItem.infolist.count)
+    {
+        [_mPicker removeFromSuperview];
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MediaPickerCell"];
+        [cell.contentView addSubview: _mPicker];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
+    }
     
     return [UITableViewCell new];
 }
@@ -358,6 +414,6 @@
     if (!self.uiItem || !self.uiItem.infolist) {
         return 1;
     }
-    return self.uiItem.infolist.count;
+    return self.uiItem.infolist.count+1;
 }
 @end

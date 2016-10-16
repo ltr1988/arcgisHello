@@ -9,7 +9,7 @@
 #import "EventReportViewController.h"
 #import "EventReportViewController+pickMedia.h"
 
-#import "RouteStartEndPickerController.h"
+#import "RouteMapViewController.h"
 #import "ChoicePickerViewController.h"
 
 #import "UIDownPicker.h"
@@ -36,6 +36,7 @@
 
 #import "EventHttpManager.h"
 #import "HttpBaseModel.h"
+#import "UploadAttachmentModel.h"
 
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -100,7 +101,7 @@
         self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
         self.model.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
         self.model.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
-        self.model.eventPic = [NSMutableArray arrayWithCapacity:6];
+        self.model.attachmentModel = [[UploadAttachmentModel alloc] init];
         
     }
 }
@@ -156,12 +157,15 @@
     }];
     
     lPicker = [[EventLocationPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 60) readOnly:_readonly callBack:^{
-        RouteStartEndPickerController *vc = [[RouteStartEndPickerController alloc] init];
+        
+        RouteMapViewController *vc = [[RouteMapViewController alloc] init];
         [weakself.navigationController pushViewController:vc animated:YES];
     }];
     
-    [_mPicker setImages:self.model.eventPic];
-    [_mPicker setVideo:self.model.eventVideo];
+    lPicker.location = self.model.location;
+    
+    [_mPicker setImages:self.model.attachmentModel.images];
+    [_mPicker setVideo:self.model.attachmentModel.videoURL];
     [_mPicker relayout];
     
     [self.eventTableView reloadData];
@@ -221,17 +225,17 @@
         if (item.success)
         {
             [self deleteCache];
-            if (self.model.eventPic.count>0 || self.model.eventVideo != nil) {
+            if (self.model.attachmentModel.images.count>0 || self.model.attachmentModel.videoURL != nil) {
                 
-                if (self.model.eventPic.count>0) {
-                    for (UIImage *image in self.model.eventPic) {
+                if (self.model.attachmentModel.images.count>0) {
+                    for (UIImage *image in self.model.attachmentModel.images) {
                         [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.model.uuid successCallback:nil failCallback:nil];
                     }
                 }
                 
-                if (self.model.eventVideo)
+                if (self.model.attachmentModel.videoURL)
                 {
-                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.model.eventVideo fkid:self.model.uuid successCallback:nil failCallback:nil];
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.model.attachmentModel.videoURL fkid:self.model.uuid successCallback:nil failCallback:nil];
 
                 }
             }
@@ -246,6 +250,7 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
         
+        [ToastView popToast:@"上报失败,请稍候再试"];
        
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         //todo
@@ -429,6 +434,8 @@
             [_mPicker removeFromSuperview];
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
             [cell.contentView addSubview: _mPicker];
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
         

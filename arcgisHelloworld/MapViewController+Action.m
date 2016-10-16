@@ -10,7 +10,6 @@
 #import "MapViewController.h"
 #import "EventReportViewController.h"
 #import "QRCodeReaderViewController.h"
-#import "VideoPlayViewController.h"
 #import "ImagePickerViewController.h"
 #import "WebViewController.h"
 #import "RouteStartEndPickerController.h"
@@ -21,6 +20,7 @@
 #import "MyWorkViewController.h"
 #import "TextPickerViewController.h"
 #import "LiveDataMainViewController.h"
+
 
 @implementation MapViewController (Action)
 
@@ -44,8 +44,6 @@
         SearchStartViewController *vc = [[SearchStartViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-//    VideoPlayViewController *vc = [[VideoPlayViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void) actionEventUpload
@@ -68,15 +66,19 @@
 
 }
 
--(void) actionNavigation
+-(void) actionPlus
+{
+    [self.mapView zoomIn:YES];
+}
+
+-(void) actionMinus
+{
+    [self.mapView zoomOut:YES];
+}
+-(void) actionMyLocation
 {
 
     [self.mapView.locationDisplay startDataSource];
-    
-    [self.mapView addObserver:self
-                   forKeyPath:@"mapScale"
-                      options:(NSKeyValueObservingOptionNew)
-                      context:NULL];
     
     self.mapView.locationDisplay.autoPanMode = AGSLocationDisplayAutoPanModeDefault;
     
@@ -116,8 +118,6 @@
     __weak __typeof(self) weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
         SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
-        //TextPickerViewController *vc = [[TextPickerViewController alloc] init]; 备注
-        //VideoPlayViewController *vc = [[VideoPlayViewController alloc] init]; 视频
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
 }

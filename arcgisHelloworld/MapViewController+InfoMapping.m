@@ -12,7 +12,7 @@
 
 -(NSString *) stringFromInfoKey:(NSString *) key
 {
-    NSString *retStr = [self mappingDict][key];
+    NSString *retStr = [self mappingDict][key.lowercaseString];
     if (retStr) {
         return retStr;
     }

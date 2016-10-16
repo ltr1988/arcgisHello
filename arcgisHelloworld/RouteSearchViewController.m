@@ -69,7 +69,7 @@
     [self setupMembers];
     [self setupSubviews];
     [self addObservers];
-    mapVC = [[RouteMapViewController alloc] init];
+    mapVC = [[RouteMapViewController alloc] initWithPopNumber:2];
 }
 
 -(void) mock
@@ -321,7 +321,7 @@
 -(void) actionPickInMap:(id) sender
 {
     if (!mapVC) {
-        mapVC = [RouteMapViewController new];
+        mapVC = [[RouteMapViewController alloc] initWithPopNumber:2];
     }
     [self.navigationController pushViewController:mapVC animated:YES];
 }

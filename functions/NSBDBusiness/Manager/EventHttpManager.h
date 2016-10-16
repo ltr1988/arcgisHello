@@ -24,4 +24,20 @@
 
 //历史上报
 -(void) requestHistoryEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//我的待办
+-(void) requestMyEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//查询event进度
+-(void) requestMyEventProgressListWithId:(NSString*)eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//添加event进度
+-(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                      title:(NSString*) title
+                                  disposeBy:(NSString*) disposeBy
+                            SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+
+//我的处置任务 查询
+-(void) requestMyDealedEventListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

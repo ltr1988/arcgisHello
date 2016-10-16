@@ -10,7 +10,10 @@
 
 @interface MapViewController (Action)
 -(void) actionNavi;
--(void) actionNavigation;
+-(void) actionMyLocation;
+
+-(void) actionPlus;
+-(void) actionMinus;
 
 //bottom 4 buttons
 -(void) actionSearchUpload;
@@ -18,4 +21,5 @@
 -(void) actionQRCodeSwipe;
 -(void) actionLiveData;
 -(void) actionMyWork;
+
 @end

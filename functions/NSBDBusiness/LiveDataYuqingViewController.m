@@ -17,7 +17,6 @@
 @interface LiveDataYuqingViewController()
 @property (nonatomic,strong) UITableView *liveDataTableView;
 
-@property (nonatomic,strong) NSArray *modelList;
 @end
 
 

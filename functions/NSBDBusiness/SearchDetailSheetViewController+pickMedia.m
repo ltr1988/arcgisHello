@@ -7,7 +7,8 @@
 //
 
 #import "SearchDetailSheetViewController+pickMedia.h"
-
+#import "UploadAttachmentModel.h"
+#import "NSBDBaseUIItem.h"
 #import "EventMediaPickerView.h"
 
 @implementation SearchDetailSheetViewController (pickMedia)
@@ -16,8 +17,8 @@
     @weakify(self);
     mPickerManager = [[MediaPickerManager alloc] initWithViewController:self ImagePickBlock:^(NSArray *imageList) {
         @strongify(self)
-        [self.model.eventPic addObjectsFromArray:imageList];
-        [self.mPicker setImages:self.model.eventPic];
+        [self.uiItem.attachModel.images addObjectsFromArray:imageList];
+        [self.mPicker setImages:self.uiItem.attachModel.images];
         
         dispatch_main_async_safe(^{
             
@@ -26,8 +27,8 @@
         
     } VideoPickBlock:^(NSURL *videoURL) {
         
-        self.model.eventVideo = videoURL;
-        [self.mPicker setVideo:self.model.eventVideo];
+        self.uiItem.attachModel.videoURL = videoURL;
+        [self.mPicker setVideo:self.uiItem.attachModel.videoURL];
         
         dispatch_main_async_safe(^{
             
@@ -36,35 +37,12 @@
     }];
 }
 
--(void)openMenu
-{
-    UIActionSheet *myActionSheet;
-    if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]){
-        
-        myActionSheet = [[UIActionSheet alloc]
-                         initWithTitle:nil
-                         delegate:mPickerManager
-                         cancelButtonTitle:@"取消"
-                         destructiveButtonTitle:nil
-                         otherButtonTitles: @"打开照相机", @"从手机相册获取",nil];
-    }else
-    {
-        myActionSheet = [[UIActionSheet alloc]
-                         initWithTitle:nil
-                         delegate:mPickerManager
-                         cancelButtonTitle:@"取消"
-                         destructiveButtonTitle:nil
-                         otherButtonTitles: @"从手机相册获取",nil];
-    }
-    
-    [myActionSheet showInView:self.view];
-}
 
 -(void)openPicMenu
 {
     mPickerManager.pickImage = YES;
     //在这里呼出下方菜单按钮项
-    [self openMenu];
+    [mPickerManager openMenuInView:self.view];
     
 }
 
@@ -72,8 +50,7 @@
 {
     //在这里呼出下方菜单按钮项
     mPickerManager.pickImage = NO;
-    [self openMenu];
-    
+    [mPickerManager openMenuInView:self.view];
 }
 
 -(void) mediaRemove:(NSNotification *)noti
@@ -81,10 +58,10 @@
     BOOL isImage = [noti.userInfo[@"itemType"] isEqualToString:@"image"];
     NSNumber *index = noti.userInfo[@"index"];
     if (isImage) {
-        [self.model.eventPic removeObjectAtIndex:index.intValue];
+        [self.uiItem.attachModel.images removeObjectAtIndex:index.intValue];
     }else
     {
-        self.model.eventVideo = nil;
+        self.uiItem.attachModel.videoURL = nil;
     }
 }
 

@@ -13,7 +13,9 @@
 + (NSDictionary *)replacedKeyFromPropertyName
 
 {
-    return @{@"title" :@"title",
+    return @{
+             @"eid":@"id",
+             @"title" :@"title",
              @"category" :@"category",
              @"responseLevel" :@"responseLevel",
              @"alarmPerson" :@"alarmPerson",
@@ -24,8 +26,12 @@
              @"departName" :@"departName",
              @"creatorName" :@"creatorName",
              
+             @"occurTime" :@"occurTime",
              @"status" :@"status",
              };
     
 }
+
 @end
+
+

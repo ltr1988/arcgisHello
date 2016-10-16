@@ -17,9 +17,10 @@
 
 -(BOOL) saveCache;
 
-//巡查历史列表
--(void) requestSearchHistoryListSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+//巡查历史列表 done
+-(void) requestSearchHistoryListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
+-(void) requestTaskConfigInSearchSessionWithTaskId:(NSString *)taskid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 //巡查信息查询
 -(void) requestSearchHistoryQueryInfo:(id) qinfo SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

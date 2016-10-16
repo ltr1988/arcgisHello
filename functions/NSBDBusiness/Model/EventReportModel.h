@@ -13,6 +13,7 @@
 @class TitleItem;
 @class TitleDetailTextItem;
 @class CommitedEventHistoryItem;
+@class UploadAttachmentModel;
 
 @interface EventReportModel : NSObject<NSCoding>
 @property (nonatomic,strong) TitleDetailItem *eventName;
@@ -28,8 +29,8 @@
 @property (nonatomic,strong) TitleDetailTextItem *eventStatus;
 @property (nonatomic,strong) TitleDetailTextItem *eventPreprocess;
 
-@property (nonatomic,strong) NSMutableArray  *eventPic; //uiimages
-@property (nonatomic,strong) NSURL *eventVideo;
+@property (nonatomic,strong) UploadAttachmentModel* attachmentModel;
+
 @property (nonatomic,assign) NSInteger reviewState; //0 未审核 1 通过 2 未通过
 
 @property (nonatomic,strong) NSString *uuid;

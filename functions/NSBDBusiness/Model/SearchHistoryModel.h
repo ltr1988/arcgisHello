@@ -9,5 +9,7 @@
 #import "HttpBaseModel.h"
 
 @interface SearchHistoryModel : HttpBaseModel
-@property (nonatomic,strong) NSArray *datalist;  //list of SearchHistoryItem
+@property (nonatomic,strong) NSArray *datalist;  //list of SearchHistoryTaskItem
+@property (nonatomic,strong) NSString *total;
+-(BOOL) hasMore;
 @end

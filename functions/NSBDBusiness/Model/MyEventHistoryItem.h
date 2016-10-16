@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MyEventHistoryCell.h"
 
-@interface MyEventHistoryItem : NSObject
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,strong) NSString *date;
-@property (nonatomic,strong) NSString *finder;
-@property (nonatomic,strong) NSString *place;
-@property (nonatomic,strong) NSArray *images;
-@property (nonatomic,strong) NSString *video;
+@class UploadAttachmentModel;
+
+//我的待办应急
+@interface MyEventHistoryItem : NSObject<MyEventHistoryCellModel>
+@property (nonatomic,strong) NSString *detailId;
+@property (nonatomic,strong) NSString *disposeDescription;
+@property (nonatomic,strong) NSString *addTime;
+@property (nonatomic,strong) NSString *creatorName;
+@property (nonatomic,strong) NSString *disposeBy;
+@property (nonatomic,strong) NSArray *fileList;
+@property (nonatomic,strong) UploadAttachmentModel *attachment;
 @end

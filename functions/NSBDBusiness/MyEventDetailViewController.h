@@ -12,6 +12,7 @@
 @class EventMediaPickerView;
 @class FeedbackModel;
 
+
 @interface MyEventDetailViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     MediaPickerManager *mPickerManager;
@@ -25,4 +26,6 @@
 @property (nonatomic,strong) NSArray *historyModel;
 
 
+
+-(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart;
 @end

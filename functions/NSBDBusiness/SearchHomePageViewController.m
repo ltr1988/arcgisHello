@@ -18,7 +18,7 @@
 #import "SearchSessionItem.h"
 #import "MJRefresh.h"
 #import "SearchSecondaryListViewController.h"
-
+#import "SearchHistoryManager.h"
 @interface SearchHomePageViewController()
 {
 }
@@ -246,6 +246,7 @@
         SearchSecondaryListViewController *vc = nil;
         if (_readOnly) {
             vc = [[SearchSecondaryListViewController alloc] initReadonlyWithSearchHomeItem:item];
+            vc.taskId = self.taskid;
 
         }else{
             vc = [[SearchSecondaryListViewController alloc] initWithSearchHomeItem:item];
@@ -349,21 +350,40 @@
             @strongify(self)
             self.model = [SearchHomePageModel objectWithKeyValues:dict];
             if (self.model.success) {
-                [self.tableView.mj_header endRefreshing];
                 [self.tableView reloadData];
             }else if (self.model.status == HttpResultInvalidUser)
             {
                 [ToastView popToast:@"您的帐号在其他地方登录"];
                 [self.navigationController popToRootViewControllerAnimated:YES];
             }
+            
+            [self.tableView.mj_header endRefreshing];
         } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
             @strongify(self);
             [self.tableView.mj_header endRefreshing];
         }];
+    }else{
+        @weakify(self)
+        [[SearchHistoryManager sharedManager] requestTaskConfigInSearchSessionWithTaskId:_taskid SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            @strongify(self)
+            self.model = [SearchHomePageModel objectWithKeyValues:dict];
+            if (self.model.success) {
+                [self.tableView reloadData];
+            }else if (self.model.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            [self.tableView.mj_header endRefreshing];
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            @strongify(self);
+            [self.tableView.mj_header endRefreshing];
+        }];
+        
     }
 }
 
-#pragma mark -- private 
+#pragma mark -- private
 
 -(SearchSessionItem *) sessionItem
 {

@@ -22,7 +22,11 @@
     NSMutableArray *list = [NSMutableArray array];
     NSArray *array = [self getEventModels];
     if (array && array.count>0) {
-        [list addObjectsFromArray:array];
+        for (EventReportModel *cacheModel in array) {
+            if ([cacheModel isEqual:model]) {
+                return;
+            }
+        }
     }
     [list addObject:model];
     [NSKeyedArchiver archiveRootObject:list toFile:path];

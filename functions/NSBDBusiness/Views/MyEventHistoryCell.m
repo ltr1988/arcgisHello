@@ -109,29 +109,34 @@
 }
 
 
--(void) setData:(MyEventHistoryItem *) data
+-(void) setData:(id<MyEventHistoryCellModel>) data
 {
-    lbTitle.text = data.title;
+    lbTitle.text = [data title];
     [lbTitle sizeToFit];
-    lbFinder.text = data.finder;
+    lbFinder.text = [data finder];
     [lbFinder sizeToFit];
-    lbDate.text = data.date;
+    lbDate.text = [data date];
     [lbDate sizeToFit];
-    lbPlace.text = data.place;
-    [picContentView setPics:data.images];
-    if (data.video && data.video.length>0) {
+    lbPlace.text = [data place];
+    [picContentView setPics:[data images]];
+    if ([data video] && [data video].length>0) {
         [picContentView setVideo:[NSURL fileURLWithPath:data.video]];
     }
 }
 
-+(CGFloat) heightForData:(MyEventHistoryItem *) data
++(CGFloat) heightForData:(id<MyEventHistoryCellModel>) data
 {
     CGFloat height = 3*8+14*2;
-    CGSize titleSize = [data.title boundingRectWithSize:CGSizeMake(kScreenWidth-16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+    CGSize titleSize = [[data title] boundingRectWithSize:CGSizeMake(kScreenWidth-16, MAXFLOAT)
+                                                  options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading
+                                               attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}
+                                                  context:nil].size;
     height+=titleSize.height;
     
-    NSInteger count = data.images.count+((data.video==nil)?0:1);
-    height+= [ EventMediaCollectionView heightForItemCount:count] +10;
+    NSInteger count = [data images].count+(([data video]==nil)?0:1);
+    if (count >0) {
+        height+= [ EventMediaCollectionView heightForItemCount:count] +10;
+    }
     return height;
 }
 @end

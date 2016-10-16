@@ -25,7 +25,7 @@
 #import "SearchSheetItemManager.h"
 #import "UITableView+EmptyView.h"
 #import "SearchDetailSheetViewController.h"
-
+#import "SearchHistoryDetailSheetModel.h"
 
 @interface SearchSecondaryListViewController()
 {
@@ -136,14 +136,18 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
+    if (!readOnly) {
+        self.taskId = [SearchSessionManager sharedManager].session.sessionId;
+    }
     [self setupSubviews];
-    
-    [self.tableView.mj_header beginRefreshing];
+    if (readOnly) {
+        [self.tableView.mj_header beginRefreshing];
+    }
 }
 
 -(void) requestData
 {
-    if ([self isLine])
+    if ([self isLine] && !readOnly)
     {
         self.model = [SearchCategoryModel new];
         self.model.uiItem = [_item sheetItem];
@@ -175,24 +179,81 @@
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;
     }
+
     @weakify(self)
-    [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:[SearchSessionManager sharedManager].session.sessionId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        @strongify(self)
-        self.model = [SearchCategoryModel objectWithKeyValues:dict];
-        if (self.model.success) {
-            self.model.uiItem = [_item sheetItem];
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView reloadData];
-        }else if (self.model.status == HttpResultInvalidUser)
+    if (readOnly) {
+        if ([self isLine])
         {
-            [ToastView popToast:@"您的帐号在其他地方登录"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            [[SearchSessionManager sharedManager] requestQueryHistoryLineListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                @strongify(self)
+                
+                SearchHistoryDetailSheetModel *model = [SearchHistoryDetailSheetModel objectWithKeyValues:dict];
+                if (model.success) {
+                    if (model.datalist.count>0) {
+                        
+                        self.model = [SearchCategoryModel new];
+                        NSMutableArray *array = [NSMutableArray array];
+                        for (NSArray *infoArray in model.datalist) {
+                            NSBDBaseUIItem *item = [_item sheetItem];
+                            [item setInfoArray:infoArray];
+                            [array addObject:item];
+                        }
+                        self.model.datalist = [array copy];
+                        [self.tableView reloadData];
+                    }else
+                    {
+                        [self.tableView setEmptyView];
+                    }
+                }else if (self.model.status == HttpResultInvalidUser)
+                {
+                    [ToastView popToast:@"您的帐号在其他地方登录"];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+                
+                [self.tableView.mj_header endRefreshing];
+
+            } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                [self.tableView.mj_header endRefreshing];
+            }];
+        }else
+        {
+            [[SearchSessionManager sharedManager] requestQueryHistoryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                @strongify(self)
+                self.model = [SearchCategoryModel objectWithKeyValues:dict];
+                if (self.model.success) {
+                    self.model.uiItem = [_item sheetItem];
+                    [self.tableView reloadData];
+                }else if (self.model.status == HttpResultInvalidUser)
+                {
+                    [ToastView popToast:@"您的帐号在其他地方登录"];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+                
+                [self.tableView.mj_header endRefreshing];
+                
+            } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                [self.tableView.mj_header endRefreshing];
+            }];
         }
-        
-        
-    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-        [self.tableView.mj_header endRefreshing];
-    }];
+    }else{
+        [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            @strongify(self)
+            self.model = [SearchCategoryModel objectWithKeyValues:dict];
+            if (self.model.success) {
+                self.model.uiItem = [_item sheetItem];
+                [self.tableView reloadData];
+            }else if (self.model.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            
+            [self.tableView.mj_header endRefreshing];
+            
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            [self.tableView.mj_header endRefreshing];
+        }];
+    }
 }
 
 -(void) setupSubviews
@@ -234,8 +295,9 @@
             
             [_timerView continueTiming];
         }
+        
+        [_tableView.mj_header beginRefreshing];
     }
-    [_tableView.mj_header beginRefreshing];
 }
 
 -(void) viewDidDisappear:(BOOL)animated
@@ -345,6 +407,8 @@
         else
             vc = [SearchDetailSheetViewController sheetEditableWithUIItem:[_item sheetItem]];
         vc.code = _item.code;
+        vc.queryCode = self.codeDictionary[_item.code];
+        vc.taskId = self.taskId;
         vc.title = _item.title;
         vc.fcode = item.facilityCode;
         vc.fname = item.fname;

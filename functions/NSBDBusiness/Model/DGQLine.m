@@ -13,6 +13,7 @@
 #import "SearchSessionItem.h"
 #import "TitleDetailItem.h"
 #import "AuthorizeManager.h"
+#import "TitleInputItem.h"
 
 @implementation DGQLine
 
@@ -51,7 +52,19 @@
 
 -(NSString *) title
 {
-    return @"东干渠管线 - 本地暂存";
+    if (!_title) {
+        for (SearchSheetGroupItem *group in self.infolist) {
+            for (SearchSheetInfoItem *item in group.items) {
+                if ([item.key isEqualToString:@"stakestart"])
+                {
+                    TitleInputItem *inputItem = (TitleInputItem *)item.data;
+                    _title = [NSString stringWithFormat:@"开始桩号 %@",inputItem.detail];
+                    return _title;
+                }
+            }
+        }
+    }
+    return _title;
 }
 
 

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CommitedEventHistoryItem : NSObject
 
+@interface CommitedEventHistoryItem : NSObject
+@property (nonatomic,strong) NSString *eid;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *category;
 @property (nonatomic,strong) NSString *responseLevel;

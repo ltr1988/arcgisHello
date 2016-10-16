@@ -8,6 +8,7 @@
 
 #import "SupportRotationSelectBaseViewController.h"
 
+//我的事件上报
 @interface MyUploadEventViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *localEventTableView;
 @property (nonatomic,strong) UITableView *uploadedEventTableView;

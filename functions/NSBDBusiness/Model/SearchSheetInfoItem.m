@@ -82,6 +82,42 @@
     }
 }
 
+
+-(void) setDetail:(NSString *)detail
+{
+    if (!detail) {
+        return;
+    }
+    switch (_uiStyle) {
+        case SheetUIStyle_Date:
+        case SheetUIStyle_ReadonlyText: {
+            TitleDetailItem *item = (TitleDetailItem *)_data;
+            item.detail = detail;
+            break;
+        }
+        case SheetUIStyle_ShortText: {
+            TitleInputItem *item = (TitleInputItem *)_data;
+            item.detail = detail;
+            break;
+        }
+        case SheetUIStyle_Text: {
+            TitleDetailTextItem *item = (TitleDetailTextItem *)_data;
+            item.text = detail;
+            if (detail.length>0) {
+                item.detail = @"已填写";
+            }else
+            {
+                item.detail = @"未填写";
+            }
+            break;
+        }
+        case SheetUIStyle_Switch: {
+            CheckableTitleItem *item = (CheckableTitleItem *)_data;
+            item.checked = [detail boolValue];
+            break;
+        }
+    }
+}
 -(TitleItem *) dataWithStyle:(SheetUIStyle)uiStyle
 {
     switch (uiStyle) {

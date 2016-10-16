@@ -11,7 +11,6 @@
 #import "UIImageView+AFNetworking.h"
 #import "ImageContentViewController.h"
 #import "UIView+ViewController.h"
-#import "VideoPlayViewController.h"
 
 #import "SupportRotationSelectBaseViewController+VideoPlay.h"
 

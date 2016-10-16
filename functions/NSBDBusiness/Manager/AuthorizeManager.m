@@ -59,7 +59,7 @@
     return;
 #endif
     
-    @weakify(self)
+
     // 将请求参数放在请求的字典里
     NSDictionary *param = [self loginParamWithUser:user password:psw];
     // 创建请求类

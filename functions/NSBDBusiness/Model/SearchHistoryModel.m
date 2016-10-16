@@ -7,13 +7,20 @@
 //
 
 #import "SearchHistoryModel.h"
-#import "MJExtension.h"
-#import "SearchHistoryItem.h"
-
+#import "SearchHistoryTaskItem.h"
+#import "SearchHistoryMetaData.h"
 @implementation SearchHistoryModel
+
+-(BOOL) hasMore
+{
+    return [_total integerValue] >= 10;
+}
+
 + (NSDictionary *)replacedKeyFromPropertyName
 {
-    return @{@"datalist" :@"data"};
+    return @{@"datalist" :@"data.rows",
+             @"total" :@"data.total",
+             };
     
 }
 
@@ -21,7 +28,7 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[SearchHistoryItem class] forKey:@"datalist"];
+    [dict setObject:[SearchHistoryMetaData class] forKey:@"datalist"];
     return dict;
 }
 @end

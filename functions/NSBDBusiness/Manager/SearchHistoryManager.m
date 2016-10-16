@@ -41,25 +41,20 @@
 }
 
 #pragma mark search history list
--(void) requestSearchHistoryListSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) requestSearchHistoryListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey:SEARCH_HISTORY_DATE_KEY
-     ];
-    if (!date) {
-        
-    }
-    
-    
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+
     NSDictionary * info = @{
-                            @"userName": [AuthorizeManager sharedInstance].userName,
-                            
+                            @"pageNo":@(page),
+                            @"pageSize":@(10),
+                            @"data":@{
+                                    @"userName": [AuthorizeManager sharedInstance].userName,
+                                    @"userScope":@"0",
+                                    },
                             };
     
     
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"add" req:info];
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"queryhistory" method:@"doInDto" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
@@ -122,5 +117,36 @@
                                         });
                                     }
                                 }];
+}
+
+#pragma mark task config for history
+-(void) requestTaskConfigInSearchSessionWithTaskId:(NSString *)taskid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    if (!taskid || taskid.length==0) {
+        return;
+    }
+    NSDictionary *info = @{@"id":taskid};
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"taskconfig" method:@"doInDto" req:info];
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
 }
 @end

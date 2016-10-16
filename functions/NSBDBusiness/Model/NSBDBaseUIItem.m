@@ -12,10 +12,11 @@
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
 #import "NSString+UUID.h"
-#import "BaseTitleCell.h"
+#import "SearchHistoryMetaData.h"
+#import "UploadAttachmentModel.h"
 
 @implementation NSBDBaseUIItem
-
+@synthesize title = _title;
 
 -(BOOL) isLine
 {
@@ -77,6 +78,7 @@
     [aCoder encodeObject:self.itemId forKey:@"itemId"];
     [aCoder encodeObject:self.taskid forKey:@"taskid"];
     [aCoder encodeObject:self.infolist forKey:@"infolist"];
+    [aCoder encodeObject:self.attachModel forKey:@"attachModel"];
     
 }
 
@@ -86,8 +88,28 @@
         self.itemId = [aDecoder decodeObjectForKey:@"itemId"];
         self.taskid = [aDecoder decodeObjectForKey:@"taskid"];
         self.infolist = [aDecoder decodeObjectForKey:@"infolist"];
+        self.attachModel = [aDecoder decodeObjectForKey:@"attachModel"];
     }
     
     return self;
+}
+
+-(void) setInfoArray:(NSArray *) array
+{
+    NSDictionary *dict = [self infoDictFromArray:array];
+    for (SearchSheetGroupItem *group in self.infolist) {
+        for (SearchSheetInfoItem *item in group.items) {
+            [item setDetail:dict[item.key.lowercaseString]];
+        }
+    }
+}
+
+-(NSDictionary *) infoDictFromArray:(NSArray *)array
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:array.count];
+    for (SearchHistoryMetaData *meta in array) {
+        dict[meta.dataID.lowercaseString] = meta.value;
+    }
+    return [dict copy];
 }
 @end

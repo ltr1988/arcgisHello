@@ -18,27 +18,57 @@
 #import "TitleDetailItem.h"
 #import "MyEventHistoryCell.h"
 #import "MyEventHistoryItem.h"
+#import "UploadAttachmentModel.h"
 
 #import "TitleDetailCell.h"
 #import "QRSeparatorCell.h"
+#import "EventHttpManager.h"
+#import "MyEventDetailProgressModel.h"
+#import "TextPickerViewController.h"
 
 @interface MyEventDetailViewController()<CenterSwitchActionDelegate>
 {
     NSInteger selectedIndex;
+    NSString *eventId;
+    NSString *departName;
 }
 @end
 
 @implementation MyEventDetailViewController
+
+-(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart
+{
+    self = [super init];
+    if (self) {
+        eventId = eid;
+        departName = depart?:@"";
+    }
+    return self;
+}
 
 -(void) viewDidLoad
 {
     [super viewDidLoad];
     [self setupModel];
     [self setupSubviews];
-    
+    [self setupObservers];
     [self setupPickerManager];
 }
 
+-(void) setupObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textPicked:) name:@"TextPickerNotification" object:nil];
+}
+
+-(void) textPicked:(NSNotification *)noti
+{
+    [self.feedbackTableView reloadData];
+}
+
+-(void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 -(void) setupModel
 {
     //model for feedback
@@ -51,20 +81,25 @@
     _feedbackModel.detail = [TitleDetailTextItem itemWithTitle:@"进展描述" detail:@"未填写" text:@""];
     _feedbackModel.images = [NSMutableArray arrayWithCapacity:6];
     
+#ifdef NoServer
     //model for history
     MyEventHistoryItem *item1 =[[MyEventHistoryItem alloc] init];
-    item1.title = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
-    item1.date = @"2016-1-2";
-    item1.place = @"北京";
-    item1.finder = @"勿忘我";
-    item1.images =@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"];
+    item1.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item1.addTime = @"2016-1-2";
+    item1.disposeBy = @"北京";
+    item1.departName = @"勿忘我";
+    item1.attachment.images =[@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"] mutableCopy];
     
     MyEventHistoryItem *item2 =[[MyEventHistoryItem alloc] init];
-    item2.title = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
-    item2.date = @"2016-1-2 13:00:01";
-    item2.place = @"北京";
-    item2.finder = @"lls";
+    item2.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item2.addTime = @"2016-1-2 13:00:01";
+    item2.disposeBy = @"北京";
+    item2.departName = @"lls";
     _historyModel = @[item1,item2];
+    return;
+#endif
+    _historyModel =[NSArray array];
+    [self requestData];
 }
 
 -(void) setupSubviews
@@ -96,6 +131,7 @@
     self.historyTableView.dataSource = self;
     self.historyTableView.hidden = (selectedIndex==0);
     
+
     [self.view addSubview:self.historyTableView];
     
     
@@ -122,6 +158,34 @@
     
     [self.feedbackTableView reloadData];
     
+}
+
+-(void) requestData
+{
+    @weakify(self)
+    [[EventHttpManager sharedManager] requestMyEventProgressListWithId:eventId SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        //todo
+        @strongify(self)
+        MyEventDetailProgressModel *item = [MyEventDetailProgressModel objectWithKeyValues:dict];
+        if (item.success)
+        {
+            _historyModel = [item.datalist copy];
+            [self.historyTableView reloadData];
+            
+        }else if (item.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        else
+        {
+            [ToastView popToast:@"刷新失败,请稍候再试"];
+        }
+        
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        //todo
+        [ToastView popToast:@"刷新失败,请稍候再试"];
+    }];
 }
 
 -(UIView*) footerView
@@ -229,7 +293,11 @@
                 if (!cell) {
                     cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DateCell"];
                 }
+                NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+                [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+                _feedbackModel.date.detail = [formater stringFromDate:[NSDate date]];
                 cell.data = self.feedbackModel.date;
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }
             case 1:
@@ -255,6 +323,8 @@
                 [_mPicker removeFromSuperview];
                 UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
                 [cell.contentView addSubview: _mPicker];
+                
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }
         }
@@ -265,6 +335,7 @@
             QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
             if (!cell) {
                 cell = [[QRSeparatorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"separatorCell"];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             return cell;
         }else
@@ -274,6 +345,7 @@
                 MyEventHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyEventHistoryCell"];
                 if (!cell) {
                     cell = [[MyEventHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyEventHistoryCell"];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 }
                 cell.data = _historyModel[row];
                 return cell;
@@ -292,7 +364,9 @@
         switch (indexPath.row) {
             case 1:
             {
+                TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.feedbackModel.detail];
                 
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             default:
@@ -315,7 +389,36 @@
 #pragma mark actions
 -(void) actionCommit:(id) sender
 {
-    
+    @weakify(self)
+    [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
+                                                                    title:_feedbackModel.detail.text
+                                                                disposeBy:departName
+                                                          SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                                                              @strongify(self)
+                                                              HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+                                                              if (item.success)
+                                                              {
+                                                                  [ToastView popToast:@"提交成功"];
+                                                                  _feedbackModel.detail.detail = @"未填写";
+                                                                  _feedbackModel.detail.text = @"";
+                                                                  [self.feedbackTableView reloadData];
+                                                                  [self requestData];
+                                                                  
+                                                              }else if (item.status == HttpResultInvalidUser)
+                                                              {
+                                                                  [ToastView popToast:@"您的帐号在其他地方登录"];
+                                                                  [self.navigationController popToRootViewControllerAnimated:YES];
+                                                              }
+                                                              else
+                                                              {
+                                                                  [ToastView popToast:@"提交失败,请稍候再试"];
+                                                              }
+                                                              
+                                                          } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                                                              //todo
+                                                              [ToastView popToast:@"提交失败,请稍候再试"];
+                                                          }];
+
 }
 
 -(void) actionCancel:(id) sender
