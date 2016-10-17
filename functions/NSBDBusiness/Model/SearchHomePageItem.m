@@ -11,8 +11,15 @@
 #import "DGQAirItem.h"
 #import "DGQWellItem.h"
 #import "DGQWaterItem.h"
-#import "NSBDBaseUIItem.h"
 #import "DGQLine.h"
+#import "NGQAirItem.h"
+#import "NGQWellItem.h"
+#import "NGQWaterItem.h"
+#import "NGQLine.h"
+#import "DNAirItem.h"
+#import "DNWellItem.h"
+#import "DNLine.h"
+#import "NSBDBaseUIItem.h"
 
 @implementation SearchHomePageItem
 
@@ -36,15 +43,15 @@
                 @"DGQFSK":[DGQWaterItem class],
                 @"DGQGX":[DGQLine class],
                 
-                @"DNPKJ":[DGQWellItem class],
-                @"DNPQJ":[DGQWellItem class],
-                @"DNGX":[DGQWellItem class],
+                @"DNPKJ":[DNWellItem class],
+                @"DNPQJ":[DNAirItem class],
+                @"DNGX":[DNLine class],
                 
-                @"NGQGX":[DGQWellItem class],
-                @"NGQPQJDOWN":[DGQWellItem class],
-                @"NGQPQJUP":[DGQWellItem class],
-                @"NGQPKJDOWN":[DGQWellItem class],
-                @"NGQPKJUP":[DGQWellItem class],
+                @"NGQGX":[NGQLine class],
+                @"NGQPQJDOWN":[NGQAirItem class],
+                @"NGQPQJUP":[NGQAirItem class],
+                @"NGQPKJDOWN":[NGQWellItem class],
+                @"NGQPKJUP":[NGQWellItem class],
              };
 }
 

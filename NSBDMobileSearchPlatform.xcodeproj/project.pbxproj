@@ -172,6 +172,13 @@
 		B2748D701DB476E800C0166F /* wushuju@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2748D6F1DB476E800C0166F /* wushuju@2x.png */; };
 		B2748D731DB4A9CF00C0166F /* MyDealedEventDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */; };
 		B2748D761DB4A9FF00C0166F /* MyDealedEventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */; };
+		B2748D7B1DB4E27F00C0166F /* NGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D7A1DB4E27F00C0166F /* NGQAirItem.m */; };
+		B2748D7E1DB4E2AC00C0166F /* DNAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D7D1DB4E2AC00C0166F /* DNAirItem.m */; };
+		B2748D851DB4E41000C0166F /* DNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D801DB4E41000C0166F /* DNLine.m */; };
+		B2748D871DB4E41000C0166F /* DNWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D841DB4E41000C0166F /* DNWellItem.m */; };
+		B2748D8E1DB4E41F00C0166F /* NGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D891DB4E41F00C0166F /* NGQLine.m */; };
+		B2748D8F1DB4E41F00C0166F /* NGQWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */; };
+		B2748D901DB4E41F00C0166F /* NGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -593,6 +600,20 @@
 		B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailItem.m; path = functions/NSBDBusiness/Model/MyDealedEventDetailItem.m; sourceTree = "<group>"; };
 		B2748D741DB4A9FF00C0166F /* MyDealedEventDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventDetailModel.h; path = functions/NSBDBusiness/Model/MyDealedEventDetailModel.h; sourceTree = "<group>"; };
 		B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailModel.m; path = functions/NSBDBusiness/Model/MyDealedEventDetailModel.m; sourceTree = "<group>"; };
+		B2748D791DB4E27F00C0166F /* NGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQAirItem.h; path = functions/NSBDBusiness/Model/NGQAirItem.h; sourceTree = "<group>"; };
+		B2748D7A1DB4E27F00C0166F /* NGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQAirItem.m; path = functions/NSBDBusiness/Model/NGQAirItem.m; sourceTree = "<group>"; };
+		B2748D7C1DB4E2AC00C0166F /* DNAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNAirItem.h; path = functions/NSBDBusiness/Model/DNAirItem.h; sourceTree = "<group>"; };
+		B2748D7D1DB4E2AC00C0166F /* DNAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNAirItem.m; path = functions/NSBDBusiness/Model/DNAirItem.m; sourceTree = "<group>"; };
+		B2748D7F1DB4E41000C0166F /* DNLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNLine.h; path = functions/NSBDBusiness/Model/DNLine.h; sourceTree = "<group>"; };
+		B2748D801DB4E41000C0166F /* DNLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNLine.m; path = functions/NSBDBusiness/Model/DNLine.m; sourceTree = "<group>"; };
+		B2748D831DB4E41000C0166F /* DNWellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNWellItem.h; path = functions/NSBDBusiness/Model/DNWellItem.h; sourceTree = "<group>"; };
+		B2748D841DB4E41000C0166F /* DNWellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNWellItem.m; path = functions/NSBDBusiness/Model/DNWellItem.m; sourceTree = "<group>"; };
+		B2748D881DB4E41F00C0166F /* NGQLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQLine.h; path = functions/NSBDBusiness/Model/NGQLine.h; sourceTree = "<group>"; };
+		B2748D891DB4E41F00C0166F /* NGQLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQLine.m; path = functions/NSBDBusiness/Model/NGQLine.m; sourceTree = "<group>"; };
+		B2748D8A1DB4E41F00C0166F /* NGQWaterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWaterItem.h; path = functions/NSBDBusiness/Model/NGQWaterItem.h; sourceTree = "<group>"; };
+		B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWaterItem.m; path = functions/NSBDBusiness/Model/NGQWaterItem.m; sourceTree = "<group>"; };
+		B2748D8C1DB4E41F00C0166F /* NGQWellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWellItem.h; path = functions/NSBDBusiness/Model/NGQWellItem.h; sourceTree = "<group>"; };
+		B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWellItem.m; path = functions/NSBDBusiness/Model/NGQWellItem.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -1397,9 +1418,39 @@
 			path = functions/Util/SystemAlertController;
 			sourceTree = "<group>";
 		};
+		B2748D771DB4E22000C0166F /* DN */ = {
+			isa = PBXGroup;
+			children = (
+				B2748D7F1DB4E41000C0166F /* DNLine.h */,
+				B2748D801DB4E41000C0166F /* DNLine.m */,
+				B2748D831DB4E41000C0166F /* DNWellItem.h */,
+				B2748D841DB4E41000C0166F /* DNWellItem.m */,
+				B2748D7C1DB4E2AC00C0166F /* DNAirItem.h */,
+				B2748D7D1DB4E2AC00C0166F /* DNAirItem.m */,
+			);
+			name = DN;
+			sourceTree = "<group>";
+		};
+		B2748D781DB4E22800C0166F /* NGQ */ = {
+			isa = PBXGroup;
+			children = (
+				B2748D881DB4E41F00C0166F /* NGQLine.h */,
+				B2748D891DB4E41F00C0166F /* NGQLine.m */,
+				B2748D8A1DB4E41F00C0166F /* NGQWaterItem.h */,
+				B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */,
+				B2748D8C1DB4E41F00C0166F /* NGQWellItem.h */,
+				B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */,
+				B2748D791DB4E27F00C0166F /* NGQAirItem.h */,
+				B2748D7A1DB4E27F00C0166F /* NGQAirItem.m */,
+			);
+			name = NGQ;
+			sourceTree = "<group>";
+		};
 		B28069AF1D670F490097F7E4 /* SearchSheet */ = {
 			isa = PBXGroup;
 			children = (
+				B2748D781DB4E22800C0166F /* NGQ */,
+				B2748D771DB4E22000C0166F /* DN */,
 				A4CFBC971D9C12BF0016387C /* DGQ */,
 				B28069B41D67F8680097F7E4 /* NSBDBaseUIItem.h */,
 				B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */,
@@ -1938,6 +1989,8 @@
 			files = (
 				B205A52E1D61D378007530EB /* MJRefreshGifHeader.m in Sources */,
 				B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */,
+				B2748D7E1DB4E2AC00C0166F /* DNAirItem.m in Sources */,
+				B2748D7B1DB4E27F00C0166F /* NGQAirItem.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				A412B8961DB23F7D003CAE02 /* SearchHistoryMetaData.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
@@ -1961,6 +2014,7 @@
 				B2F1D8A11D8E68E400A6EDCA /* ThreeColumnCell.m in Sources */,
 				B2A187301D66AF4B006D8CA7 /* NSObject+MJCoding.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
+				B2748D901DB4E41F00C0166F /* NGQWellItem.m in Sources */,
 				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
 				A412B8A71DB35C90003CAE02 /* MapSearchInfoViewController.m in Sources */,
 				A4E9E76C1D4650BD00E3C94C /* TitleItem.m in Sources */,
@@ -2035,6 +2089,7 @@
 				A4F2FC231D853EEE00B0532B /* EventModelManager.m in Sources */,
 				A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */,
 				B28653D11D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				B2748D851DB4E41000C0166F /* DNLine.m in Sources */,
 				B2A186FE1D644042006D8CA7 /* HttpBaseModel.m in Sources */,
 				B28653D41D4863B2002D4139 /* UIImageView+AFNetworking.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
@@ -2071,6 +2126,7 @@
 				B2806A111D68413E0097F7E4 /* TitleDetailTextItem.m in Sources */,
 				B205A5281D61D378007530EB /* MJRefreshAutoGifFooter.m in Sources */,
 				A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */,
+				B2748D871DB4E41000C0166F /* DNWellItem.m in Sources */,
 				B2A187361D6708D2006D8CA7 /* LoginModel.m in Sources */,
 				B2A187321D66AF4B006D8CA7 /* NSObject+MJProperty.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
@@ -2104,6 +2160,7 @@
 				B28653E71D49A3A0002D4139 /* EventReportViewController+pickMedia.m in Sources */,
 				B205A49E1D5DB874007530EB /* SearchStartViewController.m in Sources */,
 				A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */,
+				B2748D8E1DB4E41F00C0166F /* NGQLine.m in Sources */,
 				A414AC9F1D3A1CD10065AAA7 /* ImagePickerViewController.m in Sources */,
 				B28653851D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				A4F2FC111D8458FB00B0532B /* MyUploadEventViewController.m in Sources */,
@@ -2135,6 +2192,7 @@
 				A4F2FC0E1D806D4900B0532B /* MyEventHistoryItem.m in Sources */,
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */,
+				B2748D8F1DB4E41F00C0166F /* NGQWaterItem.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,

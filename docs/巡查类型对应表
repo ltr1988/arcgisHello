@@ -3,10 +3,12 @@ map.put("NGQPKJUP", "南干渠排空井上段");
         map.put("NGQPQJUP", "南干渠排气阀井上段");
         map.put("NGQPQJDOWN", "南干渠排气阀井下段");
         map.put("NGQGX", "南干渠管线");
+
         map.put("DGQPQJ", "东干渠排气阀井");
         map.put("DGQFSK", "东干渠分水口");
         map.put("DGQPKJ", "东干渠排空井");
         map.put("DGQGX", "东干渠管线");
+
         map.put("DNPKJ", "大宁排空井");
         map.put("DNPQJ", "大宁排气阀井");
         map.put("DNGX", "大宁管线");
