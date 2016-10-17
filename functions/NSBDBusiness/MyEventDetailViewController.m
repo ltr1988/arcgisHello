@@ -31,6 +31,7 @@
     NSInteger selectedIndex;
     NSString *eventId;
     NSString *departName;
+    MyEventDetailType type;
 }
 @end
 
@@ -38,10 +39,16 @@
 
 -(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart
 {
+    return [self initWithEventId:eid departName:depart eventType:MyEventDetailType_Normal];
+}
+
+-(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart eventType:(MyEventDetailType) etype
+{
     self = [super init];
     if (self) {
         eventId = eid;
         departName = depart?:@"";
+        type = etype;
     }
     return self;
 }
@@ -87,14 +94,14 @@
     item1.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
     item1.addTime = @"2016-1-2";
     item1.disposeBy = @"北京";
-    item1.departName = @"勿忘我";
+    item1.creatorName = @"勿忘我";
     item1.attachment.images =[@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"] mutableCopy];
     
     MyEventHistoryItem *item2 =[[MyEventHistoryItem alloc] init];
     item2.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
     item2.addTime = @"2016-1-2 13:00:01";
     item2.disposeBy = @"北京";
-    item2.departName = @"lls";
+    item2.creatorName = @"lls";
     _historyModel = @[item1,item2];
     return;
 #endif
@@ -163,29 +170,59 @@
 -(void) requestData
 {
     @weakify(self)
-    [[EventHttpManager sharedManager] requestMyEventProgressListWithId:eventId SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        //todo
-        @strongify(self)
-        MyEventDetailProgressModel *item = [MyEventDetailProgressModel objectWithKeyValues:dict];
-        if (item.success)
-        {
-            _historyModel = [item.datalist copy];
-            [self.historyTableView reloadData];
+    
+    if (type == MyEventDetailType_Normal) {
+        [[EventHttpManager sharedManager] requestMyEventProgressListWithId:eventId SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            //todo
+            @strongify(self)
+            MyEventDetailProgressModel *item = [MyEventDetailProgressModel objectWithKeyValues:dict];
+            if (item.success)
+            {
+                _historyModel = [item.datalist copy];
+                [self.historyTableView reloadData];
+                
+            }else if (item.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                [ToastView popToast:@"刷新失败,请稍候再试"];
+            }
             
-        }else if (item.status == HttpResultInvalidUser)
-        {
-            [ToastView popToast:@"您的帐号在其他地方登录"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-        else
-        {
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            //todo
             [ToastView popToast:@"刷新失败,请稍候再试"];
-        }
-        
-    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-        //todo
-        [ToastView popToast:@"刷新失败,请稍候再试"];
-    }];
+        }];
+
+    }else
+    {
+        [[EventHttpManager sharedManager] requestMyDealedEventProgressListWithId:eventId SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            //todo
+            @strongify(self)
+            MyEventDetailProgressModel *item = [MyEventDetailProgressModel objectWithKeyValues:dict];
+            if (item.success)
+            {
+                _historyModel = [item.datalist copy];
+                [self.historyTableView reloadData];
+                
+            }else if (item.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                [ToastView popToast:@"刷新失败,请稍候再试"];
+            }
+            
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            //todo
+            [ToastView popToast:@"刷新失败,请稍候再试"];
+        }];
+    }
+    
 }
 
 -(UIView*) footerView
@@ -390,34 +427,66 @@
 -(void) actionCommit:(id) sender
 {
     @weakify(self)
-    [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
-                                                                    title:_feedbackModel.detail.text
-                                                                disposeBy:departName
-                                                          SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-                                                              @strongify(self)
-                                                              HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
-                                                              if (item.success)
-                                                              {
-                                                                  [ToastView popToast:@"提交成功"];
-                                                                  _feedbackModel.detail.detail = @"未填写";
-                                                                  _feedbackModel.detail.text = @"";
-                                                                  [self.feedbackTableView reloadData];
-                                                                  [self requestData];
+    if (type == MyEventDetailType_Normal)
+    {
+        [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
+                                                                        title:_feedbackModel.detail.text
+                                                                    disposeBy:departName
+                                                              SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                                                                  @strongify(self)
+                                                                  HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+                                                                  if (item.success)
+                                                                  {
+                                                                      [ToastView popToast:@"提交成功"];
+                                                                      _feedbackModel.detail.detail = @"未填写";
+                                                                      _feedbackModel.detail.text = @"";
+                                                                      [self.feedbackTableView reloadData];
+                                                                      [self requestData];
+                                                                      
+                                                                  }else if (item.status == HttpResultInvalidUser)
+                                                                  {
+                                                                      [ToastView popToast:@"您的帐号在其他地方登录"];
+                                                                      [self.navigationController popToRootViewControllerAnimated:YES];
+                                                                  }
+                                                                  else
+                                                                  {
+                                                                      [ToastView popToast:@"提交失败,请稍候再试"];
+                                                                  }
                                                                   
-                                                              }else if (item.status == HttpResultInvalidUser)
-                                                              {
-                                                                  [ToastView popToast:@"您的帐号在其他地方登录"];
-                                                                  [self.navigationController popToRootViewControllerAnimated:YES];
-                                                              }
-                                                              else
-                                                              {
+                                                              } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                                                                  //todo
                                                                   [ToastView popToast:@"提交失败,请稍候再试"];
-                                                              }
-                                                              
-                                                          } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-                                                              //todo
-                                                              [ToastView popToast:@"提交失败,请稍候再试"];
-                                                          }];
+                                                              }];
+    }else
+    {
+        [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
+                                                                      content:_feedbackModel.detail.text
+                                                              SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                                                                  @strongify(self)
+                                                                  HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
+                                                                  if (item.success)
+                                                                  {
+                                                                      [ToastView popToast:@"提交成功"];
+                                                                      _feedbackModel.detail.detail = @"未填写";
+                                                                      _feedbackModel.detail.text = @"";
+                                                                      [self.feedbackTableView reloadData];
+                                                                      [self requestData];
+                                                                      
+                                                                  }else if (item.status == HttpResultInvalidUser)
+                                                                  {
+                                                                      [ToastView popToast:@"您的帐号在其他地方登录"];
+                                                                      [self.navigationController popToRootViewControllerAnimated:YES];
+                                                                  }
+                                                                  else
+                                                                  {
+                                                                      [ToastView popToast:@"提交失败,请稍候再试"];
+                                                                  }
+                                                                  
+                                                              } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                                                                  //todo
+                                                                  [ToastView popToast:@"提交失败,请稍候再试"];
+                                                              }];
+    }
 
 }
 

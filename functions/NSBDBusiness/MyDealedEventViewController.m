@@ -17,6 +17,7 @@
 #import "MyEventDetailViewController.h"
 #import "EventHttpManager.h"
 #import "MyDealedEventListModel.h"
+#import "MyDealedEventDetailViewController.h"
 
 @interface MyDealedEventViewController ()
 
@@ -42,33 +43,12 @@
     hasMore = YES;
     pageNum = 1;
     _modelList = [NSArray array];
-#ifdef NoServer
-    MyDealedEventItem *item = [MyDealedEventItem new];
-    item.title = @"测试事件任务1";
-    item.makeTime = @"2016.8.31 22:10:10";
-    item.executorName = @"执行人";
-    item.departmentName = @"执行部门";
-    item.name =@"任务A";
-    item.creator = @"";
-    
-    MyDealedEventItem *item1 = [MyDealedEventItem new];
-    item1.title = @"测试事件任务2";
-    item1.makeTime = @"2016.8.31 22:10:10";
-    item1.executorName = @"执行人2";
-    item1.departmentName = @"执行部门2";
-    item1.name =@"任务B";
-    item1.creator = @"";
-    
-    
-    _modelList = @[item,item1];
-    return;
-#endif
 }
 
 -(void) setupSubviews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    self.title = @"待办应急事件";
+    self.title = @"我的处置任务";
     
     self.myDealedEventTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.myDealedEventTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -89,6 +69,31 @@
 
 -(void) requestData
 {
+#ifdef NoServer
+    MyDealedEventItem *item = [MyDealedEventItem new];
+    item.title = @"测试事件任务1";
+    item.makeTime = @"2016.8.31 22:10:10";
+    item.executorName = @"执行人";
+    item.departmentName = @"执行部门";
+    item.name =@"任务A";
+    item.creator = @"";
+    item.status = @"1";
+    
+    MyDealedEventItem *item1 = [MyDealedEventItem new];
+    item1.title = @"测试事件任务2";
+    item1.makeTime = @"2016.8.31 22:10:10";
+    item1.executorName = @"执行人2";
+    item1.departmentName = @"执行部门2";
+    item1.name =@"任务B";
+    item1.creator = @"";
+    item.status = @"2";
+    
+    
+    _modelList = @[item,item1];
+    [self.myDealedEventTableView.mj_header endRefreshing];
+    [self.myDealedEventTableView reloadData];
+    return;
+#endif
     pageNum = 1;
     @weakify(self)
     [[EventHttpManager sharedManager] requestMyDealedEventListWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
@@ -115,6 +120,7 @@
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         //todo
+        @strongify(self)
         [self.myDealedEventTableView.mj_header endRefreshing];
         [ToastView popToast:@"刷新失败,请稍候再试"];
     }];
@@ -154,7 +160,7 @@
         }
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
-        //todo
+        @strongify(self)
         [self.myDealedEventTableView.mj_footer endRefreshing];
         [ToastView popToast:@"刷新失败,请稍候再试"];
     }];
@@ -217,9 +223,10 @@
     
     NSInteger row = indexPath.row /2;
     MyDealedEventItem *item = _modelList[row];
-    //todo push to new vc
+    
+    MyDealedEventDetailViewController *vc = [[MyDealedEventDetailViewController alloc] initWithDealedEventItem:item];
    
-//    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

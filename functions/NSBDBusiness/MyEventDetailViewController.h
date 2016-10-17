@@ -13,6 +13,11 @@
 @class FeedbackModel;
 
 
+typedef NS_ENUM(NSInteger, MyEventDetailType) {
+    MyEventDetailType_Normal,
+    MyEventDetailType_Dispose,
+};
+
 @interface MyEventDetailViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,UITableViewDelegate>
 {
     MediaPickerManager *mPickerManager;
@@ -28,4 +33,5 @@
 
 
 -(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart;
+-(instancetype) initWithEventId:(NSString *)eid departName:(NSString *)depart eventType:(MyEventDetailType) etype;
 @end

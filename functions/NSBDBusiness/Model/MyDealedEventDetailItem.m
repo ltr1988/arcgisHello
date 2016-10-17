@@ -1,14 +1,15 @@
 //
-//  MyDealedEventItem.m
+//  MyDealedEventDetailItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/10/17.
+//  Created by LvTianran on 16/10/17.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "MyDealedEventItem.h"
+#import "MyDealedEventDetailItem.h"
+#import "AttachmentItem.h"
 
-@implementation MyDealedEventItem
+@implementation MyDealedEventDetailItem
 + (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{
@@ -21,20 +22,17 @@
              @"makeTime" :@"makeTime",
              @"name" :@"name",
              @"status" :@"status",
+             @"content":@"content",
+             @"fileList":@"fileList",
              };
     
 }
 
-//- (NSString *) title;
-//- (NSString *) name
-
-- (NSString *) date
++(NSDictionary *) objectClassInArray
 {
-    return _makeTime;
-}
-
-- (NSString *) executor
-{
-    return [NSString stringWithFormat:@"%@ - %@",_departmentName,_executorName];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    [dict setObject:[AttachmentItem class] forKey:@"fileList"];
+    return dict;
 }
 @end

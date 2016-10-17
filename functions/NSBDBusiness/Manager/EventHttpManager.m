@@ -46,29 +46,29 @@
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"doInDto" req:info];
     
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:dict]
-                         parameters:nil
-          constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-              NSData *data = UIImagePNGRepresentation(image);
-              [formData appendPartWithFileData:data name:@"file" fileName:@"1test_abcdefg.png" mimeType:@"image/jpeg"];
-    } progress:^(NSProgress * _Nonnull uploadProgress) {
-    
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSDictionary *respDict = [NSDictionary dictWithJson:str];
-        if (success) {
-            dispatch_main_async_safe(^{
-                success(task,respDict);
-            });
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 请求失败
-        if (fail) {
-            dispatch_main_async_safe(^{
-                fail(task,error);
-            });
-        }
-    }];
+    [[HttpManager NSBDFileManager] POST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+              constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                  NSData *data = UIImagePNGRepresentation(image);
+                  [formData appendPartWithFileData:data name:@"file" fileName:@"1test_abcdefg.png" mimeType:@"image/jpeg"];
+              } progress:^(NSProgress * _Nonnull uploadProgress) {
+                  
+              } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                  NSDictionary *respDict = [NSDictionary dictWithJson:str];
+                  if (success) {
+                      dispatch_main_async_safe(^{
+                          success(task,respDict);
+                      });
+                  }
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  // 请求失败
+                  if (fail) {
+                      dispatch_main_async_safe(^{
+                          fail(task,error);
+                      });
+                  }
+              }];
 }
 
 //to be tested
@@ -87,28 +87,28 @@
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"doInDto" req:info];
     
-    [[HttpManager NSBDManager] POST:[HttpHost hostAURLWithParam:dict]
-                         parameters:nil
-          constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-              [formData appendPartWithFileURL:movieURL name:@"movie" error:nil];
-          } progress:^(NSProgress * _Nonnull uploadProgress) {
-              
-          } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-              NSDictionary *respDict = [NSDictionary dictWithJson:str];
-              if (success) {
-                  dispatch_main_async_safe(^{
-                      success(task,respDict);
-                  });
-              }
-          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-              // 请求失败
-              if (fail) {
-                  dispatch_main_async_safe(^{
-                      fail(task,error);
-                  });
-              }
-          }];
+    [[HttpManager NSBDFileManager] POST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+              constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                  [formData appendPartWithFileURL:movieURL name:@"movie" error:nil];
+              } progress:^(NSProgress * _Nonnull uploadProgress) {
+                  
+              } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                  NSDictionary *respDict = [NSDictionary dictWithJson:str];
+                  if (success) {
+                      dispatch_main_async_safe(^{
+                          success(task,respDict);
+                      });
+                  }
+              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                  // 请求失败
+                  if (fail) {
+                      dispatch_main_async_safe(^{
+                          fail(task,error);
+                      });
+                  }
+              }];
 }
 
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
@@ -262,6 +262,36 @@
                                 }];
     
 }
+-(void) requestMyDealedEventProgressListWithId:(NSString*) eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"id":eid,
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"getDisposeList" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
 
 -(void) requestAddMyEventProgressListWithId:(NSString*) eid
                                    title:(NSString*) title
@@ -305,6 +335,45 @@
     
 }
 
+-(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                      content:(NSString*) content
+                            SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"taskId":eid,
+                            @"id":[NSString stringWithUUID],
+                            @"operate":@"insert",
+                            @"state":@"1",
+                            @"disposeComment":content,
+                            @"userName":[AuthorizeManager sharedInstance].userName,
+                            @"incidentSource":@"YDSB",
+                            @"source":@"IOS",
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"addDispose" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
 
 -(void) requestMyDealedEventListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
@@ -319,6 +388,37 @@
     
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"incidentTask" method:@"queryList" req:info];
+    
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
+
+-(void) requestMyDealedEventDetailWithId:(NSString *)eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"id":eid,
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incidentTask" method:@"getData" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]

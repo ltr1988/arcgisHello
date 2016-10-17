@@ -21,6 +21,11 @@
     return [HttpManager managerWithType:HttpTaskType_Foreground];
 }
 
++(AFHTTPSessionManager *)NSBDFileManager
+{
+    return [HttpManager managerWithType:HttpTaskType_FileRequest];
+}
+
 +(AFHTTPSessionManager *)jsonManager
 {
     return [HttpManager jsonManagerWithType:HttpTaskType_Foreground];

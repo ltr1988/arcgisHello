@@ -8,6 +8,7 @@
 
 #import "UITableView+EmptyView.h"
 #import "UIColor+ThemeColor.h"
+#import "Masonry.h"
 
 const NSInteger EmptyTag = 2048;
 @implementation UITableView (EmptyView)
@@ -15,13 +16,24 @@ const NSInteger EmptyTag = 2048;
 -(void) setEmptyView
 {
     UIView *emptyView = [[UIView alloc] initWithFrame:self.bounds];
-    UILabel *tip = [[UILabel alloc] initWithFrame:self.bounds];
-    tip.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    tip.font = [UIFont systemFontOfSize: 20];
-    tip.textColor = [UIColor themeBlueColor];
-    tip.text = @"暂无数据";
-    tip.textAlignment = NSTextAlignmentCenter;
-    [emptyView addSubview:tip];
+//    UILabel *tip = [[UILabel alloc] initWithFrame:self.bounds];
+//    tip.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+//    tip.font = [UIFont systemFontOfSize: 20];
+//    tip.textColor = [UIColor themeBlueColor];
+//    tip.text = @"暂无数据";
+//    tip.textAlignment = NSTextAlignmentCenter;
+//    [emptyView addSubview:tip];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wushuju"]];
+    [emptyView addSubview:imageView];
+    
+    
+    __weak UIView *weakView = emptyView;
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(weakView.mas_centerX);
+        make.centerY.mas_equalTo(weakView.mas_centerY);
+    }];
+    
     [self setEmptyView:emptyView];
 }
 

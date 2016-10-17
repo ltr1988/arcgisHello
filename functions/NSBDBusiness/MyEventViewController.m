@@ -41,21 +41,22 @@
 #ifdef NoServer
     MyEventItem *item = [MyEventItem new];
     item.title = @"待办应急事件1";
-    item.date= @"2016.8.31 22:10:10";
-    item.xingzhi = @"严重";
-    item.level = @"一级";
-    item.place = @"北京市海淀西三旗建材城";
-    item.finder = @"小明";
+    item.addTime= @"2016.8.31 22:10:10";
+    item.category = @"严重";
+    item.responseLevel = @"一级";
+    item.occurLocation = @"北京市海淀西三旗建材城";
+    item.alarmPerson = @"小明";
     
     MyEventItem *item1 = [MyEventItem new];
     item1.title = @"待办应急事件2";
-    item1.date= @"2016.8.22 06:10:10";
-    item1.xingzhi = @"严重";
-    item1.level = @"一级";
-    item1.place = @"北京市海淀西二旗软件园";
-    item1.finder = @"小东";
+    item1.addTime= @"2016.8.22 06:10:10";
+    item1.category = @"严重";
+    item1.responseLevel = @"一级";
+    item1.occurLocation = @"北京市海淀西二旗软件园";
+    item1.alarmPerson = @"小东";
     
     _modelList = @[item,item1];
+    
     return;
 #endif
 }
@@ -110,6 +111,7 @@
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         //todo
+        @strongify(self)
         [self.myEventTableView.mj_header endRefreshing];
         [ToastView popToast:@"刷新失败,请稍候再试"];
     }];

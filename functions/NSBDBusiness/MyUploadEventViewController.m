@@ -124,21 +124,22 @@
 #pragma mark --http request
 -(void) requestData
 {
+    @weakify(self)
     requestPage =1;
     [[EventHttpManager sharedManager] requestHistoryEventWithPage:requestPage SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        
+        @strongify(self)
         CommitedEventHistoryModel *model = [CommitedEventHistoryModel objectWithKeyValues:dict];
         if (model.success)
         {
             requestPage++;
-            [_uploadedEventModel removeAllObjects];
+            [self.uploadedEventModel removeAllObjects];
             for (id data in model.datalist) {
                 EventReportModel *eModelItem = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
                 
-                [_uploadedEventModel addObject:eModelItem];
+                [self.uploadedEventModel addObject:eModelItem];
             }
             hasMore = [model hasMore];
-            [_uploadedEventTableView reloadData];
+            [self.uploadedEventTableView reloadData];
         }else if (model.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
@@ -149,8 +150,9 @@
         [_uploadedEventTableView.mj_header endRefreshing];
         
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        @strongify(self)
         [ToastView popToast:@"加载失败，请稍后再试"];
-        [_uploadedEventTableView.mj_footer endRefreshing];
+        [self.uploadedEventTableView.mj_footer endRefreshing];
     }];
 }
 

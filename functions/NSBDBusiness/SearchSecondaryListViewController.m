@@ -213,6 +213,8 @@
                 [self.tableView.mj_header endRefreshing];
 
             } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                
+                @strongify(self)
                 [self.tableView.mj_header endRefreshing];
             }];
         }else
@@ -232,6 +234,8 @@
                 [self.tableView.mj_header endRefreshing];
                 
             } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                
+                @strongify(self)
                 [self.tableView.mj_header endRefreshing];
             }];
         }
@@ -251,6 +255,8 @@
             [self.tableView.mj_header endRefreshing];
             
         } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            
+            @strongify(self)
             [self.tableView.mj_header endRefreshing];
         }];
     }

@@ -168,6 +168,10 @@
 		B2748D621DB0D78E00C0166F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2748D641DB0D78E00C0166F /* Localizable.strings */; };
 		B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */; };
 		B2748D6B1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */; };
+		B2748D6E1DB4740D00C0166F /* MyDealedEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D6D1DB4740D00C0166F /* MyDealedEventDetailViewController.m */; };
+		B2748D701DB476E800C0166F /* wushuju@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2748D6F1DB476E800C0166F /* wushuju@2x.png */; };
+		B2748D731DB4A9CF00C0166F /* MyDealedEventDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */; };
+		B2748D761DB4A9FF00C0166F /* MyDealedEventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
 		B28069BE1D68081D0097F7E4 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
@@ -582,6 +586,13 @@
 		B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SupportRotationSelectBaseViewController+VideoPlay.m"; path = "functions/NSBDBusiness/SupportRotationSelectBaseViewController+VideoPlay.m"; sourceTree = "<group>"; };
 		B2748D691DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SearchDetailSheetViewController+pickMedia.h"; path = "functions/NSBDBusiness/SearchDetailSheetViewController+pickMedia.h"; sourceTree = "<group>"; };
 		B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SearchDetailSheetViewController+pickMedia.m"; path = "functions/NSBDBusiness/SearchDetailSheetViewController+pickMedia.m"; sourceTree = "<group>"; };
+		B2748D6C1DB4740D00C0166F /* MyDealedEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventDetailViewController.h; path = functions/NSBDBusiness/MyDealedEventDetailViewController.h; sourceTree = "<group>"; };
+		B2748D6D1DB4740D00C0166F /* MyDealedEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailViewController.m; path = functions/NSBDBusiness/MyDealedEventDetailViewController.m; sourceTree = "<group>"; };
+		B2748D6F1DB476E800C0166F /* wushuju@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wushuju@2x.png"; path = "images/wushuju@2x.png"; sourceTree = "<group>"; };
+		B2748D711DB4A9CF00C0166F /* MyDealedEventDetailItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventDetailItem.h; path = functions/NSBDBusiness/Model/MyDealedEventDetailItem.h; sourceTree = "<group>"; };
+		B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailItem.m; path = functions/NSBDBusiness/Model/MyDealedEventDetailItem.m; sourceTree = "<group>"; };
+		B2748D741DB4A9FF00C0166F /* MyDealedEventDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventDetailModel.h; path = functions/NSBDBusiness/Model/MyDealedEventDetailModel.h; sourceTree = "<group>"; };
+		B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailModel.m; path = functions/NSBDBusiness/Model/MyDealedEventDetailModel.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
 		B28069B01D670F930097F7E4 /* DGQAirItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQAirItem.h; path = functions/NSBDBusiness/Model/DGQAirItem.h; sourceTree = "<group>"; };
 		B28069B11D670F930097F7E4 /* DGQAirItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQAirItem.m; path = functions/NSBDBusiness/Model/DGQAirItem.m; sourceTree = "<group>"; };
@@ -994,6 +1005,7 @@
 		A4958F9C1D0EEC29001FCE6F /* images */ = {
 			isa = PBXGroup;
 			children = (
+				B2748D6F1DB476E800C0166F /* wushuju@2x.png */,
 				A412B89A1DB2785F003CAE02 /* btn_fd.png */,
 				A412B89B1DB2785F003CAE02 /* btn_sx.png */,
 				A412B89C1DB27860003CAE02 /* icon_map_daohang.png */,
@@ -1709,6 +1721,8 @@
 				A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */,
 				A412B8B91DB3E6B7003CAE02 /* MyDealedEventViewController.h */,
 				A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */,
+				B2748D6C1DB4740D00C0166F /* MyDealedEventDetailViewController.h */,
+				B2748D6D1DB4740D00C0166F /* MyDealedEventDetailViewController.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1736,6 +1750,10 @@
 				A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */,
 				A412B8BF1DB3E95C003CAE02 /* MyDealedEventItem.h */,
 				A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */,
+				B2748D741DB4A9FF00C0166F /* MyDealedEventDetailModel.h */,
+				B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */,
+				B2748D711DB4A9CF00C0166F /* MyDealedEventDetailItem.h */,
+				B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1818,7 +1836,7 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JJDA4SZYT3;
+						DevelopmentTeam = YEPQ327WH5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1879,6 +1897,7 @@
 				A4E68C211D69403100DD603B /* icon_mywork@3x.png in Resources */,
 				B28069DF1D682AC90097F7E4 /* icon_delete.png in Resources */,
 				B28069EA1D682AC90097F7E4 /* icon_gogo.png in Resources */,
+				B2748D701DB476E800C0166F /* wushuju@2x.png in Resources */,
 				B205A5311D61D378007530EB /* MJRefresh.bundle in Resources */,
 				B28653B91D4862B3002D4139 /* delete@3x.png in Resources */,
 				A4E68C221D69403100DD603B /* icon_qrcode@3x.png in Resources */,
@@ -1980,6 +1999,7 @@
 				A41D4E9E1D9F387100F75C99 /* LiveDataLiuliangViewController.m in Sources */,
 				B2A187311D66AF4B006D8CA7 /* NSObject+MJKeyValue.m in Sources */,
 				B205A4A71D61C4FF007530EB /* SearchHomePageModel.m in Sources */,
+				B2748D6E1DB4740D00C0166F /* MyDealedEventDetailViewController.m in Sources */,
 				B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
 				B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */,
@@ -2089,6 +2109,7 @@
 				A4F2FC111D8458FB00B0532B /* MyUploadEventViewController.m in Sources */,
 				A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */,
 				B205A4A41D61A316007530EB /* SearchHomePageViewController.m in Sources */,
+				B2748D731DB4A9CF00C0166F /* MyDealedEventDetailItem.m in Sources */,
 				A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
@@ -2127,6 +2148,7 @@
 				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,
 				A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */,
 				B205A5291D61D378007530EB /* MJRefreshAutoNormalFooter.m in Sources */,
+				B2748D761DB4A9FF00C0166F /* MyDealedEventDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2250,7 +2272,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2264,7 +2286,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2277,7 +2299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2291,7 +2313,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

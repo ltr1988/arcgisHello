@@ -37,7 +37,16 @@
                                   disposeBy:(NSString*) disposeBy
                             SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
-
 //我的处置任务 查询
 -(void) requestMyDealedEventListWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//我的处置任务详情 查询
+-(void) requestMyDealedEventDetailWithId:(NSString *)eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+// 我的处置任务历史查询
+-(void) requestMyDealedEventProgressListWithId:(NSString*) eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+// 我的处置任务 添加进度
+-(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                    content:(NSString*) content
+                            SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

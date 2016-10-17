@@ -67,22 +67,24 @@
         [ToastView popToast:@"暂无网络，稍后再试"];
         return;
     }
-    
+    @weakify(self)
     pageNum = 1;
     [[SearchHistoryManager sharedManager] requestSearchHistoryListWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        
+        @strongify(self)
         SearchHistoryModel *aModel = [SearchHistoryModel objectWithKeyValues:dict];
 
         if (aModel.success)
         {
             pageNum++;
-            [_datalist removeAllObjects];
+            [self.datalist removeAllObjects];
             for (NSArray* array in aModel.datalist) {
                 SearchHistoryTaskItem *item = [[SearchHistoryTaskItem alloc] initWithSearchHistoryMetaArray:array];
-                [_datalist addObject:[item searchHistoryItem]];
+                [self.datalist addObject:[item searchHistoryItem]];
             }
             
             hasMore = [aModel hasMore];
-            [_tableView reloadData];
+            [self.tableView reloadData];
         }else if (aModel.status == HttpResultInvalidUser)
         {
             [ToastView popToast:@"您的帐号在其他地方登录"];
@@ -90,11 +92,12 @@
         }else
             [ToastView popToast:@"获取失败，请稍后再试"];
         
-        [_tableView.mj_header endRefreshing];
+        [self.tableView.mj_header endRefreshing];
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"获取失败，请稍后再试"];
         
-        [_tableView.mj_header endRefreshing];
+        @strongify(self)
+        [self.tableView.mj_header endRefreshing];
     }];
     
 }

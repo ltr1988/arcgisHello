@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, HttpTaskType) {
 @interface HttpManager : NSObject
 +(AFHTTPSessionManager *)loginManager;
 +(AFHTTPSessionManager *)NSBDManager;
++(AFHTTPSessionManager *)NSBDFileManager;
 +(AFHTTPSessionManager *)jsonManager;
 
 
