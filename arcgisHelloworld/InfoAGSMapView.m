@@ -15,6 +15,10 @@
 {
     [super touchesBegan:touches withEvent:event]; // Message superclass
     
+    if (self.mapViewTouchesCallback) {
+        _mapViewTouchesCallback();
+    }
+    
     if (self.infoView && self.infoView.hidden == NO) {
         UITouch *touch = [touches anyObject]; // Get touch from set
         

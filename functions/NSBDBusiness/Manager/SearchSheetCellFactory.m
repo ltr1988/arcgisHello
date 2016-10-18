@@ -21,8 +21,16 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }
+        case SheetUIStyle_ShortTextWeather:
         case SheetUIStyle_ShortText: {
             cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            break;
+        }
+        case SheetUIStyle_ShortTextNum:
+        {
+            cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            [(TitleTextInputCell*)cell setKeyBoardType:UIKeyboardTypeDecimalPad];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         }

@@ -38,6 +38,15 @@ static NSString *ip;
         mapView.gridLineWidth = 0.1;
         
         [MapViewManager resetLayer:mapView];
+        
+        
+        __weak AGSMapView *weakView = mapView;
+        mapView.mapViewTouchesCallback = ^{
+            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[weakView mapLayerForName:@"Graphics Layer"];
+            if (glayer && glayer.graphics && glayer.graphics.count>0) {
+                [glayer removeAllGraphics];
+            }
+        };
 
     });
     return mapView;
@@ -77,6 +86,7 @@ static NSString *ip;
     [aMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
     [aMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
     [aMapView addMapLayer:glayer withName:@"Graphics Layer"];
+    
     
     aMapView.backgroundColor = [UIColor lightGrayColor];
 

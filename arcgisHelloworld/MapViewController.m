@@ -20,6 +20,7 @@
 #import "WebViewController.h"
 #import "MapViewController+InfoMapping.h"
 #import "MapSearchInfoViewController.h"
+#import "WeatherManager.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -48,7 +49,7 @@
     //create identify task
     [self doReloadTask];
     
-    
+    [[WeatherManager sharedInstance] requestData];
 }
 
 -(void) doReloadTask
@@ -327,6 +328,16 @@
                 continue;
             
             
+            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
+            if (glayer) {
+                [glayer removeAllGraphics];
+                AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"myPic.png"];
+                myPictureSymbol.size = CGSizeMake(36, 36);
+                //向右上方偏移5个像素
+                myPictureSymbol.offset = CGPointMake(0, -18);
+                AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry symbol:myPictureSymbol attributes:nil];
+                [glayer addGraphic:symbol];
+            }
                             
             NSString *departName = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"ManE"];
             ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];

@@ -31,6 +31,9 @@
     return manager;
 }
 
+
+#pragma mark file
+
 -(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
@@ -110,6 +113,66 @@
                   }
               }];
 }
+
+-(void) requestQueryAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"fkid": fkid,
+                            };
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"query" req:info];
+    
+    [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                                 parameters:nil
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                        // 请求成功
+                                        if (success) {
+                                            dispatch_main_async_safe(^{
+                                                success(task,dict);
+                                            });
+                                        }
+                                        
+                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                        // 请求失败
+                                        if (fail) {
+                                            dispatch_main_async_safe(^{
+                                                fail(task,error);
+                                            });
+                                        }
+                                    }];
+}
+
+
+-(void) requestDownloadAttachmentWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
+                            @"fkid": fkid,
+                            };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"download" req:info];
+    
+    [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                                 parameters:nil
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                        // 请求成功
+                                        if (success) {
+                                            dispatch_main_async_safe(^{
+                                                success(task,dict);
+                                            });
+                                        }
+                                        
+                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                        // 请求失败
+                                        if (fail) {
+                                            dispatch_main_async_safe(^{
+                                                fail(task,error);
+                                            });
+                                        }
+                                    }];
+}
+
+#pragma mark business
 
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {

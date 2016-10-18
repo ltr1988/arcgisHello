@@ -15,6 +15,8 @@ typedef NS_ENUM(NSUInteger, SheetUIStyle)
 {
     SheetUIStyle_ReadonlyText,
     SheetUIStyle_ShortText, //TitleDetailCell
+    SheetUIStyle_ShortTextNum,
+    SheetUIStyle_ShortTextWeather,
     SheetUIStyle_Text,     //vc
     SheetUIStyle_Switch, // CheckableTitleCell    SheetUIStyle_ImageAndVideo, //EventMediaPickerView
     SheetUIStyle_Date,

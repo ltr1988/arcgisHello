@@ -20,5 +20,5 @@
 {
     UITextField *inputTextField;
 }
-
+-(void) setKeyBoardType:(UIKeyboardType) type;
 @end

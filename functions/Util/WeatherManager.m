@@ -43,13 +43,10 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
              // 请求成功
-             if(dict){
-                 if ([dict[@"error"] integerValue] == 0)
-                 {
-                     self.date = dict[@"date"];
-                     NSArray *weatherData = [dict[@"results"] firstObject][@"weather_data"];
-                     self.weather = [weatherData firstObject][@"weather"];
-                 }
+             if(dict && [dict[@"error"] integerValue] == 0){
+                 self.date = dict[@"date"];
+                 NSArray *weatherData = [dict[@"results"] firstObject][@"weather_data"];
+                 self.weather = [weatherData firstObject][@"weather"];
              } else {
                  self.date = @"not set";
                  self.weather = @"未知";

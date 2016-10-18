@@ -7,9 +7,12 @@
 //
 
 #import <Arcgis/Arcgis.h>
+#import "CommonDefine.h"
 
 @interface InfoAGSMapView : AGSMapView
 @property (nonatomic,strong) UIView *infoView;
 @property (nonatomic,strong) UIView *bottomView;
+
+@property (nonatomic,copy) ActionCallback mapViewTouchesCallback;
 -(void) showInfoView:(BOOL)animated;
 @end

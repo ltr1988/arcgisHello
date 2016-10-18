@@ -63,6 +63,7 @@
 {
     manager = [WeatherManager sharedInstance];
     
+    self.model.weather.detail = manager.weather;
     NSKeyValueObservingOptions static const
     options = NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionOld |
     NSKeyValueObservingOptionNew;

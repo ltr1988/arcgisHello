@@ -122,15 +122,15 @@
                  @"weather":@[@(SheetUIStyle_ShortText),@(2)],
                  },
              @{
-                 @"group":@"阀体温度",
-                 @"gatetemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
-                 @"gatetemperatureright":@[@(SheetUIStyle_Switch),@(2)],
+                 @"group":@"阀体温度℃",
+                 @"gatetemperatureleft":@[@(SheetUIStyle_ShortTextNum),@(1)],
+                 @"gatetemperatureright":@[@(SheetUIStyle_ShortTextNum),@(2)],
                  },
 
              @{
-                 @"group":@"井内温度",
-                 @"welltemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
-                 @"welltemperatureright":@[@(SheetUIStyle_Switch),@(2)],
+                 @"group":@"井内温度℃",
+                 @"welltemperatureleft":@[@(SheetUIStyle_ShortTextNum),@(1)],
+                 @"welltemperatureright":@[@(SheetUIStyle_ShortTextNum),@(2)],
                  },
 
              @{

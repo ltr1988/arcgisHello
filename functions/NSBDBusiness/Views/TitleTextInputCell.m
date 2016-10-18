@@ -12,6 +12,11 @@
 
 @implementation TitleTextInputCell
 
+-(void) setKeyBoardType:(UIKeyboardType) type
+{
+    inputTextField.keyboardType=type;
+}
+
 -(void) setupSubViews
 {
     [super setupSubViews];
