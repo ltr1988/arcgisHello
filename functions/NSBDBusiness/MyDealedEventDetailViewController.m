@@ -18,6 +18,8 @@
 #import "MyDealedEventDetailItem.h"
 #import "MyDealedEventDetailModel.h"
 
+#import "MyEventDetailViewController.h"
+
 @interface MyDealedEventDetailViewController ()
 {
     UILabel *titleLabel;
@@ -201,7 +203,8 @@
 
 -(void) actionProgress:(id) sender
 {
-    
+    MyEventDetailViewController *vc = [[MyEventDetailViewController alloc] initWithEventId:self.item.eid departName:@"" eventType:MyEventDetailType_Dispose];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void) actionCancel:(id) sender

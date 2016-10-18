@@ -72,10 +72,8 @@
     }
     info[@"taskid"] = self.taskid;
     info[@"id"] = self.itemId;
-    info[@"wellname"] = self.wellname;
     info[@"operate"] = @"insert";
     info[@"userName"] = [AuthorizeManager sharedInstance].userName;
-    //info[@"type"] = @"东干渠排气井";
     
     return info;
 }
@@ -94,51 +92,77 @@
                  @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
                  },
              @{
-                 @"group":@"地上部分",
-                 @"over_ground":@[@(SheetUIStyle_Switch),@(1)],
-                 @"over_crawl":@[@(SheetUIStyle_Switch),@(2)],
-                 @"over_blowhole":@[@(SheetUIStyle_Switch),@(3)],
-                 @"over_welllid":@[@(SheetUIStyle_Switch),@(4)],
-                 @"over_health":@[@(SheetUIStyle_Switch),@(5)],
+                 @"group":@"手阀情况",
+                 @"handgateleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"handgateright":@[@(SheetUIStyle_Switch),@(2)],
                  },
              @{
-                 @"group":@"地下部分",
-                 @"under_ladder":@[@(SheetUIStyle_Switch),@(1)],
-                 @"under_guardrail":@[@(SheetUIStyle_Switch),@(2)],
-                 @"under_wall":@[@(SheetUIStyle_Switch),@(3)],
-                 @"unde_health":@[@(SheetUIStyle_Switch),@(4)],
-                 @"unde_airgate":@[@(SheetUIStyle_Switch),@(5)],
-                 @"unde_sluicegate":@[@(SheetUIStyle_Switch),@(6)],
-                 @"unde_ballgate":@[@(SheetUIStyle_Switch),@(7)],
-                 @"under_bottom":@[@(SheetUIStyle_Switch),@(8)],
+                 @"group":@"空气阀情况",
+                 @"airgateleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"airgateright":@[@(SheetUIStyle_Switch),@(2)],
                  },
+             @{
+                 @"group":@"积水情况",
+                 @"pondleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"pondright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"保温设施",
+                 @"warmleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"warmright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"阴极保护",
+                 @"negativeleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"negativelright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"",
+                 @"environment":@[@(SheetUIStyle_ShortText),@(1)],
+                 @"weather":@[@(SheetUIStyle_ShortText),@(2)],
+                 },
+             @{
+                 @"group":@"阀体温度",
+                 @"gatetemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"gatetemperatureright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+
+             @{
+                 @"group":@"井内温度",
+                 @"welltemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"welltemperatureright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+
              @{
                  @"group":@"",
                  @"remark":@[@(SheetUIStyle_Text),@(1)],
                  },
              ];
-    
-    
 }
 
 -(NSDictionary *)defaultUITextMapping
 {
     return @{
              @"wellnum":@"井号",
-             @"over_ground":@"地面",
-             @"over_crawl":@"围栏",
-             @"over_blowhole":@"气孔",
-             @"over_welllid":@"井盖",
-             @"over_health":@"卫生",
-             @"under_ladder":@"爬梯",
-             @"under_guardrail":@"护栏",
-             @"under_wall":@"井壁",
-             @"unde_health":@"卫生",
-             @"unde_airgate":@"气阀",
-             @"unde_sluicegate":@"闸阀",
-             @"unde_ballgate":@"球阀",
-             @"under_bottom":@"井底",
-             @"remark":@"备注",
+             @"weather":@"天气情况",
+             @"exedate":@"执行时间",
+             @"handgateleft":@"左手阀",
+             @"handgateright":@"右手阀",
+             @"airgateleft":@"左手阀",
+             @"airgateright":@"右手阀",
+             @"pondleft":@"左手阀",
+             @"pondright":@"右手阀",
+             @"warmleft":@"左手阀",
+             @"warmright":@"右手阀",
+             @"negativeleft":@"左手阀",
+             @"negativelright":@"右手阀",
+             @"environment":@"环境设施",
+             @"gatetemperatureleft":@"左线",
+             @"gatetemperatureright":@"右线",
+             @"welltemperatureleft":@"左线",
+             @"welltemperatureright":@"右线",
+             @"remark":@"备注情况说明",
+             
              };
 }
 

@@ -269,7 +269,7 @@
                             };
     
     
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"getDisposeList" req:info];
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incidentTask" method:@"getDisposeList" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]

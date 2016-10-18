@@ -29,6 +29,10 @@
 #import "AttachmentItem.h"
 #import "MyDealedEventListModel.h"
 #import "MyDealedEventItem.h"
+#import "MyDealedEventDetailModel.h"
+#import "MyDealedEventDetailItem.h"
+#import "MyDealedEventDetailProgressModel.h"
+#import "MyDealedEventHistoryItem.h"
 
 @implementation QRModelsManager
 
@@ -77,6 +81,11 @@
       [AttachmentItem class],
       [MyDealedEventListModel class],
       [MyDealedEventItem class],
+      [MyDealedEventDetailModel class],
+      [MyDealedEventDetailItem class],
+      [MyDealedEventDetailProgressModel class],
+      [MyDealedEventHistoryItem class],
+    
       ];
     
     

@@ -24,6 +24,8 @@
 		A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */; };
 		A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */; };
 		A412B8C41DB3EA8E003CAE02 /* MyDealedEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */; };
+		A412B8D31DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8D21DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m */; };
+		A412B8D61DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */; };
 		A414AC821D39D17B0065AAA7 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
 		A414AC8F1D3A08150065AAA7 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8B1D3A08150065AAA7 /* RedPushpin.png */; };
 		A414AC901D3A08150065AAA7 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */; };
@@ -321,6 +323,10 @@
 		A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventItem.m; path = functions/NSBDBusiness/Model/MyDealedEventItem.m; sourceTree = "<group>"; };
 		A412B8C21DB3EA8E003CAE02 /* MyDealedEventItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventItemCell.h; path = functions/NSBDBusiness/Views/MyDealedEventItemCell.h; sourceTree = "<group>"; };
 		A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventItemCell.m; path = functions/NSBDBusiness/Views/MyDealedEventItemCell.m; sourceTree = "<group>"; };
+		A412B8D11DB4FCCD003CAE02 /* MyDealedEventHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventHistoryItem.h; path = functions/NSBDBusiness/Model/MyDealedEventHistoryItem.h; sourceTree = "<group>"; };
+		A412B8D21DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventHistoryItem.m; path = functions/NSBDBusiness/Model/MyDealedEventHistoryItem.m; sourceTree = "<group>"; };
+		A412B8D41DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDealedEventDetailProgressModel.h; path = functions/NSBDBusiness/Model/MyDealedEventDetailProgressModel.h; sourceTree = "<group>"; };
+		A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDealedEventDetailProgressModel.m; path = functions/NSBDBusiness/Model/MyDealedEventDetailProgressModel.m; sourceTree = "<group>"; };
 		A414AC801D39D17B0065AAA7 /* HttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpManager.h; path = functions/Util/HttpManager.h; sourceTree = "<group>"; };
 		A414AC811D39D17B0065AAA7 /* HttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpManager.m; path = functions/Util/HttpManager.m; sourceTree = "<group>"; };
 		A414AC8B1D3A08150065AAA7 /* RedPushpin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedPushpin.png; path = images/RedPushpin.png; sourceTree = "<group>"; };
@@ -1805,6 +1811,10 @@
 				B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */,
 				B2748D711DB4A9CF00C0166F /* MyDealedEventDetailItem.h */,
 				B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */,
+				A412B8D11DB4FCCD003CAE02 /* MyDealedEventHistoryItem.h */,
+				A412B8D21DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m */,
+				A412B8D41DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.h */,
+				A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -2012,6 +2022,7 @@
 				B205A4461D532CE8007530EB /* ChoicePickerViewController.m in Sources */,
 				B205A49B1D5D7ABC007530EB /* QRCodeReaderView.m in Sources */,
 				B2F1D8A11D8E68E400A6EDCA /* ThreeColumnCell.m in Sources */,
+				A412B8D61DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m in Sources */,
 				B2A187301D66AF4B006D8CA7 /* NSObject+MJCoding.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				B2748D901DB4E41F00C0166F /* NGQWellItem.m in Sources */,
@@ -2172,6 +2183,7 @@
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */,
+				A412B8D31DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m in Sources */,
 				B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,

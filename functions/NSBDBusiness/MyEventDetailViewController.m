@@ -25,6 +25,7 @@
 #import "EventHttpManager.h"
 #import "MyEventDetailProgressModel.h"
 #import "TextPickerViewController.h"
+#import "MyDealedEventDetailProgressModel.h"
 
 @interface MyEventDetailViewController()<CenterSwitchActionDelegate>
 {
@@ -201,7 +202,7 @@
         [[EventHttpManager sharedManager] requestMyDealedEventProgressListWithId:eventId SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
             //todo
             @strongify(self)
-            MyEventDetailProgressModel *item = [MyEventDetailProgressModel objectWithKeyValues:dict];
+            MyDealedEventDetailProgressModel *item = [MyDealedEventDetailProgressModel objectWithKeyValues:dict];
             if (item.success)
             {
                 _historyModel = [item.datalist copy];

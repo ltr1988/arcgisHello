@@ -1,25 +1,24 @@
 //
-//  MyEventHistoryItem.m
+//  MyDealedEventHistoryItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/9/7.
+//  Created by fifila on 16/10/17.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "MyEventHistoryItem.h"
+#import "MyDealedEventHistoryItem.h"
+
 #import "AttachmentItem.h"
 #import "UploadAttachmentModel.h"
-
-@implementation MyEventHistoryItem
+@implementation MyDealedEventHistoryItem
 
 +(NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"detailId" :@"id",
-             @"disposeDescription" :@"disposeDescription",
+             @"disposeComment" :@"disposeComment",
              @"addTime" :@"addTime",
-             @"creatorName" :@"creatorName",
+             @"creatorName" :@"creator",
              @"fileList" :@"fileList",
-             @"disposeBy" :@"disposeBy",
              };
     
 }
@@ -42,7 +41,7 @@
 
 -(NSString *)title
 {
-    return _disposeDescription;
+    return _disposeComment;
 }
 -(NSString *)date
 {
@@ -54,7 +53,7 @@
 }
 -(NSString *)place
 {
-    return _disposeBy;
+    return @"";
 }
 
 -(NSArray *)images
@@ -67,5 +66,3 @@
     return [_attachment.videoURL path];
 }
 @end
-
-

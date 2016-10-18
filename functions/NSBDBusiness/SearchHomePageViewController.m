@@ -289,11 +289,15 @@
         return;
     }
     @weakify(self)
-    [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+    SearchSessionManager *sessionMgr = [SearchSessionManager sharedManager];
+    @weakify(sessionMgr)
+    [sessionMgr requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         @strongify(self)
+        @strongify(sessionMgr)
         HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
         if (item.success)
         {
+            [sessionMgr setSession:nil];
             [self.navigationController popViewControllerAnimated:YES];
             
         }else if (item.status == HttpResultInvalidUser)

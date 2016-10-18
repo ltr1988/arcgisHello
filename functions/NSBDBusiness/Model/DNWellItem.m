@@ -79,7 +79,7 @@
 
 -(NSString *) actionKey
 {
-    return @"dgqwell";
+    return @"dnwell";
 }
 
 #pragma mark UILayout
@@ -92,37 +92,45 @@
                  @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
                  },
              @{
-                 @"group":@"干井",
-                 @"dry_creepwell":@[@(SheetUIStyle_Switch),@(2)],
-                 @"dry_crawl":@[@(SheetUIStyle_Switch),@(3)],
-                 @"dry_wall":@[@(SheetUIStyle_Switch),@(4)],
-                 @"dry_bottom":@[@(SheetUIStyle_Switch),@(5)],
-                 @"dry_health":@[@(SheetUIStyle_Switch),@(6)],
-                 @"dry_flygate":@[@(SheetUIStyle_Switch),@(7)],
-                 @"dry_connect":@[@(SheetUIStyle_Switch),@(8)],
-                 @"dry_handgate":@[@(SheetUIStyle_Switch),@(9)],
-                 @"dry_sluice":@[@(SheetUIStyle_Switch),@(10)],
+                 @"group":@"手阀情况",
+                 @"handgateleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"handgateright":@[@(SheetUIStyle_Switch),@(2)],
                  },
              @{
-                 @"group":@"湿井",
-                 @"wet_creepwell":@[@(SheetUIStyle_Switch),@(1)],
-                 @"wet_crawl":@[@(SheetUIStyle_Switch),@(2)],
-                 @"wet_wall":@[@(SheetUIStyle_Switch),@(3)],
-                 @"wet_bottom":@[@(SheetUIStyle_Switch),@(4)],
-                 @"wet_health":@[@(SheetUIStyle_Switch),@(5)],
-                 @"wet_drain":@[@(SheetUIStyle_Switch),@(6)],
+                 @"group":@"空气阀情况",
+                 @"airgateleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"airgateright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"积水情况",
+                 @"pondleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"pondright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"保温设施",
+                 @"warmleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"warmright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"阴极保护",
+                 @"negativeleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"negativelright":@[@(SheetUIStyle_Switch),@(2)],
+                 },
+             @{
+                 @"group":@"",
+                 @"environment":@[@(SheetUIStyle_ShortText),@(1)],
+                 @"weather":@[@(SheetUIStyle_ShortText),@(2)],
+                 },
+             @{
+                 @"group":@"阀体温度",
+                 @"gatetemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"gatetemperatureright":@[@(SheetUIStyle_Switch),@(2)],
                  },
              
              @{
-                 @"group":@"出水阀井",
-                 @"water_creepwell":@[@(SheetUIStyle_Switch),@(1)],
-                 @"water_crawl":@[@(SheetUIStyle_Switch),@(2)],
-                 @"water_wall":@[@(SheetUIStyle_Switch),@(3)],
-                 @"water_bottom":@[@(SheetUIStyle_Switch),@(4)],
-                 @"water_health":@[@(SheetUIStyle_Switch),@(5)],
-                 @"water_flygate":@[@(SheetUIStyle_Switch),@(6)],
-                 @"water_connect":@[@(SheetUIStyle_Switch),@(7)],
-                 @"water_tillgate":@[@(SheetUIStyle_Switch),@(8)],
+                 @"group":@"井内温度",
+                 @"welltemperatureleft":@[@(SheetUIStyle_Switch),@(1)],
+                 @"welltemperatureright":@[@(SheetUIStyle_Switch),@(2)],
                  },
              
              @{
@@ -130,46 +138,32 @@
                  @"remark":@[@(SheetUIStyle_Text),@(1)],
                  },
              ];
-    
 }
-
 
 -(NSDictionary *)defaultUITextMapping
 {
     return @{
              @"wellnum":@"井号",
-             @"dry_creepwell":@"爬井",
-             @"dry_crawl":@"围栏",
-             @"dry_wall":@"井壁",
-             @"dry_bottom":@"井底",
-             @"dry_health":@"卫生",
-             @"dry_flygate":@"电动蝶阀",
-             @"dry_connect":@"伸缩接头",
-             @"dry_handgate":@"手动蝶阀",
-             @"dry_sluice":@"电动闸阀",
+             @"weather":@"天气情况",
+             @"exedate":@"执行时间",
+             @"handgateleft":@"左手阀",
+             @"handgateright":@"右手阀",
+             @"airgateleft":@"左手阀",
+             @"airgateright":@"右手阀",
+             @"pondleft":@"左手阀",
+             @"pondright":@"右手阀",
+             @"warmleft":@"左手阀",
+             @"warmright":@"右手阀",
+             @"negativeleft":@"左手阀",
+             @"negativelright":@"右手阀",
+             @"environment":@"环境设施",
+             @"gatetemperatureleft":@"左线",
+             @"gatetemperatureright":@"右线",
+             @"welltemperatureleft":@"左线",
+             @"welltemperatureright":@"右线",
+             @"remark":@"备注情况说明",
              
-             @"wet_creepwell":@"爬井",
-             @"wet_crawl":@"围栏",
-             @"wet_wall":@"井壁",
-             @"wet_bottom":@"井底",
-             @"wet_health":@"卫生",
-             @"wet_drain":@"潜水排污泵",
-             
-             @"water_creepwell":@"爬井",
-             @"water_crawl":@"围栏",
-             @"water_wall":@"井壁",
-             @"water_bottom":@"井底",
-             @"water_health":@"卫生",
-             @"water_flygate":@"电动蝶阀",
-             @"water_connect":@"伸缩接头",
-             @"water_tillgate":@"蝶式止回阀",
-             
-             @"remark":@"备注",
              };
-    
-
-
-
 }
 
 @end
