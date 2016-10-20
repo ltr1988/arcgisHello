@@ -119,7 +119,7 @@
              @{
                  @"group":@"",
                  @"environment":@[@(SheetUIStyle_ShortText),@(1)],
-                 @"weather":@[@(SheetUIStyle_ShortText),@(2)],
+                 @"weather":@[@(SheetUIStyle_ShortTextWeather),@(2)],
                  },
              @{
                  @"group":@"阀体温度",

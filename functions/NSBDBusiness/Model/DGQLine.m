@@ -82,7 +82,7 @@
                  @"stakestart":@[@(SheetUIStyle_ShortText),@(1)],
                  @"stakeend":@[@(SheetUIStyle_ShortText),@(2)],
                  @"exedate":@[@(SheetUIStyle_Date),@(3)],
-                 @"weather":@[@(SheetUIStyle_ShortText),@(4)],
+                 @"weather":@[@(SheetUIStyle_ShortTextWeather),@(4)],
                  },
              @{
                  @"group":@"巡查内容",

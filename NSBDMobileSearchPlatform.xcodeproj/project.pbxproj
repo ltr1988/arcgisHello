@@ -179,7 +179,6 @@
 		B2748D851DB4E41000C0166F /* DNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D801DB4E41000C0166F /* DNLine.m */; };
 		B2748D871DB4E41000C0166F /* DNWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D841DB4E41000C0166F /* DNWellItem.m */; };
 		B2748D8E1DB4E41F00C0166F /* NGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D891DB4E41F00C0166F /* NGQLine.m */; };
-		B2748D8F1DB4E41F00C0166F /* NGQWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */; };
 		B2748D901DB4E41F00C0166F /* NGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */; };
 		B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
 		B28069B61D67F8680097F7E4 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
@@ -616,8 +615,6 @@
 		B2748D841DB4E41000C0166F /* DNWellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNWellItem.m; path = functions/NSBDBusiness/Model/DNWellItem.m; sourceTree = "<group>"; };
 		B2748D881DB4E41F00C0166F /* NGQLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQLine.h; path = functions/NSBDBusiness/Model/NGQLine.h; sourceTree = "<group>"; };
 		B2748D891DB4E41F00C0166F /* NGQLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQLine.m; path = functions/NSBDBusiness/Model/NGQLine.m; sourceTree = "<group>"; };
-		B2748D8A1DB4E41F00C0166F /* NGQWaterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWaterItem.h; path = functions/NSBDBusiness/Model/NGQWaterItem.h; sourceTree = "<group>"; };
-		B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWaterItem.m; path = functions/NSBDBusiness/Model/NGQWaterItem.m; sourceTree = "<group>"; };
 		B2748D8C1DB4E41F00C0166F /* NGQWellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWellItem.h; path = functions/NSBDBusiness/Model/NGQWellItem.h; sourceTree = "<group>"; };
 		B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWellItem.m; path = functions/NSBDBusiness/Model/NGQWellItem.m; sourceTree = "<group>"; };
 		B28069AE1D670D710097F7E4 /* HttpBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpBaseModel.h; path = functions/NSBDBusiness/Model/HttpBaseModel.h; sourceTree = "<group>"; };
@@ -1442,8 +1439,6 @@
 			children = (
 				B2748D881DB4E41F00C0166F /* NGQLine.h */,
 				B2748D891DB4E41F00C0166F /* NGQLine.m */,
-				B2748D8A1DB4E41F00C0166F /* NGQWaterItem.h */,
-				B2748D8B1DB4E41F00C0166F /* NGQWaterItem.m */,
 				B2748D8C1DB4E41F00C0166F /* NGQWellItem.h */,
 				B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */,
 				B2748D791DB4E27F00C0166F /* NGQAirItem.h */,
@@ -1897,7 +1892,7 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = YEPQ327WH5;
+						DevelopmentTeam = JJDA4SZYT3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2204,7 +2199,6 @@
 				A4F2FC0E1D806D4900B0532B /* MyEventHistoryItem.m in Sources */,
 				B28653611D45E769002D4139 /* TitleTextInputCell.m in Sources */,
 				A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */,
-				B2748D8F1DB4E41F00C0166F /* NGQWaterItem.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,
@@ -2342,7 +2336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YEPQ327WH5;
+				DEVELOPMENT_TEAM = JJDA4SZYT3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2356,7 +2350,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2369,7 +2363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YEPQ327WH5;
+				DEVELOPMENT_TEAM = JJDA4SZYT3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2383,7 +2377,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
