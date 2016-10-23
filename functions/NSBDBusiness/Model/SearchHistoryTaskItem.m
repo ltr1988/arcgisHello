@@ -7,7 +7,7 @@
 //
 
 #import "SearchHistoryTaskItem.h"
-#import "SearchHistoryMetaData.h"
+#import "HttpMetaData.h"
 #import "SearchHistoryItem.h"
 
 @implementation SearchHistoryTaskItem
@@ -24,7 +24,7 @@
 -(SearchHistoryItem*) searchHistoryItem
 {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    for (SearchHistoryMetaData *data in _datalist) {
+    for (HttpMetaData *data in _datalist) {
         if ([data.dataID isEqualToString:@"id"] ||
             [data.dataID isEqualToString:@"endTime"] ||
             [data.dataID isEqualToString:@"startTime"]||

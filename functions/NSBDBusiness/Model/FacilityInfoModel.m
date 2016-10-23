@@ -1,15 +1,15 @@
 //
-//  SearchHistoryDetailSheetModel.m
+//  FacilityInfoModel.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/10/16.
+//  Created by fifila on 16/10/23.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SearchHistoryDetailSheetModel.h"
+#import "FacilityInfoModel.h"
 #import "HttpMetaData.h"
 
-@implementation SearchHistoryDetailSheetModel
+@implementation FacilityInfoModel
 + (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{@"datalist" :@"data.rows",
@@ -24,5 +24,4 @@
     [dict setObject:[HttpMetaData class] forKey:@"datalist"];
     return dict;
 }
-
 @end

@@ -6,14 +6,16 @@
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "SearchHistoryMetaData.h"
+#import "HttpMetaData.h"
 
-@implementation SearchHistoryMetaData
+@implementation HttpMetaData
 + (NSDictionary *)replacedKeyFromPropertyName
 {
     return @{
              @"dataID":@"id",
              @"value":@"value",
+             
+             @"title":@"title",
              };
     
 }

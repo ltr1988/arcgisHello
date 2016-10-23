@@ -46,6 +46,7 @@
     self = [super init];
     if (self)
     {
+        self.uuid = item.eid;
         self.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
         self.eventName.detail = item.title;
         self.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];

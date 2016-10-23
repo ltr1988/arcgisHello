@@ -19,6 +19,7 @@
 #import "MyEventHistoryCell.h"
 #import "MyEventHistoryItem.h"
 #import "UploadAttachmentModel.h"
+#import "NSString+UUID.h"
 
 #import "TitleDetailCell.h"
 #import "QRSeparatorCell.h"
@@ -428,9 +429,11 @@
 -(void) actionCommit:(id) sender
 {
     @weakify(self)
+    NSString *uuid = [NSString stringWithUUID];
     if (type == MyEventDetailType_Normal)
     {
         [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
+                                                                         uuid:uuid
                                                                         title:_feedbackModel.detail.text
                                                                     disposeBy:departName
                                                               SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
@@ -439,6 +442,17 @@
                                                                   if (item.success)
                                                                   {
                                                                       [ToastView popToast:@"提交成功"];
+                                                                      if (self.feedbackModel.images.count>0) {
+                                                                          for (UIImage *image in self.feedbackModel.images) {
+                                                                              [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:uuid qxyjFlag:YES successCallback:nil failCallback:nil];
+                                                                          }
+                                                                      }
+                                                                      
+                                                                      if (self.feedbackModel.video)
+                                                                      {
+                                                                          [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.feedbackModel.video fkid:uuid  qxyjFlag:YES successCallback:nil failCallback:nil];
+                                                                          
+                                                                      }
                                                                       _feedbackModel.detail.detail = @"未填写";
                                                                       _feedbackModel.detail.text = @"";
                                                                       [self.feedbackTableView reloadData];
@@ -461,6 +475,7 @@
     }else
     {
         [[EventHttpManager sharedManager] requestAddMyEventProgressListWithId:eventId
+                                                                         uuid:uuid
                                                                       content:_feedbackModel.detail.text
                                                               SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
                                                                   @strongify(self)

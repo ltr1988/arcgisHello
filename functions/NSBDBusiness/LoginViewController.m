@@ -11,6 +11,7 @@
 #import "AuthorizeManager.h"
 #import "ToastView.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "SearchSessionManager.h"
 
 @interface LoginViewController()<UITextFieldDelegate>
 {
@@ -87,7 +88,9 @@
             }
             if (success) {
                 _loginBtn.enabled = YES;
-
+                if ([SearchSessionManager sharedManager]) {
+                    [SearchSessionManager changeUser];
+                }
                 MapViewController *controller = [MapViewController new];
                 [self.navigationController pushViewController:controller animated:YES];
             }else

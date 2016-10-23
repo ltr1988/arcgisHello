@@ -40,6 +40,34 @@
     return self;
 }
 
+-(void) setFileList:(NSArray *)fileList
+{
+    _fileList = fileList;
+    if (fileList && fileList.count>0) {
+        if (!_attachment) {
+            _attachment = [[UploadAttachmentModel alloc] init];
+        }
+        @weakify(self)
+        for (AttachmentItem *item in fileList) {
+            if ([item.file_type isEqualToString:@"image"]) {
+                [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                    @strongify(self)
+                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:fileUrl]];
+                    [self.attachment.images addObject:image];
+                }];
+            }else
+            {
+                [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                    @strongify(self)
+                    NSURL *url = [NSURL fileURLWithPath:fileUrl];
+                    self.attachment.videoURL = url;
+                }];
+            }
+        }
+    }
+    
+}
+
 -(NSString *)title
 {
     return _disposeDescription;

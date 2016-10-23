@@ -12,7 +12,7 @@
 #import "SearchSessionManager.h"
 #import "SearchSessionItem.h"
 #import "NSString+UUID.h"
-#import "SearchHistoryMetaData.h"
+#import "HttpMetaData.h"
 #import "UploadAttachmentModel.h"
 
 @implementation NSBDBaseUIItem
@@ -107,7 +107,7 @@
 -(NSDictionary *) infoDictFromArray:(NSArray *)array
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:array.count];
-    for (SearchHistoryMetaData *meta in array) {
+    for (HttpMetaData *meta in array) {
         dict[meta.dataID.lowercaseString] = meta.value;
     }
     return [dict copy];

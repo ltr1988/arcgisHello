@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SearchHistoryMetaData : NSObject
+@interface HttpMetaData : NSObject
 @property (nonatomic,strong) NSString *dataID;
 @property (nonatomic,strong) NSString *value;
+
+@property (nonatomic,strong) NSString *title;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "AttachmentItem.h"
+#import "EventHttpManager.h"
+#import "NSString+LVPath.h"
 
 @implementation AttachmentItem
 + (NSDictionary *)replacedKeyFromPropertyName
@@ -16,5 +18,29 @@
              @"url" :@"url",
              };
     
+}
+
+
+-(void) downloadWithCompletionBlock:(DownloadCallback) completeBlock
+{
+    if (_fid && _file_type && _url) {
+        NSString *extension = [_url pathExtension];
+        NSString *cachePath = [[NSString cachesPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",_fid,extension]];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
+            if (completeBlock) {
+                completeBlock(cachePath,_file_type);
+            }
+            return;
+        }
+        
+        [[EventHttpManager sharedManager] requestDownloadAttachmentWithId:_fid successCallback:^(NSURLSessionDataTask *task, id dict) {
+            NSLog(@"%@", dict);
+            
+            //save to file cachePath
+//            if (completeBlock) {
+//                completeBlock(_url,_file_type);
+//            }
+        } failCallback:nil];
+    }
 }
 @end

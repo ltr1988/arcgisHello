@@ -16,6 +16,7 @@
 @property (nonatomic,strong) SearchSessionItem *session;
 
 +(instancetype) sharedManager;
++(void) changeUser;
 
 -(BOOL) hasSession;
 -(void) setNewSessionWithId:(NSString *)sessionId;

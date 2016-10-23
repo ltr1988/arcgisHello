@@ -76,6 +76,16 @@
     [self setupPickerManager];
     [self addObservers];
     
+    if (_readonly) {
+        [self requestAttachment];
+    }
+}
+
+-(void) requestAttachment
+{
+    [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:_model.uuid successCallback:^(NSURLSessionDataTask *task, id dict) {
+        NSLog(@"%@",dict);
+    } failCallback:nil];
 }
 
 -(void) setupModel
@@ -229,13 +239,13 @@
                 
                 if (self.model.attachmentModel.images.count>0) {
                     for (UIImage *image in self.model.attachmentModel.images) {
-                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.model.uuid successCallback:nil failCallback:nil];
+                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.model.uuid  qxyjFlag:YES successCallback:nil failCallback:nil];
                     }
                 }
                 
                 if (self.model.attachmentModel.videoURL)
                 {
-                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.model.attachmentModel.videoURL fkid:self.model.uuid successCallback:nil failCallback:nil];
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.model.attachmentModel.videoURL fkid:self.model.uuid qxyjFlag:YES successCallback:nil failCallback:nil];
 
                 }
             }

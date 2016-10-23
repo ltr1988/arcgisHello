@@ -19,7 +19,7 @@
 #import "CommitedEventHistoryItem.h"
 #import "CommitedEventHistoryModel.h"
 #import "MyEventHistoryItem.h"
-#import "SearchHistoryMetaData.h"
+#import "HttpMetaData.h"
 #import "SearchHistoryTaskItem.h"
 #import "SearchHistoryDetailSheetModel.h"
 #import "MyEventListModel.h"
@@ -33,7 +33,7 @@
 #import "MyDealedEventDetailItem.h"
 #import "MyDealedEventDetailProgressModel.h"
 #import "MyDealedEventHistoryItem.h"
-
+#import "FacilityInfoModel.h"
 @implementation QRModelsManager
 
 /*
@@ -71,7 +71,7 @@
       [CommitedEventHistoryItem class],
       [CommitedEventHistoryModel class],
       [MyEventHistoryItem class],
-      [SearchHistoryMetaData class],
+      [HttpMetaData class],
       [SearchHistoryTaskItem class],
       [SearchHistoryDetailSheetModel class],
       [MyEventListModel class],
@@ -85,6 +85,7 @@
       [MyDealedEventDetailItem class],
       [MyDealedEventDetailProgressModel class],
       [MyDealedEventHistoryItem class],
+      [FacilityInfoModel class],
     
       ];
     

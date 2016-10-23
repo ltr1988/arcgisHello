@@ -34,18 +34,18 @@
 
 #pragma mark file
 
--(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
-    NSDictionary * info = @{
-                            @"type":@"qxyj",//表单不填， qxyj对应事件上报
+    NSMutableDictionary * info = [@{
                             @"username": [AuthorizeManager sharedInstance].userName,
                             @"id":uuid,
                             @"fkid": fkid,
                             @"filetype": @"image", //@"video"
                             @"filename": [uuid stringByAppendingString:@".png"],
-                            };
-    
+                            } mutableCopy];
+    if (isQxyj)
+        info[@"type"]=@"qxyj";//表单不填， qxyj对应事件上报
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"doInDto" req:info];
     
@@ -75,17 +75,19 @@
 }
 
 //to be tested
--(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
-    NSDictionary * info = @{
-                            @"type":@"qxyj",//表单不填， qxyj对应事件上报
+    NSMutableDictionary * info = [@{
                             @"username": [AuthorizeManager sharedInstance].userName,
                             @"id":uuid,
                             @"fkid": fkid,
                             @"filetype": @"video", //@"video"
                             @"filename": [uuid stringByAppendingString:@".mov"],
-                            };
+                            } mutableCopy];
+    
+    if (isQxyj)
+        info[@"type"]=@"qxyj";//表单不填， qxyj对应事件上报
     
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"doInDto" req:info];
@@ -120,7 +122,7 @@
                             @"fkid": fkid,
                             };
     
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"query" req:info];
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"fileList" req:info];
     
     [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
                                  parameters:nil
@@ -146,11 +148,12 @@
 -(void) requestDownloadAttachmentWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary * info = @{
-                            @"fkid": fkid,
+                            @"id": fkid,
+                            @"type":@"qxyj",
                             };
     
     
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"download" req:info];
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"downLoad" req:info];
     
     [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
                                  parameters:nil
@@ -180,7 +183,7 @@
     
     [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
     NSDictionary * info = @{
-                            @"id":[NSString stringWithUUID],
+                            @"id":model.uuid,
                             @"userName": [AuthorizeManager sharedInstance].userName,
                             @"incidentSource": @"YDSB",
                             @"title": model.eventName.detail?:@"no title",
@@ -357,13 +360,14 @@
 }
 
 -(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                       uuid:(NSString *)uuid
                                    title:(NSString*) title
                                disposeBy:(NSString*) disposeBy
                          SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary * info = @{
                             @"incidentId":eid,
-                            @"id":[NSString stringWithUUID],
+                            @"id":uuid,
                             @"operate":@"insert",
                             @"state":@"1",
                             @"disposeDescription":title,
@@ -399,12 +403,13 @@
 }
 
 -(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                       uuid:(NSString *) uuid
                                       content:(NSString*) content
                             SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary * info = @{
                             @"taskId":eid,
-                            @"id":[NSString stringWithUUID],
+                            @"id":uuid,
                             @"operate":@"insert",
                             @"state":@"1",
                             @"disposeComment":content,

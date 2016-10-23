@@ -17,14 +17,20 @@
 
 #define CURRENT_SESSION [NSString stringWithFormat:@"current_session_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation SearchSessionManager
+
+static SearchSessionManager* manager = nil;
 +(instancetype) sharedManager
 {
-    static SearchSessionManager* manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[SearchSessionManager alloc] init];
     });
     return manager;
+}
+
++(void) changeUser
+{
+    manager = [[SearchSessionManager alloc] init];
 }
 
 -(instancetype) init

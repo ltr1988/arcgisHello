@@ -8,7 +8,7 @@
 
 #import "SearchHistoryModel.h"
 #import "SearchHistoryTaskItem.h"
-#import "SearchHistoryMetaData.h"
+#import "HttpMetaData.h"
 @implementation SearchHistoryModel
 
 -(BOOL) hasMore
@@ -28,7 +28,7 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[SearchHistoryMetaData class] forKey:@"datalist"];
+    [dict setObject:[HttpMetaData class] forKey:@"datalist"];
     return dict;
 }
 @end

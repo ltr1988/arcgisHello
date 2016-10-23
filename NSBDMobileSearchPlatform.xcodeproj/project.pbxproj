@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41012AC1DBCAE3B008B00DF /* FacilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AB1DBCAE3B008B00DF /* FacilityManager.m */; };
+		A41012AF1DBCB8CF008B00DF /* FacilityInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */; };
+		A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */; };
+		A41012B51DBCC798008B00DF /* FacilityDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012B41DBCC798008B00DF /* FacilityDetailInfoViewController.m */; };
 		A412B8931DB12E53003CAE02 /* UploadAttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */; };
-		A412B8961DB23F7D003CAE02 /* SearchHistoryMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */; };
+		A412B8961DB23F7D003CAE02 /* HttpMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8951DB23F7D003CAE02 /* HttpMetaData.m */; };
 		A412B8991DB24017003CAE02 /* SearchHistoryTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */; };
 		A412B89E1DB27860003CAE02 /* btn_fd.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89A1DB2785F003CAE02 /* btn_fd.png */; };
 		A412B89F1DB27860003CAE02 /* btn_sx.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89B1DB2785F003CAE02 /* btn_sx.png */; };
@@ -292,10 +296,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A41012AA1DBCAE3B008B00DF /* FacilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacilityManager.h; sourceTree = "<group>"; };
+		A41012AB1DBCAE3B008B00DF /* FacilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacilityManager.m; sourceTree = "<group>"; };
+		A41012AD1DBCB8CF008B00DF /* FacilityInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilityInfoModel.h; path = functions/NSBDBusiness/Model/FacilityInfoModel.h; sourceTree = "<group>"; };
+		A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilityInfoModel.m; path = functions/NSBDBusiness/Model/FacilityInfoModel.m; sourceTree = "<group>"; };
+		A41012B01DBCBC31008B00DF /* FacilityInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilityInfoItem.h; path = functions/NSBDBusiness/Model/FacilityInfoItem.h; sourceTree = "<group>"; };
+		A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacilityInfoItem.m; path = functions/NSBDBusiness/Model/FacilityInfoItem.m; sourceTree = "<group>"; };
+		A41012B31DBCC798008B00DF /* FacilityDetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacilityDetailInfoViewController.h; sourceTree = "<group>"; };
+		A41012B41DBCC798008B00DF /* FacilityDetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacilityDetailInfoViewController.m; sourceTree = "<group>"; };
 		A412B8911DB12E53003CAE02 /* UploadAttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadAttachmentModel.h; path = functions/NSBDBusiness/Model/UploadAttachmentModel.h; sourceTree = "<group>"; };
 		A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadAttachmentModel.m; path = functions/NSBDBusiness/Model/UploadAttachmentModel.m; sourceTree = "<group>"; };
-		A412B8941DB23F7D003CAE02 /* SearchHistoryMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryMetaData.h; path = functions/NSBDBusiness/Model/SearchHistoryMetaData.h; sourceTree = "<group>"; };
-		A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryMetaData.m; path = functions/NSBDBusiness/Model/SearchHistoryMetaData.m; sourceTree = "<group>"; };
+		A412B8941DB23F7D003CAE02 /* HttpMetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpMetaData.h; path = functions/NSBDBusiness/Model/HttpMetaData.h; sourceTree = "<group>"; };
+		A412B8951DB23F7D003CAE02 /* HttpMetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpMetaData.m; path = functions/NSBDBusiness/Model/HttpMetaData.m; sourceTree = "<group>"; };
 		A412B8971DB24017003CAE02 /* SearchHistoryTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryTaskItem.h; path = functions/NSBDBusiness/Model/SearchHistoryTaskItem.h; sourceTree = "<group>"; };
 		A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryTaskItem.m; path = functions/NSBDBusiness/Model/SearchHistoryTaskItem.m; sourceTree = "<group>"; };
 		A412B89A1DB2785F003CAE02 /* btn_fd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn_fd.png; path = images/btn_fd.png; sourceTree = "<group>"; };
@@ -1401,8 +1413,8 @@
 				B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */,
 				B25712B81DADE52D00F3D7F6 /* SearchHistoryItem.h */,
 				B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */,
-				A412B8941DB23F7D003CAE02 /* SearchHistoryMetaData.h */,
-				A412B8951DB23F7D003CAE02 /* SearchHistoryMetaData.m */,
+				A412B8941DB23F7D003CAE02 /* HttpMetaData.h */,
+				A412B8951DB23F7D003CAE02 /* HttpMetaData.m */,
 				A412B8971DB24017003CAE02 /* SearchHistoryTaskItem.h */,
 				A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */,
 				A412B8A21DB291BB003CAE02 /* SearchHistoryDetailSheetModel.h */,
@@ -1520,6 +1532,10 @@
 				B2B469051D6EC4E600AB84AF /* SearchSessionItem.m */,
 				A412B8911DB12E53003CAE02 /* UploadAttachmentModel.h */,
 				A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */,
+				A41012AD1DBCB8CF008B00DF /* FacilityInfoModel.h */,
+				A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */,
+				A41012B01DBCBC31008B00DF /* FacilityInfoItem.h */,
+				A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1658,6 +1674,8 @@
 				A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */,
 				A412B8A51DB35C90003CAE02 /* MapSearchInfoViewController.h */,
 				A412B8A61DB35C90003CAE02 /* MapSearchInfoViewController.m */,
+				A41012B31DBCC798008B00DF /* FacilityDetailInfoViewController.h */,
+				A41012B41DBCC798008B00DF /* FacilityDetailInfoViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1719,6 +1737,8 @@
 				B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */,
 				B2748D5B1DB07FB900C0166F /* MediaPickerManager.h */,
 				B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */,
+				A41012AA1DBCAE3B008B00DF /* FacilityManager.h */,
+				A41012AB1DBCAE3B008B00DF /* FacilityManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -1892,7 +1912,7 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JJDA4SZYT3;
+						DevelopmentTeam = YEPQ327WH5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1997,7 +2017,7 @@
 				B2748D7E1DB4E2AC00C0166F /* DNAirItem.m in Sources */,
 				B2748D7B1DB4E27F00C0166F /* NGQAirItem.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
-				A412B8961DB23F7D003CAE02 /* SearchHistoryMetaData.m in Sources */,
+				A412B8961DB23F7D003CAE02 /* HttpMetaData.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
@@ -2115,8 +2135,10 @@
 				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */,
+				A41012B51DBCC798008B00DF /* FacilityDetailInfoViewController.m in Sources */,
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
+				A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
 				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
@@ -2130,12 +2152,14 @@
 				B28653861D45EA03002D4139 /* View+MASAdditions.m in Sources */,
 				B28653841D45EA03002D4139 /* NSArray+MASAdditions.m in Sources */,
 				B2806A111D68413E0097F7E4 /* TitleDetailTextItem.m in Sources */,
+				A41012AF1DBCB8CF008B00DF /* FacilityInfoModel.m in Sources */,
 				B205A5281D61D378007530EB /* MJRefreshAutoGifFooter.m in Sources */,
 				A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */,
 				B2748D871DB4E41000C0166F /* DNWellItem.m in Sources */,
 				B2A187361D6708D2006D8CA7 /* LoginModel.m in Sources */,
 				B2A187321D66AF4B006D8CA7 /* NSObject+MJProperty.m in Sources */,
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
+				A41012AC1DBCAE3B008B00DF /* FacilityManager.m in Sources */,
 				B2A186FB1D643CF8006D8CA7 /* SearchTaskStatusModel.m in Sources */,
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
@@ -2336,7 +2360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2350,7 +2374,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2363,7 +2387,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = JJDA4SZYT3;
+				DEVELOPMENT_TEAM = YEPQ327WH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2377,7 +2401,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifilaqq.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

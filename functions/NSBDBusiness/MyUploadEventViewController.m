@@ -275,6 +275,7 @@
                     cell = [[MyLocalEventCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyLocalEventCell"];
                     cell.deleteCallback = ^(EventReportModel *model)
                     {
+                        [EventModelManager removeCacheForEventModel:model];
                         NSMutableArray *array = [_localEventModel mutableCopy];
                         [array removeObject:model];
                         _localEventModel = [array copy];
@@ -296,13 +297,13 @@
                                     
                                     if (model.attachmentModel.images.count>0) {
                                         for (UIImage *image in model.attachmentModel.images) {
-                                            [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:model.uuid successCallback:nil failCallback:nil];
+                                            [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:model.uuid  qxyjFlag:YES successCallback:nil failCallback:nil];
                                         }
                                     }
                                     
                                     if (model.attachmentModel.videoURL)
                                     {
-                                        [[EventHttpManager sharedManager] requestUploadAttachmentMovie:model.attachmentModel.videoURL fkid:model.uuid successCallback:nil failCallback:nil];
+                                        [[EventHttpManager sharedManager] requestUploadAttachmentMovie:model.attachmentModel.videoURL fkid:model.uuid qxyjFlag:YES successCallback:nil failCallback:nil];
                                         
                                     }
                                 }

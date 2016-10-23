@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, MyEventDetailType) {
 @property (nonatomic,strong) UITableView *feedbackTableView;
 @property (nonatomic,strong) UITableView *historyTableView;
 @property (nonatomic,strong) FeedbackModel *feedbackModel;
-@property (nonatomic,strong) NSArray *historyModel;
+@property (nonatomic,strong) NSArray *historyModel; //array of MyEventHistoryItem
 
 
 

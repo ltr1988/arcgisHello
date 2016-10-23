@@ -17,11 +17,16 @@
 
 
 //上传附件图片
--(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 //上传附件视频
--(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
+//查询附件
+-(void) requestQueryAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+//下载附件
+-(void) requestDownloadAttachmentWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 //历史上报
 -(void) requestHistoryEventWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
@@ -33,6 +38,7 @@
 
 //添加event进度
 -(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                       uuid:(NSString *) uuid
                                       title:(NSString*) title
                                   disposeBy:(NSString*) disposeBy
                             SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
@@ -47,6 +53,7 @@
 -(void) requestMyDealedEventProgressListWithId:(NSString*) eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 // 我的处置任务 添加进度
 -(void) requestAddMyEventProgressListWithId:(NSString*) eid
+                                       uuid:(NSString *) uuid
                                     content:(NSString*) content
                             SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end
