@@ -64,6 +64,7 @@
     self.facilityTableView.delegate = self;
     self.facilityTableView.dataSource = self;
     self.facilityTableView.hidden = YES;
+    self.facilityTableView.footerView = [UIView new];
     
     [self.view addSubview:self.facilityTableView];
     
