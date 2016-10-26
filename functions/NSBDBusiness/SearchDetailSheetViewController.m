@@ -26,6 +26,7 @@
 #import "UploadAttachmentModel.h"
 #import "SearchHistoryDetailSheetModel.h"
 #import "UITableView+EmptyView.h"
+#import "EventHttpManager.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -266,12 +267,31 @@
         HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];
         if (item.success)
         {
-            [ToastView popToast:@"提交成功"];
             if (![self.uiItem isLine])
                 [SearchSheetItemManager removeSearchSheetItemWithCode:self.code fcode:self.fcode taskid:self.uiItem.taskid];
             else{
                 [SearchSheetItemManager removeSearchLineItemWithWithUUID:self.uiItem.itemId code:self.code taskid:self.uiItem.taskid];
             }
+            
+            
+            //upload attachment if has
+            if (self.uiItem.attachModel.images.count>0 || self.uiItem.attachModel.videoURL != nil) {
+                
+                if (self.uiItem.attachModel.images.count>0) {
+                    for (UIImage *image in self.uiItem.attachModel.images) {
+                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.uiItem.itemId qxyjFlag:YES successCallback:nil failCallback:nil];
+                    }
+                }
+                
+                if (self.uiItem.attachModel.videoURL)
+                {
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.uiItem.attachModel.videoURL fkid:self.uiItem.itemId qxyjFlag:YES successCallback:nil failCallback:nil];
+                    
+                }
+            }
+            [ToastView popToast:@"提交成功"];
+
+            
             [self.navigationController popViewControllerAnimated:YES];
         }else if (item.status == HttpResultInvalidUser)
         {
