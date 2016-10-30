@@ -112,7 +112,7 @@
         elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
         elcPicker.returnsImage = NO; //Return UIimage if YES. If NO, only return asset location information
         elcPicker.onOrder = NO; //For multiple image selection, display and return order of selected images
-        elcPicker.mediaTypes = @[(NSString *)kUTTypeMovie]; //Supports image and movie types
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeMovie,(NSString *) kUTTypeMPEG4]; //Supports image and movie types
     }
     
     [_weakVC presentViewController:elcPicker animated:YES completion:nil];
@@ -165,7 +165,7 @@
     
     
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    NSURL *urlStr = nil;
+
     for (NSDictionary *dict in info) {
         if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
             if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
@@ -178,7 +178,16 @@
         else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo)
         {
             NSURL *url=[dict objectForKey:UIImagePickerControllerReferenceURL];//视频路径
-            urlStr = url;
+            [MediaPickerManager movContertToMp4:url completeBlock:^(NSURL *videoURL) {
+                
+                NSURL *urlStr = videoURL;
+                if (urlStr) {
+                    if (_videoPickBlock) {
+                        _videoPickBlock(urlStr);
+                    }
+                }
+            }];
+            
         }
     }
     
@@ -187,11 +196,7 @@
             _imagePickBlock(images);
         }
     }
-    if (urlStr) {
-        if (_videoPickBlock) {
-            _videoPickBlock(urlStr);
-        }
-    }
+    
 }
 
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker

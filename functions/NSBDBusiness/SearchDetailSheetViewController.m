@@ -33,7 +33,6 @@
     BOOL readOnly;
 }
 
-@property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) TimerView *timerView;
 
 @end
@@ -78,6 +77,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self setupObservers];
+    [self setupPickerManager];
     [self requestData];
 }
 
@@ -107,6 +107,14 @@
     [_tableView reloadData];
 }
 
+-(void) requestAttachment
+{
+    //todo 请求下载附件
+    [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:self.uiItem.itemId successCallback:^(NSURLSessionDataTask *task, id dict) {
+        NSLog(@"%@",dict);
+    } failCallback:nil];
+}
+
 -(void) requestData
 {
     if (!readOnly)
@@ -121,6 +129,8 @@
         [_tableView reloadData];
     }else
     {
+        //todo 请求下载附件
+        [self requestAttachment];
         @weakify(self)
         
         if (![self.uiItem isLine]) {
@@ -279,13 +289,13 @@
                 
                 if (self.uiItem.attachModel.images.count>0) {
                     for (UIImage *image in self.uiItem.attachModel.images) {
-                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.uiItem.itemId qxyjFlag:YES successCallback:nil failCallback:nil];
+                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.uiItem.itemId qxyjFlag:NO successCallback:nil failCallback:nil];
                     }
                 }
                 
                 if (self.uiItem.attachModel.videoURL)
                 {
-                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.uiItem.attachModel.videoURL fkid:self.uiItem.itemId qxyjFlag:YES successCallback:nil failCallback:nil];
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.uiItem.attachModel.videoURL fkid:self.uiItem.itemId qxyjFlag:NO successCallback:nil failCallback:nil];
                     
                 }
             }
@@ -353,6 +363,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == self.uiItem.infolist.count)
+        return _mPicker.frame.size.height;
     return 50;
 }
 

@@ -33,13 +33,17 @@
             return;
         }
         
-        [[EventHttpManager sharedManager] requestDownloadAttachmentWithId:_fid successCallback:^(NSURLSessionDataTask *task, id dict) {
-            NSLog(@"%@", dict);
+        [[EventHttpManager sharedManager] requestDownloadAttachmentWithId:_fid qxyjFlag:self.isqxyj successCallback:^(NSURLSessionDataTask *task, id data) {
             
-            //save to file cachePath
-//            if (completeBlock) {
-//                completeBlock(_url,_file_type);
-//            }
+            NSData *recData = data;
+            if (recData.length) {
+                [recData writeToFile:cachePath atomically:YES];
+                //save to file cachePath
+                if (completeBlock) {
+                    completeBlock(cachePath,_file_type);
+                }
+            }
+            
         } failCallback:nil];
     }
 }

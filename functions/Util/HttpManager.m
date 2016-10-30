@@ -76,6 +76,7 @@
     [manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
     
     // 声明获取到的数据格式
+    
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     return manager;
 }

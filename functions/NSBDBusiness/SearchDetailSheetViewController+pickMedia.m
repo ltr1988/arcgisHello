@@ -23,6 +23,7 @@
         dispatch_main_async_safe(^{
             
             [self.mPicker relayout];
+            [self.tableView reloadData];
         });
         
     } VideoPickBlock:^(NSURL *videoURL) {
@@ -33,6 +34,7 @@
         dispatch_main_async_safe(^{
             
             [self.mPicker relayout];
+            [self.tableView reloadData];
         });
     }];
 }

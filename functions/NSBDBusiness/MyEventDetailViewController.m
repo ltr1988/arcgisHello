@@ -453,8 +453,13 @@
                                                                           [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.feedbackModel.video fkid:uuid  qxyjFlag:YES successCallback:nil failCallback:nil];
                                                                           
                                                                       }
-                                                                      _feedbackModel.detail.detail = @"未填写";
-                                                                      _feedbackModel.detail.text = @"";
+                                                                      self.feedbackModel.detail.detail = @"未填写";
+                                                                      self.feedbackModel.detail.text = @"";
+                                                                      self.feedbackModel.video = nil;
+                                                                      [self.feedbackModel.images removeAllObjects];
+                                                                      [self.mPicker setImages:self.feedbackModel.images];
+                                                                      [self.mPicker setVideo:self.feedbackModel.video];
+                                                                      [self.mPicker relayout];
                                                                       [self.feedbackTableView reloadData];
                                                                       [self requestData];
                                                                       
@@ -483,8 +488,24 @@
                                                                   if (item.success)
                                                                   {
                                                                       [ToastView popToast:@"提交成功"];
-                                                                      _feedbackModel.detail.detail = @"未填写";
-                                                                      _feedbackModel.detail.text = @"";
+                                                                      if (self.feedbackModel.images.count>0) {
+                                                                          for (UIImage *image in self.feedbackModel.images) {
+                                                                              [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:uuid qxyjFlag:YES successCallback:nil failCallback:nil];
+                                                                          }
+                                                                      }
+                                                                      
+                                                                      if (self.feedbackModel.video)
+                                                                      {
+                                                                          [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.feedbackModel.video fkid:uuid  qxyjFlag:YES successCallback:nil failCallback:nil];
+                                                                          
+                                                                      }
+                                                                      self.feedbackModel.detail.detail = @"未填写";
+                                                                      self.feedbackModel.detail.text = @"";
+                                                                      self.feedbackModel.video = nil;
+                                                                      [self.feedbackModel.images removeAllObjects];
+                                                                      [self.mPicker setImages:self.feedbackModel.images];
+                                                                      [self.mPicker setVideo:self.feedbackModel.video];
+                                                                      [self.mPicker relayout];
                                                                       [self.feedbackTableView reloadData];
                                                                       [self requestData];
                                                                       

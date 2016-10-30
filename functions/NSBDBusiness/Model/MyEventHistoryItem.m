@@ -49,11 +49,14 @@
         }
         @weakify(self)
         for (AttachmentItem *item in fileList) {
+            item.isqxyj = YES;
             if ([item.file_type isEqualToString:@"image"]) {
+                
                 [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
                     @strongify(self)
                     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:fileUrl]];
-                    [self.attachment.images addObject:image];
+                    if (nil != image)
+                        [self.attachment.images addObject:image];
                 }];
             }else
             {

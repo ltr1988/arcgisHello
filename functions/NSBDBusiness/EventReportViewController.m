@@ -83,6 +83,7 @@
 
 -(void) requestAttachment
 {
+    //todo 请求下载附件
     [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:_model.uuid successCallback:^(NSURLSessionDataTask *task, id dict) {
         NSLog(@"%@",dict);
     } failCallback:nil];
@@ -251,7 +252,7 @@
             }
             [ToastView popToast:@"上报成功"];
             [self.navigationController popViewControllerAnimated:YES];
-            
+            return;
             
 
         }else if (item.status == HttpResultInvalidUser)

@@ -53,7 +53,7 @@
                              parameters:nil
               constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                   NSData *data = UIImagePNGRepresentation(image);
-                  [formData appendPartWithFileData:data name:@"file" fileName:@"1test_abcdefg.png" mimeType:@"image/jpeg"];
+                  [formData appendPartWithFileData:data name:@"file" fileName:[uuid stringByAppendingString:@".png"] mimeType:@"image/jpeg"];
               } progress:^(NSProgress * _Nonnull uploadProgress) {
                   
               } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -83,7 +83,7 @@
                             @"id":uuid,
                             @"fkid": fkid,
                             @"filetype": @"video", //@"video"
-                            @"filename": [uuid stringByAppendingString:@".mov"],
+                            @"filename": [uuid stringByAppendingString:@".mp4"],
                             } mutableCopy];
     
     if (isQxyj)
@@ -95,7 +95,8 @@
     [[HttpManager NSBDFileManager] POST:[HttpHost hostAURLWithParam:dict]
                              parameters:nil
               constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-                  [formData appendPartWithFileURL:movieURL name:@"movie" error:nil];
+                  NSData *data = [NSData dataWithContentsOfURL:movieURL];
+                  [formData appendPartWithFileData:data name:@"file" fileName:[uuid stringByAppendingString:@".mp4"] mimeType:@"video/mp4"];
               } progress:^(NSProgress * _Nonnull uploadProgress) {
                   
               } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -145,23 +146,28 @@
 }
 
 
--(void) requestDownloadAttachmentWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+
+-(void) requestDownloadAttachmentWithId:(NSString *)fkid qxyjFlag:(BOOL)isqxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSDictionary * info = @{
+    NSMutableDictionary * info = [@{
                             @"id": fkid,
-                            @"type":@"qxyj",
-                            };
-    
+                            } mutableCopy];
+    if (isqxyj) {
+        info[@"type"]=@"qxyj";
+    }
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"file" method:@"downLoad" req:info];
     
-    [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+    
+    
+//    [self downloadTask:[HttpHost hostAURLWithParam:dict]];
+    [[HttpManager NSBDFileManager] NSBDDownloadPOST:[HttpHost hostAURLWithParam:dict]
                                  parameters:nil
-                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable data) {
                                         // 请求成功
                                         if (success) {
                                             dispatch_main_async_safe(^{
-                                                success(task,dict);
+                                                success(task,data);
                                             });
                                         }
                                         
@@ -419,7 +425,7 @@
                             };
     
     
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"addDispose" req:info];
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incidentTask" method:@"addDispose" req:info];
     
     
     [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]

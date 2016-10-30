@@ -50,6 +50,14 @@
     return [[class alloc] init];
 }
 
+-(UploadAttachmentModel *) attachModel
+{
+    if (!_attachModel) {
+        _attachModel = [[UploadAttachmentModel alloc] init];
+    }
+    return _attachModel;
+}
+
 
 -(instancetype) init
 {

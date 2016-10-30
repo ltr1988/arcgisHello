@@ -14,6 +14,7 @@ typedef void (^DownloadCallback)(NSString *fileUrl,NSString* type);
 @property (nonatomic,strong) NSString* fid;
 @property (nonatomic,strong) NSString* file_type;
 @property (nonatomic,strong) NSString* url;
+@property (nonatomic,assign) BOOL isqxyj; //是否是抢险应急附件
 
 -(void) downloadWithCompletionBlock:(DownloadCallback) completeBlock;
 @end

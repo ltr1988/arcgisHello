@@ -17,6 +17,8 @@
 }
 
 @property (nonatomic,strong) NSBDBaseUIItem *uiItem;//model
+
+@property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) EventMediaPickerView *mPicker;
 
 +(instancetype) sheetReadOnlyWithUIItem:(NSBDBaseUIItem *)item;
