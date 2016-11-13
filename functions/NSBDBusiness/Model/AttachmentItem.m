@@ -9,6 +9,7 @@
 #import "AttachmentItem.h"
 #import "EventHttpManager.h"
 #import "NSString+LVPath.h"
+#import "HttpMetaData.h"
 
 @implementation AttachmentItem
 + (NSDictionary *)replacedKeyFromPropertyName
@@ -19,7 +20,6 @@
              };
     
 }
-
 
 -(void) downloadWithCompletionBlock:(DownloadCallback) completeBlock
 {
@@ -46,5 +46,27 @@
             
         } failCallback:nil];
     }
+}
+
+
+-(instancetype) initWithArray:(NSArray *)metaList isQxyj:(BOOL) isQxyj
+{
+    if (self = [super init]) {
+        self.isqxyj = isQxyj;
+        NSDictionary *dict = [self infoDictFromArray:metaList];
+        _fid = dict[@"id"];
+        _file_type = dict[@"file_type"];
+        _url = dict[@"url"];
+    }
+    return self;
+}
+
+-(NSDictionary *) infoDictFromArray:(NSArray *)array
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:array.count];
+    for (HttpMetaData *meta in array) {
+        dict[meta.dataID.lowercaseString] = meta.value;
+    }
+    return [dict copy];
 }
 @end

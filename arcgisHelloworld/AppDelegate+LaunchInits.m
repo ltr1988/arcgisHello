@@ -14,7 +14,7 @@
 -(void) setupArcgis
 {
     NSError *error;
-    NSString* clientID = @"pdjx7KQUiCfm7ixX";
+    NSString* clientID = @"4uQlaRMDzwDF2SsI";
     [AGSRuntimeEnvironment setClientID:clientID error:&error];
     if(error){
         // We had a problem using our client ID

@@ -79,6 +79,11 @@
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
 		A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */; };
 		A4A4AF921DAE852D009D0004 /* CommitedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */; };
+		A4AEF04E1DD74F8A00903925 /* TianDiTuWMTSLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */; };
+		A4AEF04F1DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0491DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m */; };
+		A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */; };
+		A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */; };
+		A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0531DD825FF00903925 /* AttachmentModel.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
@@ -434,6 +439,16 @@
 		A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryModel.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryModel.m; sourceTree = "<group>"; };
 		A4A4AF901DAE852D009D0004 /* CommitedEventHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitedEventHistoryItem.h; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.h; sourceTree = "<group>"; };
 		A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryItem.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.m; sourceTree = "<group>"; };
+		A4AEF0461DD74F8A00903925 /* TianDiTuWMTSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSLayer.h; path = Component/TianDiTuWMTSLayer.h; sourceTree = "<group>"; };
+		A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSLayer.m; path = Component/TianDiTuWMTSLayer.m; sourceTree = "<group>"; };
+		A4AEF0481DD74F8A00903925 /* TianDiTuWMTSLayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSLayerInfo.h; path = Component/TianDiTuWMTSLayerInfo.h; sourceTree = "<group>"; };
+		A4AEF0491DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSLayerInfo.m; path = Component/TianDiTuWMTSLayerInfo.m; sourceTree = "<group>"; };
+		A4AEF04A1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSLayerInfoDelegate.h; path = Component/TianDiTuWMTSLayerInfoDelegate.h; sourceTree = "<group>"; };
+		A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSLayerInfoDelegate.m; path = Component/TianDiTuWMTSLayerInfoDelegate.m; sourceTree = "<group>"; };
+		A4AEF04C1DD74F8A00903925 /* TianDiTuWMTSTileOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSTileOperation.h; path = Component/TianDiTuWMTSTileOperation.h; sourceTree = "<group>"; };
+		A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSTileOperation.m; path = Component/TianDiTuWMTSTileOperation.m; sourceTree = "<group>"; };
+		A4AEF0521DD825FF00903925 /* AttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentModel.h; path = functions/NSBDBusiness/Model/AttachmentModel.h; sourceTree = "<group>"; };
+		A4AEF0531DD825FF00903925 /* AttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentModel.m; path = functions/NSBDBusiness/Model/AttachmentModel.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
@@ -917,6 +932,21 @@
 			path = functions/ELCImagePicker/Resources;
 			sourceTree = "<group>";
 		};
+		A44DD5B71DD6BC24006110FC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				A4AEF0461DD74F8A00903925 /* TianDiTuWMTSLayer.h */,
+				A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */,
+				A4AEF0481DD74F8A00903925 /* TianDiTuWMTSLayerInfo.h */,
+				A4AEF0491DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m */,
+				A4AEF04A1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.h */,
+				A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */,
+				A4AEF04C1DD74F8A00903925 /* TianDiTuWMTSTileOperation.h */,
+				A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */,
+			);
+			name = Component;
+			sourceTree = "<group>";
+		};
 		A4569C8C1D33B50800A06B1C /* DropDownField */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1219,7 @@
 		A4DD86851D0976B00096B548 /* arcgis */ = {
 			isa = PBXGroup;
 			children = (
+				A44DD5B71DD6BC24006110FC /* Component */,
 				A48022071D32297600AE2AF9 /* Model */,
 				B21163EA1D0FB224003F90A6 /* Views */,
 				A4958FA51D0EFA10001FCE6F /* manager */,
@@ -1830,6 +1861,8 @@
 				A412B8D21DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m */,
 				A412B8D41DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.h */,
 				A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */,
+				A4AEF0521DD825FF00903925 /* AttachmentModel.h */,
+				A4AEF0531DD825FF00903925 /* AttachmentModel.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -2022,10 +2055,12 @@
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
+				A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B28AE8641D3E183200ABDB28 /* RouteMapViewController.m in Sources */,
 				A412B8931DB12E53003CAE02 /* UploadAttachmentModel.m in Sources */,
 				B25712B31DADCECB00F3D7F6 /* NSString+LVPath.m in Sources */,
+				A4AEF04F1DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m in Sources */,
 				B2A1872D1D66AF4B006D8CA7 /* MJFoundation.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
@@ -2134,11 +2169,13 @@
 				B28653DA1D488320002D4139 /* CheckableImageView.m in Sources */,
 				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
+				A4AEF04E1DD74F8A00903925 /* TianDiTuWMTSLayer.m in Sources */,
 				A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */,
 				A41012B51DBCC798008B00DF /* FacilityDetailInfoViewController.m in Sources */,
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
 				A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */,
+				A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
 				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
 				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
@@ -2205,6 +2242,7 @@
 				A412B8D31DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m in Sources */,
 				B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
+				A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,

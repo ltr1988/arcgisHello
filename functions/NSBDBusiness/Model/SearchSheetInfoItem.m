@@ -66,6 +66,7 @@
         case SheetUIStyle_ShortTextWeather:
             _data = [TitleInputItem itemWithTitle:title placeholder:[NSString stringWithFormat:@"请填写%@",title]];
             [(TitleInputItem*)_data setDetail:[WeatherManager sharedInstance].weather];
+            break;
         case SheetUIStyle_Text: {
             _data = [TitleDetailTextItem itemWithTitle:title detail:@"未填写" text:@""];
             break;

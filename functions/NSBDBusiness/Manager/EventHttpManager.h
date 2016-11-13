@@ -25,6 +25,8 @@
 //查询附件
 -(void) requestQueryAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
+//巡查查询附件
+-(void) requestQuerySearchAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 //下载附件
 -(void) requestDownloadAttachmentWithId:(NSString *)fkid qxyjFlag:(BOOL)isqxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 //历史上报

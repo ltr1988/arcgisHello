@@ -120,6 +120,34 @@
 -(void) requestQueryAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSDictionary * info = @{
+                            @"id": fkid,
+                            };
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"getData" req:info];
+    
+    [[HttpManager NSBDFileManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                                 parameters:nil
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                        // 请求成功
+                                        if (success) {
+                                            dispatch_main_async_safe(^{
+                                                success(task,dict);
+                                            });
+                                        }
+                                        
+                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                        // 请求失败
+                                        if (fail) {
+                                            dispatch_main_async_safe(^{
+                                                fail(task,error);
+                                            });
+                                        }
+                                    }];
+}
+
+-(void) requestQuerySearchAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info = @{
                             @"fkid": fkid,
                             };
     
@@ -144,8 +172,6 @@
                                         }
                                     }];
 }
-
-
 
 -(void) requestDownloadAttachmentWithId:(NSString *)fkid qxyjFlag:(BOOL)isqxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {

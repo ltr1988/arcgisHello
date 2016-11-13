@@ -110,6 +110,9 @@
             [item setDetail:dict[item.key.lowercaseString]];
         }
     }
+    if (dict[@"id"]) {
+        self.itemId = dict[@"id"];
+    }
 }
 
 -(NSDictionary *) infoDictFromArray:(NSArray *)array

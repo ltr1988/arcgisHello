@@ -29,6 +29,7 @@
     [dict setObject:[AttachmentItem class] forKey:@"fileList"];
     return dict;
 }
+
 -(void) setFileList:(NSArray *)fileList
 {
     _fileList = fileList;

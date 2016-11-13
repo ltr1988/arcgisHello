@@ -34,6 +34,8 @@
 #import "MyDealedEventDetailProgressModel.h"
 #import "MyDealedEventHistoryItem.h"
 #import "FacilityInfoModel.h"
+#import "AttachmentModel.h"
+
 @implementation QRModelsManager
 
 /*
@@ -79,6 +81,7 @@
       [MyEventDetailProgressModel class],
       [MyEventHistoryItem class],
       [AttachmentItem class],
+      [AttachmentModel class],
       [MyDealedEventListModel class],
       [MyDealedEventItem class],
       [MyDealedEventDetailModel class],
