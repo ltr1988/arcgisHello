@@ -67,6 +67,13 @@
 -(void) setupObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textPicked:) name:@"TextPickerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(attachmentComplete:) name:@"attachmentComplete" object:nil];
+    
+}
+
+-(void) attachmentComplete:(NSNotification *)noti
+{
+    [self.historyTableView reloadData];
 }
 
 -(void) textPicked:(NSNotification *)noti

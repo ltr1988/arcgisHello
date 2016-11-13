@@ -249,12 +249,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController.m"
-            timestampString = "500736306.260718"
+            timestampString = "500738570.918935"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "304"
-            endingLineNumber = "304"
-            landmarkName = "-requestFeedbackData"
+            startingLineNumber = "529"
+            endingLineNumber = "529"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

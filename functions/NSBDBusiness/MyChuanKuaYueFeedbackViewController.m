@@ -28,6 +28,7 @@
 #import "MJRefresh.h"
 #import "MyChuanKuaYueProgressItem.h"
 #import "MyChuanKuaYueProgressModel.h"
+#import "MyChuanKuaYueHistoryCell.h"
 
 @interface MyChuanKuaYueFeedbackViewController ()<CenterSwitchActionDelegate>
 {
@@ -64,6 +65,14 @@
 -(void) setupObservers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textPicked:) name:@"TextPickerNotification" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(attachmentComplete:) name:@"attachmentComplete" object:nil];
+    
+}
+
+-(void) attachmentComplete:(NSNotification *)noti
+{
+    [self.myFeedbackTableView reloadData];
+    [self.historyTableView reloadData];
 }
 
 -(void) textPicked:(NSNotification *)noti
@@ -157,7 +166,7 @@
     self.myFeedbackTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestFeedbackData)];
     self.myFeedbackTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreFeedbackData)];
     
-    [self.view addSubview:self.historyTableView];
+    [self.view addSubview:self.myFeedbackTableView];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
     
@@ -235,6 +244,7 @@
         {
             _historyModel = [item.datalist copy];
             [self.historyTableView reloadData];
+            historyHasMore = [item hasMore];
             
         }else if (item.status == HttpResultInvalidUser)
         {
@@ -304,7 +314,8 @@
         MyChuanKuaYueProgressModel *item = [MyChuanKuaYueProgressModel objectWithKeyValues:dict];
         if (item.success)
         {
-            _feedbackModel = [item.datalist copy];
+            _myFeedbackModel = [item.datalist copy];
+            myFeedbackHasMore = [item hasMore];
             [self.myFeedbackTableView reloadData];
             
         }else if (item.status == HttpResultInvalidUser)
@@ -403,8 +414,7 @@
         }
         row = row/2;
         if (row < _historyModel.count) {
-            return 30;
-//            return [MyEventHistoryCell heightForData:_historyModel[row]];
+            return [MyChuanKuaYueHistoryCell heightForData:_historyModel[row]];
         }
     }else if(tableView == self.myFeedbackTableView)
     {
@@ -413,9 +423,8 @@
             return 8;
         }
         row = row/2;
-        if (row < _historyModel.count) {
-            return 30;
-//            return [MyEventHistoryCell heightForData:_historyModel[row]];
+        if (row < _myFeedbackModel.count) {
+            return [MyChuanKuaYueHistoryCell heightForData:_myFeedbackModel[row]];
         }
     }
     
@@ -428,6 +437,9 @@
     }else if(tableView == self.historyTableView)
     {
         return _historyModel.count*2-1;
+    }else if(tableView == self.myFeedbackTableView)
+    {
+        return _myFeedbackModel.count*2-1;
     }
     return 0;
 }
@@ -493,16 +505,15 @@
         }else
         {
             row = row /2;
-            return [UITableViewCell new];
-//            if (row<_historyModel.count) {
-//                MyEventHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyEventHistoryCell"];
-//                if (!cell) {
-//                    cell = [[MyEventHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyEventHistoryCell"];
-//                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//                }
-//                cell.data = _historyModel[row];
-//                return cell;
-//            }
+            if (row<_historyModel.count) {
+                MyChuanKuaYueHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyChuanKuaYueHistoryCell"];
+                if (!cell) {
+                    cell = [[MyChuanKuaYueHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyChuanKuaYueHistoryCell"];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+                cell.data = _historyModel[row];
+                return cell;
+            }
             
         }
     }else if(tableView == self.myFeedbackTableView)
@@ -517,16 +528,15 @@
         }else
         {
             row = row /2;
-            return [UITableViewCell new];
-//            if (row<_historyModel.count) {
-//                MyEventHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyEventHistoryCell"];
-//                if (!cell) {
-//                    cell = [[MyEventHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyEventHistoryCell"];
-//                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//                }
-//                cell.data = _historyModel[row];
-//                return cell;
-//            }
+            if (row<_myFeedbackModel.count) {
+                MyChuanKuaYueHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyChuanKuaYueHistoryCell"];
+                if (!cell) {
+                    cell = [[MyChuanKuaYueHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyChuanKuaYueHistoryCell"];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+                cell.data = _myFeedbackModel[row];
+                return cell;
+            }
             
         }
     }

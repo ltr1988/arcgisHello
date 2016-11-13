@@ -56,7 +56,10 @@
                     @strongify(self)
                     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:fileUrl]];
                     if (nil != image)
+                    {
                         [self.attachment.images addObject:image];
+                        [self postDownloadCompleteNotification];
+                    }
                 }];
             }else
             {
@@ -64,11 +67,17 @@
                     @strongify(self)
                     NSURL *url = [NSURL fileURLWithPath:fileUrl];
                     self.attachment.videoURL = url;
+                    [self postDownloadCompleteNotification];
                 }];
             }
         }
     }
     
+}
+
+-(void) postDownloadCompleteNotification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"attachmentComplete" object:nil];
 }
 
 -(NSString *)title

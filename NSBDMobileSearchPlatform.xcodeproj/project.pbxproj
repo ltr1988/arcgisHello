@@ -96,6 +96,7 @@
 		A4CED2BE1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2BD1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m */; };
 		A4CED2C11DD89D100011AA22 /* MyChuanKuaYueProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */; };
 		A4CED2C41DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */; };
+		A4CED2C71DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C61DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
@@ -485,6 +486,8 @@
 		A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueProgressModel.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressModel.m; sourceTree = "<group>"; };
 		A4CED2C21DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueProgressItem.h; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressItem.h; sourceTree = "<group>"; };
 		A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueProgressItem.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressItem.m; sourceTree = "<group>"; };
+		A4CED2C51DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueHistoryCell.h; path = functions/NSBDBusiness/Views/MyChuanKuaYueHistoryCell.h; sourceTree = "<group>"; };
+		A4CED2C61DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueHistoryCell.m; path = functions/NSBDBusiness/Views/MyChuanKuaYueHistoryCell.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
@@ -1343,6 +1346,8 @@
 				A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */,
 				A47B65B11DD853CA00CCC861 /* MyChuanKuaYueListItemCell.h */,
 				A47B65B21DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m */,
+				A4CED2C51DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.h */,
+				A4CED2C61DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -2270,6 +2275,7 @@
 				A47B65B31DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m in Sources */,
 				A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
+				A4CED2C71DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m in Sources */,
 				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,

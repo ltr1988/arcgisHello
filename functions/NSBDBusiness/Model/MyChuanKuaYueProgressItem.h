@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MyChuanKuaYueHistoryCell.h"
 
-@interface MyChuanKuaYueProgressItem : NSObject
+@class UploadAttachmentModel;
+@interface MyChuanKuaYueProgressItem : NSObject<MyChuanKuaYueHistoryCellModel>
 @property (nonatomic,strong) NSString *content;
 @property (nonatomic,strong) NSString *departName;
 @property (nonatomic,strong) NSString *btime;
@@ -16,4 +18,5 @@
 
 
 @property (nonatomic,strong) NSArray *fileList; //AttachmentItem
+@property (nonatomic,strong) UploadAttachmentModel *attachment;
 @end
