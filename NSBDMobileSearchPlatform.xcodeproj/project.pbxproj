@@ -55,6 +55,11 @@
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
+		A47B65A71DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65A61DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m */; };
+		A47B65AA1DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65A91DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m */; };
+		A47B65AD1DD845EA00CCC861 /* MyChuanKuaYueListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65AC1DD845EA00CCC861 /* MyChuanKuaYueListModel.m */; };
+		A47B65B01DD8467100CCC861 /* MyChuanKuaYueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65AF1DD8467100CCC861 /* MyChuanKuaYueItem.m */; };
+		A47B65B31DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65B21DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m */; };
 		A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */; };
 		A48022021D32216A00AE2AF9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022011D32216A00AE2AF9 /* User.m */; };
 		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
@@ -84,6 +89,9 @@
 		A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */; };
 		A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */; };
 		A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0531DD825FF00903925 /* AttachmentModel.m */; };
+		A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */; };
+		A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AF1DD879120011AA22 /* ClosableWebView.m */; };
+		A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
@@ -389,6 +397,16 @@
 		A4569C901D33B53800A06B1C /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIDownPicker.m; path = functions/DropdownField/UIDownPicker.m; sourceTree = "<group>"; };
 		A4569C951D33B5AE00A06B1C /* EventReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventReportViewController.h; path = functions/NSBDBusiness/EventReportViewController.h; sourceTree = "<group>"; };
 		A4569C961D33B5AE00A06B1C /* EventReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReportViewController.m; path = functions/NSBDBusiness/EventReportViewController.m; sourceTree = "<group>"; };
+		A47B65A51DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueHomeViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueHomeViewController.h; sourceTree = "<group>"; };
+		A47B65A61DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueHomeViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueHomeViewController.m; sourceTree = "<group>"; };
+		A47B65A81DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventHttpManager+ChuanKuaYue.h"; sourceTree = "<group>"; };
+		A47B65A91DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EventHttpManager+ChuanKuaYue.m"; sourceTree = "<group>"; };
+		A47B65AB1DD845EA00CCC861 /* MyChuanKuaYueListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueListModel.h; path = functions/NSBDBusiness/Model/MyChuanKuaYueListModel.h; sourceTree = "<group>"; };
+		A47B65AC1DD845EA00CCC861 /* MyChuanKuaYueListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueListModel.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueListModel.m; sourceTree = "<group>"; };
+		A47B65AE1DD8467100CCC861 /* MyChuanKuaYueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueItem.h; path = functions/NSBDBusiness/Model/MyChuanKuaYueItem.h; sourceTree = "<group>"; };
+		A47B65AF1DD8467100CCC861 /* MyChuanKuaYueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueItem.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueItem.m; sourceTree = "<group>"; };
+		A47B65B11DD853CA00CCC861 /* MyChuanKuaYueListItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueListItemCell.h; path = functions/NSBDBusiness/Views/MyChuanKuaYueListItemCell.h; sourceTree = "<group>"; };
+		A47B65B21DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueListItemCell.m; path = functions/NSBDBusiness/Views/MyChuanKuaYueListItemCell.m; sourceTree = "<group>"; };
 		A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MapViewController+Action.h"; sourceTree = "<group>"; };
 		A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MapViewController+Action.m"; sourceTree = "<group>"; };
 		A48022001D32216A00AE2AF9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = functions/Users/User.h; sourceTree = "<group>"; };
@@ -449,6 +467,12 @@
 		A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSTileOperation.m; path = Component/TianDiTuWMTSTileOperation.m; sourceTree = "<group>"; };
 		A4AEF0521DD825FF00903925 /* AttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentModel.h; path = functions/NSBDBusiness/Model/AttachmentModel.h; sourceTree = "<group>"; };
 		A4AEF0531DD825FF00903925 /* AttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentModel.m; path = functions/NSBDBusiness/Model/AttachmentModel.m; sourceTree = "<group>"; };
+		A4CED2AB1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueDetailViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueDetailViewController.h; sourceTree = "<group>"; };
+		A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueDetailViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m; sourceTree = "<group>"; };
+		A4CED2AE1DD879120011AA22 /* ClosableWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClosableWebView.h; path = functions/Util/View/ClosableWebView.h; sourceTree = "<group>"; };
+		A4CED2AF1DD879120011AA22 /* ClosableWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClosableWebView.m; path = functions/Util/View/ClosableWebView.m; sourceTree = "<group>"; };
+		A4CED2B11DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueHistoryListViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueHistoryListViewController.h; sourceTree = "<group>"; };
+		A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueHistoryListViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueHistoryListViewController.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
@@ -1055,6 +1079,8 @@
 				B28653D91D488320002D4139 /* CheckableImageView.m */,
 				A4F2FC241D855D2300B0532B /* UITableView+EmptyView.h */,
 				A4F2FC251D855D2300B0532B /* UITableView+EmptyView.m */,
+				A4CED2AE1DD879120011AA22 /* ClosableWebView.h */,
+				A4CED2AF1DD879120011AA22 /* ClosableWebView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1303,6 +1329,8 @@
 				B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */,
 				A412B8C21DB3EA8E003CAE02 /* MyDealedEventItemCell.h */,
 				A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */,
+				A47B65B11DD853CA00CCC861 /* MyChuanKuaYueListItemCell.h */,
+				A47B65B21DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1764,6 +1792,8 @@
 				A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */,
 				A4924FA31DACF5C00025041E /* EventHttpManager.h */,
 				A4924FA41DACF5C00025041E /* EventHttpManager.m */,
+				A47B65A81DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.h */,
+				A47B65A91DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m */,
 				B25712AE1DADCAB200F3D7F6 /* SearchHistoryManager.h */,
 				B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */,
 				B2748D5B1DB07FB900C0166F /* MediaPickerManager.h */,
@@ -1826,6 +1856,12 @@
 				A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */,
 				B2748D6C1DB4740D00C0166F /* MyDealedEventDetailViewController.h */,
 				B2748D6D1DB4740D00C0166F /* MyDealedEventDetailViewController.m */,
+				A47B65A51DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.h */,
+				A47B65A61DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m */,
+				A4CED2AB1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.h */,
+				A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */,
+				A4CED2B11DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.h */,
+				A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1863,6 +1899,10 @@
 				A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */,
 				A4AEF0521DD825FF00903925 /* AttachmentModel.h */,
 				A4AEF0531DD825FF00903925 /* AttachmentModel.m */,
+				A47B65AB1DD845EA00CCC861 /* MyChuanKuaYueListModel.h */,
+				A47B65AC1DD845EA00CCC861 /* MyChuanKuaYueListModel.m */,
+				A47B65AE1DD8467100CCC861 /* MyChuanKuaYueItem.h */,
+				A47B65AF1DD8467100CCC861 /* MyChuanKuaYueItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -2051,6 +2091,7 @@
 				B2748D7B1DB4E27F00C0166F /* NGQAirItem.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				A412B8961DB23F7D003CAE02 /* HttpMetaData.m in Sources */,
+				A47B65B01DD8467100CCC861 /* MyChuanKuaYueItem.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
@@ -2105,6 +2146,8 @@
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				B205A5231D61D378007530EB /* MJRefreshAutoFooter.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
+				A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */,
+				A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */,
 				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
 				A412B8B01DB3C3C4003CAE02 /* MyEventDetailProgressModel.m in Sources */,
 				B28653D21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -2177,6 +2220,7 @@
 				A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */,
 				A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
+				A47B65AD1DD845EA00CCC861 /* MyChuanKuaYueListModel.m in Sources */,
 				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
 				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
 				B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */,
@@ -2201,6 +2245,8 @@
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
 				A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */,
 				A4F2FC1D1D851B6900B0532B /* ImageContentViewController.m in Sources */,
+				A47B65B31DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m in Sources */,
+				A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */,
 				B205A5241D61D378007530EB /* MJRefreshBackFooter.m in Sources */,
 				B2A187071D646984006D8CA7 /* TokenManager.m in Sources */,
 				B2A186F81D6406F2006D8CA7 /* NSString+MD5Addition.m in Sources */,
@@ -2214,6 +2260,7 @@
 				B28653D01D4863B2002D4139 /* AFImageDownloader.m in Sources */,
 				B2CFC3611D7849EF00FA97D3 /* MyEventDetailViewController.m in Sources */,
 				A4A3788D1D365DC100A7342D /* AFURLResponseSerialization.m in Sources */,
+				A47B65A71DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m in Sources */,
 				B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A412B8C41DB3EA8E003CAE02 /* MyDealedEventItemCell.m in Sources */,
@@ -2248,6 +2295,7 @@
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
 				A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */,
 				B2A187331D66AF4B006D8CA7 /* NSString+MJExtension.m in Sources */,
+				A47B65AA1DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m in Sources */,
 				B25712AD1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m in Sources */,
 				A4E68C2D1D6F408000DD603B /* CenterTitleCell.m in Sources */,
 				A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */,

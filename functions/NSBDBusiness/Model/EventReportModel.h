@@ -24,7 +24,7 @@
 @property (nonatomic,strong) TitleDetailItem *reason;
 @property (nonatomic,strong) TitleDetailItem *place;
 //@property (nonatomic,strong) TitleDetailItem *department;
-//@property (nonatomic,strong) TitleDetailItem *reporter;
+@property (nonatomic,strong) TitleDetailItem *reporter;
 @property (nonatomic,assign) CGPoint location;
 @property (nonatomic,strong) TitleDetailTextItem *eventStatus;
 @property (nonatomic,strong) TitleDetailTextItem *eventPreprocess;
@@ -36,4 +36,7 @@
 @property (nonatomic,strong) NSString *uuid;
 
 -(instancetype) initWithMyEventHistoryItem:(CommitedEventHistoryItem *)item;
+
+
+-(void) parseEventModelToHttpModel;
 @end

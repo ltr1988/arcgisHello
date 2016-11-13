@@ -211,6 +211,7 @@
 
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
+    [model parseEventModelToHttpModel];
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];
     
     [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
@@ -329,6 +330,8 @@
                                 }];
     
 }
+
+
 
 -(void) requestMyEventProgressListWithId:(NSString*) eid SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {

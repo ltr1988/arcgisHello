@@ -14,6 +14,8 @@ typedef void (^DownloadCallback)(NSString *fileUrl,NSString* type);
 @property (nonatomic,strong) NSString* fid;
 @property (nonatomic,strong) NSString* file_type;
 @property (nonatomic,strong) NSString* url;
+@property (nonatomic,strong) NSString* name;
+@property (nonatomic,strong) NSString* label;
 @property (nonatomic,assign) BOOL isqxyj; //是否是抢险应急附件
 
 -(instancetype) initWithArray:(NSArray *)metaList isQxyj:(BOOL) isQxyj;

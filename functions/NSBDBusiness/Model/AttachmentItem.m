@@ -17,6 +17,8 @@
     return @{@"fid" :@"id",
              @"file_type" :@"file_type",
              @"url" :@"url",
+             @"name" :@"name",
+             @"label":@"label",
              };
     
 }

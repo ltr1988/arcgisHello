@@ -41,6 +41,57 @@
     return self;
 }
 
+
+-(void) parseEventModelToHttpModel
+{
+    if ([self.eventType.detail isEqualToString:@"水质污染"]) {
+        self.eventType.detail = @"SZWR";
+    }else if ([self.eventType.detail isEqualToString:@"工程安全"]) {
+        self.eventType.detail = @"GCAQ";
+    }else if ([self.eventType.detail isEqualToString:@"应急调度"]) {
+        self.eventType.detail = @"YJDD";
+    }else if ([self.eventType.detail isEqualToString:@"防汛抢险"]) {
+        self.eventType.detail = @"FXQX";
+    }
+    
+    if ([self.level.detail isEqualToString:@"一级响应"]) {
+        self.level.detail = @"1";
+    }else if ([self.level.detail isEqualToString:@"二级响应"]) {
+        self.level.detail = @"2";
+    }else if ([self.level.detail isEqualToString:@"三级响应"]) {
+        self.level.detail = @"3";
+    }else if ([self.level.detail isEqualToString:@"四级响应"]) {
+        self.level.detail = @"4";
+    }else if ([self.level.detail isEqualToString:@"五级响应"]) {
+        self.level.detail = @"5";
+    }
+}
+
+-(void) parseHttpModelToEventModel
+{
+    if ([self.eventType.detail isEqualToString:@"SZWR"]) {
+        self.eventType.detail = @"水质污染";
+    }else if ([self.eventType.detail isEqualToString:@"GCAQ"]) {
+        self.eventType.detail = @"工程安全";
+    }else if ([self.eventType.detail isEqualToString:@"YJDD"]) {
+        self.eventType.detail = @"应急调度";
+    }else if ([self.eventType.detail isEqualToString:@"FXQX"]) {
+        self.eventType.detail = @"防汛抢险";
+    }
+    
+    if ([self.level.detail isEqualToString:@"1"]) {
+        self.level.detail = @"一级响应";
+    }else if ([self.level.detail isEqualToString:@"2"]) {
+        self.level.detail = @"二级响应";
+    }else if ([self.level.detail isEqualToString:@"3"]) {
+        self.level.detail = @"三级响应";
+    }else if ([self.level.detail isEqualToString:@"4"]) {
+        self.level.detail = @"四级响应";
+    }else if ([self.level.detail isEqualToString:@"5"]) {
+        self.level.detail = @"五级响应";
+    }
+}
+
 -(instancetype) initWithMyEventHistoryItem:(CommitedEventHistoryItem *)item
 {
     self = [super init];
@@ -66,12 +117,14 @@
         
         self.location = CGPointMake([item.spacePosition_x floatValue], [item.spacePosition_y floatValue]);
         
-//        self.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-//        self.reporter.detail = item.alarmPerson;
+        self.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+        self.reporter.detail = item.alarmPerson;
         
         self.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
         self.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
+        [self parseHttpModelToEventModel];
     }
+    
     return self;
 }
 -(UploadAttachmentModel *)attachmentModel
@@ -157,10 +210,10 @@
 
 -(NSString *) eventDetailViewFinder
 {
-//    if (_reporter.detail && _reporter.detail.length>0) {
-//        
-//        return _reporter.detail;
-//    }
-    return @"未填写";
+    if (_reporter.detail && _reporter.detail.length>0) {
+        
+        return _reporter.detail;
+    }
+    return @"未填写上报人";
 }
 @end

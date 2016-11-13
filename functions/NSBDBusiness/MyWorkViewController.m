@@ -14,6 +14,7 @@
 #import "MyUploadEventViewController.h"
 #import "SearchHistoryHomeViewController.h"
 #import "MyDealedEventViewController.h"
+#import "MyChuanKuaYueHomeViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -31,7 +32,7 @@
 
 -(void) setupModel
 {
-    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录"];
+    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程"];
 }
 
 -(void) setupSubviews
@@ -143,6 +144,12 @@
         case 3:
         {
             SearchHistoryHomeViewController *vc = [[SearchHistoryHomeViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 4:
+        {
+            MyChuanKuaYueHomeViewController *vc = [[MyChuanKuaYueHomeViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
