@@ -18,7 +18,7 @@
 #import "MyChuanKuaYueDetailViewController.h"
 #import "MyChuanKuaYueListItemCell.h"
 #import "MyChuanKuaYueHistoryListViewController.h"
-
+#import "MyChuanKuaYueFeedbackViewController.h"
 
 @interface MyChuanKuaYueHomeViewController ()<MyChuanKuaYueListItemCellCallbackDelegate>
 {
@@ -231,7 +231,9 @@
 }
 -(void) feedbackWithInfo:(MyChuanKuaYueItem*) info
 {
+    MyChuanKuaYueFeedbackViewController *vc = [[MyChuanKuaYueFeedbackViewController alloc] initWithCrossItem:info];
     
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(void) changeStatusWithInfo:(MyChuanKuaYueItem*) info
 {

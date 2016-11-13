@@ -12,6 +12,7 @@
 
 
 #define CenetrSwitchWidth 170
+#define CenetrSwitchLabelWidth 85
 #define CenetrSwitchHeight 27
 
 @protocol CenterSwitchActionDelegate <NSObject>

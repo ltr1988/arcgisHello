@@ -115,7 +115,7 @@
 {
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
-    CenterSwitchView *view = [[CenterSwitchView alloc] initWithFrame:CGRectMake(0, 0, CenetrSwitchWidth, CenetrSwitchHeight) andTitleArray:@[@"当前进展",@"历史进展"] andDelegate:self andSelectIndex:0];
+    CenterSwitchView *view = [[CenterSwitchView alloc] initWithFrame:CGRectMake(0, 0, CenetrSwitchLabelWidth*2, CenetrSwitchHeight) andTitleArray:@[@"当前进展",@"历史进展"] andDelegate:self andSelectIndex:0];
     selectedIndex = 0;
     view.delegate = self;
     [self navigationItem].titleView = view;

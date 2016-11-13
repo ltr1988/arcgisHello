@@ -37,7 +37,8 @@
 #import "AttachmentModel.h"
 #import "MyChuanKuaYueListModel.h"
 #import "MyChuanKuaYueItem.h"
-
+#import "MyChuanKuaYueProgressModel.h"
+#import "MyChuanKuaYueProgressItem.h"
 @implementation QRModelsManager
 
 /*
@@ -93,6 +94,8 @@
       [FacilityInfoModel class],
       [MyChuanKuaYueListModel class],
       [MyChuanKuaYueItem class],
+      [MyChuanKuaYueProgressModel class],
+      [MyChuanKuaYueProgressItem class],
       ];
     
     

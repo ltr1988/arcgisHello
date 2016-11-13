@@ -15,9 +15,12 @@
 #define SelectColor [UIColor whiteColor]
 #define NormalColor [UIColor themeBlueColor]
 @implementation CenterSwitchView
+{
+    NSInteger titleCount;
+}
 - (instancetype)initWithFrame:(CGRect)frame andTitleArray:(NSArray *)titleArray andDelegate:(id<CenterSwitchActionDelegate>)aDelegate andSelectIndex:(NSInteger)index{
     if (self=[super initWithFrame:frame]) {
-        
+        titleCount = titleArray.count;
         self.selectIndex = index;
         self.delegate = aDelegate;
 
@@ -27,16 +30,16 @@
         self.layer.borderColor = NormalColor.CGColor;
         self.layer.borderWidth = 1.0f;
         
-        self.slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CenetrSwitchWidth/2*index, 0, CenetrSwitchWidth/2, CenetrSwitchHeight)];
+        self.slideImageView = [[UIImageView alloc] initWithFrame:CGRectMake(CenetrSwitchLabelWidth*index, 0, CenetrSwitchLabelWidth, CenetrSwitchHeight)];
         self.slideImageView.backgroundColor = NormalColor;
         self.slideImageView.layer.cornerRadius = CenetrSwitchHeight/2.0f;
        // self.slideImageView.layer.masksToBounds = YES;
         self.slideImageView.userInteractionEnabled = NO;
         [self addSubview:self.slideImageView];
 
-        for (NSUInteger i=0; i<2; i++) {
+        for (NSUInteger i=0; i<titleArray.count; i++) {
             UILabel * label = [[UILabel alloc] init];
-            label.frame = CGRectMake(CenetrSwitchWidth/2*i, 0, CenetrSwitchWidth/2, CenetrSwitchHeight);
+            label.frame = CGRectMake(CenetrSwitchLabelWidth*i, 0, CenetrSwitchLabelWidth, CenetrSwitchHeight);
             label.text = titleArray[i];
             label.textAlignment = NSTextAlignmentCenter;
             label.userInteractionEnabled = YES;
@@ -76,11 +79,12 @@
         [self.delegate centerSwitchToIndex:self.selectIndex];
     }
     
-    _slideImageView.frame = CGRectMake(CenetrSwitchWidth/2*index, 0, CenetrSwitchWidth/2, CenetrSwitchHeight);
+    _slideImageView.frame = CGRectMake(CenetrSwitchLabelWidth*index, 0, CenetrSwitchLabelWidth, CenetrSwitchHeight);
     
-    _leftLabel.textColor =index? NormalColor: SelectColor;
-
-    _rightLabel.textColor = index? SelectColor:NormalColor;
+    for (int i=0; i<titleCount; i++) {
+        UILabel *label = (UILabel *)[self viewWithTag:QRSwitchViewTag+i];
+        label.textColor = (index!=i ? NormalColor: SelectColor);
+    }
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview

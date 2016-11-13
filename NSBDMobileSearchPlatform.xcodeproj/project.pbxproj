@@ -92,6 +92,10 @@
 		A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */; };
 		A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AF1DD879120011AA22 /* ClosableWebView.m */; };
 		A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */; };
+		A4CED2BB1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2BA1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m */; };
+		A4CED2BE1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2BD1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m */; };
+		A4CED2C11DD89D100011AA22 /* MyChuanKuaYueProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */; };
+		A4CED2C41DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */; };
 		A4CFBC6F1D9027A30016387C /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
 		A4CFBC7C1D9626D40016387C /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
 		A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
@@ -473,6 +477,14 @@
 		A4CED2AF1DD879120011AA22 /* ClosableWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClosableWebView.m; path = functions/Util/View/ClosableWebView.m; sourceTree = "<group>"; };
 		A4CED2B11DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueHistoryListViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueHistoryListViewController.h; sourceTree = "<group>"; };
 		A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueHistoryListViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueHistoryListViewController.m; sourceTree = "<group>"; };
+		A4CED2B91DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueFeedbackViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController.h; sourceTree = "<group>"; };
+		A4CED2BA1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueFeedbackViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController.m; sourceTree = "<group>"; };
+		A4CED2BC1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyChuanKuaYueFeedbackViewController+pickMedia.h"; path = "functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController+pickMedia.h"; sourceTree = "<group>"; };
+		A4CED2BD1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MyChuanKuaYueFeedbackViewController+pickMedia.m"; path = "functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController+pickMedia.m"; sourceTree = "<group>"; };
+		A4CED2BF1DD89D100011AA22 /* MyChuanKuaYueProgressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueProgressModel.h; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressModel.h; sourceTree = "<group>"; };
+		A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueProgressModel.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressModel.m; sourceTree = "<group>"; };
+		A4CED2C21DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueProgressItem.h; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressItem.h; sourceTree = "<group>"; };
+		A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueProgressItem.m; path = functions/NSBDBusiness/Model/MyChuanKuaYueProgressItem.m; sourceTree = "<group>"; };
 		A4CFBC6D1D9027A30016387C /* LiveDataNormalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataNormalDataViewController.h; path = functions/NSBDBusiness/LiveDataNormalDataViewController.h; sourceTree = "<group>"; };
 		A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataNormalDataViewController.m; path = functions/NSBDBusiness/LiveDataNormalDataViewController.m; sourceTree = "<group>"; };
 		A4CFBC7A1D9626D40016387C /* NSDictionary+HttpParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+HttpParam.h"; path = "functions/Util/NSDictionary+HttpParam.h"; sourceTree = "<group>"; };
@@ -1862,6 +1874,10 @@
 				A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */,
 				A4CED2B11DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.h */,
 				A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */,
+				A4CED2B91DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.h */,
+				A4CED2BA1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m */,
+				A4CED2BC1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.h */,
+				A4CED2BD1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -1903,6 +1919,10 @@
 				A47B65AC1DD845EA00CCC861 /* MyChuanKuaYueListModel.m */,
 				A47B65AE1DD8467100CCC861 /* MyChuanKuaYueItem.h */,
 				A47B65AF1DD8467100CCC861 /* MyChuanKuaYueItem.m */,
+				A4CED2BF1DD89D100011AA22 /* MyChuanKuaYueProgressModel.h */,
+				A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */,
+				A4CED2C21DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.h */,
+				A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */,
 			);
 			name = Mywork;
 			sourceTree = "<group>";
@@ -2115,6 +2135,7 @@
 				B2F1D8A11D8E68E400A6EDCA /* ThreeColumnCell.m in Sources */,
 				A412B8D61DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m in Sources */,
 				B2A187301D66AF4B006D8CA7 /* NSObject+MJCoding.m in Sources */,
+				A4CED2BB1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m in Sources */,
 				B286537E1D45EA03002D4139 /* MASCompositeConstraint.m in Sources */,
 				B2748D901DB4E41F00C0166F /* NGQWellItem.m in Sources */,
 				B205A4A11D5DBF58007530EB /* SearchStartModel.m in Sources */,
@@ -2139,6 +2160,7 @@
 				A4924FA51DACF5C00025041E /* EventHttpManager.m in Sources */,
 				B2B469D71D6FDDF600AB84AF /* TimerView.m in Sources */,
 				B2CFC3541D76ABAE00FA97D3 /* MyWorkViewController.m in Sources */,
+				A4CED2C11DD89D100011AA22 /* MyChuanKuaYueProgressModel.m in Sources */,
 				B2806A051D6839B40097F7E4 /* SearchSheetGroupItem.m in Sources */,
 				B2806A011D6830020097F7E4 /* SearchSheetCellFactory.m in Sources */,
 				B28653D51D4863B2002D4139 /* UIProgressView+AFNetworking.m in Sources */,
@@ -2290,6 +2312,7 @@
 				B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */,
+				A4CED2C41DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
 				A48021FE1D320C9600AE2AF9 /* MapViewController+Action.m in Sources */,
@@ -2317,6 +2340,7 @@
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
+				A4CED2BE1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */,
 				B205A5261D61D378007530EB /* MJRefreshFooter.m in Sources */,
 				B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */,
 				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,
