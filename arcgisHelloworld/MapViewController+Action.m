@@ -75,6 +75,36 @@
 {
     [self.mapView zoomOut:YES];
 }
+
+-(void) actionSwitchMapType:(id)sender
+{
+    UIButton *btn = sender;
+    
+    CATransition *animation = [CATransition animation];
+    
+    //设置运动时间
+    animation.duration = 0.2;
+    
+    //设置运动type
+    animation.type = @"oglFlip";
+    
+    animation.subtype = kCATransitionFromLeft;
+    
+    //设置运动速度
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    
+    [btn.layer addAnimation:animation forKey:@"animation"];
+    
+    if (self.mapView.layerType == NSBD_NORMAL) {
+        [btn setTitle:@"电子" forState:UIControlStateNormal];
+    }else
+    {
+        [btn setTitle:@"影像" forState:UIControlStateNormal];
+    }
+    
+    [self.mapView switchLayerType];
+}
+
 -(void) actionMyLocation
 {
 

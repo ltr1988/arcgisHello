@@ -75,6 +75,16 @@
     CGRect frame;
     
     
+    UIButton *btnChangMapType = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 70, btnsize, btnsize)];
+    btnChangMapType.backgroundColor = [UIColor whiteColor];
+    btnChangMapType.layer.cornerRadius = 5;
+    btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
+    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+    [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnChangMapType];
+    
     UIButton *btnMyLocation = [[UIButton alloc] initWithFrame:CGRectMake(leftBtnOffsetX, leftBtnOffsetY, btnsize, btnsize)];
     btnMyLocation.backgroundColor = [UIColor clearColor];
     [btnMyLocation setImage:[UIImage imageNamed:@"icon_map_position"] forState:UIControlStateNormal];
@@ -102,6 +112,10 @@
     UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(20, 20, self.view.frame.size.width - 40, btnsize)];
     btnSearch.backgroundColor = [UIColor whiteColor];
     btnSearch.layer.cornerRadius = btnsize/2;
+    btnSearch.layer.shadowColor = [UIColor blackColor].CGColor;
+    btnSearch.layer.shadowRadius = 4;
+    btnSearch.layer.shadowOffset = CGSizeMake(4, 4);
+    btnSearch.layer.shadowOpacity = 0.8;
     [btnSearch addTarget:self action:@selector(actionSearch) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnSearch];
     
