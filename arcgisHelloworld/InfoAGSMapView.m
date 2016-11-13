@@ -7,8 +7,15 @@
 //
 
 #import "InfoAGSMapView.h"
+#import "MapViewManager.h"
 #define ANIMATION_DURATION 1
 @implementation InfoAGSMapView
+
+-(void) switchLayerType
+{
+    _layerType = NSBD_NORMAL + NSBD_IMAGE - _layerType;
+    [MapViewManager resetLayer:self];
+}
 
 #pragma mark - touch
 -(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

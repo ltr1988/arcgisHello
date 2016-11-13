@@ -37,6 +37,8 @@
 #import "EventHttpManager.h"
 #import "HttpBaseModel.h"
 #import "UploadAttachmentModel.h"
+#import "AttachmentModel.h"
+#import "AttachmentItem.h"
 
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -84,8 +86,45 @@
 -(void) requestAttachment
 {
     //todo 请求下载附件
+    @weakify(self)
     [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:_model.uuid successCallback:^(NSURLSessionDataTask *task, id dict) {
         NSLog(@"%@",dict);
+        AttachmentModel *model = [AttachmentModel objectWithKeyValues:dict];
+        if (model.success) {
+            for (AttachmentItem *item in model.datalist) {
+                item.isqxyj = YES;
+                if ([item.file_type isEqualToString:@"image"]) {
+                    
+                    [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                        @strongify(self)
+                        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:fileUrl]];
+                        if (nil != image)
+                        {
+                            [self.model.attachmentModel.images addObject:image];
+                            [self.mPicker setImages:self.model.attachmentModel.images];
+                            
+                            dispatch_main_async_safe(^{
+                                
+                                [self.mPicker relayout];
+                            });
+                        }
+                    }];
+                }else
+                {
+                    [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                        @strongify(self)
+                        NSURL *url = [NSURL fileURLWithPath:fileUrl];
+                        self.model.attachmentModel.videoURL = url;
+                        [self.mPicker setVideo:self.model.attachmentModel.videoURL];
+                        
+                        dispatch_main_async_safe(^{
+                            
+                            [self.mPicker relayout];
+                        });
+                    }];
+                }
+            }
+        }
     } failCallback:nil];
 }
 
@@ -100,7 +139,7 @@
         self.model = [[EventReportModel alloc] init];
         self.model.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
         self.model.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
-        self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
+//        self.model.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
         self.model.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
         self.model.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
         
@@ -108,8 +147,8 @@
         self.model.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
         self.model.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
         
-        self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
-        self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
+//        self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
+//        self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
         self.model.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
         self.model.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
         self.model.attachmentModel = [[UploadAttachmentModel alloc] init];
@@ -133,7 +172,7 @@
     
     self.model.eventDate.date = date;
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:6 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
     [self.eventTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
@@ -156,7 +195,7 @@
     [self.view addSubview:self.eventTableView];
     
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:12 inSection:0];
     
     __weak __typeof(self) weakself = self;
     _mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) readOnly:_readonly picCallback:^{
@@ -286,13 +325,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = indexPath.row;
-    if (row == 5 || row == 9 || row == 14) {
+    if (row == 4 || row == 8 || row == 11) {
         return 8;
     }
-    if (row == 8) { //location picker
+    if (row == 7) { //location picker
         return lPicker.frame.size.height;
     }
-    if (row == 15) { //image picker
+    if (row == 12) { //image picker
         return _mPicker.frame.size.height;
     }
     return 55;
@@ -300,7 +339,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 16;
+    return 13;
 }
 
 
@@ -327,18 +366,18 @@
             cell.readOnly = _readonly;
             return cell;
         }
+//        case 2:
+//        {
+//            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+//            if (!cell) {
+//                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+//            }
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+////            cell.data = self.model.eventXingzhi;
+//            cell.readOnly = _readonly;
+//            return cell;
+//        }
         case 2:
-        {
-            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
-            if (!cell) {
-                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
-            }
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = self.model.eventXingzhi;
-            cell.readOnly = _readonly;
-            return cell;
-        }
-        case 3:
         {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
@@ -349,7 +388,7 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 4:
+        case 3:
         {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
@@ -360,9 +399,9 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 5:
-        case 9:
-        case 14:
+        case 4:
+        case 8:
+        case 11:
         {
             QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
             if (!cell) {
@@ -370,7 +409,7 @@
             }
             return cell;
         }
-        case 6:
+        case 5:
         {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
@@ -381,7 +420,7 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 7:
+        case 6:
         {
             TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
             if (!cell) {
@@ -391,34 +430,34 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 8:
+        case 7:
         {
             [lPicker removeFromSuperview];
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventLocationPickerCell"];
             [cell.contentView addSubview:lPicker];
             return cell;
         }
-        case 10:
-        {
-            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
-            if (!cell) {
-                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
-            }
-            cell.data = self.model.department;
-            cell.readOnly = _readonly;
-            return cell;
-        }
-        case 11:
-        {
-            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
-            if (!cell) {
-                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
-            }
-            cell.data = self.model.reporter;
-            cell.readOnly = _readonly;
-            return cell;
-        }
-        case 12:
+//        case 10:
+//        {
+//            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
+//            if (!cell) {
+//                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
+//            }
+////            cell.data = self.model.department;
+//            cell.readOnly = _readonly;
+//            return cell;
+//        }
+//        case 11:
+//        {
+//            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCell"];
+//            if (!cell) {
+//                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCell"];
+//            }
+////            cell.data = self.model.reporter;
+//            cell.readOnly = _readonly;
+//            return cell;
+//        }
+        case 9:
         {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
@@ -429,7 +468,7 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 13:
+        case 10:
         {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
@@ -440,7 +479,7 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 15:
+        case 12:
         {
             [_mPicker removeFromSuperview];
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
@@ -467,14 +506,12 @@
     __weak __typeof(self) weakSelf = self;
     switch (indexPath.row) {
         case 0:
-        case 5:
-        case 9:
-        case 14:
-        case 7:
+        case 4:
         case 8:
-        case 10:
-        case 11:
-        case 15:
+        case 13:
+        case 6:
+        case 7:
+        case 12:
         {
             break;
         }
@@ -490,18 +527,18 @@
             break;
             
         }
-        case 2: //eventXingzhi
-        {
-            NSArray *choices = @[@"水质污染",@"工程损害",@"机电故障"];
-            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
-                NSString *choice = dict[@"choice"];
-                weakSelf.model.eventXingzhi.detail = choice;
-                [weakSelf.eventTableView reloadData];
-            }];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 3: //level
+//        case 2: //eventXingzhi
+//        {
+//            NSArray *choices = @[@"水质污染",@"工程损害",@"机电故障"];
+//            ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
+//                NSString *choice = dict[@"choice"];
+////                weakSelf.model.eventXingzhi.detail = choice;
+//                [weakSelf.eventTableView reloadData];
+//            }];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            break;
+//        }
+        case 2: //level
         {
             NSArray *choices = @[@"一级响应",@"二级响应",@"三级响应"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
@@ -512,7 +549,7 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 4: //reason
+        case 3: //reason
         {
             NSArray *choices = @[@"人为",@"原因二",@"原因三"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
@@ -523,20 +560,20 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 6: //eventDate
+        case 5: //eventDate
         {
             NSDate *date = self.model.eventDate.date;
             DatePickViewController *pickerVC = [[DatePickViewController alloc] initWithDate:date];
             [self.navigationController pushViewController:pickerVC animated:YES];
             break;
         }
-        case 12:
+        case 9:
         {
             TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventStatus readOnly:_readonly];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-        case 13:
+        case 10:
         {
             TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventPreprocess readOnly:_readonly];
             [self.navigationController pushViewController:vc animated:YES];

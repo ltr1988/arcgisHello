@@ -8,6 +8,7 @@
 
 #import "MapViewManager.h"
 #import "CommonDefine.h"
+#import "TianDiTuWMTSLayer.h"
 
 @implementation MapViewManager
 static InfoAGSMapView *mapView;
@@ -37,6 +38,7 @@ static NSString *ip;
         mapView = [[InfoAGSMapView alloc] init];
         mapView.gridLineWidth = 0.1;
         
+        mapView.layerType = NSBD_NORMAL;
         [MapViewManager resetLayer:mapView];
         
         
@@ -72,9 +74,11 @@ static NSString *ip;
         }
     }
     
-    AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                                        [NSString stringWithFormat:WMTSRESTURL,[MapViewManager IP]]]];
-    
+//    AGSTiledMapServiceLayer *tiledLayer = [[AGSTiledMapServiceLayer alloc] initWithURL:[NSURL URLWithString:
+//                                                                                        [NSString stringWithFormat:WMTSRESTURL,[MapViewManager IP]]]];
+//    
+//    NSBDCustomMapLayer *tiledLayer = [[NSBDCustomMapLayer alloc] initWithMapType:CIVGPS];
+    TianDiTuWMTSLayer *tiledLayer = [[TianDiTuWMTSLayer alloc] initWithLayerType:mapView.layerType error:nil];
     
     AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
                                                                [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];

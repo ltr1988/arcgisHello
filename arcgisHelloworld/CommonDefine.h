@@ -18,7 +18,7 @@
 #define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
-#define HOSTIP @"192.168.0.121"
+#define HOSTIP @"192.168.1.121"
 
 #else
 
@@ -31,11 +31,11 @@
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbdgcssall/MapServer/0"
 
 //#define HOSTIP @"192.168.253.1"
-#define HOSTIP @"192.168.0.121"
-//#define HOSTIP @"192.168.1.200"
+
+//#define HOSTIP @"192.168.1.121"
+#define HOSTIP @"192.168.1.200"
 
 #endif
-
 
 #define AppMainWindow [(AppDelegate *)[UIApplication sharedApplication].delegate window]
 

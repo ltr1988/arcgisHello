@@ -27,6 +27,8 @@
 #import "SearchHistoryDetailSheetModel.h"
 #import "UITableView+EmptyView.h"
 #import "EventHttpManager.h"
+#import "AttachmentModel.h"
+#import "AttachmentItem.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -110,8 +112,53 @@
 -(void) requestAttachment
 {
     //todo 请求下载附件
-    [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:self.uiItem.itemId successCallback:^(NSURLSessionDataTask *task, id dict) {
+    @weakify(self)
+    [[EventHttpManager sharedManager] requestQuerySearchAttachmentListWithId:self.uiItem.itemId successCallback:^(NSURLSessionDataTask *task, id dict) {
         NSLog(@"%@",dict);
+        @strongify(self)
+        SearchHistoryDetailSheetModel *model = [SearchHistoryDetailSheetModel objectWithKeyValues:dict];
+        if (model.success)
+        {
+            NSMutableArray *attachList = [NSMutableArray arrayWithCapacity:model.datalist.count];
+            
+            for (NSArray *infoArray in model.datalist) {
+                AttachmentItem *item = [[AttachmentItem alloc]initWithArray:infoArray isQxyj:NO];
+                [attachList addObject:item];
+            }
+            for (AttachmentItem *item in attachList) {
+                if ([item.file_type isEqualToString:@"image"]) {
+                    
+                    [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                        @strongify(self)
+                        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfFile:fileUrl]];
+                        if (nil != image)
+                        {
+                            [self.uiItem.attachModel.images addObject:image];
+                            [self.mPicker setImages:self.uiItem.attachModel.images];
+                            
+                            dispatch_main_async_safe(^{
+                                
+                                [self.mPicker relayout];
+                            });
+                        }
+                    }];
+                }else
+                {
+                    [item downloadWithCompletionBlock:^(NSString *fileUrl, NSString *type) {
+                        @strongify(self)
+                        NSURL *url = [NSURL fileURLWithPath:fileUrl];
+                        self.uiItem.attachModel.videoURL = url;
+                        [self.mPicker setVideo:self.uiItem.attachModel.videoURL];
+                        
+                        dispatch_main_async_safe(^{
+                            
+                            [self.mPicker relayout];
+                        });
+                    }];
+                }
+            }
+            
+        }
     } failCallback:nil];
 }
 
@@ -129,8 +176,7 @@
         [_tableView reloadData];
     }else
     {
-        //todo 请求下载附件
-        [self requestAttachment];
+        
         @weakify(self)
         
         if (![self.uiItem isLine]) {
@@ -144,6 +190,9 @@
                     if (model.datalist.count>0) {
                         [self.uiItem setInfoArray:model.datalist[0]];
                         [self.tableView reloadData];
+                        
+                        //todo 请求下载附件
+                        [self requestAttachment];
                     }else
                     {
                         [self.tableView setEmptyView];
@@ -166,6 +215,7 @@
         else //is line
         {
             [self.tableView reloadData];
+            [self requestAttachment];
         }
         
     }

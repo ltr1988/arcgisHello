@@ -408,10 +408,12 @@
     {
         
         SearchCategoryItem *item = _model.datalist[indexPath.row];
+        NSBDBaseUIItem *uiItem = [_item sheetItem];
+        uiItem.itemId = item.itemId;
         if (readOnly)
-            vc = [SearchDetailSheetViewController sheetReadOnlyWithUIItem:[_item sheetItem]];
+            vc = [SearchDetailSheetViewController sheetReadOnlyWithUIItem:uiItem];
         else
-            vc = [SearchDetailSheetViewController sheetEditableWithUIItem:[_item sheetItem]];
+            vc = [SearchDetailSheetViewController sheetEditableWithUIItem:uiItem];
         vc.code = _item.code;
         vc.queryCode = self.codeDictionary[_item.code];
         vc.taskId = self.taskId;
