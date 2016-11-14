@@ -223,7 +223,7 @@
     NSInteger row = indexPath.row /2;
     MyChuanKuaYueItem *item = _modelList[row];
     //todo push to new vc
-    MyChuanKuaYueDetailViewController *vc = [[MyChuanKuaYueDetailViewController alloc] initWithId:item.theId ];
+    MyChuanKuaYueDetailViewController *vc = [[MyChuanKuaYueDetailViewController alloc] initWithId:item.theId isHistory:YES];
     vc.title = [item cellTitle];
     [self.navigationController pushViewController:vc animated:YES];
 }

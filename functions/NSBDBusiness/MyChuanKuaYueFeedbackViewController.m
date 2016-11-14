@@ -584,7 +584,7 @@
                                                                      acrossId:_crossItem.acrossId
                                                                      acrossName:_crossItem.name
                                                                 acrossCode:_crossItem.acrossCode
-                                                                          content:self.feedbackModel.detail.detail
+                                                                          content:self.feedbackModel.detail.text
                                                           SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
                                                               @strongify(self)
                                                               HttpBaseModel *item = [HttpBaseModel objectWithKeyValues:dict];

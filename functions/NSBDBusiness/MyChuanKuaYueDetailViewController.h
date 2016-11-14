@@ -12,4 +12,5 @@
 
 @property (nonatomic,strong) UITableView *myTableView;
 -(instancetype) initWithId:(NSString *)theID;
+-(instancetype) initWithId:(NSString *)theID isHistory:(BOOL)history;
 @end

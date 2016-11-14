@@ -19,6 +19,9 @@
 #import "ClosableWebView.h"
 
 @interface MyChuanKuaYueDetailViewController ()
+{
+    BOOL isHistory;
+}
 @property (nonatomic,strong) NSString *theID;
 @property (nonatomic,strong) MyChuanKuaYueItem * modelItem;
 @end
@@ -27,8 +30,14 @@
 
 -(instancetype) initWithId:(NSString *)theID
 {
+    return [self initWithId:theID isHistory:NO];
+}
+
+-(instancetype) initWithId:(NSString *)theID isHistory:(BOOL)history
+{
     if (self = [super init]) {
         _theID = theID;
+        isHistory = history;
     }
     return self;
 }
@@ -65,7 +74,8 @@
         return;
     }
     @weakify(self)
-    [[EventHttpManager sharedManager] requestQueryChuanKuaYueDetailWithID:self.theID SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+    
+    [[EventHttpManager sharedManager] requestQueryChuanKuaYueDetailWithID:self.theID isHistory:isHistory SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         @strongify(self)
         MyChuanKuaYueListModel *model = [MyChuanKuaYueListModel objectWithKeyValues:dict];
         if (model.success && model.datalist.count > 0)

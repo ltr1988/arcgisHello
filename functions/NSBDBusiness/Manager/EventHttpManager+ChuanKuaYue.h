@@ -12,7 +12,7 @@
 -(void) requestQueryChuanKuaYueWithPage:(NSInteger)page SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 -(void) requestQueryChuanKuaYueDetailWithID:(NSString *)theID SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 -(void) requestQueryHistoryChuanKuaYueWithPage:(NSInteger)page ID:(NSString *)theID SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
-
+-(void) requestQueryChuanKuaYueDetailWithID:(NSString *)theID isHistory:(BOOL)isHistory SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 -(void) requestAddMyChuanKuaYueProgressListWithId:(NSString *)uuid
                                          acrossId:(NSString *)acrossId
                                        acrossName:(NSString *)acrossName

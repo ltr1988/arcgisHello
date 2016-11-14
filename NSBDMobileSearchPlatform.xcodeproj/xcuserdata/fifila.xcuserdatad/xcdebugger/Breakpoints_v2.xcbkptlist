@@ -249,12 +249,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/MyChuanKuaYueFeedbackViewController.m"
-            timestampString = "500738570.918935"
+            timestampString = "500815876.523408"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "529"
-            endingLineNumber = "529"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m"
+            timestampString = "500818070.11981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MyChuanKuaYueDetailViewController requestData]"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m"
+                  timestampString = "500816478.194636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[MyChuanKuaYueDetailViewController requestData]_block_invoke"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m"
+                  timestampString = "500816478.196184"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m"
+            timestampString = "500818070.11981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/Manager/EventHttpManager+ChuanKuaYue.m"
+            timestampString = "500818070.11981"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-requestQueryChuanKuaYueDetailWithID:isHistory:SuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

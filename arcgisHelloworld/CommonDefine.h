@@ -32,8 +32,8 @@
 
 //#define HOSTIP @"192.168.253.1"
 
-//#define HOSTIP @"192.168.1.121"
-#define HOSTIP @"192.168.1.200"
+#define HOSTIP @"192.168.0.121"
+//#define HOSTIP @"192.168.1.200"
 
 #endif
 

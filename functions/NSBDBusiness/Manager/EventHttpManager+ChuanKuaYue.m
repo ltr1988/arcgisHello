@@ -20,7 +20,7 @@
                             @"pageSize":@(10),
                             @"data":@{
                                     @"userCode": [AuthorizeManager sharedInstance].userName,
-                                    @"code":@"arcoss",
+                                    @"code":@"across",
                                     @"type":@"ledger",
                                     },
                             };
@@ -50,20 +50,42 @@
     
 }
 
-
 -(void) requestQueryChuanKuaYueDetailWithID:(NSString *)theID SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSDictionary * info = @{
-                            @"pageNo":@(1),
-                            @"pageSize":@(10),
-                            @"data":@{
-                                    @"userCode": [AuthorizeManager sharedInstance].userName,
-                                    @"code":@"arcoss",
-                                    @"type":@"ledger",
-                                    @"queryParam":[NSString stringWithFormat:@"ID,EQ,%@",theID],
-                                    @"isLoadFile":@"true",
-                                    },
-                            };
+    [self requestQueryChuanKuaYueDetailWithID:theID isHistory:NO SuccessCallback:success failCallback:fail];
+    
+}
+-(void) requestQueryChuanKuaYueDetailWithID:(NSString *)theID isHistory:(BOOL)isHistory SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary * info ;
+    
+    
+    if (isHistory) {
+        info= @{
+                @"pageNo":@(1),
+                @"pageSize":@(10),
+                @"data":@{
+                        @"userCode": [AuthorizeManager sharedInstance].userName,
+                        @"code":@"history",
+                        @"type":@"across",
+                        @"queryParam":[NSString stringWithFormat:@"ID,EQ,%@",theID],
+                        @"isLoadFile":@"true",
+                        },
+                };
+    }else
+    {
+        info= @{
+                @"pageNo":@(1),
+                @"pageSize":@(10),
+                @"data":@{
+                        @"userCode": [AuthorizeManager sharedInstance].userName,
+                        @"code":@"across",
+                        @"type":@"ledger",
+                        @"queryParam":[NSString stringWithFormat:@"ID,EQ,%@",theID],
+                        @"isLoadFile":@"true",
+                        },
+                };
+    }
     
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"common" method:@"queryPage" req:info];
