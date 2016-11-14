@@ -227,7 +227,20 @@
 #pragma mark - chuankuayue cell delegate
 -(void) mapLocationWithInfo:(MyChuanKuaYueItem*) info
 {
+    NSDictionary *userInfo = @{@"x":@(info.poiX),
+                               @"y":@(info.poiY),
+                               @"title":info.name,
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ShowLocationNotification" object:self userInfo:userInfo];
+    int index = (int)[[self.navigationController viewControllers] indexOfObject:self];
     
+    if (index < 2) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else
+    {
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(index - 2)] animated:YES];
+    }
+
 }
 -(void) feedbackWithInfo:(MyChuanKuaYueItem*) info
 {

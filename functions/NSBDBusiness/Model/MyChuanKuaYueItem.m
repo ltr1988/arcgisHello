@@ -24,7 +24,7 @@
              @"safetyMonitorUnit" :@"SAFETYMONITORUNIT",
              @"mileNum" :@"MILENUM",
              @"positionDescription" :@"POSITIONDESCRIPTION",
-             @"poix" :@"POIX",
+             @"poiX" :@"POIX",
              @"poiY" :@"POIY",
              @"constructionPeriod" :@"CONSTRUCTIONPERIOD",
              

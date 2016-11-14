@@ -63,6 +63,7 @@
     _webSiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     [_infoButton setImage:[UIImage imageNamed:@"icon_jbxx"] forState:UIControlStateNormal];
+    [_infoButton setImage:[UIImage imageNamed:@"icon_jbxx_disable"] forState:UIControlStateDisabled];
     _infoButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     _infoButton.backgroundColor = [UIColor clearColor];
     _infoButton.titleLabel.font = UI_FONT(14);
@@ -70,6 +71,7 @@
     [_infoButton setTitle:@"基本信息" forState:UIControlStateNormal];
     
     [_webSiteButton setImage:[UIImage imageNamed:@"icon_swxx"] forState:UIControlStateNormal];
+    [_webSiteButton setImage:[UIImage imageNamed:@"icon_swxx_disable"] forState:UIControlStateDisabled];
     _webSiteButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [_webSiteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _webSiteButton.titleLabel.font = UI_FONT(14);
@@ -151,6 +153,12 @@
     _detailLabel.text = [model detail];
     [_titleLabel sizeToFit];
     [_detailLabel sizeToFit];
+    if ([model moreInfo] == nil) {
+        _infoButton.enabled = NO;
+    }
+    if ([model webSiteInfo] == nil) {
+        _webSiteButton.enabled = NO;
+    }
 }
 
 -(void) actionMoreInfo

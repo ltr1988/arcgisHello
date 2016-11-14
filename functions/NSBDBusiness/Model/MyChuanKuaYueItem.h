@@ -15,7 +15,7 @@
 @property (nonatomic,strong) NSString *projectEnd;
 @property (nonatomic,strong) NSString *supervisoryUnit;
 @property (nonatomic,strong) NSString *effectiveState;
-@property (nonatomic,assign) double poix;
+@property (nonatomic,assign) double poiX;
 @property (nonatomic,assign) double poiY;
 @property (nonatomic,strong) NSString *managementOpinion;
 @property (nonatomic,assign) long long addTime; //addtime.time

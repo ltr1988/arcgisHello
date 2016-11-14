@@ -48,8 +48,18 @@
     
     //create identify task
     [self doReloadTask];
-    
+    [self setupObservers];
     [[WeatherManager sharedInstance] requestData];
+}
+
+-(void) dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void) setupObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLocation:) name:@"ShowLocationNotification" object:nil];
 }
 
 -(void) doReloadTask
@@ -345,7 +355,7 @@
             AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
             if (glayer) {
                 [glayer removeAllGraphics];
-                AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"myPic.png"];
+                AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"RedPushpin.png"];
                 myPictureSymbol.size = CGSizeMake(36, 36);
                 //向右上方偏移5个像素
                 myPictureSymbol.offset = CGPointMake(0, -18);
@@ -490,6 +500,51 @@
     [self actionMyLocation];
 }
 
+
+-(void) showLocation:(NSNotification *)notify
+{
+    NSDictionary* info = notify.userInfo;
+    // x,y->double title->string
+    
+    double x,y;
+    x = [info[@"x"] doubleValue];
+    y = [info[@"y"] doubleValue];
+    AGSPoint *point = [[AGSPoint alloc] initWithX:x y:y spatialReference:self.mapView.spatialReference];
+    
+    AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
+    if (glayer) {
+        [glayer removeAllGraphics];
+        AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"RedPushpin.png"];
+        myPictureSymbol.size = CGSizeMake(36, 36);
+        //向右上方偏移5个像素
+        myPictureSymbol.offset = CGPointMake(0, -18);
+        AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:point symbol:myPictureSymbol attributes:nil];
+        [glayer addGraphic:symbol];
+    }
+    
+    ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
+    self.mapView.infoView = calloutView;
+    
+    CallOutItem *item = [[CallOutItem alloc] init];
+    item.title = info[@"title"];
+    item.detail = @"";
+    item.moreInfo = nil;
+    calloutView.model = (id<ItemCallOutViewModel>)item;
+    
+    
+    __weak __typeof(self) weakSelf = self;
+
+    calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
+        WebViewController *controller = [[WebViewController alloc] init];
+        
+        [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+        
+        [weakSelf.navigationController pushViewController:controller animated:YES];
+    };
+    
+    //show callout
+    [self.mapView showInfoView:YES];
+}
 
 @end
 
