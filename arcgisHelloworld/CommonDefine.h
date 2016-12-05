@@ -32,7 +32,9 @@
 
 //#define HOSTIP @"192.168.253.1"
 
-#define HOSTIP @"192.168.0.121"
+#define HOSTIP @"10.200.9.122"//app
+#define MAPIP @"10.200.9.28"
+//#define HOSTIP @"192.168.0.121"
 //#define HOSTIP @"192.168.1.200"
 
 #endif
@@ -51,7 +53,6 @@
 #define IS_iPhoneLongScreen     ([[UIScreen mainScreen] bounds].size.height >= 568.0)
 
 #define SystemVersion           [[[UIDevice currentDevice] systemVersion] floatValue]
-#define APP_SETTING_URL (IS_IOS_8? UIApplicationOpenSettingsURLString:@"prefs:root=privacy&&path=com.tencent.qqreaderiphone.dailybuild")
 
 #define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\

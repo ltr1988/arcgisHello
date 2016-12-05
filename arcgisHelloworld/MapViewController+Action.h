@@ -20,6 +20,7 @@
 -(void) actionEventUpload;
 -(void) actionQRCodeSwipe;
 -(void) actionLiveData;
+-(void) action3D;
 -(void) actionMyWork;
 
 @end

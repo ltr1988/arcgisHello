@@ -57,7 +57,7 @@ static NSString *ip;
 +(NSString *)IP
 {
     if (!ip || ip.length==0 ) {
-        ip = HOSTIP;
+        ip = MAPIP;
     }
     return ip;
 }

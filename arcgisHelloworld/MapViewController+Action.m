@@ -58,6 +58,10 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+-(void) action3D
+{
+    
+}
 -(void) actionQRCodeSwipe
 {
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];

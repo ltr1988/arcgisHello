@@ -14,6 +14,7 @@
 +(InfoAGSMapView *) sharedRouteMapView;
 +(void) resetLayer:(InfoAGSMapView *)aMapView;
 +(NSString *)IP;
++(NSString *)MapIP;
 
 +(void)SetIP:(NSString *)ip_new;
 @end

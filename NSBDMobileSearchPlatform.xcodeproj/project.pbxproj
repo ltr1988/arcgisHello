@@ -133,6 +133,7 @@
 		A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
 		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
+		A4F23FFC1DF406D100F7D4B8 /* Home3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */; };
 		A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC011D7F05E500B0532B /* FeedbackModel.m */; };
 		A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */; };
 		A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC071D8069AD00B0532B /* MyEventHistoryCell.m */; };
@@ -546,6 +547,8 @@
 		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
 		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
+		A4F23FFA1DF406D100F7D4B8 /* Home3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Home3DViewController.h; path = functions/NSBDBusiness/Home3DViewController.h; sourceTree = "<group>"; };
+		A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Home3DViewController.m; path = functions/NSBDBusiness/Home3DViewController.m; sourceTree = "<group>"; };
 		A4F2FC001D7F05E500B0532B /* FeedbackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackModel.h; path = functions/NSBDBusiness/Model/FeedbackModel.h; sourceTree = "<group>"; };
 		A4F2FC011D7F05E500B0532B /* FeedbackModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedbackModel.m; path = functions/NSBDBusiness/Model/FeedbackModel.m; sourceTree = "<group>"; };
 		A4F2FC031D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyEventDetailViewController+pickMedia.h"; path = "functions/NSBDBusiness/MyEventDetailViewController+pickMedia.h"; sourceTree = "<group>"; };
@@ -1012,6 +1015,7 @@
 		A4569C941D33B55B00A06B1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4F23FF91DF4061100F7D4B8 /* 3D */,
 				B2F1D8931D8BE5DF00A6EDCA /* LiveData */,
 				B2CFC3511D76AB6200FA97D3 /* Mywork */,
 				B2A186E21D62DB3F006D8CA7 /* Common */,
@@ -1291,6 +1295,15 @@
 				B2748D641DB0D78E00C0166F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4F23FF91DF4061100F7D4B8 /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				A4F23FFA1DF406D100F7D4B8 /* Home3DViewController.h */,
+				A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */,
+			);
+			name = 3D;
 			sourceTree = "<group>";
 		};
 		A4F2FC091D8069DE00B0532B /* Common */ = {
@@ -2174,6 +2187,7 @@
 				B205A5231D61D378007530EB /* MJRefreshAutoFooter.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
 				A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */,
+				A4F23FFC1DF406D100F7D4B8 /* Home3DViewController.m in Sources */,
 				A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */,
 				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
 				A412B8B01DB3C3C4003CAE02 /* MyEventDetailProgressModel.m in Sources */,
