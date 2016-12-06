@@ -2504,7 +2504,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2516,7 +2516,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 92H9654326;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
@@ -2531,7 +2531,7 @@
 					"-framework",
 					ArcGIS,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbdl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

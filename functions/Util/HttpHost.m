@@ -22,7 +22,7 @@
 
 +(NSString *) hostAURL
 {
-    return [NSString stringWithFormat:@"http://%@:8080/nsbd/Service/dataSync.do",HOSTIP];
+    return [NSString stringWithFormat:@"http://%@:7001/nsbd/Service/dataSync.do",HOSTIP];
 }
 
 +(NSString *) hostAURLWithParam:(NSDictionary *)dict
