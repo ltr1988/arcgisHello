@@ -1029,6 +1029,7 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				B23D478E1DF68EBB00656D5F /* FLEX */,
 				B2A1871A1D66AF4B006D8CA7 /* MJExtension */,
 				B205A4F41D61D378007530EB /* MJRefresh */,
 				B205A4911D5D7AAA007530EB /* QRCodeReaderViewController */,
@@ -1493,6 +1494,14 @@
 				B2B468FF1D6C3B4000AB84AF /* RouteSearchResultCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B23D478E1DF68EBB00656D5F /* FLEX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FLEX;
+			path = functions/FLEX;
 			sourceTree = "<group>";
 		};
 		B25712B71DADE50D00F3D7F6 /* SearchHistory */ = {
@@ -2492,7 +2501,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 92H9654326;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/**",
+					"$(PROJECT_DIR)/functions/FLEX",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
@@ -2519,7 +2531,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 92H9654326;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/SDKs/ArcGIS/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(HOME)/Library/SDKs/ArcGIS/**",
+					"$(PROJECT_DIR)/functions/FLEX",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;

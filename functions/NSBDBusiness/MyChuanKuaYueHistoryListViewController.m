@@ -51,18 +51,18 @@
     pageNum = 1;
     _modelList = [NSArray array];
 #ifdef NoServer
-    MyChuanKuaYueItem *item = [MyChuanKuaYueItem new];
-    item.title = @"名称1";
-    item.constructionUnit = @"单位1"
-    item.other = @"地址1";
-    
-    MyChuanKuaYueItem *item1 = [MyChuanKuaYueItem new];
-    item1.title = @"名称2";
-    item1.constructionUnit = @"单位2"
-    item1.other = @"地址2";
-    
-    _modelList = @[item,item1];
-    
+//    MyChuanKuaYueItem *item = [MyChuanKuaYueItem new];
+//    item.title = @"名称1";
+//    item.constructionUnit = @"单位1"
+//    item.other = @"地址1";
+//    
+//    MyChuanKuaYueItem *item1 = [MyChuanKuaYueItem new];
+//    item1.title = @"名称2";
+//    item1.constructionUnit = @"单位2"
+//    item1.other = @"地址2";
+//    
+//    _modelList = @[item,item1];
+//    
     return;
 #endif
 }

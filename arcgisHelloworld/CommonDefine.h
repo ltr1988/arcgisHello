@@ -12,23 +12,21 @@
 #ifdef NoServer
 #define WMSURL @"http://%@:6080/arcgis/services/nsbd_gongcheng_test/MapServer/WMSServer"
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_test/MapServer/"
-#define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/test_BJDLG/MapServer"
 #define WMS_FIND_URL @"http://%@:6080/arcgis/services/nsbd_gongcheng_all/MapServer/WMSServer"
 
 #define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
 #define HOSTIP @"192.168.1.121"
-
+#define MAPIP @"10.200.9.28"
 #else
 
-#define WMSURL @"http://%@:6080/arcgis/services/20131125NSBDgongcheng/MapServer/WMSServer"
-#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/20131125NSBDgongcheng/MapServer/"
-#define WMTSRESTURL @"http://%@:6080/arcgis/rest/services/20131123BJDLG/MapServer"
+#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
+#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
 #define WMS_FIND_URL @"http://%@:6080/arcgis/services/nsbdgcssall/MapServer/WMSServer"
 
-#define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbdgcssall/MapServer/0"
-#define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbdgcssall/MapServer/0"
+#define WMSREST_QUERY_URL @"http://%@:6080/arcgis/rest/services/nsbdsheshi/MapServer/0"
+#define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbdsheshi/MapServer/0"
 
 //#define HOSTIP @"192.168.253.1"
 

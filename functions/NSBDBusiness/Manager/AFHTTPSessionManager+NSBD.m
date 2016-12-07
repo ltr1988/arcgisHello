@@ -26,6 +26,7 @@
         if (failure) {
             failure(task,error);
         }
+        NSLog(@"%@", error);
     }];
 }
 

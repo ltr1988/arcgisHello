@@ -66,7 +66,6 @@
     EventReportModel *eventModel = [EventReportModel new];
     eventModel.eventName = [TitleInputItem itemWithTitle:@"事件名称" placeholder:@"请输入事件名称"];
     eventModel.eventType = [TitleDetailItem itemWithTitle:@"事件类型" detail:@"未填写"];
-    eventModel.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
     eventModel.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:@"未填写"];
     eventModel.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
     
@@ -74,7 +73,6 @@
     eventModel.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
     eventModel.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];
     
-    eventModel.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
     eventModel.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
     eventModel.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
     eventModel.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写" text:@""];

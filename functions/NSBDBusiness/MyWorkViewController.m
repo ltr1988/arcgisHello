@@ -16,6 +16,7 @@
 #import "MyDealedEventViewController.h"
 #import "MyChuanKuaYueHomeViewController.h"
 
+
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
 @property (nonatomic,strong) NSArray *modelList;
@@ -32,7 +33,7 @@
 
 -(void) setupModel
 {
-    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程"];
+    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程",@"测试工具"];
 }
 
 -(void) setupSubviews
@@ -151,6 +152,11 @@
         {
             MyChuanKuaYueHomeViewController *vc = [[MyChuanKuaYueHomeViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case 5:
+        {
+//            [[FLEXManager sharedManager] showExplorer];
         }
             break;
         default:
