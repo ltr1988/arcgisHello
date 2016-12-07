@@ -391,7 +391,9 @@
             calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
                 WebViewController *controller = [[WebViewController alloc] init];
                 
-                [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+                
+                
+                [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
                 
                 [weakSelf.navigationController pushViewController:controller animated:YES];
             };
@@ -468,7 +470,7 @@
         calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
             WebViewController *controller = [[WebViewController alloc] init];
             
-            [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+            [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
             
             [weakSelf.navigationController pushViewController:controller animated:YES];
         };
@@ -537,7 +539,7 @@
     calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
         WebViewController *controller = [[WebViewController alloc] init];
         
-        [controller setUrl:[NSURL URLWithString:@"http://www.baidu.com"]];
+        [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
         
         [weakSelf.navigationController pushViewController:controller animated:YES];
     };
