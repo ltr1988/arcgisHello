@@ -42,7 +42,7 @@
     layerInfo.maxZoomLevel =_maxZoomLevel;
     layerInfo.mapType = tiandituType;
    
-    layerInfo.url = [NSString stringWithFormat:@"http://%@:3080/gxpt/service/wmts",MAPIP];
+    layerInfo.url = [NSString stringWithFormat:@"http://%@:3080/nsbd/service/wmts",MAPIP];
     
     layerInfo.srid = SRID;
     layerInfo.xMax = X_MAX_2000;
