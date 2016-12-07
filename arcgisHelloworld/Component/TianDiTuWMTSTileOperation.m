@@ -12,7 +12,7 @@
 
 #define kURLGetTile @"%@?service=wmts&request=gettile&version=1.0.0&layer=nsbdbasemap&format=image/png&tilematrixset=nsbdbasemap&tilecol=%d&tilerow=%d&tilematrix=nsbdbasemap:%d"
 
-#define kURLGetImageTile @"%@?service=wmts&request=gettile&version=1.0.0&layer=nsbdbasemap_img&format=image/png&tilematrixset=nsbdbasemap&tilecol=%d&tilerow=%d&tilematrix=nsbdbasemap:%d"
+#define kURLGetImageTile @"%@?service=wmts&request=gettile&version=1.0.0&layer=nsbdbasemap_img&format=image/png&tilematrixset=nsbdbasemap_img&tilecol=%d&tilerow=%d&tilematrix=nsbdbasemap_img:%d"
 
 @implementation TianDiTuWMTSTileOperation
 

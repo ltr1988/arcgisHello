@@ -379,6 +379,7 @@
             item.title = name;
             item.detail = departName?:@"";
             item.moreInfo = [convertDict copy];
+            item.webSiteInfo = [NSDictionary dictionary];
             calloutView.model = (id<ItemCallOutViewModel>)item;
             
             
@@ -458,6 +459,7 @@
         item.title = name;
         item.detail = departName?:@"";
         item.moreInfo = [convertDict copy];
+        item.webSiteInfo = [NSDictionary dictionary];
         calloutView.model = (id<ItemCallOutViewModel>)item;
         
         
@@ -531,6 +533,8 @@
     item.title = info[@"title"];
     item.detail = @"";
     item.moreInfo = nil;
+    item.webSiteInfo = [NSDictionary dictionary];
+    
     calloutView.model = (id<ItemCallOutViewModel>)item;
     
     
