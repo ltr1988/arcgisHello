@@ -12,5 +12,10 @@
 @interface FacilityManager : NSObject
 +(instancetype) sharedInstance;
 
+
+//search
+
+-(void) requestQueryFacilityWithName:(NSString *) name SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
 -(void) requestFacilityWithId:(NSString *)fid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

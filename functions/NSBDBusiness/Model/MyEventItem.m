@@ -11,7 +11,6 @@
 @implementation MyEventItem
 
 + (NSDictionary *)replacedKeyFromPropertyName
-
 {
     return @{
              @"eid":@"id",
@@ -46,6 +45,16 @@
     return [NSString stringWithFormat:@"%@ - %@",_departName,_creatorName];
 }
 - (NSString *) xingzhi{
+    
+    if ([_category isEqualToString:@"SZWR"]) {
+        return @"水质污染";
+    }else if ([_category isEqualToString:@"GCAQ"]) {
+        return @"工程安全";
+    }else if ([_category isEqualToString:@"YJDD"]) {
+        return @"应急调度";
+    }else if ([_category isEqualToString:@"FXQX"]) {
+        return @"防汛抢险";
+    }
     return _category;
 }
 - (NSString *) level{

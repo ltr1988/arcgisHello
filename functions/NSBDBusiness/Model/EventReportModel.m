@@ -121,7 +121,6 @@
         self.reporter.detail = item.alarmPerson;
         
         self.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
-        self.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
         [self parseHttpModelToEventModel];
     }
     
@@ -149,7 +148,6 @@
     [aCoder encodeDouble:_location.x forKey:@"locationX"];
     [aCoder encodeDouble:_location.y forKey:@"locationY"];
     [aCoder encodeObject:_eventStatus forKey:@"_eventStatus"];
-    [aCoder encodeObject:_eventPreprocess forKey:@"_eventPreprocess"];
     
     [aCoder encodeObject:_attachmentModel forKey:@"_attachmentModel"];
     [aCoder encodeObject:_uuid forKey:@"uuid"];
@@ -172,7 +170,6 @@
         _location = CGPointMake([aDecoder decodeDoubleForKey:@"locationX"],
                                 [aDecoder decodeDoubleForKey:@"locationY"]);
         _eventStatus = [aDecoder decodeObjectForKey:@"_eventStatus"];
-        _eventPreprocess = [aDecoder decodeObjectForKey:@"_eventPreprocess"];
         
         _attachmentModel = [aDecoder decodeObjectForKey:@"_attachmentModel"];
     }

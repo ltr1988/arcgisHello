@@ -15,6 +15,12 @@
 #import "MapViewManager.h"
 #import "CenterTitleCell.h"
 #import "RouteSearchResultCell.h"
+#import "NSDictionary+JSON.h"
+#import "FacilityManager.h"
+#import "FacilityInfoModel.h"
+#import "FacilityInfoItem.h"
+
+#import "FacilityInfoItem+AGSGraphics.h"
 
 #define MAXIMUM_SEARCH_HISTORYS 10
 
@@ -167,22 +173,45 @@
 -(void) searchWithText:(NSString *)text
 {
     
-    //--------------
-    //to be deleted
-    //    [self mock];
-    //    return;
-    //--------------
     if (text && text.length>0) {
         NSLog(@"search %@",text);
-        AGSQuery *params = [AGSQuery new];
-        
-        params.text = text;
-        params.outFields = @[@"*"];
-        params.outSpatialReference = [AGSSpatialReference wgs84SpatialReference];
-        params.returnGeometry = YES;
-        
-        [_queryTask executeWithQuery:params];
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+        @weakify(self)
+        [[FacilityManager sharedInstance] requestQueryFacilityWithName:text SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            NSLog(@"call back");
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            @strongify(self)
+            FacilityInfoModel * model = [FacilityInfoModel objectWithKeyValues:dict];
+            if (model.success) {
+                NSMutableArray *tempArray = [NSMutableArray array];
+                for (NSArray *info in model.datalist) {
+                    FacilityInfoItem *item = [[FacilityInfoItem alloc] initWithArray:info];
+                    [tempArray addObject: [item graphics]];
+                }
+                _resultList = [tempArray copy];
+                if (_resultList.count) {
+                    showResult = YES;
+                }else
+                    showResult = NO;
+                [self.table reloadData];
+                
+            }else if (model.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                [ToastView popToast:@"获取设施信息失败,请稍候再试"];
+            }
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"call back");
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            [ToastView popToast:@"获取设施信息失败,请稍候再试"];
+        }];
     }
 }
 
@@ -295,30 +324,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-}
-
-
-#pragma mark queryTask delegate
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-{
-    //
-    if ([SVProgressHUD isVisible]) {
-        [SVProgressHUD dismiss];
-    }
-
-    _resultList = [featureSet.features copy];
-    if (_resultList.count) {
-        showResult = YES;
-    }else
-        showResult = NO;
-    [self.table reloadData];
-}
-
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didFailWithError:(NSError *)error{
-    NSLog(@"call back");
-    if ([SVProgressHUD isVisible]) {
-        [SVProgressHUD dismiss];
-    }
 }
 
 @end

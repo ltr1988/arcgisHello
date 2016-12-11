@@ -75,7 +75,6 @@
     
     eventModel.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
     eventModel.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
-    eventModel.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写" text:@""];
     eventModel.attachmentModel = [[UploadAttachmentModel alloc] init];
     eventModel.eventName.detail = @"test";
     

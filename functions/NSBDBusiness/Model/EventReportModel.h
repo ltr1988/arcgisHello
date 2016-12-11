@@ -27,7 +27,6 @@
 @property (nonatomic,strong) TitleDetailItem *reporter;
 @property (nonatomic,assign) CGPoint location;
 @property (nonatomic,strong) TitleDetailTextItem *eventStatus;
-@property (nonatomic,strong) TitleDetailTextItem *eventPreprocess;
 
 @property (nonatomic,strong) UploadAttachmentModel* attachmentModel;
 
@@ -39,4 +38,5 @@
 
 
 -(void) parseEventModelToHttpModel;
+-(void) parseHttpModelToEventModel;
 @end

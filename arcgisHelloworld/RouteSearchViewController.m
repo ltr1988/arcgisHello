@@ -19,6 +19,12 @@
 #import "SVProgressHUD.h"
 #import "CenterTitleCell.h"
 #import "AuthorizeManager.h"
+#import "NSDictionary+JSON.h"
+#import "FacilityManager.h"
+#import "FacilityInfoModel.h"
+#import "FacilityInfoItem.h"
+
+#import "FacilityInfoItem+AGSGraphics.h"
 
 #define MAXIMUM_HISTORYS 10
 
@@ -263,24 +269,79 @@
 -(void) searchWithText:(NSString *)text
 {
     
-    //--------------
-    //to be deleted
-//    [self mock];
-//    return;
-    //--------------
     if (text && text.length>0) {
         NSLog(@"search %@",text);
-        AGSQuery *params = [AGSQuery new];
-        
-        params.text = text;
-        params.outFields = @[@"NAME"];
-        params.outSpatialReference = [AGSSpatialReference wgs84SpatialReference];
-        params.returnGeometry = YES;
-        
-        [_queryTask executeWithQuery:params];
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+        @weakify(self)
+        [[FacilityManager sharedInstance] requestQueryFacilityWithName:text SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            NSLog(@"call back");
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            @strongify(self)
+            FacilityInfoModel * model = [FacilityInfoModel objectWithKeyValues:dict];
+            if (model.success) {
+                NSMutableArray *tempArray = [NSMutableArray array];
+                for (NSArray *info in model.datalist) {
+                    FacilityInfoItem *item = [[FacilityInfoItem alloc] initWithArray:info];
+                    AGSGraphic *feature = [item graphics];
+                    NSString *title = [feature attributeForKey:@"NAME"];
+                    RouteSearchResultItem *ritem = [[RouteSearchResultItem alloc] init];
+                    AGSPoint *point = (AGSPoint *)feature.geometry;
+                    ritem.location = CGPointMake(point.x, point.y);
+                    ritem.title = title;
+                    
+                    [tempArray addObject:ritem];
+                }
+                
+                _resultList = [tempArray copy];
+                if (_resultList.count) {
+                    showResult = YES;
+                }else
+                    showResult = NO;
+                [self.table reloadData];
+                
+                
+            }else if (model.status == HttpResultInvalidUser)
+            {
+                [ToastView popToast:@"您的帐号在其他地方登录"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                [ToastView popToast:@"获取设施信息失败,请稍候再试"];
+            }
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"call back");
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            [ToastView popToast:@"获取设施信息失败,请稍候再试"];
+        }];
     }
 }
+
+
+//-(void) searchWithText:(NSString *)text
+//{
+//    
+//    //--------------
+//    //to be deleted
+////    [self mock];
+////    return;
+//    //--------------
+//    if (text && text.length>0) {
+//        NSLog(@"search %@",text);
+//        AGSQuery *params = [AGSQuery new];
+//        
+//        params.text = text;
+//        params.outFields = @[@"NAME"];
+//        params.outSpatialReference = [AGSSpatialReference wgs84SpatialReference];
+//        params.returnGeometry = YES;
+//        
+//        [_queryTask executeWithQuery:params];
+//        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+//    }
+//}
 
 #pragma mark textfield delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -403,39 +464,39 @@
     return 1;
 }
 
-
-#pragma mark queryTask delegate
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-{
-    //
-    if ([SVProgressHUD isVisible]) {
-        [SVProgressHUD dismiss];
-    }
-    
-    
-    
-    NSLog(@"call back");
-    NSMutableArray *array = [NSMutableArray arrayWithCapacity:featureSet.features.count];
-    for (AGSGraphic *feature in featureSet.features) {
-        NSString *title = [feature attributeForKey:@"NAME"];
-        RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
-        AGSPoint *point = (AGSPoint *)feature.geometry;
-        item.location = CGPointMake(point.x, point.y);
-        item.title = title;
-        [array addObject:item];
-    }
-    _resultList = [array copy];
-    if (_resultList.count) {
-        showResult = YES;
-    }else
-        showResult = NO;
-    [self.table reloadData];
-}
-
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didFailWithError:(NSError *)error{
-    NSLog(@"call back");
-    if ([SVProgressHUD isVisible]) {
-        [SVProgressHUD dismiss];
-    }
-}
+//
+//#pragma mark queryTask delegate
+//- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
+//{
+//    //
+//    if ([SVProgressHUD isVisible]) {
+//        [SVProgressHUD dismiss];
+//    }
+//    
+//    
+//    
+//    NSLog(@"call back");
+//    NSMutableArray *array = [NSMutableArray arrayWithCapacity:featureSet.features.count];
+//    for (AGSGraphic *feature in featureSet.features) {
+//        NSString *title = [feature attributeForKey:@"NAME"];
+//        RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
+//        AGSPoint *point = (AGSPoint *)feature.geometry;
+//        item.location = CGPointMake(point.x, point.y);
+//        item.title = title;
+//        [array addObject:item];
+//    }
+//    _resultList = [array copy];
+//    if (_resultList.count) {
+//        showResult = YES;
+//    }else
+//        showResult = NO;
+//    [self.table reloadData];
+//}
+//
+//- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didFailWithError:(NSError *)error{
+//    NSLog(@"call back");
+//    if ([SVProgressHUD isVisible]) {
+//        [SVProgressHUD dismiss];
+//    }
+//}
 @end

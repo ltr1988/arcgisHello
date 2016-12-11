@@ -72,8 +72,8 @@
 
 -(void) setupSubviews
 {
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(actionSave)];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(actionSave)];
+//    [self.navigationItem setRightBarButtonItem:rightItem];
     
     _table = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _table.delegate = self;
@@ -125,7 +125,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     checkIndex = indexPath.row;
-    [tableView reloadData];
+    
+    [self actionSave];
     
 }
 

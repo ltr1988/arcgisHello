@@ -49,6 +49,7 @@
 		A414ACC51D3A1D890065AAA7 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBC1D3A1D890065AAA7 /* ELCImagePickerController.m */; };
 		A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBF1D3A1D890065AAA7 /* ELCOverlayImageView.m */; };
 		A414ACC91D3B20970065AAA7 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACC81D3B20970065AAA7 /* WebViewController.m */; };
+		A41B5E691DFD423400678822 /* FacilityInfoItem+AGSGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B5E681DFD423400678822 /* FacilityInfoItem+AGSGraphics.m */; };
 		A41D4E9E1D9F387100F75C99 /* LiveDataLiuliangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */; };
 		A41D4EA11D9F3AB200F75C99 /* LiveDataGongchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */; };
 		A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */; };
@@ -391,6 +392,8 @@
 		A414ACBF1D3A1D890065AAA7 /* ELCOverlayImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ELCOverlayImageView.m; path = functions/ELCImagePicker/ELCOverlayImageView.m; sourceTree = "<group>"; };
 		A414ACC71D3B20970065AAA7 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = functions/NSBDBusiness/WebViewController.h; sourceTree = "<group>"; };
 		A414ACC81D3B20970065AAA7 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = functions/NSBDBusiness/WebViewController.m; sourceTree = "<group>"; };
+		A41B5E671DFD423400678822 /* FacilityInfoItem+AGSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "FacilityInfoItem+AGSGraphics.h"; path = "functions/NSBDBusiness/Model/FacilityInfoItem+AGSGraphics.h"; sourceTree = "<group>"; };
+		A41B5E681DFD423400678822 /* FacilityInfoItem+AGSGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "FacilityInfoItem+AGSGraphics.m"; path = "functions/NSBDBusiness/Model/FacilityInfoItem+AGSGraphics.m"; sourceTree = "<group>"; };
 		A41D4E9C1D9F387100F75C99 /* LiveDataLiuliangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataLiuliangViewController.h; path = functions/NSBDBusiness/LiveDataLiuliangViewController.h; sourceTree = "<group>"; };
 		A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataLiuliangViewController.m; path = functions/NSBDBusiness/LiveDataLiuliangViewController.m; sourceTree = "<group>"; };
 		A41D4E9F1D9F3AB200F75C99 /* LiveDataGongchenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataGongchenViewController.h; path = functions/NSBDBusiness/LiveDataGongchenViewController.h; sourceTree = "<group>"; };
@@ -1634,6 +1637,8 @@
 				A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */,
 				A41012B01DBCBC31008B00DF /* FacilityInfoItem.h */,
 				A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */,
+				A41B5E671DFD423400678822 /* FacilityInfoItem+AGSGraphics.h */,
+				A41B5E681DFD423400678822 /* FacilityInfoItem+AGSGraphics.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2154,6 +2159,7 @@
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
 				A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */,
+				A41B5E691DFD423400678822 /* FacilityInfoItem+AGSGraphics.m in Sources */,
 				B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */,
 				B205A5361D61D378007530EB /* UIView+MJExtension.m in Sources */,
 				B2806A0E1D68401D0097F7E4 /* TitleInputItem.m in Sources */,

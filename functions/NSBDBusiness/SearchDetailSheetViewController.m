@@ -125,6 +125,7 @@
                 AttachmentItem *item = [[AttachmentItem alloc]initWithArray:infoArray isQxyj:NO];
                 [attachList addObject:item];
             }
+            self.uiItem.attachModel = [[UploadAttachmentModel alloc] init];
             for (AttachmentItem *item in attachList) {
                 if ([item.file_type isEqualToString:@"image"]) {
                     

@@ -91,6 +91,7 @@
         NSLog(@"%@",dict);
         AttachmentModel *model = [AttachmentModel objectWithKeyValues:dict];
         if (model.success) {
+            self.model.attachmentModel = [[UploadAttachmentModel alloc] init];
             for (AttachmentItem *item in model.datalist) {
                 item.isqxyj = YES;
                 if ([item.file_type isEqualToString:@"image"]) {
@@ -150,7 +151,6 @@
 //        self.model.department = [TitleInputItem itemWithTitle:@"填报部门" placeholder:@"请输入部门名称"];
 //        self.model.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
         self.model.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
-        self.model.eventPreprocess = [TitleDetailTextItem itemWithTitle:@"先期处置情况" detail:@"未填写"  text:@""];
         self.model.attachmentModel = [[UploadAttachmentModel alloc] init];
         
     }
@@ -195,7 +195,7 @@
     [self.view addSubview:self.eventTableView];
     
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:12 inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:11 inSection:0];
     
     __weak __typeof(self) weakself = self;
     _mPicker = [[EventMediaPickerView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 70) readOnly:_readonly picCallback:^{
@@ -304,6 +304,7 @@
        
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         //todo
+        [self.model parseEventModelToHttpModel];
     }];
     return;
 }
@@ -325,13 +326,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = indexPath.row;
-    if (row == 4 || row == 8 || row == 11) {
+    if (row == 4 || row == 8 || row == 10) {
         return 8;
     }
     if (row == 7) { //location picker
         return lPicker.frame.size.height;
     }
-    if (row == 12) { //image picker
+    if (row == 11) { //image picker
         return _mPicker.frame.size.height;
     }
     return 55;
@@ -339,7 +340,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 
-    return 13;
+    return 12;
 }
 
 
@@ -401,7 +402,7 @@
         }
         case 4:
         case 8:
-        case 11:
+        case 10:
         {
             QRSeparatorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"separatorCell"];
             if (!cell) {
@@ -468,18 +469,7 @@
             cell.readOnly = _readonly;
             return cell;
         }
-        case 10:
-        {
-            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
-            if (!cell) {
-                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
-            }
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.data = self.model.eventPreprocess;
-            cell.readOnly = _readonly;
-            return cell;
-        }
-        case 12:
+        case 11:
         {
             [_mPicker removeFromSuperview];
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EventMediaPickerCell"];
@@ -508,10 +498,10 @@
         case 0:
         case 4:
         case 8:
-        case 13:
+        case 11:
         case 6:
         case 7:
-        case 12:
+        case 10:
         {
             break;
         }
@@ -570,12 +560,6 @@
         case 9:
         {
             TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventStatus readOnly:_readonly];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 10:
-        {
-            TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventPreprocess readOnly:_readonly];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
