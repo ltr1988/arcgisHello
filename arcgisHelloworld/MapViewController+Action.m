@@ -20,7 +20,7 @@
 #import "MyWorkViewController.h"
 #import "TextPickerViewController.h"
 #import "LiveDataMainViewController.h"
-
+#import "Home3DViewController.h"
 
 @implementation MapViewController (Action)
 
@@ -60,8 +60,11 @@
 
 -(void) action3D
 {
+    Home3DViewController *vc = [Home3DViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
+
 -(void) actionQRCodeSwipe
 {
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];

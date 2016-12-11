@@ -441,11 +441,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/SearchDetailSheetViewController.m"
-            timestampString = "503140109.809649"
+            timestampString = "503150424.380344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "-actionCommit:"
             landmarkType = "7">
          </BreakpointContent>
@@ -457,27 +457,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503142105.953651"
+            timestampString = "503157853.532875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "-identifyTask:operation:didExecuteWithIdentifyResults:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503142113.888864"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "450"
-            endingLineNumber = "450"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
             landmarkName = "-actionSearch"
             landmarkType = "7">
          </BreakpointContent>
@@ -489,11 +473,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503142119.893277"
+            timestampString = "503157853.532875"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533"
+            startingLineNumber = "551"
+            endingLineNumber = "551"
             landmarkName = "-showLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -537,12 +521,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/EventReportViewController.m"
-            timestampString = "503145215.696506"
+            timestampString = "503150424.380344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "-requestAttachment"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "-setupSubViews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -553,12 +537,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/EventReportViewController.m"
-            timestampString = "503145322.428718"
+            timestampString = "503150424.380344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-requestAttachment"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "-setupSubViews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -591,6 +575,22 @@
             startingLineNumber = "168"
             endingLineNumber = "168"
             landmarkName = "-setupSubviews"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arcgisHelloworld/MapViewController.m"
+            timestampString = "503157853.532875"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "-identifyTask:operation:didExecuteWithIdentifyResults:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -39,7 +39,7 @@
 -(void) setupSubviews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    self.title = @"我的工作";
+    self.title = @"更多";
     
     self.myworkTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     self.myworkTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

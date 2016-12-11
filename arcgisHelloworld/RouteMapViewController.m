@@ -99,6 +99,20 @@
 
 -(void) setupSubviews
 {
+    
+    CGFloat btnsize = 36;
+    
+    CGFloat rightBtnOffsetX = self.view.frame.size.width- btnsize - 20;
+    UIButton *btnChangMapType = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 70, btnsize, btnsize)];
+    btnChangMapType.backgroundColor = [UIColor whiteColor];
+    btnChangMapType.layer.cornerRadius = 5;
+    btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
+    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+    [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnChangMapType];
+    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(actionPickPoint)];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
@@ -209,6 +223,35 @@
                            
                        }];
     }
+}
+
+-(void) actionSwitchMapType:(id)sender
+{
+    UIButton *btn = sender;
+    
+    CATransition *animation = [CATransition animation];
+    
+    //设置运动时间
+    animation.duration = 0.2;
+    
+    //设置运动type
+    animation.type = @"oglFlip";
+    
+    animation.subtype = kCATransitionFromLeft;
+    
+    //设置运动速度
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    
+    [btn.layer addAnimation:animation forKey:@"animation"];
+    
+    if (self.mapView.layerType == NSBD_NORMAL) {
+        [btn setTitle:@"电子" forState:UIControlStateNormal];
+    }else
+    {
+        [btn setTitle:@"影像" forState:UIControlStateNormal];
+    }
+    
+    [self.mapView switchLayerType];
 }
 
 @end

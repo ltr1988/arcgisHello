@@ -21,6 +21,7 @@
 #import "MapViewController+InfoMapping.h"
 #import "MapSearchInfoViewController.h"
 #import "WeatherManager.h"
+#import "DepthCalloutView.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -170,6 +171,12 @@
     [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
     [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     self.mapView.bottomView = [self bottomView];
+    
+//    DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
+//    dcallout.imageTapped = ^{
+//        NSLog(@"tapped");
+//    };
+//    self.mapView.callout.customView = dcallout;
 }
 
 
@@ -205,10 +212,10 @@
     x = CGRectGetMaxX(btn2.frame);
     btn3 = [[UIButton alloc] initWithFrame:CGRectMake(x, 0, width, height)];
     btn3.backgroundColor = [UIColor whiteColor];
-    [btn3 setImage:[UIImage imageNamed:@"icon_qrcode"] forState:UIControlStateNormal];
+    [btn3 setImage:[UIImage imageNamed:@"icon_swck"] forState:UIControlStateNormal];
     [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btn3 addTarget:self action:@selector(actionLiveData) forControlEvents:UIControlEventTouchUpInside];
-    [btn3 setTitle:@"实时数据" forState:UIControlStateNormal];
+    [btn3 addTarget:self action:@selector(action3D) forControlEvents:UIControlEventTouchUpInside];
+    [btn3 setTitle:@"查三维" forState:UIControlStateNormal];
     btn3.titleLabel.font = UI_FONT(14);
     
     x = CGRectGetMaxX(btn3.frame);
@@ -217,7 +224,7 @@
     [btn4 setImage:[UIImage imageNamed:@"icon_mywork"] forState:UIControlStateNormal];
     [btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btn4 addTarget:self action:@selector(actionMyWork) forControlEvents:UIControlEventTouchUpInside];
-    [btn4 setTitle:@"我的工作" forState:UIControlStateNormal];
+    [btn4 setTitle:@"更多" forState:UIControlStateNormal];
     btn4.titleLabel.font = UI_FONT(14);
     
     [btn1 verticalCenterImageAndTitle];
@@ -351,20 +358,23 @@
             if (!name)
                 continue;
             
+            self.mapView.callout.title = name;
+            self.mapView.callout.accessoryButtonHidden = YES;
+            AGSPoint * p = (AGSPoint *)((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry;
+            [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
+//            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
+//            if (glayer) {
+//                [glayer removeAllGraphics];
+//                AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
+//                myPictureSymbol.size = CGSizeMake(36, 36);
+//                //向右上方偏移5个像素
+//                myPictureSymbol.offset = CGPointMake(0, 18);
+//                AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry symbol:myPictureSymbol attributes:nil];
+//                [glayer addGraphic:symbol];
+//            }
             
-            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
-            if (glayer) {
-                [glayer removeAllGraphics];
-                AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
-                myPictureSymbol.size = CGSizeMake(36, 36);
-                //向右上方偏移5个像素
-                myPictureSymbol.offset = CGPointMake(0, 18);
-                AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry symbol:myPictureSymbol attributes:nil];
-                [glayer addGraphic:symbol];
-            }
-                            
             NSString *departName = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"ManE"];
-            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
+            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 64)];
             self.mapView.infoView = calloutView;
             
             
@@ -401,6 +411,13 @@
             
             //show callout
             [self.mapView showInfoView:YES];
+            
+//            DepthCalloutView *dcallout = (DepthCalloutView *)self.mapView.callout.customView;
+//            dcallout.imageView.image = [UIImage imageNamed:@"icon_login"];
+//            dcallout.lbLine1.text = @"a";
+//            
+//            AGSPoint * p = (AGSPoint *)((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry;
+//            [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
             return;
         }
     }
@@ -441,16 +458,20 @@
         if (!name)
             return;
         
-        AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
-        if (glayer) {
-            [glayer removeAllGraphics];
-            AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
-            myPictureSymbol.size = CGSizeMake(36, 36);
-            //向右上方偏移5个像素
-            myPictureSymbol.offset = CGPointMake(0, 18);
-            AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:geometry symbol:myPictureSymbol attributes:nil];
-            [glayer addGraphic:symbol];
-        }
+        self.mapView.callout.title = name;
+        self.mapView.callout.accessoryButtonHidden = YES;
+        AGSPoint * p = (AGSPoint *)geometry;
+        [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
+//        AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
+//        if (glayer) {
+//            [glayer removeAllGraphics];
+//            AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
+//            myPictureSymbol.size = CGSizeMake(36, 36);
+//            //向右上方偏移5个像素
+//            myPictureSymbol.offset = CGPointMake(0, 18);
+//            AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:geometry symbol:myPictureSymbol attributes:nil];
+//            [glayer addGraphic:symbol];
+//        }
         
         NSString *departName = [graphic attributeAsStringForKey:@"MANE"];
         ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
@@ -488,6 +509,7 @@
         
         //show callout
         [self.mapView showInfoView:YES];
+        
         return;
         
         
@@ -523,17 +545,21 @@
     x = [info[@"x"] doubleValue];
     y = [info[@"y"] doubleValue];
     AGSPoint *point = [[AGSPoint alloc] initWithX:x y:y spatialReference:self.mapView.spatialReference];
-    
-    AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
-    if (glayer) {
-        [glayer removeAllGraphics];
-        AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
-        myPictureSymbol.size = CGSizeMake(36, 36);
-        //向右上方偏移5个像素
-        myPictureSymbol.offset = CGPointMake(0, 18);
-        AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:point symbol:myPictureSymbol attributes:nil];
-        [glayer addGraphic:symbol];
-    }
+
+    self.mapView.callout.title = info[@"title"];
+    self.mapView.callout.accessoryButtonHidden = YES;
+    AGSPoint * p = (AGSPoint *)point;
+    [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
+//    AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
+//    if (glayer) {
+//        [glayer removeAllGraphics];
+//        AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
+//        myPictureSymbol.size = CGSizeMake(36, 36);
+//        //向右上方偏移5个像素
+//        myPictureSymbol.offset = CGPointMake(0, 18);
+//        AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:point symbol:myPictureSymbol attributes:nil];
+//        [glayer addGraphic:symbol];
+//    }
     
     ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
     self.mapView.infoView = calloutView;
