@@ -120,6 +120,19 @@
     if ([data video] && [data video].length>0) {
         [picContentView setVideo:[NSURL fileURLWithPath:data.video]];
     }
+    [self relayoutPicContentView];
+}
+
+-(void) relayoutPicContentView
+{
+    CGFloat padding = 8;
+    CGFloat height = [picContentView height];
+    [picContentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(lbDate.mas_bottom).offset(padding);
+        make.left.offset(0);
+        make.right.offset(0);
+        make.height.mas_equalTo(height);
+    }];
 }
 
 +(CGFloat) heightForData:(id<MyChuanKuaYueHistoryCellModel>) data

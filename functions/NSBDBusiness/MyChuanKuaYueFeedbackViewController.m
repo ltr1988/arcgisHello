@@ -102,19 +102,20 @@
     
 #ifdef NoServer
     //model for history
-//    MyEventHistoryItem *item1 =[[MyEventHistoryItem alloc] init];
-//    item1.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
-//    item1.addTime = @"2016-1-2";
-//    item1.disposeBy = @"北京";
-//    item1.creatorName = @"勿忘我";
-//    item1.attachment.images =[@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"] mutableCopy];
-//    
-//    MyEventHistoryItem *item2 =[[MyEventHistoryItem alloc] init];
-//    item2.disposeDescription = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
-//    item2.addTime = @"2016-1-2 13:00:01";
-//    item2.disposeBy = @"北京";
-//    item2.creatorName = @"lls";
-//    _historyModel = @[item1,item2];
+    MyChuanKuaYueProgressItem *item1 =[[MyChuanKuaYueProgressItem alloc] init];
+    item1.content = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item1.btime = @"2016-1-2";
+    item1.creator = @"北京";
+    item1.departName = @"勿忘我";
+    item1.attachment.images =[@[@"http://tva2.sinaimg.cn/crop.0.0.180.180.180/65de1936jw1e8qgp5bmzyj2050050aa8.jpg"] mutableCopy];
+    
+    MyChuanKuaYueProgressItem *item2 =[[MyChuanKuaYueProgressItem alloc] init];
+    item2.content = @"我呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜呜";
+    item2.btime = @"2016-1-2 13:00:01";
+    item2.creator = @"北京";
+    item2.departName = @"lls";
+    _historyModel = @[item1,item2];
+    _myFeedbackModel = @[item1,item2];
     return;
 #endif
     _historyModel = [NSArray array];

@@ -32,6 +32,13 @@
     return dict;
 }
 
+-(UploadAttachmentModel *)attachment
+{
+    if (!_attachment) {
+        _attachment = [[UploadAttachmentModel alloc] init];
+    }
+    return _attachment;
+}
 
 -(void) setFileList:(NSArray *)fileList
 {
