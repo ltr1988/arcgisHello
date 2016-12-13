@@ -19,6 +19,10 @@
 #import "SVProgressHUD.h"
 #import "CenterTitleCell.h"
 #import "AuthorizeManager.h"
+#import "Home3DDataSource.h"
+#import "Search3DHeaderModel.h"
+#import "Search3DWordsLayoutView.h"
+#import "Search3DHeaderItem.h"
 
 #define MAXIMUM_HISTORYS 10
 
@@ -26,12 +30,14 @@
 
 @interface Home3DViewController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
 {
+    Home3DDataSource *dataSource;
     BOOL showResult;
 }
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UITextField *searchField;
 @property (nonatomic,strong) NSMutableArray *historyList;
 @property (nonatomic,strong) NSArray *resultList;
+@property (nonatomic,strong) Search3DHeaderModel *headerModel;
 
 @end
 
@@ -42,7 +48,49 @@
     [super viewDidLoad];
     [self setupMembers];
     [self setupSubviews];
+    [self requestHeaderData];
 }
+
+-(void) requestHeaderData
+{
+    if (_headerModel) {
+        [self refreshHeader];
+    }
+}
+
+-(void) refreshHeader
+{
+    if (_headerModel.datalist.count==0 && _headerModel.datalist2.count==0)
+        _table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+    else
+    {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+        @weakify(self)
+        Search3DWordsLayoutView *view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
+            @strongify(self)
+            Search3DHeaderItem* item = self.headerModel.datalist[selectedIndex];
+            [self searchWithText:item.keyword];
+        }];
+        Search3DWordsLayoutView *view2 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
+            @strongify(self)
+            Search3DHeaderItem* item = self.headerModel.datalist2[selectedIndex];
+            [self searchWithText:item.keyword];
+        }];
+        
+        [view addSubview:view1];
+        [view addSubview:view2];
+        
+        view1.words = _headerModel.datalist;
+        view2.words = _headerModel.datalist2;
+        
+        [view1 layOut];
+        [view2 layOut];
+        
+        
+    }
+}
+
+
 
 -(void) mock
 {
@@ -63,6 +111,9 @@
 
 -(void) setupMembers
 {
+    dataSource = [[Home3DDataSource alloc] init];
+    
+    _headerModel = [dataSource requestCache];
     showResult = NO;
     _resultList = [NSArray array];
     _historyList = [NSMutableArray array];
@@ -115,30 +166,6 @@
     
     weakView.backgroundColor = [UIColor themeGrayBackgroundColor];
     
-    //我的位置 & 地图选点
-    
-    UIButton * myLocation = [UIButton buttonWithType:UIButtonTypeCustom];
-    [myLocation setImage:[UIImage imageNamed:@"icon_location"] forState:UIControlStateNormal];
-    [myLocation setTitle:@"我的位置" forState:UIControlStateNormal];
-    [myLocation.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [myLocation setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [myLocation addTarget:self action:@selector(actionMyLocation:) forControlEvents:UIControlEventTouchUpInside];
-    myLocation.backgroundColor = [UIColor whiteColor];
-    [weakView addSubview:myLocation];
-    
-    UIButton * pickInMap = [UIButton buttonWithType:UIButtonTypeCustom];
-    [pickInMap setImage:[UIImage imageNamed:@"mappoint"] forState:UIControlStateNormal];
-    [pickInMap setTitle:@"地图选点" forState:UIControlStateNormal];
-    [pickInMap.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [pickInMap setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [pickInMap addTarget:self action:@selector(actionPickInMap:) forControlEvents:UIControlEventTouchUpInside];
-    pickInMap.backgroundColor = [UIColor whiteColor];
-    [weakView addSubview:pickInMap];
-    
-    
-    UIView *vline = [UIView new];
-    vline.backgroundColor = [UIColor borderColor];
-    [weakView addSubview:vline];
     
     _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     _table.delegate = self;
@@ -148,30 +175,8 @@
     
     [self.view addSubview:_table];
     
-    CGFloat height = 55;
-    [myLocation mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_top).offset(4);
-        make.left.mas_equalTo(weakView.mas_left);
-        make.right.mas_equalTo(weakView.mas_centerX);
-        make.height.mas_equalTo(height);
-    }];
-    
-    [vline mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(myLocation.mas_centerY);
-        make.height.mas_equalTo(height-4);
-        make.width.mas_equalTo(0.5);
-        make.right.mas_equalTo(weakView.mas_centerX);
-    }];
-    
-    [pickInMap mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(weakView.mas_top).offset(4);
-        make.left.mas_equalTo(weakView.mas_centerX);
-        make.right.mas_equalTo(weakView.mas_right);
-        make.height.mas_equalTo(height);
-    }];
-    
     [_table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(myLocation.mas_bottom).offset(4);
+        make.top.mas_equalTo(weakView.mas_top);
         make.left.mas_equalTo(weakView.mas_left);
         make.right.mas_equalTo(weakView.mas_right);
         make.bottom.mas_equalTo(weakView.mas_bottom);
