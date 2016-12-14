@@ -22,33 +22,59 @@
     return manager;
 }
 
--(void) request3DHeaderWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) getRequestWithURL:(NSString *)url param:(NSDictionary *)param successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSDictionary *info = @{
-//                           @"name":name,
-                           };
+    [[HttpManager NSBDManager] ScenePOST:url
+                              parameters:param
+                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                     // 请求成功
+                                     if (success) {
+                                         dispatch_main_async_safe(^{
+                                             success(task,dict);
+                                         });
+                                     }
+                                     
+                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                     // 请求失败
+                                     if (fail) {
+                                         dispatch_main_async_safe(^{
+                                             fail(task,error);
+                                         });
+                                     }
+                                 }];
     
-    
-    NSMutableDictionary *dict = [HttpHost paramWithAction:@"queryfacility" method:@"doInDto" req:info];
-    
-    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
-                             parameters:nil
-                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
-                                    // 请求成功
-                                    if (success) {
-                                        dispatch_main_async_safe(^{
-                                            success(task,dict);
-                                        });
-                                    }
-                                    
-                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                    // 请求失败
-                                    if (fail) {
-                                        dispatch_main_async_safe(^{
-                                            fail(task,error);
-                                        });
-                                    }
-                                }];
+}
 
+-(void) postRequestWithURL:(NSString *)url param:(NSDictionary *)param successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    [[HttpManager NSBDManager] ScenePOST:url
+                              parameters:param
+                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                     // 请求成功
+                                     if (success) {
+                                         dispatch_main_async_safe(^{
+                                             success(task,dict);
+                                         });
+                                     }
+                                     
+                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                     // 请求失败
+                                     if (fail) {
+                                         dispatch_main_async_safe(^{
+                                             fail(task,error);
+                                         });
+                                     }
+                                 }];
+
+}
+
+-(void) request3DHeaderMANEWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_mane"] param:nil successCallback:success failCallback:fail];
+}
+
+-(void) request3DHeaderCategoryWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_objtype"] param:nil successCallback:success failCallback:fail];
 }
 @end

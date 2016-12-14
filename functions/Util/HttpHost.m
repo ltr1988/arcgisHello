@@ -13,16 +13,20 @@
 #import "CommonDefine.h"
 
 @implementation HttpHost
-+(NSString *) hostURL
-{
-    return [HttpHost testURL];
-    NSAssert(NO, @"not enabled url");
-    return @"not set";
-}
 
 +(NSString *) hostAURL
 {
     return [NSString stringWithFormat:@"http://%@:7001/nsbd/Service/dataSync.do",HOSTIP];
+}
+
++(NSString *) host3DURL
+{
+    return [NSString stringWithFormat:@"http://%@/WebServices/ManagerS.asmx",HOSTIP_3D];
+}
+
++(NSString *) host3DURLWithType:(NSString *)type
+{
+    return [[self host3DURL] stringByAppendingString:type];
 }
 
 +(NSString *) hostAURLWithParam:(NSDictionary *)dict
@@ -31,20 +35,6 @@
         return [NSString stringWithFormat:@"%@%@",[self hostAURL],[dict httpParamString]];
     }
     return [self hostAURL];
-}
-
-+(NSString *) hostLogin3DURL
-{
-    return [HttpHost testURL];
-    NSAssert(NO, @"not enabled url");
-    return @"not set";
-}
-
-+(NSString *) liveDataURL
-{
-    return [HttpHost testURL];
-    NSAssert(NO, @"not enabled url");
-    return @"not set";
 }
 
 +(NSMutableDictionary *) paramWithAction:(NSString *)action method:(NSString *)method req:(NSDictionary *) req
@@ -71,9 +61,4 @@
     return @"http://api.map.baidu.com/telematics/v3/weather";
 }
 
-
-+(NSString *) testURL
-{
-    return @"http://www.baidu.com";
-}
 @end

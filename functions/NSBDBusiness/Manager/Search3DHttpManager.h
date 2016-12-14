@@ -12,5 +12,6 @@
 @interface Search3DHttpManager : NSObject
 +(instancetype) sharedManager;
 
--(void) request3DHeaderWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) request3DHeaderMANEWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) request3DHeaderCategoryWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

@@ -9,9 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "Search3DHeaderModel.h"
 
+
 @interface Home3DDataSource : NSObject
 
--(Search3DHeaderModel *) requestCache;
+-(NSDictionary *) requestCache;
 -(void) requestHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail;
 
 @end
+
+typedef struct Home3DDataInfoKeysGroup {
+    __unsafe_unretained NSString *mane;   
+    __unsafe_unretained NSString *category;
+} Home3DDataInfoKeysGroup;
+
+extern const struct Home3DDataInfoKeysGroup Home3DDataInfoKeys;

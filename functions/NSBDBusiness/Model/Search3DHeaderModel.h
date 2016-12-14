@@ -8,8 +8,14 @@
 
 #import "HttpBaseModel.h"
 
-@interface Search3DHeaderModel : HttpBaseModel
-@property (nonatomic,strong) NSArray *datalist; //Search3DHeaderItem
+@interface Search3DHeaderModel : NSObject
+@property (nonatomic,strong) NSArray *datalist;
 
-@property (nonatomic,strong) NSArray *datalist2; //Search3DHeaderItem
++(instancetype) mockModel;
+@end
+
+@interface Search3DHeaderMANEModel : Search3DHeaderModel
+@end
+
+@interface Search3DHeaderCategoryModel : Search3DHeaderModel
 @end

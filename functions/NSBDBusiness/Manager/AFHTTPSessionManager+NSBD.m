@@ -8,6 +8,7 @@
 
 #import "AFHTTPSessionManager+NSBD.h"
 #import "NSDictionary+JSON.h"
+#import "GDataXMLNode.h"
 
 @implementation AFHTTPSessionManager (NSBD)
 - (NSURLSessionDataTask *)NSBDPOST:(NSString *)URLString
@@ -21,6 +22,66 @@
         NSDictionary *dict = [NSDictionary dictWithJson:str];
         if (success) {
             success(task,dict);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(task,error);
+        }
+        NSLog(@"%@", error);
+    }];
+}
+
+- (NSURLSessionDataTask *)ScenePOST:(NSString *)URLString
+                       parameters:(id)parameters
+                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                          failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSUTF8StringEncoding
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSDictionary dictWithJson:str];
+        if (success) {
+            success(task,dict);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(task,error);
+        }
+        NSLog(@"%@", error);
+    }];
+}
+
+- (NSURLSessionDataTask *)SceneGeT:(NSString *)URLString
+                         parameters:(id)parameters
+                            success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                            failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    return [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSUTF8StringEncoding
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSDictionary dictWithJson:str];
+        if (success) {
+            success(task,dict);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(task,error);
+        }
+        NSLog(@"%@", error);
+    }];
+}
+
+- (NSURLSessionDataTask *)XMLPOST:(NSString *)URLString
+                        parameters:(id)parameters
+                           success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                           failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    return [self POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSUTF8StringEncoding
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:str error:nil];
+        if (success) {
+            success(task,doc);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         if (failure) {

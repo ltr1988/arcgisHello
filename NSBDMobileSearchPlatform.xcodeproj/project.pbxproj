@@ -189,6 +189,11 @@
 		B245DA6C1DFFCDFB009886BF /* Search3DHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA6B1DFFCDFB009886BF /* Search3DHeaderModel.m */; };
 		B245DA6F1DFFDD5C009886BF /* Search3DHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA6E1DFFDD5C009886BF /* Search3DHttpManager.m */; };
 		B245DA781DFFEC54009886BF /* Search3DWordsLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA771DFFEC54009886BF /* Search3DWordsLayoutView.m */; };
+		B245DAB21E011208009886BF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DAB11E011208009886BF /* GDataXMLNode.m */; };
+		B245DAB51E011220009886BF /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B245DAB41E011220009886BF /* libxml2.tbd */; };
+		B245DABC1E015134009886BF /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B245DAB71E015133009886BF /* arrow.png */; };
+		B245DABD1E015134009886BF /* ComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DAB91E015133009886BF /* ComboBox.m */; };
+		B245DABE1E015134009886BF /* ComboBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DABB1E015133009886BF /* ComboBoxCell.m */; };
 		B25712AD1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */; };
 		B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */; };
 		B25712B31DADCECB00F3D7F6 /* NSString+LVPath.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */; };
@@ -669,6 +674,14 @@
 		B245DA6E1DFFDD5C009886BF /* Search3DHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search3DHttpManager.m; sourceTree = "<group>"; };
 		B245DA761DFFEC54009886BF /* Search3DWordsLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DWordsLayoutView.h; path = functions/NSBDBusiness/Views/Search3DWordsLayoutView.h; sourceTree = "<group>"; };
 		B245DA771DFFEC54009886BF /* Search3DWordsLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DWordsLayoutView.m; path = functions/NSBDBusiness/Views/Search3DWordsLayoutView.m; sourceTree = "<group>"; };
+		B245DAB01E011208009886BF /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		B245DAB11E011208009886BF /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		B245DAB41E011220009886BF /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		B245DAB71E015133009886BF /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		B245DAB81E015133009886BF /* ComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboBox.h; sourceTree = "<group>"; };
+		B245DAB91E015133009886BF /* ComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboBox.m; sourceTree = "<group>"; };
+		B245DABA1E015133009886BF /* ComboBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComboBoxCell.h; sourceTree = "<group>"; };
+		B245DABB1E015133009886BF /* ComboBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComboBoxCell.m; sourceTree = "<group>"; };
 		B25712AB1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchHistoryHomeViewController.h; path = functions/NSBDBusiness/SearchHistoryHomeViewController.h; sourceTree = "<group>"; };
 		B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchHistoryHomeViewController.m; path = functions/NSBDBusiness/SearchHistoryHomeViewController.m; sourceTree = "<group>"; };
 		B25712AE1DADCAB200F3D7F6 /* SearchHistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryManager.h; sourceTree = "<group>"; };
@@ -921,6 +934,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B245DAB51E011220009886BF /* libxml2.tbd in Frameworks */,
 				B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */,
 				B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */,
 				B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */,
@@ -1075,6 +1089,8 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				B245DAB61E015133009886BF /* ComboBox */,
+				B245DAAF1E011208009886BF /* GDataXMLNode */,
 				B23D478E1DF68EBB00656D5F /* FLEX */,
 				B2A1871A1D66AF4B006D8CA7 /* MJExtension */,
 				B205A4F41D61D378007530EB /* MJRefresh */,
@@ -1299,6 +1315,7 @@
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
 				A4DD86851D0976B00096B548 /* arcgis */,
 				A4DD86841D0976B00096B548 /* Products */,
+				B245DAB31E011220009886BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1561,6 +1578,37 @@
 				B245DA771DFFEC54009886BF /* Search3DWordsLayoutView.m */,
 			);
 			name = 3D;
+			sourceTree = "<group>";
+		};
+		B245DAAF1E011208009886BF /* GDataXMLNode */ = {
+			isa = PBXGroup;
+			children = (
+				B245DAB01E011208009886BF /* GDataXMLNode.h */,
+				B245DAB11E011208009886BF /* GDataXMLNode.m */,
+			);
+			name = GDataXMLNode;
+			path = functions/GDataXMLNode;
+			sourceTree = "<group>";
+		};
+		B245DAB31E011220009886BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B245DAB41E011220009886BF /* libxml2.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B245DAB61E015133009886BF /* ComboBox */ = {
+			isa = PBXGroup;
+			children = (
+				B245DAB71E015133009886BF /* arrow.png */,
+				B245DAB81E015133009886BF /* ComboBox.h */,
+				B245DAB91E015133009886BF /* ComboBox.m */,
+				B245DABA1E015133009886BF /* ComboBoxCell.h */,
+				B245DABB1E015133009886BF /* ComboBoxCell.m */,
+			);
+			name = ComboBox;
+			path = functions/ComboBox;
 			sourceTree = "<group>";
 		};
 		B25712B71DADE50D00F3D7F6 /* SearchHistory */ = {
@@ -2175,6 +2223,7 @@
 				B28069E11D682AC90097F7E4 /* icon_movie@3x.png in Resources */,
 				B28069E81D682AC90097F7E4 /* icon_map_search@3x.png in Resources */,
 				A4DD86931D0976B00096B548 /* Assets.xcassets in Resources */,
+				B245DABC1E015134009886BF /* arrow.png in Resources */,
 				A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */,
 				B28069E41D682AC90097F7E4 /* close.png in Resources */,
 				B28069EE1D682AC90097F7E4 /* mappoint@2x.png in Resources */,
@@ -2267,6 +2316,7 @@
 				A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */,
 				B205A5231D61D378007530EB /* MJRefreshAutoFooter.m in Sources */,
 				A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */,
+				B245DABE1E015134009886BF /* ComboBoxCell.m in Sources */,
 				A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */,
 				A4F23FFC1DF406D100F7D4B8 /* Home3DViewController.m in Sources */,
 				A41B5E731DFD8B1F00678822 /* Search3DResultItem.m in Sources */,
@@ -2309,6 +2359,7 @@
 				B28653D61D4863B2002D4139 /* UIRefreshControl+AFNetworking.m in Sources */,
 				A414ACC21D3A1D890065AAA7 /* ELCAssetCell.m in Sources */,
 				A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */,
+				B245DABD1E015134009886BF /* ComboBox.m in Sources */,
 				A412B8991DB24017003CAE02 /* SearchHistoryTaskItem.m in Sources */,
 				B2748D5A1DAF95B100C0166F /* QRSystemAlertController.m in Sources */,
 				A412B8B31DB3C774003CAE02 /* AttachmentItem.m in Sources */,
@@ -2336,6 +2387,7 @@
 				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A4AEF04E1DD74F8A00903925 /* TianDiTuWMTSLayer.m in Sources */,
+				B245DAB21E011208009886BF /* GDataXMLNode.m in Sources */,
 				A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */,
 				A41012B51DBCC798008B00DF /* FacilityDetailInfoViewController.m in Sources */,
 				B245DA6F1DFFDD5C009886BF /* Search3DHttpManager.m in Sources */,
@@ -2585,6 +2637,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -2615,6 +2668,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -37,6 +37,7 @@
 - (void)layOut
 {
     if (!_words || [_words count] == 0) {
+        _lines = 0;
         return;
     }
     [self clean];
@@ -98,6 +99,9 @@
 
 -(CGFloat) heightForView
 {
+    if (_lines ==0) {
+        return 0;
+    }
     return 30 * _lines + WORD_SPACE_VER*(2+(_lines -1));
 }
 

@@ -23,21 +23,32 @@
 #import "Search3DHeaderModel.h"
 #import "Search3DWordsLayoutView.h"
 #import "Search3DHeaderItem.h"
+#import "ComboBox.h"
 
 #define MAXIMUM_HISTORYS 10
 
 #define USER_SEARCH_3D_HISTORY [NSString stringWithFormat:@"search_3d_history_%@",[[AuthorizeManager sharedInstance] userName]]
 
-@interface Home3DViewController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
+@interface Home3DViewController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,ComBoxDelegate>
 {
     Home3DDataSource *dataSource;
     BOOL showResult;
 }
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) UITableView *resultTable;
+@property (nonatomic,strong) ComboBox *cbMANE;
+@property (nonatomic,strong) ComboBox *cbCategory;
+
+@property (nonatomic,strong) NSArray *cbMANEData;
+@property (nonatomic,strong) NSArray *cbCategoryData;
+@property (nonatomic,strong) NSString *cbMANEFilter;
+@property (nonatomic,strong) NSString *cbCategoryFilter;
+
 @property (nonatomic,strong) UITextField *searchField;
 @property (nonatomic,strong) NSMutableArray *historyList;
 @property (nonatomic,strong) NSArray *resultList;
-@property (nonatomic,strong) Search3DHeaderModel *headerModel;
+@property (nonatomic,strong) Search3DHeaderModel *headerManeModel;
+@property (nonatomic,strong) Search3DHeaderModel *headerCategoryModel;
 
 @end
 
@@ -53,44 +64,152 @@
 
 -(void) requestHeaderData
 {
-    if (_headerModel) {
+    if (_headerManeModel || _headerCategoryModel) {
         [self refreshHeader];
     }
 }
 
 -(void) refreshHeader
 {
-    if (_headerModel.datalist.count==0 && _headerModel.datalist2.count==0)
+    if (_headerManeModel.datalist.count==0 && _headerCategoryModel.datalist.count==0)
         _table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     else
     {
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
-        @weakify(self)
+        _table.tableHeaderView = [self headerView];
+    }
+}
+
+-(UIView *)resultTableHeader
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UIView *hline = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth/2, 4, 0.5, view.frame.size.height - 8)];
+    hline.backgroundColor = [UIColor lightGrayColor];
+    [view addSubview:hline];
+    
+    
+    _cbMANE = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 - 10 - 130, 0, 100, view.frame.size.height)];
+    [_cbMANE setComboBoxTitle:@"管理单位"];
+    _cbMANE.delegate = self;
+    [_cbMANE setComboBoxData:_cbMANEData];
+    [_cbMANE setComboBoxSize:CGSizeMake(100, 44*4)];
+    [view addSubview:_cbMANE];
+    
+    _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 100, view.frame.size.height)];
+    [_cbCategory setComboBoxTitle:@"所属工程"];
+    
+    [_cbCategory setComboBoxData:_cbCategoryData];
+    _cbCategory.delegate = self;
+    [_cbCategory setComboBoxSize:CGSizeMake(100, 44*4)];
+    [view addSubview:_cbCategory];
+    
+    return view;
+    
+}
+-(UIView *)headerView
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+    view.backgroundColor = [UIColor whiteColor];
+    @weakify(self)
+    
+    if (_headerManeModel.datalist.count !=0 && _headerCategoryModel.datalist.count != 0)
+    {
         Search3DWordsLayoutView *view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
-            Search3DHeaderItem* item = self.headerModel.datalist[selectedIndex];
+            Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
             [self searchWithText:item.keyword];
         }];
         Search3DWordsLayoutView *view2 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
-            Search3DHeaderItem* item = self.headerModel.datalist2[selectedIndex];
+            Search3DHeaderItem* item = self.headerCategoryModel.datalist[selectedIndex];
             [self searchWithText:item.keyword];
         }];
+        
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = [UIColor grayColor];
+        [view addSubview:line];
         
         [view addSubview:view1];
         [view addSubview:view2];
         
-        view1.words = _headerModel.datalist;
-        view2.words = _headerModel.datalist2;
+        view1.words = _headerManeModel.datalist;
+        view2.words = _headerCategoryModel.datalist;
         
         [view1 layOut];
         [view2 layOut];
         
+        CGFloat height1,height2,height_line=4;
+        height1 = [view1 heightForView];
+        height2 = [view2 heightForView];
         
+        
+        [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(0);
+            make.height.mas_equalTo(height1);
+            make.left.offset(0);
+            make.right.offset(0);
+        }];
+        [line mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(view1.mas_bottom);
+            make.height.mas_equalTo(height_line);
+            make.left.offset(0);
+            make.right.offset(0);
+        }];
+        [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(line.mas_bottom);
+            make.height.mas_equalTo(0.5);
+            make.left.offset(0);
+            make.right.offset(0);
+        }];
+        
+        view.frame = CGRectMake(0, 0, self.view.frame.size.width, height1 + height2 + height_line);
     }
+    else if (_headerManeModel.datalist.count !=0)
+    {
+        Search3DHeaderModel * aModel = _headerManeModel? :_headerCategoryModel;
+        
+        Search3DWordsLayoutView *view1;
+        if (_headerCategoryModel) {
+            view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
+                @strongify(self)
+                Search3DHeaderItem* item = self.headerCategoryModel.datalist[selectedIndex];
+                [self searchWithText:item.keyword];
+            }];
+        }else
+        {
+            view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
+                @strongify(self)
+                Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
+                [self searchWithText:item.keyword];
+            }];
+        }
+        
+        
+        
+        [view addSubview:view1];
+        
+        view1.words = aModel.datalist;
+        
+        [view1 layOut];
+        
+        CGFloat height1;
+        height1 = [view1 heightForView];
+        
+        
+        [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset(0);
+            make.height.mas_equalTo(height1);
+            make.left.offset(0);
+            make.right.offset(0);
+        }];
+        
+        view.frame = CGRectMake(0, 0, self.view.frame.size.width, height1);
+    }
+    
+    
+    return view;
 }
-
-
 
 -(void) mock
 {
@@ -106,16 +225,33 @@
         showResult = YES;
     }else
         showResult = NO;
-    [self.table reloadData];
+    [self refreshUI];
+}
+
+-(void) refreshUI
+{
+    _resultTable.hidden = !showResult;
+    _table.hidden = showResult;
+    if (showResult) {
+        [_resultTable reloadData];
+    }else
+    {
+        [_table reloadData];
+    }
+    
+    
 }
 
 -(void) setupMembers
 {
     dataSource = [[Home3DDataSource alloc] init];
     
-    _headerModel = [dataSource requestCache];
+    NSDictionary *cacheInfo = [dataSource requestCache];
+    if (cacheInfo) {
+        self.headerManeModel = cacheInfo[Home3DDataInfoKeys.mane];
+        self.headerCategoryModel = cacheInfo[Home3DDataInfoKeys.category];
+    }
     showResult = NO;
-    _resultList = [NSArray array];
     _historyList = [NSMutableArray array];
     
     NSArray *list = [[NSUserDefaults standardUserDefaults] objectForKey:USER_SEARCH_3D_HISTORY];
@@ -125,6 +261,10 @@
         RouteSearchResultItem *historyItem = [NSKeyedUnarchiver unarchiveObjectWithData:aHistory];
         [_historyList addObject:historyItem];
     }
+    
+    
+    _cbMANEData = @[@"管理单位",@"1",@"2"];
+    _cbCategoryData = @[@"所属工程",@"3",@"4"];
 }
 
 -(void) setupTopBar
@@ -175,6 +315,16 @@
     
     [self.view addSubview:_table];
     
+    _resultTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    _resultTable.hidden = YES;
+    _resultTable.delegate = self;
+    _resultTable.dataSource = self;
+    _resultTable.separatorStyle = UITableViewCellSelectionStyleNone;
+    _resultTable.backgroundColor = [UIColor whiteColor];
+    
+    _resultTable.tableHeaderView = [self resultTableHeader];
+    [self.view addSubview:_resultTable];
+    
     [_table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.left.mas_equalTo(weakView.mas_left);
@@ -182,7 +332,13 @@
         make.bottom.mas_equalTo(weakView.mas_bottom);
     }];
     
-    [_table reloadData];
+    [_resultTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top);
+        make.left.mas_equalTo(weakView.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+        make.bottom.mas_equalTo(weakView.mas_bottom);
+    }];
+    [self refreshUI];
     
 }
 
@@ -263,7 +419,8 @@
     textField.text = @"";
     [textField resignFirstResponder];
     showResult = NO;
-    [self.table reloadData];
+    
+    [self refreshUI];
     return YES;
 }
 
@@ -276,7 +433,8 @@
 {
     [_historyList removeAllObjects];
     [[NSUserDefaults standardUserDefaults] setObject:_historyList forKey:USER_SEARCH_3D_HISTORY];
-    [self.table reloadData];
+    
+    [self refreshUI];
 }
 
 #pragma mark tableview delegate
@@ -287,8 +445,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSInteger count = showResult?_resultList.count:(_historyList.count==0?0:_historyList.count+1);
-    tableView.hidden = count==0;
+    NSInteger count = (tableView==_resultTable) ?_resultList.count:(_historyList.count==0?0:_historyList.count+1);
+
     return count;
 }
 
@@ -332,11 +490,11 @@
     NSInteger row = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (!showResult && indexPath.row == (_historyList.count)) {
+    if ((tableView== _table) && indexPath.row == (_historyList.count)) {
         [self cleanHistory];
     }else
     {
-        RouteSearchResultItem * item = showResult? _resultList[row] :_historyList[row];
+        RouteSearchResultItem * item = (tableView == _resultTable)? _resultList[row] :_historyList[row];
         [self saveHistory:item];
         //go to 3d web site
     }
@@ -348,24 +506,26 @@
 }
 
 
-#pragma mark onGetResult
-- (void) onGetResult:(NSDictionary *)result
-{
-    //
-    if ([SVProgressHUD isVisible]) {
-        [SVProgressHUD dismiss];
-    }
-    
-    
-    
-    NSLog(@"call back");
-    NSMutableArray *array = [NSMutableArray array];
-    _resultList = [array copy];
-    if (_resultList.count) {
-        showResult = YES;
+#pragma mark - ComboBox
+-(void)comboBox:(ComboBox *)comboBox didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (_cbMANE == comboBox) {
+        if (indexPath.row == 0) {
+            _cbMANEFilter = @"";
+        }else
+        {
+            _cbMANEFilter = _cbMANEData[indexPath.row];
+        }
     }else
-        showResult = NO;
-    [self.table reloadData];
+    {
+        if (indexPath.row == 0) {
+            _cbCategoryFilter = @"";
+        }else
+        {
+            _cbCategoryFilter = _cbCategoryData[indexPath.row];
+        }
+    }
+    if (_searchField.text.length>0) {
+        [self searchWithText:_searchField.text];
+    }
 }
-
 @end

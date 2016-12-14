@@ -13,10 +13,12 @@
 +(NSMutableDictionary *) paramWithAction:(NSString *)action method:(NSString *)method req:(NSDictionary *) req;
 
 +(NSString *) weatherURL;
-+(NSString *) hostURL;
 
 //host A
 +(NSString *) hostAURL;
 +(NSString *) hostAURLWithParam:(NSDictionary *)dict;
 
+//host 3d
++(NSString *) host3DURL;
++(NSString *) host3DURLWithType:(NSString *)type;
 @end

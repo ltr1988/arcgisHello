@@ -18,6 +18,8 @@
 #define WMSREST_FIND_URL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_all/MapServer/0"
 
 #define HOSTIP @"192.168.1.121"
+
+#define HOSTIP_3D @"10.200.9.122"//app
 #define MAPIP @"10.200.9.28"
 #else
 
@@ -31,6 +33,7 @@
 //#define HOSTIP @"192.168.253.1"
 
 #define HOSTIP @"10.200.9.122"//app
+#define HOSTIP_3D @"10.200.9.122"//app
 #define MAPIP @"10.200.9.28"
 //#define HOSTIP @"192.168.0.121"
 //#define HOSTIP @"192.168.1.200"

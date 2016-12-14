@@ -10,4 +10,13 @@
 
 @interface Search3DHeaderItem : NSObject
 @property (nonatomic,strong) NSString *keyword;
+@property (nonatomic,strong) NSString *number;
+@end
+
+
+@interface Search3DMANEHeaderItem : Search3DHeaderItem
+
+@end
+
+@interface Search3DCategoryHeaderItem : Search3DHeaderItem
 @end

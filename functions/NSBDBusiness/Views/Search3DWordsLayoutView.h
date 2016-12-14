@@ -13,4 +13,5 @@ typedef void (^WordsLayoutViewCallback)(NSInteger selectedIndex);
 @property(nonatomic,strong) NSArray *words;
 - (id)initWithCallback:(WordsLayoutViewCallback)callback;
 - (void)layOut;
+-(CGFloat) heightForView;
 @end
