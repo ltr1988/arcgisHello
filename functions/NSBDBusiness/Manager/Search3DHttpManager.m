@@ -77,4 +77,18 @@
 {
     [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_objtype"] param:nil successCallback:success failCallback:fail];
 }
+
+-(void) request3DModelWithObjectnum:(NSString *)objectnum SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModelByObjectnum"] param:@{@"objectnum":objectnum} successCallback:success failCallback:fail];
+}
+
+
+-(void) request3DShenMaiWithX:(CGFloat)x y:(CGFloat)y SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary *param = @{@"pointx":@(x),
+                            @"pointy":@(y),
+                            @"buffer":@(1000),};
+    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/QueryNearestMaishen"] param:param successCallback:success failCallback:fail];
+}
 @end
