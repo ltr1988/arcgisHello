@@ -47,8 +47,8 @@
 @property (nonatomic,strong) UITextField *searchField;
 @property (nonatomic,strong) NSMutableArray *historyList;
 @property (nonatomic,strong) NSArray *resultList;
-@property (nonatomic,strong) Search3DHeaderModel *headerManeModel;
-@property (nonatomic,strong) Search3DHeaderModel *headerCategoryModel;
+@property (nonatomic,strong) Search3DHeaderMANEModel *headerManeModel;
+@property (nonatomic,strong) Search3DHeaderCategoryModel *headerCategoryModel;
 
 @end
 
@@ -60,10 +60,26 @@
     [self setupMembers];
     [self setupSubviews];
     [self requestHeaderData];
+    [self refreshUI];
+}
+
+-(void) setupDataSource
+{
+    dataSource = [[Home3DDataSource alloc] init];
+    
+    NSDictionary *cacheInfo = [dataSource requestCache];
+    if (cacheInfo) {
+        self.headerManeModel = cacheInfo[Home3DDataInfoKeys.mane];
+        self.headerCategoryModel = cacheInfo[Home3DDataInfoKeys.category];
+    }
 }
 
 -(void) requestHeaderData
 {
+    //mock
+    _headerManeModel = [Search3DHeaderMANEModel mockModel];
+    _headerCategoryModel = [Search3DHeaderCategoryModel mockModel];
+    
     if (_headerManeModel || _headerCategoryModel) {
         [self refreshHeader];
     }
@@ -71,11 +87,13 @@
 
 -(void) refreshHeader
 {
-    if (_headerManeModel.datalist.count==0 && _headerCategoryModel.datalist.count==0)
+    if ((_headerManeModel.datalist.count==0) && (_headerCategoryModel.datalist.count==0))
+    {
         _table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+    }
     else
     {
-        _table.tableHeaderView = [self headerView];
+        _table.tableHeaderView = [self defaultHeaderView];
     }
 }
 
@@ -93,7 +111,7 @@
     [_cbMANE setComboBoxTitle:@"管理单位"];
     _cbMANE.delegate = self;
     [_cbMANE setComboBoxData:_cbMANEData];
-    [_cbMANE setComboBoxSize:CGSizeMake(100, 44*4)];
+    [_cbMANE setComboBoxSize:CGSizeMake(100, 44*6)];
     [view addSubview:_cbMANE];
     
     _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 100, view.frame.size.height)];
@@ -107,14 +125,15 @@
     return view;
     
 }
--(UIView *)headerView
+-(UIView *) defaultHeaderView
 {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
     view.backgroundColor = [UIColor whiteColor];
-    @weakify(self)
     
-    if (_headerManeModel.datalist.count !=0 && _headerCategoryModel.datalist.count != 0)
+    
+    if ((_headerManeModel.datalist.count!=0) && (_headerCategoryModel.datalist.count!=0))
     {
+        @weakify(self)
         Search3DWordsLayoutView *view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
             Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
@@ -133,8 +152,8 @@
         [view addSubview:view1];
         [view addSubview:view2];
         
-        view1.words = _headerManeModel.datalist;
-        view2.words = _headerCategoryModel.datalist;
+        view1.words = [_headerManeModel stringArray];
+        view2.words = [_headerCategoryModel stringArray];
         
         [view1 layOut];
         [view2 layOut];
@@ -171,6 +190,8 @@
         
         Search3DWordsLayoutView *view1;
         if (_headerCategoryModel) {
+            
+            @weakify(self)
             view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
                 @strongify(self)
                 Search3DHeaderItem* item = self.headerCategoryModel.datalist[selectedIndex];
@@ -178,6 +199,8 @@
             }];
         }else
         {
+            
+            @weakify(self)
             view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
                 @strongify(self)
                 Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
@@ -244,13 +267,7 @@
 
 -(void) setupMembers
 {
-    dataSource = [[Home3DDataSource alloc] init];
-    
-    NSDictionary *cacheInfo = [dataSource requestCache];
-    if (cacheInfo) {
-        self.headerManeModel = cacheInfo[Home3DDataInfoKeys.mane];
-        self.headerCategoryModel = cacheInfo[Home3DDataInfoKeys.category];
-    }
+    [self setupDataSource];
     showResult = NO;
     _historyList = [NSMutableArray array];
     
@@ -263,7 +280,7 @@
     }
     
     
-    _cbMANEData = @[@"管理单位",@"1",@"2"];
+    _cbMANEData = @[@"管理单位",@"团城湖管理处",@"大宁管理处",@"南干渠管理处",@"东干渠管理处",@"干线管理处"];
     _cbCategoryData = @[@"所属工程",@"3",@"4"];
 }
 
@@ -312,7 +329,7 @@
     _table.dataSource = self;
     _table.separatorStyle = UITableViewCellSelectionStyleNone;
     _table.backgroundColor = [UIColor whiteColor];
-    
+    _table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_table];
     
     _resultTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
@@ -338,7 +355,6 @@
         make.right.mas_equalTo(weakView.mas_right);
         make.bottom.mas_equalTo(weakView.mas_bottom);
     }];
-    [self refreshUI];
     
 }
 

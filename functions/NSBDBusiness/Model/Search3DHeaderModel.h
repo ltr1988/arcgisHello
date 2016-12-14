@@ -10,6 +10,7 @@
 
 @interface Search3DHeaderModel : NSObject
 @property (nonatomic,strong) NSArray *datalist;
+-(NSArray *) stringArray;
 
 +(instancetype) mockModel;
 @end

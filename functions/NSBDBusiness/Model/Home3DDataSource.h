@@ -13,7 +13,8 @@
 @interface Home3DDataSource : NSObject
 
 -(NSDictionary *) requestCache;
--(void) requestHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail;
+-(void) requestMANEHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail;
+-(void) requestCategoryHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail;
 
 @end
 

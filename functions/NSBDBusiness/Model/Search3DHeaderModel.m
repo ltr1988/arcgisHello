@@ -14,6 +14,14 @@
 +(instancetype) mockModel
 {return nil;}
 
+-(NSArray *) stringArray
+{
+    NSMutableArray *array = [NSMutableArray array];
+    for (Search3DHeaderItem *item in self.datalist) {
+        [array addObject: item.keyword];
+    }
+    return [array copy];
+}
 @end
 
 @implementation Search3DHeaderMANEModel
@@ -22,13 +30,13 @@
 +(instancetype) mockModel
 {
     Search3DMANEHeaderItem * item1 = [[Search3DMANEHeaderItem alloc] init];
-    item1.keyword = @"abc";
+    item1.keyword = @"dddd";
     Search3DMANEHeaderItem * item2 = [[Search3DMANEHeaderItem alloc] init];
-    item2.keyword = @"badsfasdf";
+    item2.keyword = @"aaa";
     Search3DMANEHeaderItem * item3 = [[Search3DMANEHeaderItem alloc] init];
-    item3.keyword = @"wwwwwwc";
+    item3.keyword = @"wwwww2wc";
     Search3DMANEHeaderItem * item4 = [[Search3DMANEHeaderItem alloc] init];
-    item4.keyword = @"ddd dsa fd";
+    item4.keyword = @"ddd d3sa fd";
     Search3DHeaderMANEModel *model = [[Search3DHeaderMANEModel alloc] init];
     model.datalist = @[item1,item2,item3,item4];
     return model;
