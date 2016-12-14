@@ -49,5 +49,19 @@
     }
 }
 
+-(UIViewController *)popViewControllerAnimated:(BOOL)animated
+{
+    UIViewController *vc = [self.viewControllers lastObject];
+    if([vc respondsToSelector:@selector(customBackAction)]){
+        
+        BOOL back = [vc performSelector:@selector(customBackAction)];
+        if (back) {
+            return [super popViewControllerAnimated:animated];
+        }
+        return vc;
+    } else {
+        return [super popViewControllerAnimated:animated];
+    }
+}
 
 @end

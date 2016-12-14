@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Search3DResultCell.h"
 
-@interface Search3DResultItem : NSObject
+@interface Search3DResultItem : NSObject<Search3DResultViewModel>
 @property (nonatomic,strong) NSString *title;
-@property (nonatomic,assign) CGPoint location;
-@property (nonatomic,strong) NSArray *imageList;
+@property (nonatomic,strong) NSString *mane;
+@property (nonatomic,strong) NSString *modelpath; //三维模型url路径
 @end

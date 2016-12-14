@@ -89,9 +89,6 @@
             }
         }
 
-        if (offsetY >= self.bounds.size.height - WORD_LEFT_MARGIN) {
-            return;
-        }
     }
     _lines = actLine;
 

@@ -30,13 +30,13 @@
 +(instancetype) mockModel
 {
     Search3DMANEHeaderItem * item1 = [[Search3DMANEHeaderItem alloc] init];
-    item1.keyword = @"dddd";
+    item1.keyword = @"你看着很瞎";
     Search3DMANEHeaderItem * item2 = [[Search3DMANEHeaderItem alloc] init];
-    item2.keyword = @"aaa";
+    item2.keyword = @"我瞎";
     Search3DMANEHeaderItem * item3 = [[Search3DMANEHeaderItem alloc] init];
-    item3.keyword = @"wwwww2wc";
+    item3.keyword = @"感觉快挂了";
     Search3DMANEHeaderItem * item4 = [[Search3DMANEHeaderItem alloc] init];
-    item4.keyword = @"ddd d3sa fd";
+    item4.keyword = @"真心扛不住了";
     Search3DHeaderMANEModel *model = [[Search3DHeaderMANEModel alloc] init];
     model.datalist = @[item1,item2,item3,item4];
     return model;
@@ -64,13 +64,13 @@
 +(instancetype) mockModel
 {
     Search3DCategoryHeaderItem * item1 = [[Search3DCategoryHeaderItem alloc] init];
-    item1.keyword = @"abc";
+    item1.keyword = @"分水口";
     Search3DCategoryHeaderItem * item2 = [[Search3DCategoryHeaderItem alloc] init];
-    item2.keyword = @"badsfasdf";
+    item2.keyword = @"泵站";
     Search3DCategoryHeaderItem * item3 = [[Search3DCategoryHeaderItem alloc] init];
-    item3.keyword = @"wwwwwwc";
+    item3.keyword = @"稀里哗啦一通字";
     Search3DCategoryHeaderItem * item4 = [[Search3DCategoryHeaderItem alloc] init];
-    item4.keyword = @"ddd dsa fd";
+    item4.keyword = @"鼓励挂啦啦啦啦";
     Search3DHeaderCategoryModel *model = [[Search3DHeaderCategoryModel alloc] init];
     model.datalist = @[item1,item2,item3,item4];
     return model;

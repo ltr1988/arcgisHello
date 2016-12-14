@@ -35,6 +35,7 @@
         
         _comboBoxTableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         _comboBoxTableView.layer.borderWidth = 1;
+        _comboBoxTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _comboBoxTableView.delegate = self;
         _comboBoxTableView.dataSource = self;
         [self addSubview:_comboBoxTableView];

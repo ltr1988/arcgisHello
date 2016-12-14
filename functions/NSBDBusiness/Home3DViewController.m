@@ -8,14 +8,15 @@
 
 #import "Home3DViewController.h"
 #import "UIColor+ThemeColor.h"
+#import "WebViewController.h"
 #import "CommonDefine.h"
 #import "Masonry.h"
 #import "MapViewManager.h"
 #import "RouteMapViewController.h"
 #import "LocationManager.h"
 #import "ToastView.h"
-#import "RouteSearchResultItem.h"
-#import "RouteSearchResultCell.h"
+#import "Search3DResultItem.h"
+#import "Search3DResultCell.h"
 #import "SVProgressHUD.h"
 #import "CenterTitleCell.h"
 #import "AuthorizeManager.h"
@@ -29,11 +30,13 @@
 
 #define USER_SEARCH_3D_HISTORY [NSString stringWithFormat:@"search_3d_history_%@",[[AuthorizeManager sharedInstance] userName]]
 
-@interface Home3DViewController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,ComBoxDelegate>
+@interface Home3DViewController ()<CustomNaviBack,UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate,ComBoxDelegate>
 {
     Home3DDataSource *dataSource;
     BOOL showResult;
 }
+
+@property (nonatomic,strong) UIView *resultView;
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UITableView *resultTable;
 @property (nonatomic,strong) ComboBox *cbMANE;
@@ -53,6 +56,16 @@
 @end
 
 @implementation Home3DViewController
+
+-(BOOL) customBackAction
+{
+    if (showResult) {
+        showResult = NO;
+        [self refreshUI];
+        return NO;
+    }else
+        return YES;
+}
 
 -(void) viewDidLoad
 {
@@ -102,25 +115,34 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
     view.backgroundColor = [UIColor whiteColor];
     
-    UIView *hline = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth/2, 4, 0.5, view.frame.size.height - 8)];
+    
+    UIView *tline = [[UIView alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 0.5)];
+    tline.backgroundColor = [UIColor lightGrayColor];
+    [view addSubview:tline];
+    
+    UIView *bline = [[UIView alloc] initWithFrame:CGRectMake(0, view.frame.size.height, view.frame.size.width, 0.5)];
+    bline.backgroundColor = [UIColor lightGrayColor];
+    [view addSubview:bline];
+    
+    UIView *hline = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth/2, 14, 0.5, view.frame.size.height - 28)];
     hline.backgroundColor = [UIColor lightGrayColor];
     [view addSubview:hline];
     
     
-    _cbMANE = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 - 10 - 130, 0, 100, view.frame.size.height)];
+    _cbMANE = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 - 10 - 130, 0, 120, view.frame.size.height)];
     [_cbMANE setComboBoxTitle:@"管理单位"];
     _cbMANE.delegate = self;
     [_cbMANE setComboBoxData:_cbMANEData];
-    [_cbMANE setComboBoxSize:CGSizeMake(100, 44*6)];
-    [view addSubview:_cbMANE];
+    [_cbMANE setComboBoxSize:CGSizeMake(120, 44*6)];
+    [_resultView addSubview:_cbMANE];
     
-    _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 100, view.frame.size.height)];
+    _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 120, view.frame.size.height)];
     [_cbCategory setComboBoxTitle:@"所属工程"];
     
     [_cbCategory setComboBoxData:_cbCategoryData];
     _cbCategory.delegate = self;
-    [_cbCategory setComboBoxSize:CGSizeMake(100, 44*4)];
-    [view addSubview:_cbCategory];
+    [_cbCategory setComboBoxSize:CGSizeMake(120, 44*4)];
+    [_resultView addSubview:_cbCategory];
     
     return view;
     
@@ -146,8 +168,11 @@
         }];
         
         UIView *line = [[UIView alloc] init];
-        line.backgroundColor = [UIColor grayColor];
+        line.backgroundColor = [UIColor lightGrayColor];
         [view addSubview:line];
+        UIView *line2 = [[UIView alloc] init];
+        line2.backgroundColor = [UIColor lightGrayColor];
+        [view addSubview:line2];
         
         [view addSubview:view1];
         [view addSubview:view2];
@@ -158,7 +183,7 @@
         [view1 layOut];
         [view2 layOut];
         
-        CGFloat height1,height2,height_line=4;
+        CGFloat height1,height2,height_line=8;
         height1 = [view1 heightForView];
         height2 = [view2 heightForView];
         
@@ -177,11 +202,16 @@
         }];
         [view2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(line.mas_bottom);
+            make.height.mas_equalTo(height2);
+            make.left.offset(0);
+            make.right.offset(0);
+        }];
+        [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(view2.mas_bottom);
             make.height.mas_equalTo(0.5);
             make.left.offset(0);
             make.right.offset(0);
         }];
-        
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, height1 + height2 + height_line);
     }
     else if (_headerManeModel.datalist.count !=0)
@@ -239,8 +269,10 @@
     NSArray *array1 = @[@"test1",@"test2"];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:array1.count];
     for (NSString *feature in array1) {
-        RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
+        Search3DResultItem *item = [[Search3DResultItem alloc] init];
         item.title = feature;
+        item.mane = @"管理处";
+        item.modelpath = @"http://www.u3der.cn/index/obj1.html";
         [array addObject:item];
     }
     _resultList = [array copy];
@@ -253,9 +285,11 @@
 
 -(void) refreshUI
 {
-    _resultTable.hidden = !showResult;
+    _resultView.hidden = !showResult;
     _table.hidden = showResult;
     if (showResult) {
+        [_resultView bringSubviewToFront:_cbMANE];
+        [_resultView bringSubviewToFront:_cbCategory];
         [_resultTable reloadData];
     }else
     {
@@ -275,7 +309,7 @@
     
     for(id aHistory in list )
     {
-        RouteSearchResultItem *historyItem = [NSKeyedUnarchiver unarchiveObjectWithData:aHistory];
+        Search3DResultItem *historyItem = [NSKeyedUnarchiver unarchiveObjectWithData:aHistory];
         [_historyList addObject:historyItem];
     }
     
@@ -327,20 +361,30 @@
     _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
     _table.delegate = self;
     _table.dataSource = self;
-    _table.separatorStyle = UITableViewCellSelectionStyleNone;
     _table.backgroundColor = [UIColor whiteColor];
     _table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_table];
     
+    _resultView = [[UIView alloc] init];
     _resultTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
-    _resultTable.hidden = YES;
     _resultTable.delegate = self;
     _resultTable.dataSource = self;
-    _resultTable.separatorStyle = UITableViewCellSelectionStyleNone;
     _resultTable.backgroundColor = [UIColor whiteColor];
     
-    _resultTable.tableHeaderView = [self resultTableHeader];
-    [self.view addSubview:_resultTable];
+    _resultTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [_resultView addSubview:_resultTable];
+    
+    UIView *resultTableHeader =[self resultTableHeader];
+    [_resultView addSubview:resultTableHeader];
+    _resultView.hidden = YES;
+    [self.view addSubview:_resultView];
+    
+    [_resultView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(weakView.mas_top);
+        make.left.mas_equalTo(weakView.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+        make.bottom.mas_equalTo(weakView.mas_bottom);
+    }];
     
     [_table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
@@ -349,8 +393,15 @@
         make.bottom.mas_equalTo(weakView.mas_bottom);
     }];
     
-    [_resultTable mas_makeConstraints:^(MASConstraintMaker *make) {
+    [resultTableHeader mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
+        make.left.mas_equalTo(weakView.mas_left);
+        make.right.mas_equalTo(weakView.mas_right);
+        make.height.mas_equalTo(50);
+    }];
+    
+    [_resultTable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(resultTableHeader.mas_bottom);
         make.left.mas_equalTo(weakView.mas_left);
         make.right.mas_equalTo(weakView.mas_right);
         make.bottom.mas_equalTo(weakView.mas_bottom);
@@ -358,7 +409,7 @@
     
 }
 
--(void) saveHistory:(RouteSearchResultItem*)item
+-(void) saveHistory:(Search3DResultItem*)item
 {
     if (!item) {
         return;
@@ -366,9 +417,9 @@
     BOOL DidHave = NO;
     NSInteger index = 0;
     
-    for(RouteSearchResultItem * aHistory in _historyList)
+    for(Search3DResultItem * aHistory in _historyList)
     {
-        if ([aHistory.title isEqual:item]) {
+        if ([aHistory.title isEqual:item.title]) {
             DidHave = YES;
             index = [_historyList indexOfObject:aHistory];
             break;
@@ -402,12 +453,13 @@
 -(void) searchWithText:(NSString *)text
 {
     
+    if (text && text.length>0) {
+        self.searchField.text = text;
     //--------------
     //to be deleted
         [self mock];
         return;
     //--------------
-    if (text && text.length>0) {
         NSLog(@"search %@",text);
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
@@ -456,7 +508,7 @@
 #pragma mark tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return [Search3DResultCell heightForCell];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -481,19 +533,19 @@
         [cell setTitle: @"清空搜索历史"];
         return cell;
     }else{
-        RouteSearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
+        Search3DResultCell *cell = [tableView dequeueReusableCellWithIdentifier:@"resultCell"];
         if (!cell) {
-            cell = [[RouteSearchResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
+            cell = [[Search3DResultCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"resultCell"];
         }
         
         if (showResult) {
-            RouteSearchResultItem * item = _resultList[row];
-            [cell setTitle:item.title];
+            Search3DResultItem * item = _resultList[row];
+            [cell setDataModel:item];
         }else
         {
             
-            RouteSearchResultItem * item = _historyList[row];
-            [cell setTitle:item.title];
+            Search3DResultItem * item = _historyList[row];
+            [cell setDataModel:item];
             
         }
         return cell;
@@ -510,9 +562,14 @@
         [self cleanHistory];
     }else
     {
-        RouteSearchResultItem * item = (tableView == _resultTable)? _resultList[row] :_historyList[row];
+        Search3DResultItem * item = (tableView == _resultTable)? _resultList[row] :_historyList[row];
         [self saveHistory:item];
-        //go to 3d web site
+        if (item.modelpath && [item.modelpath hasPrefix:@"http"])
+        {
+            WebViewController *vc = [[WebViewController alloc] init];
+            [vc setUrl:[NSURL URLWithString:item.modelpath]];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

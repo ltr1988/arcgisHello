@@ -58,6 +58,8 @@
 		A41D4E9E1D9F387100F75C99 /* LiveDataLiuliangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */; };
 		A41D4EA11D9F3AB200F75C99 /* LiveDataGongchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */; };
 		A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */; };
+		A4367F5E1E017C360091E07A /* Search3DResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F5D1E017C360091E07A /* Search3DResultCell.m */; };
+		A4367F611E0186170091E07A /* Search3DShenMaiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F601E0186170091E07A /* Search3DShenMaiItem.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -423,6 +425,10 @@
 		A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataGongchenViewController.m; path = functions/NSBDBusiness/LiveDataGongchenViewController.m; sourceTree = "<group>"; };
 		A41D4EA21D9F3B4400F75C99 /* LiveDataShuizhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDataShuizhiViewController.h; path = functions/NSBDBusiness/LiveDataShuizhiViewController.h; sourceTree = "<group>"; };
 		A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataShuizhiViewController.m; path = functions/NSBDBusiness/LiveDataShuizhiViewController.m; sourceTree = "<group>"; };
+		A4367F5C1E017C360091E07A /* Search3DResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DResultCell.h; path = functions/NSBDBusiness/Views/Search3DResultCell.h; sourceTree = "<group>"; };
+		A4367F5D1E017C360091E07A /* Search3DResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DResultCell.m; path = functions/NSBDBusiness/Views/Search3DResultCell.m; sourceTree = "<group>"; };
+		A4367F5F1E0186170091E07A /* Search3DShenMaiItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DShenMaiItem.h; path = functions/NSBDBusiness/Model/Search3DShenMaiItem.h; sourceTree = "<group>"; };
+		A4367F601E0186170091E07A /* Search3DShenMaiItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DShenMaiItem.m; path = functions/NSBDBusiness/Model/Search3DShenMaiItem.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -1030,6 +1036,8 @@
 				B245DA681DFFCDD8009886BF /* Search3DHeaderItem.m */,
 				B245DA6A1DFFCDFB009886BF /* Search3DHeaderModel.h */,
 				B245DA6B1DFFCDFB009886BF /* Search3DHeaderModel.m */,
+				A4367F5F1E0186170091E07A /* Search3DShenMaiItem.h */,
+				A4367F601E0186170091E07A /* Search3DShenMaiItem.m */,
 			);
 			name = 3D;
 			sourceTree = "<group>";
@@ -1576,6 +1584,8 @@
 			children = (
 				B245DA761DFFEC54009886BF /* Search3DWordsLayoutView.h */,
 				B245DA771DFFEC54009886BF /* Search3DWordsLayoutView.m */,
+				A4367F5C1E017C360091E07A /* Search3DResultCell.h */,
+				A4367F5D1E017C360091E07A /* Search3DResultCell.m */,
 			);
 			name = 3D;
 			sourceTree = "<group>";
@@ -2331,6 +2341,7 @@
 				B2A187311D66AF4B006D8CA7 /* NSObject+MJKeyValue.m in Sources */,
 				B205A4A71D61C4FF007530EB /* SearchHomePageModel.m in Sources */,
 				B2748D6E1DB4740D00C0166F /* MyDealedEventDetailViewController.m in Sources */,
+				A4367F611E0186170091E07A /* Search3DShenMaiItem.m in Sources */,
 				B2A186E91D62FD38006D8CA7 /* TextPickerViewController.m in Sources */,
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
 				B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */,
@@ -2387,6 +2398,7 @@
 				A4CFBC8C1D97859E0016387C /* SearchCategoryModel.m in Sources */,
 				A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */,
 				A4AEF04E1DD74F8A00903925 /* TianDiTuWMTSLayer.m in Sources */,
+				A4367F5E1E017C360091E07A /* Search3DResultCell.m in Sources */,
 				B245DAB21E011208009886BF /* GDataXMLNode.m in Sources */,
 				A412B8C11DB3E95C003CAE02 /* MyDealedEventItem.m in Sources */,
 				A41012B51DBCC798008B00DF /* FacilityDetailInfoViewController.m in Sources */,

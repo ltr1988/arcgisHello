@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "ToastView.h"
+@protocol CustomNaviBack <NSObject>
+
+-(BOOL) customBackAction;
+
+@end
 
 @interface SupportRotationSelectBaseViewController : UIViewController
 

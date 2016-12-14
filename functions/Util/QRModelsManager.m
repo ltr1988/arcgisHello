@@ -39,6 +39,11 @@
 #import "MyChuanKuaYueItem.h"
 #import "MyChuanKuaYueProgressModel.h"
 #import "MyChuanKuaYueProgressItem.h"
+#import "Search3DResultItem.h"
+#import "Search3DHeaderItem.h"
+#import "Search3DHeaderModel.h"
+
+
 @implementation QRModelsManager
 
 /*
@@ -96,6 +101,13 @@
       [MyChuanKuaYueItem class],
       [MyChuanKuaYueProgressModel class],
       [MyChuanKuaYueProgressItem class],
+      [Search3DResultItem class],
+      [Search3DHeaderItem class],
+      [Search3DMANEHeaderItem class],
+      [Search3DCategoryHeaderItem class],
+      [Search3DHeaderModel class],
+      [Search3DHeaderMANEModel class],
+      [Search3DHeaderCategoryModel class],
       ];
     
     
