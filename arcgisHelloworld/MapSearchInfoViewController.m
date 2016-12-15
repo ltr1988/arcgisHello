@@ -25,7 +25,7 @@
 #define MAXIMUM_SEARCH_HISTORYS 10
 
 #define USER_SEARCH_INFO_HISTORY [NSString stringWithFormat:@"search_info_history_%@",[[AuthorizeManager sharedInstance] userName]]
-@interface MapSearchInfoViewController ()<UITableViewDelegate, UITableViewDataSource,AGSQueryTaskDelegate>
+@interface MapSearchInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL showResult;
     LocationManager *locationMgr;
@@ -33,7 +33,6 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *historyList;
 @property (nonatomic,strong) NSArray *resultList;
-@property (nonatomic, strong) AGSQueryTask *queryTask;
 @end
 
 @implementation MapSearchInfoViewController
@@ -64,11 +63,6 @@
         AGSGraphic *historyItem = [[AGSGraphic alloc] initWithJSON:json];
         [_historyList addObject:historyItem];
     }
-    
-    
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
-    //self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4"]];
-    self.queryTask.delegate = self;
 }
 
 -(void) setupTopBar

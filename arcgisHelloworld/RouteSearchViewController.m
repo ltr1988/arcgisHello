@@ -30,7 +30,7 @@
 
 #define USER_SEARCH_HISTORY [NSString stringWithFormat:@"search_history_%@",[[AuthorizeManager sharedInstance] userName]]
 
-@interface RouteSearchViewController()<UITableViewDelegate, UITableViewDataSource,AGSQueryTaskDelegate>
+@interface RouteSearchViewController()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL isStart;
     BOOL showResult;
@@ -40,7 +40,6 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *historyList;
 @property (nonatomic,strong) NSArray *resultList;
-@property (nonatomic, strong) AGSQueryTask *queryTask;
 @end
 
 
@@ -113,11 +112,6 @@
         RouteSearchResultItem *historyItem = [NSKeyedUnarchiver unarchiveObjectWithData:aHistory];
         [_historyList addObject:historyItem];
     }
-    
-    
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_FIND_URL,[MapViewManager IP]]]];
-    //self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:@"http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4"]];
-    self.queryTask.delegate = self;
 }
 
 -(void) setupTopBar
@@ -320,29 +314,6 @@
     }
 }
 
-
-//-(void) searchWithText:(NSString *)text
-//{
-//    
-//    //--------------
-//    //to be deleted
-////    [self mock];
-////    return;
-//    //--------------
-//    if (text && text.length>0) {
-//        NSLog(@"search %@",text);
-//        AGSQuery *params = [AGSQuery new];
-//        
-//        params.text = text;
-//        params.outFields = @[@"NAME"];
-//        params.outSpatialReference = [AGSSpatialReference wgs84SpatialReference];
-//        params.returnGeometry = YES;
-//        
-//        [_queryTask executeWithQuery:params];
-//        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-//    }
-//}
-
 #pragma mark textfield delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -463,40 +434,4 @@
 {
     return 1;
 }
-
-//
-//#pragma mark queryTask delegate
-//- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-//{
-//    //
-//    if ([SVProgressHUD isVisible]) {
-//        [SVProgressHUD dismiss];
-//    }
-//    
-//    
-//    
-//    NSLog(@"call back");
-//    NSMutableArray *array = [NSMutableArray arrayWithCapacity:featureSet.features.count];
-//    for (AGSGraphic *feature in featureSet.features) {
-//        NSString *title = [feature attributeForKey:@"NAME"];
-//        RouteSearchResultItem *item = [[RouteSearchResultItem alloc] init];
-//        AGSPoint *point = (AGSPoint *)feature.geometry;
-//        item.location = CGPointMake(point.x, point.y);
-//        item.title = title;
-//        [array addObject:item];
-//    }
-//    _resultList = [array copy];
-//    if (_resultList.count) {
-//        showResult = YES;
-//    }else
-//        showResult = NO;
-//    [self.table reloadData];
-//}
-//
-//- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didFailWithError:(NSError *)error{
-//    NSLog(@"call back");
-//    if ([SVProgressHUD isVisible]) {
-//        [SVProgressHUD dismiss];
-//    }
-//}
 @end

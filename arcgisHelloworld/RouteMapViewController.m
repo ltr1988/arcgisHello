@@ -244,7 +244,7 @@
     
     [btn.layer addAnimation:animation forKey:@"animation"];
     
-    if (self.mapView.layerType == NSBD_NORMAL) {
+    if (self.mapView.baseLayerType == NSBD_NORMAL) {
         [btn setTitle:@"电子" forState:UIControlStateNormal];
     }else
     {

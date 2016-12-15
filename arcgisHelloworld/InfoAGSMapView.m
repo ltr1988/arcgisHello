@@ -11,9 +11,18 @@
 #define ANIMATION_DURATION 1
 @implementation InfoAGSMapView
 
+-(instancetype) init
+{
+    self = [super init];
+    if (self) {
+        _layerMask = LayerMaskBaseLayer|LayerMaskNSBDLayer|LayerMaskGraphicLayer;
+    }
+    return self;
+}
+
 -(void) switchLayerType
 {
-    _layerType = NSBD_NORMAL + NSBD_IMAGE - _layerType;
+    _baseLayerType = NSBD_NORMAL + NSBD_IMAGE - _baseLayerType;
     [MapViewManager resetLayer:self];
 }
 

@@ -23,14 +23,13 @@
 #import "WeatherManager.h"
 #import "DepthCalloutView.h"
 
-@interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate, AGSQueryTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
+@interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
     
     UIAlertView *alart;
     UIView *maskView;
 }
 @property (nonatomic, strong) AGSIdentifyTask *identifyTask;
-@property (nonatomic, strong) AGSQueryTask *queryTask;
 
 @end
 
@@ -67,8 +66,6 @@
 {
     self.identifyTask = [AGSIdentifyTask identifyTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSRESTURL,[MapViewManager IP]]]];
     self.identifyTask.delegate = self;
-    self.queryTask = [AGSQueryTask queryTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:WMSREST_QUERY_URL,[MapViewManager IP]]]];
-    self.queryTask.delegate = self;
 }
 
 -(void) setupSubviews
@@ -95,6 +92,18 @@
     btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnChangMapType];
+    
+    UIButton *btn3DMaishen = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 70, btnsize, btnsize)];
+    btn3DMaishen.backgroundColor = [UIColor whiteColor];
+    btn3DMaishen.layer.cornerRadius = 5;
+    btn3DMaishen.titleLabel.font = [UIFont systemFontOfSize:12];
+    [btn3DMaishen setTitle:@"埋深" forState:UIControlStateNormal];
+    [btn3DMaishen setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateNormal];
+    [btn3DMaishen setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateHighlighted];
+    btn3DMaishen.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btn3DMaishen addTarget:self action:@selector(actionSwitch3DMaishenType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn3DMaishen];
+    
     
     UIButton *btnMyLocation = [[UIButton alloc] initWithFrame:CGRectMake(leftBtnOffsetX, leftBtnOffsetY, btnsize, btnsize)];
     btnMyLocation.backgroundColor = [UIColor clearColor];
@@ -320,22 +329,6 @@
     [self.identifyTask executeWithParameters:identifyParams];
 }
 
--(void) findTask:(NSString *)key
-{
-    AGSQuery *query = [AGSQuery query];
-    query.text =key;
-    query.returnGeometry = YES;
-    query.outFields = @[@"*"];
-    query.outSpatialReference = self.mapView.spatialReference;
-    [self.queryTask executeWithQuery:query];
-}
-
-
-#pragma mark - AGSQueryTaskDelegate methods
-- (void)queryTask:(AGSQueryTask *)queryTask operation:(NSOperation*)op didExecuteWithFeatureSetResult:(AGSFeatureSet *)featureSet
-{
-
-}
 
 #pragma mark - AGSIdentifyTaskDelegate methods
 //results are returned

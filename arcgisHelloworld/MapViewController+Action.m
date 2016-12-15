@@ -102,11 +102,45 @@
     
     [btn.layer addAnimation:animation forKey:@"animation"];
     
-    if (self.mapView.layerType == NSBD_NORMAL) {
+    if (self.mapView.baseLayerType == NSBD_NORMAL) {
         [btn setTitle:@"电子" forState:UIControlStateNormal];
     }else
     {
         [btn setTitle:@"影像" forState:UIControlStateNormal];
+    }
+    
+    [self.mapView switchLayerType];
+}
+
+-(void) actionSwitch3DMaishenType:(id)sender
+{
+    UIButton *btn = sender;
+    
+    CATransition *animation = [CATransition animation];
+    
+    //设置运动时间
+    animation.duration = 0.2;
+    
+    //设置运动type
+    animation.type = @"oglFlip";
+    
+    animation.subtype = kCATransitionFromLeft;
+    
+    //设置运动速度
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    
+    [btn.layer addAnimation:animation forKey:@"animation"];
+    
+    if (self.mapView.layerMask & LayerMask3DLayer) {
+        self.mapView.layerMask = self.mapView.layerMask ^ LayerMask3DLayer;
+    }else
+    {
+        self.mapView.layerMask = self.mapView.layerMask | LayerMask3DLayer;
+        
+        [btn setImage:[UIImage imageNamed:@"icon_maishen_click"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_maishen_click"] forState:UIControlStateHighlighted];
+        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateHighlighted];
     }
     
     [self.mapView switchLayerType];
