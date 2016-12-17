@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, HttpTaskType) {
 +(AFHTTPSessionManager *)NSBDManager;
 +(AFHTTPSessionManager *)NSBDFileManager;
 +(AFHTTPSessionManager *)jsonManager;
++(AFHTTPSessionManager *)SceneManager;
 
 
 +(AFHTTPSessionManager *)managerWithType:(HttpTaskType)type;

@@ -45,4 +45,7 @@
 
 //提交表单
 -(void) requestUploadSheetWithItem:(NSBDBaseUIItem *) item SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+
+-(void) requestQueryTaskFinishedStatusWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

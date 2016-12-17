@@ -16,24 +16,32 @@
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_test/MapServer/"
 #define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
 
-#define HOSTIP @"192.168.1.121"
-
-#define HOSTIP_3D @"10.200.9.122"//app
+#define HOSTIP @"10.200.9.122"//app
+#define HOSTIP_3D @"10.200.9.32"//app
 #define MAPIP @"10.200.9.28"
 
 
 
 #else
 
-#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
+//#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
+//#define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
+//#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
+//#define BaseMapURL @"http://%@:3080/nsbd/service/wmts"
+//
+//
+//#define HOSTIP @"10.200.9.122"//app
+//#define HOSTIP_3D @"10.200.9.122"//app
+//#define MAPIP @"10.200.9.28"
+
+#define WMSURL @"http://%@:8080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
 #define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
 
-
-#define HOSTIP @"10.200.9.122"//app
-#define HOSTIP_3D @"10.200.9.122"//app
-#define MAPIP @"10.200.9.28"
-
+#define BaseMapURL @"http://%@:8080/gxpt/service/wmts"
+#define HOSTIP @"192.168.0.121"
+#define HOSTIP_3D @"192.168.0.121"
+#define MAPIP @"192.168.0.121"
 #endif
 
 #define AppMainWindow [(AppDelegate *)[UIApplication sharedApplication].delegate window]

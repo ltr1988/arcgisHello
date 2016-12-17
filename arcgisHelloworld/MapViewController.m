@@ -22,6 +22,11 @@
 #import "MapSearchInfoViewController.h"
 #import "WeatherManager.h"
 #import "DepthCalloutView.h"
+#import "Search3DHttpManager.h"
+#import "Search3DShenMaiModel.h"
+#import "Search3DShenMaiItem.h"
+#import "MJExtension.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -93,7 +98,7 @@
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnChangMapType];
     
-    UIButton *btn3DMaishen = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 70, btnsize, btnsize)];
+    UIButton *btn3DMaishen = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 80+btnsize, btnsize, btnsize)];
     btn3DMaishen.backgroundColor = [UIColor whiteColor];
     btn3DMaishen.layer.cornerRadius = 5;
     btn3DMaishen.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -181,11 +186,11 @@
     [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     self.mapView.bottomView = [self bottomView];
     
-//    DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
-//    dcallout.imageTapped = ^{
-//        NSLog(@"tapped");
-//    };
-//    self.mapView.callout.customView = dcallout;
+    DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
+    dcallout.imageTapped = ^{
+        NSLog(@"tapped");
+    };
+    self.mapView.callout.customView = dcallout;
 }
 
 
@@ -305,12 +310,39 @@
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{
     
-
-    [self identifyPoint:mappoint];
+    if ([self loaded3DMap])
+        [self requestMaishenWithPoint:mappoint];
+    else
+        [self identifyPoint:mappoint];
     
     
 }
 
+-(void) requestMaishenWithPoint:(AGSPoint *)mappoint
+{
+    [self.mapView.callout dismiss];
+    [[Search3DHttpManager sharedManager] request3DShenMaiWithX:mappoint.x y:mappoint.y SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        Search3DShenMaiModel *model = [Search3DShenMaiModel objectWithKeyValues:dict];
+        if (model && model.datalist.count>0)
+        {
+            Search3DShenMaiItem *item = model.datalist.firstObject;
+            DepthCalloutView *dcallout = (DepthCalloutView *)self.mapView.callout.customView;
+            if ([item imageUrl]) {
+                NSURL * url = [NSURL URLWithString:[item imageUrl]];
+                [dcallout.imageView setImageWithURL:url placeholderImage:nil];
+            }else
+            {
+                [dcallout.imageView setImage:nil];
+            }
+            
+            dcallout.lbLine1.text = [NSString stringWithFormat:@"埋深:%@米",item.depth];
+            
+            [self.mapView.callout showCalloutAt:mappoint screenOffset:CGPointMake(0, 0) animated:YES];
+            
+        }
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+}
 
 -(void) identifyPoint:(AGSPoint *)mappoint
 {
@@ -405,12 +437,7 @@
             //show callout
             [self.mapView showInfoView:YES];
             
-//            DepthCalloutView *dcallout = (DepthCalloutView *)self.mapView.callout.customView;
-//            dcallout.imageView.image = [UIImage imageNamed:@"icon_login"];
-//            dcallout.lbLine1.text = @"a";
-//            
-//            AGSPoint * p = (AGSPoint *)((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry;
-//            [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
+
             return;
         }
     }
@@ -580,6 +607,10 @@
     [self.mapView showInfoView:YES];
 }
 
+-(BOOL) loaded3DMap
+{
+    return self.mapView.layerMask & LayerMask3DLayer;
+}
 @end
 
 

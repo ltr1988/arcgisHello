@@ -16,12 +16,15 @@
 
 +(NSString *) hostAURL
 {
-    return [NSString stringWithFormat:@"http://%@:7001/nsbd/Service/dataSync.do",HOSTIP];
+//    return [NSString stringWithFormat:@"http://%@:7001/nsbd/Service/dataSync.do",HOSTIP];
+    return [NSString stringWithFormat:@"http://%@:8080/nsbd/Service/dataSync.do",HOSTIP];
 }
 
 +(NSString *) host3DURL
 {
-    return [NSString stringWithFormat:@"http://%@/WebServices/ManagerS.asmx",HOSTIP_3D];
+//    return [NSString stringWithFormat:@"http://%@:81/WebServices/ManagerS.asmx",HOSTIP_3D];
+    return [NSString stringWithFormat:@"http://%@:87/WebServices/ManagerS.asmx",HOSTIP_3D];
+   
 }
 
 +(NSString *) host3DURLWithType:(NSString *)type

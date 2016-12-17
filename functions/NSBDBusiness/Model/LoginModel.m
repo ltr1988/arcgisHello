@@ -15,6 +15,7 @@
                                  [super replacedKeyFromPropertyName]];
     
     [dict setObject:@"data.token" forKey:@"token"];
+    [dict setObject:@"data.userid" forKey:@"userid"];
     return dict;
 }
 @end

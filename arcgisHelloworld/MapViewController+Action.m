@@ -21,6 +21,8 @@
 #import "TextPickerViewController.h"
 #import "LiveDataMainViewController.h"
 #import "Home3DViewController.h"
+#import "SearchSessionStateModel.h"
+#import "SearchSessionItem.h"
 
 @implementation MapViewController (Action)
 
@@ -32,18 +34,45 @@
 #pragma mark - bottom view actions
 -(void) actionSearchUpload
 {
-    if ([[SearchSessionManager sharedManager] hasSession]) {
-        SearchChoiceController *vc = [[SearchChoiceController alloc] init];
-        vc.definesPresentationContext = YES;
-        vc.providesPresentationContextTransitionStyle = YES;
-        vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-        vc.delegate = self;
-        [self presentViewController:vc animated:YES completion:nil];
-    }else
-    {
-        SearchStartViewController *vc = [[SearchStartViewController alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    __weak SearchSessionManager* manager = [SearchSessionManager sharedManager];
+    [manager requestQueryTaskFinishedStatusWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        SearchSessionStateModel *model = [SearchSessionStateModel objectWithKeyValues:dict];
+        if (model.success) {
+            if(!model.sessionId || model.sessionId.length == 0)
+            {
+                //无session
+                SearchStartViewController *vc = [[SearchStartViewController alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else
+            {
+                //有session
+            
+                if ([[SearchSessionManager sharedManager] hasSession] && [manager.session.sessionId isEqualToString:model.sessionId]) {
+                    
+                }else
+                {
+                    [manager setNewSessionWithId:model.sessionId];
+                }
+                SearchChoiceController *vc = [[SearchChoiceController alloc] init];
+                vc.definesPresentationContext = YES;
+                vc.providesPresentationContextTransitionStyle = YES;
+                vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+                vc.delegate = self;
+                [self presentViewController:vc animated:YES completion:nil];
+            }    
+            
+        }else if (model.status == HttpResultInvalidUser)
+        {
+            [ToastView popToast:@"您的帐号在其他地方登录"];
+        }
+        else
+        {
+            [ToastView popToast:@"获取任务信息失败,请稍候再试"];
+        }
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        [ToastView popToast:@"获取任务信息失败,请稍候再试"];
+    }];
 }
 
 -(void) actionEventUpload
@@ -133,17 +162,18 @@
     
     if (self.mapView.layerMask & LayerMask3DLayer) {
         self.mapView.layerMask = self.mapView.layerMask ^ LayerMask3DLayer;
+        
+        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateHighlighted];
     }else
     {
         self.mapView.layerMask = self.mapView.layerMask | LayerMask3DLayer;
         
         [btn setImage:[UIImage imageNamed:@"icon_maishen_click"] forState:UIControlStateNormal];
         [btn setImage:[UIImage imageNamed:@"icon_maishen_click"] forState:UIControlStateHighlighted];
-        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateNormal];
-        [btn setImage:[UIImage imageNamed:@"icon_maishen"] forState:UIControlStateHighlighted];
     }
     
-    [self.mapView switchLayerType];
+    [self.mapView reloadLayers];
 }
 
 -(void) actionMyLocation

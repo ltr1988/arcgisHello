@@ -340,13 +340,13 @@
                 
                 if (self.uiItem.attachModel.images.count>0) {
                     for (UIImage *image in self.uiItem.attachModel.images) {
-                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.uiItem.itemId qxyjFlag:NO successCallback:nil failCallback:nil];
+                        [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:self.uiItem.itemId qxyjFlag:NO btype:@"inspect" successCallback:nil failCallback:nil];
                     }
                 }
                 
                 if (self.uiItem.attachModel.videoURL)
                 {
-                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.uiItem.attachModel.videoURL fkid:self.uiItem.itemId qxyjFlag:NO successCallback:nil failCallback:nil];
+                    [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.uiItem.attachModel.videoURL fkid:self.uiItem.itemId qxyjFlag:NO btype:@"inspect" successCallback:nil failCallback:nil];
                     
                 }
             }

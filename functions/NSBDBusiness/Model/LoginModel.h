@@ -11,4 +11,6 @@
 @interface LoginModel : HttpBaseModel
 
 @property(nonatomic,strong) NSString *token;
+@property(nonatomic,strong) NSString *userid;
+
 @end

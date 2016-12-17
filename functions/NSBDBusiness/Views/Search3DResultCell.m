@@ -36,7 +36,7 @@
     [self.contentView addSubview:_maneLabel];
     
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.offset(8);
+        make.top.offset(16);
         make.height.mas_equalTo(16);
         make.left.offset(16);
         make.right.offset(-16);
@@ -59,6 +59,6 @@
 
 +(CGFloat) heightForCell
 {
-    return 8*3 + 16+14;
+    return 8+16*2 + 16+14;
 }
 @end

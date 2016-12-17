@@ -51,6 +51,29 @@
     }];
 }
 
+- (NSURLSessionDataTask *)SceneGet:(NSString *)URLString
+                         parameters:(id)parameters
+                            success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                            failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+{
+    return [self GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //NSUTF8StringEncoding
+//        NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+//        NSString *str = [[NSString alloc] initWithData:responseObject encoding:enc];
+        
+        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSDictionary dictWithJson:str];
+        if (success) {
+            success(task,dict);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(task,error);
+        }
+        NSLog(@"%@", error);
+    }];
+}
+
 - (NSURLSessionDataTask *)SceneGeT:(NSString *)URLString
                          parameters:(id)parameters
                             success:(void (^)(NSURLSessionDataTask *task, id responseObject))success

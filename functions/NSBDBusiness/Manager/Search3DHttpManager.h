@@ -17,4 +17,5 @@
 -(void) request3DModelWithObjectnum:(NSString *)objectnum SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 -(void) request3DShenMaiWithX:(CGFloat)x y:(CGFloat)y SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) request3DModelWithKey:(NSString *)key mane:(NSString *)mane category:(NSString *)category SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

@@ -26,4 +26,5 @@ enum {
 
 -(void) switchLayerType;
 -(void) showInfoView:(BOOL)animated;
+-(void) reloadLayers;
 @end

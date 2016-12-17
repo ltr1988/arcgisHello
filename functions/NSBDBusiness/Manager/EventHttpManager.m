@@ -34,7 +34,13 @@
 
 #pragma mark file
 
--(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+//巡查 btype: "inspect"//附件业务类型，不能为空
+//事件（incident）
+//事件反馈（incidentProgress）
+//任务反馈（incidentTaskDispose）
+//across_supervise(穿跨越)
+
+-(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
     NSMutableDictionary * info = [@{
@@ -42,6 +48,7 @@
                             @"id":uuid,
                             @"fkid": fkid,
                             @"filetype": @"image", //@"video"
+                            @"btype": btype,
                             @"filename": [uuid stringByAppendingString:@".png"],
                             } mutableCopy];
     if (isQxyj)
@@ -75,7 +82,7 @@
 }
 
 //to be tested
--(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+-(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     NSString *uuid = [NSString stringWithUUID];
     NSMutableDictionary * info = [@{
@@ -83,6 +90,7 @@
                             @"id":uuid,
                             @"fkid": fkid,
                             @"filetype": @"video", //@"video"
+                            @"btype": btype,
                             @"filename": [uuid stringByAppendingString:@".mp4"],
                             } mutableCopy];
     

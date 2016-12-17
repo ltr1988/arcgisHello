@@ -10,7 +10,12 @@
 
 @interface Search3DShenMaiItem : NSObject
 
-@property (nonatomic,strong) NSString *title;
-@property (nonatomic,assign) CGPoint location;
-@property (nonatomic,strong) NSArray *imageList;
+//duanmian:断面图名称
+//milesum：桩号
+//depth:埋深
+@property (nonatomic,strong) NSString *duanmian;
+@property (nonatomic,strong) NSString *depth;
+@property (nonatomic,strong) NSString *milesum;
+
+-(NSString *)imageUrl;
 @end

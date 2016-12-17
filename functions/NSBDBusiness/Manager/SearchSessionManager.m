@@ -345,4 +345,34 @@ static SearchSessionManager* manager = nil;
                                     }
                                 }];
 }
+
+-(void) requestQueryTaskFinishedStatusWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    NSDictionary *info = @{
+                           @"userid":[AuthorizeManager sharedInstance].userid,
+                           };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"tasknotfinished" method:@"doInDto" req:info];
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+}
+
 @end

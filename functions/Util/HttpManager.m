@@ -21,6 +21,13 @@
     return [HttpManager managerWithType:HttpTaskType_Foreground];
 }
 
++(AFHTTPSessionManager *)SceneManager
+{
+    AFHTTPSessionManager *manager =  [HttpManager managerWithType:HttpTaskType_Foreground];
+//    [manager.requestSerializer setValue:@"text/plain;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    return manager;
+}
+
 +(AFHTTPSessionManager *)NSBDFileManager
 {
     return [HttpManager managerWithType:HttpTaskType_FileRequest];

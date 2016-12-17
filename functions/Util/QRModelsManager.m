@@ -42,7 +42,10 @@
 #import "Search3DResultItem.h"
 #import "Search3DHeaderItem.h"
 #import "Search3DHeaderModel.h"
-
+#import "SearchSessionStateModel.h"
+#import "Search3DShenMaiModel.h"
+#import "Search3DShenMaiItem.h"
+#import "Search3DResultModel.h"
 
 @implementation QRModelsManager
 
@@ -102,12 +105,16 @@
       [MyChuanKuaYueProgressModel class],
       [MyChuanKuaYueProgressItem class],
       [Search3DResultItem class],
+      [Search3DResultModel class],
       [Search3DHeaderItem class],
       [Search3DMANEHeaderItem class],
       [Search3DCategoryHeaderItem class],
       [Search3DHeaderModel class],
       [Search3DHeaderMANEModel class],
       [Search3DHeaderCategoryModel class],
+      [SearchSessionStateModel class],
+      [Search3DShenMaiModel class],
+      [Search3DShenMaiItem class],
       ];
     
     

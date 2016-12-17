@@ -27,6 +27,7 @@
 {
     self = [super init];
     if (self) {
+        _userid = @"unknown";
         _userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"current user"];
         _token = @"100";
     }
@@ -75,6 +76,7 @@
                                     {
                                         
                                         if (item.token) {
+                                            [AuthorizeManager sharedInstance].userid = item.userid;
                                             [AuthorizeManager sharedInstance].userName = user;
                                             [AuthorizeManager sharedInstance].token = item.token;
                                             

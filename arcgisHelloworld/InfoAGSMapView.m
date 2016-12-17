@@ -26,6 +26,11 @@
     [MapViewManager resetLayer:self];
 }
 
+-(void) reloadLayers
+{
+    [MapViewManager resetLayer:self];
+}
+
 #pragma mark - touch
 -(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

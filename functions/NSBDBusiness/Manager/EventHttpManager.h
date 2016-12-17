@@ -17,10 +17,10 @@
 
 
 //上传附件图片
--(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 //上传附件视频
--(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+-(void) requestUploadAttachmentMovie:(NSURL *)movieURL fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 //查询附件
 -(void) requestQueryAttachmentListWithId:(NSString *)fkid successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;

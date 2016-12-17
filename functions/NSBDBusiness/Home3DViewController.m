@@ -25,6 +25,8 @@
 #import "Search3DWordsLayoutView.h"
 #import "Search3DHeaderItem.h"
 #import "ComboBox.h"
+#import "Search3DHttpManager.h"
+#import "Search3DResultModel.h"
 
 #define MAXIMUM_HISTORYS 10
 
@@ -89,13 +91,32 @@
 
 -(void) requestHeaderData
 {
-    //mock
-    _headerManeModel = [Search3DHeaderMANEModel mockModel];
-    _headerCategoryModel = [Search3DHeaderCategoryModel mockModel];
+//    //mock
+//    _headerManeModel = [Search3DHeaderMANEModel mockModel];
+//    _headerCategoryModel = [Search3DHeaderCategoryModel mockModel];
+//    
+//    if (_headerManeModel || _headerCategoryModel) {
+//        [self refreshHeader];
+//    }
     
-    if (_headerManeModel || _headerCategoryModel) {
-        [self refreshHeader];
-    }
+    @weakify(self)
+    [dataSource requestMANEHeaderDataWithSuccess:^(Search3DHeaderModel *model) {
+        if (model && model.datalist.count>0) {
+            @strongify(self)
+            self.headerManeModel = (Search3DHeaderMANEModel*)model;
+            [self refreshHeader];
+        }
+    } fail:^{
+    }];
+    
+    [dataSource requestCategoryHeaderDataWithSuccess:^(Search3DHeaderModel *model) {
+        if (model && model.datalist.count>0) {
+            @strongify(self)
+            self.headerCategoryModel = (Search3DHeaderCategoryModel*)model;
+            [self refreshHeader];
+        }
+    } fail:^{
+    }];
 }
 
 -(void) refreshHeader
@@ -214,7 +235,7 @@
         }];
         view.frame = CGRectMake(0, 0, self.view.frame.size.width, height1 + height2 + height_line);
     }
-    else if (_headerManeModel.datalist.count !=0)
+    else
     {
         Search3DHeaderModel * aModel = _headerManeModel? :_headerCategoryModel;
         
@@ -242,7 +263,7 @@
         
         [view addSubview:view1];
         
-        view1.words = aModel.datalist;
+        view1.words = [aModel stringArray];
         
         [view1 layOut];
         
@@ -313,6 +334,8 @@
         [_historyList addObject:historyItem];
     }
     
+    _cbMANEFilter = @"";
+    _cbCategoryFilter = @"";
     
     _cbMANEData = @[@"管理单位",@"团城湖管理处",@"大宁管理处",@"南干渠管理处",@"东干渠管理处",@"干线管理处"];
     _cbCategoryData = @[@"所属工程",@"3",@"4"];
@@ -457,12 +480,36 @@
         self.searchField.text = text;
     //--------------
     //to be deleted
-        [self mock];
-        return;
+//        [self mock];
+//        return;
     //--------------
         NSLog(@"search %@",text);
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+        
+        [[Search3DHttpManager sharedManager] request3DModelWithKey:text mane:_cbMANEFilter category:_cbCategoryFilter SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            Search3DResultModel *model = [Search3DResultModel objectWithKeyValues:dict];
+            if (model) {
+                self.resultList = [model.datalist copy];
+            }else
+            {
+                self.resultList = [NSArray array];
+            }
+            if (_resultList.count) {
+                showResult = YES;
+            }else
+                showResult = NO;
+            [self refreshUI];
+            
+        } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
+            [ToastView popToast:@"查询失败，请稍后再试"];
+        }];
     }
 }
 
@@ -578,7 +625,15 @@
     return 1;
 }
 
-
+#pragma mark scrollview delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    
+    if ([_searchField isFirstResponder]) {
+        [_searchField resignFirstResponder];
+    }
+    
+}
 #pragma mark - ComboBox
 -(void)comboBox:(ComboBox *)comboBox didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (_cbMANE == comboBox) {

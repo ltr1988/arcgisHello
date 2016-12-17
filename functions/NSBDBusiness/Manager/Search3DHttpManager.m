@@ -24,7 +24,7 @@
 
 -(void) getRequestWithURL:(NSString *)url param:(NSDictionary *)param successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [[HttpManager NSBDManager] ScenePOST:url
+    [[HttpManager SceneManager] SceneGet:url
                               parameters:param
                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
                                      // 请求成功
@@ -47,8 +47,8 @@
 
 -(void) postRequestWithURL:(NSString *)url param:(NSDictionary *)param successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [[HttpManager NSBDManager] ScenePOST:url
-                              parameters:param
+    [[HttpManager SceneManager] ScenePOST:url
+                               parameters:param
                                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
                                      // 请求成功
                                      if (success) {
@@ -65,22 +65,36 @@
                                          });
                                      }
                                  }];
-
+    
 }
+
 
 -(void) request3DHeaderMANEWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_mane"] param:nil successCallback:success failCallback:fail];
+    [self getRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_mane"] param:nil successCallback:success failCallback:fail];
 }
 
 -(void) request3DHeaderCategoryWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_objtype"] param:nil successCallback:success failCallback:fail];
+    [self getRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_objtype"] param:nil successCallback:success failCallback:fail];
 }
 
 -(void) request3DModelWithObjectnum:(NSString *)objectnum SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModelByObjectnum"] param:@{@"objectnum":objectnum} successCallback:success failCallback:fail];
+    [self getRequestWithURL:[HttpHost host3DURLWithType:@"/GetModelByObjectnum"] param:@{@"objectnum":objectnum} successCallback:success failCallback:fail];
+}
+
+-(void) request3DModelWithKey:(NSString *)key mane:(NSString *)mane category:(NSString *)category SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    key = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    category = [category stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    mane = [mane stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    NSDictionary *param = @{@"objtype":category,
+                            @"mane":mane,
+                            @"modelname":key,};
+//    NSString *url = [NSString stringWithFormat:@"%@?objtype=%@&mane=%@&modelname=%@",,category,mane,key];
+    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_ByCondition"] param:param successCallback:success failCallback:fail];
 }
 
 
@@ -88,7 +102,7 @@
 {
     NSDictionary *param = @{@"pointx":@(x),
                             @"pointy":@(y),
-                            @"buffer":@(1000),};
-    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/QueryNearestMaishen"] param:param successCallback:success failCallback:fail];
+                            @"buffer":@(3200),};
+    [self getRequestWithURL:[HttpHost host3DURLWithType:@"/QueryNearestMaishen1"] param:param successCallback:success failCallback:fail];
 }
 @end

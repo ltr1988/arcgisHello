@@ -90,38 +90,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "500627294.777796"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "-requestUploadSheetWithItem:SuccessCallback:failCallback:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "500627323.21457"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
-            landmarkName = "-requestUploadSheetWithItem:SuccessCallback:failCallback:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
             timestampString = "500627324.798245"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -334,7 +302,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "373"
             endingLineNumber = "373"
-            landmarkName = "-actionSearch"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -350,8 +318,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "332"
             endingLineNumber = "332"
-            landmarkName = "@implementation RouteSearchViewController"
-            landmarkType = "3">
+            landmarkName = "-textFieldShouldClear:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -365,9 +333,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "478"
-            endingLineNumber = "478"
-            landmarkName = "@implementation RouteSearchViewController"
-            landmarkType = "3">
+            endingLineNumber = "478">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -381,25 +347,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "497"
-            endingLineNumber = "497"
-            landmarkName = "@implementation RouteSearchViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "503140065.731566"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "-requestTaskConfigInSearchSessionSuccessCallback:failCallback:"
-            landmarkType = "7">
+            endingLineNumber = "497">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,22 +362,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "313"
             endingLineNumber = "313"
-            landmarkName = "-requestTaskConfigInSearchSessionSuccessCallback:failCallback:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "503140070.522558"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
             landmarkName = "-requestTaskConfigInSearchSessionSuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -457,27 +389,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503157853.532875"
+            timestampString = "503509798.669078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
-            landmarkName = "-actionSearch"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503157853.532875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "551"
-            endingLineNumber = "551"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
             landmarkName = "-showLocation:"
             landmarkType = "7">
          </BreakpointContent>
@@ -496,6 +412,38 @@
             endingLineNumber = "314"
             landmarkName = "-searchWithText:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RouteSearchViewController searchWithText:]"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
+                  timestampString = "503515403.446971"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "379">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RouteSearchViewController searchWithText:]"
+                  moduleName = "NSBDMobileSearchPlatform"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
+                  timestampString = "503515403.448338"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "314"
+                  endingLineNumber = "314"
+                  offsetFromSymbolStart = "415">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -510,7 +458,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "349"
             endingLineNumber = "349"
-            landmarkName = "-textFieldShouldReturn:"
+            landmarkName = "-actionMyLocation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -552,22 +500,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "functions/NSBDBusiness/Views/EventMediaPickerView.m"
-            timestampString = "503145330.711455"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "-setImages:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/MyEventDetailViewController.m"
             timestampString = "503145686.249007"
             startingColumnNumber = "9223372036854775807"
@@ -575,22 +507,6 @@
             startingLineNumber = "168"
             endingLineNumber = "168"
             landmarkName = "-setupSubviews"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "503157853.532875"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
-            landmarkName = "-identifyTask:operation:didExecuteWithIdentifyResults:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -607,6 +523,70 @@
             startingLineNumber = "162"
             endingLineNumber = "162"
             landmarkName = "-selectWord:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/AFNetworking/AFURLRequestSerialization.m"
+            timestampString = "503505270.166562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "504"
+            endingLineNumber = "504"
+            landmarkName = "-requestBySerializingRequest:withParameters:error:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "arcgisHelloworld/MapViewController+Action.m"
+            timestampString = "503507238.488673"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-actionSwitch3DMaishenType:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/UIKit+AFNetworking/UIImageView+AFNetworking.m"
+            timestampString = "503509645.128605"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-setImageWithURL:placeholderImage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.m"
+            timestampString = "503515430.049033"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "-ScenePOST:parameters:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

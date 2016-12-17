@@ -594,13 +594,13 @@
                                                                   [ToastView popToast:@"提交成功"];
                                                                   if (self.feedbackModel.images.count>0) {
                                                                       for (UIImage *image in self.feedbackModel.images) {
-                                                                          [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:uuid qxyjFlag:NO successCallback:nil failCallback:nil];
+                                                                          [[EventHttpManager sharedManager] requestUploadAttachment:image fkid:uuid qxyjFlag:NO btype:@"across_supervise" successCallback:nil failCallback:nil];
                                                                       }
                                                                   }
                                                                   
                                                                   if (self.feedbackModel.video)
                                                                   {
-                                                                      [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.feedbackModel.video fkid:uuid  qxyjFlag:NO successCallback:nil failCallback:nil];
+                                                                      [[EventHttpManager sharedManager] requestUploadAttachmentMovie:self.feedbackModel.video fkid:uuid  qxyjFlag:NO btype:@"across_supervise" successCallback:nil failCallback:nil];
                                                                       
                                                                   }
                                                                   self.feedbackModel.detail.detail = @"未填写";

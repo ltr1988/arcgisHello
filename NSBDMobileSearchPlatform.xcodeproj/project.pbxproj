@@ -60,6 +60,9 @@
 		A41D4EA41D9F3B4400F75C99 /* LiveDataShuizhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */; };
 		A4367F5E1E017C360091E07A /* Search3DResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F5D1E017C360091E07A /* Search3DResultCell.m */; };
 		A4367F611E0186170091E07A /* Search3DShenMaiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F601E0186170091E07A /* Search3DShenMaiItem.m */; };
+		A4367F641E02BBB00091E07A /* SearchSessionStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F631E02BBB00091E07A /* SearchSessionStateModel.m */; };
+		A4367F671E02D5FC0091E07A /* Search3DResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F661E02D5FC0091E07A /* Search3DResultModel.m */; };
+		A4367F6F1E02ECDF0091E07A /* Search3DShenMaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F6E1E02ECDF0091E07A /* Search3DShenMaiModel.m */; };
 		A4569C911D33B53800A06B1C /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
 		A4569C921D33B53800A06B1C /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
 		A4569C971D33B5AE00A06B1C /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
@@ -430,6 +433,12 @@
 		A4367F5D1E017C360091E07A /* Search3DResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DResultCell.m; path = functions/NSBDBusiness/Views/Search3DResultCell.m; sourceTree = "<group>"; };
 		A4367F5F1E0186170091E07A /* Search3DShenMaiItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DShenMaiItem.h; path = functions/NSBDBusiness/Model/Search3DShenMaiItem.h; sourceTree = "<group>"; };
 		A4367F601E0186170091E07A /* Search3DShenMaiItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DShenMaiItem.m; path = functions/NSBDBusiness/Model/Search3DShenMaiItem.m; sourceTree = "<group>"; };
+		A4367F621E02BBB00091E07A /* SearchSessionStateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchSessionStateModel.h; path = functions/NSBDBusiness/Model/SearchSessionStateModel.h; sourceTree = "<group>"; };
+		A4367F631E02BBB00091E07A /* SearchSessionStateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchSessionStateModel.m; path = functions/NSBDBusiness/Model/SearchSessionStateModel.m; sourceTree = "<group>"; };
+		A4367F651E02D5FC0091E07A /* Search3DResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DResultModel.h; path = functions/NSBDBusiness/Model/Search3DResultModel.h; sourceTree = "<group>"; };
+		A4367F661E02D5FC0091E07A /* Search3DResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DResultModel.m; path = functions/NSBDBusiness/Model/Search3DResultModel.m; sourceTree = "<group>"; };
+		A4367F6D1E02ECDF0091E07A /* Search3DShenMaiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Search3DShenMaiModel.h; path = functions/NSBDBusiness/Model/Search3DShenMaiModel.h; sourceTree = "<group>"; };
+		A4367F6E1E02ECDF0091E07A /* Search3DShenMaiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Search3DShenMaiModel.m; path = functions/NSBDBusiness/Model/Search3DShenMaiModel.m; sourceTree = "<group>"; };
 		A4569C8D1D33B53800A06B1C /* DownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DownPicker.h; path = functions/DropdownField/DownPicker.h; sourceTree = "<group>"; };
 		A4569C8E1D33B53800A06B1C /* DownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DownPicker.m; path = functions/DropdownField/DownPicker.m; sourceTree = "<group>"; };
 		A4569C8F1D33B53800A06B1C /* UIDownPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIDownPicker.h; path = functions/DropdownField/UIDownPicker.h; sourceTree = "<group>"; };
@@ -1040,6 +1049,10 @@
 				B245DA6B1DFFCDFB009886BF /* Search3DHeaderModel.m */,
 				A4367F5F1E0186170091E07A /* Search3DShenMaiItem.h */,
 				A4367F601E0186170091E07A /* Search3DShenMaiItem.m */,
+				A4367F651E02D5FC0091E07A /* Search3DResultModel.h */,
+				A4367F661E02D5FC0091E07A /* Search3DResultModel.m */,
+				A4367F6D1E02ECDF0091E07A /* Search3DShenMaiModel.h */,
+				A4367F6E1E02ECDF0091E07A /* Search3DShenMaiModel.m */,
 			);
 			name = 3D;
 			sourceTree = "<group>";
@@ -1921,6 +1934,8 @@
 				A4E68C291D6994BE00DD603B /* SearchHomePageItem.m */,
 				A4CFBC8D1D978E5D0016387C /* SearchCategoryItem.h */,
 				A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */,
+				A4367F621E02BBB00091E07A /* SearchSessionStateModel.h */,
+				A4367F631E02BBB00091E07A /* SearchSessionStateModel.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -2385,6 +2400,7 @@
 				B2748D851DB4E41000C0166F /* DNLine.m in Sources */,
 				B2A186FE1D644042006D8CA7 /* HttpBaseModel.m in Sources */,
 				B28653D41D4863B2002D4139 /* UIImageView+AFNetworking.m in Sources */,
+				A4367F671E02D5FC0091E07A /* Search3DResultModel.m in Sources */,
 				A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */,
 				B205A52F1D61D378007530EB /* MJRefreshNormalHeader.m in Sources */,
 				A4A4AF921DAE852D009D0004 /* CommitedEventHistoryItem.m in Sources */,
@@ -2511,11 +2527,13 @@
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,
 				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,
+				A4367F641E02BBB00091E07A /* SearchSessionStateModel.m in Sources */,
 				A412B8BB1DB3E6B7003CAE02 /* MyDealedEventViewController.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
 				A4CED2BE1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */,
+				A4367F6F1E02ECDF0091E07A /* Search3DShenMaiModel.m in Sources */,
 				B205A5261D61D378007530EB /* MJRefreshFooter.m in Sources */,
 				B2CFC35E1D7813D500FA97D3 /* MyEventItemCell.m in Sources */,
 				B2A187121D659B6E006D8CA7 /* AuthorizeManager.m in Sources */,

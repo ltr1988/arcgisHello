@@ -47,7 +47,7 @@
 -(void) requestMANEHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail
 {
     [[Search3DHttpManager sharedManager] request3DHeaderMANEWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        Search3DHeaderModel * model = [Search3DHeaderModel objectWithKeyValues:dict];
+        Search3DHeaderMANEModel * model = [Search3DHeaderMANEModel objectWithKeyValues:dict];
         if (model) {
             [self setCacheWithData:dict path:HOME3D_CACHE_PATH_MANE];
             
@@ -64,7 +64,7 @@
 -(void) requestCategoryHeaderDataWithSuccess:(void (^)(Search3DHeaderModel * model)) success fail:(void (^)()) fail
 {
     [[Search3DHttpManager sharedManager] request3DHeaderCategoryWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
-        Search3DHeaderModel * model = [Search3DHeaderModel objectWithKeyValues:dict];
+        Search3DHeaderCategoryModel * model = [Search3DHeaderCategoryModel objectWithKeyValues:dict];
         if (model) {
             [self setCacheWithData:dict path:HOME3D_CACHE_PATH_CATEGORY];
             success(model);
