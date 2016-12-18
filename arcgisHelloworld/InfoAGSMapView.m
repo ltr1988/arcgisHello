@@ -28,7 +28,7 @@
 
 -(void) reloadLayers
 {
-    [MapViewManager resetLayer:self];
+    [MapViewManager refreshVisibleLayer:self];
 }
 
 #pragma mark - touch

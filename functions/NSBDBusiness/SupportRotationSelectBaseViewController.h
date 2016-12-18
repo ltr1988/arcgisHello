@@ -11,6 +11,8 @@
 #import "ToastView.h"
 @protocol CustomNaviBack <NSObject>
 
+
+//yes for go back, no for stay
 -(BOOL) customBackAction;
 
 @end

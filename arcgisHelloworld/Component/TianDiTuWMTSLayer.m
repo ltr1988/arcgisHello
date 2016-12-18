@@ -39,7 +39,7 @@
         [requestQueue setMaxConcurrentOperationCount:16];
         /*get the currect layer info
          */
-        layerInfo = [[TianDiTuWMTSLayerInfoDelegate alloc]getLayerInfo:tiandituType];
+        layerInfo = [[TianDiTuWMTSLayerInfoDelegate alloc] getLayerInfo:tiandituType];
         
         _units = AGSUnitsDecimalDegrees;
         AGSSpatialReference* sr = [AGSSpatialReference spatialReferenceWithWKID:layerInfo.srid];

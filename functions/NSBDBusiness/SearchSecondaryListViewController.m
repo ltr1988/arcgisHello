@@ -174,12 +174,7 @@
     }
     return;
 #endif
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
-    }
-
+    
     @weakify(self)
     if (readOnly) {
         if ([self isLine])

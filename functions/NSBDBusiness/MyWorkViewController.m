@@ -15,7 +15,7 @@
 #import "SearchHistoryHomeViewController.h"
 #import "MyDealedEventViewController.h"
 #import "MyChuanKuaYueHomeViewController.h"
-
+#import "DistanceMapViewController.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -33,7 +33,7 @@
 
 -(void) setupModel
 {
-    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程"];
+    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程",@"测距"];
 }
 
 -(void) setupSubviews
@@ -156,7 +156,8 @@
             break;
         case 5:
         {
-//            [[FLEXManager sharedManager] showExplorer];
+            DistanceMapViewController *vc = [[DistanceMapViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

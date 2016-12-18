@@ -100,18 +100,6 @@
 -(void) setupSubviews
 {
     
-    CGFloat btnsize = 36;
-    
-    CGFloat rightBtnOffsetX = self.view.frame.size.width- btnsize - 20;
-    UIButton *btnChangMapType = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 70, btnsize, btnsize)];
-    btnChangMapType.backgroundColor = [UIColor whiteColor];
-    btnChangMapType.layer.cornerRadius = 5;
-    btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
-    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
-    [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btnChangMapType];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStylePlain target:self action:@selector(actionPickPoint)];
     [self.navigationItem setRightBarButtonItem:rightItem];
@@ -126,6 +114,21 @@
     anchorView.center = self.view.center;
     anchorView.image = [UIImage imageNamed:@"icon_location"];
     [self.view addSubview:anchorView];
+    
+    
+    
+    CGFloat btnsize = 36;
+    
+    CGFloat rightBtnOffsetX = self.view.frame.size.width- btnsize - 20;
+    UIButton *btnChangMapType = [[UIButton alloc] initWithFrame:CGRectMake(rightBtnOffsetX, 20, btnsize, btnsize)];
+    btnChangMapType.backgroundColor = [UIColor whiteColor];
+    btnChangMapType.layer.cornerRadius = 5;
+    btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
+    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+    [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnChangMapType];
     
     __weak UIView *weakView = self.view;
     [anchorView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -248,12 +248,6 @@
     //-----------------
     
 #endif
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
-    }
     
     __weak UIButton *btn = (UIButton *)sender;
     NSString *sessionId = [NSString stringWithUUID];

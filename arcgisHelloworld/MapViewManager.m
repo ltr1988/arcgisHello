@@ -13,6 +13,7 @@
 @implementation MapViewManager
 static InfoAGSMapView *mapView;
 static InfoAGSMapView *routeMapView;
+static InfoAGSMapView *distanceMapView;
 static NSString *ip;
 
 +(InfoAGSMapView *) sharedRouteMapView
@@ -22,8 +23,23 @@ static NSString *ip;
     dispatch_once(&onceToken, ^{
         routeMapView = [[InfoAGSMapView alloc] init];
         routeMapView.gridLineWidth = 0.1;
-        
+        routeMapView.baseLayerType = NSBD_NORMAL;
         [MapViewManager resetLayer:routeMapView];
+        
+        
+    });
+    return routeMapView;
+}
+
++(InfoAGSMapView *) sharedDistanceMapView
+{
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        distanceMapView = [[InfoAGSMapView alloc] init];
+        distanceMapView.gridLineWidth = 0.1;
+        distanceMapView.baseLayerType = NSBD_NORMAL;
+        [MapViewManager resetLayer:distanceMapView];
         
         
     });
@@ -44,10 +60,10 @@ static NSString *ip;
         
         __weak AGSMapView *weakView = mapView;
         mapView.mapViewTouchesCallback = ^{
-            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[weakView mapLayerForName:@"Graphics Layer"];
-            if (glayer && glayer.graphics && glayer.graphics.count>0) {
-                [glayer removeAllGraphics];
-            }
+//            AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[weakView mapLayerForName:@"Graphics Layer"];
+//            if (glayer && glayer.graphics && glayer.graphics.count>0) {
+//                [glayer removeAllGraphics];
+//            }
         };
 
     });
@@ -62,6 +78,20 @@ static NSString *ip;
     return ip;
 }
 
++(void) refreshVisibleLayer:(InfoAGSMapView *)aMapView
+{
+    AGSLayer *wmsLayer = [aMapView mapLayerForName:@"WMS Layer"];
+    wmsLayer.visible = aMapView.layerMask & LayerMaskNSBDLayer;
+    
+    AGSLayer *glayer = [aMapView mapLayerForName:@"Graphics Layer"];
+    
+    glayer.visible = aMapView.layerMask & LayerMaskGraphicLayer;
+    
+    
+    AGSLayer *maishenLayer = [aMapView mapLayerForName:@"3DMaishen Layer"];
+    
+    maishenLayer.visible = aMapView.layerMask & LayerMask3DLayer;
+}
 
 +(void) resetLayer:(InfoAGSMapView *)aMapView
 {
@@ -76,31 +106,27 @@ static NSString *ip;
     
     
     //Add it to the map view
-    if (aMapView.layerMask & LayerMaskBaseLayer)
-    {
-        
-        TianDiTuWMTSLayer *tiledLayer = [[TianDiTuWMTSLayer alloc] initWithLayerType:mapView.baseLayerType error:nil];
-        [aMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
-    }
-    if (aMapView.layerMask & LayerMaskNSBDLayer)
-    {
-        AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
-                                                                   [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];
-        [aMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
-    }
-    if (aMapView.layerMask & LayerMaskGraphicLayer)
-    {
-        AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
-        [aMapView addMapLayer:glayer withName:@"Graphics Layer"];
-    }
-    if (aMapView.layerMask & LayerMask3DLayer)
-    {
-        AGSWMSLayer *maishenLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
+    TianDiTuWMTSLayer *tiledLayer = [[TianDiTuWMTSLayer alloc] initWithLayerType:aMapView.baseLayerType error:nil];
+    [aMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
+
+    
+    AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
+                                                               [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];
+    [aMapView addMapLayer:wmsLayer withName:@"WMS Layer"];
+    
+    
+
+    AGSGraphicsLayer *glayer = [AGSGraphicsLayer graphicsLayer];
+    [aMapView addMapLayer:glayer withName:@"Graphics Layer"];
+
+    
+    AGSWMSLayer *maishenLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
                                                                    [NSString stringWithFormat:WMS3DURL,[MapViewManager IP]]]];
-        [aMapView addMapLayer:maishenLayer withName:@"3DMaishen Layer"];
-    }
+    [aMapView addMapLayer:maishenLayer withName:@"3DMaishen Layer"];
+    
     aMapView.backgroundColor = [UIColor lightGrayColor];
 
+    [self refreshVisibleLayer:aMapView];
 }
 
 +(void)SetIP:(NSString *)ip_new

@@ -9,9 +9,10 @@
 #import "ImageContentViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface ImageContentViewController()
+@interface ImageContentViewController()<UIScrollViewDelegate>
 {
     UIImageView *imgView;
+    UIScrollView *scrollView;
 }
 @end
 
@@ -26,22 +27,30 @@
 
 -(void) setupSubviews
 {
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    imgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    imgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:scrollView];
+    scrollView.delegate = self;
+    scrollView.maximumZoomScale = 2.0;
+    scrollView.minimumZoomScale = 0.5;
     
-    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView = [[UIImageView alloc] init];
     [self.view addSubview:imgView];
 }
 
 -(void) setImage:(UIImage *) image
 {
     [imgView setImage:image];
+    imgView.frame = scrollView.bounds;
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+
+    scrollView.contentSize = scrollView.bounds.size;
 }
 
--(void) setImageURL:(NSURL *) url
+#pragma mark - scroll delegate
+-(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    [imgView setImageWithURL:url];
+    return imgView;
 }
 @end

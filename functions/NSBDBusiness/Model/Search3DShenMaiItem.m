@@ -25,7 +25,7 @@
     if (_duanmian) {
         NSString *url =  [NSString stringWithFormat:@"http://%@:87/images/duanmian/%@.jpg",HOSTIP_3D,_duanmian];
         
-        //NSString *url = [NSString stringWithFormat:@"http://%@:81/images/duanmian/%@.jpg",HOSTIP_3D,_duanmian];
+        //NSString *url = [NSString stringWithFormat:@"http://%@:85/images/duanmian/%@.jpg",HOSTIP_3D,_duanmian];
         return [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     return nil;

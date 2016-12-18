@@ -13,6 +13,7 @@
 +(InfoAGSMapView *) sharedMapView;
 +(InfoAGSMapView *) sharedRouteMapView;
 +(void) resetLayer:(InfoAGSMapView *)aMapView;
++(void) refreshVisibleLayer:(InfoAGSMapView *)aMapView;
 +(NSString *)IP;
 +(NSString *)MapIP;
 

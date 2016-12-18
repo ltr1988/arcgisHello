@@ -62,11 +62,7 @@
     [self.tableView.mj_header endRefreshing];
     return;
 #endif
-    if (![AFNetworkReachabilityManager sharedManager].reachable)
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
-    }
+    
     @weakify(self)
     pageNum = 1;
     [[SearchHistoryManager sharedManager] requestSearchHistoryListWithPage:pageNum SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
@@ -114,11 +110,6 @@
 #endif
     if (!hasMore) {
         [_tableView.mj_footer endRefreshingWithNoMoreData];
-        return;
-    }
-    if (![AFNetworkReachabilityManager sharedManager].reachable)
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
         return;
     }
     

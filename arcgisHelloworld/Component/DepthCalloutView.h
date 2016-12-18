@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^DepthCalloutViewCallback)();
+typedef void (^DepthCalloutViewCallback)(UIImage *image);
 @interface DepthCalloutView : UIView
 @property (nonatomic,strong) UIImageView *imageView;
 @property (nonatomic,strong) UILabel *lbLine1;

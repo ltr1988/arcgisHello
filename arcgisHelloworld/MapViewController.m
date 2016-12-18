@@ -27,10 +27,12 @@
 #import "Search3DShenMaiItem.h"
 #import "MJExtension.h"
 #import "UIImageView+AFNetworking.h"
+#import "ImageContentViewController.h"
+#import "Search3DResultModel.h"
+#import "Search3DResultItem.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
-    
     UIAlertView *alart;
     UIView *maskView;
 }
@@ -52,6 +54,7 @@
     [self setupSubviews];
     
     //create identify task
+    
     [self doReloadTask];
     [self setupObservers];
     [[WeatherManager sharedInstance] requestData];
@@ -179,19 +182,13 @@
     self.mapView.frame = self.view.bounds;
     [self.view insertSubview:self.mapView atIndex:0];
     self.mapView.touchDelegate = self;
-    self.mapView.callout.delegate = self;
+//    self.mapView.callout.delegate = self;
     self.mapView.layerDelegate = self;
     
     [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
     [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     self.mapView.bottomView = [self bottomView];
-    
-    DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
-    dcallout.imageTapped = ^{
-        NSLog(@"tapped");
-    };
-    self.mapView.callout.customView = dcallout;
-}
+    }
 
 
 -(UIView *) bottomView
@@ -310,6 +307,8 @@
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{
     
+    
+    [self.mapView.callout dismiss];
     if ([self loaded3DMap])
         [self requestMaishenWithPoint:mappoint];
     else
@@ -326,7 +325,20 @@
         if (model && model.datalist.count>0)
         {
             Search3DShenMaiItem *item = model.datalist.firstObject;
-            DepthCalloutView *dcallout = (DepthCalloutView *)self.mapView.callout.customView;
+            __weak __typeof(self) weakself = self;
+            DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
+            dcallout.imageTapped = ^(UIImage *image){
+                if (image) {
+                    
+                    ImageContentViewController *vc = [[ImageContentViewController alloc] init];
+                    [vc setImage:image];
+                    [weakself.navigationController pushViewController:vc animated:YES];
+                }
+                NSLog(@"tapped");
+                
+            };
+
+            self.mapView.callout.customView = dcallout;
             if ([item imageUrl]) {
                 NSURL * url = [NSURL URLWithString:[item imageUrl]];
                 [dcallout.imageView setImageWithURL:url placeholderImage:nil];
@@ -383,6 +395,7 @@
             if (!name)
                 continue;
             
+            self.mapView.callout.customView = nil;
             self.mapView.callout.title = name;
             self.mapView.callout.accessoryButtonHidden = YES;
             AGSPoint * p = (AGSPoint *)((AGSIdentifyResult*)[results objectAtIndex:i]).feature.geometry;
@@ -404,38 +417,66 @@
             
             
             NSDictionary *infoDict = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature allAttributes];
+            
+            NSString *objectNumber = infoDict[@"ObjectNum"];
+            
             NSMutableDictionary *convertDict = [NSMutableDictionary dictionary];
             for (NSString *key in infoDict.allKeys) {
                 NSString *convertKey = [self stringFromInfoKey:key];
                 convertDict[convertKey] = infoDict[key];
             }
             
-            CallOutItem *item = [[CallOutItem alloc] init];
-            item.title = name;
-            item.detail = departName?:@"";
-            item.moreInfo = [convertDict copy];
-            item.webSiteInfo = [NSDictionary dictionary];
-            calloutView.model = (id<ItemCallOutViewModel>)item;
+            dispatch_group_t group = dispatch_group_create();
             
             
-            __weak __typeof(self) weakSelf = self;
-            calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
-                DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
-                
-                [weakSelf.navigationController pushViewController:detailVC animated:YES];
-            };
-            calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
-                WebViewController *controller = [[WebViewController alloc] init];
-                
-                
-                
-                [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
-                
-                [weakSelf.navigationController pushViewController:controller animated:YES];
-            };
+            __block NSString *modelUrl = nil;
+            if (objectNumber) {
+                dispatch_group_enter(group);
+                [[Search3DHttpManager sharedManager] request3DModelWithObjectnum:objectNumber SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                    Search3DResultModel *model = [Search3DResultModel objectWithKeyValues:dict];
+                    if (model && model.datalist.count>0) {
+                        Search3DResultItem *item = model.datalist.firstObject;
+                        modelUrl = [item.modelpath copy];
+                    }
+                    dispatch_group_leave(group);
+                } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                    dispatch_group_leave(group);
+                }];
+            }
             
-            //show callout
-            [self.mapView showInfoView:YES];
+            
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                CallOutItem *item = [[CallOutItem alloc] init];
+                item.title = name;
+                item.detail = departName?:@"";
+                item.moreInfo = [convertDict copy];
+                
+                if (nil != modelUrl) {
+                    
+                    item.webSiteInfo = @{@"modelUrl":modelUrl};
+                }
+                calloutView.model = (id<ItemCallOutViewModel>)item;
+                
+                
+                __weak __typeof(self) weakSelf = self;
+                calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
+                    DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+                    
+                    [weakSelf.navigationController pushViewController:detailVC animated:YES];
+                };
+                calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
+                    NSString *url = moreInfo[@"modelUrl"];
+                    WebViewController *controller = [[WebViewController alloc] init];
+                    
+                    [controller setUrl:[NSURL URLWithString:url]];
+                    
+                    [weakSelf.navigationController pushViewController:controller animated:YES];
+                };
+                
+                //show callout
+                [self.mapView showInfoView:YES];
+            });
+            
             
 
             return;
@@ -478,6 +519,7 @@
         if (!name)
             return;
         
+        self.mapView.callout.customView = nil;
         self.mapView.callout.title = name;
         self.mapView.callout.accessoryButtonHidden = YES;
         AGSPoint * p = (AGSPoint *)geometry;
@@ -494,6 +536,7 @@
 //        }
         
         NSString *departName = [graphic attributeAsStringForKey:@"MANE"];
+        NSString *objectNumber = [graphic attributeAsStringForKey:@"OBJECTNUM"];
         ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
         self.mapView.infoView = calloutView;
         
@@ -505,30 +548,57 @@
             convertDict[convertKey] = infoDict[key];
         }
         
-        CallOutItem *item = [[CallOutItem alloc] init];
-        item.title = name;
-        item.detail = departName?:@"";
-        item.moreInfo = [convertDict copy];
-        item.webSiteInfo = [NSDictionary dictionary];
-        calloutView.model = (id<ItemCallOutViewModel>)item;
+        
+        dispatch_group_t group = dispatch_group_create();
         
         
-        __weak __typeof(self) weakSelf = self;
-        calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
-            DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
-            
-            [weakSelf.navigationController pushViewController:detailVC animated:YES];
-        };
-        calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
-            WebViewController *controller = [[WebViewController alloc] init];
-            
-            [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
-            
-            [weakSelf.navigationController pushViewController:controller animated:YES];
-        };
+        __block NSString *modelUrl = nil;
+        if (objectNumber) {
+            dispatch_group_enter(group);
+            [[Search3DHttpManager sharedManager] request3DModelWithObjectnum:objectNumber SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+                Search3DResultModel *model = [Search3DResultModel objectWithKeyValues:dict];
+                if (model && model.datalist.count>0) {
+                    Search3DResultItem *item = model.datalist.firstObject;
+                    modelUrl = [item.modelpath copy];
+                }
+                dispatch_group_leave(group);
+            } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+                dispatch_group_leave(group);
+            }];
+        }
         
-        //show callout
-        [self.mapView showInfoView:YES];
+        
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            CallOutItem *item = [[CallOutItem alloc] init];
+            item.title = name;
+            item.detail = departName?:@"";
+            item.moreInfo = [convertDict copy];
+            
+            if (nil != modelUrl) {
+                
+                item.webSiteInfo = @{@"modelUrl":modelUrl};
+            }
+            calloutView.model = (id<ItemCallOutViewModel>)item;
+            
+            
+            __weak __typeof(self) weakSelf = self;
+            calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
+                DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+                
+                [weakSelf.navigationController pushViewController:detailVC animated:YES];
+            };
+            calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
+                NSString *url = moreInfo[@"modelUrl"];
+                WebViewController *controller = [[WebViewController alloc] init];
+                
+                [controller setUrl:[NSURL URLWithString:url]];
+                
+                [weakSelf.navigationController pushViewController:controller animated:YES];
+            };
+            
+            //show callout
+            [self.mapView showInfoView:YES];
+        });
         
         return;
         
@@ -566,51 +636,21 @@
     y = [info[@"y"] doubleValue];
     AGSPoint *point = [[AGSPoint alloc] initWithX:x y:y spatialReference:self.mapView.spatialReference];
 
+    self.mapView.callout.customView = nil;
     self.mapView.callout.title = info[@"title"];
     self.mapView.callout.accessoryButtonHidden = YES;
     AGSPoint * p = (AGSPoint *)point;
     [self.mapView.callout showCalloutAt:p screenOffset:CGPointMake(0, 0) animated:YES];
-//    AGSGraphicsLayer *glayer = (AGSGraphicsLayer *)[self.mapView mapLayerForName:@"Graphics Layer"];
-//    if (glayer) {
-//        [glayer removeAllGraphics];
-//        AGSPictureMarkerSymbol* myPictureSymbol = [AGSPictureMarkerSymbol pictureMarkerSymbolWithImageNamed:@"icon_location"];
-//        myPictureSymbol.size = CGSizeMake(36, 36);
-//        //向右上方偏移5个像素
-//        myPictureSymbol.offset = CGPointMake(0, 18);
-//        AGSGraphic *symbol = [AGSGraphic graphicWithGeometry:point symbol:myPictureSymbol attributes:nil];
-//        [glayer addGraphic:symbol];
-//    }
-    
-    ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
-    self.mapView.infoView = calloutView;
-    
-    CallOutItem *item = [[CallOutItem alloc] init];
-    item.title = info[@"title"];
-    item.detail = @"";
-    item.moreInfo = nil;
-    item.webSiteInfo = [NSDictionary dictionary];
-    
-    calloutView.model = (id<ItemCallOutViewModel>)item;
-    
-    
-    __weak __typeof(self) weakSelf = self;
 
-    calloutView.webSiteCallback = ^(NSDictionary *moreInfo){
-        WebViewController *controller = [[WebViewController alloc] init];
-        
-        [controller setUrl:[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:7001/Modle-html5/index/index.html",HOSTIP]]];
-        
-        [weakSelf.navigationController pushViewController:controller animated:YES];
-    };
-    
-    //show callout
-    [self.mapView showInfoView:YES];
 }
 
 -(BOOL) loaded3DMap
 {
     return self.mapView.layerMask & LayerMask3DLayer;
 }
+
+#pragma distance
+
 @end
 
 

@@ -24,9 +24,10 @@
 +(AFHTTPSessionManager *)SceneManager
 {
     AFHTTPSessionManager *manager =  [HttpManager managerWithType:HttpTaskType_Foreground];
-//    [manager.requestSerializer setValue:@"text/plain;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded ;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     return manager;
 }
+
 
 +(AFHTTPSessionManager *)NSBDFileManager
 {

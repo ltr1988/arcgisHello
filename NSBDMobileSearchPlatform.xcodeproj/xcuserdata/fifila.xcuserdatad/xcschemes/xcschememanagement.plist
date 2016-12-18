@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>NSBDMobileSearchPlatform copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>arcgisHelloworld.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>A4AFB2351E064C6200FAFBB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A4DD86821D0976B00096B548</key>
 		<dict>
 			<key>primary</key>

@@ -86,15 +86,17 @@
 
 -(void) request3DModelWithKey:(NSString *)key mane:(NSString *)mane category:(NSString *)category SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    key = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    category = [category stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    mane = [mane stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;
+    key = [key stringByAddingPercentEscapesUsingEncoding:enc];
+    category = [category stringByAddingPercentEscapesUsingEncoding:enc];
+    mane = [mane stringByAddingPercentEscapesUsingEncoding:enc];
 
     NSDictionary *param = @{@"objtype":category,
                             @"mane":mane,
                             @"modelname":key,};
-//    NSString *url = [NSString stringWithFormat:@"%@?objtype=%@&mane=%@&modelname=%@",,category,mane,key];
-    [self postRequestWithURL:[HttpHost host3DURLWithType:@"/GetModel_ByCondition"] param:param successCallback:success failCallback:fail];
+    NSString *url = [NSString stringWithFormat:@"%@?objtype=%@&mane=%@&modelname=%@",[HttpHost host3DURLWithType:@"/GetModel_ByCondition"],category,mane,key];
+    [self getRequestWithURL:url param:nil successCallback:success failCallback:fail];
 }
 
 

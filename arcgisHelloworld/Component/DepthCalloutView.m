@@ -70,7 +70,7 @@
 {
     if (self.imageTapped)
     {
-        self.imageTapped();
+        self.imageTapped(self.imageView.image);
     }
 }
 //80 for height

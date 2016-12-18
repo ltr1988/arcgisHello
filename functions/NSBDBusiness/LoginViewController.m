@@ -66,12 +66,6 @@
 #endif
     
     
-    
-    if (![AFNetworkReachabilityManager sharedManager].reachable)
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-    }
-    
     _loginBtn.enabled = YES;
     
     NSString *psw = [_passwordField.text copy];

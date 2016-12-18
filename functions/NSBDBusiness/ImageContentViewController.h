@@ -10,5 +10,4 @@
 
 @interface ImageContentViewController : SupportRotationSelectBaseViewController
 -(void) setImage:(UIImage *) image;
--(void) setImageURL:(NSURL *) url;
 @end

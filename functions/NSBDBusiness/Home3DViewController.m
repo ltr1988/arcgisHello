@@ -91,36 +91,50 @@
 
 -(void) requestHeaderData
 {
-//    //mock
-//    _headerManeModel = [Search3DHeaderMANEModel mockModel];
-//    _headerCategoryModel = [Search3DHeaderCategoryModel mockModel];
-//    
-//    if (_headerManeModel || _headerCategoryModel) {
-//        [self refreshHeader];
-//    }
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     
+    dispatch_group_t group = dispatch_group_create();
     @weakify(self)
+    
+    dispatch_group_enter(group);
     [dataSource requestMANEHeaderDataWithSuccess:^(Search3DHeaderModel *model) {
         if (model && model.datalist.count>0) {
             @strongify(self)
             self.headerManeModel = (Search3DHeaderMANEModel*)model;
-            [self refreshHeader];
+            NSArray *array = @[@"全部单位"];
+            self.cbMANEData =  [array arrayByAddingObjectsFromArray: [self.headerManeModel stringArray]];
+            [self.cbMANE setComboBoxData:self.cbMANEData];
+            dispatch_group_leave(group);
         }
     } fail:^{
+        dispatch_group_leave(group);
     }];
     
+    
+    dispatch_group_enter(group);
     [dataSource requestCategoryHeaderDataWithSuccess:^(Search3DHeaderModel *model) {
         if (model && model.datalist.count>0) {
             @strongify(self)
             self.headerCategoryModel = (Search3DHeaderCategoryModel*)model;
-            [self refreshHeader];
+            NSArray *array = @[@"全部分类"];
+            self.cbCategoryData =  [array arrayByAddingObjectsFromArray: [self.headerCategoryModel stringArray]];
+            [self.cbCategory setComboBoxData:self.cbCategoryData];
+            dispatch_group_leave(group);
         }
     } fail:^{
+        dispatch_group_leave(group);
     }];
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        [self refreshHeader];
+    });
 }
 
 -(void) refreshHeader
 {
+    if ([SVProgressHUD isVisible]) {
+        [SVProgressHUD dismiss];
+    }
     if ((_headerManeModel.datalist.count==0) && (_headerCategoryModel.datalist.count==0))
     {
         _table.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -158,11 +172,11 @@
     [_resultView addSubview:_cbMANE];
     
     _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 120, view.frame.size.height)];
-    [_cbCategory setComboBoxTitle:@"所属工程"];
+    [_cbCategory setComboBoxTitle:@"所属分类"];
     
     [_cbCategory setComboBoxData:_cbCategoryData];
     _cbCategory.delegate = self;
-    [_cbCategory setComboBoxSize:CGSizeMake(120, 44*4)];
+    [_cbCategory setComboBoxSize:CGSizeMake(120, 44*6)];
     [_resultView addSubview:_cbCategory];
     
     return view;
@@ -337,8 +351,8 @@
     _cbMANEFilter = @"";
     _cbCategoryFilter = @"";
     
-    _cbMANEData = @[@"管理单位",@"团城湖管理处",@"大宁管理处",@"南干渠管理处",@"东干渠管理处",@"干线管理处"];
-    _cbCategoryData = @[@"所属工程",@"3",@"4"];
+    _cbMANEData = @[@"全部单位"];
+    _cbCategoryData = @[@"全部分类"];
 }
 
 -(void) setupTopBar
@@ -477,6 +491,7 @@
 {
     
     if (text && text.length>0) {
+        [self.searchField resignFirstResponder];
         self.searchField.text = text;
     //--------------
     //to be deleted
@@ -605,6 +620,9 @@
     NSInteger row = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if ([SVProgressHUD isVisible]) {
+        [SVProgressHUD dismiss];
+    }
     if ((tableView== _table) && indexPath.row == (_historyList.count)) {
         [self cleanHistory];
     }else

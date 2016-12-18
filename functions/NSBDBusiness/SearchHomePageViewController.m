@@ -283,11 +283,6 @@
 
 -(void) actionEndSesson:(id) sender
 {
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
-    }
     @weakify(self)
     SearchSessionManager *sessionMgr = [SearchSessionManager sharedManager];
     @weakify(sessionMgr)
@@ -326,11 +321,6 @@
     [self.tableView reloadData];
     [self.tableView.mj_header endRefreshing];
 #endif
-    if (![[AFNetworkReachabilityManager sharedManager] isReachable])
-    {
-        [ToastView popToast:@"暂无网络，稍后再试"];
-        return;
-    }
     
     if (!_readOnly)
     {
