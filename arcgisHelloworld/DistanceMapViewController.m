@@ -104,7 +104,6 @@
 
 -(void) actionSwitchMapType:(id)sender
 {
-    [self clearAll];
     UIButton *btn = sender;
     
     CATransition *animation = [CATransition animation];
@@ -123,13 +122,42 @@
     [btn.layer addAnimation:animation forKey:@"animation"];
     
     if (self.mapView.baseLayerType == NSBD_NORMAL) {
-        [btn setTitle:@"电子" forState:UIControlStateNormal];
+//        [btn setTitle:@"电子" forState:UIControlStateNormal];
+        
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange1"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange1"] forState:UIControlStateHighlighted];
     }else
     {
-        [btn setTitle:@"影像" forState:UIControlStateNormal];
+//        [btn setTitle:@"影像" forState:UIControlStateNormal];
+        
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateHighlighted];
     }
     
     [self.mapView switchLayerType];
 }
 
+-(CGFloat ) dWithX1:(CGFloat) x1 x2:(CGFloat)x2 y1:(CGFloat)y1 y2:(CGFloat)y2
+{
+    
+    CGPoint p1 = CGPointMake(x1,y1);
+    CGPoint p2 = CGPointMake(x2,y2);
+    
+    p1 = [self lonLat2Mercator:p1];
+    p2 = [self lonLat2Mercator:p2];
+    
+    CGFloat d =  sqrt(pow((p1.x-p2.x),2.0) + pow((p1.y-p2.y), 2.0));
+    return d;
+}
+
+-(CGPoint )lonLat2Mercator:(CGPoint ) lonLat
+{
+    CGPoint  mercator;
+    double x = lonLat.x *20037508.34/180;
+    double y = log(tan((90+lonLat.y)*M_PI/360))/(M_PI/180);
+    y = y *20037508.34/180;
+    mercator.x = x;
+    mercator.y = y;
+    return mercator ;
+}
 @end

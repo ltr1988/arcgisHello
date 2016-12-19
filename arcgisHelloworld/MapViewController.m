@@ -95,7 +95,10 @@
     btnChangMapType.backgroundColor = [UIColor whiteColor];
     btnChangMapType.layer.cornerRadius = 5;
     btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
-    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+//    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+//    
+    [btnChangMapType setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateNormal];
+    [btnChangMapType setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateHighlighted];
     [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
@@ -186,6 +189,7 @@
     self.mapView.layerDelegate = self;
     
     [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
+    [self.mapView mapLayerForName:@"Tiled Layer1"].delegate = self;
     [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     self.mapView.bottomView = [self bottomView];
     }
@@ -300,6 +304,7 @@
     {
         [MapViewManager resetLayer:self.mapView];
         [self.mapView mapLayerForName:@"Tiled Layer"].delegate = self;
+        [self.mapView mapLayerForName:@"Tiled Layer1"].delegate = self;
         [self.mapView mapLayerForName:@"WMS Layer"].delegate = self;
     }
 }

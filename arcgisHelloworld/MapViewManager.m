@@ -80,6 +80,20 @@ static NSString *ip;
 
 +(void) refreshVisibleLayer:(InfoAGSMapView *)aMapView
 {
+    TianDiTuWMTSLayer *tiledLayer = (TianDiTuWMTSLayer *)[aMapView mapLayerForName:@"Tiled Layer"];
+    
+    TianDiTuWMTSLayer *tiledLayer1 = (TianDiTuWMTSLayer *)[aMapView mapLayerForName:@"Tiled Layer1"];
+    
+    if (aMapView.baseLayerType == NSBD_NORMAL)
+    {
+        tiledLayer.visible = YES;
+        tiledLayer1.visible = NO;
+    }else
+    {
+        tiledLayer1.visible = YES;
+        tiledLayer.visible = NO;
+    }
+    
     AGSLayer *wmsLayer = [aMapView mapLayerForName:@"WMS Layer"];
     wmsLayer.visible = aMapView.layerMask & LayerMaskNSBDLayer;
     
@@ -106,9 +120,22 @@ static NSString *ip;
     
     
     //Add it to the map view
-    TianDiTuWMTSLayer *tiledLayer = [[TianDiTuWMTSLayer alloc] initWithLayerType:aMapView.baseLayerType error:nil];
+    TianDiTuWMTSLayer *tiledLayer = [[TianDiTuWMTSLayer alloc] initWithLayerType:NSBD_NORMAL error:nil];
     [aMapView addMapLayer:tiledLayer withName:@"Tiled Layer"];
-
+    
+    TianDiTuWMTSLayer *tiledLayer1 = [[TianDiTuWMTSLayer alloc] initWithLayerType:NSBD_IMAGE error:nil];
+    
+    [aMapView addMapLayer:tiledLayer1 withName:@"Tiled Layer1"];
+    
+    if (aMapView.baseLayerType == NSBD_NORMAL)
+    {
+        tiledLayer.visible = YES;
+        tiledLayer1.visible = NO;
+    }else
+    {
+        tiledLayer1.visible = YES;
+        tiledLayer.visible = NO;
+    }
     
     AGSWMSLayer *wmsLayer =  [[AGSWMSLayer alloc] initWithURL:[NSURL URLWithString:
                                                                [NSString stringWithFormat:WMSURL,[MapViewManager IP]]]];

@@ -27,34 +27,34 @@
 #else
 
 
-//#define NSBD_APP_SERVICE @"http://%@:7001/nsbd/Service/dataSync.do"
+#define NSBD_APP_SERVICE @"http://%@:7001/nsbd/Service/dataSync.do"
 
-//#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
-//#define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
-//#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
-//#define BaseMapURL @"http://%@:3080/nsbd/service/wmts"
-
-//#define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
-
-//
-//
-//#define HOSTIP @"10.200.9.122"//app
-//#define HOSTIP_3D @"10.200.9.122"//app
-//#define MAPIP @"10.200.9.28"
-
-
-#define NSBD_APP_SERVICE @"http://%@:8080/nsbd/Service/dataSync.do"
-
-#define WMSURL @"http://%@:6080/arcgis/services/20131125NSBDgongcheng/MapServer/WMSServer"
+#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
 #define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
-#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/20131125NSBDgongcheng/MapServer/"
+#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
+#define BaseMapURL @"http://%@:3080/nsbd/service/wmts"
 
-#define BaseMapURL @"http://%@:8080/gxpt/service/wmts"
-#define HOSTIP @"192.168.0.121"
-#define HOSTIP_3D @"192.168.0.121"
-#define MAPIP @"192.168.0.121"
+#define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
 
-#define HOST_SERVICE_3D @"http://%@:87/WebServices/ManagerS.asmx"
+
+
+#define HOSTIP @"10.200.9.122"//app
+#define HOSTIP_3D @"10.200.9.32"//app
+#define MAPIP @"10.200.9.28"
+
+//
+//#define NSBD_APP_SERVICE @"http://%@:8080/nsbd/Service/dataSync.do"
+//
+//#define WMSURL @"http://%@:6080/arcgis/services/20131125NSBDgongcheng/MapServer/WMSServer"
+//#define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
+//#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/20131125NSBDgongcheng/MapServer/"
+//
+//#define BaseMapURL @"http://%@:8080/gxpt/service/wmts"
+//#define HOSTIP @"192.168.0.121"
+//#define HOSTIP_3D @"192.168.0.121"
+//#define MAPIP @"192.168.0.121"
+//
+//#define HOST_SERVICE_3D @"http://%@:87/WebServices/ManagerS.asmx"
 
 #endif
 

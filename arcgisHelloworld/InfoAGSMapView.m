@@ -23,7 +23,7 @@
 -(void) switchLayerType
 {
     _baseLayerType = NSBD_NORMAL + NSBD_IMAGE - _baseLayerType;
-    [MapViewManager resetLayer:self];
+    [MapViewManager refreshVisibleLayer:self];
 }
 
 -(void) reloadLayers

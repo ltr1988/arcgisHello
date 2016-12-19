@@ -132,10 +132,14 @@
     [btn.layer addAnimation:animation forKey:@"animation"];
     
     if (self.mapView.baseLayerType == NSBD_NORMAL) {
-        [btn setTitle:@"电子" forState:UIControlStateNormal];
+//        [btn setTitle:@"电子" forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange1"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange1"] forState:UIControlStateHighlighted];
     }else
     {
-        [btn setTitle:@"影像" forState:UIControlStateNormal];
+//        [btn setTitle:@"影像" forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateHighlighted];
     }
     
     [self.mapView switchLayerType];
