@@ -24,6 +24,7 @@
 
 #define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
 
+#define MAISHEN_3D_IMAGE_URL @"http://%@:85/images/duanmian/%@.jpg"
 #else
 
 
@@ -34,15 +35,17 @@
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
 #define BaseMapURL @"http://%@:3080/nsbd/service/wmts"
 
-#define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
 
+#define MAISHEN_3D_IMAGE_URL @"http://%@:85/images/duanmian/%@.jpg"
+
+#define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
 
 
 #define HOSTIP @"10.200.9.122"//app
 #define HOSTIP_3D @"10.200.9.32"//app
 #define MAPIP @"10.200.9.28"
 
-//
+
 //#define NSBD_APP_SERVICE @"http://%@:8080/nsbd/Service/dataSync.do"
 //
 //#define WMSURL @"http://%@:6080/arcgis/services/20131125NSBDgongcheng/MapServer/WMSServer"
@@ -53,9 +56,11 @@
 //#define HOSTIP @"192.168.0.121"
 //#define HOSTIP_3D @"192.168.0.121"
 //#define MAPIP @"192.168.0.121"
+
+//#define MAISHEN_3D_IMAGE_URL @"http://%@:87/images/duanmian/%@.jpg"
 //
 //#define HOST_SERVICE_3D @"http://%@:87/WebServices/ManagerS.asmx"
-
+//
 #endif
 
 #define AppMainWindow [(AppDelegate *)[UIApplication sharedApplication].delegate window]
