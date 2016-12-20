@@ -118,7 +118,7 @@
         self.location = CGPointMake([item.spacePosition_x floatValue], [item.spacePosition_y floatValue]);
         
         self.reporter = [TitleInputItem itemWithTitle:@"填报人员" placeholder:@"请输入人员名称"];
-        self.reporter.detail = item.alarmPerson;
+        self.reporter.detail = [NSString stringWithFormat:@"%@-%@",item.departName,item.creatorName];
         
         self.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
         [self parseHttpModelToEventModel];

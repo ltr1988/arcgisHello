@@ -166,9 +166,8 @@
         {
             requestPage++;
             for (id data in model.datalist) {
-                EventReportModel *eModelItem = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
-                
-                [_uploadedEventModel addObject:eModelItem];
+  
+                [_uploadedEventModel addObject:data];
             }
             hasMore = [model hasMore];
             if (hasMore) {
@@ -375,7 +374,9 @@
         }
         NSInteger row = indexPath.row/2;
         if (row <self.uploadedEventModel.count) {
-            EventReportModel *model = _uploadedEventModel[row];
+            CommitedEventHistoryItem *data = _uploadedEventModel[row];
+            EventReportModel *model = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
+            
             EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:model];
             vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];

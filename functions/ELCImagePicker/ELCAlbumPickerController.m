@@ -72,7 +72,7 @@
             void (^assetGroupEnumberatorFailure)(NSError *) = ^(NSError *error) {
               
                 if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied) {
-                    [QRSystemAlertController showAlertWithTitle:@"“南水北调移动巡查系统”想访问您的照片" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
+                    [QRSystemAlertController showAlertWithTitle:[NSString stringWithFormat:@"“%@”想访问您的照片",APPNAME] message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
                      {
                          if (buttonIndex == 1) {
                              [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_SETTING_URL]];

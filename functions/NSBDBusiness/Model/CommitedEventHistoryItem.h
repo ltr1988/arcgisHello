@@ -21,6 +21,8 @@
 @property (nonatomic,strong) NSString *spacePosition_x;
 @property (nonatomic,strong) NSString *spacePosition_y;
 
+@property (nonatomic,strong) NSString *occurTime;
+
 @property (nonatomic,strong) NSString *departName;
 @property (nonatomic,strong) NSString *creatorName;
 @property (nonatomic,strong) NSString *status;

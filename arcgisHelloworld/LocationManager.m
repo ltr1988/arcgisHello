@@ -56,7 +56,7 @@
 {
     if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied)
     {
-        [QRSystemAlertController showAlertWithTitle:@"“南水北调移动巡查系统”想访问您的位置" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
+        [QRSystemAlertController showAlertWithTitle:[NSString stringWithFormat:@"“%@”想访问您的位置",APPNAME] message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"去设置" completionBlock:^(NSUInteger buttonIndex)
          {
              if (buttonIndex == 1) {
                  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:APP_SETTING_URL]];

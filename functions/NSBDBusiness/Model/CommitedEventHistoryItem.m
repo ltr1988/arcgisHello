@@ -7,6 +7,11 @@
 //
 
 #import "CommitedEventHistoryItem.h"
+#import "EventDetailView.h"
+
+@interface CommitedEventHistoryItem()<EventDetailViewDelegate>
+
+@end
 
 @implementation CommitedEventHistoryItem
 
@@ -30,6 +35,30 @@
              @"status" :@"status",
              };
     
+}
+
+-(NSString *) eventDetailViewTitle
+{
+    if (_title && _title.length>0) {
+        
+        return _title;
+    }
+    return @"未填写";
+}
+
+-(NSString *) eventDetailViewDate
+{
+    return _occurTime?:@"";
+}
+
+-(NSString *) eventDetailViewPlace
+{
+    return _occurLocation?:@"";
+}
+
+-(NSString *) eventDetailViewFinder
+{
+    return [NSString stringWithFormat:@"%@-%@",_departName?:@"",_creatorName?:@""];
 }
 
 @end

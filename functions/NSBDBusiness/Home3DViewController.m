@@ -191,18 +191,23 @@
     if ((_headerManeModel.datalist.count!=0) && (_headerCategoryModel.datalist.count!=0))
     {
         @weakify(self)
-        Search3DWordsLayoutView *view2 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
-            @strongify(self)
-            Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
-            
-            [self searchWithText:item.keyword];
-        }];
+        //category
         Search3DWordsLayoutView *view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
             Search3DHeaderItem* item = self.headerCategoryModel.datalist[selectedIndex];
+            
+            self.cbCategoryFilter = item.keyword;
+            [self searchWithText:@""];
+        }];
+        
+        //MANE
+        Search3DWordsLayoutView *view2 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
+            @strongify(self)
+            Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
             self.cbMANEFilter = item.keyword;
             [self searchWithText:@""];
         }];
+        
         
         UIView *line = [[UIView alloc] init];
         line.backgroundColor = [UIColor lightGrayColor];
@@ -214,8 +219,9 @@
         [view addSubview:view1];
         [view addSubview:view2];
         
-        view1.words = [_headerManeModel stringArray];
-        view2.words = [_headerCategoryModel stringArray];
+        
+        view1.words = [_headerCategoryModel stringArray];
+        view2.words = [_headerManeModel stringArray];
         
         [view1 layOut];
         [view2 layOut];
@@ -675,6 +681,12 @@
     }
     if (_searchField.text.length>0) {
         [self searchWithText:_searchField.text];
+    }else
+    {
+        if (_cbMANEFilter.length>0 || _cbCategoryFilter.length>0) {
+            
+            [self searchWithText:@""];
+        }
     }
 }
 @end

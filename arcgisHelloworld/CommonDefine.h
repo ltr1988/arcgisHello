@@ -9,6 +9,11 @@
 #ifndef CommonDefine_h
 #define CommonDefine_h
 
+
+
+#define APPNAME @"南水北调移动巡查系统"
+
+
 #ifdef NoServer
 
 #define NSBD_APP_SERVICE @"http://%@:8080/nsbd/Service/dataSync.do"

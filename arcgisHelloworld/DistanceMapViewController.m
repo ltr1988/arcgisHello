@@ -41,6 +41,9 @@
     [self.navigationItem setRightBarButtonItem:rightItem];
     
     self.mapView = [MapViewManager sharedRouteMapView];
+    self.mapView.baseLayerType = NSBD_NORMAL;
+    [self.mapView reloadLayers];
+    
     [self.mapView zoomToResolution:[MapViewManager sharedMapView].resolution withCenterPoint:[MapViewManager sharedMapView].mapAnchor animated:YES];
     [self.view addSubview:self.mapView];
     self.mapView.frame = self.view.bounds;
@@ -56,7 +59,9 @@
     btnChangMapType.backgroundColor = [UIColor whiteColor];
     btnChangMapType.layer.cornerRadius = 5;
     btnChangMapType.titleLabel.font = [UIFont systemFontOfSize:12];
-    [btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+    //[btnChangMapType setTitle:@"影像" forState:UIControlStateNormal];
+    [btnChangMapType setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateNormal];
+    [btnChangMapType setImage:[UIImage imageNamed:@"icon_mapchange"] forState:UIControlStateHighlighted];
     [btnChangMapType setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
