@@ -43,7 +43,7 @@
         
     }
     
-    AGSPoint *mpoint = (AGSPoint *)[_engine projectGeometry:point toSpatialReference:[AGSSpatialReference webMercatorSpatialReference]];
+    AGSPoint *mpoint = (AGSPoint *)[_engine projectGeometry:point toSpatialReference:[AGSSpatialReference spatialReferenceWithWKID:2415]];
     
     [_points addObject:g_point];
     [_mercator_points addObject:mpoint];
