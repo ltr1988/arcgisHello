@@ -59,7 +59,7 @@
     self.myDealedEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.myDealedEventTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    self.myDealedEventTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    self.myDealedEventTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     
     [self.view addSubview:self.myDealedEventTableView];
     

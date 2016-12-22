@@ -432,6 +432,17 @@
 		A4AFB38C1E06A0CC00FAFBB3 /* DistanceCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38A1E06A0CC00FAFBB3 /* DistanceCalloutView.m */; };
 		A4AFB38F1E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38E1E06B60800FAFBB3 /* DistanceMapViewController.m */; };
 		A4AFB3901E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38E1E06B60800FAFBB3 /* DistanceMapViewController.m */; };
+		A4AFB3931E0A4EEC00FAFBB3 /* TrackLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */; };
+		A4AFB3941E0A546C00FAFBB3 /* TrackLocationManager.h in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3911E0A4EEC00FAFBB3 /* TrackLocationManager.h */; };
+		A4AFB3951E0A546C00FAFBB3 /* TrackLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */; };
+		A4AFB3981E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */; };
+		A4AFB3991E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */; };
+		A4AFB39C1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */; };
+		A4AFB39D1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */; };
+		A4AFB3A01E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */; };
+		A4AFB3A11E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */; };
+		A4AFB3A41E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */; };
+		A4AFB3A51E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */; };
 		A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */; };
 		A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AF1DD879120011AA22 /* ClosableWebView.m */; };
 		A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */; };
@@ -449,6 +460,8 @@
 		A4CFBC8F1D978E5D0016387C /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */; };
 		A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */; };
 		A4CFBC9A1D9C12EF0016387C /* DGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC991D9C12EF0016387C /* DGQWellItem.m */; };
+		A4CFD3671E0A846700037ADA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFD3661E0A846700037ADA /* WebKit.framework */; };
+		A4CFD3681E0A846E00037ADA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFD3661E0A846700037ADA /* WebKit.framework */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -857,6 +870,16 @@
 		A4AFB38A1E06A0CC00FAFBB3 /* DistanceCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceCalloutView.m; sourceTree = "<group>"; };
 		A4AFB38D1E06B60800FAFBB3 /* DistanceMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceMapViewController.h; sourceTree = "<group>"; };
 		A4AFB38E1E06B60800FAFBB3 /* DistanceMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceMapViewController.m; sourceTree = "<group>"; };
+		A4AFB3911E0A4EEC00FAFBB3 /* TrackLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackLocationManager.h; sourceTree = "<group>"; };
+		A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackLocationManager.m; sourceTree = "<group>"; };
+		A4AFB3961E0A654600FAFBB3 /* NGQAirUpItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQAirUpItem.h; path = functions/NSBDBusiness/Model/NGQAirUpItem.h; sourceTree = "<group>"; };
+		A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQAirUpItem.m; path = functions/NSBDBusiness/Model/NGQAirUpItem.m; sourceTree = "<group>"; };
+		A4AFB39A1E0A656300FAFBB3 /* NGQAirDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQAirDownItem.h; path = functions/NSBDBusiness/Model/NGQAirDownItem.h; sourceTree = "<group>"; };
+		A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQAirDownItem.m; path = functions/NSBDBusiness/Model/NGQAirDownItem.m; sourceTree = "<group>"; };
+		A4AFB39E1E0A658600FAFBB3 /* NGQWellUpItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWellUpItem.h; path = functions/NSBDBusiness/Model/NGQWellUpItem.h; sourceTree = "<group>"; };
+		A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWellUpItem.m; path = functions/NSBDBusiness/Model/NGQWellUpItem.m; sourceTree = "<group>"; };
+		A4AFB3A21E0A686200FAFBB3 /* NGQWellDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NGQWellDownItem.h; path = functions/NSBDBusiness/Model/NGQWellDownItem.h; sourceTree = "<group>"; };
+		A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NGQWellDownItem.m; path = functions/NSBDBusiness/Model/NGQWellDownItem.m; sourceTree = "<group>"; };
 		A4CED2AB1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueDetailViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueDetailViewController.h; sourceTree = "<group>"; };
 		A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueDetailViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueDetailViewController.m; sourceTree = "<group>"; };
 		A4CED2AE1DD879120011AA22 /* ClosableWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClosableWebView.h; path = functions/Util/View/ClosableWebView.h; sourceTree = "<group>"; };
@@ -892,6 +915,7 @@
 		A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSheetItemManager.m; sourceTree = "<group>"; };
 		A4CFBC981D9C12EF0016387C /* DGQWellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQWellItem.h; path = functions/NSBDBusiness/Model/DGQWellItem.h; sourceTree = "<group>"; };
 		A4CFBC991D9C12EF0016387C /* DGQWellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQWellItem.m; path = functions/NSBDBusiness/Model/DGQWellItem.m; sourceTree = "<group>"; };
+		A4CFD3661E0A846700037ADA /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSBDMobileSearchPlatform.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD86871D0976B00096B548 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A4DD86891D0976B00096B548 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1295,6 +1319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CFD3681E0A846E00037ADA /* WebKit.framework in Frameworks */,
 				A4AFB33D1E064C6200FAFBB3 /* libxml2.tbd in Frameworks */,
 				A4AFB33E1E064C6200FAFBB3 /* MapKit.framework in Frameworks */,
 				A4AFB33F1E064C6200FAFBB3 /* CoreLocation.framework in Frameworks */,
@@ -1307,6 +1332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CFD3671E0A846700037ADA /* WebKit.framework in Frameworks */,
 				B245DAB51E011220009886BF /* libxml2.tbd in Frameworks */,
 				B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */,
 				B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */,
@@ -1993,6 +2019,7 @@
 		B245DAB31E011220009886BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4CFD3661E0A846700037ADA /* WebKit.framework */,
 				B245DAB41E011220009886BF /* libxml2.tbd */,
 			);
 			name = Frameworks;
@@ -2060,6 +2087,14 @@
 				B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */,
 				B2748D791DB4E27F00C0166F /* NGQAirItem.h */,
 				B2748D7A1DB4E27F00C0166F /* NGQAirItem.m */,
+				A4AFB3961E0A654600FAFBB3 /* NGQAirUpItem.h */,
+				A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */,
+				A4AFB39A1E0A656300FAFBB3 /* NGQAirDownItem.h */,
+				A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */,
+				A4AFB39E1E0A658600FAFBB3 /* NGQWellUpItem.h */,
+				A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */,
+				A4AFB3A21E0A686200FAFBB3 /* NGQWellDownItem.h */,
+				A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */,
 			);
 			name = NGQ;
 			sourceTree = "<group>";
@@ -2356,6 +2391,8 @@
 				A41012AB1DBCAE3B008B00DF /* FacilityManager.m */,
 				B245DA6D1DFFDD5C009886BF /* Search3DHttpManager.h */,
 				B245DA6E1DFFDD5C009886BF /* Search3DHttpManager.m */,
+				A4AFB3911E0A4EEC00FAFBB3 /* TrackLocationManager.h */,
+				A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */,
 			);
 			name = Manager;
 			path = functions/NSBDBusiness/Manager;
@@ -2744,6 +2781,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AFB3941E0A546C00FAFBB3 /* TrackLocationManager.h in Sources */,
+				A4AFB3951E0A546C00FAFBB3 /* TrackLocationManager.m in Sources */,
 				A4AFB2371E064C6200FAFBB3 /* MJRefreshGifHeader.m in Sources */,
 				A4AFB2381E064C6200FAFBB3 /* MediaPickerManager.m in Sources */,
 				A4AFB2391E064C6200FAFBB3 /* DNAirItem.m in Sources */,
@@ -2762,6 +2801,7 @@
 				A4AFB2461E064C6200FAFBB3 /* UploadAttachmentModel.m in Sources */,
 				A4AFB2471E064C6200FAFBB3 /* NSString+LVPath.m in Sources */,
 				A4AFB2481E064C6200FAFBB3 /* TianDiTuWMTSLayerInfo.m in Sources */,
+				A4AFB3A11E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */,
 				A4AFB2491E064C6200FAFBB3 /* MJFoundation.m in Sources */,
 				A4AFB24A1E064C6200FAFBB3 /* Search3DWordsLayoutView.m in Sources */,
 				A4AFB24B1E064C6200FAFBB3 /* User.m in Sources */,
@@ -2929,6 +2969,7 @@
 				A4AFB2EB1E064C6200FAFBB3 /* AFAutoPurgingImageCache.m in Sources */,
 				A4AFB2EC1E064C6200FAFBB3 /* WeatherManager.m in Sources */,
 				A4AFB2ED1E064C6200FAFBB3 /* ThreeColumnView.m in Sources */,
+				A4AFB3991E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */,
 				A4AFB2EE1E064C6200FAFBB3 /* SearchHistoryItem.m in Sources */,
 				A4AFB2EF1E064C6200FAFBB3 /* SearchHomePageItem.m in Sources */,
 				A4AFB2F01E064C6200FAFBB3 /* AFURLRequestSerialization.m in Sources */,
@@ -2969,6 +3010,7 @@
 				A4AFB3131E064C6200FAFBB3 /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				A4AFB3141E064C6200FAFBB3 /* MyEventViewController.m in Sources */,
 				A4AFB3151E064C6200FAFBB3 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */,
+				A4AFB3A51E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */,
 				A4AFB3161E064C6200FAFBB3 /* MyChuanKuaYueProgressItem.m in Sources */,
 				A4AFB3171E064C6200FAFBB3 /* main.m in Sources */,
 				A4AFB3181E064C6200FAFBB3 /* EventLocationPickerView.m in Sources */,
@@ -2996,6 +3038,7 @@
 				A4AFB32E1E064C6200FAFBB3 /* NSDictionary+JSON.m in Sources */,
 				A4AFB32F1E064C6200FAFBB3 /* SearchSessionStateModel.m in Sources */,
 				A4AFB3301E064C6200FAFBB3 /* MyDealedEventViewController.m in Sources */,
+				A4AFB39D1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */,
 				A4AFB3311E064C6200FAFBB3 /* ELCAlbumPickerController.m in Sources */,
 				A4AFB3321E064C6200FAFBB3 /* ELCConsole.m in Sources */,
 				A4AFB3331E064C6200FAFBB3 /* MJRefreshComponent.m in Sources */,
@@ -3034,9 +3077,11 @@
 				A4AEF04F1DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m in Sources */,
 				B2A1872D1D66AF4B006D8CA7 /* MJFoundation.m in Sources */,
 				B245DA781DFFEC54009886BF /* Search3DWordsLayoutView.m in Sources */,
+				A4AFB3A01E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */,
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
+				A4AFB3931E0A4EEC00FAFBB3 /* TrackLocationManager.m in Sources */,
 				A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */,
 				A41B5E691DFD423400678822 /* FacilityInfoItem+AGSGraphics.m in Sources */,
 				B272B0BB1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m in Sources */,
@@ -3200,6 +3245,7 @@
 				B28653CF1D4863B2002D4139 /* AFAutoPurgingImageCache.m in Sources */,
 				A4FC6E6F1D60552E008486E0 /* WeatherManager.m in Sources */,
 				B2F1D89A1D8BF03F00A6EDCA /* ThreeColumnView.m in Sources */,
+				A4AFB3981E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */,
 				B25712BA1DADE52D00F3D7F6 /* SearchHistoryItem.m in Sources */,
 				A4E68C2A1D6994BE00DD603B /* SearchHomePageItem.m in Sources */,
 				A4A3788C1D365DC100A7342D /* AFURLRequestSerialization.m in Sources */,
@@ -3240,6 +3286,7 @@
 				B2748D681DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
 				B2CFC3571D7805C500FA97D3 /* MyEventViewController.m in Sources */,
 				A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */,
+				A4AFB3A41E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */,
 				A4CED2C41DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m in Sources */,
 				A4DD86881D0976B00096B548 /* main.m in Sources */,
 				B286539F1D46FB55002D4139 /* EventLocationPickerView.m in Sources */,
@@ -3267,6 +3314,7 @@
 				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,
 				A4367F641E02BBB00091E07A /* SearchSessionStateModel.m in Sources */,
 				A412B8BB1DB3E6B7003CAE02 /* MyDealedEventViewController.m in Sources */,
+				A4AFB39C1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,

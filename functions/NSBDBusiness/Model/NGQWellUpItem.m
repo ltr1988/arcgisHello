@@ -1,88 +1,22 @@
 //
-//  DGQWellItem.m
+//  NGQWellUpItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/9/28.
+//  Created by fifila on 16/12/21.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "NGQWellItem.h"
-#import "SearchSheetGroupItem.h"
-#import "SearchSheetInfoItem.h"
-#import "SearchSessionManager.h"
-#import "SearchSessionItem.h"
-#import "AuthorizeManager.h"
-#import "TitleDetailItem.h"
+#import "NGQWellUpItem.h"
 
-@implementation NGQWellItem
+@implementation NGQWellUpItem
 
 
--(instancetype) init
-{
-    self = [super init];
-    if (self) {
-        self.wellnum = @"";
-        self.wellname = @"";
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [super encodeWithCoder:aCoder];
-    [aCoder encodeObject:self.wellnum forKey:@"wellnum"];
-    [aCoder encodeObject:self.wellname forKey:@"wellname"];
-    
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.wellname = [aDecoder decodeObjectForKey:@"wellname"];
-        self.wellnum = [aDecoder decodeObjectForKey:@"wellnum"];
-    }
-    
-    return self;
-}
--(void) setWellnum:(NSString *)wellnum
-{
-    _wellnum = wellnum;
-    for (SearchSheetGroupItem *group in self.infolist) {
-        for (SearchSheetInfoItem *item in group.items) {
-            if ([item.key isEqualToString:@"wellnum"]) {
-                TitleDetailItem *detailItem = (TitleDetailItem *)item.data;
-                detailItem.detail = wellnum;
-            }
-        }
-    }
-}
-
-#pragma mark protocal
 -(NSDictionary *)requestInfo
 {
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    for (SearchSheetGroupItem *group in self.infolist) {
-        for (SearchSheetInfoItem *item in group.items) {
-            info[item.key] = [item.data value];
-        }
-    }
-    info[@"taskid"] = self.taskid;
-    info[@"id"] = self.itemId;
-    info[@"wellname"] = self.wellname;
-    info[@"operate"] = @"insert";
-    info[@"userName"] = [AuthorizeManager sharedInstance].userName;
-
+    NSMutableDictionary *info = [[super requestInfo] mutableCopy];
+    info[@"temperatureout"] = @"";
     return info;
 }
-
-
-
--(NSString *) actionKey
-{
-    return @"ngqwell";
-}
-
-#pragma mark UILayout
 
 -(NSArray *)defaultUIStyleMapping
 {
@@ -98,7 +32,6 @@
                  @"handwell":@[@(SheetUIStyle_Switch),@(7)],
                  @"arihole":@[@(SheetUIStyle_Switch),@(8)],
                  @"temperaturein":@[@(SheetUIStyle_ShortText),@(9)],
-                 @"temperatureout":@[@(SheetUIStyle_ShortText),@(10)],
                  @"welllid":@[@(SheetUIStyle_Switch),@(11)],
                  @"wellroom":@[@(SheetUIStyle_Switch),@(12)],
                  @"ladder":@[@(SheetUIStyle_Switch),@(13)],
@@ -125,7 +58,6 @@
              @"handwell":@"手井",
              @"arihole":@"通气孔",
              @"temperaturein":@"室内温度",
-             @"temperatureout":@"室外温度",
              @"welllid":@"井盖",
              @"wellroom":@"井室",
              @"ladder":@"爬梯",
@@ -135,6 +67,4 @@
              @"remark":@"备注",
              };
 }
-
 @end
-

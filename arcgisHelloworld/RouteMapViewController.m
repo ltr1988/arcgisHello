@@ -44,6 +44,7 @@
     [super viewDidLoad];
     [self setupSubviews];
     [self addObservers];
+    [self.mapView locate];
     manager = [[LocationManager alloc] init];
 }
 
@@ -131,6 +132,21 @@
     btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnChangMapType];
+    
+    CGFloat leftBtnOffsetX = 20;
+    
+    CGFloat leftPaddingY = 15;
+    CGFloat leftBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - leftPaddingY - 70;
+    
+    UIButton *btnMyLocation = [[UIButton alloc] initWithFrame:CGRectMake(leftBtnOffsetX, leftBtnOffsetY, btnsize, btnsize)];
+    btnMyLocation.backgroundColor = [UIColor clearColor];
+    [btnMyLocation setImage:[UIImage imageNamed:@"icon_map_position"] forState:UIControlStateNormal];
+    btnMyLocation.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnMyLocation addTarget:self action:@selector(actionMyLocation) forControlEvents:UIControlEventTouchUpInside];
+    btnMyLocation.clipsToBounds = YES;
+    
+    btnMyLocation.layer.cornerRadius = btnsize/2;
+    [self.view addSubview:btnMyLocation];
     
     __weak UIView *weakView = self.view;
     [anchorView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -261,6 +277,11 @@
     }
     
     [self.mapView switchLayerType];
+}
+
+-(void) actionMyLocation
+{
+    [self.mapView locate];
 }
 
 @end

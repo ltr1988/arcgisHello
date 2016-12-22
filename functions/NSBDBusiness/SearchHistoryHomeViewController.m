@@ -157,9 +157,9 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor backGroundGrayColor];
     _tableView.separatorColor = UI_COLOR(0xe3, 0xe4, 0xe6);
-    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 0)];
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    _tableView.mj_footer =  [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     [self.view addSubview:_tableView];
     
 }

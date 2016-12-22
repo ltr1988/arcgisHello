@@ -18,6 +18,10 @@
 #import "DNAirItem.h"
 #import "DNWellItem.h"
 #import "DNLine.h"
+#import "NGQAirUpItem.h"
+#import "NGQAirDownItem.h"
+#import "NGQWellUpItem.h"
+#import "NGQWellDownItem.h"
 #import "NSBDBaseUIItem.h"
 
 @implementation SearchHomePageItem
@@ -47,10 +51,10 @@
                 @"DNGX":[DNLine class],
                 
                 @"NGQGX":[NGQLine class],
-                @"NGQPQJDOWN":[NGQAirItem class],
-                @"NGQPQJUP":[NGQAirItem class],
-                @"NGQPKJDOWN":[NGQWellItem class],
-                @"NGQPKJUP":[NGQWellItem class],
+                @"NGQPQJDOWN":[NGQAirDownItem class],
+                @"NGQPQJUP":[NGQAirUpItem class],
+                @"NGQPKJDOWN":[NGQWellDownItem class],
+                @"NGQPKJUP":[NGQWellUpItem class],
              };
 }
 

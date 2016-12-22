@@ -73,7 +73,7 @@
     self.myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.myTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    self.myTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    self.myTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     
     [self.view addSubview:self.myTableView];
     

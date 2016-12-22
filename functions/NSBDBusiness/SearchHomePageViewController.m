@@ -19,6 +19,8 @@
 #import "MJRefresh.h"
 #import "SearchSecondaryListViewController.h"
 #import "SearchHistoryManager.h"
+#import "TrackLocationManager.h"
+
 @interface SearchHomePageViewController()
 {
 }
@@ -53,6 +55,7 @@
     [self setupMembers];
     [self setupSubviews];
     [self.tableView.mj_header beginRefreshing];
+    
 }
 
 
@@ -130,6 +133,11 @@
     
     btnPause.backgroundColor = [UIColor themeBlueColor];
     NSString *text = self.sessionItem.pauseState?@"继续":@"暂停";
+    if (self.sessionItem.pauseState)
+        [[TrackLocationManager sharedInstance] stopTracking];
+    else
+        [[TrackLocationManager sharedInstance] startTracking];
+    
     [btnPause setTitle:text forState:UIControlStateNormal];
     [btnPause setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnPause.titleLabel setFont:[UIFont systemFontOfSize:14]];
@@ -272,11 +280,14 @@
     if (willPause) {
         [_timerView pauseTiming];
         [button setTitle:@"继续" forState:UIControlStateNormal];
+        
+        [[TrackLocationManager sharedInstance] stopTracking];
     }else
     {
         [_timerView setShowTime:[self.sessionItem totalTime]];
         [_timerView continueTiming];
         [button setTitle:@"暂停" forState:UIControlStateNormal];
+        [[TrackLocationManager sharedInstance] startTracking];
     }
     
 }

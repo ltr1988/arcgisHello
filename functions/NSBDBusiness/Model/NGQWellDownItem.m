@@ -1,89 +1,14 @@
 //
-//  DGQWellItem.m
+//  NGQWellDownItem.m
 //  NSBDMobileSearchPlatform
 //
-//  Created by fifila on 16/9/28.
+//  Created by fifila on 16/12/21.
 //  Copyright © 2016年 fifila. All rights reserved.
 //
 
-#import "NGQWellItem.h"
-#import "SearchSheetGroupItem.h"
-#import "SearchSheetInfoItem.h"
-#import "SearchSessionManager.h"
-#import "SearchSessionItem.h"
-#import "AuthorizeManager.h"
-#import "TitleDetailItem.h"
+#import "NGQWellDownItem.h"
 
-@implementation NGQWellItem
-
-
--(instancetype) init
-{
-    self = [super init];
-    if (self) {
-        self.wellnum = @"";
-        self.wellname = @"";
-    }
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [super encodeWithCoder:aCoder];
-    [aCoder encodeObject:self.wellnum forKey:@"wellnum"];
-    [aCoder encodeObject:self.wellname forKey:@"wellname"];
-    
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.wellname = [aDecoder decodeObjectForKey:@"wellname"];
-        self.wellnum = [aDecoder decodeObjectForKey:@"wellnum"];
-    }
-    
-    return self;
-}
--(void) setWellnum:(NSString *)wellnum
-{
-    _wellnum = wellnum;
-    for (SearchSheetGroupItem *group in self.infolist) {
-        for (SearchSheetInfoItem *item in group.items) {
-            if ([item.key isEqualToString:@"wellnum"]) {
-                TitleDetailItem *detailItem = (TitleDetailItem *)item.data;
-                detailItem.detail = wellnum;
-            }
-        }
-    }
-}
-
-#pragma mark protocal
--(NSDictionary *)requestInfo
-{
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    for (SearchSheetGroupItem *group in self.infolist) {
-        for (SearchSheetInfoItem *item in group.items) {
-            info[item.key] = [item.data value];
-        }
-    }
-    info[@"taskid"] = self.taskid;
-    info[@"id"] = self.itemId;
-    info[@"wellname"] = self.wellname;
-    info[@"operate"] = @"insert";
-    info[@"userName"] = [AuthorizeManager sharedInstance].userName;
-
-    return info;
-}
-
-
-
--(NSString *) actionKey
-{
-    return @"ngqwell";
-}
-
-#pragma mark UILayout
-
+@implementation NGQWellDownItem
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
@@ -135,6 +60,4 @@
              @"remark":@"备注",
              };
 }
-
 @end
-

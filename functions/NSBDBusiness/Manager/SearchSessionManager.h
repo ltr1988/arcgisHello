@@ -46,6 +46,8 @@
 //提交表单
 -(void) requestUploadSheetWithItem:(NSBDBaseUIItem *) item SuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
+//更新方位
+-(void) requestUpdateLocationWithX:(double) x y:(double)y  height:(double)h successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 -(void) requestQueryTaskFinishedStatusWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 @end

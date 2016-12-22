@@ -16,6 +16,7 @@
 #import "MyDealedEventViewController.h"
 #import "MyChuanKuaYueHomeViewController.h"
 #import "DistanceMapViewController.h"
+#import "TrackLocationManager.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -86,6 +87,8 @@
 
 -(void) actionLogout:(id) sender
 {
+    
+    [[TrackLocationManager sharedInstance] stopTracking];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

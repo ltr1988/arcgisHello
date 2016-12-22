@@ -63,6 +63,13 @@
 {
     if (showResult) {
         showResult = NO;
+        
+        [_cbMANE setComboBoxTitle:_cbMANEData[0]];
+        [_cbCategory setComboBoxTitle:_cbCategoryData[0]];
+        
+        _cbMANEFilter = @"";
+        _cbCategoryFilter = @"";
+        
         [self refreshUI];
         return NO;
     }else
@@ -164,14 +171,14 @@
     [view addSubview:hline];
     
     
-    _cbMANE = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 - 10 - 130, 0, 120, view.frame.size.height)];
+    _cbMANE = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 - 10 - 150, 0, 140, view.frame.size.height)];
     [_cbMANE setComboBoxTitle:@"管理单位"];
     _cbMANE.delegate = self;
     [_cbMANE setComboBoxData:_cbMANEData];
     [_cbMANE setComboBoxSize:CGSizeMake(120, 44*6)];
     [_resultView addSubview:_cbMANE];
     
-    _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 120, view.frame.size.height)];
+    _cbCategory = [[ComboBox alloc]initWithFrame:CGRectMake(kScreenWidth/2 + 10, 0, 140, view.frame.size.height)];
     [_cbCategory setComboBoxTitle:@"所属分类"];
     
     [_cbCategory setComboBoxData:_cbCategoryData];
@@ -195,7 +202,8 @@
         Search3DWordsLayoutView *view1 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
             Search3DHeaderItem* item = self.headerCategoryModel.datalist[selectedIndex];
-            
+           
+            [self.cbCategory setComboBoxTitle:item.keyword];
             self.cbCategoryFilter = item.keyword;
             [self searchWithText:@""];
         }];
@@ -204,6 +212,8 @@
         Search3DWordsLayoutView *view2 = [[Search3DWordsLayoutView alloc] initWithCallback:^(NSInteger selectedIndex) {
             @strongify(self)
             Search3DHeaderItem* item = self.headerManeModel.datalist[selectedIndex];
+            
+            [self.cbMANE setComboBoxTitle:item.keyword];
             self.cbMANEFilter = item.keyword;
             [self searchWithText:@""];
         }];
@@ -522,10 +532,7 @@
             {
                 self.resultList = [NSArray array];
             }
-            if (_resultList.count) {
-                showResult = YES;
-            }else
-                showResult = NO;
+            showResult = YES;
             [self refreshUI];
             
         } failCallback:^(NSURLSessionDataTask *task, NSError *error) {

@@ -12,6 +12,7 @@
 #import "ToastView.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "SearchSessionManager.h"
+#import "TrackLocationManager.h"
 
 @interface LoginViewController()<UITextFieldDelegate>
 {
@@ -84,6 +85,8 @@
                 _loginBtn.enabled = YES;
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];
+                    [[TrackLocationManager sharedInstance] startTracking];
+                    
                 }
                 MapViewController *controller = [MapViewController new];
                 [self.navigationController pushViewController:controller animated:YES];

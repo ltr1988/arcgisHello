@@ -145,8 +145,12 @@
     if (_delegate) {
         __weak UIButton *btn = sender;
         btn.enabled = NO;
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
         [[SearchSessionManager sharedManager] requestEndSearchSessionWithSuccessCallback:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
             
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
             SearchTaskStatusModel *item = [SearchTaskStatusModel objectWithKeyValues:dict];
             if (item.success)
             {
@@ -164,6 +168,9 @@
             btn.enabled = YES;
         } failCallback:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             // 请求失败
+            if ([SVProgressHUD isVisible]) {
+                [SVProgressHUD dismiss];
+            }
             [ToastView popToast:@"上报失败，请稍后再试"];
             btn.enabled = YES;
         }];

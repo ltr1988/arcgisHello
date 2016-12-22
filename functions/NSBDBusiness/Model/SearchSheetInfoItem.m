@@ -73,7 +73,7 @@
         }case SheetUIStyle_Date: {
             NSDateFormatter *formater = [[NSDateFormatter alloc] init];
             
-            [formater setDateFormat:@"yyyy-MM-dd"];
+            [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
             _data = [TitleDetailItem itemWithTitle:title detail:[formater stringFromDate:[NSDate date]]];
             break;
         }

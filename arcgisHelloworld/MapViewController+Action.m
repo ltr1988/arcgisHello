@@ -68,7 +68,10 @@
         }
         else
         {
-            [ToastView popToast:@"获取任务信息失败,请稍候再试"];
+            if (dict[@"msg"]) {
+                [ToastView popToast:dict[@"msg"]];
+            }else
+                [ToastView popToast:@"获取任务信息失败,请稍候再试"];
         }
     } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
         [ToastView popToast:@"获取任务信息失败,请稍候再试"];
@@ -182,15 +185,7 @@
 
 -(void) actionMyLocation
 {
-
-    [self.mapView.locationDisplay startDataSource];
-    
-    self.mapView.locationDisplay.autoPanMode = AGSLocationDisplayAutoPanModeDefault;
-    
-    //Set a wander extent equal to 75% of the map's envelope
-    //The map will re-center on the location symbol only when
-    //the symbol moves out of the wander extent
-    self.mapView.locationDisplay.wanderExtentFactor = 0.75;
+    [self.mapView locate];
 }
 
 -(void) actionMyWork

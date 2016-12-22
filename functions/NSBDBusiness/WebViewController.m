@@ -7,12 +7,13 @@
 //
 
 #import "WebViewController.h"
+#import "Webkit/Webkit.h"
 
 @interface WebViewController()<UIWebViewDelegate>
 {
     NSURLRequest* request;
 }
-@property (strong, nonatomic) UIWebView *webView;
+@property (strong, nonatomic) WKWebView *webView;
 @end
 
 @implementation WebViewController
@@ -20,11 +21,10 @@
 -(void) viewDidLoad
 {
     [super viewDidLoad];
-    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    _webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_webView setBackgroundColor:[UIColor whiteColor]];
     
-    _webView.scalesPageToFit = YES;
     [self.view addSubview:_webView];
     
     [_webView loadRequest:request];//加载
@@ -34,7 +34,7 @@
 -(void) setUrl:(NSURL *)url
 {
     _url = url;//创建URL
-    request = [NSURLRequest requestWithURL:_url];//创建NSURLRequest
+    request = [NSURLRequest requestWithURL:_url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30];//创建NSURLRequest
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView

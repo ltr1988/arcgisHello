@@ -117,4 +117,23 @@
             self.infoView.alpha = 1;
     }
 }
+
+
+-(void) locate
+{
+    [self.locationDisplay startDataSource];
+    
+    self.locationDisplay.autoPanMode = AGSLocationDisplayAutoPanModeDefault;
+    
+    //Set a wander extent equal to 75% of the map's envelope
+    //The map will re-center on the location symbol only when
+    //the symbol moves out of the wander extent
+    self.locationDisplay.wanderExtentFactor = 0.75;
+    //    self.mapView.locationDisplay.zoomScale = 1000;
+    AGSPoint *p = self.locationDisplay.location.point;
+    if (p)
+    {
+        [self zoomToScale:10000 withCenterPoint:p animated:YES];
+    }
+}
 @end

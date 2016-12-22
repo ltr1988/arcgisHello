@@ -71,10 +71,10 @@
 -(NSDictionary *) codeDictionary
 {
     if (!_codeDictionary) {
-        _codeDictionary = @{@"NGQPKJUP":@"ngqqueryair",
-                            @"NGQPKJDOWN":@"ngqqueryair",
-                            @"NGQPQJUP":@"ngqquerywell",
-                            @"NGQPQJDOWN":@"ngqquerywell",
+        _codeDictionary = @{@"NGQPKJUP":@"ngqquerywell",
+                            @"NGQPKJDOWN":@"ngqquerywell",
+                            @"NGQPQJUP":@"ngqqueryair",
+                            @"NGQPQJDOWN":@"ngqqueryair",
                             @"NGQGX":@"ngqqueryline",
                             @"DGQPQJ":@"dgqqueryair",
                             @"DGQFSK":@"dgqquerywater",

@@ -352,7 +352,7 @@
                 [dcallout.imageView setImage:nil];
             }
             
-            dcallout.lbLine1.text = [NSString stringWithFormat:@"埋深:%@米",item.depth];
+            dcallout.lbLine1.text = [NSString stringWithFormat:@"埋深:%.2f米",[item.depth floatValue] ];
             
             [self.mapView.callout showCalloutAt:mappoint screenOffset:CGPointMake(0, 0) animated:YES];
             
@@ -417,7 +417,7 @@
 //            }
             
             NSString *departName = [((AGSIdentifyResult*)[results objectAtIndex:i]).feature  attributeAsStringForKey:@"ManE"];
-            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 64)];
+            ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
             self.mapView.infoView = calloutView;
             
             

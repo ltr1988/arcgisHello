@@ -31,12 +31,14 @@
 {
     [super viewDidLoad];
     [self setupSubviews];
+    [self.mapView locate];
 }
 
 
 -(void) setupSubviews
 {
     
+    self.title = @"点击选择起点";
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearAll)];
     [self.navigationItem setRightBarButtonItem:rightItem];
     
@@ -66,6 +68,21 @@
     btnChangMapType.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [btnChangMapType addTarget:self action:@selector(actionSwitchMapType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnChangMapType];
+    
+    CGFloat leftBtnOffsetX = 20;
+    
+    CGFloat leftPaddingY = 15;
+    CGFloat leftBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - leftPaddingY - 70;
+    
+    UIButton *btnMyLocation = [[UIButton alloc] initWithFrame:CGRectMake(leftBtnOffsetX, leftBtnOffsetY, btnsize, btnsize)];
+    btnMyLocation.backgroundColor = [UIColor clearColor];
+    [btnMyLocation setImage:[UIImage imageNamed:@"icon_map_position"] forState:UIControlStateNormal];
+    btnMyLocation.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [btnMyLocation addTarget:self action:@selector(actionMyLocation) forControlEvents:UIControlEventTouchUpInside];
+    btnMyLocation.clipsToBounds = YES;
+    
+    btnMyLocation.layer.cornerRadius = btnsize/2;
+    [self.view addSubview:btnMyLocation];
 
 }
 
@@ -87,12 +104,14 @@
 
 - (void) clearAll
 {
+    self.title = @"点击选择起点";
     [self.mapView.callout dismiss];
     [d_engine clearAll];
 }
 
 - (void)mapView:(AGSMapView *)mapView didClickAtPoint:(CGPoint)screen mapPoint:(AGSPoint *)mappoint features:(NSDictionary *)features{
     
+    self.title = @"";
     
     [d_engine pushPoint:mappoint];
     
@@ -142,5 +161,8 @@
     [self.mapView switchLayerType];
 }
 
-
+-(void) actionMyLocation
+{
+    [self.mapView locate];
+}
 @end

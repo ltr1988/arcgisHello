@@ -111,7 +111,7 @@
     self.uploadedEventTableView.dataSource = self;
     self.uploadedEventTableView.backgroundColor = [UIColor seperatorColor];
     self.uploadedEventTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    self.uploadedEventTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    self.uploadedEventTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     self.uploadedEventTableView.hidden = (selectedIndex==0);
     
     [self.view addSubview:self.uploadedEventTableView];
@@ -166,8 +166,9 @@
         {
             requestPage++;
             for (id data in model.datalist) {
-  
-                [_uploadedEventModel addObject:data];
+                EventReportModel *eModelItem = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
+                
+                [_uploadedEventModel addObject:eModelItem];
             }
             hasMore = [model hasMore];
             if (hasMore) {
@@ -374,9 +375,7 @@
         }
         NSInteger row = indexPath.row/2;
         if (row <self.uploadedEventModel.count) {
-            CommitedEventHistoryItem *data = _uploadedEventModel[row];
-            EventReportModel *model = [[EventReportModel alloc] initWithMyEventHistoryItem:data];
-            
+            EventReportModel *model = _uploadedEventModel[row];
             EventReportViewController *vc = [[EventReportViewController alloc] initWithModel:model];
             vc.readonly = YES;
             [self.navigationController pushViewController:vc animated:YES];

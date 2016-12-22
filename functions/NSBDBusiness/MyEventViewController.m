@@ -75,7 +75,7 @@
     self.myEventTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.myEventTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
-    self.myEventTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    self.myEventTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     
     [self.view addSubview:self.myEventTableView];
     

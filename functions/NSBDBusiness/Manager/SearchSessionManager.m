@@ -14,6 +14,7 @@
 #import "AuthorizeManager.h"
 #import "AFHTTPSessionManager+NSBD.h"
 #import "NSBDBaseUIItem.h"
+#import "NSString+UUID.h"
 
 #define CURRENT_SESSION [NSString stringWithFormat:@"current_session_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation SearchSessionManager
@@ -76,7 +77,7 @@ static SearchSessionManager* manager = nil;
 {
     
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    [outputFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
     NSString *date = [outputFormatter stringFromDate:[NSDate date]];
 
 
@@ -93,6 +94,7 @@ static SearchSessionManager* manager = nil;
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"taskbase" method:@"doInDto" req:info];
     return dict;
 }
+
 //查询
 //state :0暂停 1执行中 2完成 3审核完成 4审核失败
 -(void) requestChangeSearchSessionState:(NSInteger)state successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
@@ -129,7 +131,49 @@ static SearchSessionManager* manager = nil;
 
 }
 
-
+-(void) requestUpdateLocationWithX:(double) x y:(double)y height:(double)h successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
+{
+    if (!self.session.sessionId || self.session.pauseState)
+    {
+        fail(nil,nil);
+        return;
+    }
+    
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    
+    NSDictionary *info = @{
+                           @"id":[NSString stringWithUUID],
+                           @"taskid":self.session.sessionId,
+                           @"adduser":[AuthorizeManager sharedInstance].userName,
+                           @"longitude":[NSString stringWithFormat:@"%f",x],
+                           @"latitude":[NSString stringWithFormat:@"%f",y],
+                           @"height":[NSString stringWithFormat:@"%f",h],
+                           @"exedate": [formater stringFromDate:[NSDate date]],
+                           };
+    
+    
+    NSMutableDictionary *dict = [HttpHost paramWithAction:@"track" method:@"doInDto" req:info];
+    
+    [[HttpManager NSBDManager] NSBDPOST:[HttpHost hostAURLWithParam:dict]
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable dict) {
+                                    // 请求成功
+                                    if (success) {
+                                        dispatch_main_async_safe(^{
+                                            success(task,dict);
+                                        });
+                                    }
+                                    
+                                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                    // 请求失败
+                                    if (fail) {
+                                        dispatch_main_async_safe(^{
+                                            fail(task,error);
+                                        });
+                                    }
+                                }];
+    
+}
 //开始新任务
 -(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model sessionID:(NSString *)sessionId successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {

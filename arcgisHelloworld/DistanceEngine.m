@@ -9,7 +9,6 @@
 #import "DistanceEngine.h"
 #import "UIColor+ThemeColor.h"
 
-#define FIX_RATIO 0.767
 @implementation DistanceEngine
 
 -(instancetype) initWithGraphicsLayer:(AGSGraphicsLayer *)layer
@@ -58,7 +57,7 @@
     [_layer addGraphic:_g_poliLine];
     
     if (_points.count > 1) {
-        _distance += [mpoint distanceToPoint:lastPoint] *FIX_RATIO;
+        _distance += [mpoint distanceToPoint:lastPoint];
     }
 }
 
@@ -87,7 +86,7 @@
     
     [_mercator_points removeLastObject];
     AGSPoint *mlast2ndPoint = _mercator_points.lastObject;
-    _distance -= [mlastPoint distanceToPoint:mlast2ndPoint] *FIX_RATIO;
+    _distance -= [mlastPoint distanceToPoint:mlast2ndPoint];
 
     return (AGSPoint *)[_engine projectGeometry:mlast2ndPoint toSpatialReference:[AGSSpatialReference wgs84SpatialReference]];
 }

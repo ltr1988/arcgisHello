@@ -153,7 +153,7 @@
     self.historyTableView.dataSource = self;
     self.historyTableView.hidden = (selectedIndex!=2);
     self.historyTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestHistoryData)];
-    self.historyTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreHistoryData)];
+    self.historyTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreHistoryData)];
     
     [self.view addSubview:self.historyTableView];
     
@@ -165,7 +165,7 @@
     self.myFeedbackTableView.dataSource = self;
     self.myFeedbackTableView.hidden = (selectedIndex!=1);
     self.myFeedbackTableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestFeedbackData)];
-    self.myFeedbackTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreFeedbackData)];
+    self.myFeedbackTableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreFeedbackData)];
     
     [self.view addSubview:self.myFeedbackTableView];
     

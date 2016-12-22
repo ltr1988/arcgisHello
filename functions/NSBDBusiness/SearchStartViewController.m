@@ -49,6 +49,7 @@
     [self setupSubViews];
     [self requestData];
     
+    
 }
 
 -(void) setupModel
@@ -265,6 +266,9 @@
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setNewSessionWithId:sessionId];
+                
+                
+                
                 SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
                 [self popSelfAndPush:vc];
             }else if (item.status == HttpResultInvalidUser)

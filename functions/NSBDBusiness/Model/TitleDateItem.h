@@ -13,4 +13,6 @@
 @interface TitleDateItem : TitleItem<TitleDetailCellViewModel,NSCoding>
 @property (nonatomic,strong) NSDate *date;
 +(instancetype) itemWithTitle:(NSString *)title;
+
+-(NSString *) detailDate;
 @end
