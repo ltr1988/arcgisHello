@@ -10,6 +10,31 @@
 
 @implementation MapViewController (InfoMapping)
 
+-(BOOL) shouldFilter:(NSString *) key
+{
+    return [[self filterSet] containsObject:[key lowercaseString]];
+}
+
+-(NSSet *) filterSet
+{
+    return [NSSet setWithArray:@[@"id",
+                         @"sysfeatureid",
+                         @"sysfeaturegeometry",
+                         @"order_id",
+                         @"objectnum",
+                         @"objtypenum",
+                         @"belongenum",
+                         @"manenum",
+                         @"statusnum",
+                         @"usorienum",
+                         @"usresenum",
+                         @"nusorienum",
+                         @"nusresenum",
+                         @"oriobjnum",
+                          @"resobjenum",]];
+    
+}
+
 -(NSString *) stringFromInfoKey:(NSString *) key
 {
     NSString *retStr = [self mappingDict][key.lowercaseString];
