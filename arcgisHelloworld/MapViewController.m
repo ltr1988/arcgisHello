@@ -439,6 +439,10 @@
             
             NSMutableDictionary *convertDict = [NSMutableDictionary dictionary];
             for (NSString *key in infoDict.allKeys) {
+                if ([self shouldFilter:key])
+                {
+                    continue;
+                }
                 NSString *convertKey = [self stringFromInfoKey:key];
                 convertDict[convertKey] = infoDict[key];
             }
@@ -561,6 +565,10 @@
         NSDictionary *infoDict = [graphic allAttributes];
         NSMutableDictionary *convertDict = [NSMutableDictionary dictionary];
         for (NSString *key in infoDict.allKeys) {
+            if ([self shouldFilter:key])
+            {
+                continue;
+            }
             NSString *convertKey = [self stringFromInfoKey:key];
             convertDict[convertKey] = infoDict[key];
         }
