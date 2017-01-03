@@ -11,8 +11,10 @@
 #import "UIImageView+AFNetworking.h"
 #import "ImageContentViewController.h"
 #import "UIView+ViewController.h"
-
+#import "YYKit.h"
 #import "SupportRotationSelectBaseViewController+VideoPlay.h"
+
+#import "YYPhotoGroupView.h"
 
 @implementation EventMediaCollectionView
 
@@ -144,9 +146,19 @@
         [vc play:view.contentURL];
     }else
     {
-        ImageContentViewController *vc = [ImageContentViewController new];
-        [vc setImage:view.image];
-        [[self viewController].navigationController pushViewController:vc animated:YES];
+        NSMutableArray *items = [NSMutableArray array];
+        YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+        item.thumbView = view;
+//        item.largeImageURL = view.image.mediaLarge.url;
+        item.largeImageSize = view.image.size;
+        [items addObject:item];
+    
+    
+    
+        YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+        [v presentFromImageView:view toContainer:self.viewController.view animated:YES completion:nil];
+
+        
     }
 }
 

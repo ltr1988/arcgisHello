@@ -95,354 +95,26 @@
 		A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
 		A4A4AF8F1DAE7BB3009D0004 /* CommitedEventHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */; };
 		A4A4AF921DAE852D009D0004 /* CommitedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */; };
+		A4A6974C1E0C2B5B002332CE /* YYPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A6974B1E0C2B5B002332CE /* YYPhotoGroupView.m */; };
+		A4A6974F1E0C2FB5002332CE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A6974E1E0C2FB5002332CE /* SystemConfiguration.framework */; };
+		A4A697511E0C2FC6002332CE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A697501E0C2FC6002332CE /* MobileCoreServices.framework */; };
+		A4A697531E0C2FD2002332CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A697521E0C2FD2002332CE /* CoreGraphics.framework */; };
+		A4A697551E0C2FDF002332CE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A697541E0C2FDF002332CE /* CFNetwork.framework */; };
+		A4A697571E0C2FE8002332CE /* libz.1.2.5.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A697561E0C2FE8002332CE /* libz.1.2.5.tbd */; };
+		A4A697591E0C2FFA002332CE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A697581E0C2FFA002332CE /* libsqlite3.tbd */; };
 		A4AEF04E1DD74F8A00903925 /* TianDiTuWMTSLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */; };
 		A4AEF04F1DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0491DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m */; };
 		A4AEF0501DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */; };
 		A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */; };
 		A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0531DD825FF00903925 /* AttachmentModel.m */; };
-		A4AFB2371E064C6200FAFBB3 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5121D61D378007530EB /* MJRefreshGifHeader.m */; };
-		A4AFB2381E064C6200FAFBB3 /* MediaPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D5C1DB07FB900C0166F /* MediaPickerManager.m */; };
-		A4AFB2391E064C6200FAFBB3 /* DNAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D7D1DB4E2AC00C0166F /* DNAirItem.m */; };
-		A4AFB23A1E064C6200FAFBB3 /* NGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D7A1DB4E27F00C0166F /* NGQAirItem.m */; };
-		A4AFB23B1E064C6200FAFBB3 /* MyEventHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC071D8069AD00B0532B /* MyEventHistoryCell.m */; };
-		A4AFB23C1E064C6200FAFBB3 /* HttpMetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8951DB23F7D003CAE02 /* HttpMetaData.m */; };
-		A4AFB23D1E064C6200FAFBB3 /* MyChuanKuaYueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65AF1DD8467100CCC861 /* MyChuanKuaYueItem.m */; };
-		A4AFB23E1E064C6200FAFBB3 /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
-		A4AFB23F1E064C6200FAFBB3 /* DGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9E1DACB60D0025041E /* DGQLine.m */; };
-		A4AFB2401E064C6200FAFBB3 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468F41D6AF7C400AB84AF /* LocationManager.m */; };
-		A4AFB2411E064C6200FAFBB3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A485993D1D3B51610050AC88 /* LoginViewController.m */; };
-		A4AFB2421E064C6200FAFBB3 /* TianDiTuWMTSTileOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */; };
-		A4AFB2431E064C6200FAFBB3 /* EventMediaCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653F11D4A094E002D4139 /* EventMediaCollectionView.m */; };
-		A4AFB2441E064C6200FAFBB3 /* Search3DHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA6B1DFFCDFB009886BF /* Search3DHeaderModel.m */; };
-		A4AFB2451E064C6200FAFBB3 /* RouteMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE8631D3E183200ABDB28 /* RouteMapViewController.m */; };
-		A4AFB2461E064C6200FAFBB3 /* UploadAttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8921DB12E53003CAE02 /* UploadAttachmentModel.m */; };
-		A4AFB2471E064C6200FAFBB3 /* NSString+LVPath.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */; };
-		A4AFB2481E064C6200FAFBB3 /* TianDiTuWMTSLayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0491DD74F8A00903925 /* TianDiTuWMTSLayerInfo.m */; };
-		A4AFB2491E064C6200FAFBB3 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1871F1D66AF4B006D8CA7 /* MJFoundation.m */; };
-		A4AFB24A1E064C6200FAFBB3 /* Search3DWordsLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA771DFFEC54009886BF /* Search3DWordsLayoutView.m */; };
-		A4AFB24B1E064C6200FAFBB3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022011D32216A00AE2AF9 /* User.m */; };
-		A4AFB24C1E064C6200FAFBB3 /* ELCOverlayImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBF1D3A1D890065AAA7 /* ELCOverlayImageView.m */; };
-		A4AFB24D1E064C6200FAFBB3 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B286536F1D45EA03002D4139 /* MASLayoutConstraint.m */; };
-		A4AFB24E1E064C6200FAFBB3 /* MyUploadedEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC131D845E0500B0532B /* MyUploadedEventCell.m */; };
-		A4AFB24F1E064C6200FAFBB3 /* FacilityInfoItem+AGSGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B5E681DFD423400678822 /* FacilityInfoItem+AGSGraphics.m */; };
-		A4AFB2501E064C6200FAFBB3 /* LiveDataDetailShuikuInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0BA1D9E3DB500CEB12D /* LiveDataDetailShuikuInfoViewController.m */; };
-		A4AFB2511E064C6200FAFBB3 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5221D61D378007530EB /* UIView+MJExtension.m */; };
-		A4AFB2521E064C6200FAFBB3 /* TitleInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A0D1D68401D0097F7E4 /* TitleInputItem.m */; };
-		A4AFB2531E064C6200FAFBB3 /* ChoicePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4451D532CE8007530EB /* ChoicePickerViewController.m */; };
-		A4AFB2541E064C6200FAFBB3 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4971D5D7ABC007530EB /* QRCodeReaderView.m */; };
-		A4AFB2551E064C6200FAFBB3 /* ThreeColumnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A01D8E68E400A6EDCA /* ThreeColumnCell.m */; };
-		A4AFB2561E064C6200FAFBB3 /* MyDealedEventDetailProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8D51DB4FDFA003CAE02 /* MyDealedEventDetailProgressModel.m */; };
-		A4AFB2571E064C6200FAFBB3 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187251D66AF4B006D8CA7 /* NSObject+MJCoding.m */; };
-		A4AFB2581E064C6200FAFBB3 /* MyChuanKuaYueFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2BA1DD88ADA0011AA22 /* MyChuanKuaYueFeedbackViewController.m */; };
-		A4AFB2591E064C6200FAFBB3 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653681D45EA03002D4139 /* MASCompositeConstraint.m */; };
-		A4AFB25A1E064C6200FAFBB3 /* NGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D8D1DB4E41F00C0166F /* NGQWellItem.m */; };
-		A4AFB25B1E064C6200FAFBB3 /* SearchStartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4A01D5DBF58007530EB /* SearchStartModel.m */; };
-		A4AFB25C1E064C6200FAFBB3 /* MapSearchInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A61DB35C90003CAE02 /* MapSearchInfoViewController.m */; };
-		A4AFB25D1E064C6200FAFBB3 /* TitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E76B1D4650BD00E3C94C /* TitleItem.m */; };
-		A4AFB25E1E064C6200FAFBB3 /* HttpHost.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186EB1D631763006D8CA7 /* HttpHost.m */; };
-		A4AFB25F1E064C6200FAFBB3 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A50F1D61D378007530EB /* MJRefreshBackStateFooter.m */; };
-		A4AFB2601E064C6200FAFBB3 /* InfoAGSMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE85B1D3DD2C100ABDB28 /* InfoAGSMapView.m */; };
-		A4AFB2611E064C6200FAFBB3 /* NSBundle+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A51C1D61D378007530EB /* NSBundle+MJRefresh.m */; };
-		A4AFB2621E064C6200FAFBB3 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5161D61D378007530EB /* MJRefreshStateHeader.m */; };
-		A4AFB2631E064C6200FAFBB3 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4FF1D61D378007530EB /* MJRefreshHeader.m */; };
-		A4AFB2641E064C6200FAFBB3 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A51E1D61D378007530EB /* UIScrollView+MJExtension.m */; };
-		A4AFB2651E064C6200FAFBB3 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B286536A1D45EA03002D4139 /* MASConstraint.m */; };
-		A4AFB2661E064C6200FAFBB3 /* MyEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A91DB3A723003CAE02 /* MyEventItem.m */; };
-		A4AFB2671E064C6200FAFBB3 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653731D45EA03002D4139 /* MASViewAttribute.m */; };
-		A4AFB2681E064C6200FAFBB3 /* MyEventListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8AC1DB3A8F1003CAE02 /* MyEventListModel.m */; };
-		A4AFB2691E064C6200FAFBB3 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACB21D3A1D890065AAA7 /* ELCAsset.m */; };
-		A4AFB26A1E064C6200FAFBB3 /* SearchDetailSheetViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */; };
-		A4AFB26B1E064C6200FAFBB3 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
-		A4AFB26C1E064C6200FAFBB3 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = B286536D1D45EA03002D4139 /* MASConstraintMaker.m */; };
-		A4AFB26D1E064C6200FAFBB3 /* MyEventDetailViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */; };
-		A4AFB26E1E064C6200FAFBB3 /* EventHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA41DACF5C00025041E /* EventHttpManager.m */; };
-		A4AFB26F1E064C6200FAFBB3 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B469D61D6FDDF600AB84AF /* TimerView.m */; };
-		A4AFB2701E064C6200FAFBB3 /* MyWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3531D76ABAE00FA97D3 /* MyWorkViewController.m */; };
-		A4AFB2711E064C6200FAFBB3 /* MyChuanKuaYueProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C01DD89D100011AA22 /* MyChuanKuaYueProgressModel.m */; };
-		A4AFB2721E064C6200FAFBB3 /* SearchSheetGroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A041D6839B40097F7E4 /* SearchSheetGroupItem.m */; };
-		A4AFB2731E064C6200FAFBB3 /* SearchSheetCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A001D6830020097F7E4 /* SearchSheetCellFactory.m */; };
-		A4AFB2741E064C6200FAFBB3 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653CA1D4863B2002D4139 /* UIProgressView+AFNetworking.m */; };
-		A4AFB2751E064C6200FAFBB3 /* LiveDataShuiweiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AF1D9D118600CEB12D /* LiveDataShuiweiViewController.m */; };
-		A4AFB2761E064C6200FAFBB3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
-		A4AFB2771E064C6200FAFBB3 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4F71D61D378007530EB /* MJRefreshAutoFooter.m */; };
-		A4AFB2781E064C6200FAFBB3 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599381D3B4C840050AC88 /* SVProgressHUD.m */; };
-		A4AFB2791E064C6200FAFBB3 /* ComboBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DABB1E015133009886BF /* ComboBoxCell.m */; };
-		A4AFB27A1E064C6200FAFBB3 /* ClosableWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AF1DD879120011AA22 /* ClosableWebView.m */; };
-		A4AFB27B1E064C6200FAFBB3 /* Home3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */; };
-		A4AFB27C1E064C6200FAFBB3 /* Search3DResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B5E721DFD8B1F00678822 /* Search3DResultItem.m */; };
-		A4AFB27D1E064C6200FAFBB3 /* MyChuanKuaYueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */; };
-		A4AFB27E1E064C6200FAFBB3 /* DatePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7651D46495900E3C94C /* DatePickViewController.m */; };
-		A4AFB27F1E064C6200FAFBB3 /* MyEventDetailProgressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8AF1DB3C3C4003CAE02 /* MyEventDetailProgressModel.m */; };
-		A4AFB2801E064C6200FAFBB3 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653C21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m */; };
-		A4AFB2811E064C6200FAFBB3 /* QRModelsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */; };
-		A4AFB2821E064C6200FAFBB3 /* TitleDateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A0A1D683F950097F7E4 /* TitleDateItem.m */; };
-		A4AFB2831E064C6200FAFBB3 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5201D61D378007530EB /* UIScrollView+MJRefresh.m */; };
-		A4AFB2841E064C6200FAFBB3 /* LiveDataLiuliangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4E9D1D9F387100F75C99 /* LiveDataLiuliangViewController.m */; };
-		A4AFB2851E064C6200FAFBB3 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187271D66AF4B006D8CA7 /* NSObject+MJKeyValue.m */; };
-		A4AFB2861E064C6200FAFBB3 /* SearchHomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4A61D61C4FF007530EB /* SearchHomePageModel.m */; };
-		A4AFB2871E064C6200FAFBB3 /* MyDealedEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D6D1DB4740D00C0166F /* MyDealedEventDetailViewController.m */; };
-		A4AFB2881E064C6200FAFBB3 /* Search3DShenMaiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F601E0186170091E07A /* Search3DShenMaiItem.m */; };
-		A4AFB2891E064C6200FAFBB3 /* TextPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186E81D62FD38006D8CA7 /* TextPickerViewController.m */; };
-		A4AFB28A1E064C6200FAFBB3 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */; };
-		A4AFB28B1E064C6200FAFBB3 /* SearchHistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AF1DADCAB200F3D7F6 /* SearchHistoryManager.m */; };
-		A4AFB28C1E064C6200FAFBB3 /* SearchSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186F11D632AEB006D8CA7 /* SearchSessionManager.m */; };
-		A4AFB28D1E064C6200FAFBB3 /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187231D66AF4B006D8CA7 /* MJType.m */; };
-		A4AFB28E1E064C6200FAFBB3 /* UIImage+VideoThumb.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C6B19E1D4B2D1400B0B12A /* UIImage+VideoThumb.m */; };
-		A4AFB28F1E064C6200FAFBB3 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC1F1D85384800B0532B /* UIView+ViewController.m */; };
-		A4AFB2901E064C6200FAFBB3 /* SearchLocationReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B469021D6E9DD300AB84AF /* SearchLocationReportManager.m */; };
-		A4AFB2911E064C6200FAFBB3 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653CE1D4863B2002D4139 /* UIWebView+AFNetworking.m */; };
-		A4AFB2921E064C6200FAFBB3 /* UITableView+EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC251D855D2300B0532B /* UITableView+EmptyView.m */; };
-		A4AFB2931E064C6200FAFBB3 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653751D45EA03002D4139 /* MASViewConstraint.m */; };
-		A4AFB2941E064C6200FAFBB3 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4921D5D7ABC007530EB /* QRCodeReaderViewController.m */; };
-		A4AFB2951E064C6200FAFBB3 /* SearchHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B51DADE49D00F3D7F6 /* SearchHistoryModel.m */; };
-		A4AFB2961E064C6200FAFBB3 /* SearchSheetItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */; };
-		A4AFB2971E064C6200FAFBB3 /* SearchSessionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B469051D6EC4E600AB84AF /* SearchSessionItem.m */; };
-		A4AFB2981E064C6200FAFBB3 /* ThreeColumnItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D89D1D8E2C9000A6EDCA /* ThreeColumnItem.m */; };
-		A4AFB2991E064C6200FAFBB3 /* LiveDataGongchenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA01D9F3AB200F75C99 /* LiveDataGongchenViewController.m */; };
-		A4AFB29A1E064C6200FAFBB3 /* ELCAssetTablePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACB81D3A1D890065AAA7 /* ELCAssetTablePicker.m */; };
-		A4AFB29B1E064C6200FAFBB3 /* QRSeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653601D45E769002D4139 /* QRSeparatorCell.m */; };
-		A4AFB29C1E064C6200FAFBB3 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378881D365DC100A7342D /* AFURLSessionManager.m */; };
-		A4AFB29D1E064C6200FAFBB3 /* LiveDataShuikuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0B21D9E068800CEB12D /* LiveDataShuikuViewController.m */; };
-		A4AFB29E1E064C6200FAFBB3 /* UIView+ActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7F1D964E630016387C /* UIView+ActivityIndicator.m */; };
-		A4AFB29F1E064C6200FAFBB3 /* LiveDataYuqingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A31D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m */; };
-		A4AFB2A01E064C6200FAFBB3 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC161D84618F00B0532B /* EventDetailView.m */; };
-		A4AFB2A11E064C6200FAFBB3 /* SearchCategoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */; };
-		A4AFB2A21E064C6200FAFBB3 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653CC1D4863B2002D4139 /* UIRefreshControl+AFNetworking.m */; };
-		A4AFB2A31E064C6200FAFBB3 /* ELCAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACB41D3A1D890065AAA7 /* ELCAssetCell.m */; };
-		A4AFB2A41E064C6200FAFBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
-		A4AFB2A51E064C6200FAFBB3 /* ComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DAB91E015133009886BF /* ComboBox.m */; };
-		A4AFB2A61E064C6200FAFBB3 /* SearchHistoryTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8981DB24017003CAE02 /* SearchHistoryTaskItem.m */; };
-		A4AFB2A71E064C6200FAFBB3 /* QRSystemAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D591DAF95B100C0166F /* QRSystemAlertController.m */; };
-		A4AFB2A81E064C6200FAFBB3 /* AttachmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8B21DB3C774003CAE02 /* AttachmentItem.m */; };
-		A4AFB2A91E064C6200FAFBB3 /* SearchHistoryDetailSheetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8A31DB291BB003CAE02 /* SearchHistoryDetailSheetModel.m */; };
-		A4AFB2AA1E064C6200FAFBB3 /* EventModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC221D853EEE00B0532B /* EventModelManager.m */; };
-		A4AFB2AB1E064C6200FAFBB3 /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
-		A4AFB2AC1E064C6200FAFBB3 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653C01D4863B2002D4139 /* AFNetworkActivityIndicatorManager.m */; };
-		A4AFB2AD1E064C6200FAFBB3 /* DNLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D801DB4E41000C0166F /* DNLine.m */; };
-		A4AFB2AE1E064C6200FAFBB3 /* HttpBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FD1D644042006D8CA7 /* HttpBaseModel.m */; };
-		A4AFB2AF1E064C6200FAFBB3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653C71D4863B2002D4139 /* UIImageView+AFNetworking.m */; };
-		A4AFB2B01E064C6200FAFBB3 /* Search3DResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F661E02D5FC0091E07A /* Search3DResultModel.m */; };
-		A4AFB2B11E064C6200FAFBB3 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
-		A4AFB2B21E064C6200FAFBB3 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5141D61D378007530EB /* MJRefreshNormalHeader.m */; };
-		A4AFB2B31E064C6200FAFBB3 /* CommitedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */; };
-		A4AFB2B41E064C6200FAFBB3 /* NSDictionary+HttpParam.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC7B1D9626D40016387C /* NSDictionary+HttpParam.m */; };
-		A4AFB2B51E064C6200FAFBB3 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5081D61D378007530EB /* MJRefreshAutoStateFooter.m */; };
-		A4AFB2B61E064C6200FAFBB3 /* RouteSearchResultItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468FC1D6BF55D00AB84AF /* RouteSearchResultItem.m */; };
-		A4AFB2B71E064C6200FAFBB3 /* MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187211D66AF4B006D8CA7 /* MJProperty.m */; };
-		A4AFB2B81E064C6200FAFBB3 /* SearchDetailSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069BD1D68081D0097F7E4 /* SearchDetailSheetViewController.m */; };
-		A4AFB2B91E064C6200FAFBB3 /* RouteSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468FF1D6C3B4000AB84AF /* RouteSearchResultCell.m */; };
-		A4AFB2BA1E064C6200FAFBB3 /* DGQWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9B1DAC99000025041E /* DGQWaterItem.m */; };
-		A4AFB2BB1E064C6200FAFBB3 /* RouteSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B468E91D6AA0E800AB84AF /* RouteSearchViewController.m */; };
-		A4AFB2BC1E064C6200FAFBB3 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A50D1D61D378007530EB /* MJRefreshBackNormalFooter.m */; };
-		A4AFB2BD1E064C6200FAFBB3 /* EventReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C961D33B5AE00A06B1C /* EventReportViewController.m */; };
-		A4AFB2BE1E064C6200FAFBB3 /* CheckableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653D91D488320002D4139 /* CheckableImageView.m */; };
-		A4AFB2BF1E064C6200FAFBB3 /* SearchCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC8B1D97859E0016387C /* SearchCategoryModel.m */; };
-		A4AFB2C01E064C6200FAFBB3 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
-		A4AFB2C11E064C6200FAFBB3 /* TianDiTuWMTSLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */; };
-		A4AFB2C21E064C6200FAFBB3 /* Search3DResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F5D1E017C360091E07A /* Search3DResultCell.m */; };
-		A4AFB2C31E064C6200FAFBB3 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DAB11E011208009886BF /* GDataXMLNode.m */; };
-		A4AFB2C41E064C6200FAFBB3 /* MyDealedEventItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C01DB3E95C003CAE02 /* MyDealedEventItem.m */; };
-		A4AFB2C51E064C6200FAFBB3 /* FacilityDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012B41DBCC798008B00DF /* FacilityDetailInfoViewController.m */; };
-		A4AFB2C61E064C6200FAFBB3 /* Search3DHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA6E1DFFDD5C009886BF /* Search3DHttpManager.m */; };
-		A4AFB2C71E064C6200FAFBB3 /* BaseTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653641D45E851002D4139 /* BaseTitleCell.m */; };
-		A4AFB2C81E064C6200FAFBB3 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A50B1D61D378007530EB /* MJRefreshBackGifFooter.m */; };
-		A4AFB2C91E064C6200FAFBB3 /* FacilityInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */; };
-		A4AFB2CA1E064C6200FAFBB3 /* AttachmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF0531DD825FF00903925 /* AttachmentModel.m */; };
-		A4AFB2CB1E064C6200FAFBB3 /* DownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C8E1D33B53800A06B1C /* DownPicker.m */; };
-		A4AFB2CC1E064C6200FAFBB3 /* MyChuanKuaYueListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65AC1DD845EA00CCC861 /* MyChuanKuaYueListModel.m */; };
-		A4AFB2CD1E064C6200FAFBB3 /* MyDealedEventListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8BD1DB3E8A7003CAE02 /* MyDealedEventListModel.m */; };
-		A4AFB2CE1E064C6200FAFBB3 /* LiveDataMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8951D8BE62800A6EDCA /* LiveDataMainViewController.m */; };
-		A4AFB2CF1E064C6200FAFBB3 /* DGQAirItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B11D670F930097F7E4 /* DGQAirItem.m */; };
-		A4AFB2D01E064C6200FAFBB3 /* RouteStartEndPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B21163E71D0FB03A003F90A6 /* RouteStartEndPickerController.m */; };
-		A4AFB2D11E064C6200FAFBB3 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653C41D4863B2002D4139 /* UIButton+AFNetworking.m */; };
-		A4AFB2D21E064C6200FAFBB3 /* ELCImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBC1D3A1D890065AAA7 /* ELCImagePickerController.m */; };
-		A4AFB2D31E064C6200FAFBB3 /* LiveDataYuqingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8A61D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m */; };
-		A4AFB2D41E064C6200FAFBB3 /* NSBDBaseUIItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B28069B51D67F8680097F7E4 /* NSBDBaseUIItem.m */; };
-		A4AFB2D51E064C6200FAFBB3 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A51A1D61D378007530EB /* MJRefreshConst.m */; };
-		A4AFB2D61E064C6200FAFBB3 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B286537C1D45EA03002D4139 /* View+MASAdditions.m */; };
-		A4AFB2D71E064C6200FAFBB3 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653771D45EA03002D4139 /* NSArray+MASAdditions.m */; };
-		A4AFB2D81E064C6200FAFBB3 /* TitleDetailTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A101D68413E0097F7E4 /* TitleDetailTextItem.m */; };
-		A4AFB2D91E064C6200FAFBB3 /* FacilityInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */; };
-		A4AFB2DA1E064C6200FAFBB3 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5041D61D378007530EB /* MJRefreshAutoGifFooter.m */; };
-		A4AFB2DB1E064C6200FAFBB3 /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
-		A4AFB2DC1E064C6200FAFBB3 /* DNWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D841DB4E41000C0166F /* DNWellItem.m */; };
-		A4AFB2DD1E064C6200FAFBB3 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187351D6708D2006D8CA7 /* LoginModel.m */; };
-		A4AFB2DE1E064C6200FAFBB3 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187291D66AF4B006D8CA7 /* NSObject+MJProperty.m */; };
-		A4AFB2DF1E064C6200FAFBB3 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378821D365DC100A7342D /* AFSecurityPolicy.m */; };
-		A4AFB2E01E064C6200FAFBB3 /* FacilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AB1DBCAE3B008B00DF /* FacilityManager.m */; };
-		A4AFB2E11E064C6200FAFBB3 /* SearchTaskStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186FA1D643CF8006D8CA7 /* SearchTaskStatusModel.m */; };
-		A4AFB2E21E064C6200FAFBB3 /* EventReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538C1D45FA30002D4139 /* EventReportModel.m */; };
-		A4AFB2E31E064C6200FAFBB3 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
-		A4AFB2E41E064C6200FAFBB3 /* ImageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC1C1D851B6900B0532B /* ImageContentViewController.m */; };
-		A4AFB2E51E064C6200FAFBB3 /* MyChuanKuaYueListItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65B21DD853CA00CCC861 /* MyChuanKuaYueListItemCell.m */; };
-		A4AFB2E61E064C6200FAFBB3 /* MyChuanKuaYueHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */; };
-		A4AFB2E71E064C6200FAFBB3 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4F91D61D378007530EB /* MJRefreshBackFooter.m */; };
-		A4AFB2E81E064C6200FAFBB3 /* MyChuanKuaYueHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C61DD8A3540011AA22 /* MyChuanKuaYueHistoryCell.m */; };
-		A4AFB2E91E064C6200FAFBB3 /* TokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187061D646984006D8CA7 /* TokenManager.m */; };
-		A4AFB2EA1E064C6200FAFBB3 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A186F71D6406F2006D8CA7 /* NSString+MD5Addition.m */; };
-		A4AFB2EB1E064C6200FAFBB3 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653BC1D4863B2002D4139 /* AFAutoPurgingImageCache.m */; };
-		A4AFB2EC1E064C6200FAFBB3 /* WeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC6E6E1D60552E008486E0 /* WeatherManager.m */; };
-		A4AFB2ED1E064C6200FAFBB3 /* ThreeColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F1D8991D8BF03F00A6EDCA /* ThreeColumnView.m */; };
-		A4AFB2EE1E064C6200FAFBB3 /* SearchHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712B91DADE52D00F3D7F6 /* SearchHistoryItem.m */; };
-		A4AFB2EF1E064C6200FAFBB3 /* SearchHomePageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C291D6994BE00DD603B /* SearchHomePageItem.m */; };
-		A4AFB2F01E064C6200FAFBB3 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378841D365DC100A7342D /* AFURLRequestSerialization.m */; };
-		A4AFB2F11E064C6200FAFBB3 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
-		A4AFB2F21E064C6200FAFBB3 /* Search3DHeaderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA681DFFCDD8009886BF /* Search3DHeaderItem.m */; };
-		A4AFB2F31E064C6200FAFBB3 /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653BE1D4863B2002D4139 /* AFImageDownloader.m */; };
-		A4AFB2F41E064C6200FAFBB3 /* MyEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3601D7849EF00FA97D3 /* MyEventDetailViewController.m */; };
-		A4AFB2F51E064C6200FAFBB3 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378861D365DC100A7342D /* AFURLResponseSerialization.m */; };
-		A4AFB2F61E064C6200FAFBB3 /* MyChuanKuaYueHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65A61DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m */; };
-		A4AFB2F71E064C6200FAFBB3 /* AFHTTPSessionManager+NSBD.m in Sources */ = {isa = PBXBuildFile; fileRef = B272B0AC1D9D064B00CEB12D /* AFHTTPSessionManager+NSBD.m */; };
-		A4AFB2F81E064C6200FAFBB3 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7681D464BB000E3C94C /* UIViewController+BackButtonHandler.m */; };
-		A4AFB2F91E064C6200FAFBB3 /* MyDealedEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8C31DB3EA8E003CAE02 /* MyDealedEventItemCell.m */; };
-		A4AFB2FA1E064C6200FAFBB3 /* CenterSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599441D3CEC770050AC88 /* CenterSwitchView.m */; };
-		A4AFB2FB1E064C6200FAFBB3 /* SearchHistoryHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712BC1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m */; };
-		A4AFB2FC1E064C6200FAFBB3 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1871C1D66AF4B006D8CA7 /* MJConst.m */; };
-		A4AFB2FD1E064C6200FAFBB3 /* UIColor+ThemeColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653EE1D49FF54002D4139 /* UIColor+ThemeColor.m */; };
-		A4AFB2FE1E064C6200FAFBB3 /* LiveDataShuizhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41D4EA31D9F3B4400F75C99 /* LiveDataShuizhiViewController.m */; };
-		A4AFB2FF1E064C6200FAFBB3 /* MyLocalEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC191D846A3200B0532B /* MyLocalEventCell.m */; };
-		A4AFB3001E064C6200FAFBB3 /* HttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC811D39D17B0065AAA7 /* HttpManager.m */; };
-		A4AFB3011E064C6200FAFBB3 /* EventReportViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653E61D49A3A0002D4139 /* EventReportViewController+pickMedia.m */; };
-		A4AFB3021E064C6200FAFBB3 /* SearchStartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A49D1D5DB874007530EB /* SearchStartViewController.m */; };
-		A4AFB3031E064C6200FAFBB3 /* UIDownPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4569C901D33B53800A06B1C /* UIDownPicker.m */; };
-		A4AFB3041E064C6200FAFBB3 /* NGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D891DB4E41F00C0166F /* NGQLine.m */; };
-		A4AFB3051E064C6200FAFBB3 /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC981D3A1CD10065AAA7 /* ImagePickerViewController.m */; };
-		A4AFB3061E064C6200FAFBB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B286537A1D45EA03002D4139 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		A4AFB3071E064C6200FAFBB3 /* DepthCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B5E6B1DFD6FBB00678822 /* DepthCalloutView.m */; };
-		A4AFB3081E064C6200FAFBB3 /* MyUploadEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC101D8458FB00B0532B /* MyUploadEventViewController.m */; };
-		A4AFB3091E064C6200FAFBB3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACC81D3B20970065AAA7 /* WebViewController.m */; };
-		A4AFB30A1E064C6200FAFBB3 /* SearchHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4A31D61A316007530EB /* SearchHomePageViewController.m */; };
-		A4AFB30B1E064C6200FAFBB3 /* MyDealedEventDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D721DB4A9CF00C0166F /* MyDealedEventDetailItem.m */; };
-		A4AFB30C1E064C6200FAFBB3 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC821D9666810016387C /* NSString+UUID.m */; };
-		A4AFB30D1E064C6200FAFBB3 /* SupportRotationSelectBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9A1D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m */; };
-		A4AFB30E1E064C6200FAFBB3 /* ToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4871D587A49007530EB /* ToastView.m */; };
-		A4AFB30F1E064C6200FAFBB3 /* UIButton+UIButtonSetEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = B28AE86B1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m */; };
-		A4AFB3101E064C6200FAFBB3 /* SearchSecondaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC851D96B6C00016387C /* SearchSecondaryListViewController.m */; };
-		A4AFB3111E064C6200FAFBB3 /* MyDealedEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8D21DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m */; };
-		A4AFB3121E064C6200FAFBB3 /* Home3DDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B245DA651DFFC8D3009886BF /* Home3DDataSource.m */; };
-		A4AFB3131E064C6200FAFBB3 /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D671DB0DF9B00C0166F /* SupportRotationSelectBaseViewController+VideoPlay.m */; };
-		A4AFB3141E064C6200FAFBB3 /* MyEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC3561D7805C500FA97D3 /* MyEventViewController.m */; };
-		A4AFB3151E064C6200FAFBB3 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */; };
-		A4AFB3161E064C6200FAFBB3 /* MyChuanKuaYueProgressItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2C31DD89D3C0011AA22 /* MyChuanKuaYueProgressItem.m */; };
-		A4AFB3171E064C6200FAFBB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
-		A4AFB3181E064C6200FAFBB3 /* EventLocationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B286539E1D46FB55002D4139 /* EventLocationPickerView.m */; };
-		A4AFB3191E064C6200FAFBB3 /* MapViewController+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */; };
-		A4AFB31A1E064C6200FAFBB3 /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
-		A4AFB31B1E064C6200FAFBB3 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A1872B1D66AF4B006D8CA7 /* NSString+MJExtension.m */; };
-		A4AFB31C1E064C6200FAFBB3 /* EventHttpManager+ChuanKuaYue.m in Sources */ = {isa = PBXBuildFile; fileRef = A47B65A91DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.m */; };
-		A4AFB31D1E064C6200FAFBB3 /* SearchHistoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */; };
-		A4AFB31E1E064C6200FAFBB3 /* CenterTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */; };
-		A4AFB31F1E064C6200FAFBB3 /* FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC011D7F05E500B0532B /* FeedbackModel.m */; };
-		A4AFB3201E064C6200FAFBB3 /* ImagePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41B5E6E1DFD85B800678822 /* ImagePlayerViewController.m */; };
-		A4AFB3211E064C6200FAFBB3 /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */; };
-		A4AFB3221E064C6200FAFBB3 /* DGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC991D9C12EF0016387C /* DGQWellItem.m */; };
-		A4AFB3231E064C6200FAFBB3 /* SearchSheetInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B2806A071D683B390097F7E4 /* SearchSheetInfoItem.m */; };
-		A4AFB3241E064C6200FAFBB3 /* SearchChoiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A48F1D5C51FC007530EB /* SearchChoiceController.m */; };
-		A4AFB3251E064C6200FAFBB3 /* SupportRotationSelectNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414AC9C1D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m */; };
-		A4AFB3261E064C6200FAFBB3 /* CheckableTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286538F1D460057002D4139 /* CheckableTitleCell.m */; };
-		A4AFB3271E064C6200FAFBB3 /* EventMediaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B28653A11D46FB73002D4139 /* EventMediaPickerView.m */; };
-		A4AFB3281E064C6200FAFBB3 /* MyEventHistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC0D1D806D4900B0532B /* MyEventHistoryItem.m */; };
-		A4AFB3291E064C6200FAFBB3 /* TitleTextInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B286535E1D45E769002D4139 /* TitleTextInputCell.m */; };
-		A4AFB32A1E064C6200FAFBB3 /* CommitedEventHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */; };
-		A4AFB32B1E064C6200FAFBB3 /* NSString+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = B298C7021D519C74002B40D2 /* NSString+Location.m */; };
-		A4AFB32C1E064C6200FAFBB3 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
-		A4AFB32D1E064C6200FAFBB3 /* MapViewController+InfoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */; };
-		A4AFB32E1E064C6200FAFBB3 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187031D645324006D8CA7 /* NSDictionary+JSON.m */; };
-		A4AFB32F1E064C6200FAFBB3 /* SearchSessionStateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F631E02BBB00091E07A /* SearchSessionStateModel.m */; };
-		A4AFB3301E064C6200FAFBB3 /* MyDealedEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A412B8BA1DB3E6B7003CAE02 /* MyDealedEventViewController.m */; };
-		A4AFB3311E064C6200FAFBB3 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACB01D3A1D890065AAA7 /* ELCAlbumPickerController.m */; };
-		A4AFB3321E064C6200FAFBB3 /* ELCConsole.m in Sources */ = {isa = PBXBuildFile; fileRef = A414ACBA1D3A1D890065AAA7 /* ELCConsole.m */; };
-		A4AFB3331E064C6200FAFBB3 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4FB1D61D378007530EB /* MJRefreshComponent.m */; };
-		A4AFB3341E064C6200FAFBB3 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2BD1DD89AF20011AA22 /* MyChuanKuaYueFeedbackViewController+pickMedia.m */; };
-		A4AFB3351E064C6200FAFBB3 /* Search3DShenMaiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4367F6E1E02ECDF0091E07A /* Search3DShenMaiModel.m */; };
-		A4AFB3361E064C6200FAFBB3 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A4FD1D61D378007530EB /* MJRefreshFooter.m */; };
-		A4AFB3371E064C6200FAFBB3 /* MyEventItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B2CFC35D1D7813D500FA97D3 /* MyEventItemCell.m */; };
-		A4AFB3381E064C6200FAFBB3 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B2A187111D659B6E006D8CA7 /* AuthorizeManager.m */; };
-		A4AFB3391E064C6200FAFBB3 /* LiveDataNormalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC6E1D9027A30016387C /* LiveDataNormalDataViewController.m */; };
-		A4AFB33A1E064C6200FAFBB3 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = B205A5061D61D378007530EB /* MJRefreshAutoNormalFooter.m */; };
-		A4AFB33B1E064C6200FAFBB3 /* MyDealedEventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B2748D751DB4A9FF00C0166F /* MyDealedEventDetailModel.m */; };
-		A4AFB33D1E064C6200FAFBB3 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B245DAB41E011220009886BF /* libxml2.tbd */; };
-		A4AFB33E1E064C6200FAFBB3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468F11D6AF79900AB84AF /* MapKit.framework */; };
-		A4AFB33F1E064C6200FAFBB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B468EF1D6AF79200AB84AF /* CoreLocation.framework */; };
-		A4AFB3401E064C6200FAFBB3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */; };
-		A4AFB3411E064C6200FAFBB3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
-		A4AFB3431E064C6200FAFBB3 /* icon_search.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069D41D682AC80097F7E4 /* icon_search.png */; };
-		A4AFB3441E064C6200FAFBB3 /* icon_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68BC51D693E4800DD603B /* icon_location@2x.png */; };
-		A4AFB3451E064C6200FAFBB3 /* todolist.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B2B307641D9A9702003B821A /* todolist.rtf */; };
-		A4AFB3461E064C6200FAFBB3 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA81D3A1D6C0065AAA7 /* Overlay.png */; };
-		A4AFB3471E064C6200FAFBB3 /* btn_fd.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89A1DB2785F003CAE02 /* btn_fd.png */; };
-		A4AFB3481E064C6200FAFBB3 /* icon_searchreport@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C1A1D693F6300DD603B /* icon_searchreport@3x.png */; };
-		A4AFB3491E064C6200FAFBB3 /* icon_jbxx.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CF1D682AC80097F7E4 /* icon_jbxx.png */; };
-		A4AFB34A1E064C6200FAFBB3 /* icon_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6C1D68A0C800DD603B /* icon_user@2x.png */; };
-		A4AFB34B1E064C6200FAFBB3 /* ELCAlbumPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA51D3A1D6C0065AAA7 /* ELCAlbumPickerController.xib */; };
-		A4AFB34C1E064C6200FAFBB3 /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069DB1D682AC90097F7E4 /* login_bg.png */; };
-		A4AFB34D1E064C6200FAFBB3 /* icon_map_position.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89D1DB27860003CAE02 /* icon_map_position.png */; };
-		A4AFB34E1E064C6200FAFBB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2748D641DB0D78E00C0166F /* Localizable.strings */; };
-		A4AFB34F1E064C6200FAFBB3 /* icon_swck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A41B5E751DFD8D8200678822 /* icon_swck@3x.png */; };
-		A4AFB3501E064C6200FAFBB3 /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1AA1D5091CD00B0B12A /* play@3x.png */; };
-		A4AFB3511E064C6200FAFBB3 /* icon_swxx.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069D01D682AC80097F7E4 /* icon_swxx.png */; };
-		A4AFB3521E064C6200FAFBB3 /* icon_map_daohang.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89C1DB27860003CAE02 /* icon_map_daohang.png */; };
-		A4AFB3531E064C6200FAFBB3 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA71D3A1D6C0065AAA7 /* ELCAssetTablePicker.xib */; };
-		A4AFB3541E064C6200FAFBB3 /* icon_maishen_click.png in Resources */ = {isa = PBXBuildFile; fileRef = B245DAC91E0286A1009886BF /* icon_maishen_click.png */; };
-		A4AFB3551E064C6200FAFBB3 /* icon_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C21D682AC80097F7E4 /* icon_stop.png */; };
-		A4AFB3561E064C6200FAFBB3 /* RedPushpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8C1D3A08150065AAA7 /* RedPushpin@2x.png */; };
-		A4AFB3571E064C6200FAFBB3 /* icon_login.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CB1D682AC80097F7E4 /* icon_login.png */; };
-		A4AFB3581E064C6200FAFBB3 /* icon_change@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68BC41D693E4800DD603B /* icon_change@2x.png */; };
-		A4AFB3591E064C6200FAFBB3 /* animation.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069DC1D682AC90097F7E4 /* animation.png */; };
-		A4AFB35A1E064C6200FAFBB3 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA91D3A1D6C0065AAA7 /* Overlay@2x.png */; };
-		A4AFB35B1E064C6200FAFBB3 /* startup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B205A4831D58790F007530EB /* startup.jpg */; };
-		A4AFB35C1E064C6200FAFBB3 /* icon_passpord@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6B1D68A0C800DD603B /* icon_passpord@2x.png */; };
-		A4AFB35D1E064C6200FAFBB3 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* Launch.storyboard */; };
-		A4AFB35E1E064C6200FAFBB3 /* icon_mywork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C1F1D69403100DD603B /* icon_mywork@3x.png */; };
-		A4AFB35F1E064C6200FAFBB3 /* icon_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069BF1D682AC80097F7E4 /* icon_delete.png */; };
-		A4AFB3601E064C6200FAFBB3 /* icon_gogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CA1D682AC80097F7E4 /* icon_gogo.png */; };
-		A4AFB3611E064C6200FAFBB3 /* wushuju@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2748D6F1DB476E800C0166F /* wushuju@2x.png */; };
-		A4AFB3621E064C6200FAFBB3 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B205A5171D61D378007530EB /* MJRefresh.bundle */; };
-		A4AFB3631E064C6200FAFBB3 /* delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28653B71D4862B3002D4139 /* delete@3x.png */; };
-		A4AFB3641E064C6200FAFBB3 /* icon_qrcode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C201D69403100DD603B /* icon_qrcode@3x.png */; };
-		A4AFB3651E064C6200FAFBB3 /* title@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6F1D68A0C800DD603B /* title@3x.png */; };
-		A4AFB3661E064C6200FAFBB3 /* icon_photo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C01D682AC80097F7E4 /* icon_photo@3x.png */; };
-		A4AFB3671E064C6200FAFBB3 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6D1D68A0C800DD603B /* logo@2x.png */; };
-		A4AFB3681E064C6200FAFBB3 /* RedPushpin.png in Resources */ = {isa = PBXBuildFile; fileRef = A414AC8B1D3A08150065AAA7 /* RedPushpin.png */; };
-		A4AFB3691E064C6200FAFBB3 /* btn_sx.png in Resources */ = {isa = PBXBuildFile; fileRef = A412B89B1DB2785F003CAE02 /* btn_sx.png */; };
-		A4AFB36A1E064C6200FAFBB3 /* icon_eventreport@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68C171D693F6300DD603B /* icon_eventreport@3x.png */; };
-		A4AFB36B1E064C6200FAFBB3 /* icon_maishen.png in Resources */ = {isa = PBXBuildFile; fileRef = A41B5E741DFD8D8200678822 /* icon_maishen.png */; };
-		A4AFB36C1E064C6200FAFBB3 /* icon_movie@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C11D682AC80097F7E4 /* icon_movie@3x.png */; };
-		A4AFB36D1E064C6200FAFBB3 /* icon_map_search@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C81D682AC80097F7E4 /* icon_map_search@3x.png */; };
-		A4AFB36E1E064C6200FAFBB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86921D0976B00096B548 /* Assets.xcassets */; };
-		A4AFB36F1E064C6200FAFBB3 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B245DAB71E015133009886BF /* arrow.png */; };
-		A4AFB3701E064C6200FAFBB3 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
-		A4AFB3711E064C6200FAFBB3 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C41D682AC80097F7E4 /* close.png */; };
-		A4AFB3721E064C6200FAFBB3 /* mappoint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CE1D682AC80097F7E4 /* mappoint@2x.png */; };
-		A4AFB3731E064C6200FAFBB3 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */; };
-		A4AFB3741E064C6200FAFBB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD868F1D0976B00096B548 /* Main.storyboard */; };
-		A4AFB3751E064C6200FAFBB3 /* icon_goback@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C51D682AC80097F7E4 /* icon_goback@3x.png */; };
-		A4AFB3761E064C6200FAFBB3 /* icon_map_searchgo.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CD1D682AC80097F7E4 /* icon_map_searchgo.png */; };
-		A4AFB3771E064C6200FAFBB3 /* title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6E1D68A0C800DD603B /* title@2x.png */; };
-		A4AFB3781E064C6200FAFBB3 /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28653B61D4862B3002D4139 /* delete@2x.png */; };
-		A4AFB3791E064C6200FAFBB3 /* icon_more.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069CC1D682AC80097F7E4 /* icon_more.png */; };
-		A4AFB37A1E064C6200FAFBB3 /* icon_more_white.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C61D682AC80097F7E4 /* icon_more_white.png */; };
-		A4AFB37B1E064C6200FAFBB3 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2C6B1A91D5091CD00B0B12A /* play@2x.png */; };
-		A4AFB37C1E064C6200FAFBB3 /* ELCAssetPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = A414ACA61D3A1D6C0065AAA7 /* ELCAssetPicker.xib */; };
-		A4AFB37D1E064C6200FAFBB3 /* icon_jbxx_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069D11D682AC80097F7E4 /* icon_jbxx_disable.png */; };
-		A4AFB37E1E064C6200FAFBB3 /* icon_map_searchpoint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069C91D682AC80097F7E4 /* icon_map_searchpoint@2x.png */; };
-		A4AFB37F1E064C6200FAFBB3 /* icon_swxx_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = B28069D21D682AC80097F7E4 /* icon_swxx_disable.png */; };
 		A4AFB3881E0677E100FAFBB3 /* DistanceEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3871E0677E100FAFBB3 /* DistanceEngine.m */; };
 		A4AFB38B1E06A0CC00FAFBB3 /* DistanceCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38A1E06A0CC00FAFBB3 /* DistanceCalloutView.m */; };
-		A4AFB38C1E06A0CC00FAFBB3 /* DistanceCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38A1E06A0CC00FAFBB3 /* DistanceCalloutView.m */; };
 		A4AFB38F1E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38E1E06B60800FAFBB3 /* DistanceMapViewController.m */; };
-		A4AFB3901E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB38E1E06B60800FAFBB3 /* DistanceMapViewController.m */; };
 		A4AFB3931E0A4EEC00FAFBB3 /* TrackLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */; };
-		A4AFB3941E0A546C00FAFBB3 /* TrackLocationManager.h in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3911E0A4EEC00FAFBB3 /* TrackLocationManager.h */; };
-		A4AFB3951E0A546C00FAFBB3 /* TrackLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3921E0A4EEC00FAFBB3 /* TrackLocationManager.m */; };
 		A4AFB3981E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */; };
-		A4AFB3991E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3971E0A654600FAFBB3 /* NGQAirUpItem.m */; };
 		A4AFB39C1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */; };
-		A4AFB39D1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39B1E0A656300FAFBB3 /* NGQAirDownItem.m */; };
 		A4AFB3A01E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */; };
-		A4AFB3A11E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB39F1E0A658600FAFBB3 /* NGQWellUpItem.m */; };
 		A4AFB3A41E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */; };
-		A4AFB3A51E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AFB3A31E0A686200FAFBB3 /* NGQWellDownItem.m */; };
 		A4CED2AD1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AC1DD864C70011AA22 /* MyChuanKuaYueDetailViewController.m */; };
 		A4CED2B01DD879120011AA22 /* ClosableWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2AF1DD879120011AA22 /* ClosableWebView.m */; };
 		A4CED2B31DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CED2B21DD881A60011AA22 /* MyChuanKuaYueHistoryListViewController.m */; };
@@ -461,7 +133,6 @@
 		A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC951D9AB8F50016387C /* SearchSheetItemManager.m */; };
 		A4CFBC9A1D9C12EF0016387C /* DGQWellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4CFBC991D9C12EF0016387C /* DGQWellItem.m */; };
 		A4CFD3671E0A846700037ADA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFD3661E0A846700037ADA /* WebKit.framework */; };
-		A4CFD3681E0A846E00037ADA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CFD3661E0A846700037ADA /* WebKit.framework */; };
 		A4DD86881D0976B00096B548 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD86871D0976B00096B548 /* main.m */; };
 		A4DD868B1D0976B00096B548 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868A1D0976B00096B548 /* AppDelegate.m */; };
 		A4DD868E1D0976B00096B548 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DD868D1D0976B00096B548 /* MapViewController.m */; };
@@ -933,6 +604,14 @@
 		A4A4AF8E1DAE7BB3009D0004 /* CommitedEventHistoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryModel.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryModel.m; sourceTree = "<group>"; };
 		A4A4AF901DAE852D009D0004 /* CommitedEventHistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommitedEventHistoryItem.h; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.h; sourceTree = "<group>"; };
 		A4A4AF911DAE852D009D0004 /* CommitedEventHistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommitedEventHistoryItem.m; path = functions/NSBDBusiness/Model/CommitedEventHistoryItem.m; sourceTree = "<group>"; };
+		A4A6974A1E0C2B5B002332CE /* YYPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPhotoGroupView.h; sourceTree = "<group>"; };
+		A4A6974B1E0C2B5B002332CE /* YYPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPhotoGroupView.m; sourceTree = "<group>"; };
+		A4A6974E1E0C2FB5002332CE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A4A697501E0C2FC6002332CE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A4A697521E0C2FD2002332CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A4A697541E0C2FDF002332CE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A4A697561E0C2FE8002332CE /* libz.1.2.5.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.5.tbd; path = usr/lib/libz.1.2.5.tbd; sourceTree = SDKROOT; };
+		A4A697581E0C2FFA002332CE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A4AEF0461DD74F8A00903925 /* TianDiTuWMTSLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSLayer.h; path = Component/TianDiTuWMTSLayer.h; sourceTree = "<group>"; };
 		A4AEF0471DD74F8A00903925 /* TianDiTuWMTSLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSLayer.m; path = Component/TianDiTuWMTSLayer.m; sourceTree = "<group>"; };
 		A4AEF0481DD74F8A00903925 /* TianDiTuWMTSLayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TianDiTuWMTSLayerInfo.h; path = Component/TianDiTuWMTSLayerInfo.h; sourceTree = "<group>"; };
@@ -943,7 +622,6 @@
 		A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TianDiTuWMTSTileOperation.m; path = Component/TianDiTuWMTSTileOperation.m; sourceTree = "<group>"; };
 		A4AEF0521DD825FF00903925 /* AttachmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentModel.h; path = functions/NSBDBusiness/Model/AttachmentModel.h; sourceTree = "<group>"; };
 		A4AEF0531DD825FF00903925 /* AttachmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentModel.m; path = functions/NSBDBusiness/Model/AttachmentModel.m; sourceTree = "<group>"; };
-		A4AFB3831E064C6200FAFBB3 /* NSBDMobileSearchPlatform copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NSBDMobileSearchPlatform copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AFB3841E064C6300FAFBB3 /* NSBDMobile3DPlatform.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = NSBDMobile3DPlatform.plist; path = /Users/fifila/Documents/git/NSBD/NSBDMobile3DPlatform.plist; sourceTree = "<absolute>"; };
 		A4AFB3861E0677E100FAFBB3 /* DistanceEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceEngine.h; sourceTree = "<group>"; };
 		A4AFB3871E0677E100FAFBB3 /* DistanceEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceEngine.m; sourceTree = "<group>"; };
@@ -1560,23 +1238,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A4AFB33C1E064C6200FAFBB3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4CFD3681E0A846E00037ADA /* WebKit.framework in Frameworks */,
-				A4AFB33D1E064C6200FAFBB3 /* libxml2.tbd in Frameworks */,
-				A4AFB33E1E064C6200FAFBB3 /* MapKit.framework in Frameworks */,
-				A4AFB33F1E064C6200FAFBB3 /* CoreLocation.framework in Frameworks */,
-				A4AFB3401E064C6200FAFBB3 /* AVFoundation.framework in Frameworks */,
-				A4AFB3411E064C6200FAFBB3 /* libc++.tbd in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A4DD86801D0976B00096B548 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A697591E0C2FFA002332CE /* libsqlite3.tbd in Frameworks */,
+				A4A697571E0C2FE8002332CE /* libz.1.2.5.tbd in Frameworks */,
+				A4A697551E0C2FDF002332CE /* CFNetwork.framework in Frameworks */,
+				A4A697531E0C2FD2002332CE /* CoreGraphics.framework in Frameworks */,
+				A4A697511E0C2FC6002332CE /* MobileCoreServices.framework in Frameworks */,
+				A4A6974F1E0C2FB5002332CE /* SystemConfiguration.framework in Frameworks */,
 				A4CFD3671E0A846700037ADA /* WebKit.framework in Frameworks */,
 				B245DAB51E011220009886BF /* libxml2.tbd in Frameworks */,
 				B2B468F21D6AF79900AB84AF /* MapKit.framework in Frameworks */,
@@ -1917,6 +1588,15 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		A4A697491E0C2B5B002332CE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				A4A6974A1E0C2B5B002332CE /* YYPhotoGroupView.h */,
+				A4A6974B1E0C2B5B002332CE /* YYPhotoGroupView.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		A4AFB3851E0677C400FAFBB3 /* Distance */ = {
 			isa = PBXGroup;
 			children = (
@@ -1990,7 +1670,6 @@
 			isa = PBXGroup;
 			children = (
 				A4DD86831D0976B00096B548 /* NSBDMobileSearchPlatform.app */,
-				A4AFB3831E064C6200FAFBB3 /* NSBDMobileSearchPlatform copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2265,6 +1944,12 @@
 		B245DAB31E011220009886BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A4A697581E0C2FFA002332CE /* libsqlite3.tbd */,
+				A4A697561E0C2FE8002332CE /* libz.1.2.5.tbd */,
+				A4A697541E0C2FDF002332CE /* CFNetwork.framework */,
+				A4A697521E0C2FD2002332CE /* CoreGraphics.framework */,
+				A4A697501E0C2FC6002332CE /* MobileCoreServices.framework */,
+				A4A6974E1E0C2FB5002332CE /* SystemConfiguration.framework */,
 				A4CFD3661E0A846700037ADA /* WebKit.framework */,
 				B245DAB41E011220009886BF /* libxml2.tbd */,
 			);
@@ -2364,6 +2049,7 @@
 		B28475AB1E0BC22100A4AB98 /* YYKit */ = {
 			isa = PBXGroup;
 			children = (
+				A4A697491E0C2B5B002332CE /* Other */,
 				B28475AC1E0BC22100A4AB98 /* Base */,
 				B28475ED1E0BC22100A4AB98 /* Cache */,
 				B28475F61E0BC22100A4AB98 /* Image */,
@@ -3072,23 +2758,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A4AFB2351E064C6200FAFBB3 /* NSBDMobileSearchPlatform copy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A4AFB3801E064C6200FAFBB3 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform copy" */;
-			buildPhases = (
-				A4AFB2361E064C6200FAFBB3 /* Sources */,
-				A4AFB33C1E064C6200FAFBB3 /* Frameworks */,
-				A4AFB3421E064C6200FAFBB3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "NSBDMobileSearchPlatform copy";
-			productName = arcgisHelloworld;
-			productReference = A4AFB3831E064C6200FAFBB3 /* NSBDMobileSearchPlatform copy.app */;
-			productType = "com.apple.product-type.application";
-		};
 		A4DD86821D0976B00096B548 /* NSBDMobileSearchPlatform */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform" */;
@@ -3115,9 +2784,6 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = fifila;
 				TargetAttributes = {
-					A4AFB2351E064C6200FAFBB3 = {
-						DevelopmentTeam = 92H9654326;
-					};
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 92H9654326;
@@ -3144,80 +2810,11 @@
 			projectRoot = "";
 			targets = (
 				A4DD86821D0976B00096B548 /* NSBDMobileSearchPlatform */,
-				A4AFB2351E064C6200FAFBB3 /* NSBDMobileSearchPlatform copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A4AFB3421E064C6200FAFBB3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4AFB3431E064C6200FAFBB3 /* icon_search.png in Resources */,
-				A4AFB3441E064C6200FAFBB3 /* icon_location@2x.png in Resources */,
-				A4AFB3451E064C6200FAFBB3 /* todolist.rtf in Resources */,
-				A4AFB3461E064C6200FAFBB3 /* Overlay.png in Resources */,
-				A4AFB3471E064C6200FAFBB3 /* btn_fd.png in Resources */,
-				A4AFB3481E064C6200FAFBB3 /* icon_searchreport@3x.png in Resources */,
-				A4AFB3491E064C6200FAFBB3 /* icon_jbxx.png in Resources */,
-				A4AFB34A1E064C6200FAFBB3 /* icon_user@2x.png in Resources */,
-				A4AFB34B1E064C6200FAFBB3 /* ELCAlbumPickerController.xib in Resources */,
-				A4AFB34C1E064C6200FAFBB3 /* login_bg.png in Resources */,
-				A4AFB34D1E064C6200FAFBB3 /* icon_map_position.png in Resources */,
-				A4AFB34E1E064C6200FAFBB3 /* Localizable.strings in Resources */,
-				A4AFB34F1E064C6200FAFBB3 /* icon_swck@3x.png in Resources */,
-				A4AFB3501E064C6200FAFBB3 /* play@3x.png in Resources */,
-				A4AFB3511E064C6200FAFBB3 /* icon_swxx.png in Resources */,
-				A4AFB3521E064C6200FAFBB3 /* icon_map_daohang.png in Resources */,
-				A4AFB3531E064C6200FAFBB3 /* ELCAssetTablePicker.xib in Resources */,
-				A4AFB3541E064C6200FAFBB3 /* icon_maishen_click.png in Resources */,
-				A4AFB3551E064C6200FAFBB3 /* icon_stop.png in Resources */,
-				A4AFB3561E064C6200FAFBB3 /* RedPushpin@2x.png in Resources */,
-				A4AFB3571E064C6200FAFBB3 /* icon_login.png in Resources */,
-				A4AFB3581E064C6200FAFBB3 /* icon_change@2x.png in Resources */,
-				A4AFB3591E064C6200FAFBB3 /* animation.png in Resources */,
-				A4AFB35A1E064C6200FAFBB3 /* Overlay@2x.png in Resources */,
-				A4AFB35B1E064C6200FAFBB3 /* startup.jpg in Resources */,
-				A4AFB35C1E064C6200FAFBB3 /* icon_passpord@2x.png in Resources */,
-				A4AFB35D1E064C6200FAFBB3 /* Launch.storyboard in Resources */,
-				A4AFB35E1E064C6200FAFBB3 /* icon_mywork@3x.png in Resources */,
-				A4AFB35F1E064C6200FAFBB3 /* icon_delete.png in Resources */,
-				A4AFB3601E064C6200FAFBB3 /* icon_gogo.png in Resources */,
-				A4AFB3611E064C6200FAFBB3 /* wushuju@2x.png in Resources */,
-				A4AFB3621E064C6200FAFBB3 /* MJRefresh.bundle in Resources */,
-				A4AFB3631E064C6200FAFBB3 /* delete@3x.png in Resources */,
-				A4AFB3641E064C6200FAFBB3 /* icon_qrcode@3x.png in Resources */,
-				A4AFB3651E064C6200FAFBB3 /* title@3x.png in Resources */,
-				A4AFB3661E064C6200FAFBB3 /* icon_photo@3x.png in Resources */,
-				A4AFB3671E064C6200FAFBB3 /* logo@2x.png in Resources */,
-				A4AFB3681E064C6200FAFBB3 /* RedPushpin.png in Resources */,
-				A4AFB3691E064C6200FAFBB3 /* btn_sx.png in Resources */,
-				A4AFB36A1E064C6200FAFBB3 /* icon_eventreport@3x.png in Resources */,
-				A4AFB36B1E064C6200FAFBB3 /* icon_maishen.png in Resources */,
-				A4AFB36C1E064C6200FAFBB3 /* icon_movie@3x.png in Resources */,
-				A4AFB36D1E064C6200FAFBB3 /* icon_map_search@3x.png in Resources */,
-				A4AFB36E1E064C6200FAFBB3 /* Assets.xcassets in Resources */,
-				A4AFB36F1E064C6200FAFBB3 /* arrow.png in Resources */,
-				A4AFB3701E064C6200FAFBB3 /* ArcGIS.bundle in Resources */,
-				A4AFB3711E064C6200FAFBB3 /* close.png in Resources */,
-				A4AFB3721E064C6200FAFBB3 /* mappoint@2x.png in Resources */,
-				A4AFB3731E064C6200FAFBB3 /* SVProgressHUD.bundle in Resources */,
-				A4AFB3741E064C6200FAFBB3 /* Main.storyboard in Resources */,
-				A4AFB3751E064C6200FAFBB3 /* icon_goback@3x.png in Resources */,
-				A4AFB3761E064C6200FAFBB3 /* icon_map_searchgo.png in Resources */,
-				A4AFB3771E064C6200FAFBB3 /* title@2x.png in Resources */,
-				A4AFB3781E064C6200FAFBB3 /* delete@2x.png in Resources */,
-				A4AFB3791E064C6200FAFBB3 /* icon_more.png in Resources */,
-				A4AFB37A1E064C6200FAFBB3 /* icon_more_white.png in Resources */,
-				A4AFB37B1E064C6200FAFBB3 /* play@2x.png in Resources */,
-				A4AFB37C1E064C6200FAFBB3 /* ELCAssetPicker.xib in Resources */,
-				A4AFB37D1E064C6200FAFBB3 /* icon_jbxx_disable.png in Resources */,
-				A4AFB37E1E064C6200FAFBB3 /* icon_map_searchpoint@2x.png in Resources */,
-				A4AFB37F1E064C6200FAFBB3 /* icon_swxx_disable.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A4DD86811D0976B00096B548 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3291,282 +2888,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A4AFB2361E064C6200FAFBB3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A4AFB3941E0A546C00FAFBB3 /* TrackLocationManager.h in Sources */,
-				A4AFB3951E0A546C00FAFBB3 /* TrackLocationManager.m in Sources */,
-				A4AFB2371E064C6200FAFBB3 /* MJRefreshGifHeader.m in Sources */,
-				A4AFB2381E064C6200FAFBB3 /* MediaPickerManager.m in Sources */,
-				A4AFB2391E064C6200FAFBB3 /* DNAirItem.m in Sources */,
-				A4AFB23A1E064C6200FAFBB3 /* NGQAirItem.m in Sources */,
-				A4AFB23B1E064C6200FAFBB3 /* MyEventHistoryCell.m in Sources */,
-				A4AFB23C1E064C6200FAFBB3 /* HttpMetaData.m in Sources */,
-				A4AFB23D1E064C6200FAFBB3 /* MyChuanKuaYueItem.m in Sources */,
-				A4AFB23E1E064C6200FAFBB3 /* TitleDetailCell.m in Sources */,
-				A4AFB23F1E064C6200FAFBB3 /* DGQLine.m in Sources */,
-				A4AFB2401E064C6200FAFBB3 /* LocationManager.m in Sources */,
-				A4AFB2411E064C6200FAFBB3 /* LoginViewController.m in Sources */,
-				A4AFB2421E064C6200FAFBB3 /* TianDiTuWMTSTileOperation.m in Sources */,
-				A4AFB2431E064C6200FAFBB3 /* EventMediaCollectionView.m in Sources */,
-				A4AFB2441E064C6200FAFBB3 /* Search3DHeaderModel.m in Sources */,
-				A4AFB2451E064C6200FAFBB3 /* RouteMapViewController.m in Sources */,
-				A4AFB2461E064C6200FAFBB3 /* UploadAttachmentModel.m in Sources */,
-				A4AFB2471E064C6200FAFBB3 /* NSString+LVPath.m in Sources */,
-				A4AFB2481E064C6200FAFBB3 /* TianDiTuWMTSLayerInfo.m in Sources */,
-				A4AFB3A11E0A658600FAFBB3 /* NGQWellUpItem.m in Sources */,
-				A4AFB2491E064C6200FAFBB3 /* MJFoundation.m in Sources */,
-				A4AFB24A1E064C6200FAFBB3 /* Search3DWordsLayoutView.m in Sources */,
-				A4AFB24B1E064C6200FAFBB3 /* User.m in Sources */,
-				A4AFB24C1E064C6200FAFBB3 /* ELCOverlayImageView.m in Sources */,
-				A4AFB24D1E064C6200FAFBB3 /* MASLayoutConstraint.m in Sources */,
-				A4AFB24E1E064C6200FAFBB3 /* MyUploadedEventCell.m in Sources */,
-				A4AFB24F1E064C6200FAFBB3 /* FacilityInfoItem+AGSGraphics.m in Sources */,
-				A4AFB2501E064C6200FAFBB3 /* LiveDataDetailShuikuInfoViewController.m in Sources */,
-				A4AFB2511E064C6200FAFBB3 /* UIView+MJExtension.m in Sources */,
-				A4AFB2521E064C6200FAFBB3 /* TitleInputItem.m in Sources */,
-				A4AFB2531E064C6200FAFBB3 /* ChoicePickerViewController.m in Sources */,
-				A4AFB2541E064C6200FAFBB3 /* QRCodeReaderView.m in Sources */,
-				A4AFB2551E064C6200FAFBB3 /* ThreeColumnCell.m in Sources */,
-				A4AFB2561E064C6200FAFBB3 /* MyDealedEventDetailProgressModel.m in Sources */,
-				A4AFB2571E064C6200FAFBB3 /* NSObject+MJCoding.m in Sources */,
-				A4AFB2581E064C6200FAFBB3 /* MyChuanKuaYueFeedbackViewController.m in Sources */,
-				A4AFB2591E064C6200FAFBB3 /* MASCompositeConstraint.m in Sources */,
-				A4AFB25A1E064C6200FAFBB3 /* NGQWellItem.m in Sources */,
-				A4AFB25B1E064C6200FAFBB3 /* SearchStartModel.m in Sources */,
-				A4AFB25C1E064C6200FAFBB3 /* MapSearchInfoViewController.m in Sources */,
-				A4AFB25D1E064C6200FAFBB3 /* TitleItem.m in Sources */,
-				A4AFB25E1E064C6200FAFBB3 /* HttpHost.m in Sources */,
-				A4AFB25F1E064C6200FAFBB3 /* MJRefreshBackStateFooter.m in Sources */,
-				A4AFB2601E064C6200FAFBB3 /* InfoAGSMapView.m in Sources */,
-				A4AFB2611E064C6200FAFBB3 /* NSBundle+MJRefresh.m in Sources */,
-				A4AFB2621E064C6200FAFBB3 /* MJRefreshStateHeader.m in Sources */,
-				A4AFB2631E064C6200FAFBB3 /* MJRefreshHeader.m in Sources */,
-				A4AFB2641E064C6200FAFBB3 /* UIScrollView+MJExtension.m in Sources */,
-				A4AFB2651E064C6200FAFBB3 /* MASConstraint.m in Sources */,
-				A4AFB2661E064C6200FAFBB3 /* MyEventItem.m in Sources */,
-				A4AFB2671E064C6200FAFBB3 /* MASViewAttribute.m in Sources */,
-				A4AFB2681E064C6200FAFBB3 /* MyEventListModel.m in Sources */,
-				A4AFB2691E064C6200FAFBB3 /* ELCAsset.m in Sources */,
-				A4AFB26A1E064C6200FAFBB3 /* SearchDetailSheetViewController+pickMedia.m in Sources */,
-				A4AFB26B1E064C6200FAFBB3 /* AppDelegate+LaunchInits.m in Sources */,
-				A4AFB26C1E064C6200FAFBB3 /* MASConstraintMaker.m in Sources */,
-				A4AFB26D1E064C6200FAFBB3 /* MyEventDetailViewController+pickMedia.m in Sources */,
-				A4AFB26E1E064C6200FAFBB3 /* EventHttpManager.m in Sources */,
-				A4AFB26F1E064C6200FAFBB3 /* TimerView.m in Sources */,
-				A4AFB2701E064C6200FAFBB3 /* MyWorkViewController.m in Sources */,
-				A4AFB2711E064C6200FAFBB3 /* MyChuanKuaYueProgressModel.m in Sources */,
-				A4AFB2721E064C6200FAFBB3 /* SearchSheetGroupItem.m in Sources */,
-				A4AFB2731E064C6200FAFBB3 /* SearchSheetCellFactory.m in Sources */,
-				A4AFB2741E064C6200FAFBB3 /* UIProgressView+AFNetworking.m in Sources */,
-				A4AFB2751E064C6200FAFBB3 /* LiveDataShuiweiViewController.m in Sources */,
-				A4AFB2761E064C6200FAFBB3 /* MapViewController.m in Sources */,
-				A4AFB2771E064C6200FAFBB3 /* MJRefreshAutoFooter.m in Sources */,
-				A4AFB2781E064C6200FAFBB3 /* SVProgressHUD.m in Sources */,
-				A4AFB2791E064C6200FAFBB3 /* ComboBoxCell.m in Sources */,
-				A4AFB27A1E064C6200FAFBB3 /* ClosableWebView.m in Sources */,
-				A4AFB3901E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */,
-				A4AFB27B1E064C6200FAFBB3 /* Home3DViewController.m in Sources */,
-				A4AFB27C1E064C6200FAFBB3 /* Search3DResultItem.m in Sources */,
-				A4AFB27D1E064C6200FAFBB3 /* MyChuanKuaYueDetailViewController.m in Sources */,
-				A4AFB27E1E064C6200FAFBB3 /* DatePickViewController.m in Sources */,
-				A4AFB27F1E064C6200FAFBB3 /* MyEventDetailProgressModel.m in Sources */,
-				A4AFB2801E064C6200FAFBB3 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				A4AFB2811E064C6200FAFBB3 /* QRModelsManager.m in Sources */,
-				A4AFB2821E064C6200FAFBB3 /* TitleDateItem.m in Sources */,
-				A4AFB2831E064C6200FAFBB3 /* UIScrollView+MJRefresh.m in Sources */,
-				A4AFB2841E064C6200FAFBB3 /* LiveDataLiuliangViewController.m in Sources */,
-				A4AFB2851E064C6200FAFBB3 /* NSObject+MJKeyValue.m in Sources */,
-				A4AFB2861E064C6200FAFBB3 /* SearchHomePageModel.m in Sources */,
-				A4AFB38C1E06A0CC00FAFBB3 /* DistanceCalloutView.m in Sources */,
-				A4AFB2871E064C6200FAFBB3 /* MyDealedEventDetailViewController.m in Sources */,
-				A4AFB2881E064C6200FAFBB3 /* Search3DShenMaiItem.m in Sources */,
-				A4AFB2891E064C6200FAFBB3 /* TextPickerViewController.m in Sources */,
-				A4AFB28A1E064C6200FAFBB3 /* SVIndefiniteAnimatedView.m in Sources */,
-				A4AFB28B1E064C6200FAFBB3 /* SearchHistoryManager.m in Sources */,
-				A4AFB28C1E064C6200FAFBB3 /* SearchSessionManager.m in Sources */,
-				A4AFB28D1E064C6200FAFBB3 /* MJType.m in Sources */,
-				A4AFB28E1E064C6200FAFBB3 /* UIImage+VideoThumb.m in Sources */,
-				A4AFB28F1E064C6200FAFBB3 /* UIView+ViewController.m in Sources */,
-				A4AFB2901E064C6200FAFBB3 /* SearchLocationReportManager.m in Sources */,
-				A4AFB2911E064C6200FAFBB3 /* UIWebView+AFNetworking.m in Sources */,
-				A4AFB2921E064C6200FAFBB3 /* UITableView+EmptyView.m in Sources */,
-				A4AFB2931E064C6200FAFBB3 /* MASViewConstraint.m in Sources */,
-				A4AFB2941E064C6200FAFBB3 /* QRCodeReaderViewController.m in Sources */,
-				A4AFB2951E064C6200FAFBB3 /* SearchHistoryModel.m in Sources */,
-				A4AFB2961E064C6200FAFBB3 /* SearchSheetItemManager.m in Sources */,
-				A4AFB2971E064C6200FAFBB3 /* SearchSessionItem.m in Sources */,
-				A4AFB2981E064C6200FAFBB3 /* ThreeColumnItem.m in Sources */,
-				A4AFB2991E064C6200FAFBB3 /* LiveDataGongchenViewController.m in Sources */,
-				A4AFB29A1E064C6200FAFBB3 /* ELCAssetTablePicker.m in Sources */,
-				A4AFB29B1E064C6200FAFBB3 /* QRSeparatorCell.m in Sources */,
-				A4AFB29C1E064C6200FAFBB3 /* AFURLSessionManager.m in Sources */,
-				A4AFB29D1E064C6200FAFBB3 /* LiveDataShuikuViewController.m in Sources */,
-				A4AFB29E1E064C6200FAFBB3 /* UIView+ActivityIndicator.m in Sources */,
-				A4AFB29F1E064C6200FAFBB3 /* LiveDataYuqingViewController.m in Sources */,
-				A4AFB2A01E064C6200FAFBB3 /* EventDetailView.m in Sources */,
-				A4AFB2A11E064C6200FAFBB3 /* SearchCategoryItem.m in Sources */,
-				A4AFB2A21E064C6200FAFBB3 /* UIRefreshControl+AFNetworking.m in Sources */,
-				A4AFB2A31E064C6200FAFBB3 /* ELCAssetCell.m in Sources */,
-				A4AFB2A41E064C6200FAFBB3 /* AppDelegate.m in Sources */,
-				A4AFB2A51E064C6200FAFBB3 /* ComboBox.m in Sources */,
-				A4AFB2A61E064C6200FAFBB3 /* SearchHistoryTaskItem.m in Sources */,
-				A4AFB2A71E064C6200FAFBB3 /* QRSystemAlertController.m in Sources */,
-				A4AFB2A81E064C6200FAFBB3 /* AttachmentItem.m in Sources */,
-				A4AFB2A91E064C6200FAFBB3 /* SearchHistoryDetailSheetModel.m in Sources */,
-				A4AFB2AA1E064C6200FAFBB3 /* EventModelManager.m in Sources */,
-				A4AFB2AB1E064C6200FAFBB3 /* CheckableTitleItem.m in Sources */,
-				A4AFB2AC1E064C6200FAFBB3 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				A4AFB2AD1E064C6200FAFBB3 /* DNLine.m in Sources */,
-				A4AFB2AE1E064C6200FAFBB3 /* HttpBaseModel.m in Sources */,
-				A4AFB2AF1E064C6200FAFBB3 /* UIImageView+AFNetworking.m in Sources */,
-				A4AFB2B01E064C6200FAFBB3 /* Search3DResultModel.m in Sources */,
-				A4AFB2B11E064C6200FAFBB3 /* CallOutItem.m in Sources */,
-				A4AFB2B21E064C6200FAFBB3 /* MJRefreshNormalHeader.m in Sources */,
-				A4AFB2B31E064C6200FAFBB3 /* CommitedEventHistoryItem.m in Sources */,
-				A4AFB2B41E064C6200FAFBB3 /* NSDictionary+HttpParam.m in Sources */,
-				A4AFB2B51E064C6200FAFBB3 /* MJRefreshAutoStateFooter.m in Sources */,
-				A4AFB2B61E064C6200FAFBB3 /* RouteSearchResultItem.m in Sources */,
-				A4AFB2B71E064C6200FAFBB3 /* MJProperty.m in Sources */,
-				A4AFB2B81E064C6200FAFBB3 /* SearchDetailSheetViewController.m in Sources */,
-				A4AFB2B91E064C6200FAFBB3 /* RouteSearchResultCell.m in Sources */,
-				A4AFB2BA1E064C6200FAFBB3 /* DGQWaterItem.m in Sources */,
-				A4AFB2BB1E064C6200FAFBB3 /* RouteSearchViewController.m in Sources */,
-				A4AFB2BC1E064C6200FAFBB3 /* MJRefreshBackNormalFooter.m in Sources */,
-				A4AFB2BD1E064C6200FAFBB3 /* EventReportViewController.m in Sources */,
-				A4AFB2BE1E064C6200FAFBB3 /* CheckableImageView.m in Sources */,
-				A4AFB2BF1E064C6200FAFBB3 /* SearchCategoryModel.m in Sources */,
-				A4AFB2C01E064C6200FAFBB3 /* AFHTTPSessionManager.m in Sources */,
-				A4AFB2C11E064C6200FAFBB3 /* TianDiTuWMTSLayer.m in Sources */,
-				A4AFB2C21E064C6200FAFBB3 /* Search3DResultCell.m in Sources */,
-				A4AFB2C31E064C6200FAFBB3 /* GDataXMLNode.m in Sources */,
-				A4AFB2C41E064C6200FAFBB3 /* MyDealedEventItem.m in Sources */,
-				A4AFB2C51E064C6200FAFBB3 /* FacilityDetailInfoViewController.m in Sources */,
-				A4AFB2C61E064C6200FAFBB3 /* Search3DHttpManager.m in Sources */,
-				A4AFB2C71E064C6200FAFBB3 /* BaseTitleCell.m in Sources */,
-				A4AFB2C81E064C6200FAFBB3 /* MJRefreshBackGifFooter.m in Sources */,
-				A4AFB2C91E064C6200FAFBB3 /* FacilityInfoItem.m in Sources */,
-				A4AFB2CA1E064C6200FAFBB3 /* AttachmentModel.m in Sources */,
-				A4AFB2CB1E064C6200FAFBB3 /* DownPicker.m in Sources */,
-				A4AFB2CC1E064C6200FAFBB3 /* MyChuanKuaYueListModel.m in Sources */,
-				A4AFB2CD1E064C6200FAFBB3 /* MyDealedEventListModel.m in Sources */,
-				A4AFB2CE1E064C6200FAFBB3 /* LiveDataMainViewController.m in Sources */,
-				A4AFB2CF1E064C6200FAFBB3 /* DGQAirItem.m in Sources */,
-				A4AFB2D01E064C6200FAFBB3 /* RouteStartEndPickerController.m in Sources */,
-				A4AFB2D11E064C6200FAFBB3 /* UIButton+AFNetworking.m in Sources */,
-				A4AFB2D21E064C6200FAFBB3 /* ELCImagePickerController.m in Sources */,
-				A4AFB2D31E064C6200FAFBB3 /* LiveDataYuqingHeaderView.m in Sources */,
-				A4AFB2D41E064C6200FAFBB3 /* NSBDBaseUIItem.m in Sources */,
-				A4AFB2D51E064C6200FAFBB3 /* MJRefreshConst.m in Sources */,
-				A4AFB2D61E064C6200FAFBB3 /* View+MASAdditions.m in Sources */,
-				A4AFB2D71E064C6200FAFBB3 /* NSArray+MASAdditions.m in Sources */,
-				A4AFB2D81E064C6200FAFBB3 /* TitleDetailTextItem.m in Sources */,
-				A4AFB2D91E064C6200FAFBB3 /* FacilityInfoModel.m in Sources */,
-				A4AFB2DA1E064C6200FAFBB3 /* MJRefreshAutoGifFooter.m in Sources */,
-				A4AFB2DB1E064C6200FAFBB3 /* TitleDetailItem.m in Sources */,
-				A4AFB2DC1E064C6200FAFBB3 /* DNWellItem.m in Sources */,
-				A4AFB2DD1E064C6200FAFBB3 /* LoginModel.m in Sources */,
-				A4AFB2DE1E064C6200FAFBB3 /* NSObject+MJProperty.m in Sources */,
-				A4AFB2DF1E064C6200FAFBB3 /* AFSecurityPolicy.m in Sources */,
-				A4AFB2E01E064C6200FAFBB3 /* FacilityManager.m in Sources */,
-				A4AFB2E11E064C6200FAFBB3 /* SearchTaskStatusModel.m in Sources */,
-				A4AFB2E21E064C6200FAFBB3 /* EventReportModel.m in Sources */,
-				A4AFB2E31E064C6200FAFBB3 /* ItemCallOutView.m in Sources */,
-				A4AFB2E41E064C6200FAFBB3 /* ImageContentViewController.m in Sources */,
-				A4AFB2E51E064C6200FAFBB3 /* MyChuanKuaYueListItemCell.m in Sources */,
-				A4AFB2E61E064C6200FAFBB3 /* MyChuanKuaYueHistoryListViewController.m in Sources */,
-				A4AFB2E71E064C6200FAFBB3 /* MJRefreshBackFooter.m in Sources */,
-				A4AFB2E81E064C6200FAFBB3 /* MyChuanKuaYueHistoryCell.m in Sources */,
-				A4AFB2E91E064C6200FAFBB3 /* TokenManager.m in Sources */,
-				A4AFB2EA1E064C6200FAFBB3 /* NSString+MD5Addition.m in Sources */,
-				A4AFB2EB1E064C6200FAFBB3 /* AFAutoPurgingImageCache.m in Sources */,
-				A4AFB2EC1E064C6200FAFBB3 /* WeatherManager.m in Sources */,
-				A4AFB2ED1E064C6200FAFBB3 /* ThreeColumnView.m in Sources */,
-				A4AFB3991E0A654600FAFBB3 /* NGQAirUpItem.m in Sources */,
-				A4AFB2EE1E064C6200FAFBB3 /* SearchHistoryItem.m in Sources */,
-				A4AFB2EF1E064C6200FAFBB3 /* SearchHomePageItem.m in Sources */,
-				A4AFB2F01E064C6200FAFBB3 /* AFURLRequestSerialization.m in Sources */,
-				A4AFB2F11E064C6200FAFBB3 /* AFNetworkReachabilityManager.m in Sources */,
-				A4AFB2F21E064C6200FAFBB3 /* Search3DHeaderItem.m in Sources */,
-				A4AFB2F31E064C6200FAFBB3 /* AFImageDownloader.m in Sources */,
-				A4AFB2F41E064C6200FAFBB3 /* MyEventDetailViewController.m in Sources */,
-				A4AFB2F51E064C6200FAFBB3 /* AFURLResponseSerialization.m in Sources */,
-				A4AFB2F61E064C6200FAFBB3 /* MyChuanKuaYueHomeViewController.m in Sources */,
-				A4AFB2F71E064C6200FAFBB3 /* AFHTTPSessionManager+NSBD.m in Sources */,
-				A4AFB2F81E064C6200FAFBB3 /* UIViewController+BackButtonHandler.m in Sources */,
-				A4AFB2F91E064C6200FAFBB3 /* MyDealedEventItemCell.m in Sources */,
-				A4AFB2FA1E064C6200FAFBB3 /* CenterSwitchView.m in Sources */,
-				A4AFB2FB1E064C6200FAFBB3 /* SearchHistoryHomeTableViewCell.m in Sources */,
-				A4AFB2FC1E064C6200FAFBB3 /* MJConst.m in Sources */,
-				A4AFB2FD1E064C6200FAFBB3 /* UIColor+ThemeColor.m in Sources */,
-				A4AFB2FE1E064C6200FAFBB3 /* LiveDataShuizhiViewController.m in Sources */,
-				A4AFB2FF1E064C6200FAFBB3 /* MyLocalEventCell.m in Sources */,
-				A4AFB3001E064C6200FAFBB3 /* HttpManager.m in Sources */,
-				A4AFB3011E064C6200FAFBB3 /* EventReportViewController+pickMedia.m in Sources */,
-				A4AFB3021E064C6200FAFBB3 /* SearchStartViewController.m in Sources */,
-				A4AFB3031E064C6200FAFBB3 /* UIDownPicker.m in Sources */,
-				A4AFB3041E064C6200FAFBB3 /* NGQLine.m in Sources */,
-				A4AFB3051E064C6200FAFBB3 /* ImagePickerViewController.m in Sources */,
-				A4AFB3061E064C6200FAFBB3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				A4AFB3071E064C6200FAFBB3 /* DepthCalloutView.m in Sources */,
-				A4AFB3081E064C6200FAFBB3 /* MyUploadEventViewController.m in Sources */,
-				A4AFB3091E064C6200FAFBB3 /* WebViewController.m in Sources */,
-				A4AFB30A1E064C6200FAFBB3 /* SearchHomePageViewController.m in Sources */,
-				A4AFB30B1E064C6200FAFBB3 /* MyDealedEventDetailItem.m in Sources */,
-				A4AFB30C1E064C6200FAFBB3 /* NSString+UUID.m in Sources */,
-				A4AFB30D1E064C6200FAFBB3 /* SupportRotationSelectBaseViewController.m in Sources */,
-				A4AFB30E1E064C6200FAFBB3 /* ToastView.m in Sources */,
-				A4AFB30F1E064C6200FAFBB3 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
-				A4AFB3101E064C6200FAFBB3 /* SearchSecondaryListViewController.m in Sources */,
-				A4AFB3111E064C6200FAFBB3 /* MyDealedEventHistoryItem.m in Sources */,
-				A4AFB3121E064C6200FAFBB3 /* Home3DDataSource.m in Sources */,
-				A4AFB3131E064C6200FAFBB3 /* SupportRotationSelectBaseViewController+VideoPlay.m in Sources */,
-				A4AFB3141E064C6200FAFBB3 /* MyEventViewController.m in Sources */,
-				A4AFB3151E064C6200FAFBB3 /* TianDiTuWMTSLayerInfoDelegate.m in Sources */,
-				A4AFB3A51E0A686200FAFBB3 /* NGQWellDownItem.m in Sources */,
-				A4AFB3161E064C6200FAFBB3 /* MyChuanKuaYueProgressItem.m in Sources */,
-				A4AFB3171E064C6200FAFBB3 /* main.m in Sources */,
-				A4AFB3181E064C6200FAFBB3 /* EventLocationPickerView.m in Sources */,
-				A4AFB3191E064C6200FAFBB3 /* MapViewController+Action.m in Sources */,
-				A4AFB31A1E064C6200FAFBB3 /* DetailInfoViewController.m in Sources */,
-				A4AFB31B1E064C6200FAFBB3 /* NSString+MJExtension.m in Sources */,
-				A4AFB31C1E064C6200FAFBB3 /* EventHttpManager+ChuanKuaYue.m in Sources */,
-				A4AFB31D1E064C6200FAFBB3 /* SearchHistoryHomeViewController.m in Sources */,
-				A4AFB31E1E064C6200FAFBB3 /* CenterTitleCell.m in Sources */,
-				A4AFB31F1E064C6200FAFBB3 /* FeedbackModel.m in Sources */,
-				A4AFB3201E064C6200FAFBB3 /* ImagePlayerViewController.m in Sources */,
-				A4AFB3211E064C6200FAFBB3 /* NSData+Conversion.m in Sources */,
-				A4AFB3221E064C6200FAFBB3 /* DGQWellItem.m in Sources */,
-				A4AFB3231E064C6200FAFBB3 /* SearchSheetInfoItem.m in Sources */,
-				A4AFB3241E064C6200FAFBB3 /* SearchChoiceController.m in Sources */,
-				A4AFB3251E064C6200FAFBB3 /* SupportRotationSelectNavigationController.m in Sources */,
-				A4AFB3261E064C6200FAFBB3 /* CheckableTitleCell.m in Sources */,
-				A4AFB3271E064C6200FAFBB3 /* EventMediaPickerView.m in Sources */,
-				A4AFB3281E064C6200FAFBB3 /* MyEventHistoryItem.m in Sources */,
-				A4AFB3291E064C6200FAFBB3 /* TitleTextInputCell.m in Sources */,
-				A4AFB32A1E064C6200FAFBB3 /* CommitedEventHistoryModel.m in Sources */,
-				A4AFB32B1E064C6200FAFBB3 /* NSString+Location.m in Sources */,
-				A4AFB32C1E064C6200FAFBB3 /* MapViewManager.m in Sources */,
-				A4AFB32D1E064C6200FAFBB3 /* MapViewController+InfoMapping.m in Sources */,
-				A4AFB32E1E064C6200FAFBB3 /* NSDictionary+JSON.m in Sources */,
-				A4AFB32F1E064C6200FAFBB3 /* SearchSessionStateModel.m in Sources */,
-				A4AFB3301E064C6200FAFBB3 /* MyDealedEventViewController.m in Sources */,
-				A4AFB39D1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */,
-				A4AFB3311E064C6200FAFBB3 /* ELCAlbumPickerController.m in Sources */,
-				A4AFB3321E064C6200FAFBB3 /* ELCConsole.m in Sources */,
-				A4AFB3331E064C6200FAFBB3 /* MJRefreshComponent.m in Sources */,
-				A4AFB3341E064C6200FAFBB3 /* MyChuanKuaYueFeedbackViewController+pickMedia.m in Sources */,
-				A4AFB3351E064C6200FAFBB3 /* Search3DShenMaiModel.m in Sources */,
-				A4AFB3361E064C6200FAFBB3 /* MJRefreshFooter.m in Sources */,
-				A4AFB3371E064C6200FAFBB3 /* MyEventItemCell.m in Sources */,
-				A4AFB3381E064C6200FAFBB3 /* AuthorizeManager.m in Sources */,
-				A4AFB3391E064C6200FAFBB3 /* LiveDataNormalDataViewController.m in Sources */,
-				A4AFB33A1E064C6200FAFBB3 /* MJRefreshAutoNormalFooter.m in Sources */,
-				A4AFB33B1E064C6200FAFBB3 /* MyDealedEventDetailModel.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A4DD867F1D0976B00096B548 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3827,6 +3148,7 @@
 				B284766B1E0BC22100A4AB98 /* YYCGUtilities.m in Sources */,
 				A4E9E7691D464BB000E3C94C /* UIViewController+BackButtonHandler.m in Sources */,
 				A412B8C41DB3EA8E003CAE02 /* MyDealedEventItemCell.m in Sources */,
+				A4A6974C1E0C2B5B002332CE /* YYPhotoGroupView.m in Sources */,
 				A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */,
 				B25712BD1DAE20D000F3D7F6 /* SearchHistoryHomeTableViewCell.m in Sources */,
 				B2A1872C1D66AF4B006D8CA7 /* MJConst.m in Sources */,
@@ -3954,73 +3276,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A4AFB3811E064C6200FAFBB3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 92H9654326;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/Library/SDKs/ArcGIS/**",
-					"$(PROJECT_DIR)/functions/FLEX",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					NSBD3D,
-				);
-				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = NSBDMobile3DPlatform.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-			};
-			name = Debug;
-		};
-		A4AFB3821E064C6200FAFBB3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 92H9654326;
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(HOME)/Library/SDKs/ArcGIS/**",
-					"$(PROJECT_DIR)/functions/FLEX",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = NSBD3D;
-				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = NSBDMobile3DPlatform.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-					"-framework",
-					ArcGIS,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-			};
-			name = Release;
-		};
 		A4DD86981D0976B00096B548 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4170,15 +3425,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A4AFB3801E064C6200FAFBB3 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform copy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A4AFB3811E064C6200FAFBB3 /* Debug */,
-				A4AFB3821E064C6200FAFBB3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A4DD867E1D0976B00096B548 /* Build configuration list for PBXProject "NSBDMobileSearchPlatform" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

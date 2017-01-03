@@ -32,6 +32,30 @@
 #define MAISHEN_3D_IMAGE_URL @"http://%@:85/images/duanmian/%@.jpg"
 #else
 
+//----------------------------------
+#ifdef WebServer
+
+
+#define NSBD_APP_SERVICE @"http://%@:80/nsbd/Service/dataSync.do"
+
+#define WMSURL @"http://%@:80/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
+#define WMS3DURL @"http://%@:80/arcgis/services/3Dmaishen/MapServer/WMSServer"
+#define WMSRESTURL @"http://%@:80/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
+#define BaseMapURL @"http://%@:80/nsbd/service/wmts"
+
+
+#define MAISHEN_3D_IMAGE_URL @"http://%@:80/images/duanmian/%@.jpg"
+
+#define HOST_SERVICE_3D @"http://%@:80/WebServices/ManagerS.asmx"
+
+
+#define HOSTIP @"111.207.240.53"//app
+#define HOSTIP_3D @"111.207.240.53"//app
+#define MAPIP @"111.207.240.53"
+
+
+//----------------------------------
+#else
 
 #define NSBD_APP_SERVICE @"http://%@:7001/nsbd/Service/dataSync.do"
 
@@ -66,6 +90,7 @@
 //
 //#define HOST_SERVICE_3D @"http://%@:87/WebServices/ManagerS.asmx"
 //
+#endif
 #endif
 
 #define AppMainWindow [(AppDelegate *)[UIApplication sharedApplication].delegate window]

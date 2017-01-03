@@ -58,11 +58,6 @@
 - (IBAction)actionLogin:(id)sender {
     
     
-    //ImageContentViewController *vc = [[ImageContentViewController alloc] init];
-    //[vc setImage:[UIImage imageNamed:@"login_bg"]];
-    //[self.navigationController pushViewController:vc animated:YES];
-    //return;
-    //to be reset in normal condition
 #ifdef NoServer
     _userNameField.text = @"abc";
 #else

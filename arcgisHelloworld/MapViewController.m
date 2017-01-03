@@ -30,6 +30,8 @@
 #import "ImageContentViewController.h"
 #import "Search3DResultModel.h"
 #import "Search3DResultItem.h"
+#import "YYKit.h"
+#import "YYPhotoGroupView.h"
 
 @interface MapViewController () <UIAlertViewDelegate,AGSMapViewTouchDelegate, AGSCalloutDelegate, AGSIdentifyTaskDelegate,AGSMapViewLayerDelegate,AGSLayerDelegate>
 {
@@ -332,12 +334,22 @@
             Search3DShenMaiItem *item = model.datalist.firstObject;
             __weak __typeof(self) weakself = self;
             DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
+            
+            __weak DepthCalloutView *weakdcallout = dcallout;
             dcallout.imageTapped = ^(UIImage *image){
                 if (image) {
+                    NSMutableArray *items = [NSMutableArray array];
+                    YYPhotoGroupItem *item = [YYPhotoGroupItem new];
+                    item.thumbView = weakdcallout.imageView;
+                    //        item.largeImageURL = view.image.mediaLarge.url;
+                    item.largeImageSize = weakdcallout.imageView.image.size;
+                    [items addObject:item];
                     
-                    ImageContentViewController *vc = [[ImageContentViewController alloc] init];
-                    [vc setImage:image];
-                    [weakself.navigationController pushViewController:vc animated:YES];
+                    
+                    
+                    YYPhotoGroupView *v = [[YYPhotoGroupView alloc] initWithGroupItems:items];
+                    [v presentFromImageView:weakdcallout.imageView toContainer:weakself.view animated:YES completion:nil];
+                    
                 }
                 NSLog(@"tapped");
                 
