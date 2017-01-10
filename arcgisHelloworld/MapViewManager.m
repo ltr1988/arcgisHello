@@ -103,7 +103,7 @@ static NSString *ip;
     
     
     AGSLayer *maishenLayer = [aMapView mapLayerForName:@"3DMaishen Layer"];
-    maishenLayer.opacity = 0.5f;
+    maishenLayer.opacity = 0.7f;
     maishenLayer.visible = aMapView.layerMask & LayerMask3DLayer;
 }
 
