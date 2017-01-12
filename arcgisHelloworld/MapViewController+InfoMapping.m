@@ -18,20 +18,24 @@
 -(NSSet *) filterSet
 {
     return [NSSet setWithArray:@[@"id",
-                         @"sysfeatureid",
-                         @"sysfeaturegeometry",
-                         @"order_id",
-                         @"objectnum",
-                         @"objtypenum",
-                         @"belongenum",
-                         @"manenum",
-                         @"statusnum",
-                         @"usorienum",
-                         @"usresenum",
-                         @"nusorienum",
-                         @"nusresenum",
-                         @"oriobjnum",
-                          @"resobjenum",]];
+                                 @"sysfeatureid",
+                                 @"sysfeaturegeometry",
+                                 @"order_id",
+                                 @"objectnum",
+                                 @"objtypenum",
+                                 @"belongenum",
+                                 @"manenum",
+                                 @"statusnum",
+                                 @"usorienum",
+                                 @"usresenum",
+                                 @"nusorienum",
+                                 @"nusresenum",
+                                 @"oriobjnum",
+                                 @"belonggqnum",
+                                 @"shape",
+                                 @"FID",
+                                 @"statusnum",
+                                 @"resobjenum",]];
     
 }
 
