@@ -18,6 +18,17 @@
 -(NSSet *) filterSet
 {
     return [NSSet setWithArray:@[@"id",
+                                 @"code",
+                                 @"maneid",
+                                 @"facility_code",
+                                 @"type_pid",
+                                 @"facility_type_code",
+                                 @"isdel",
+                                 @"userid",
+                                 @"pro_type_code",
+                                 @"facility_id",
+                                 @"sb_type_id",
+                                 @"deptcode",
                                  @"sysfeatureid",
                                  @"sysfeaturegeometry",
                                  @"order_id",
