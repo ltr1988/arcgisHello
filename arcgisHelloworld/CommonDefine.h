@@ -22,9 +22,14 @@
 #define WMSRESTURL @"http://%@:6080/arcgis/rest/services/nsbd_gongcheng_test/MapServer/"
 #define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
 
-#define HOSTIP @"10.200.9.122"//app
-#define HOSTIP_3D @"10.200.9.32"//app
-#define MAPIP @"10.200.9.28"
+//#define HOSTIP @"10.200.9.122"//app
+//#define HOSTIP_3D @"10.200.9.32"//app
+//#define MAPIP @"10.200.9.28"
+
+#define HOSTIP @"10.225.29.51"//app
+#define HOSTIP_3D @"10.225.29.53"//app
+#define MAPIP @"10.225.29.52"
+
 #define BaseMapURL @"http://%@:3080/nsbd/service/wmts"
 
 #define HOST_SERVICE_3D @"http://%@:85/WebServices/ManagerS.asmx"
@@ -38,23 +43,20 @@
 
 #define NSBD_APP_SERVICE @"http://%@:80/nsbd/Service/dataSync.do"
 
-#define WMSURL @"http://%@:80/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
-#define WMS3DURL @"http://%@:80/arcgis/services/3Dmaishen/MapServer/WMSServer"
-#define WMSRESTURL @"http://%@:80/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
-#define BaseMapURL @"http://%@:80/nsbd/service/wmts"
-
+#define WMSURL @"http://%@:6080/arcgis/services/NSBDgongchengsheshi/MapServer/WMSServer"
+#define WMS3DURL @"http://%@:6080/arcgis/services/3Dmaishen/MapServer/WMSServer"
+#define WMSRESTURL @"http://%@:6080/arcgis/rest/services/NSBDgongchengsheshi/MapServer/"
+#define BaseMapURL @"http://%@:8088/nsbd_tile/service/wmts?sysid=sbydyy"
 
 #define MAISHEN_3D_IMAGE_URL @"http://%@:80/images/duanmian/%@.jpg"
 
 #define HOST_SERVICE_3D @"http://%@:80/WebServices/ManagerS.asmx"
 
 
-#define HOSTIP @"111.207.240.53"//app
-#define HOSTIP_3D @"111.207.240.53"//app
-#define MAPIP @"111.207.240.53"
+#define HOSTIP @"111.207.240.66"//app
+#define HOSTIP_3D @"111.207.240.67"//app
+#define MAPIP @"111.207.240.67"
 
-
-//----------------------------------
 #else
 
 #define NSBD_APP_SERVICE @"http://%@:7001/nsbd/Service/dataSync.do"
@@ -73,6 +75,9 @@
 #define HOSTIP @"10.200.9.122"//app
 #define HOSTIP_3D @"10.200.9.32"//app
 #define MAPIP @"10.200.9.28"
+
+
+
 
 
 //#define NSBD_APP_SERVICE @"http://%@:8080/nsbd/Service/dataSync.do"

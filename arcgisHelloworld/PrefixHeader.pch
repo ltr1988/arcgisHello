@@ -23,5 +23,5 @@
 #define kScreenWidth                    [[UIScreen mainScreen] bounds].size.width
 
 //#define NoServer
-//#define WebServer
+#define WebServer
 #endif /* PrefixHeader_pch */
