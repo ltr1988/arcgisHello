@@ -14,6 +14,7 @@
 #import "TitleDetailItem.h"
 #import "AuthorizeManager.h"
 #import "TitleInputItem.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation DNLine
 
@@ -40,9 +41,7 @@
     info[@"operate"] = @"insert";
     info[@"userName"] = [AuthorizeManager sharedInstance].userName;
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
-    
-    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"]; 
     info[@"exedate"] = [formater stringFromDate:[NSDate date]];
     
     return info;

@@ -15,6 +15,7 @@
 #import "AFHTTPSessionManager+NSBD.h"
 #import "NSBDBaseUIItem.h"
 #import "NSString+UUID.h"
+#import "NSDateFormatterHelper.h"
 
 #define CURRENT_SESSION [NSString stringWithFormat:@"current_session_%@",[[AuthorizeManager sharedInstance] userName]]
 @implementation SearchSessionManager
@@ -76,8 +77,9 @@ static SearchSessionManager* manager = nil;
 -(NSMutableDictionary *) paramWithModel:(SearchStartModel*) model sessionID:(NSString *)sessionID
 {
     
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    
     NSString *date = [outputFormatter stringFromDate:[NSDate date]];
 
 

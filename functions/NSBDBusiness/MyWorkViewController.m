@@ -17,6 +17,7 @@
 #import "MyChuanKuaYueHomeViewController.h"
 #import "DistanceMapViewController.h"
 #import "TrackLocationManager.h"
+#import "AuthorizeManager.h"
 
 @interface MyWorkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *myworkTableView;
@@ -34,7 +35,36 @@
 
 -(void) setupModel
 {
-    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程",@"测距"];
+    _modelList = @[@"待办应急事件",@"我的处置任务",@"我的事件上报",@"历史巡查记录",@"穿跨越工程",@"测距",@"修改密码"];
+    
+//    CFRunLoopObserverRef  observer = CFRunLoopObserverCreateWithHandler(CFAllocatorGetDefault(), kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
+//        
+//        switch (activity) {
+//            case kCFRunLoopEntry:
+//                NSLog(@"kCFRunLoopEntry");
+//                break;
+//            case  kCFRunLoopBeforeTimers:
+//                NSLog(@"kCFRunLoopBeforeTimers");
+//                break;
+//            case kCFRunLoopBeforeSources:
+//                NSLog(@"kCFRunLoopBeforeSources");
+//                break;
+//            case kCFRunLoopBeforeWaiting:
+//                NSLog(@"kCFRunLoopBeforeWaiting");
+//                break;
+//            case kCFRunLoopAfterWaiting:
+//                NSLog(@"kCFRunLoopAfterWaiting");
+//                break;
+//            case kCFRunLoopExit:
+//                NSLog(@"kCFRunLoopExit");
+//                break;
+//            default:
+//                break;
+//        }
+//    });
+//    CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
+//    // 释放对象
+//    CFRelease(observer);
 }
 
 -(void) setupSubviews
@@ -163,6 +193,49 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
             break;
+        case 6:
+        {
+            //修改密码
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"修改密码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
+                textField.placeholder = @"原密码";
+                textField.secureTextEntry = YES;
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alertTextFieldDidChange:) name:UITextFieldTextDidChangeNotification object:textField];
+            }];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                textField.placeholder = @"新密码";
+                textField.secureTextEntry = YES;
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alertTextFieldDidChange:) name:UITextFieldTextDidChangeNotification object:textField];
+            }];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                textField.placeholder = @"确认密码";
+                textField.secureTextEntry = YES;
+                [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alertTextFieldDidChange:) name:UITextFieldTextDidChangeNotification object:textField];
+            }];
+            __weak __typeof(self) weakself = self;
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+                
+                UITextField *originPsw = alertController.textFields.firstObject;
+                UITextField *newPsw = alertController.textFields[1];
+                UITextField *confirmPsw = alertController.textFields[2];
+                
+                BOOL validPsw = [originPsw.text isEqualToString:[AuthorizeManager sharedInstance].userPsw] && [newPsw.text isEqualToString: confirmPsw.text] &&newPsw.text.length>0;
+                
+                if (validPsw) {
+                    [weakself requestChangePassword:newPsw.text];
+                }
+            }];
+            
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
+            }];
+            
+            [alertController addAction:cancelAction];
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+            break;
         default:
             break;
     }
@@ -171,6 +244,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+- (void)alertTextFieldDidChange:(NSNotification *)notification
+{
+    UIAlertController *alertController = (UIAlertController *)self.presentedViewController;
+    if (alertController) {
+        UITextField *originPsw = alertController.textFields.firstObject;
+        UITextField *newPsw = alertController.textFields[1];
+        UITextField *confirmPsw = alertController.textFields[2];
+        
+        UIAlertAction *okAction = alertController.actions.lastObject;
+        okAction.enabled = [originPsw.text isEqualToString:[AuthorizeManager sharedInstance].userPsw] && [newPsw.text isEqualToString: confirmPsw.text] &&newPsw.text.length>0;
+    }
+}
+
+-(void) requestChangePassword:(NSString *)password
+{
+    NSLog(@"requestChangePassword");
 }
 
 @end

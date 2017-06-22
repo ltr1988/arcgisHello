@@ -23,7 +23,7 @@
 
 +(AFHTTPSessionManager *)SceneManager
 {
-    AFHTTPSessionManager *manager =  [HttpManager managerWithType:HttpTaskType_Foreground];
+    AFHTTPSessionManager *manager =  [HttpManager managerWithType:HttpTaskType_Quick];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded ;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     return manager;
 }

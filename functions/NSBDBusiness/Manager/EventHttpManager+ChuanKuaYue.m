@@ -9,6 +9,7 @@
 #import "EventHttpManager+ChuanKuaYue.h"
 #import "AuthorizeManager.h"
 #import "AFHTTPSessionManager+NSBD.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation EventHttpManager (ChuanKuaYue)
 
@@ -160,9 +161,7 @@
                                   SuccessCallback:(HttpSuccessCallback) success
                                      failCallback:(HttpFailCallback) fail
 {
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"]; 
     NSDictionary * info = @{
                             @"userCode":[AuthorizeManager sharedInstance].userName,
                             @"id":uuid,

@@ -7,6 +7,7 @@
 //
 
 #import "SearchSessionItem.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation SearchSessionItem
 
@@ -83,9 +84,8 @@
 -(NSString *) stringStartTime
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:_sessionStartTime];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
     
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"];
     return [formater stringFromDate:date];
 }
 @end

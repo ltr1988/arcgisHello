@@ -11,4 +11,5 @@
 @interface MapViewController (InfoMapping)
 -(NSString *) stringFromInfoKey:(NSString *) key;
 -(BOOL) shouldFilter:(NSString *) key;
+
 @end

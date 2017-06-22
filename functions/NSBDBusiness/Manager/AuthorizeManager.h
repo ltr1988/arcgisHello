@@ -24,8 +24,10 @@ typedef NS_ENUM(NSInteger,NSBD_Department)
 
 -(void) requestLoginWithUser:(NSString *)user password:(NSString *)psw callback:(InfoCallback) callback;
 
-@property (nonatomic,strong) NSString *userName; //set method will save name into disk too
+-(void) requestBindDeviceWithCallback:(InfoCallback) callback;
 
+@property (nonatomic,strong) NSString *userName; //set method will save name into disk too
+@property (nonatomic,strong) NSString *userPsw;
 @property (nonatomic,strong) NSString *userid;
 @property (nonatomic,strong) NSString *token;
 @end

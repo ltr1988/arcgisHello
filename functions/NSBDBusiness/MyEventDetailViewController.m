@@ -27,6 +27,7 @@
 #import "MyEventDetailProgressModel.h"
 #import "TextPickerViewController.h"
 #import "MyDealedEventDetailProgressModel.h"
+#import "NSDateFormatterHelper.h"
 
 @interface MyEventDetailViewController()<CenterSwitchActionDelegate>
 {
@@ -90,9 +91,9 @@
     //model for feedback
     _feedbackModel = [FeedbackModel new];
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
     
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    
     _feedbackModel.date = [TitleDetailItem itemWithTitle:@"反馈时间" detail:[formater stringFromDate:[NSDate date]]];
     _feedbackModel.detail = [TitleDetailTextItem itemWithTitle:@"进展描述" detail:@"未填写" text:@""];
     _feedbackModel.images = [NSMutableArray arrayWithCapacity:6];
@@ -339,8 +340,8 @@
                 if (!cell) {
                     cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DateCell"];
                 }
-                NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-                [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+                
+                NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"];
                 _feedbackModel.date.detail = [formater stringFromDate:[NSDate date]];
                 cell.data = self.feedbackModel.date;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;

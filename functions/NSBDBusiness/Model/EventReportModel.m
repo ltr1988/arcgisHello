@@ -17,6 +17,7 @@
 #import "CommitedEventHistoryItem.h"
 #import "NSString+UUID.h"
 #import "UploadAttachmentModel.h"
+#import "NSDateFormatterHelper.h"
 
 @interface EventReportModel()<EventDetailViewDelegate>
 
@@ -110,8 +111,7 @@
         
         self.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
         
-        NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-        [outputFormatter setDateFormat:@"YYYY-MM-dd-HH-mm-ss"];
+        NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"YYYY-MM-dd-HH-mm-ss"];
         
         self.eventDate.date = [outputFormatter dateFromString:item.occurTime]?:[NSDate date];
         self.place = [TitleInputItem itemWithTitle:@"事发地点" placeholder:@"请输入地点名称"];

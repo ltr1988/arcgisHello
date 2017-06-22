@@ -26,7 +26,8 @@ static NSInteger const otherIndex = 1;
     }
     else
     {
-        [[self getPresentViewController] presentViewController:alertController animated:YES completion:nil];
+        UIViewController *vc = [self getPresentViewController];
+        [vc presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -45,6 +46,8 @@ static NSInteger const otherIndex = 1;
     // 如果当前keywindow不是delegatewindow,说明当前有POP形式的VC by YanTao
     if ([self getAppKeyWindow] == [[self getAppDelegate] window])
     {
+        if ( [[[[self getAppDelegate] window] rootViewController] isKindOfClass:[UINavigationController class]])
+            return [(UINavigationController *)([[[self getAppDelegate] window] rootViewController]) topViewController];
         return [[[[self getAppDelegate] window] rootViewController].navigationController topViewController];
     }
     else

@@ -14,6 +14,7 @@
 #import "SearchSessionManager.h"
 #import "TrackLocationManager.h"
 #import "ImageContentViewController.h"
+#import "QRSystemAlertController.h"
 
 @interface LoginViewController()<UITextFieldDelegate>
 {
@@ -29,6 +30,7 @@
 @end
 
 @implementation LoginViewController
+
 - (IBAction)actionForget:(id)sender {
     UIAlertView *alart = [[UIAlertView alloc] initWithTitle:nil message:@"重置密码请拨打010-62929966" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 
@@ -57,7 +59,6 @@
 }
 - (IBAction)actionLogin:(id)sender {
     
-    
 #ifdef NoServer
     _userNameField.text = @"abc";
 #else
@@ -76,13 +77,15 @@
     [SVProgressHUD showWithStatus:@"登录中..."];
     [[AuthorizeManager sharedInstance] requestLoginWithUser:_userNameField.text password:psw callback:^(NSDictionary *dict) {
         BOOL success= [dict[@"success"] boolValue];
+        __block NSString *tip = dict[@"tip"];
+        __block NSString *code = dict[@"code"];
 
         dispatch_main_async_safe(^{
             if ([SVProgressHUD isVisible])
             {
                 [SVProgressHUD dismiss];
             }
-            if (success) {
+            if (success && [code isEqualToString:@"11"]) {
                 _loginBtn.enabled = YES;
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];
@@ -94,7 +97,36 @@
             }else
             {
                 _loginBtn.enabled = YES;
-                [self shakeView:_loginBtn];
+                NSLog(@"code:%@",code);
+                if (code) {
+// bindingcode：绑定状态码（success：未申请，00：待审核，11：审核通过，10：解绑，20：审核不通过，fail：绑定异常，）。
+                    if ([code isEqualToString:@"success"]) {
+                        [QRSystemAlertController showAlertWithTitle:@"设备尚未绑定，是否申请绑定？" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"申请" completionBlock:^(NSUInteger buttonIndex)
+                         {
+                             if (buttonIndex == 1) {
+                                 [[AuthorizeManager sharedInstance] requestBindDeviceWithCallback:^(NSDictionary *dict) {
+                                     
+                                     BOOL success= [dict[@"success"] boolValue];
+                                     if (success) {
+                                         [ToastView popToast:@"申请成功"];
+                                     }else
+                                     {
+                                         [ToastView popToast:@"申请失败，请稍后再试"];
+                                     }
+                                 }];
+                             }
+                         }];
+                    }else if ([code isEqualToString:@"fail"])
+                    {
+                        [ToastView popToast:@"绑定异常"];
+                    }else
+                    {
+                        [ToastView popToast:tip];
+                    }
+                }else
+                {
+                    [self shakeView:_loginBtn];
+                }
             }
         });
     }];

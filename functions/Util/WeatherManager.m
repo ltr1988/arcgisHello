@@ -8,6 +8,7 @@
 
 #import "WeatherManager.h"
 #import "HttpManager.h"
+#import "NSDateFormatterHelper.h"
 
 #define lbsyun_ak @"zXOpPbZr62FLVLqQtXp0RYZ7SpyCwqAS"
 
@@ -27,9 +28,8 @@
 {
     NSDate *now = [NSDate date];
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];//用时间给文件全名，以免重复
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd"];
     
-    [formater setDateFormat:@"yyyy-MM-dd"];
     if ([self.date isEqualToString:[formater stringFromDate:now]]) {
         return;
     }

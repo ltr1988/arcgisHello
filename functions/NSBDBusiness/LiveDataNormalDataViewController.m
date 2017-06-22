@@ -15,6 +15,7 @@
 #import "ThreeColumnView.h"
 #import "MJRefresh.h"
 #import "TitleDetailItem.h"
+#import "NSDateFormatterHelper.h"
 
 @interface LiveDataNormalDataViewController()
 {
@@ -82,9 +83,8 @@
 
 -(void) refreshHeader
 {
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    
-    [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+
     NSDate *now = [NSDate date];
     self.model.detail = [formater stringFromDate:now];
     if (lbUpdateTime) {        

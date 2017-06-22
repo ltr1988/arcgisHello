@@ -91,6 +91,8 @@
     
     [imageBg addSubview: _searchField];
     
+    [_searchField becomeFirstResponder];
+    
     self.navigationItem.titleView = imageBg;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_map_search"] style:UIBarButtonItemStylePlain target:self action:@selector(actionSearch)];
@@ -281,12 +283,16 @@
         
         if (showResult) {
             AGSGraphic * item = _resultList[row];
-            [cell setTitle:[item attributeForKey:@"NAME"]];
+            [cell setTitle:[NSString stringWithFormat:@"%@ - %@",
+                            [item attributeForKey:@"NAME"],
+                            [item attributeForKey:@"MANE"]]];
         }else
         {
             
             AGSGraphic * item = _historyList[row];
-            [cell setTitle:[item attributeForKey:@"NAME"]];
+            [cell setTitle:[NSString stringWithFormat:@"%@ - %@",
+                            [item attributeForKey:@"NAME"],
+                            [item attributeForKey:@"MANE"]]];
             
         }
         return cell;

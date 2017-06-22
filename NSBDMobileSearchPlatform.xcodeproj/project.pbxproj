@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A409BD5E1ED4133F009CD93C /* FFSelectToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A409BD5D1ED4133F009CD93C /* FFSelectToastView.m */; };
 		A41012AC1DBCAE3B008B00DF /* FacilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AB1DBCAE3B008B00DF /* FacilityManager.m */; };
 		A41012AF1DBCB8CF008B00DF /* FacilityInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */; };
 		A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012B11DBCBC31008B00DF /* FacilityInfoItem.m */; };
@@ -160,6 +161,9 @@
 		A4E9E7721D46511C00E3C94C /* CheckableTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7711D46511C00E3C94C /* CheckableTitleItem.m */; };
 		A4E9E77A1D46640000E3C94C /* TitleDetailItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E7791D46640000E3C94C /* TitleDetailItem.m */; };
 		A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */; };
+		A4F0B44C1EF4CDFE00C0A822 /* UIImage+Watermark.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F0B44B1EF4CDFE00C0A822 /* UIImage+Watermark.m */; };
+		A4F0B44F1EF4D1B600C0A822 /* NSDateFormatterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F0B44E1EF4D1B600C0A822 /* NSDateFormatterHelper.m */; };
+		A4F0B4521EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F0B4511EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.m */; };
 		A4F23FFC1DF406D100F7D4B8 /* Home3DViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */; };
 		A4F2FC021D7F05E500B0532B /* FeedbackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC011D7F05E500B0532B /* FeedbackModel.m */; };
 		A4F2FC051D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F2FC041D7F0BE000B0532B /* MyEventDetailViewController+pickMedia.m */; };
@@ -436,6 +440,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A409BD5C1ED4133F009CD93C /* FFSelectToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFSelectToastView.h; path = functions/Toast/FFSelectToastView.h; sourceTree = "<group>"; };
+		A409BD5D1ED4133F009CD93C /* FFSelectToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFSelectToastView.m; path = functions/Toast/FFSelectToastView.m; sourceTree = "<group>"; };
 		A41012AA1DBCAE3B008B00DF /* FacilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacilityManager.h; sourceTree = "<group>"; };
 		A41012AB1DBCAE3B008B00DF /* FacilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacilityManager.m; sourceTree = "<group>"; };
 		A41012AD1DBCB8CF008B00DF /* FacilityInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacilityInfoModel.h; path = functions/NSBDBusiness/Model/FacilityInfoModel.h; sourceTree = "<group>"; };
@@ -714,6 +720,12 @@
 		A4E9E7791D46640000E3C94C /* TitleDetailItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailItem.m; path = functions/NSBDBusiness/Model/TitleDetailItem.m; sourceTree = "<group>"; };
 		A4E9E77B1D46641200E3C94C /* TitleDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleDetailCell.h; path = functions/NSBDBusiness/Views/TitleDetailCell.h; sourceTree = "<group>"; };
 		A4E9E77C1D46641200E3C94C /* TitleDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleDetailCell.m; path = functions/NSBDBusiness/Views/TitleDetailCell.m; sourceTree = "<group>"; };
+		A4F0B44A1EF4CDFE00C0A822 /* UIImage+Watermark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Watermark.h"; path = "functions/Util/UIImage+Watermark.h"; sourceTree = "<group>"; };
+		A4F0B44B1EF4CDFE00C0A822 /* UIImage+Watermark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Watermark.m"; path = "functions/Util/UIImage+Watermark.m"; sourceTree = "<group>"; };
+		A4F0B44D1EF4D1B600C0A822 /* NSDateFormatterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDateFormatterHelper.h; path = functions/Util/NSDateFormatterHelper.h; sourceTree = "<group>"; };
+		A4F0B44E1EF4D1B600C0A822 /* NSDateFormatterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDateFormatterHelper.m; path = functions/Util/NSDateFormatterHelper.m; sourceTree = "<group>"; };
+		A4F0B4501EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DetailInfoViewController+InfoOrder.h"; sourceTree = "<group>"; };
+		A4F0B4511EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DetailInfoViewController+InfoOrder.m"; sourceTree = "<group>"; };
 		A4F23FFA1DF406D100F7D4B8 /* Home3DViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Home3DViewController.h; path = functions/NSBDBusiness/Home3DViewController.h; sourceTree = "<group>"; };
 		A4F23FFB1DF406D100F7D4B8 /* Home3DViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Home3DViewController.m; path = functions/NSBDBusiness/Home3DViewController.m; sourceTree = "<group>"; };
 		A4F2FC001D7F05E500B0532B /* FeedbackModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedbackModel.h; path = functions/NSBDBusiness/Model/FeedbackModel.h; sourceTree = "<group>"; };
@@ -1267,6 +1279,8 @@
 				A48599421D3CEC680050AC88 /* Views */,
 				B2A187181D66AEC7006D8CA7 /* QRModelsManager.h */,
 				B2A187171D66AEC7006D8CA7 /* QRModelsManager.m */,
+				A4F0B44A1EF4CDFE00C0A822 /* UIImage+Watermark.h */,
+				A4F0B44B1EF4CDFE00C0A822 /* UIImage+Watermark.m */,
 				B2A187081D646AF0006D8CA7 /* NSData+Conversion.h */,
 				B2A187091D646AF0006D8CA7 /* NSData+Conversion.m */,
 				B2A186F61D6406F2006D8CA7 /* NSString+MD5Addition.h */,
@@ -1292,6 +1306,8 @@
 				A4CFBC821D9666810016387C /* NSString+UUID.m */,
 				B25712B11DADCECB00F3D7F6 /* NSString+LVPath.h */,
 				B25712B21DADCECB00F3D7F6 /* NSString+LVPath.m */,
+				A4F0B44D1EF4D1B600C0A822 /* NSDateFormatterHelper.h */,
+				A4F0B44E1EF4D1B600C0A822 /* NSDateFormatterHelper.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -1424,7 +1440,6 @@
 				A414ACA31D3A1D500065AAA7 /* ELCImagePicker */,
 				A414AC7F1D39D16F0065AAA7 /* Util */,
 				A4A3788F1D365DC700A7342D /* AFNetworking */,
-				A4569C931D33B54E00A06B1C /* NSBDBusiness */,
 				A4569C8C1D33B50800A06B1C /* DropDownField */,
 				A48022031D32217700AE2AF9 /* Users */,
 			);
@@ -1659,6 +1674,7 @@
 				B2C6B19B1D4B2C7400B0B12A /* AVFoundation.framework */,
 				A48021FF1D32210900AE2AF9 /* functions */,
 				A4DD869F1D097A9A0096B548 /* libc++.tbd */,
+				A4569C931D33B54E00A06B1C /* NSBDBusiness */,
 				A4DD86851D0976B00096B548 /* arcgis */,
 				A4DD86841D0976B00096B548 /* Products */,
 				B245DAB31E011220009886BF /* Frameworks */,
@@ -1783,6 +1799,8 @@
 			children = (
 				B205A4861D587A49007530EB /* ToastView.h */,
 				B205A4871D587A49007530EB /* ToastView.m */,
+				A409BD5C1ED4133F009CD93C /* FFSelectToastView.h */,
+				A409BD5D1ED4133F009CD93C /* FFSelectToastView.m */,
 			);
 			name = Toast;
 			sourceTree = "<group>";
@@ -2514,6 +2532,8 @@
 				A4DD868D1D0976B00096B548 /* MapViewController.m */,
 				A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */,
 				A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */,
+				A4F0B4501EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.h */,
+				A4F0B4511EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.m */,
 				A48021FC1D320C9600AE2AF9 /* MapViewController+Action.h */,
 				A48021FD1D320C9600AE2AF9 /* MapViewController+Action.m */,
 				A4924FA01DACC8DF0025041E /* MapViewController+InfoMapping.h */,
@@ -3019,6 +3039,7 @@
 				A4AFB38F1E06B60800FAFBB3 /* DistanceMapViewController.m in Sources */,
 				B28476881E0BC22100A4AB98 /* YYSpriteSheetImage.m in Sources */,
 				B25712B61DADE49D00F3D7F6 /* SearchHistoryModel.m in Sources */,
+				A4F0B44F1EF4D1B600C0A822 /* NSDateFormatterHelper.m in Sources */,
 				A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
 				B28476721E0BC22100A4AB98 /* UIFont+YYAdd.m in Sources */,
@@ -3029,6 +3050,7 @@
 				B28653621D45E769002D4139 /* QRSeparatorCell.m in Sources */,
 				A4A3788E1D365DC100A7342D /* AFURLSessionManager.m in Sources */,
 				B272B0B31D9E068800CEB12D /* LiveDataShuikuViewController.m in Sources */,
+				A4F0B4521EF4DE5500C0A822 /* DetailInfoViewController+InfoOrder.m in Sources */,
 				A4CFBC801D964E630016387C /* UIView+ActivityIndicator.m in Sources */,
 				B2F1D8A41D8E7ECC00A6EDCA /* LiveDataYuqingViewController.m in Sources */,
 				A4F2FC171D84618F00B0532B /* EventDetailView.m in Sources */,
@@ -3084,6 +3106,7 @@
 				B28653651D45E851002D4139 /* BaseTitleCell.m in Sources */,
 				B205A52B1D61D378007530EB /* MJRefreshBackGifFooter.m in Sources */,
 				B28476781E0BC22100A4AB98 /* UITextField+YYAdd.m in Sources */,
+				A409BD5E1ED4133F009CD93C /* FFSelectToastView.m in Sources */,
 				A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */,
 				A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
@@ -3220,6 +3243,7 @@
 				B284768B1E0BC22100A4AB98 /* NSObject+YYModel.m in Sources */,
 				B298C7031D519C74002B40D2 /* NSString+Location.m in Sources */,
 				A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */,
+				A4F0B44C1EF4CDFE00C0A822 /* UIImage+Watermark.m in Sources */,
 				B28476911E0BC22100A4AB98 /* YYTextKeyboardManager.m in Sources */,
 				A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */,
 				B2A187041D645324006D8CA7 /* NSDictionary+JSON.m in Sources */,

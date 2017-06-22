@@ -8,12 +8,13 @@
 
 #import "TitleDateItem.h"
 
+#import "NSDateFormatterHelper.h"
 
 @implementation TitleDateItem
 -(NSString *) detail
 {
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd"];
+    
+    NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"YYYY-MM-dd"];
     
     NSString *str=[outputFormatter stringFromDate:_date];
     return str;
@@ -21,8 +22,8 @@
 
 -(NSString *) detailDate
 {
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"YYYY-MM-dd HH:mm:ss"];
     
     NSString *str=[outputFormatter stringFromDate:_date];
     return str;

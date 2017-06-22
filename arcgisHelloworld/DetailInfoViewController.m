@@ -7,6 +7,7 @@
 //
 
 #import "DetailInfoViewController.h"
+#import "DetailInfoViewController+InfoOrder.h"
 #import "FacilityManager.h"
 #import "FacilityInfoModel.h"
 #import "UITableView+EmptyView.h"
@@ -23,6 +24,7 @@
 @property (nonatomic,strong) UITableView *facilityTableView;
 @property (nonatomic,strong) NSMutableDictionary *detailData;
 @property (nonatomic,strong) NSArray *facilityDataList;
+@property (nonatomic,strong) NSMutableArray *detailOrderedKeyList;
 @end
 
 @implementation DetailInfoViewController
@@ -32,14 +34,14 @@
     self = [super init];
     if (self) {
         _detailData = [NSMutableDictionary dictionary];
-        if (dict) {
-            _detailData = [dict mutableCopy];
-        }
-        for (NSString *key in dict) {
+        _detailOrderedKeyList = [NSMutableArray array];
+
+        for (NSString *key in [self orderedKeyList]) {
             if ([dict[key] isKindOfClass:[NSString class]]) {
                 NSString *value = dict[key];
-                if (value.length == 0) {
-                    _detailData[key] = nil;
+                if (value.length > 0) {
+                    [_detailOrderedKeyList addObject:key];
+                    _detailData[key] = dict[key];
                 }
             }
         }
@@ -147,7 +149,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reusableIdentifier];
         }
-        cell.textLabel.text = [_detailData.allKeys objectAtIndex:indexPath.row];
+        cell.textLabel.text = [_detailOrderedKeyList objectAtIndex:indexPath.row];
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", _detailData[cell.textLabel.text]];
         //enable reordering on each cell
         //[cell setShowsReorderControl:YES];

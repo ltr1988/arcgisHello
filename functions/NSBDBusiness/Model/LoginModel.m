@@ -16,6 +16,9 @@
     
     [dict setObject:@"data.token" forKey:@"token"];
     [dict setObject:@"data.userid" forKey:@"userid"];
+    [dict setObject:@"data.username" forKey:@"username"];
+    [dict setObject:@"data.bindingcode" forKey:@"bindingcode"];
+    [dict setObject:@"data.bindingpoint" forKey:@"bindingpoint"];
     return dict;
 }
 @end

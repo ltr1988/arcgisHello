@@ -9,6 +9,7 @@
 #import "SearchHistoryManager.h"
 #import "NSString+LVPath.h"
 #import "AuthorizeManager.h"
+#import "NSDateFormatterHelper.h"
 
 #import "AFHTTPSessionManager+NSBD.h"
 
@@ -87,9 +88,8 @@
     }
     
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"];
+ 
     NSDictionary * info = @{
                             @"userName": [AuthorizeManager sharedInstance].userName,
                             

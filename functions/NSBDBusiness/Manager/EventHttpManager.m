@@ -19,6 +19,8 @@
 #import "TitleDateItem.h"
 #import "TitleItem.h"
 #import "TitleDetailTextItem.h"
+#import "UIImage+Watermark.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation EventHttpManager
 +(instancetype) sharedManager
@@ -42,6 +44,9 @@
 
 -(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"]; 
+    
+    image = [image imageWithWaterMarkText:@""];
     NSString *uuid = [NSString stringWithUUID];
     NSMutableDictionary * info = [@{
                             @"username": [AuthorizeManager sharedInstance].userName,
@@ -220,9 +225,7 @@
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     [model parseEventModelToHttpModel];
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-    
-    [formater setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"]; 
     NSDictionary * info = @{
                             @"id":model.uuid,
                             @"userName": [AuthorizeManager sharedInstance].userName,

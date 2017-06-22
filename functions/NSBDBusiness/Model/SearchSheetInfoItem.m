@@ -13,6 +13,7 @@
 #import "TitleDateItem.h"
 #import "TitleDetailItem.h"
 #import "WeatherManager.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation SearchSheetInfoItem
 
@@ -71,9 +72,7 @@
             _data = [TitleDetailTextItem itemWithTitle:title detail:@"未填写" text:@""];
             break;
         }case SheetUIStyle_Date: {
-            NSDateFormatter *formater = [[NSDateFormatter alloc] init];
-            
-            [formater setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
             _data = [TitleDetailItem itemWithTitle:title detail:[formater stringFromDate:[NSDate date]]];
             break;
         }
