@@ -137,11 +137,11 @@ static SearchSessionManager* manager = nil;
 {
     if (!self.session.sessionId || self.session.pauseState)
     {
-        fail(nil,nil);
+        if (fail) fail(nil,nil);
         return;
     }
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSDictionary *info = @{
                            @"id":[NSString stringWithUUID],

@@ -13,6 +13,7 @@
 {
     NSTimer *timer;
     CLLocationManager *locationManager;
+    BOOL updated;
 }
 
 
@@ -35,6 +36,7 @@
         
         [locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
         locationManager.delegate = self;
+        updated = NO;
         
     }
     return self;
@@ -48,6 +50,7 @@
 
 -(void) reportLocation
 {
+    updated = NO;
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse)
         [locationManager startUpdatingLocation];
 }
@@ -72,6 +75,9 @@
     
     CLLocation *newLocation = [locations lastObject];
     
-    [[SearchSessionManager sharedManager] requestUpdateLocationWithX:newLocation.coordinate.latitude y:newLocation.coordinate.longitude height:newLocation.altitude successCallback:nil failCallback:nil];
+    if (!updated)
+    {
+        [[SearchSessionManager sharedManager] requestUpdateLocationWithX:newLocation.coordinate.latitude y:newLocation.coordinate.longitude height:newLocation.altitude successCallback:nil failCallback:nil];
+    }
 }
 @end

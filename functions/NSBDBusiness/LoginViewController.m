@@ -85,7 +85,7 @@
             {
                 [SVProgressHUD dismiss];
             }
-            if (success && [code isEqualToString:@"11"]) {
+            if (success || [code isEqualToString:@"11"]) {
                 _loginBtn.enabled = YES;
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];
