@@ -32,6 +32,7 @@
     
     label = [UILabel new];
     label.font = UI_FONT(16);
+    label.numberOfLines = 0;
     label.textColor = [UIColor blackColor];
     label.backgroundColor = [UIColor clearColor];
     label.textAlignment = NSTextAlignmentLeft;
@@ -47,7 +48,8 @@
     [label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(weakView.mas_top);
         make.bottom.mas_equalTo(weakView.mas_bottom);
-        make.left.mas_equalTo(weakView.mas_left).with.offset(16);
+        make.left.offset(16);
+        make.right.offset(-170);
     }];
 
     

@@ -94,6 +94,9 @@
 		A49E81C71EFFA3740006017E /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C11EFFA3740006017E /* DCRoundSwitchKnobLayer.m */; };
 		A49E81C81EFFA3740006017E /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C31EFFA3740006017E /* DCRoundSwitchOutlineLayer.m */; };
 		A49E81C91EFFA3740006017E /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C51EFFA3740006017E /* DCRoundSwitchToggleLayer.m */; };
+		A49E81DF1EFFFA7C0006017E /* TCHTankItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81DE1EFFFA7C0006017E /* TCHTankItem.m */; };
+		A49E81E21F0003DD0006017E /* TCHSluiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81E11F0003DD0006017E /* TCHSluiceItem.m */; };
+		A49E81E51F000CE40006017E /* TCHWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81E41F000CE40006017E /* TCHWaterItem.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
 		A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
 		A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378821D365DC100A7342D /* AFSecurityPolicy.m */; };
@@ -614,6 +617,12 @@
 		A49E81C31EFFA3740006017E /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
 		A49E81C41EFFA3740006017E /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
 		A49E81C51EFFA3740006017E /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
+		A49E81DD1EFFFA7C0006017E /* TCHTankItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCHTankItem.h; path = functions/NSBDBusiness/Model/TCHTankItem.h; sourceTree = "<group>"; };
+		A49E81DE1EFFFA7C0006017E /* TCHTankItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCHTankItem.m; path = functions/NSBDBusiness/Model/TCHTankItem.m; sourceTree = "<group>"; };
+		A49E81E01F0003DD0006017E /* TCHSluiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCHSluiceItem.h; path = functions/NSBDBusiness/Model/TCHSluiceItem.h; sourceTree = "<group>"; };
+		A49E81E11F0003DD0006017E /* TCHSluiceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCHSluiceItem.m; path = functions/NSBDBusiness/Model/TCHSluiceItem.m; sourceTree = "<group>"; };
+		A49E81E31F000CE40006017E /* TCHWaterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCHWaterItem.h; path = functions/NSBDBusiness/Model/TCHWaterItem.h; sourceTree = "<group>"; };
+		A49E81E41F000CE40006017E /* TCHWaterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TCHWaterItem.m; path = functions/NSBDBusiness/Model/TCHWaterItem.m; sourceTree = "<group>"; };
 		A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = functions/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = functions/AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A4A3787E1D365DC100A7342D /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = functions/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
@@ -1630,6 +1639,26 @@
 			path = functions/DCRoundSwitch;
 			sourceTree = "<group>";
 		};
+		A49E81D81EFFEBF50006017E /* GX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GX;
+			sourceTree = "<group>";
+		};
+		A49E81D91EFFEC030006017E /* TCH */ = {
+			isa = PBXGroup;
+			children = (
+				A49E81DD1EFFFA7C0006017E /* TCHTankItem.h */,
+				A49E81DE1EFFFA7C0006017E /* TCHTankItem.m */,
+				A49E81E01F0003DD0006017E /* TCHSluiceItem.h */,
+				A49E81E11F0003DD0006017E /* TCHSluiceItem.m */,
+				A49E81E31F000CE40006017E /* TCHWaterItem.h */,
+				A49E81E41F000CE40006017E /* TCHWaterItem.m */,
+			);
+			name = TCH;
+			sourceTree = "<group>";
+		};
 		A4A3788F1D365DC700A7342D /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -2110,6 +2139,8 @@
 		B28069AF1D670F490097F7E4 /* SearchSheet */ = {
 			isa = PBXGroup;
 			children = (
+				A49E81D91EFFEC030006017E /* TCH */,
+				A49E81D81EFFEBF50006017E /* GX */,
 				B2748D781DB4E22800C0166F /* NGQ */,
 				B2748D771DB4E22000C0166F /* DN */,
 				A4CFBC971D9C12BF0016387C /* DGQ */,
@@ -2992,6 +3023,7 @@
 				A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */,
 				B28476A01E0BC22100A4AB98 /* YYTextView.m in Sources */,
 				B28476A71E0BC22100A4AB98 /* YYSentinel.m in Sources */,
+				A49E81E21F0003DD0006017E /* TCHSluiceItem.m in Sources */,
 				A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B245DA6C1DFFCDFB009886BF /* Search3DHeaderModel.m in Sources */,
@@ -3106,6 +3138,7 @@
 				B28476881E0BC22100A4AB98 /* YYSpriteSheetImage.m in Sources */,
 				B25712B61DADE49D00F3D7F6 /* SearchHistoryModel.m in Sources */,
 				A4F0B44F1EF4D1B600C0A822 /* NSDateFormatterHelper.m in Sources */,
+				A49E81DF1EFFFA7C0006017E /* TCHTankItem.m in Sources */,
 				A4CFBC961D9AB8F50016387C /* SearchSheetItemManager.m in Sources */,
 				B2B469061D6EC4E600AB84AF /* SearchSessionItem.m in Sources */,
 				B28476721E0BC22100A4AB98 /* UIFont+YYAdd.m in Sources */,
@@ -3324,6 +3357,7 @@
 				A4AFB39C1E0A656300FAFBB3 /* NGQAirDownItem.m in Sources */,
 				A414ACC01D3A1D890065AAA7 /* ELCAlbumPickerController.m in Sources */,
 				A414ACC41D3A1D890065AAA7 /* ELCConsole.m in Sources */,
+				A49E81E51F000CE40006017E /* TCHWaterItem.m in Sources */,
 				B205A5251D61D378007530EB /* MJRefreshComponent.m in Sources */,
 				B28476671E0BC22100A4AB98 /* NSString+YYAdd.m in Sources */,
 				B28476AA1E0BC22100A4AB98 /* YYTimer.m in Sources */,

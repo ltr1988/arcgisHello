@@ -82,7 +82,12 @@
                             @"DGQGX":@"dgqqueryline",
                             @"DNPKJ":@"dnquerywell",
                             @"DNPQJ":@"dnqueryair",
-                            @"DNGX":@"dnqueryline"};
+                            @"DNGX":@"dnqueryline",
+                            
+                            @"TCHTJC":@"tchquerytank",
+                            @"TCHFZ":@"tchquerysluice",
+                            @"TCHFSK":@"tchquerywater",
+                            };
     }
     return _codeDictionary;
     
@@ -102,7 +107,11 @@
                             @"DGQGX":@"东干渠管线",
                             @"DNPKJ":@"大宁排空井",
                             @"DNPQJ":@"大宁排气阀井",
-                            @"DNGX":@"大宁管线"};
+                             @"DNGX":@"大宁管线",
+                             
+                             @"TCHTJC":@"团城湖调节池",
+                             @"TCHFZ":@"团城湖闸站",
+                             @"TCHFSK":@"团城湖分水口",};
     }
     return _titleDictionary;
     

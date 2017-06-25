@@ -23,6 +23,9 @@
 #import "NGQWellUpItem.h"
 #import "NGQWellDownItem.h"
 #import "NSBDBaseUIItem.h"
+#import "TCHTankItem.h"
+#import "TCHWaterItem.h"
+#import "TCHSluiceItem.h"
 
 @implementation SearchHomePageItem
 
@@ -55,6 +58,10 @@
                 @"NGQPQJUP":[NGQAirUpItem class],
                 @"NGQPKJDOWN":[NGQWellDownItem class],
                 @"NGQPKJUP":[NGQWellUpItem class],
+                
+                @"TCHTJC":[TCHTankItem class],
+                @"TCHFZ":[TCHSluiceItem class],
+                @"TCHFSK":[TCHWaterItem class],
              };
 }
 

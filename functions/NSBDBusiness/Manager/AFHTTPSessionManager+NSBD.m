@@ -20,6 +20,10 @@
         //NSUTF8StringEncoding
         NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
         NSDictionary *dict = [NSDictionary dictWithJson:str];
+        if (dict[@"msg"] && [dict[@"msg"] isEqualToString:@"token令牌失效！"]) {
+            NSMutableDictionary *mDict = [dict mutableCopy];
+            mDict[@"status"]=@"304";
+        }
         if (success) {
             success(task,dict);
         }
