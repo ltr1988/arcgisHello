@@ -39,6 +39,7 @@
 #import "UploadAttachmentModel.h"
 #import "AttachmentModel.h"
 #import "AttachmentItem.h"
+#import "CommitedEventHistoryItem.h"
 
 @interface EventReportViewController()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -89,8 +90,15 @@
     @weakify(self)
     [[EventHttpManager sharedManager] requestQueryAttachmentListWithId:_model.uuid successCallback:^(NSURLSessionDataTask *task, id dict) {
         NSLog(@"%@",dict);
+       
         AttachmentModel *model = [AttachmentModel objectWithKeyValues:dict];
         if (model.success) {
+            if (dict[@"data"])
+            {
+                CommitedEventHistoryItem * item = [CommitedEventHistoryItem objectWithKeyValues:dict[@"data"]];
+                self.model = [[EventReportModel alloc] initWithMyEventHistoryItem:item];
+                [self.eventTableView reloadData];
+            }
             self.model.attachmentModel = [[UploadAttachmentModel alloc] init];
             for (AttachmentItem *item in model.datalist) {
                 item.isqxyj = YES;
@@ -268,6 +276,7 @@
 -(void) actionUpload:(id) sender
 {
     NSLog(@"upload");
+    self.model.location = lPicker.location;
     
     [[EventHttpManager sharedManager] requestNewEvent:self.model successCallback:^(NSURLSessionDataTask *task, id dict) {
         //todo
@@ -490,6 +499,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (_readonly) {
+        if (indexPath.row == 9) {
+            TextPickerViewController *vc = [[TextPickerViewController alloc] initWithData:self.model.eventStatus readOnly:_readonly];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
         return;
     }
     
@@ -541,7 +555,7 @@
         }
         case 3: //reason
         {
-            NSArray *choices = @[@"人为",@"原因二",@"原因三"];
+            NSArray *choices = @[@"人为损坏",@"雨毁",@"其他原因"];
             ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:choices saveCallback:^(NSDictionary *dict) {
                 NSString *choice = dict[@"choice"];
                 weakSelf.model.reason.detail = choice;

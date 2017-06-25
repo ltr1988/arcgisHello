@@ -13,9 +13,11 @@
 //duanmian:断面图名称
 //milesum：桩号
 //depth:埋深
+//gaocheng:管底高程
 @property (nonatomic,strong) NSString *duanmian;
 @property (nonatomic,strong) NSString *depth;
 @property (nonatomic,strong) NSString *milesum;
+@property (nonatomic,strong) NSString *gaocheng;
 
 -(NSString *)imageUrl;
 @end

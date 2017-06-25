@@ -10,8 +10,6 @@
 #import "HttpManager.h"
 #import "NSDateFormatterHelper.h"
 
-#define lbsyun_ak @"zXOpPbZr62FLVLqQtXp0RYZ7SpyCwqAS"
-
 @implementation WeatherManager
 
 +(instancetype) sharedInstance

@@ -13,6 +13,6 @@
 
 @interface SearchStartModel : NSObject
 @property (nonatomic,strong) TitleInputItem *searcher;
-@property (nonatomic,strong) TitleInputItem *searchAdmin;
+@property (nonatomic,strong) TitleDetailItem *searchAdmin;
 @property (nonatomic,strong) TitleDetailItem *weather;
 @end

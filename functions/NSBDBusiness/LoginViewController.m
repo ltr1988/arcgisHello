@@ -100,7 +100,7 @@
                 NSLog(@"code:%@",code);
                 if (code) {
 // bindingcode：绑定状态码（success：未申请，00：待审核，11：审核通过，10：解绑，20：审核不通过，fail：绑定异常，）。
-                    if ([code isEqualToString:@"success"]) {
+                    if ([code isEqualToString:@"success"] || [code isEqualToString:@"10"]) {
                         [QRSystemAlertController showAlertWithTitle:@"设备尚未绑定，是否申请绑定？" message:nil cancelButtonTitle:@"取消" otherButtonTitle:@"申请" completionBlock:^(NSUInteger buttonIndex)
                          {
                              if (buttonIndex == 1) {

@@ -22,6 +22,9 @@
 #define kScreenHeight                   [[UIScreen mainScreen] bounds].size.height
 #define kScreenWidth                    [[UIScreen mainScreen] bounds].size.width
 
+#define lbsyun_ak @"zXOpPbZr62FLVLqQtXp0RYZ7SpyCwqAS"
+#define gaode_ak @"1575ac89505ebf17e5b13a290991d1b7"
+
 //#define NoServer
 #define WebServer
 #endif /* PrefixHeader_pch */

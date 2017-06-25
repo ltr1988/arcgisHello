@@ -14,6 +14,7 @@
 #import "NSString+UUID.h"
 #import "HttpMetaData.h"
 #import "UploadAttachmentModel.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation NSBDBaseUIItem
 @synthesize title = _title;
@@ -26,7 +27,17 @@
 
 -(NSDictionary *)requestInfo
 {
-    return nil;
+    NSDateFormatter *formate = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *formateDay = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd"];
+    return @{
+             @"type":self.type?:@"",
+             @"isupload":@"0",
+             @"state":@"1",
+             @"exedate":[formateDay stringFromDate:[NSDate date]],
+             @"createtime":[formate stringFromDate:[NSDate date]],
+             @"starttime": [formate stringFromDate:[NSDate date]],
+             @"source":@"iOS",};
+
 }
 
 -(NSArray *)defaultUIStyleMapping

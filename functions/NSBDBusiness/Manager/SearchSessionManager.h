@@ -50,4 +50,8 @@
 -(void) requestUpdateLocationWithX:(double) x y:(double)y  height:(double)h successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 -(void) requestQueryTaskFinishedStatusWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
+
+
+//获取管理员列表
+-(void) requestQueryInspectAdminWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback)fail;
 @end

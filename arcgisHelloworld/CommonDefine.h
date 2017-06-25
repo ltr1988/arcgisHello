@@ -54,7 +54,7 @@
 
 
 #define HOSTIP @"111.207.240.66"//app
-#define HOSTIP_3D @"111.207.240.67"//app
+#define HOSTIP_3D @"111.207.240.66"//app
 #define MAPIP @"111.207.240.67"
 
 #else

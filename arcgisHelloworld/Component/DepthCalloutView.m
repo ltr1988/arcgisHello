@@ -37,12 +37,17 @@
     _lbLine1.font = [UIFont systemFontOfSize:12];
     _lbLine1.textAlignment = NSTextAlignmentCenter;
     
+    _lbLine2 = [UILabel new];
+    _lbLine2.font = [UIFont systemFontOfSize:12];
+    _lbLine2.textAlignment = NSTextAlignmentCenter;
+    
     _imageView = [[UIImageView alloc] init];
     _imageView.backgroundColor = [UIColor clearColor];
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
 
     [self addSubview:_imageView];
     [self addSubview:_lbLine1];
+    [self addSubview:_lbLine2];
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
     [_imageView addGestureRecognizer:tap];
@@ -63,6 +68,13 @@
         make.right.offset(-4);
         make.height.mas_equalTo(12);
         make.top.mas_equalTo(_imageView.mas_bottom).offset(4);
+    }];
+    
+    [_lbLine2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(4);
+        make.right.offset(-4);
+        make.height.mas_equalTo(12);
+        make.top.mas_equalTo(_lbLine1.mas_bottom).offset(4);
     }];
 }
 

@@ -404,7 +404,7 @@
         
         SearchCategoryItem *item = _model.datalist[indexPath.row];
         NSBDBaseUIItem *uiItem = [_item sheetItem];
-        uiItem.itemId = item.itemId;
+        uiItem.type = self.title;
         if (readOnly)
             vc = [SearchDetailSheetViewController sheetReadOnlyWithUIItem:uiItem];
         else
@@ -412,7 +412,7 @@
         vc.code = _item.code;
         vc.queryCode = self.codeDictionary[_item.code];
         vc.taskId = self.taskId;
-        vc.title = _item.title;
+        vc.title = item.fname;
         vc.fcode = item.facilityCode;
         vc.fname = item.fname;
     }

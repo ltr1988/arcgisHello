@@ -9,6 +9,7 @@
 #import "MediaPickerManager.h"
 #import "NSString+LVPath.h"
 #import <AVFoundation/AVAssetExportSession.h>
+#import "UIImage+Watermark.h"
 
 @implementation MediaPickerManager
 
@@ -170,6 +171,7 @@
         if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
             if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
                 UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                
                 [images addObject:image];
             } else {
                 NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);

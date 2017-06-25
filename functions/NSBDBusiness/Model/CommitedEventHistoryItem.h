@@ -26,4 +26,6 @@
 @property (nonatomic,strong) NSString *departName;
 @property (nonatomic,strong) NSString *creatorName;
 @property (nonatomic,strong) NSString *status;
+@property (nonatomic,strong) NSString *reasons;
+@property (nonatomic,strong) NSString *desc;
 @end

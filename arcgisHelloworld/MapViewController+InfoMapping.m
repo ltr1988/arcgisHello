@@ -25,7 +25,7 @@
                                    @"belongenum",
                                    @"manenum",
                                    @"statusnum",
-                                   @"BelongGQ",
+                                   @"belonggq",
                                    @"usorienum",
                                    @"usresenum",
                                    @"nusorienum",

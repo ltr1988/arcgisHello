@@ -13,5 +13,6 @@ typedef void (^DepthCalloutViewCallback)(UIImage *image);
 @property (nonatomic,strong) UIImageView *imageView;
 @property (nonatomic,strong) UILabel *lbLine1;
 
+@property (nonatomic,strong) UILabel *lbLine2;
 @property (nonatomic,copy) DepthCalloutViewCallback imageTapped;
 @end

@@ -25,14 +25,16 @@
 @property (nonatomic,strong) NSMutableDictionary *detailData;
 @property (nonatomic,strong) NSArray *facilityDataList;
 @property (nonatomic,strong) NSMutableArray *detailOrderedKeyList;
+@property (nonatomic,strong) NSString *objectNumber;
 @end
 
 @implementation DetailInfoViewController
 
--(instancetype) initWithData:(NSDictionary *) dict
+-(instancetype) initWithData:(NSDictionary *) dict objectNumber:(NSString *)objectNumber
 {
     self = [super init];
     if (self) {
+        _objectNumber = objectNumber;
         _detailData = [NSMutableDictionary dictionary];
         _detailOrderedKeyList = [NSMutableArray array];
 
@@ -89,10 +91,9 @@
 
 -(void)requestDataList
 {
-    NSString *objectNum = _detailData[@"设施编号"];
-    if (objectNum) {
+    if (_objectNumber) {
         @weakify(self)
-        [[FacilityManager sharedInstance] requestFacilityWithId:objectNum successCallback:^(NSURLSessionDataTask *task, id dict) {
+        [[FacilityManager sharedInstance] requestFacilityWithId:_objectNumber successCallback:^(NSURLSessionDataTask *task, id dict) {
             @strongify(self)
             FacilityInfoModel * model = [FacilityInfoModel objectWithKeyValues:dict];
             if (model.success) {
@@ -183,10 +184,13 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FacilityDetailInfoViewController *vc = [[FacilityDetailInfoViewController alloc] initWithFacilityInfoItem:_facilityDataList[indexPath.row]];
-    FacilityInfoItem *item = _facilityDataList[indexPath.row];
-    HttpMetaData *data = item.info[@"NAME"];
-    vc.title = data.value;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (tableView == self.detailTableView){
+        FacilityDetailInfoViewController *vc = [[FacilityDetailInfoViewController alloc] initWithFacilityInfoItem:_facilityDataList[indexPath.row]];
+        FacilityInfoItem *item = _facilityDataList[indexPath.row];
+        HttpMetaData *data = item.info[@"NAME"];
+        vc.title = data.value;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 @end

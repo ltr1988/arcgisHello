@@ -7,6 +7,7 @@
 //
 
 #import "LocationManager.h"
+#import "GDGeoAPI.h"
 #import "CommonDefine.h"
 #import "QRSystemAlertController.h"
 
@@ -96,8 +97,6 @@
 
 -(void)postLocationNotifcationWithLocation:(CLLocation *)newLocation
 {
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    
     __block BOOL cancel = NO;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -120,38 +119,40 @@
             
         });
     });
-    [geocoder reverseGeocodeLocation:newLocation
-                   completionHandler:^(NSArray *placemarks, NSError *error){
-                       if (cancel) {
-                           return;
-                       }
-                       
-                       cancel = YES;
-                       CLPlacemark *place = [placemarks firstObject];
-                       
-                       NSDictionary *userInfo;
-                       if (place)
-                       {
-                           userInfo = @{@"mylocation":@"我的位置",@"location":newLocation,@"place":place.name};
-                       }else
-                       {
-                           userInfo = @{@"mylocation":@"我的位置",@"location":newLocation};
-                       }
-                       
-                       
-                       dispatch_main_async_safe(^{
-                           
-                           [[NSNotificationCenter defaultCenter] postNotificationName:@"pickMyLocationNotification"
-                                                                               object:self
-                                                                             userInfo:userInfo];
-                           
-                           if (self.callback)
-                           {
-                               _callback(userInfo);
-                           }
-                           
-                       });
-                   }];
+    
+    
+    [GDGeoAPI reverseGeocodeLat:newLocation.coordinate.latitude lon:newLocation.coordinate.longitude completion:^(GDReverseGeoItem *place, NSError *error) {
+        if (cancel) {
+            return;
+        }
+        
+        cancel = YES;
+        
+        NSDictionary *userInfo;
+        if (place)
+        {
+            userInfo = @{@"mylocation":@"我的位置",@"location":newLocation,@"place":place.shortAddress};
+        }else
+        {
+            userInfo = @{@"mylocation":@"我的位置",@"location":newLocation};
+        }
+        
+        
+        dispatch_main_async_safe(^{
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pickMyLocationNotification"
+                                                                object:self
+                                                              userInfo:userInfo];
+            
+            if (self.callback)
+            {
+                _callback(userInfo);
+            }
+            
+        });
+    }];
+    
+    
 
 }
 -(void)postLocationNotifcationWithLat:(CGFloat) lat lon:(CGFloat) lon

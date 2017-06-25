@@ -59,7 +59,7 @@
 #pragma mark protocal
 -(NSDictionary *)requestInfo
 {
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    NSMutableDictionary *info = [[super requestInfo] mutableCopy];
     for (SearchSheetGroupItem *group in self.infolist) {
         for (SearchSheetInfoItem *item in group.items) {
             if (item.uiStyle == SheetUIStyle_Switch) {

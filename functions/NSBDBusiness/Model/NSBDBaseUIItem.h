@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, SheetUIStyle)
     NSString *_title;
 }
 @property (strong,nonatomic) NSString *itemId;//uuid for request
+@property (strong,nonatomic) NSString *type;//uuid for request
 @property (strong,nonatomic) NSString *taskid;
 @property (strong,nonatomic) UploadAttachmentModel *attachModel;
 

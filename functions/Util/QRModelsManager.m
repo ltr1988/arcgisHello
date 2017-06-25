@@ -46,7 +46,9 @@
 #import "Search3DShenMaiModel.h"
 #import "Search3DShenMaiItem.h"
 #import "Search3DResultModel.h"
-
+#import "GDReverseGeoItem.h"
+#import "SearchAdminsModel.h"
+#import "SearchAdminItem.h"
 @implementation QRModelsManager
 
 /*
@@ -115,6 +117,10 @@
       [SearchSessionStateModel class],
       [Search3DShenMaiModel class],
       [Search3DShenMaiItem class],
+      [GDReverseGeoItem class],
+      [GDConvertLocationItem class],
+      [SearchAdminsModel class],
+      [SearchAdminItem class],
       ];
     
     

@@ -46,7 +46,7 @@
 {
     NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"]; 
     
-    image = [image imageWithWaterMarkText:@""];
+    image = [image imageWithWaterMarkText:[formater stringFromDate:[NSDate date]]];
     NSString *uuid = [NSString stringWithUUID];
     NSMutableDictionary * info = [@{
                             @"username": [AuthorizeManager sharedInstance].userName,
@@ -134,6 +134,8 @@
 {
     NSDictionary * info = @{
                             @"id": fkid,
+                            @"source":@"iOS",
+                            @"type":@"qxyj",
                             };
     
     NSMutableDictionary *dict = [HttpHost paramWithAction:@"incident" method:@"getData" req:info];
@@ -225,22 +227,26 @@
 -(void) requestNewEvent:(EventReportModel *)model successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
     [model parseEventModelToHttpModel];
-    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd-HH:mm:ss"]; 
+    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDateFormatter *formaterDay = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd"];
     NSDictionary * info = @{
                             @"id":model.uuid,
                             @"userName": [AuthorizeManager sharedInstance].userName,
                             @"incidentSource": @"YDSB",
-                            @"title": model.eventName.detail?:@"no title",
-                            @"occurTime": [formater stringFromDate:[NSDate date]],
-//                            @"alarmPerson": @"no person",
-//                            @"alarmPersonContacts": @"no contacts",
-                            @"category": model.eventType.detail?:@"no category",
-                            @"responseLevel": model.level.detail?:@"no level",
-                            @"occurLocation": model.place.detail?:@"no location",
-                            @"spacePosition_x": [NSString stringWithFormat:@"%.4f",model.location.x],
-                            @"spacePosition_y": [NSString stringWithFormat:@"%.4f",model.location.y],
-                            @"description": model.eventStatus.detail?:@"",
+                            @"title": model.eventName.detail?:@"",
+                            @"occurTime": [formaterDay stringFromDate:[NSDate date]],
+                            @"starttime": [formater stringFromDate:[NSDate date]],
+                            @"alarmPerson": @"",
+                            @"alarmPersonContacts": @"",
+                            @"category": model.eventType.detail?:@"",
+                            @"responseLevel": model.level.detail?:@"",
+                            @"occurLocation": model.place.detail?:@"",
+                            @"spacePosition_x": [NSString stringWithFormat:@"%.5f",model.location.x],
+                            @"spacePosition_y": [NSString stringWithFormat:@"%.5f",model.location.y],
+                            @"description": model.eventStatus.text?:@"",
                             @"reasons": model.reason.detail?:@"",
+             
+                            
                             };
     
     

@@ -88,6 +88,12 @@
 		A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */; };
 		A4924FA51DACF5C00025041E /* EventHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA41DACF5C00025041E /* EventHttpManager.m */; };
 		A4958F9B1D0DAC9F001FCE6F /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */; };
+		A49E81B91EFF96600006017E /* SearchAdminsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81B81EFF96600006017E /* SearchAdminsModel.m */; };
+		A49E81BC1EFF96D70006017E /* SearchAdminItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81BB1EFF96D70006017E /* SearchAdminItem.m */; };
+		A49E81C61EFFA3740006017E /* DCRoundSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81BF1EFFA3740006017E /* DCRoundSwitch.m */; };
+		A49E81C71EFFA3740006017E /* DCRoundSwitchKnobLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C11EFFA3740006017E /* DCRoundSwitchKnobLayer.m */; };
+		A49E81C81EFFA3740006017E /* DCRoundSwitchOutlineLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C31EFFA3740006017E /* DCRoundSwitchOutlineLayer.m */; };
+		A49E81C91EFFA3740006017E /* DCRoundSwitchToggleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E81C51EFFA3740006017E /* DCRoundSwitchToggleLayer.m */; };
 		A4A378891D365DC100A7342D /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */; };
 		A4A3788A1D365DC100A7342D /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378801D365DC100A7342D /* AFNetworkReachabilityManager.m */; };
 		A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A378821D365DC100A7342D /* AFSecurityPolicy.m */; };
@@ -142,6 +148,9 @@
 		A4DD86961D0976B00096B548 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD86941D0976B00096B548 /* Launch.storyboard */; };
 		A4DD869E1D0978FC0096B548 /* ArcGIS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */; };
 		A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD869F1D097A9A0096B548 /* libc++.tbd */; };
+		A4DDD18A1EFE2D4C0068F293 /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDD1891EFE2D4C0068F293 /* WGS84TOGCJ02.m */; };
+		A4DDD1971EFE4BCE0068F293 /* GDGeoAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDD1941EFE4BCE0068F293 /* GDGeoAPI.m */; };
+		A4DDD1981EFE4BCE0068F293 /* GDReverseGeoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DDD1961EFE4BCE0068F293 /* GDReverseGeoItem.m */; };
 		A4E68B701D68A0C800DD603B /* icon_passpord@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6B1D68A0C800DD603B /* icon_passpord@2x.png */; };
 		A4E68B711D68A0C800DD603B /* icon_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6C1D68A0C800DD603B /* icon_user@2x.png */; };
 		A4E68B721D68A0C800DD603B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E68B6D1D68A0C800DD603B /* logo@2x.png */; };
@@ -593,6 +602,18 @@
 		A4924FA41DACF5C00025041E /* EventHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventHttpManager.m; sourceTree = "<group>"; };
 		A4958F991D0DAC9F001FCE6F /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		A4958F9A1D0DAC9F001FCE6F /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
+		A49E81B71EFF96600006017E /* SearchAdminsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAdminsModel.h; path = functions/NSBDBusiness/Model/SearchAdminsModel.h; sourceTree = "<group>"; };
+		A49E81B81EFF96600006017E /* SearchAdminsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAdminsModel.m; path = functions/NSBDBusiness/Model/SearchAdminsModel.m; sourceTree = "<group>"; };
+		A49E81BA1EFF96D70006017E /* SearchAdminItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAdminItem.h; path = functions/NSBDBusiness/Model/SearchAdminItem.h; sourceTree = "<group>"; };
+		A49E81BB1EFF96D70006017E /* SearchAdminItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAdminItem.m; path = functions/NSBDBusiness/Model/SearchAdminItem.m; sourceTree = "<group>"; };
+		A49E81BE1EFFA3740006017E /* DCRoundSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitch.h; sourceTree = "<group>"; };
+		A49E81BF1EFFA3740006017E /* DCRoundSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitch.m; sourceTree = "<group>"; };
+		A49E81C01EFFA3740006017E /* DCRoundSwitchKnobLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchKnobLayer.h; sourceTree = "<group>"; };
+		A49E81C11EFFA3740006017E /* DCRoundSwitchKnobLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchKnobLayer.m; sourceTree = "<group>"; };
+		A49E81C21EFFA3740006017E /* DCRoundSwitchOutlineLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchOutlineLayer.h; sourceTree = "<group>"; };
+		A49E81C31EFFA3740006017E /* DCRoundSwitchOutlineLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchOutlineLayer.m; sourceTree = "<group>"; };
+		A49E81C41EFFA3740006017E /* DCRoundSwitchToggleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRoundSwitchToggleLayer.h; sourceTree = "<group>"; };
+		A49E81C51EFFA3740006017E /* DCRoundSwitchToggleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRoundSwitchToggleLayer.m; sourceTree = "<group>"; };
 		A4A3787C1D365DC100A7342D /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = functions/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		A4A3787D1D365DC100A7342D /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = functions/AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		A4A3787E1D365DC100A7342D /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = functions/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
@@ -693,6 +714,12 @@
 		A4DD86971D0976B00096B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4DD869D1D0978FC0096B548 /* ArcGIS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ArcGIS.bundle; sourceTree = "<group>"; };
 		A4DD869F1D097A9A0096B548 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A4DDD1881EFE2D4C0068F293 /* WGS84TOGCJ02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WGS84TOGCJ02.h; path = functions/Util/WGS84TOGCJ02.h; sourceTree = "<group>"; };
+		A4DDD1891EFE2D4C0068F293 /* WGS84TOGCJ02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WGS84TOGCJ02.m; path = functions/Util/WGS84TOGCJ02.m; sourceTree = "<group>"; };
+		A4DDD1931EFE4BCE0068F293 /* GDGeoAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDGeoAPI.h; sourceTree = "<group>"; };
+		A4DDD1941EFE4BCE0068F293 /* GDGeoAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDGeoAPI.m; sourceTree = "<group>"; };
+		A4DDD1951EFE4BCE0068F293 /* GDReverseGeoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDReverseGeoItem.h; sourceTree = "<group>"; };
+		A4DDD1961EFE4BCE0068F293 /* GDReverseGeoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDReverseGeoItem.m; sourceTree = "<group>"; };
 		A4E68B6B1D68A0C800DD603B /* icon_passpord@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_passpord@2x.png"; path = "images/icon_passpord@2x.png"; sourceTree = "<group>"; };
 		A4E68B6C1D68A0C800DD603B /* icon_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_user@2x.png"; path = "images/icon_user@2x.png"; sourceTree = "<group>"; };
 		A4E68B6D1D68A0C800DD603B /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "images/logo@2x.png"; sourceTree = "<group>"; };
@@ -1275,6 +1302,8 @@
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A4DDD1881EFE2D4C0068F293 /* WGS84TOGCJ02.h */,
+				A4DDD1891EFE2D4C0068F293 /* WGS84TOGCJ02.m */,
 				B2748D571DAF95B100C0166F /* SystemAlertController */,
 				A48599421D3CEC680050AC88 /* Views */,
 				B2A187181D66AEC7006D8CA7 /* QRModelsManager.h */,
@@ -1426,6 +1455,8 @@
 		A48021FF1D32210900AE2AF9 /* functions */ = {
 			isa = PBXGroup;
 			children = (
+				A49E81BD1EFFA3740006017E /* DCRoundSwitch */,
+				A4DDD1921EFE4BCE0068F293 /* GDGeoAPI */,
 				B28475AB1E0BC22100A4AB98 /* YYKit */,
 				B245DAB61E015133009886BF /* ComboBox */,
 				B245DAAF1E011208009886BF /* GDataXMLNode */,
@@ -1583,6 +1614,22 @@
 			name = manager;
 			sourceTree = "<group>";
 		};
+		A49E81BD1EFFA3740006017E /* DCRoundSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				A49E81BE1EFFA3740006017E /* DCRoundSwitch.h */,
+				A49E81BF1EFFA3740006017E /* DCRoundSwitch.m */,
+				A49E81C01EFFA3740006017E /* DCRoundSwitchKnobLayer.h */,
+				A49E81C11EFFA3740006017E /* DCRoundSwitchKnobLayer.m */,
+				A49E81C21EFFA3740006017E /* DCRoundSwitchOutlineLayer.h */,
+				A49E81C31EFFA3740006017E /* DCRoundSwitchOutlineLayer.m */,
+				A49E81C41EFFA3740006017E /* DCRoundSwitchToggleLayer.h */,
+				A49E81C51EFFA3740006017E /* DCRoundSwitchToggleLayer.m */,
+			);
+			name = DCRoundSwitch;
+			path = functions/DCRoundSwitch;
+			sourceTree = "<group>";
+		};
 		A4A3788F1D365DC700A7342D /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1724,6 +1771,18 @@
 				B2748D641DB0D78E00C0166F /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4DDD1921EFE4BCE0068F293 /* GDGeoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				A4DDD1931EFE4BCE0068F293 /* GDGeoAPI.h */,
+				A4DDD1941EFE4BCE0068F293 /* GDGeoAPI.m */,
+				A4DDD1951EFE4BCE0068F293 /* GDReverseGeoItem.h */,
+				A4DDD1961EFE4BCE0068F293 /* GDReverseGeoItem.m */,
+			);
+			name = GDGeoAPI;
+			path = functions/GDGeoAPI;
 			sourceTree = "<group>";
 		};
 		A4F23FF91DF4061100F7D4B8 /* 3D */ = {
@@ -2565,6 +2624,10 @@
 				A4CFBC8E1D978E5D0016387C /* SearchCategoryItem.m */,
 				A4367F621E02BBB00091E07A /* SearchSessionStateModel.h */,
 				A4367F631E02BBB00091E07A /* SearchSessionStateModel.m */,
+				A49E81B71EFF96600006017E /* SearchAdminsModel.h */,
+				A49E81B81EFF96600006017E /* SearchAdminsModel.m */,
+				A49E81BA1EFF96D70006017E /* SearchAdminItem.h */,
+				A49E81BB1EFF96D70006017E /* SearchAdminItem.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -2946,6 +3009,7 @@
 				A48022021D32216A00AE2AF9 /* User.m in Sources */,
 				A414ACC61D3A1D890065AAA7 /* ELCOverlayImageView.m in Sources */,
 				B28653811D45EA03002D4139 /* MASLayoutConstraint.m in Sources */,
+				A49E81C61EFFA3740006017E /* DCRoundSwitch.m in Sources */,
 				A4AFB3931E0A4EEC00FAFBB3 /* TrackLocationManager.m in Sources */,
 				A4F2FC141D845E0500B0532B /* MyUploadedEventCell.m in Sources */,
 				B28476761E0BC22100A4AB98 /* UIScrollView+YYAdd.m in Sources */,
@@ -3010,6 +3074,7 @@
 				A4E9E7661D46495900E3C94C /* DatePickViewController.m in Sources */,
 				A412B8B01DB3C3C4003CAE02 /* MyEventDetailProgressModel.m in Sources */,
 				B28653D21D4863B2002D4139 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				A49E81BC1EFF96D70006017E /* SearchAdminItem.m in Sources */,
 				B2A187191D66AEC7006D8CA7 /* QRModelsManager.m in Sources */,
 				B2806A0B1D683F950097F7E4 /* TitleDateItem.m in Sources */,
 				B205A5351D61D378007530EB /* UIScrollView+MJRefresh.m in Sources */,
@@ -3025,6 +3090,7 @@
 				A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */,
 				B25712B01DADCAB200F3D7F6 /* SearchHistoryManager.m in Sources */,
 				B2A186F21D632AEB006D8CA7 /* SearchSessionManager.m in Sources */,
+				A49E81C71EFFA3740006017E /* DCRoundSwitchKnobLayer.m in Sources */,
 				B2A1872F1D66AF4B006D8CA7 /* MJType.m in Sources */,
 				B2C6B19F1D4B2D1400B0B12A /* UIImage+VideoThumb.m in Sources */,
 				B28476991E0BC22100A4AB98 /* YYTextArchiver.m in Sources */,
@@ -3110,6 +3176,8 @@
 				A41012B21DBCBC31008B00DF /* FacilityInfoItem.m in Sources */,
 				A4AEF0541DD825FF00903925 /* AttachmentModel.m in Sources */,
 				A4569C911D33B53800A06B1C /* DownPicker.m in Sources */,
+				A49E81C81EFFA3740006017E /* DCRoundSwitchOutlineLayer.m in Sources */,
+				A4DDD1971EFE4BCE0068F293 /* GDGeoAPI.m in Sources */,
 				A47B65AD1DD845EA00CCC861 /* MyChuanKuaYueListModel.m in Sources */,
 				B28476A41E0BC22100A4AB98 /* YYGestureRecognizer.m in Sources */,
 				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
@@ -3139,6 +3207,7 @@
 				A4A3788B1D365DC100A7342D /* AFSecurityPolicy.m in Sources */,
 				A41012AC1DBCAE3B008B00DF /* FacilityManager.m in Sources */,
 				B2A186FB1D643CF8006D8CA7 /* SearchTaskStatusModel.m in Sources */,
+				A4DDD18A1EFE2D4C0068F293 /* WGS84TOGCJ02.m in Sources */,
 				B28476961E0BC22100A4AB98 /* NSAttributedString+YYText.m in Sources */,
 				A4AFB38B1E06A0CC00FAFBB3 /* DistanceCalloutView.m in Sources */,
 				B286538D1D45FA30002D4139 /* EventReportModel.m in Sources */,
@@ -3166,6 +3235,7 @@
 				B28476741E0BC22100A4AB98 /* UIImage+YYAdd.m in Sources */,
 				B284769D1E0BC22100A4AB98 /* YYTextRunDelegate.m in Sources */,
 				B272B0AD1D9D064C00CEB12D /* AFHTTPSessionManager+NSBD.m in Sources */,
+				A4DDD1981EFE4BCE0068F293 /* GDReverseGeoItem.m in Sources */,
 				B28476751E0BC22100A4AB98 /* UIScreen+YYAdd.m in Sources */,
 				B28476AB1E0BC22100A4AB98 /* YYTransaction.m in Sources */,
 				B284766B1E0BC22100A4AB98 /* YYCGUtilities.m in Sources */,
@@ -3202,6 +3272,7 @@
 				A4CFBC831D9666810016387C /* NSString+UUID.m in Sources */,
 				A414ACA01D3A1CD10065AAA7 /* SupportRotationSelectBaseViewController.m in Sources */,
 				B205A4881D587A49007530EB /* ToastView.m in Sources */,
+				A49E81C91EFFA3740006017E /* DCRoundSwitchToggleLayer.m in Sources */,
 				B28AE86C1D3F61C400ABDB28 /* UIButton+UIButtonSetEdgeInsets.m in Sources */,
 				A4CFBC861D96B6C00016387C /* SearchSecondaryListViewController.m in Sources */,
 				A412B8D31DB4FCCD003CAE02 /* MyDealedEventHistoryItem.m in Sources */,
@@ -3232,6 +3303,7 @@
 				B2A1870A1D646AF0006D8CA7 /* NSData+Conversion.m in Sources */,
 				A4CFBC9A1D9C12EF0016387C /* DGQWellItem.m in Sources */,
 				B2806A081D683B390097F7E4 /* SearchSheetInfoItem.m in Sources */,
+				A49E81B91EFF96600006017E /* SearchAdminsModel.m in Sources */,
 				B205A4901D5C51FC007530EB /* SearchChoiceController.m in Sources */,
 				B284768F1E0BC22100A4AB98 /* YYTextEffectWindow.m in Sources */,
 				A414ACA11D3A1CD10065AAA7 /* SupportRotationSelectNavigationController.m in Sources */,

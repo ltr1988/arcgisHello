@@ -334,7 +334,7 @@
         {
             Search3DShenMaiItem *item = model.datalist.firstObject;
             __weak __typeof(self) weakself = self;
-            DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 100, 64)];
+            DepthCalloutView *dcallout = [[DepthCalloutView alloc] initWithFrame:CGRectMake(0, 0, 120, 80)];
             
             __weak DepthCalloutView *weakdcallout = dcallout;
             dcallout.imageTapped = ^(UIImage *image){
@@ -365,8 +365,9 @@
                 [dcallout.imageView setImage:nil];
             }
             
-            dcallout.lbLine1.text = [NSString stringWithFormat:@"埋深:%.2f米",[item.depth floatValue] ];
+            dcallout.lbLine1.text = [NSString stringWithFormat:@"管底埋深:%.3f米",[item.depth floatValue] ];
             
+            dcallout.lbLine2.text = [NSString stringWithFormat:@"管底高程:%.3f米",[item.gaocheng floatValue] ];
             [self.mapView.callout showCalloutAt:mappoint screenOffset:CGPointMake(0, 0) animated:YES];
             
         }
@@ -524,7 +525,7 @@
         
         __weak __typeof(self) weakSelf = self;
         calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
-            DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+            DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo objectNumber:objectNumber];
             
             [weakSelf.navigationController pushViewController:detailVC animated:YES];
         };
@@ -649,7 +650,7 @@
             
             __weak __typeof(self) weakSelf = self;
             calloutView.moreInfoCallback = ^(NSDictionary *moreInfo){
-                DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo];
+                DetailInfoViewController *detailVC = [[DetailInfoViewController alloc] initWithData:moreInfo objectNumber:objectNumber];
                 
                 [weakSelf.navigationController pushViewController:detailVC animated:YES];
             };

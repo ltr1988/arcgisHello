@@ -11,5 +11,5 @@
 #import "CenterSwitchView.h"
 
 @interface DetailInfoViewController : SupportRotationSelectBaseViewController<UITableViewDataSource,CenterSwitchActionDelegate,UITableViewDelegate>
--(instancetype) initWithData:(NSDictionary *) dict;
+-(instancetype) initWithData:(NSDictionary *) dict objectNumber:(NSString *)objectNumber;
 @end

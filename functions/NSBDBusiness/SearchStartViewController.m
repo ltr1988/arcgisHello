@@ -31,12 +31,16 @@
 #import "NSString+UUID.h"
 
 #import "SearchTaskStatusModel.h"
+#import "SearchSessionManager.h"
+#import "ChoicePickerViewController.h"
+#import "SearchAdminsModel.h"
 
 @interface SearchStartViewController()<UITableViewDelegate,UITableViewDataSource>
 {
     WeatherManager *manager;
 }
 @property (nonatomic,strong)     UITableView *tableView;
+@property (nonatomic,strong)     NSArray *adminList;
 @end
 
 @implementation SearchStartViewController
@@ -47,8 +51,8 @@
     
     [self setupModel];
     [self setupSubViews];
-    [self requestData];
-    
+    [self requestWeatherData];
+    [self requestAdminData];
     
 }
 
@@ -57,10 +61,12 @@
     self.model = [SearchStartModel new];
     self.model.weather = [TitleDetailItem itemWithTitle:@"天气" detail:@"查询中..."];
     self.model.searcher = [TitleInputItem itemWithTitle:@"巡查人" placeholder:@"巡查人姓名"];
-    self.model.searchAdmin = [TitleInputItem itemWithTitle:@"巡查管理员" placeholder:@"巡查管理员姓名"];
+    self.model.searchAdmin = [TitleDetailItem itemWithTitle:@"巡查管理员" detail:@"查询中..."];
+    
+    self.adminList = [NSArray array];
 }
 
--(void) requestData
+-(void) requestWeatherData
 {
     manager = [WeatherManager sharedInstance];
     
@@ -73,6 +79,36 @@
                         options:options context:nil];
     
     [manager requestData];
+    
+}
+
+-(void) requestAdminData
+{
+    self.model.searchAdmin.detail = @"查询中...";
+    [self.tableView reloadData];
+    [[SearchSessionManager sharedManager] requestQueryInspectAdminWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        SearchAdminsModel *model = [SearchAdminsModel objectWithKeyValues:dict];
+        if (model.success) {
+            NSMutableArray *mArray = [NSMutableArray array];
+            for (SearchAdminItem *item in model.datalist) {
+                [mArray addObject:item.name];
+            }
+            self.adminList = [mArray copy];
+            if (self.adminList.count>0) {
+                self.model.searchAdmin.detail = self.adminList.firstObject;
+                [self.tableView reloadData];
+            }else
+            {
+                self.model.searchAdmin.detail = @"";
+                [self.tableView reloadData];
+            }
+        }
+    } failCallback:^(NSURLSessionDataTask *task, NSError *error) {
+        self.adminList = [NSArray array];
+        self.model.searchAdmin.detail = @"";
+        [self.tableView reloadData];
+    }];
+
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
@@ -179,10 +215,11 @@
         }
         case 1:
         {
-            TitleTextInputCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCellSearchAdmin"];
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleTextInputCellSearchAdmin"];
             if (!cell) {
-                cell = [[TitleTextInputCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCellSearchAdmin"];
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleTextInputCellSearchAdmin"];
             }
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.data = self.model.searchAdmin;
             return cell;
             break;
@@ -207,9 +244,31 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row ==2)
-    {
-        [manager requestData];
+    __weak __typeof(self) weakSelf = self;
+    switch (indexPath.row) {
+        case 1:
+        {
+            if (self.adminList.count>0)
+            {
+                ChoicePickerViewController *vc = [[ChoicePickerViewController alloc] initWithChoices:self.adminList saveCallback:^(NSDictionary *dict) {
+                    NSString *choice = dict[@"choice"];
+                    weakSelf.model.searchAdmin.detail = choice;
+                    [weakSelf.tableView reloadData];
+                }];
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if (![self.model.searchAdmin.detail isEqualToString:@"查询中..."])
+            {
+                [self requestAdminData];
+            }
+        }
+            break;
+        case 2:
+        {
+            [manager requestData];
+        }
+            break;
+        default:
+            break;
     }
 }
 

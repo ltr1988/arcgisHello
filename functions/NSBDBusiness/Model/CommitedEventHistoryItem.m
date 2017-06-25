@@ -30,7 +30,8 @@
              @"spacePosition_y" :@"spacePosition_y",
              @"departName" :@"departName",
              @"creatorName" :@"creatorName",
-             
+             @"reasons":@"reasons",
+             @"desc":@"description",
              @"occurTime" :@"occurTime",
              @"status" :@"status",
              };

@@ -12,7 +12,7 @@
 #import "HttpHost.h"
 #import "CommonDefine.h"
 
-#define kLoginTimeout           5.0     //登陆超时时间
+#define kLoginTimeout           10.0     //登陆超时时间
 #define kForegroundTimeout      15.0    //有前台展现的超时时间
 #define kAsynchronousTimeout    30.0    //异步通信超时时间
 #define kSynchronousTimeout     180.0   //同步通信超时时间

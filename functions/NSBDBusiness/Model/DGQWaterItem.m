@@ -57,7 +57,7 @@
 #pragma mark protocal
 -(NSDictionary *)requestInfo
 {
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    NSMutableDictionary *info = [[super requestInfo] mutableCopy];
     for (SearchSheetGroupItem *group in self.infolist) {
         for (SearchSheetInfoItem *item in group.items) {
             info[item.key] = [item.data value];

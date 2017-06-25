@@ -17,13 +17,19 @@
     
     __weak UIView *weakView = self.contentView;
     
-    switchView = [[UISwitch alloc] init];
+    switchView = [[DCRoundSwitch alloc] init];
+    switchView.onTintColor = [UIColor redColor];
+    switchView.onText = @"异常";
+    switchView.offText = @"正常";
+
     [switchView addTarget:self action:@selector(actionSwitch:) forControlEvents:UIControlEventValueChanged];
     [weakView addSubview:switchView];
     
     [switchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(weakView.mas_centerY);
         make.right.mas_equalTo(weakView.mas_right).with.offset(-16);
+        make.width.mas_equalTo(77);
+        make.height.mas_equalTo(27);
     }];
     
 }

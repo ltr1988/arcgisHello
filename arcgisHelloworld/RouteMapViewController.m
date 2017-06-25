@@ -12,6 +12,7 @@
 #import "Masonry.h"
 #import "LocationManager.h"
 #import "AFNetworkReachabilityManager.h"
+#import "GDGeoAPI.h"
 
 @interface RouteMapViewController()<AGSMapViewTouchDelegate>
 {
@@ -66,16 +67,16 @@
         
         __weak __typeof(self) weakSelf= self;
         CLLocation * newLocation = [[CLLocation alloc]initWithLatitude:point.y longitude:point.x ];
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        [geocoder reverseGeocodeLocation:newLocation
-                       completionHandler:^(NSArray *placemarks, NSError *error){
-                           
-                           CLPlacemark *place = [placemarks firstObject];
-                           dispatch_main_async_safe(^{
-                               weakSelf.title = place.name;
-                           });
-                           
-                       }];
+        
+        
+        [GDGeoAPI reverseGeocodeLat:newLocation.coordinate.latitude lon:newLocation.coordinate.longitude completion:^(GDReverseGeoItem *place, NSError *error) {
+            if (place)
+            {
+                dispatch_main_async_safe(^{
+                    weakSelf.title = place.shortAddress;
+                });
+            }
+        }];
 
     }
 }
@@ -213,20 +214,17 @@
             }
         });
         
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        [geocoder reverseGeocodeLocation:location
-                       completionHandler:^(NSArray *placemarks, NSError *error){
-                           
+        
+        [GDGeoAPI reverseGeocodeLat:location.coordinate.latitude lon:location.coordinate.longitude completion:^(GDReverseGeoItem *place, NSError *error) {
                            if (cancel) {
                                return;
                            }
                            cancel = YES;
-                           
-                           CLPlacemark *place = [placemarks firstObject];
+            
                            NSDictionary *userInfo;
                            if (place)
                                userInfo = @{@"location":location,
-                                            @"place":place.name};
+                                            @"place":place.shortAddress};
                            else
                                userInfo = @{@"location":location};
                            dispatch_main_async_safe(^{

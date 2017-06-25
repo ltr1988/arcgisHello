@@ -7,7 +7,7 @@
 //
 
 #import "BaseTitleCell.h"
-
+#import "DCRoundSwitch.h"
 
 @protocol CheckableTitleCellViewModel <TitleOnlyCellViewModel>
 
@@ -18,6 +18,6 @@
 
 @interface CheckableTitleCell : BaseTitleCell
 {
-    UISwitch *switchView;
+    DCRoundSwitch *switchView;
 }
 @end

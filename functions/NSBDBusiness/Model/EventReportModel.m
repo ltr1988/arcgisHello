@@ -106,7 +106,7 @@
 //        
 //        self.eventXingzhi = [TitleDetailItem itemWithTitle:@"事件性质" detail:@"未填写"];
         self.level = [TitleDetailItem itemWithTitle:@"等级初判" detail:item.responseLevel];
-        self.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:@"未填写"];
+        self.reason = [TitleDetailItem itemWithTitle:@"初步原因" detail:item.reasons];
         
         
         self.eventDate = [TitleDateItem itemWithTitle:@"事发时间"];
@@ -126,6 +126,10 @@
         self.reporter.detail = [NSString stringWithFormat:@"%@-%@",item.departName,item.creatorName];
         
         self.eventStatus = [TitleDetailTextItem itemWithTitle:@"事件情况" detail:@"未填写" text:@""];
+        if (item.desc && item.desc.length>0) {
+            self.eventStatus.detail = @"已填写";
+            self.eventStatus.text = item.desc;
+        }
         [self parseHttpModelToEventModel];
     }
     
