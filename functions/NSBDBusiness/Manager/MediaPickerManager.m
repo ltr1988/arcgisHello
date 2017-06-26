@@ -10,6 +10,7 @@
 #import "NSString+LVPath.h"
 #import <AVFoundation/AVAssetExportSession.h>
 #import "UIImage+Watermark.h"
+#import "NSDateFormatterHelper.h"
 
 @implementation MediaPickerManager
 
@@ -125,6 +126,9 @@
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:@"public.image"]){
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+        NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        image = [image imageWithWaterMarkText:[formater stringFromDate:[NSDate date]]];
         if (_imagePickBlock) {
             _imagePickBlock(@[image]);
         }

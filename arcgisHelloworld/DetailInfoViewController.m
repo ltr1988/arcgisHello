@@ -185,7 +185,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (tableView == self.detailTableView){
+    if (tableView == self.facilityTableView){
         FacilityDetailInfoViewController *vc = [[FacilityDetailInfoViewController alloc] initWithFacilityInfoItem:_facilityDataList[indexPath.row]];
         FacilityInfoItem *item = _facilityDataList[indexPath.row];
         HttpMetaData *data = item.info[@"NAME"];

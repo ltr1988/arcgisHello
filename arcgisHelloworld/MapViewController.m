@@ -84,12 +84,12 @@
     CGFloat btnsize = 36;
     
     CGFloat rightBtnOffsetX = self.view.frame.size.width- btnsize - 20;
-    CGFloat rightBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - 70;//70 for bottom view height
+    CGFloat rightBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - 110;//70 for bottom view height
     
     CGFloat leftBtnOffsetX = 20;
     
     CGFloat leftPaddingY = 15;
-    CGFloat leftBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - leftPaddingY - 70;
+    CGFloat leftBtnOffsetY = self.view.frame.size.height- 2 * btnsize - 20 - leftPaddingY - 110;
     
     CGRect frame;
     
@@ -379,7 +379,7 @@
 {
     
     AGSIdentifyParameters *identifyParams = [AGSIdentifyParameters new];
-    identifyParams.tolerance = 10;
+    identifyParams.tolerance = 15;
     identifyParams.geometry = mappoint;
     identifyParams.dpi = 96;
     identifyParams.size = self.mapView.bounds.size;
@@ -469,7 +469,7 @@
     //            }
     
     NSString *departName = [result.feature  attributeAsStringForKey:@"ManE"];
-    ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
+    ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 130)];
     self.mapView.infoView = calloutView;
     
     
@@ -515,6 +515,7 @@
         item.title = name;
         item.detail = departName?:@"";
         item.moreInfo = [convertDict copy];
+        item.location = p;
         
         if (nil != modelUrl) {
             
@@ -537,6 +538,9 @@
             
             [weakSelf.navigationController pushViewController:controller animated:YES];
         };
+        calloutView.goHereCallback = ^(id<ItemCallOutViewModel> model){
+            [weakSelf naviToPoint:[model location] desc:[model title]];
+        };
         
         //show callout
         [self.mapView showInfoView:YES];
@@ -546,6 +550,8 @@
     
     return;
 }
+
+
 
 
 //if there's an error with the query display it to the user
@@ -600,7 +606,7 @@
         
         NSString *departName = [graphic attributeAsStringForKey:@"MANE"];
         NSString *objectNumber = [graphic attributeAsStringForKey:@"OBJECTNUM"];
-        ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 80)];
+        ItemCallOutView *calloutView = [[ItemCallOutView alloc] initWithFrame:CGRectMake(0, 0, self.mapView.frame.size.width, 130)];
         self.mapView.infoView = calloutView;
         
         
@@ -640,6 +646,7 @@
             item.title = name;
             item.detail = departName?:@"";
             item.moreInfo = [convertDict copy];
+            item.location = p;
             
             if (nil != modelUrl) {
                 
@@ -661,6 +668,10 @@
                 [controller setUrl:[NSURL URLWithString:url]];
                 
                 [weakSelf.navigationController pushViewController:controller animated:YES];
+            };
+            
+            calloutView.goHereCallback = ^(id<ItemCallOutViewModel> model){
+                [weakSelf naviToPoint:[model location] desc:[model title]];
             };
             
             //show callout

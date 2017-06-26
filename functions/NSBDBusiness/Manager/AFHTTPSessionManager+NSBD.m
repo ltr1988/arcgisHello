@@ -23,6 +23,7 @@
         if (dict[@"msg"] && [dict[@"msg"] isEqualToString:@"token令牌失效！"]) {
             NSMutableDictionary *mDict = [dict mutableCopy];
             mDict[@"status"]=@"304";
+            dict = [mDict copy];
         }
         if (success) {
             success(task,dict);

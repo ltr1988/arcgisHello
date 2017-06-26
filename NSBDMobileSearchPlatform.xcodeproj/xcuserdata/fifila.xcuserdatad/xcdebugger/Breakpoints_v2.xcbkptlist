@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/MediaPickerManager.m"
-            timestampString = "520075758.137393"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/MediaPickerManager.m"
-            timestampString = "520075758.137393"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "-video:didFinishSavingWithError:contextInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/MediaPickerManager.m"
-            timestampString = "520089396.354971"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "+movContertToMp4:completeBlock:"
             landmarkType = "7">
          </BreakpointContent>
@@ -341,12 +341,12 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "520098425.703072"
+                  timestampString = "520185546.81838"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "314"
                   endingLineNumber = "314"
-                  offsetFromSymbolStart = "379">
+                  offsetFromSymbolStart = "372">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -356,12 +356,12 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "520098425.704869"
+                  timestampString = "520185546.819764"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "314"
                   endingLineNumber = "314"
-                  offsetFromSymbolStart = "415">
+                  offsetFromSymbolStart = "408">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -437,11 +437,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController+Action.m"
-            timestampString = "504014480.130317"
+            timestampString = "520184390.745582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-actionSwitchMapType:"
             landmarkType = "7">
          </BreakpointContent>
@@ -453,11 +453,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/AFHTTPSessionManager+NSBD.m"
-            timestampString = "520090982.866663"
+            timestampString = "520185546.48572"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-ScenePOST:parameters:success:failure:"
             landmarkType = "7">
          </BreakpointContent>
@@ -549,11 +549,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController+Action.m"
-            timestampString = "504014480.130317"
+            timestampString = "520184390.745582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-actionSearchUpload"
             landmarkType = "7">
          </BreakpointContent>
@@ -581,11 +581,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "519366503.823553"
+            timestampString = "520184106.752948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "613"
-            endingLineNumber = "613"
+            startingLineNumber = "619"
+            endingLineNumber = "619"
             landmarkName = "-actionSearch"
             landmarkType = "7">
          </BreakpointContent>
@@ -641,23 +641,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "arcgisHelloworld/DetailInfoViewController.m"
-            timestampString = "519968014.543836"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-initWithData:objectNumber:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/Search3DHttpManager.m"
@@ -805,11 +789,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520055939.320449"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "-requestNewEvent:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -821,11 +805,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520055939.320449"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-requestNewEvent:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -837,11 +821,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520055939.320449"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "-requestNewEvent:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -853,11 +837,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520055939.320449"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "-requestNewEvent:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -885,11 +869,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520057805.717679"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-requestUploadAttachment:fkid:qxyjFlag:btype:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -901,11 +885,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520058533.804106"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "-requestDownloadAttachmentWithId:qxyjFlag:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -917,11 +901,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520058535.517162"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-requestDownloadAttachmentWithId:qxyjFlag:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -965,11 +949,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520067828.348601"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-requestUploadAttachment:fkid:qxyjFlag:btype:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -981,11 +965,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/EventHttpManager.m"
-            timestampString = "520067835.575658"
+            timestampString = "520185301.806678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-requestUploadAttachment:fkid:qxyjFlag:btype:successCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>

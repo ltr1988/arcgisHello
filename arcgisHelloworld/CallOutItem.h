@@ -19,4 +19,5 @@
 
 @property (nonatomic,strong) NSDictionary *moreInfo;
 @property (nonatomic,strong) NSDictionary *webSiteInfo;
+@property (nonatomic,strong) AGSPoint *location;
 @end

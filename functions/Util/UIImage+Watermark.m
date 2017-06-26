@@ -19,7 +19,7 @@
     [[UIColor redColor] set];
     [self drawInRect:CGRectMake(0, 0, w, h)];
     
-    CGFloat fontSize = round(w/3/text.length);
+    CGFloat fontSize = round(w/2/text.length);
     NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:fontSize], NSFontAttributeName,[UIColor redColor] ,NSForegroundColorAttributeName,nil];
     CGSize size = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                      options:NSStringDrawingUsesLineFragmentOrigin

@@ -12,6 +12,8 @@
 #import "UIColor+ThemeColor.h"
 
 @interface ItemCallOutView()
+@property (nonatomic,strong) UIView *contentView;
+@property (nonatomic,strong) UIButton *goHereView;
 @property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic,strong) UILabel *detailLabel;
 @property (nonatomic,strong) UIButton *infoButton;
@@ -40,7 +42,18 @@
 
 -(void) setupSubViews
 {
-    self. backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
+    
+    
+    _contentView = [[UIView alloc] init];
+    _contentView.backgroundColor = [UIColor whiteColor];
+    
+    [self addSubview:_contentView];
+    
+    [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(30);
+        make.left.right.bottom.offset(0);
+    }];
     
     _titleLabel = [UILabel new];
     _titleLabel.font = [UIFont systemFontOfSize:20];
@@ -66,7 +79,7 @@
     [_infoButton setImage:[UIImage imageNamed:@"icon_jbxx_disable"] forState:UIControlStateDisabled];
     _infoButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     _infoButton.backgroundColor = [UIColor clearColor];
-    _infoButton.titleLabel.font = UI_FONT(14);
+    _infoButton.titleLabel.font = UI_FONT(16);
     [_infoButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_infoButton setTitle:@"基本信息" forState:UIControlStateNormal];
     
@@ -74,28 +87,45 @@
     [_webSiteButton setImage:[UIImage imageNamed:@"icon_swxx_disable"] forState:UIControlStateDisabled];
     _webSiteButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [_webSiteButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    _webSiteButton.titleLabel.font = UI_FONT(14);
+    _webSiteButton.titleLabel.font = UI_FONT(16);
     _webSiteButton.backgroundColor = [UIColor clearColor];
     [_webSiteButton setTitle:@"三维模型" forState:UIControlStateNormal];
     
     
+    _goHereView = [[UIButton alloc] init];
+    _goHereView.backgroundColor = [UIColor themeBlueColor];
+    [_goHereView setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _goHereView.titleLabel.font = UI_FONT(16);
+    [_goHereView setTitle:@"去这里" forState:UIControlStateNormal];
+    _goHereView.clipsToBounds = YES;
+    _goHereView.layer.cornerRadius = 30;
+    [self addSubview:_goHereView];
+    [_goHereView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.right.offset(-16);
+        make.width.height.mas_equalTo(60);
+    }];
     
-    [self addSubview:imgView];
-    [self addSubview:_infoButton];
-    [self addSubview:_titleLabel];
     
-    [self addSubview:_detailLabel];
-    [self addSubview:_webSiteButton];
     
-    [self addSubview:lineVertical];
-    [self addSubview:line];
+    [self.contentView addSubview:imgView];
+    [self.contentView addSubview:_infoButton];
+    [self.contentView addSubview:_titleLabel];
+    
+    [self.contentView addSubview:_detailLabel];
+    [self.contentView addSubview:_webSiteButton];
+    
+    [self.contentView addSubview:lineVertical];
+    [self.contentView addSubview:line];
 
     [_infoButton addTarget:self action:@selector(actionMoreInfo) forControlEvents:UIControlEventTouchUpInside];
     [_webSiteButton addTarget:self action:@selector(actionGotoWebsite) forControlEvents:UIControlEventTouchUpInside];
+    [_goHereView addTarget:self action:@selector(actionGoHere) forControlEvents:UIControlEventTouchUpInside];
+    
     
     
     //layout
-    __weak __typeof(self) weakSelf = self;
+    __weak UIView* weakSelf = self.contentView;
     [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.mas_left).offset(16);
         make.centerY.mas_equalTo(_detailLabel.mas_centerY);
@@ -106,20 +136,20 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(imgView.mas_right).offset(8);
         make.height.mas_equalTo(30);
-        make.top.mas_equalTo(weakSelf.mas_top);
+        make.top.mas_equalTo(weakSelf.mas_top).offset(8);
     }];
     
     [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(_titleLabel.mas_right).offset(8);
         make.height.mas_equalTo(30);
-        make.top.mas_equalTo(weakSelf.mas_top);
+        make.top.mas_equalTo(weakSelf.mas_top).offset(8);
     }];
     
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(weakSelf.mas_left).offset(16);
         make.right.mas_equalTo(weakSelf.mas_right).offset(-16);
         make.height.mas_equalTo(.5f);
-        make.top.mas_equalTo(_titleLabel.mas_bottom);
+        make.top.mas_equalTo(_titleLabel.mas_bottom).offset(8);
     }];
     
     [lineVertical mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -133,15 +163,16 @@
         make.left.mas_equalTo(weakSelf.mas_left);
         make.right.mas_equalTo(lineVertical.mas_left);
         make.centerY.mas_equalTo(lineVertical.mas_centerY);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(40);
     }];
     
     [_webSiteButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(weakSelf.mas_right);
         make.left.mas_equalTo(lineVertical.mas_right);
         make.centerY.mas_equalTo(lineVertical.mas_centerY);
-        make.height.mas_equalTo(30);
+        make.height.mas_equalTo(40);
     }];
+    
 }
 
 
@@ -172,6 +203,13 @@
 {
     if (_webSiteCallback) {
         _webSiteCallback([_model webSiteInfo]);
+    }
+}
+
+-(void) actionGoHere
+{
+    if (_goHereCallback) {
+        _goHereCallback(_model);
     }
 }
 @end

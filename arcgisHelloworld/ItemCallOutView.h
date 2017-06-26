@@ -14,10 +14,11 @@
 -(NSString *) webSiteImageURL;
 -(NSDictionary *) moreInfo;
 -(NSDictionary *) webSiteInfo;
+-(AGSPoint *) location;
 @end
 
 
-typedef void (^CalloutCallback)(NSDictionary *info);
+typedef void (^CalloutCallback)(id info);
 
 @interface ItemCallOutView : UIView
 
@@ -26,5 +27,6 @@ typedef void (^CalloutCallback)(NSDictionary *info);
 @property (nonatomic,copy) CalloutCallback moreInfoCallback;
 @property (nonatomic,copy) CalloutCallback webSiteCallback;
 
+@property (nonatomic,copy) CalloutCallback goHereCallback;
 
 @end

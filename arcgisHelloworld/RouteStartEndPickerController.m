@@ -14,11 +14,11 @@
 #import "UIColor+ThemeColor.h"
 #import "RouteSearchViewController.h"
 #import "LocationManager.h"
+#import "GDGeoAPI.h"
 
 @interface RouteStartEndPickerController()<UITextFieldDelegate>
 {
-    AGSPoint *startPoint;
-    AGSPoint *endPoint;
+    
     LocationManager* locationMgr;
 
     RouteSearchViewController *searchVC;
@@ -27,6 +27,7 @@
 @property (strong, nonatomic) UITextField *tfStart;
 @property (strong, nonatomic) UITextField *tfEnd;
 
+@property (strong, nonatomic) AGSPoint *startPoint;
 
 @end
 
@@ -142,6 +143,10 @@
     
     locationMgr = [[LocationManager alloc] init];
     [locationMgr startLocating];
+    
+    if (_endPoint && _endPointDesc) {
+        _tfEnd.text = _endPointDesc;
+    }
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -170,7 +175,7 @@
 #pragma mark - route-navi
 -(void) actionNavi
 {
-    if (!startPoint || !endPoint) {
+    if (!_startPoint || !_endPoint) {
         return;
     }
     
@@ -191,11 +196,11 @@
     
     float currentLat,currentLon,_shopLat,_shopLon;
     
-    currentLat = startPoint.y;
-    currentLon = startPoint.x;
+    currentLat = _startPoint.y;
+    currentLon = _startPoint.x;
     
-    _shopLat = endPoint.y;
-    _shopLon = endPoint.x;
+    _shopLat = _endPoint.y;
+    _shopLon = _endPoint.x;
     
     if (hasBaiduMap)
     {
@@ -228,25 +233,25 @@
         }else
             text = place?:[NSString stringWithLocationAGSPoint:point];
         if (pickStart) {
-            startPoint = point;
+            _startPoint = point;
             _tfStart.text = text;
         }else{
-            endPoint = point;
+            _endPoint = point;
             _tfEnd.text = text;
         }
     }
     
-    self.navigationItem.rightBarButtonItem.enabled = startPoint && endPoint;
-    if (startPoint && endPoint) {
+    self.navigationItem.rightBarButtonItem.enabled = _startPoint && _endPoint;
+    if (_startPoint && _endPoint) {
         [self actionNavi];
     }
 }
 
 -(void) actionSwitch:(id) sender
 {
-    AGSPoint* point =  startPoint;
-    startPoint = endPoint;
-    endPoint = point;
+    AGSPoint* point =  _startPoint;
+    _startPoint = _endPoint;
+    _endPoint = point;
     
     NSString *tmpStr = [_tfStart.text copy];
     _tfStart.text = _tfEnd.text;

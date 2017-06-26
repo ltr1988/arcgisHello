@@ -26,6 +26,14 @@
 
 @implementation MapViewController (Action)
 
+-(void) naviToPoint:(AGSPoint *)point desc:(NSString *)desc
+{
+    RouteStartEndPickerController *vc =[[RouteStartEndPickerController alloc] init];
+    vc.endPoint = point;
+    vc.endPointDesc = desc;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void) actionNavi
 {
     RouteStartEndPickerController *vc =[[RouteStartEndPickerController alloc] init];

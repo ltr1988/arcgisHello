@@ -44,9 +44,6 @@
 
 -(void) requestUploadAttachment:(UIImage *)image fkid:(NSString *)fkid qxyjFlag:(BOOL) isQxyj btype:(NSString *)btype successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail
 {
-    NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"]; 
-    
-    image = [image imageWithWaterMarkText:[formater stringFromDate:[NSDate date]]];
     NSString *uuid = [NSString stringWithUUID];
     NSMutableDictionary * info = [@{
                             @"username": [AuthorizeManager sharedInstance].userName,

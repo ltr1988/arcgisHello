@@ -9,4 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RouteStartEndPickerController : SupportRotationSelectBaseViewController
+
+@property (strong, nonatomic) AGSPoint *endPoint;
+@property (strong, nonatomic) NSString *endPointDesc;
 @end

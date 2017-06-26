@@ -23,4 +23,5 @@
 -(void) action3D;
 -(void) actionMyWork;
 
+-(void) naviToPoint:(AGSPoint *)point desc:(NSString *)desc;
 @end
