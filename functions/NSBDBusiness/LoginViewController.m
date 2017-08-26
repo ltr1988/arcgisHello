@@ -85,8 +85,8 @@
             {
                 [SVProgressHUD dismiss];
             }
-            if (success || [code isEqualToString:@"11"]) {
-                _loginBtn.enabled = YES;
+            _loginBtn.enabled = YES;
+            if (success && [code isEqualToString:@"11"]) {
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];
                     [[TrackLocationManager sharedInstance] startTracking];
@@ -96,7 +96,6 @@
                 [self.navigationController pushViewController:controller animated:YES];
             }else
             {
-                _loginBtn.enabled = YES;
                 NSLog(@"code:%@",code);
                 if (code) {
 // bindingcode：绑定状态码（success：未申请，00：待审核，11：审核通过，10：解绑，20：审核不通过，fail：绑定异常，）。

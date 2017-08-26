@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[DetailInfoViewController tableView:cellForRowAtIndexPath:]:DetailInfoViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.textLabel.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[EventLocationPickerView nofifyPickLocation:]:EventLocationPickerView.m">
+      </ContextState>
+      <ContextState
+         contextName = "__42-[MyUploadEventViewController requestData]_block_invoke:MyUploadEventViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__48-[SearchSecondaryListViewController requestData]_block_invoke:SearchSecondaryListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NSBDBaseUIItem setInfoArray:]:NSBDBaseUIItem.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MyUploadEventViewController setupModel]:MyUploadEventViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__46-[SearchDetailSheetViewController requestData]_block_invoke:SearchDetailSheetViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[NSObject(MJKeyValue) setKeyValues:error:]:NSObject+MJKeyValue.m">
+      </ContextState>
+      <ContextState
+         contextName = "__62+[NSObject(Property) getNewValueFormOldValue:object:property:]_block_invoke:NSObject+MJProperty.m">
+      </ContextState>
+      <ContextState
+         contextName = "__115-[SearchSessionManager requestQueryHistoryWellSearchSessionWithTaskId:wellnum:action:SuccessCallback:failCallback:]_block_invoke:SearchSessionManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RouteMapViewController actionPickPoint]:RouteMapViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__86-[SearchHistoryManager requestSearchHistoryListWithPage:SuccessCallback:failCallback:]_block_invoke:SearchHistoryManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__77-[EventHttpManager requestHistoryEventWithPage:SuccessCallback:failCallback:]_block_invoke:EventHttpManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "__46-[SearchHistoryHomeViewController requestData]_block_invoke:SearchHistoryHomeViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__33-[MapViewController actionSearch]_block_invoke:MapViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MapViewController queryTask:operation:didExecuteWithFeatureSetResult:]:MapViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[SearchSecondaryListViewController tableView:didSelectRowAtIndexPath:]:SearchSecondaryListViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[DGQLine title]:DGQLine.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[EventModelManager addCacheForEventModel:]:EventModelManager.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MapViewController showCalloutWithFeaturArrays:]:MapViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__51-[NSObject(MJKeyValue) setKeyValues:context:error:]_block_invoke:NSObject+MJKeyValue.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[MapViewController identifyTask:operation:didExecuteWithIdentifyResults:]:MapViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

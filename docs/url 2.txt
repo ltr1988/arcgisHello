@@ -1,0 +1,23 @@
+         http://192.168.1.121:8080/gxpt/service/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile&LAYER=20131126BJDLG&STYLE=default&FORMAT=image/png&TILEMATRIXSET=20131126BJDLG&TILEMATRIX=20131126BJDLG:1&TILEROW=128&TILECOL=128
+
+
+   //                  SZWR 水质污染  GCAQ 工程安全    YJDD应急调度  FXQX 防汛抢险
+//                1 一级响应  2 二级响应  3 三级响应  4 四级响应 5 五级响应
+
+http://192.168.1.121/gxpt/service/wmts?service=wmts&request=gettile&version=1.0.0&layer=nsbdbasemap&format=image/png&tilematrixset=nsbdbasemap&tilecol=0&tilerow=0&tilematrix=nsbdbasemap:0
+
+"/gxpt/service/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetTile"   
+
+
+
+    url.append("&LAYER="
+                        + "nsbdbasemap" + "&STYLE=default&FORMAT=image/png&tilematrixset="
+                        + "nsbdbasemap" + "&tilecol=").append(this._col).append("&tilerow=").append(this._row).append("&tilematrix=nsbdbasemap:").append(this._level);
+                break;
+            case CIVYINGXIANG:
+                url.append("&LAYER="
+                        + "nsbdbasemap_img" + "&STYLE=default&FORMAT=image/png&tilematrixset="
+                        + "nsbdbasemap" + "&tilecol=").append(this._col).append("&tilerow=").append(this._row).append("&tilematrix=nsbdbasemap:").append(this._level);
+
+
+http://192.168.1.121:8080/gxpt/service/wmts?SERVICE=WMTS&REQUEST=getcapabilities
