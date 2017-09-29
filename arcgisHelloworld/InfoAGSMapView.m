@@ -8,7 +8,11 @@
 
 #import "InfoAGSMapView.h"
 #import "MapViewManager.h"
+#import "CustomLocationDataSource.h"
 #define ANIMATION_DURATION 1
+
+
+
 @implementation InfoAGSMapView
 
 -(instancetype) init
@@ -16,6 +20,8 @@
     self = [super init];
     if (self) {
         _layerMask = LayerMaskBaseLayer|LayerMaskNSBDLayer|LayerMaskGraphicLayer;
+        //self是个MapView
+        self.locationDisplay.dataSource = [CustomLocationDataSource new];
     }
     return self;
 }

@@ -86,6 +86,8 @@
                 [SVProgressHUD dismiss];
             }
             _loginBtn.enabled = YES;
+//#warning to be deleted
+//            code = @"11";
             if (success && [code isEqualToString:@"11"]) {
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];
@@ -97,6 +99,7 @@
             }else
             {
                 NSLog(@"code:%@",code);
+
                 if (code) {
 // bindingcode：绑定状态码（success：未申请，00：待审核，11：审核通过，10：解绑，20：审核不通过，fail：绑定异常，）。
                     if ([code isEqualToString:@"success"] || [code isEqualToString:@"10"]) {

@@ -83,6 +83,7 @@
 		A485993E1D3B51610050AC88 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A485993D1D3B51610050AC88 /* LoginViewController.m */; };
 		A48599411D3BB52B0050AC88 /* MapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599401D3BB52B0050AC88 /* MapViewManager.m */; };
 		A48599451D3CEC770050AC88 /* CenterSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599441D3CEC770050AC88 /* CenterSwitchView.m */; };
+		A48867121F62F67F0052AB82 /* CustomLocationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A48867111F62F67F0052AB82 /* CustomLocationDataSource.m */; };
 		A4924F9C1DAC99000025041E /* DGQWaterItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9B1DAC99000025041E /* DGQWaterItem.m */; };
 		A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924F9E1DACB60D0025041E /* DGQLine.m */; };
 		A4924FA21DACC8DF0025041E /* MapViewController+InfoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A4924FA11DACC8DF0025041E /* MapViewController+InfoMapping.m */; };
@@ -595,6 +596,8 @@
 		A48599401D3BB52B0050AC88 /* MapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewManager.m; sourceTree = "<group>"; };
 		A48599431D3CEC770050AC88 /* CenterSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CenterSwitchView.h; path = functions/Util/View/CenterSwitchView.h; sourceTree = "<group>"; };
 		A48599441D3CEC770050AC88 /* CenterSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CenterSwitchView.m; path = functions/Util/View/CenterSwitchView.m; sourceTree = "<group>"; };
+		A48867101F62F67F0052AB82 /* CustomLocationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomLocationDataSource.h; path = Component/CustomLocationDataSource.h; sourceTree = "<group>"; };
+		A48867111F62F67F0052AB82 /* CustomLocationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomLocationDataSource.m; path = Component/CustomLocationDataSource.m; sourceTree = "<group>"; };
 		A4924F9A1DAC99000025041E /* DGQWaterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQWaterItem.h; path = functions/NSBDBusiness/Model/DGQWaterItem.h; sourceTree = "<group>"; };
 		A4924F9B1DAC99000025041E /* DGQWaterItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DGQWaterItem.m; path = functions/NSBDBusiness/Model/DGQWaterItem.m; sourceTree = "<group>"; };
 		A4924F9D1DACB60D0025041E /* DGQLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DGQLine.h; path = functions/NSBDBusiness/Model/DGQLine.h; sourceTree = "<group>"; };
@@ -1420,6 +1423,8 @@
 				A4AEF04B1DD74F8A00903925 /* TianDiTuWMTSLayerInfoDelegate.m */,
 				A4AEF04C1DD74F8A00903925 /* TianDiTuWMTSTileOperation.h */,
 				A4AEF04D1DD74F8A00903925 /* TianDiTuWMTSTileOperation.m */,
+				A48867101F62F67F0052AB82 /* CustomLocationDataSource.h */,
+				A48867111F62F67F0052AB82 /* CustomLocationDataSource.m */,
 			);
 			name = Component;
 			sourceTree = "<group>";
@@ -3010,6 +3015,7 @@
 				B2748D5D1DB07FB900C0166F /* MediaPickerManager.m in Sources */,
 				B2748D7E1DB4E2AC00C0166F /* DNAirItem.m in Sources */,
 				B2748D7B1DB4E27F00C0166F /* NGQAirItem.m in Sources */,
+				A48867121F62F67F0052AB82 /* CustomLocationDataSource.m in Sources */,
 				B284768C1E0BC22100A4AB98 /* YYClassInfo.m in Sources */,
 				A4F2FC081D8069AD00B0532B /* MyEventHistoryCell.m in Sources */,
 				B28476701E0BC22100A4AB98 /* UIControl+YYAdd.m in Sources */,
