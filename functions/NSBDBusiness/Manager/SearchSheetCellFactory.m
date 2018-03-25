@@ -37,7 +37,7 @@
         case SheetUIStyle_Date:
         case SheetUIStyle_Text: {
             cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.accessoryType = UITableViewCellAccessoryNone;
             break;
         }
         case SheetUIStyle_Switch: {

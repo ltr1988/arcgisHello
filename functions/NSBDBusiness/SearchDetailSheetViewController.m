@@ -29,6 +29,7 @@
 #import "EventHttpManager.h"
 #import "AttachmentModel.h"
 #import "AttachmentItem.h"
+#import "CheckableTitleItem.h"
 
 @interface SearchDetailSheetViewController()
 {
@@ -36,6 +37,8 @@
 }
 
 @property (nonatomic,strong) TimerView *timerView;
+@property (nonatomic) SearchSheetInfoItem *importItem;
+@property (nonatomic) SearchSheetInfoItem *isLagacyItem;
 
 @end
 
@@ -72,6 +75,23 @@
         readOnly = YES;
     }
     return self;
+}
+
+
+-(SearchSheetInfoItem *)importItem
+{
+    if (!_importItem) {
+        _importItem = [[SearchSheetInfoItem alloc] initWithKey:@"importItem" uiStyle:SheetUIStyle_ReadonlyText data:[TitleDetailItem itemWithTitle:@"导入上次记录" detail:@""]];
+    }
+    return _importItem;
+}
+
+-(SearchSheetInfoItem *)isLagacyItem
+{
+    if (!_isLagacyItem) {
+        _isLagacyItem = [[SearchSheetInfoItem alloc] initWithKey:@"isLagacyItem" uiStyle:SheetUIStyle_Switch data:[CheckableTitleItem itemWithTitle:@"是否遗留问题" checked:NO]];
+    }
+    return _isLagacyItem;
 }
 
 -(void) viewDidLoad
@@ -173,6 +193,7 @@
             if (uiItem) {
                 self.uiItem = uiItem;
             }
+            
         }
         [_tableView reloadData];
     }else
@@ -220,6 +241,10 @@
         }
         
     }
+}
+
+-(void) importLastRecord{
+    
 }
 
 -(void) setupSubviews
@@ -287,12 +312,12 @@
     UIButton *btnSaveLocal = [UIButton buttonWithType:UIButtonTypeCustom];
     
     btnCommit.backgroundColor = UI_COLOR(0xFF,0x82,0x47);
-    [btnCommit setTitle:@"提交" forState:UIControlStateNormal];
+    [btnCommit setTitle:@"完成并上报" forState:UIControlStateNormal];
     [btnCommit setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnCommit.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
     btnSaveLocal.backgroundColor = [UIColor blueColor];
-    [btnSaveLocal setTitle:@"保存本地" forState:UIControlStateNormal];
+    [btnSaveLocal setTitle:@"保存至本地" forState:UIControlStateNormal];
     [btnSaveLocal setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btnSaveLocal.titleLabel setFont:[UIFont systemFontOfSize:14]];
     
@@ -414,23 +439,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == self.uiItem.infolist.count)
+    if (indexPath.section == self.uiItem.infolist.count +1)
         return _mPicker.frame.size.height;
     return 50;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    if (section > self.uiItem.infolist.count)
+    if (section == 0) {
+        if (readOnly) {
+            return 1;
+        }else
+            return 2;
+    }
+    if (section > self.uiItem.infolist.count+1)
     {
         return 0;
     }
-    if (section == self.uiItem.infolist.count) //meida picker
+    if (section == self.uiItem.infolist.count+1) //meida picker
     {
         return 1;
     }
     
-    SearchSheetGroupItem *group = self.uiItem.infolist[section];
+    NSInteger infoListSection = section - 1;
+    SearchSheetGroupItem *group = self.uiItem.infolist[infoListSection];
     return group.items.count;
 }
 
@@ -438,7 +469,31 @@
     
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
-    if (section < self.uiItem.infolist.count) {
+    if (section == 0) {
+        if (readOnly || row == 1) {
+            //是否遗留问题
+            BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:self.isLagacyItem.key];
+            if (!cell) {
+                cell = [SearchSheetCellFactory cellForSheetStyle:self.isLagacyItem.uiStyle     reuseIdentifier:self.isLagacyItem.key];
+                CheckableTitleCell *checkCell = (CheckableTitleCell *)cell;
+                checkCell.switchView.onText = @"是";
+                checkCell.switchView.offText = @"否";
+                cell.data = self.isLagacyItem.data;
+                cell.readOnly = readOnly;
+            }
+            return cell;
+        }else{
+            //导入上次记录
+            BaseTitleCell *cell = [_tableView dequeueReusableCellWithIdentifier:self.importItem.key];
+            if (!cell) {
+                cell = [SearchSheetCellFactory cellForSheetStyle:self.importItem.uiStyle     reuseIdentifier:self.importItem.key];
+            }
+            cell.data = self.importItem.data;
+            cell.readOnly = readOnly;
+            return cell;
+        }
+    }
+    if (section < self.uiItem.infolist.count + 1) {
         
         SearchSheetGroupItem *group = self.uiItem.infolist[section];
         if (row < group.items.count) {
@@ -455,7 +510,7 @@
             return cell;
         }
     }
-    if (section == self.uiItem.infolist.count)
+    if (section == self.uiItem.infolist.count + 1)
     {
         [_mPicker removeFromSuperview];
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MediaPickerCell"];
@@ -473,8 +528,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
-    if (section < self.uiItem.infolist.count) {
-        
+    
+    if (section == 0)
+    {
+        if (readOnly || row == 1) {
+            //是否遗留问题
+           
+        }else{
+            //导入上次记录
+            [self importLastRecord];
+        }
+    }else if (section < self.uiItem.infolist.count + 2 && section >0) {
+        //实际数据
         SearchSheetGroupItem *group = self.uiItem.infolist[section];
         if (row < group.items.count) {
             
@@ -485,8 +550,8 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }else if (item.uiStyle == SheetUIStyle_Date)
             {
-                DatePickViewController *vc = [[DatePickViewController alloc] initWithData:item.data readOnly:readOnly];
-                [self.navigationController pushViewController:vc animated:YES];
+//                DatePickViewController *vc = [[DatePickViewController alloc] initWithData:item.data readOnly:readOnly];
+//                [self.navigationController pushViewController:vc animated:YES];
             }
         }
     }
@@ -494,9 +559,10 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSInteger numberOfSections = 2;
     if (!self.uiItem || !self.uiItem.infolist) {
-        return 1;
+        return numberOfSections;
     }
-    return self.uiItem.infolist.count+1;
+    return self.uiItem.infolist.count + numberOfSections;
 }
 @end

@@ -20,6 +20,7 @@
 #import "SearchSecondaryListViewController.h"
 #import "SearchHistoryManager.h"
 #import "TrackLocationManager.h"
+#import "SearchPlaceBasicInfoViewController.h"
 
 @interface SearchHomePageViewController()
 {
@@ -70,6 +71,8 @@
 -(void) setupSubviews
 {
     self.title = @"巡查对象";
+    UIBarButtonItem *basicInfoBtn = [[UIBarButtonItem alloc] initWithTitle:@"基本信息" style:UIBarButtonItemStylePlain target:self action:@selector(showBasicInfo:)];
+    [self.navigationItem setRightBarButtonItem:basicInfoBtn];
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -111,6 +114,15 @@
             make.right.mas_equalTo(weakView.mas_right);
         }];
     }
+}
+
+- (void)showBasicInfo:(id) sender
+{
+    SearchPlaceBasicInfoViewController *vc = [[SearchPlaceBasicInfoViewController alloc] init];
+    vc.definesPresentationContext = YES;
+    vc.providesPresentationContextTransitionStyle = YES;
+    vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 -(UIView*) footerView

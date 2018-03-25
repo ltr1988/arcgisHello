@@ -7,10 +7,12 @@
 //
 
 #import "SupportRotationSelectBaseViewController.h"
+#import "SearchStartModel.h"
 @class SearchHomePageModel;
 
 @interface SearchHomePageViewController : SupportRotationSelectBaseViewController <UITableViewDelegate,UITableViewDataSource>
 
+@property (nonatomic) SearchStartModel *basicInfoModel;
 @property (nonatomic,strong) SearchHomePageModel *model;
 @property (nonatomic,copy) NSString *taskid;
 

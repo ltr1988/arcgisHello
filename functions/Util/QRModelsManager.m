@@ -7,6 +7,7 @@
 //
 
 #import "QRModelsManager.h"
+#import "TitleComboBoxItem.h"
 #import "HttpBaseModel.h"
 #import "SearchHomePageModel.h"
 #import "SearchTaskStatusModel.h"
@@ -49,6 +50,9 @@
 #import "GDReverseGeoItem.h"
 #import "SearchAdminsModel.h"
 #import "SearchAdminItem.h"
+#import "SearchSessionItem.h"
+#import "SearchStartModel.h"
+
 @implementation QRModelsManager
 
 /*
@@ -74,6 +78,7 @@
     NSArray
     *classes =
     @[
+      [TitleComboBoxItem class],
       [HttpBaseModel class],
       [SearchHomePageModel class],
       [SearchTaskStatusModel class],
@@ -121,6 +126,8 @@
       [GDConvertLocationItem class],
       [SearchAdminsModel class],
       [SearchAdminItem class],
+      [SearchSessionItem class],
+      [SearchStartModel class],
       ];
     
     

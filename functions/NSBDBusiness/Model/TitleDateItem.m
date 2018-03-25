@@ -23,7 +23,7 @@
 -(NSString *) detailDate
 {
     
-    NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"YYYY-MM-dd HH:mm"];
     
     NSString *str=[outputFormatter stringFromDate:_date];
     return str;

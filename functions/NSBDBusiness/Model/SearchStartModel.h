@@ -10,9 +10,14 @@
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
 #import "TitleInputItem.h"
+#import "TitleDateItem.h"
+#import "TitleComboBoxItem.h"
 
-@interface SearchStartModel : NSObject
+@interface SearchStartModel : NSObject<NSCoding>
+@property (nonatomic,strong) TitleComboBoxItem *taskTypeName;
 @property (nonatomic,strong) TitleInputItem *searcher;
 @property (nonatomic,strong) TitleDetailItem *searchAdmin;
 @property (nonatomic,strong) TitleDetailItem *weather;
+@property (nonatomic,strong) TitleDateItem *date;
+
 @end

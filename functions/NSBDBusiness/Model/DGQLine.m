@@ -103,9 +103,9 @@
 -(NSDictionary *)defaultUITextMapping
 {
     return @{
-             @"stakestart":@"起始桩号",
-             @"stakeend":@"结束桩号",
-             @"exedate":@"执行时间",
+             @"stakestart":@"开始井号",
+             @"stakeend":@"结束井号",
+             @"exedate":@"时间",
              @"weather":@"天气",
              @"issurvey":@"保护区范围是否有工程勘测",
              @"isbuild":@"保护区范围是否有新增施工",

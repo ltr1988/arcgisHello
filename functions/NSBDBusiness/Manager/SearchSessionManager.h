@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "HttpManager.h"
+#import "SearchSessionItem.h"
 
 @class SearchStartModel;
-@class SearchSessionItem;
 @class NSBDBaseUIItem;
 @interface SearchSessionManager : NSObject
 @property (nonatomic,strong) SearchSessionItem *session;
@@ -20,6 +20,7 @@
 
 -(BOOL) hasSession;
 -(void) setNewSessionWithId:(NSString *)sessionId;
+-(void) setCurrentSessionWithBasicInfo:(SearchStartModel *)basicInfo;
 -(void) requestNewSearchSessionWithSearchStartModel:(SearchStartModel*) model sessionID:(NSString *)sessionId successCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;
 
 -(void) requestEndSearchSessionWithSuccessCallback:(HttpSuccessCallback) success failCallback:(HttpFailCallback) fail;

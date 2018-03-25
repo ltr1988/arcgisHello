@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Model/SearchSheetInfoItem.m"
-            timestampString = "519362179.575237"
+            timestampString = "543344343.337853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-setDetail:"
             landmarkType = "7">
          </BreakpointContent>
@@ -309,11 +309,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "519362179.575237"
+            timestampString = "543344343.338203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "359"
-            endingLineNumber = "359"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
             landmarkName = "-requestTaskConfigInSearchSessionSuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -341,12 +341,12 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "526616720.508252"
+                  timestampString = "543344343.649657"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "314"
                   endingLineNumber = "314"
-                  offsetFromSymbolStart = "372">
+                  offsetFromSymbolStart = "379">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -356,12 +356,12 @@
                   moduleName = "NSBDMobileSearchPlatform"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/fifila/Documents/git/NSBD/arcgisHelloworld/RouteSearchViewController.m"
-                  timestampString = "526616720.509679"
+                  timestampString = "543344343.652873"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "314"
                   endingLineNumber = "314"
-                  offsetFromSymbolStart = "408">
+                  offsetFromSymbolStart = "415">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -437,7 +437,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController+Action.m"
-            timestampString = "520184390.745582"
+            timestampString = "543027643.162908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -485,11 +485,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/SearchHomePageViewController.m"
-            timestampString = "503994868.531907"
+            timestampString = "543344343.338625"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "-actionEndSesson:"
             landmarkType = "7">
          </BreakpointContent>
@@ -501,11 +501,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/SearchHomePageViewController.m"
-            timestampString = "503994868.531907"
+            timestampString = "543344343.33872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "-actionEndSesson:"
             landmarkType = "7">
          </BreakpointContent>
@@ -517,7 +517,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Model/NGQAirItem.m"
-            timestampString = "504000650.043704"
+            timestampString = "542979279.664385"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -549,7 +549,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController+Action.m"
-            timestampString = "520184390.745582"
+            timestampString = "543027643.163116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "85"
@@ -581,7 +581,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "520184106.752948"
+            timestampString = "542979279.664528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "619"
@@ -597,7 +597,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "519366597.013326"
+            timestampString = "542979279.664574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "485"
@@ -997,11 +997,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "520089498.620378"
+            timestampString = "543344343.3393559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-requestUploadSheetWithItem:SuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1013,11 +1013,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "520089643.935193"
+            timestampString = "543344343.339413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "-requestUploadSheetWithItem:SuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1029,11 +1029,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/SearchHomePageViewController.m"
-            timestampString = "520089787.677463"
+            timestampString = "543344343.3394639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1045,11 +1045,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
-            timestampString = "520090731.712499"
+            timestampString = "543344343.3395081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "-requestQueryHistoryListSearchSessionWithTaskId:code:action:SuccessCallback:failCallback:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1060,13 +1060,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "arcgisHelloworld/MapViewController.m"
-            timestampString = "526525653.206454"
+            filePath = "functions/NSBDBusiness/Manager/SearchSessionManager.m"
+            timestampString = "543344343.3395571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
-            landmarkName = "-identifyPoint:"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
+            landmarkName = "-requestQueryListSearchSessionWithTaskId:code:action:SuccessCallback:failCallback:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "functions/NSBDBusiness/SearchSecondaryListViewController.m"
+            timestampString = "542979279.665198"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

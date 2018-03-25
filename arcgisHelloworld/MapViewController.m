@@ -701,6 +701,7 @@
 -(void) mapViewDidLoad:(AGSMapView*)mapView {
     
     [self actionMyLocation];
+    [self.mapView zoomToScale:1000000.f animated:NO];
 }
 
 

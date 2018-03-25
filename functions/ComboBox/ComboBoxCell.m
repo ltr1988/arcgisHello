@@ -17,7 +17,7 @@
         self.contentView.backgroundColor = [UIColor whiteColor];
         _titleLabel = [[UILabel alloc] initWithFrame:self.contentView.bounds];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.font = [UIFont systemFontOfSize:14];
+        _titleLabel.font = [UIFont systemFontOfSize:16];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.contentView addSubview:_titleLabel];

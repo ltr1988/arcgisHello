@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CD378D8EBF28E92E164B1B7 /* libPods-NSBDMobileSearchPlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B94B5CDF17214E1D4E85E6 /* libPods-NSBDMobileSearchPlatform.a */; };
 		A409BD5E1ED4133F009CD93C /* FFSelectToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = A409BD5D1ED4133F009CD93C /* FFSelectToastView.m */; };
 		A41012AC1DBCAE3B008B00DF /* FacilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AB1DBCAE3B008B00DF /* FacilityManager.m */; };
 		A41012AF1DBCB8CF008B00DF /* FacilityInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A41012AE1DBCB8CF008B00DF /* FacilityInfoModel.m */; };
@@ -77,6 +78,9 @@
 		A48022061D32262600AE2AF9 /* ItemCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48022051D32262600AE2AF9 /* ItemCallOutView.m */; };
 		A480220B1D3229AB00AE2AF9 /* CallOutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A480220A1D3229AB00AE2AF9 /* CallOutItem.m */; };
 		A48022201D32512700AE2AF9 /* AppDelegate+LaunchInits.m in Sources */ = {isa = PBXBuildFile; fileRef = A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */; };
+		A4826571205D640C00E0E6D0 /* TitleComboBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4826570205D640C00E0E6D0 /* TitleComboBoxCell.m */; };
+		A4826574205D673300E0E6D0 /* TitleComboBoxItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4826573205D673300E0E6D0 /* TitleComboBoxItem.m */; };
+		A4826577205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4826576205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.m */; };
 		A48599391D3B4C840050AC88 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */; };
 		A485993A1D3B4C840050AC88 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A48599361D3B4C840050AC88 /* SVProgressHUD.bundle */; };
 		A485993B1D3B4C840050AC88 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A48599381D3B4C840050AC88 /* SVProgressHUD.m */; };
@@ -453,6 +457,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		238E340E8803A0C2739D3ABE /* Pods-NSBDMobileSearchPlatform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSBDMobileSearchPlatform.release.xcconfig"; path = "Pods/Target Support Files/Pods-NSBDMobileSearchPlatform/Pods-NSBDMobileSearchPlatform.release.xcconfig"; sourceTree = "<group>"; };
+		55B94B5CDF17214E1D4E85E6 /* libPods-NSBDMobileSearchPlatform.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NSBDMobileSearchPlatform.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A409BD5C1ED4133F009CD93C /* FFSelectToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFSelectToastView.h; path = functions/Toast/FFSelectToastView.h; sourceTree = "<group>"; };
 		A409BD5D1ED4133F009CD93C /* FFSelectToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FFSelectToastView.m; path = functions/Toast/FFSelectToastView.m; sourceTree = "<group>"; };
 		A41012AA1DBCAE3B008B00DF /* FacilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacilityManager.h; sourceTree = "<group>"; };
@@ -563,6 +569,7 @@
 		A4569C901D33B53800A06B1C /* UIDownPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIDownPicker.m; path = functions/DropdownField/UIDownPicker.m; sourceTree = "<group>"; };
 		A4569C951D33B5AE00A06B1C /* EventReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventReportViewController.h; path = functions/NSBDBusiness/EventReportViewController.h; sourceTree = "<group>"; };
 		A4569C961D33B5AE00A06B1C /* EventReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventReportViewController.m; path = functions/NSBDBusiness/EventReportViewController.m; sourceTree = "<group>"; };
+		A45D3828205D0827002099F6 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iflyMSC.framework; path = arcgisHelloworld/iflyMSC.framework; sourceTree = "<group>"; };
 		A47B65A51DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyChuanKuaYueHomeViewController.h; path = functions/NSBDBusiness/MyChuanKuaYueHomeViewController.h; sourceTree = "<group>"; };
 		A47B65A61DD840DA00CCC861 /* MyChuanKuaYueHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyChuanKuaYueHomeViewController.m; path = functions/NSBDBusiness/MyChuanKuaYueHomeViewController.m; sourceTree = "<group>"; };
 		A47B65A81DD842A300CCC861 /* EventHttpManager+ChuanKuaYue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EventHttpManager+ChuanKuaYue.h"; sourceTree = "<group>"; };
@@ -584,6 +591,12 @@
 		A48022111D32365500AE2AF9 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		A480221E1D32512700AE2AF9 /* AppDelegate+LaunchInits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+LaunchInits.h"; sourceTree = "<group>"; };
 		A480221F1D32512700AE2AF9 /* AppDelegate+LaunchInits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+LaunchInits.m"; sourceTree = "<group>"; };
+		A482656F205D640C00E0E6D0 /* TitleComboBoxCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleComboBoxCell.h; sourceTree = "<group>"; };
+		A4826570205D640C00E0E6D0 /* TitleComboBoxCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleComboBoxCell.m; sourceTree = "<group>"; };
+		A4826572205D673300E0E6D0 /* TitleComboBoxItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleComboBoxItem.h; sourceTree = "<group>"; };
+		A4826573205D673300E0E6D0 /* TitleComboBoxItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleComboBoxItem.m; sourceTree = "<group>"; };
+		A4826575205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPlaceBasicInfoViewController.h; sourceTree = "<group>"; };
+		A4826576205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPlaceBasicInfoViewController.m; sourceTree = "<group>"; };
 		A48599331D3B4C840050AC88 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		A48599341D3B4C840050AC88 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = functions/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		A48599351D3B4C840050AC88 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "functions/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -1286,6 +1299,7 @@
 		B2F1D8A61D8E8B8600A6EDCA /* LiveDataYuqingHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDataYuqingHeaderView.m; path = functions/NSBDBusiness/Views/LiveDataYuqingHeaderView.m; sourceTree = "<group>"; };
 		B2FC87A41E07F8B100598221 /* icon_mapchange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_mapchange.png; path = images/icon_mapchange.png; sourceTree = "<group>"; };
 		B2FC87A51E07F8B100598221 /* icon_mapchange1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_mapchange1.png; path = images/icon_mapchange1.png; sourceTree = "<group>"; };
+		CCBDA64AE70283DA6259D88C /* Pods-NSBDMobileSearchPlatform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NSBDMobileSearchPlatform.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NSBDMobileSearchPlatform/Pods-NSBDMobileSearchPlatform.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1305,12 +1319,22 @@
 				B2B468F01D6AF79200AB84AF /* CoreLocation.framework in Frameworks */,
 				B2C6B19C1D4B2C7400B0B12A /* AVFoundation.framework in Frameworks */,
 				A4DD86A01D097A9A0096B548 /* libc++.tbd in Frameworks */,
+				2CD378D8EBF28E92E164B1B7 /* libPods-NSBDMobileSearchPlatform.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2E7BD6A4074BDF2C8BC4B37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCBDA64AE70283DA6259D88C /* Pods-NSBDMobileSearchPlatform.debug.xcconfig */,
+				238E340E8803A0C2739D3ABE /* Pods-NSBDMobileSearchPlatform.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A414AC7F1D39D16F0065AAA7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -1760,6 +1784,7 @@
 				A4DD86841D0976B00096B548 /* Products */,
 				B245DAB31E011220009886BF /* Frameworks */,
 				A4AFB3841E064C6300FAFBB3 /* NSBDMobile3DPlatform.plist */,
+				A2E7BD6A4074BDF2C8BC4B37 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1845,6 +1870,8 @@
 				A4E68C2C1D6F408000DD603B /* CenterTitleCell.m */,
 				B2B469D51D6FDDF600AB84AF /* TimerView.h */,
 				B2B469D61D6FDDF600AB84AF /* TimerView.m */,
+				A482656F205D640C00E0E6D0 /* TitleComboBoxCell.h */,
+				A4826570205D640C00E0E6D0 /* TitleComboBoxCell.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -2055,6 +2082,7 @@
 		B245DAB31E011220009886BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A45D3828205D0827002099F6 /* iflyMSC.framework */,
 				A4A697581E0C2FFA002332CE /* libsqlite3.tbd */,
 				A4A697561E0C2FE8002332CE /* libz.1.2.5.tbd */,
 				A4A697541E0C2FDF002332CE /* CFNetwork.framework */,
@@ -2063,6 +2091,7 @@
 				A4A6974E1E0C2FB5002332CE /* SystemConfiguration.framework */,
 				A4CFD3661E0A846700037ADA /* WebKit.framework */,
 				B245DAB41E011220009886BF /* libxml2.tbd */,
+				55B94B5CDF17214E1D4E85E6 /* libPods-NSBDMobileSearchPlatform.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2472,6 +2501,8 @@
 				A4E9E7791D46640000E3C94C /* TitleDetailItem.m */,
 				B2806A0F1D68413E0097F7E4 /* TitleDetailTextItem.h */,
 				B2806A101D68413E0097F7E4 /* TitleDetailTextItem.m */,
+				A4826572205D673300E0E6D0 /* TitleComboBoxItem.h */,
+				A4826573205D673300E0E6D0 /* TitleComboBoxItem.m */,
 				B2806A091D683F950097F7E4 /* TitleDateItem.h */,
 				B2806A0A1D683F950097F7E4 /* TitleDateItem.m */,
 				B2806A0C1D68401D0097F7E4 /* TitleInputItem.h */,
@@ -2556,6 +2587,8 @@
 				B25712AC1DADCA3800F3D7F6 /* SearchHistoryHomeViewController.m */,
 				B2748D691DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.h */,
 				B2748D6A1DB0E81B00C0166F /* SearchDetailSheetViewController+pickMedia.m */,
+				A4826575205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.h */,
+				A4826576205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -2881,9 +2914,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4DD869A1D0976B00096B548 /* Build configuration list for PBXNativeTarget "NSBDMobileSearchPlatform" */;
 			buildPhases = (
+				9A81D04812CE3A7EF364803A /* [CP] Check Pods Manifest.lock */,
 				A4DD867F1D0976B00096B548 /* Sources */,
 				A4DD86801D0976B00096B548 /* Frameworks */,
 				A4DD86811D0976B00096B548 /* Resources */,
+				E7BB9AD980DC96B26AC3B57A /* [CP] Embed Pods Frameworks */,
+				CC1733A0D96DCBA89744C504 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2905,7 +2941,7 @@
 				TargetAttributes = {
 					A4DD86821D0976B00096B548 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 92H9654326;
+						DevelopmentTeam = 59AA9A37JR;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -3006,6 +3042,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A81D04812CE3A7EF364803A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CC1733A0D96DCBA89744C504 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSBDMobileSearchPlatform/Pods-NSBDMobileSearchPlatform-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7BB9AD980DC96B26AC3B57A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NSBDMobileSearchPlatform/Pods-NSBDMobileSearchPlatform-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4DD867F1D0976B00096B548 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -3023,6 +3107,7 @@
 				A412B8961DB23F7D003CAE02 /* HttpMetaData.m in Sources */,
 				B28476971E0BC22100A4AB98 /* NSParagraphStyle+YYText.m in Sources */,
 				A47B65B01DD8467100CCC861 /* MyChuanKuaYueItem.m in Sources */,
+				A4826574205D673300E0E6D0 /* TitleComboBoxItem.m in Sources */,
 				A4E9E77D1D46641200E3C94C /* TitleDetailCell.m in Sources */,
 				A4924F9F1DACB60D0025041E /* DGQLine.m in Sources */,
 				B2B468F51D6AF7C400AB84AF /* LocationManager.m in Sources */,
@@ -3030,6 +3115,7 @@
 				B28476A01E0BC22100A4AB98 /* YYTextView.m in Sources */,
 				B28476A71E0BC22100A4AB98 /* YYSentinel.m in Sources */,
 				A49E81E21F0003DD0006017E /* TCHSluiceItem.m in Sources */,
+				A4826577205D754300E0E6D0 /* SearchPlaceBasicInfoViewController.m in Sources */,
 				A4AEF0511DD74F8A00903925 /* TianDiTuWMTSTileOperation.m in Sources */,
 				B28653F21D4A094E002D4139 /* EventMediaCollectionView.m in Sources */,
 				B245DA6C1DFFCDFB009886BF /* Search3DHeaderModel.m in Sources */,
@@ -3220,6 +3306,7 @@
 				A47B65AD1DD845EA00CCC861 /* MyChuanKuaYueListModel.m in Sources */,
 				B28476A41E0BC22100A4AB98 /* YYGestureRecognizer.m in Sources */,
 				A412B8BE1DB3E8A7003CAE02 /* MyDealedEventListModel.m in Sources */,
+				A4826571205D640C00E0E6D0 /* TitleComboBoxCell.m in Sources */,
 				B2F1D8961D8BE62800A6EDCA /* LiveDataMainViewController.m in Sources */,
 				B28476831E0BC22100A4AB98 /* YYAnimatedImageView.m in Sources */,
 				B28069B21D670F930097F7E4 /* DGQAirItem.m in Sources */,
@@ -3498,63 +3585,71 @@
 		};
 		A4DD869B1D0976B00096B548 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCBDA64AE70283DA6259D88C /* Pods-NSBDMobileSearchPlatform.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 92H9654326;
+				DEVELOPMENT_TEAM = 59AA9A37JR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(HOME)/Library/SDKs/ArcGIS/**",
 					"$(PROJECT_DIR)/functions/FLEX",
+					"$(PROJECT_DIR)/arcgisHelloworld",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-framework",
 					ArcGIS,
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsbd.adhoc;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		A4DD869C1D0976B00096B548 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 238E340E8803A0C2739D3ABE /* Pods-NSBDMobileSearchPlatform.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 92H9654326;
+				DEVELOPMENT_TEAM = 59AA9A37JR;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(HOME)/Library/SDKs/ArcGIS/**",
 					"$(PROJECT_DIR)/functions/FLEX",
+					"$(PROJECT_DIR)/arcgisHelloworld",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = arcgisHelloworld/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = "${SDK_ROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = arcgisHelloworld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 					"-framework",
 					ArcGIS,
+					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.fifila.nsbd.adhoc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nsbd.adhoc;
 				PRODUCT_NAME = NSBDMobileSearchPlatform;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};

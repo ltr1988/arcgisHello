@@ -133,7 +133,7 @@
 {
     if (_item) {
         for (NSString *code in self.lineCodeArray) {
-            if ([code isEqualToString:_item.code]) {
+            if ([code isEqualToString:_item.shortCode]) {
                 return YES;
             }
         }
@@ -188,7 +188,7 @@
     if (readOnly) {
         if ([self isLine])
         {
-            [[SearchSessionManager sharedManager] requestQueryHistoryLineListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            [[SearchSessionManager sharedManager] requestQueryHistoryLineListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.shortCode] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
                 @strongify(self)
                 
                 SearchHistoryDetailSheetModel *model = [SearchHistoryDetailSheetModel objectWithKeyValues:dict];
@@ -223,7 +223,7 @@
             }];
         }else
         {
-            [[SearchSessionManager sharedManager] requestQueryHistoryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+            [[SearchSessionManager sharedManager] requestQueryHistoryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.shortCode] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
                 @strongify(self)
                 self.model = [SearchCategoryModel objectWithKeyValues:dict];
                 if (self.model.success) {
@@ -244,7 +244,7 @@
             }];
         }
     }else{
-        [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.code] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
+        [[SearchSessionManager sharedManager] requestQueryListSearchSessionWithTaskId:self.taskId code:_item.code action:self.codeDictionary[_item.shortCode] SuccessCallback:^(NSURLSessionDataTask *task, id dict) {
             @strongify(self)
             self.model = [SearchCategoryModel objectWithKeyValues:dict];
             if (self.model.success) {
@@ -268,7 +268,7 @@
 
 -(void) setupSubviews
 {
-    self.title = self.titleDictionary[_item.code];
+    self.title = self.titleDictionary[_item.shortCode];
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -419,7 +419,7 @@
         else
             vc = [SearchDetailSheetViewController sheetEditableWithUIItem:uiItem];
         vc.code = _item.code;
-        vc.queryCode = self.codeDictionary[_item.code];
+        vc.queryCode = self.codeDictionary[_item.shortCode];
         vc.taskId = self.taskId;
         vc.title = item.fname;
         vc.fcode = item.facilityCode;

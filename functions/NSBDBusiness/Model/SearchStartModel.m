@@ -7,7 +7,9 @@
 //
 
 #import "SearchStartModel.h"
+#import "MJExtension.h"
 
 @implementation SearchStartModel
+MJCodingImplementation
 
 @end

@@ -13,6 +13,7 @@
 #import "NSData+Conversion.h"
 #import "SearchSessionItem.h"
 #import "SearchSessionManager.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +30,7 @@
     [self setupReachability];
     [self setupLocationAuthorize];
     [MapViewManager sharedMapView];
+    [[IQKeyboardManager sharedManager] setToolbarManageBehaviour:IQAutoToolbarByPosition];
     [NSThread sleepForTimeInterval:1.5];
     return YES;
 }

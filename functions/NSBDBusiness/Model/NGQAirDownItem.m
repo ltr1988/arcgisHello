@@ -40,25 +40,39 @@
     return @[
              @{
                  @"group":@"",
-                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
+                // @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
                  
                  @"exedate":@[@(SheetUIStyle_Date),@(2)],
                  @"weather":@[@(SheetUIStyle_ShortTextWeather),@(3)],
                  },
              @{
+                 
                  @"group":@"",
                  @"march":@[@(SheetUIStyle_Switch),@(1)],
                  @"crawl":@[@(SheetUIStyle_Switch),@(2)],
-                 @"deviceroom":@[@(SheetUIStyle_Switch),@(3)],
-                 @"handwell":@[@(SheetUIStyle_Switch),@(4)],
-                 @"arihole":@[@(SheetUIStyle_Switch),@(5)],
-                 @"temperaturein":@[@(SheetUIStyle_ShortText),@(6)],
-                 @"temperatureout":@[@(SheetUIStyle_ShortText),@(7)],
-                 @"welllid":@[@(SheetUIStyle_Switch),@(8)],
-                 @"wellroom":@[@(SheetUIStyle_Switch),@(9)],
-                 @"ladder":@[@(SheetUIStyle_Switch),@(10)],
-                 @"gate":@[@(SheetUIStyle_Switch),@(11)],
-                 
+                 @"personwell":@[@(SheetUIStyle_Switch),@(3)],
+                 @"arihole":@[@(SheetUIStyle_Switch),@(4)],
+                 @"welllid":@[@(SheetUIStyle_Switch),@(5)],
+                 @"terrace":@[@(SheetUIStyle_Switch),@(6)],
+                 @"ladder":@[@(SheetUIStyle_Switch),@(7)],
+                 @"wellroom":@[@(SheetUIStyle_Switch),@(8)],
+                 @"gate":@[@(SheetUIStyle_Switch),@(9)],
+                 @"temperatureinh":@[@(SheetUIStyle_ShortText),@(10)],
+                 @"temperatureinl":@[@(SheetUIStyle_ShortText),@(11)],
+                 },
+             @{
+                 @"group":@"自动化设备",
+                 @"wirerod_camera":@[@(SheetUIStyle_Switch),@(1)],
+                 @"wirerod_audio":@[@(SheetUIStyle_Switch),@(2)],
+                 @"wirerod_solar_panel":@[@(SheetUIStyle_Switch),@(3)],
+                 @"wirerod_box_lock":@[@(SheetUIStyle_Switch),@(4)],
+                 @"out_lock":@[@(SheetUIStyle_Switch),@(5)],
+                 @"out_solar":@[@(SheetUIStyle_Switch),@(6)],
+                 },
+             @{
+                 @"group":@"",
+                 @"wellrunner":@[@(SheetUIStyle_ShortText),@(1)],
+                 @"recorder":@[@(SheetUIStyle_ShortText),@(2)],
                  },
              @{
                  @"group":@"",

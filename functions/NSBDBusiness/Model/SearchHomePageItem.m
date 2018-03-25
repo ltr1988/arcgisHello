@@ -66,9 +66,14 @@
 }
 
 
+-(NSString *)shortCode
+{
+    return [self.code componentsSeparatedByString:@"_"].firstObject;
+}
+
 -(id) sheetItem
 {
-    Class cls = [SearchHomePageItem mappingInfo][self.code];
+    Class cls = [SearchHomePageItem mappingInfo][self.shortCode];
     return [cls new];
 }
 @end

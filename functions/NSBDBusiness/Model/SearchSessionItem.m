@@ -8,30 +8,11 @@
 
 #import "SearchSessionItem.h"
 #import "NSDateFormatterHelper.h"
+#import "MJExtension.h"
 
 @implementation SearchSessionItem
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.sessionId forKey:@"_sessionId"];
-    [aCoder encodeInteger:self.sessionTime forKey:@"_sessionTime"];
-    [aCoder encodeDouble:self.sessionStartTime forKey:@"_sessionStartTime"];
-    
-    [aCoder encodeBool:self.pauseState forKey:@"_sessionPauseState"];
-    
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-    self = [super init];
-    if (self) {
-        self.sessionId = [aDecoder decodeObjectForKey:@"_sessionId"];
-        self.sessionTime = [aDecoder decodeIntegerForKey:@"_sessionTime"];
-        self.sessionStartTime = [aDecoder decodeDoubleForKey:@"_sessionStartTime"];
-        self.pauseState = [aDecoder decodeBoolForKey:@"_sessionPauseState"];
-    }
-    
-    return self;
-}
+MJCodingImplementation
 
 -(instancetype) init
 {
@@ -51,6 +32,7 @@
     item.sessionTime = _sessionTime;
     item.sessionStartTime = _sessionStartTime;
     item.pauseState = _pauseState;
+    item.basicInfo = _basicInfo;
     return item;
 }
 

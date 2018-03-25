@@ -16,6 +16,12 @@
 #import "CheckableTitleCell.h"
 
 #import "CheckableTitleItem.h"
+
+#import "TitleComboBoxCell.h"
+#import "TitleComboBoxItem.h"
+
+#import "TitleDateItem.h"
+
 #import "TitleDetailItem.h"
 #import "TitleItem.h"
 #import "TitleDetailCell.h"
@@ -62,7 +68,9 @@
     self.model.weather = [TitleDetailItem itemWithTitle:@"天气" detail:@"查询中..."];
     self.model.searcher = [TitleInputItem itemWithTitle:@"巡查人" placeholder:@"巡查人姓名"];
     self.model.searchAdmin = [TitleDetailItem itemWithTitle:@"巡查管理员" detail:@"查询中..."];
-    
+    self.model.taskTypeName = [TitleComboBoxItem itemWithTitle:@"任务类型" dataSource:@[@"常规",@"临时"]];
+    self.model.date = [TitleDateItem itemWithTitle:@"时间"];
+    self.model.date.date = [NSDate date];
     self.adminList = [NSArray array];
 }
 
@@ -85,6 +93,7 @@
 -(void) requestAdminData
 {
     self.model.searchAdmin.detail = @"查询中...";
+
     [self.tableView reloadData];
     [[SearchSessionManager sharedManager] requestQueryInspectAdminWithSuccessCallback:^(NSURLSessionDataTask *task, id dict) {
         SearchAdminsModel *model = [SearchAdminsModel objectWithKeyValues:dict];
@@ -196,7 +205,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 3;
+    return 5;
 }
 
 
@@ -226,6 +235,26 @@
         }
         case 2:
         {
+            TitleComboBoxCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleComboBoxCell"];
+            if (!cell) {
+                cell = [[TitleComboBoxCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleComboBoxCell"];
+            }
+            cell.data = self.model.taskTypeName;
+            return cell;
+            break;
+        }
+        case 3:
+        {
+            TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
+            if (!cell) {
+                cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
+            }
+            cell.data = self.model.date;
+            return cell;
+            break;
+        }
+        case 4:
+        {
             TitleDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TitleDetailCell"];
             if (!cell) {
                 cell = [[TitleDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TitleDetailCell"];
@@ -246,7 +275,7 @@
     
     __weak __typeof(self) weakSelf = self;
     switch (indexPath.row) {
-        case 1:
+        case 1://管理员
         {
             if (self.adminList.count>0)
             {
@@ -262,7 +291,7 @@
             }
         }
             break;
-        case 2:
+        case 4://天气
         {
             [manager requestData];
         }
@@ -301,6 +330,7 @@
     //-----------------
     //to be deleted
     [[SearchSessionManager sharedManager] setNewSessionWithId:@"test"];
+    [[SearchSessionManager sharedManager] setCurrentSessionWithBasicInfo:self.model];
     SearchHomePageViewController * vc = [[SearchHomePageViewController alloc] init];
     
     [self popSelfAndPush:vc];
@@ -311,8 +341,8 @@
     
     __weak UIButton *btn = (UIButton *)sender;
     NSString *sessionId = [NSString stringWithUUID];
-    if (_model.searcher.detail && _model.searcher.detail.length>0 &&
-        _model.searchAdmin.detail && _model.searchAdmin.detail.length>0) {
+    if (_model.taskTypeName.title.length>0 && _model.searcher.detail.length>0 &&
+         _model.searchAdmin.detail.length>0) {
         btn.enabled = NO;
         [SVProgressHUD showWithStatus:@"处理中..."];
         
@@ -325,6 +355,7 @@
             if (item.success)
             {
                 [[SearchSessionManager sharedManager] setNewSessionWithId:sessionId];
+                [[SearchSessionManager sharedManager] setCurrentSessionWithBasicInfo:self.model];
                 
                 
                 

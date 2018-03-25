@@ -86,8 +86,8 @@
                 [SVProgressHUD dismiss];
             }
             _loginBtn.enabled = YES;
-//#warning to be deleted
-//            code = @"11";
+#warning to be deleted
+            code = @"11";
             if (success && [code isEqualToString:@"11"]) {
                 if ([SearchSessionManager sharedManager]) {
                     [SearchSessionManager changeUser];

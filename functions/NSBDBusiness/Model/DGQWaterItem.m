@@ -85,10 +85,10 @@
 {
     
     return @[
-             @{
-                 @"group":@"",
-                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
-                 },
+//             @{
+//                 @"group":@"",
+//                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
+//                 },
              @{
                  @"group":@"干线检修井",
                  @"dryline_creepwell":@[@(SheetUIStyle_Switch),@(1)],
@@ -143,7 +143,7 @@
              @"dryline_flygate":@"电动蝶阀",
              @"dryline_connect":@"伸缩接头",
              @"dryline_handgate":@"手动蝶阀",
-             @"dryline_sluice":@"电动闸阀",
+             @"dryline_sluice":@"手动球阀",
             
              
              @"branch_creepwell":@"爬井",
@@ -152,7 +152,7 @@
              @"branch_bottom":@"井底",
              @"branch_health":@"卫生",
              @"branch_connect":@"伸缩接头",
-             @"branch_sluice":@"电动闸阀",
+             @"branch_sluice":@"电动蝶阀",
              
              @"measure_creepwell":@"爬井",
              @"measure_crawl":@"围栏",
@@ -161,7 +161,7 @@
              @"measure_health":@"卫生",
              @"measure_connect":@"流量计",
              
-             @"remark":@"备注",
+             @"remark":@"问题描述",
              };
 }
 

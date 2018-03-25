@@ -10,7 +10,6 @@
 #import "SearchStartModel.h"
 #import "NSDictionary+JSON.h"
 #import "HttpHost.h"
-#import "SearchSessionItem.h"
 #import "AuthorizeManager.h"
 #import "AFHTTPSessionManager+NSBD.h"
 #import "NSBDBaseUIItem.h"
@@ -69,9 +68,17 @@ static SearchSessionManager* manager = nil;
     [self localizeSession];
 }
 
+-(void) setCurrentSessionWithBasicInfo:(SearchStartModel *)basicInfo
+{
+    if (_session) {
+        _session.basicInfo = basicInfo;
+        [self localizeSession];
+    }
+}
+
 -(BOOL) hasSession
 {
-    return (_session && _session.sessionId && _session.sessionId.length>0);
+    return (_session && _session.sessionId.length>0);
 }
 
 -(NSMutableDictionary *) paramWithModel:(SearchStartModel*) model sessionID:(NSString *)sessionID
@@ -80,12 +87,14 @@ static SearchSessionManager* manager = nil;
     NSDateFormatter *outputFormatter = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     
-    NSString *date = [outputFormatter stringFromDate:[NSDate date]];
+    NSString *date = [outputFormatter stringFromDate:model.date.date];
 
-
+//{"starttime":"2018-03-17 22:39:35","timekeeping":"00:00","auditor":"0dca6b78-87e0-4e3a-a06f-0b9b957ce89d","status":"1","executor":"1","xctasktypename":"常规","type":"0","id":"01399bbf-8fb6-41d3-83d7-a65682c3bc59","exetime":"2018-03-17 22:39:35","xcglyname":"南干测试1","source":"Android","name":"ngqglc","userName":"ngqglc","weather":"阴转雾","isnew":"0"}
     NSDictionary *info = @{
                            @"executor":model.searcher.detail,
                            @"exetime":date,
+                           @"xctasktypename":model.taskTypeName.title,
+                           @"timekeeping":@"00:00",
                            @"weather":model.weather.detail,
                            @"auditor":model.searchAdmin.detail,
                            @"status":@"1",

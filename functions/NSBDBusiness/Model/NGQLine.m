@@ -77,25 +77,14 @@
 {
     return @[
              @{
-                 @"group":@"巡查范围",
-                 @"stakestart":@[@(SheetUIStyle_ShortText),@(1)],
-                 @"stakeend":@[@(SheetUIStyle_ShortText),@(2)],
+                 @"group":@"",
+                 @"partfrom":@[@(SheetUIStyle_ShortText),@(1)],
+                 @"partto":@[@(SheetUIStyle_ShortText),@(2)],
                  @"exedate":@[@(SheetUIStyle_Date),@(3)],
                  @"weather":@[@(SheetUIStyle_ShortTextWeather),@(4)],
-                 },
-             @{
-                 @"group":@"巡查内容",
-                 @"issurvey":@[@(SheetUIStyle_Switch),@(5)],
-                 @"isbuild":@[@(SheetUIStyle_Switch),@(6)],
-                 @"ishavewater":@[@(SheetUIStyle_Switch),@(7)],
-                 @"isdamage":@[@(SheetUIStyle_Switch),@(8)],
-                 @"istrap":@[@(SheetUIStyle_Switch),@(9)],
-                 @"ischange":@[@(SheetUIStyle_Switch),@(10)],
-                 },
-             @{
-                 @"group":@"",
-                 @"problem":@[@(SheetUIStyle_Text),@(11)],
-                 @"dealmethod":@[@(SheetUIStyle_Text),@(12)],
+                
+                 @"situation":@[@(SheetUIStyle_Text),@(5)],
+                 @"remark":@[@(SheetUIStyle_Text),@(6)],
                  },
              ];
 }
@@ -103,18 +92,12 @@
 -(NSDictionary *)defaultUITextMapping
 {
     return @{
-             @"stakestart":@"起始桩号",
-             @"stakeend":@"结束桩号",
-             @"exedate":@"执行时间",
+             @"partfrom":@"开始路段",
+             @"partto":@"结束路段",
+             @"exedate":@"时间",
              @"weather":@"天气",
-             @"issurvey":@"保护区范围是否有工程勘测",
-             @"isbuild":@"保护区范围是否有新增施工",
-             @"ishavewater":@"保护区范围是否有积水",
-             @"isdamage":@"管线中心桩有无损毁",
-             @"istrap":@"管线上方是否有沉陷",
-             @"ischange":@"原遗留违章是否有新变化",
-             @"problem":@"问题描述",
-             @"dealmethod":@"处理方法",
+             @"situation":@"情况说明",
+             @"remark":@"备注",
              };
 }
 @end

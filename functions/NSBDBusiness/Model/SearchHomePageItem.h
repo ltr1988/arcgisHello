@@ -14,4 +14,5 @@
 
 +(NSDictionary *) mappingInfo;
 -(id) sheetItem;
+-(NSString *)shortCode;
 @end

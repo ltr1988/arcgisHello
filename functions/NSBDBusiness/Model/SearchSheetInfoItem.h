@@ -18,4 +18,5 @@
 -(void) setTitle:(NSString *)title;
 -(void) setDetail:(NSString *)detail;
 -(instancetype) initWithKey:(NSString *) key style:(NSArray *)styleArray;
+-(instancetype) initWithKey:(NSString *) key uiStyle:(SheetUIStyle) style data:(TitleItem *)item;
 @end

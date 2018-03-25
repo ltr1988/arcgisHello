@@ -87,10 +87,10 @@
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
-             @{
-                 @"group":@"",
-                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
-                 },
+//             @{
+//                 @"group":@"",
+//                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
+//                 },
              @{
                  @"group":@"干井",
                  @"dry_creepwell":@[@(SheetUIStyle_Switch),@(2)],
@@ -120,9 +120,9 @@
                  @"water_wall":@[@(SheetUIStyle_Switch),@(3)],
                  @"water_bottom":@[@(SheetUIStyle_Switch),@(4)],
                  @"water_health":@[@(SheetUIStyle_Switch),@(5)],
-                 @"water_flygate":@[@(SheetUIStyle_Switch),@(6)],
-                 @"water_connect":@[@(SheetUIStyle_Switch),@(7)],
-                 @"water_tillgate":@[@(SheetUIStyle_Switch),@(8)],
+                 @"water_tillgate":@[@(SheetUIStyle_Switch),@(6)],
+                 @"water_flygate":@[@(SheetUIStyle_Switch),@(7)],
+                 @"water_connect":@[@(SheetUIStyle_Switch),@(8)],
                  },
              
              @{
@@ -164,7 +164,7 @@
              @"water_connect":@"伸缩接头",
              @"water_tillgate":@"蝶式止回阀",
              
-             @"remark":@"备注",
+             @"remark":@"问题描述",
              };
     
 

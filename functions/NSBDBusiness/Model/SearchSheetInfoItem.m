@@ -29,6 +29,17 @@
     return self;
 }
 
+-(instancetype) initWithKey:(NSString *) key uiStyle:(SheetUIStyle) style data:(TitleItem *)item
+{
+    self = [super init];
+    if (self) {
+        _uiStyle = style;
+        _key = [key copy];
+        _data = item;
+    }
+    return self;
+}
+
 -(void) setUiStyle:(SheetUIStyle)uiStyle
 {
     if (_uiStyle != uiStyle) {
@@ -72,7 +83,7 @@
             _data = [TitleDetailTextItem itemWithTitle:title detail:@"未填写" text:@""];
             break;
         }case SheetUIStyle_Date: {
-            NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy-MM-dd"];
+            NSDateFormatter *formater = [[NSDateFormatterHelper sharedInstance] formatterWithFormat:@"yyyy.MM.dd HH:mm"];
             _data = [TitleDetailItem itemWithTitle:title detail:[formater stringFromDate:[NSDate date]]];
             break;
         }

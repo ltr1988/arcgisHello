@@ -19,7 +19,6 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.title forKey:@"_title"];
-    
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{

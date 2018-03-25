@@ -90,10 +90,10 @@
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
-             @{
-                 @"group":@"",
-                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
-                 },
+//             @{
+//                 @"group":@"",
+//                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
+//                 },
              @{
                  @"group":@"地上部分",
                  @"over_ground":@[@(SheetUIStyle_Switch),@(1)],
@@ -139,7 +139,7 @@
              @"unde_sluicegate":@"闸阀",
              @"unde_ballgate":@"球阀",
              @"under_bottom":@"井底",
-             @"remark":@"备注",
+             @"remark":@"问题描述",
              };
 }
 

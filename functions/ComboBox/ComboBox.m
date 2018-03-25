@@ -9,6 +9,7 @@
 #import "ComboBox.h"
 #import "ComboBoxCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Masonry.h"
 
 @implementation ComboBox
 
@@ -19,7 +20,7 @@
         
         _button = [UIButton buttonWithType:UIButtonTypeCustom];
         [_button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [_button.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [_button.titleLabel setFont:[UIFont systemFontOfSize:16]];
         [self addSubview:_button];
         [_button addTarget:self action:@selector(openComboBox:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -29,6 +30,16 @@
         
         
         [_button setFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        
+        [_button mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.offset(0);
+        }];
+        
+        [_arrow mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.mas_equalTo(12);
+            make.right.offset(-12);
+            make.centerY.offset(0);
+        }];
         
         defaultComboBoxTableSize = CGSizeMake(self.frame.size.width, 100);
         _comboBoxTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, _button.frame.origin.y+_button.frame.size.height, self.frame.size.width, 0)];
@@ -134,15 +145,6 @@
     [self.delegate comboBox:self didSelectRowAtIndexPath:indexPath];
 }
 
-
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
 
 - (IBAction)openComboBox:(UIButton *)sender {
     if (_comboBoxTableView.frame.size.height == 0) {

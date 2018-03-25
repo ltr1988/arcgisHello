@@ -87,10 +87,10 @@
 -(NSArray *)defaultUIStyleMapping
 {
     return @[
-             @{
-                 @"group":@"",
-                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
-                 },
+//             @{
+//                 @"group":@"",
+//                 @"wellnum":@[@(SheetUIStyle_ReadonlyText),@(1)],
+//                 },
              @{
                  @"group":@"手阀情况",
                  @"handgateleft":@[@(SheetUIStyle_Switch),@(1)],

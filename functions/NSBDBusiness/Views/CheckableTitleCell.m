@@ -34,6 +34,11 @@
     
 }
 
+-(DCRoundSwitch *)switchView
+{
+    return switchView;
+}
+
 -(void) actionSwitch:(id)sender
 {
     if ([_data respondsToSelector:@selector(setChecked:)]) {

@@ -20,4 +20,6 @@
 {
     DCRoundSwitch *switchView;
 }
+
+-(DCRoundSwitch *)switchView;
 @end
